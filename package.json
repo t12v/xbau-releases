@@ -1,0 +1,43 @@
+{
+  "name": "@t12v/xbau-releases",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/index.js",
+  "bin": {
+    "xbau-releases": "dist/cli.js"
+  },
+  "scripts": {
+    "clean": "npm ci",
+    "build": "tsc",
+    "test": "eslint ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/t12v/xbau-releases.git"
+  },
+  "keywords": [
+    "xbau",
+    "xoev"
+  ],
+  "author": "Martin Reinhardt",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/t12v/xbau-releases/issues"
+  },
+  "homepage": "https://github.com/t12v/xbau-releases#readme",
+  "dependencies": {
+    "yargs": "^17.7.2"
+  },
+  "devDependencies": {
+    "@types/node": "^22.13.10",
+    "@types/yargs": "^17.0.33",
+    "@typescript-eslint/eslint-plugin": "^8.0.0",
+    "@typescript-eslint/parser": "^8.0.0",
+    "conventional-changelog-cli": "^5.0.0",
+    "eslint": "^8.40.0",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-prettier": "^5.0.0",
+    "tsc": "^2.0.4",
+    "typescript": "^5.8.2"
+  }
+}

@@ -1,0 +1,22 @@
+.DS_Store
+*.log
+node_modules
+coverage
+.nyc_output
+npm-debug.log
+target
+__pycache__
+.cache
+*.pyc
+logs/
+dist
+reports
+tmp/
+
+# helm chart dependencies
+charts/*/charts/
+charts/*/Chart.lock
+# release packages
+.cr-release-packages/
+*.tgz
+.qodo
