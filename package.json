@@ -6,10 +6,12 @@
   "bin": {
     "xbau-releases": "dist/cli.js"
   },
+  "type": "module",
   "scripts": {
     "clean": "npm ci",
     "build": "tsc",
-    "test": "eslint ."
+    "lint": "eslint .",
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -26,9 +28,11 @@
   },
   "homepage": "https://github.com/t12v/xbau-releases#readme",
   "dependencies": {
+    "axios": "^1.8.4",
     "yargs": "^17.7.2"
   },
   "devDependencies": {
+    "@types/jest": "^29.5.1",
     "@types/node": "^22.13.10",
     "@types/yargs": "^17.0.33",
     "@typescript-eslint/eslint-plugin": "^8.0.0",
@@ -37,6 +41,9 @@
     "eslint": "^8.40.0",
     "eslint-config-prettier": "^9.0.0",
     "eslint-plugin-prettier": "^5.0.0",
+    "jest": "^29.5.0",
+    "jest-extended": "^4.0.0",
+    "ts-jest": "^29.1.0",
     "typescript": "^5.8.2"
   }
 }
