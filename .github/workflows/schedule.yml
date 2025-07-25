@@ -1,0 +1,41 @@
+name: Build
+
+on:
+  pull_request:
+  merge_group:
+  push:
+    branches:
+      - develop
+    tags:
+      - '*'
+
+jobs:
+  check:
+    name: 'Check for changes'
+    runs-on: 'ubuntu-latest'
+
+    steps:
+      - uses: actions/checkout@v4
+      - name: 'Use Node.js'
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: npm build and test
+        run: |
+          npm run clean
+          npm run build
+          node dist/cli.js update xbau
+          node dist/cli.js update xbau-kernmodul
+
+      - uses: dorny/paths-filter@v3
+        id: changes
+        with:
+          filters: |
+            src:
+              - '*.md5'
+
+      # push the change if exists
+      - uses: int128/update-generated-files-action@v2
+        with:
+          commit-message: 'chore: Update in Xbau Standard'
+        if: steps.changes.outputs.src == 'true'

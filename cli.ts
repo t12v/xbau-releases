@@ -2,8 +2,7 @@
 
 import yargs from 'yargs/yargs';
 import { hideBin } from 'yargs/helpers';
-import { searchStandard, getDetailsForStandard } from './index.js';
-import { Standard } from './lib/types.js';
+import { searchStandard, getDetailsForStandard, Standard, isUpdateAvailableForStandard } from './index.js';
 
 yargs(hideBin(process.argv))
   .env()
@@ -47,6 +46,32 @@ yargs(hideBin(process.argv))
       } else {
         const details = await getDetailsForStandard(Standard.XBAU);
         console.log(JSON.stringify(details, null, 2));
+      }
+    }
+  )
+  .command(
+    'update [standard]',
+    'update for a standard',
+    function (yargs) {
+      return yargs.option('s', {
+        alias: 'standard',
+        describe: 'the standard to check for updates',
+        type: 'string',
+        choices: ['xbau', 'xbau-kernmodul'],
+        default: 'xbau',
+      });
+    },
+    async (argv) => {
+      const standard = argv.standard as string;
+      if (standard !== 'xbau' && standard !== 'xbau-kernmodul') {
+        console.error('Invalid standard. Please choose either "xbau" or "xbau-kernmodul".');
+      }
+      if (standard === 'xbau-kernmodul') {
+        const update = await isUpdateAvailableForStandard(Standard.XBAU_KERN);
+        console.log('Update available for XBAU Kernmodul:', update);
+      } else {
+        const update = await isUpdateAvailableForStandard(Standard.XBAU);
+        console.log('Update available for XBAU:', update);
       }
     }
   )

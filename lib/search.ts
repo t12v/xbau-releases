@@ -11,6 +11,7 @@ type References = {
   standards: Array<StandardDetails>;
 };
 
+/* eslint-disable  @typescript-eslint/no-explicit-any */
 async function extractReferences(docs: Array<any>): Promise<References> {
   const codelists: Array<CodeList> = [];
   const standards: Array<StandardDetails> = [];
