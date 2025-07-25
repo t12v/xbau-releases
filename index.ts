@@ -1,1 +1,1 @@
-// TODO: implement me
+export { searchStandard } from './lib/search.js';
