@@ -1,13 +1,11 @@
 name: Build
 
 on:
-  pull_request:
-  merge_group:
-  push:
-    branches:
-      - develop
-    tags:
-      - '*'
+  # allow to manual run the action
+  workflow_dispatch: {}
+  schedule:
+    # Run early in the morning every work day
+    - cron: '30 3 * * '
 
 jobs:
   check:
