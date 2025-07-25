@@ -5,7 +5,7 @@ on:
   workflow_dispatch: {}
   schedule:
     # Run early in the morning every work day
-    - cron: '30 3 * * '
+    - cron: '30 3 * * 1-5'
 
 jobs:
   check:
