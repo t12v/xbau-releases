@@ -1,1 +1,1 @@
-export { searchStandard } from './lib/search.js';
+export { searchStandard, getDetails as getDetailsForStandard } from './lib/search.js';

@@ -1,4 +1,4 @@
-import axios, { AxiosResponse, AxiosRequestConfig, RawAxiosRequestHeaders } from 'axios';
+import axios from 'axios';
 import { Standard, StandardOverview, StandardDetails, CodeList, Dokument } from './types.js';
 
 const BASE_URL = 'https://www.xrepository.de/api/xrepository/';
@@ -62,7 +62,7 @@ async function extractReferences(docs: Array<any>): Promise<References> {
     standards,
   };
 }
-export async function getDetails(standard: Standard): Promise<object> {
+export async function getDetails(standard: Standard): Promise<StandardOverview> {
   const response = apiClient.get(`${standard}/metadaten`, {
     headers: {
       accept: 'application/json',
