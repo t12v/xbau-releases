@@ -53,13 +53,20 @@ yargs(hideBin(process.argv))
     'update [standard]',
     'update for a standard',
     function (yargs) {
-      return yargs.option('s', {
-        alias: 'standard',
-        describe: 'the standard to check for updates',
-        type: 'string',
-        choices: ['xbau', 'xbau-kernmodul'],
-        default: 'xbau',
-      });
+      return yargs
+        .option('s', {
+          alias: 'standard',
+          describe: 'the standard to check for updates',
+          type: 'string',
+          choices: ['xbau', 'xbau-kernmodul'],
+          default: 'xbau',
+        })
+        .option('w', {
+          alias: 'write',
+          describe: 'Update the checksum file if it is outdated',
+          type: 'boolean',
+          default: true,
+        });
     },
     async (argv) => {
       const standard = argv.standard as string;
@@ -67,10 +74,10 @@ yargs(hideBin(process.argv))
         console.error('Invalid standard. Please choose either "xbau" or "xbau-kernmodul".');
       }
       if (standard === 'xbau-kernmodul') {
-        const update = await isUpdateAvailableForStandard(Standard.XBAU_KERN);
+        const update = await isUpdateAvailableForStandard(Standard.XBAU_KERN, argv.write as boolean);
         console.log('Update available for XBAU Kernmodul:', update);
       } else {
-        const update = await isUpdateAvailableForStandard(Standard.XBAU);
+        const update = await isUpdateAvailableForStandard(Standard.XBAU, argv.write as boolean);
         console.log('Update available for XBAU:', update);
       }
     }

@@ -30,7 +30,7 @@ async function writeToFile(file: string, content: string): Promise<void> {
   }
 }
 
-export async function update(standard: Standard): Promise<boolean> {
+export async function update(standard: Standard, updateChecksum:boolean = false): Promise<boolean> {
   const checksum = await getChecksum(standard);
   const checksumFile = standard + '.md5';
   const exists = await fileExists(checksumFile);
@@ -48,6 +48,14 @@ export async function update(standard: Standard): Promise<boolean> {
   if (currentChecksum === checksum) {
     console.log(`Checksum for ${standard} is already up to date.`);
     return false;
+  }
+  if (updateChecksum){
+    try {
+      await writeToFile(checksumFile, checksum);
+      console.log(`Checksum for ${standard} updated successfully.`);
+    } catch (error) {
+      console.error(`Failed to update checksum for ${standard}:`, error);
+    }
   }
   return true;
 }

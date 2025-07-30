@@ -1,4 +1,4 @@
-name: Build
+name: Schedule
 
 on:
   # allow to manual run the action
