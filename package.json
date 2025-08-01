@@ -11,7 +11,7 @@
     "clean": "npm ci",
     "build": "tsc",
     "lint": "eslint .",
-    "test": "jest"
+    "test": "npm run lint && jest --coverage"
   },
   "repository": {
     "type": "git",
