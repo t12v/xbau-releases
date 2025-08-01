@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { Standard, StandardOverview, StandardDetails, CodeList, Dokument } from './types.js';
+import { Standard, StandardOverview, StandardDetails, CodeList, Dokument } from './types';
 
 const BASE_URL = 'https://www.xrepository.de/api/xrepository/';
 const apiClient = axios.create({ baseURL: BASE_URL });
