@@ -1,7 +1,7 @@
 import { access, readFile, writeFile } from 'fs/promises';
 import { constants } from 'fs';
-import { Standard } from './types.js';
-import { getChecksum } from './checksum.js';
+import { Standard } from './types';
+import { getChecksum } from './checksum';
 async function fileExists(path: string): Promise<boolean> {
   try {
     await access(path, constants.F_OK);

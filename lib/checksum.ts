@@ -1,7 +1,7 @@
 import * as crypto from 'crypto';
 
-import { Standard } from './types.js';
-import { getDetails } from './search.js';
+import { Standard } from './types';
+import { getDetails } from './search';
 
 const md5 = (contents: string) => crypto.createHash('md5').update(contents).digest('hex');
 
