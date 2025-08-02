@@ -12,6 +12,7 @@ logs/
 dist
 reports
 tmp/
+junit.xml
 
 # helm chart dependencies
 charts/*/charts/

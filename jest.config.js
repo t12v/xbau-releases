@@ -16,4 +16,5 @@ export default {
   },
   coverageDirectory: 'coverage',
   coverageReporters: ['lcov', 'text'],
+  reporters: ['default', 'jest-junit'],
 };
