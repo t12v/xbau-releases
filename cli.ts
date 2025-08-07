@@ -73,12 +73,18 @@ yargs(hideBin(process.argv))
       if (standard !== 'xbau' && standard !== 'xbau-kernmodul') {
         console.error('Invalid standard. Please choose either "xbau" or "xbau-kernmodul".');
       }
+      const update = {
+        available: false,
+        standard: Standard.XBAU,
+      };
       if (standard === 'xbau-kernmodul') {
-        const update = await isUpdateAvailableForStandard(Standard.XBAU_KERN, argv.write as boolean);
-        console.log('Update available for XBAU Kernmodul:', update);
+        update.standard = Standard.XBAU_KERN;
+      }
+      update.available = await isUpdateAvailableForStandard(update.standard, argv.write as boolean);
+      if (update.available) {
+        console.log(`Update available for ${update.standard}.`);
       } else {
-        const update = await isUpdateAvailableForStandard(Standard.XBAU, argv.write as boolean);
-        console.log('Update available for XBAU:', update);
+        console.log(`No update available for ${update.standard}.`);
       }
     }
   )

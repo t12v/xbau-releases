@@ -1,4 +1,4 @@
-const { defineConfig } = require('eslint/config');
+const { defineConfig,globalIgnores } = require('eslint/config');
 
 const globals = require('globals');
 const tsParser = require('@typescript-eslint/parser');
@@ -15,7 +15,7 @@ const compat = new FlatCompat({
 
 module.exports = defineConfig([
   // DO NOT PUT OTHER PROPS IN THIS OBJECT
-  { ignores: ['**/node_modules/**', 'dist/', 'coverage/', 'eslint.config.cjs'] },
+  { ignores: ['**/node_modules/**', 'dist/', 'coverage/', 'eslint.config.cjs', 'jest.config.js'] },
   {
     languageOptions: {
       globals: {

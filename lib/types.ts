@@ -37,3 +37,10 @@ export type StandardDetails = {
   dokumente: Array<Dokument>;
   codeLists?: Array<CodeList>;
 };
+
+
+export type UpdateDetails = {
+  updateDetected: boolean;
+  updated: Date;
+  checksum: string;
+};
