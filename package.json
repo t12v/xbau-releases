@@ -6,7 +6,6 @@
   "bin": {
     "xbau-releases": "dist/cli.js"
   },
-  "type": "module",
   "scripts": {
     "clean": "npm ci",
     "build": "tsc",
