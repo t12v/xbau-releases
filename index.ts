@@ -1,3 +1,4 @@
-export { searchStandard, getDetails as getDetailsForStandard } from './lib/search.js';
-export { update as isUpdateAvailableForStandard } from './lib/update.js';
-export { Standard } from './lib/types.js';
+export { searchStandard, getDetails as getDetailsForStandard } from './lib/search';
+export { update as isUpdateAvailableForStandard } from './lib/update';
+export { Standard } from './lib/types';
+export { downloadArtifacts } from './lib/download';

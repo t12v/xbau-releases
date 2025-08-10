@@ -12,6 +12,7 @@ export async function checkForUpdates(standard: Standard): Promise<UpdateDetails
   const details: UpdateDetails = {
     updated: standardDetails.updated,
     updateDetected: true,
+    details: standardDetails,
     checksum,
   };
   if (!exists) {
@@ -19,7 +20,7 @@ export async function checkForUpdates(standard: Standard): Promise<UpdateDetails
       details.updateDetected = true;
     } catch (error) {
       details.updateDetected = false;
-      console.error('Error during update check', error)
+      console.error('Error during update check', error);
     }
   }
   const currentChecksum = await readFileContent(checksumFile);
@@ -29,15 +30,14 @@ export async function checkForUpdates(standard: Standard): Promise<UpdateDetails
   return details;
 }
 
-export async function update(standard: Standard, updateChecksum: boolean = false): Promise<boolean> {
-  const update = await checkForUpdates(standard);
+export async function update(standard: Standard, updateChecksum: boolean = false): Promise<UpdateDetails> {
+  const result = await checkForUpdates(standard);
   const checksumFile = getEnumKeyByValue(Standard, standard) + '/checksum.md5';
-  if (update.updateDetected) {
+  if (result.updateDetected) {
     if (updateChecksum) {
       try {
-        await writeToFile(checksumFile, update.checksum);
-        console.log(`Checksum for ${standard} updated successfully (Date: ${update.updated}).`);
-        return true;
+        await writeToFile(checksumFile, result.checksum);
+        console.log(`Checksum for ${standard} updated successfully (Date: ${result.updated}).`);
       } catch (error) {
         console.error(`Failed to update checksum for ${standard}:`, error);
       }
@@ -45,5 +45,5 @@ export async function update(standard: Standard, updateChecksum: boolean = false
   } else {
     console.log(`Checksum for ${standard} is already up to date.`);
   }
-  return false;
+  return result;
 }

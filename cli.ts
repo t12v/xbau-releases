@@ -2,7 +2,13 @@
 
 import yargs from 'yargs/yargs';
 import { hideBin } from 'yargs/helpers';
-import { searchStandard, getDetailsForStandard, Standard, isUpdateAvailableForStandard } from './index.js';
+import {
+  searchStandard,
+  getDetailsForStandard,
+  Standard,
+  isUpdateAvailableForStandard,
+  downloadArtifacts,
+} from './index.js';
 
 yargs(hideBin(process.argv))
   .env()
@@ -73,18 +79,16 @@ yargs(hideBin(process.argv))
       if (standard !== 'xbau' && standard !== 'xbau-kernmodul') {
         console.error('Invalid standard. Please choose either "xbau" or "xbau-kernmodul".');
       }
-      const update = {
-        available: false,
-        standard: Standard.XBAU,
-      };
+      let usedStandard = Standard.XBAU;
       if (standard === 'xbau-kernmodul') {
-        update.standard = Standard.XBAU_KERN;
+        usedStandard = Standard.XBAU_KERN;
       }
-      update.available = await isUpdateAvailableForStandard(update.standard, argv.write as boolean);
-      if (update.available) {
-        console.log(`Update available for ${update.standard}.`);
+      const result = await isUpdateAvailableForStandard(usedStandard, argv.write as boolean);
+      if (result.updateDetected) {
+        console.log(`Update available for ${usedStandard}.`);
+        downloadArtifacts(usedStandard, result);
       } else {
-        console.log(`No update available for ${update.standard}.`);
+        console.log(`No update available for ${usedStandard}.`);
       }
     }
   )

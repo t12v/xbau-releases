@@ -41,6 +41,7 @@ export type StandardDetails = {
 
 export type UpdateDetails = {
   updateDetected: boolean;
-  updated: Date;
+  details: StandardOverview,
+  updated?: Date;
   checksum: string;
 };
