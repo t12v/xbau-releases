@@ -8,7 +8,7 @@ export async function checkForUpdates(standard: Standard): Promise<UpdateDetails
   const standardDetails = await getDetails(standard);
   const checksum = await getChecksum(standardDetails);
   const checksumFile = getEnumKeyByValue(Standard, standard) + '/checksum.md5';
-  const exists = await fileExists(checksumFile);
+  const exists = fileExists(checksumFile);
   const details: UpdateDetails = {
     updated: standardDetails.updated,
     updateDetected: true,

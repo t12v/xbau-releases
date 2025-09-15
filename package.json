@@ -28,6 +28,7 @@
   "homepage": "https://github.com/t12v/xbau-releases#readme",
   "dependencies": {
     "axios": "^1.8.4",
+    "axios-retry": "^4.5.0",
     "crypto": "^1.0.1",
     "yargs": "^17.7.2"
   },

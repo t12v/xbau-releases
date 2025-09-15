@@ -1,0 +1,638 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gc:CodeList xmlns:gc="http://docs.oasis-open.org/codelist/ns/genericode/1.0/"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xmlns:xoev-cl-4="http://xoev.de/schemata/genericode/4">
+   <Annotation>
+      <Description>
+         <xoev-cl-4:shortName>Statistik Nichtwohngebäude Art</xoev-cl-4:shortName>
+         <xoev-cl-4:codelistDescription>Liste der Arten von baulichen Anlagen, die nicht Wohngebäude sind</xoev-cl-4:codelistDescription>
+         <xoev-cl-4:agencyShortName>BMK</xoev-cl-4:agencyShortName>
+         <xoev-cl-4:versionHandbook>1.2</xoev-cl-4:versionHandbook>
+      </Description>
+   </Annotation>
+   <Identification>
+      <ShortName>nichtwohngebaeudeart</ShortName>
+      <LongName>Statistik Nichtwohngebäude Art</LongName>
+      <Version>1.0</Version>
+      <CanonicalUri>urn:xoev-de:xbau:codeliste:nichtwohngebaeudeart</CanonicalUri>
+      <CanonicalVersionUri>urn:xoev-de:xbau:codeliste:nichtwohngebaeudeart_1.0</CanonicalVersionUri>
+      <Agency>
+         <LongName>Bauministerkonferenz</LongName>
+      </Agency>
+   </Identification>
+   <ColumnSet>
+      <Column Id="code" Use="required">
+         <ShortName>code</ShortName>
+         <LongName>Code</LongName>
+         <Data Type="string"/>
+      </Column>
+      <Column Id="beschreibung" Use="required">
+         <ShortName>beschreibung</ShortName>
+         <LongName>Beschreibung</LongName>
+         <Data Type="string"/>
+      </Column>
+      <Key Id="codeKey">
+         <Annotation>
+            <AppInfo>
+               <xoev-cl-4:recommendedKeyColumn/>
+            </AppInfo>
+         </Annotation>
+         <ShortName>codeKey</ShortName>
+         <ColumnRef Ref="code"/>
+      </Key>
+   </ColumnSet>
+   <SimpleCodeList>
+      <Row>
+         <Value ColumnRef="code">
+            <SimpleValue>111</SimpleValue>
+         </Value>
+         <Value ColumnRef="beschreibung">
+            <SimpleValue>Krankenhäuser (ohne Hochschulkliniken und solche von Justizvollzugsanstalten)</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="code">
+            <SimpleValue>115</SimpleValue>
+         </Value>
+         <Value ColumnRef="beschreibung">
+            <SimpleValue>Hochschulkliniken</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="code">
+            <SimpleValue>119</SimpleValue>
+         </Value>
+         <Value ColumnRef="beschreibung">
+            <SimpleValue>Krankenhäuser von Justizvollzugsanstalten</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="code">
+            <SimpleValue>121</SimpleValue>
+         </Value>
+         <Value ColumnRef="beschreibung">
+            <SimpleValue>Gebäude für die Eingliederung Behinderter</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="code">
+            <SimpleValue>125</SimpleValue>
+         </Value>
+         <Value ColumnRef="beschreibung">
+            <SimpleValue>Gebäude für die Pflege Behinderter</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="code">
+            <SimpleValue>130</SimpleValue>
+         </Value>
+         <Value ColumnRef="beschreibung">
+            <SimpleValue>Altenpflege und –krankenheime</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="code">
+            <SimpleValue>140</SimpleValue>
+         </Value>
+         <Value ColumnRef="beschreibung">
+            <SimpleValue>Heime für Säuglinge, Kinder und Jugendliche, a.n.g. (ohne Wohn-, Erziehungs-, Ferien- und Erholungsheime)</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="code">
+            <SimpleValue>150</SimpleValue>
+         </Value>
+         <Value ColumnRef="beschreibung">
+            <SimpleValue>Erziehungsheime</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="code">
+            <SimpleValue>161</SimpleValue>
+         </Value>
+         <Value ColumnRef="beschreibung">
+            <SimpleValue>Müttergenesungsheime</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="code">
+            <SimpleValue>165</SimpleValue>
+         </Value>
+         <Value ColumnRef="beschreibung">
+            <SimpleValue>Ferien- und Erholungsheime</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="code">
+            <SimpleValue>170</SimpleValue>
+         </Value>
+         <Value ColumnRef="beschreibung">
+            <SimpleValue>Heime von Unterrichtseinrichtungen (ohne solche für Behinderte)</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="code">
+            <SimpleValue>181</SimpleValue>
+         </Value>
+         <Value ColumnRef="beschreibung">
+            <SimpleValue>Kasernen und Bereitschaftsgebäude der Polizei, und des Zivilschutzes</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="code">
+            <SimpleValue>185</SimpleValue>
+         </Value>
+         <Value ColumnRef="beschreibung">
+            <SimpleValue>Sonstige Kasernen und Bereitschaftsgebäude</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="code">
+            <SimpleValue>191</SimpleValue>
+         </Value>
+         <Value ColumnRef="beschreibung">
+            <SimpleValue>Klöster</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="code">
+            <SimpleValue>195</SimpleValue>
+         </Value>
+         <Value ColumnRef="beschreibung">
+            <SimpleValue>Justizvollzugsanstalten</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="code">
+            <SimpleValue>310</SimpleValue>
+         </Value>
+         <Value ColumnRef="beschreibung">
+            <SimpleValue>Büro- und Verwaltungsgebäude der Land-und Forstwirtschaft, Fischerei</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="code">
+            <SimpleValue>320</SimpleValue>
+         </Value>
+         <Value ColumnRef="beschreibung">
+            <SimpleValue>Büro- und Verwaltungsgebäude des produzierenden Gewerbes</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="code">
+            <SimpleValue>340</SimpleValue>
+         </Value>
+         <Value ColumnRef="beschreibung">
+            <SimpleValue>Büro- und Verwaltungsgebäude des Handels ,des Verkehrs, der Post- und Telekommunikationsunternehmen</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="code">
+            <SimpleValue>350</SimpleValue>
+         </Value>
+         <Value ColumnRef="beschreibung">
+            <SimpleValue>Büro- und Verwaltungsgebäude der Deuschen Bahn und Deutschen Bundespost</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="code">
+            <SimpleValue>370</SimpleValue>
+         </Value>
+         <Value ColumnRef="beschreibung">
+            <SimpleValue>Büro- und Verwaltungsgebäude der Kreditinstitute, des Versicherungsgewerbes und der Dienstleistungsunternehmen</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="code">
+            <SimpleValue>391</SimpleValue>
+         </Value>
+         <Value ColumnRef="beschreibung">
+            <SimpleValue>Parlamentsgebäude</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="code">
+            <SimpleValue>393</SimpleValue>
+         </Value>
+         <Value ColumnRef="beschreibung">
+            <SimpleValue>Gerichtsgebäude</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="code">
+            <SimpleValue>395</SimpleValue>
+         </Value>
+         <Value ColumnRef="beschreibung">
+            <SimpleValue>Büro- und Verwaltungsgebäude der Polizei und des Zivilschutzes</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="code">
+            <SimpleValue>399</SimpleValue>
+         </Value>
+         <Value ColumnRef="beschreibung">
+            <SimpleValue>Andere Büro- und Verwaltungsgebäude der Gebietskörperschaften, der Sozialversicherung und der Organisationen ohne Erwerbszweck</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="code">
+            <SimpleValue>500</SimpleValue>
+         </Value>
+         <Value ColumnRef="beschreibung">
+            <SimpleValue>Landwirtschaftliche Betriebsgebäude</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="code">
+            <SimpleValue>711</SimpleValue>
+         </Value>
+         <Value ColumnRef="beschreibung">
+            <SimpleValue>Werkstattgebäude der Polizei und des Zivilschutzes</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="code">
+            <SimpleValue>712</SimpleValue>
+         </Value>
+         <Value ColumnRef="beschreibung">
+            <SimpleValue>Gebäude der Energiegewinnung und -verteilung</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="code">
+            <SimpleValue>713</SimpleValue>
+         </Value>
+         <Value ColumnRef="beschreibung">
+            <SimpleValue>Gebäude der Wassergewinnung und -verteilung</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="code">
+            <SimpleValue>714</SimpleValue>
+         </Value>
+         <Value ColumnRef="beschreibung">
+            <SimpleValue>Gebäude der Abwasserbeseitigung</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="code">
+            <SimpleValue>715</SimpleValue>
+         </Value>
+         <Value ColumnRef="beschreibung">
+            <SimpleValue>Gebäude der Abfallbeseitigung</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="code">
+            <SimpleValue>717</SimpleValue>
+         </Value>
+         <Value ColumnRef="beschreibung">
+            <SimpleValue>Schlachthöfe und -häuser</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="code">
+            <SimpleValue>719</SimpleValue>
+         </Value>
+         <Value ColumnRef="beschreibung">
+            <SimpleValue>Sonstige Fabrik- und Werkstattgebäude</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="code">
+            <SimpleValue>721</SimpleValue>
+         </Value>
+         <Value ColumnRef="beschreibung">
+            <SimpleValue>Markt- und Messehallen</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="code">
+            <SimpleValue>723</SimpleValue>
+         </Value>
+         <Value ColumnRef="beschreibung">
+            <SimpleValue>Einzelhandelsgebäude (ohne Tankstellengebäude)</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="code">
+            <SimpleValue>725</SimpleValue>
+         </Value>
+         <Value ColumnRef="beschreibung">
+            <SimpleValue>Tankstellengebäude</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="code">
+            <SimpleValue>729</SimpleValue>
+         </Value>
+         <Value ColumnRef="beschreibung">
+            <SimpleValue>Andere Handelsgebäude</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="code">
+            <SimpleValue>731</SimpleValue>
+         </Value>
+         <Value ColumnRef="beschreibung">
+            <SimpleValue>Warenlagergebäude für die öffentliche Nahrungsmittelvorsorge</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="code">
+            <SimpleValue>734</SimpleValue>
+         </Value>
+         <Value ColumnRef="beschreibung">
+            <SimpleValue>Warenlagergebäude der Polizei und des Zivilschutzes</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="code">
+            <SimpleValue>737</SimpleValue>
+         </Value>
+         <Value ColumnRef="beschreibung">
+            <SimpleValue>Andere Warenlagergebäude</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="code">
+            <SimpleValue>741</SimpleValue>
+         </Value>
+         <Value ColumnRef="beschreibung">
+            <SimpleValue>Garagengebäude der Polizei und des Zivilschutzes</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="code">
+            <SimpleValue>744</SimpleValue>
+         </Value>
+         <Value ColumnRef="beschreibung">
+            <SimpleValue>Andere Garagengebäude</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="code">
+            <SimpleValue>745</SimpleValue>
+         </Value>
+         <Value ColumnRef="beschreibung">
+            <SimpleValue>Verkehrsempfangsgebäude</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="code">
+            <SimpleValue>747</SimpleValue>
+         </Value>
+         <Value ColumnRef="beschreibung">
+            <SimpleValue>Sonstige Verkehrsgebäude der Bahn, Post und Telekommunikation</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="code">
+            <SimpleValue>749</SimpleValue>
+         </Value>
+         <Value ColumnRef="beschreibung">
+            <SimpleValue>Sonstige Verkehrsgebäude</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="code">
+            <SimpleValue>750</SimpleValue>
+         </Value>
+         <Value ColumnRef="beschreibung">
+            <SimpleValue>Hotels, Gasthöfe, Fremdenheime, Pensionen</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="code">
+            <SimpleValue>771</SimpleValue>
+         </Value>
+         <Value ColumnRef="beschreibung">
+            <SimpleValue>Gaststättengebäude ohne Beherbergung</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="code">
+            <SimpleValue>775</SimpleValue>
+         </Value>
+         <Value ColumnRef="beschreibung">
+            <SimpleValue>Kantinengebäude</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="code">
+            <SimpleValue>791</SimpleValue>
+         </Value>
+         <Value ColumnRef="beschreibung">
+            <SimpleValue>Filmtheater, Spielbanken und sonstige Gebäude für Unterhaltungszwecke, a.n.g.</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="code">
+            <SimpleValue>795</SimpleValue>
+         </Value>
+         <Value ColumnRef="beschreibung">
+            <SimpleValue>Sonstige nichtlandwirtschaftliche Betriebsgebäude, a.n.g. (ohne Schulgebäude, ohne humanmedizinische Behandlungsinstitute, ohne Gebäude für Forschungszwecke)</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="code">
+            <SimpleValue>911</SimpleValue>
+         </Value>
+         <Value ColumnRef="beschreibung">
+            <SimpleValue>Kinderkrippengebäude</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="code">
+            <SimpleValue>915</SimpleValue>
+         </Value>
+         <Value ColumnRef="beschreibung">
+            <SimpleValue>Kindergarten- und Kinderhortgebäude</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="code">
+            <SimpleValue>921</SimpleValue>
+         </Value>
+         <Value ColumnRef="beschreibung">
+            <SimpleValue>Schulgebäude von allgemeinbildenden Schulen</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="code">
+            <SimpleValue>924</SimpleValue>
+         </Value>
+         <Value ColumnRef="beschreibung">
+            <SimpleValue>Schulgebäude von berufsbildenden Schulen</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="code">
+            <SimpleValue>927</SimpleValue>
+         </Value>
+         <Value ColumnRef="beschreibung">
+            <SimpleValue>Schulgebäude von kombinierten allgemein- und berufsbildenden Schulen</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="code">
+            <SimpleValue>929</SimpleValue>
+         </Value>
+         <Value ColumnRef="beschreibung">
+            <SimpleValue>Schulgebäude von nicht allgemein- und berufsbildenden Schulen, Volkshochschulgebäude</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="code">
+            <SimpleValue>931</SimpleValue>
+         </Value>
+         <Value ColumnRef="beschreibung">
+            <SimpleValue>Hochschulgebäude für Lehrzwecke</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="code">
+            <SimpleValue>934</SimpleValue>
+         </Value>
+         <Value ColumnRef="beschreibung">
+            <SimpleValue>Hochschulgebäude für Forschungszwecke</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="code">
+            <SimpleValue>937</SimpleValue>
+         </Value>
+         <Value ColumnRef="beschreibung">
+            <SimpleValue>Hochschulgebäude für Lehr- und Forschungszwecke</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="code">
+            <SimpleValue>940</SimpleValue>
+         </Value>
+         <Value ColumnRef="beschreibung">
+            <SimpleValue>Gebäude für Forschungszwecke (ohne Hochschulgebäude)</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="code">
+            <SimpleValue>951</SimpleValue>
+         </Value>
+         <Value ColumnRef="beschreibung">
+            <SimpleValue>Museen, Galerien</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="code">
+            <SimpleValue>953</SimpleValue>
+         </Value>
+         <Value ColumnRef="beschreibung">
+            <SimpleValue>Theater, Opernhäuser</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="code">
+            <SimpleValue>955</SimpleValue>
+         </Value>
+         <Value ColumnRef="beschreibung">
+            <SimpleValue>Bibliotheken, Büchereien u.Ä.</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="code">
+            <SimpleValue>957</SimpleValue>
+         </Value>
+         <Value ColumnRef="beschreibung">
+            <SimpleValue>Gebäude für Tier- und Pflanzenhaltung in zoologischen und botanischen Gärten</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="code">
+            <SimpleValue>959</SimpleValue>
+         </Value>
+         <Value ColumnRef="beschreibung">
+            <SimpleValue>Kongreß- und Mehrzweckhallen</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="code">
+            <SimpleValue>960</SimpleValue>
+         </Value>
+         <Value ColumnRef="beschreibung">
+            <SimpleValue>Kirchen und sonstige Kultgebäude, a. n. g.</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="code">
+            <SimpleValue>970</SimpleValue>
+         </Value>
+         <Value ColumnRef="beschreibung">
+            <SimpleValue>Medizinische Behandlungsinstitute, Gebäude für Heilbäder oder die Gesundheitspflege</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="code">
+            <SimpleValue>981</SimpleValue>
+         </Value>
+         <Value ColumnRef="beschreibung">
+            <SimpleValue>Sporthallen (ohne Schwimmhallen)</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="code">
+            <SimpleValue>985</SimpleValue>
+         </Value>
+         <Value ColumnRef="beschreibung">
+            <SimpleValue>Schwimmhallen</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="code">
+            <SimpleValue>989</SimpleValue>
+         </Value>
+         <Value ColumnRef="beschreibung">
+            <SimpleValue>Sonstige Sportgebäude</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="code">
+            <SimpleValue>991</SimpleValue>
+         </Value>
+         <Value ColumnRef="beschreibung">
+            <SimpleValue>Freizeit- und Gemeinschaftshäuser für Jugendliche</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="code">
+            <SimpleValue>993</SimpleValue>
+         </Value>
+         <Value ColumnRef="beschreibung">
+            <SimpleValue>Freizeit- und Gemeinschaftshäuser für ältere Menschen</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="code">
+            <SimpleValue>995</SimpleValue>
+         </Value>
+         <Value ColumnRef="beschreibung">
+            <SimpleValue>Bürger- und Dorfgemeinschaftshäuser</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="code">
+            <SimpleValue>997</SimpleValue>
+         </Value>
+         <Value ColumnRef="beschreibung">
+            <SimpleValue>Sonstige Freizeit- und Gemeinschaftshäuser</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="code">
+            <SimpleValue>999</SimpleValue>
+         </Value>
+         <Value ColumnRef="beschreibung">
+            <SimpleValue>Sonstige Nichtwohngebäude</SimpleValue>
+         </Value>
+      </Row>
+   </SimpleCodeList>
+</gc:CodeList>

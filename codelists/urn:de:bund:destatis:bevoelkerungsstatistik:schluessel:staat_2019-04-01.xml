@@ -1,0 +1,5017 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gc:CodeList xmlns:gc="http://docs.oasis-open.org/codelist/ns/genericode/1.0/"
+    xmlns:xoev-cl-2="http://xoev.de/schemata/genericode/2"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"> 
+    <Annotation>
+        <Description>
+            <xoev-cl-2:nameKurz>DESTATIS Staatenliste</xoev-cl-2:nameKurz>
+            <xoev-cl-2:beschreibung-codeliste>Die Codeliste Staat (eigenständige, 
+                von Deutschland diplomatisch anerkannte derzeitige Staaten) enthält
+                alle Staaten im vollen politischen Sinne. Entspricht inhaltlich dem 
+                "Verzeichnis der Staatennamen für den amtlichen Gebrauch" des 
+                Auswärtigen Amtes. Enthalten sind z.B. Einträge für: Frankreich, 
+                Italien, Vereinigtes Königreich; nicht aber für: Französisch-Guayana, 
+                die britischen Jungferninseln oder Jersey. 
+                Neben den amtlichen Bezeichnungen (Kurzform und Vollform) und der 
+                Staatsangehörigkeit als Adjektiv/Adverb ist auch der jeweilige 
+                Suchbegriff aus dem Länderverzeichnis des Auswärtigen Amtes aufgeführt
+                (der Suchbegriff ist eine griffige Bezeichnung des Staates). 
+                Die Angaben umfassen zudem den numerische Destatis-Code, den 2- und 
+                3-stelligen alphabetischen ISO 3166-1 Code sowie ggf. das Datum der 
+                Selbständigkeit bzw. Gründung nach den Angaben des Auswärtigen 
+                Amtes.</xoev-cl-2:beschreibung-codeliste>
+            <xoev-cl-2:herausgebernameKurz>DESTATIS-F204</xoev-cl-2:herausgebernameKurz>
+            <xoev-cl-2:datumGueltigkeitAb>2019-04-01</xoev-cl-2:datumGueltigkeitAb>
+            <xoev-cl-2:versionXOEVHandbuch>2.1</xoev-cl-2:versionXOEVHandbuch>
+            <xoev-cl-2:aenderungZurVorversion>"Nordmazedonien" anstelle von "Mazedonien" 
+                (Suchbegriff), "Nordmazedonien" anstelle von "ehem. jugoslawische Republik Mazedonien" 
+                (Staatsname_kurz), "die Republik Nordmazedonien" anstelle von
+                "die ehemalige jugoslawische Republik Mazedonien" (Staatsname_voll).
+                Hinweise zum Umgang mit den Ausprägungen britischer Staatsangehörigkeit vor und nach einem BREXIT.
+                </xoev-cl-2:aenderungZurVorversion>
+        </Description>
+    </Annotation>
+    <Identification>
+        <ShortName>Staat</ShortName>
+        <LongName>Codeliste Staat aus der Staats- und Gebietssystematik des Statistischen Bundesamtes</LongName>
+        <Version>2019-04-01</Version>
+        <CanonicalUri>urn:de:bund:destatis:bevoelkerungsstatistik:schluessel:staat</CanonicalUri>
+        <CanonicalVersionUri>urn:de:bund:destatis:bevoelkerungsstatistik:schluessel:staat_2019-04-01</CanonicalVersionUri>
+        <Agency>
+            <LongName>Statistisches Bundesamt F 204, Wiesbaden</LongName>
+        </Agency>
+    </Identification>
+    <ColumnSet>
+        <Column Id="DESTATIS_Schluessel_Staat" Use="required">
+            <ShortName>DESTATIS_Schluessel_Staat</ShortName>
+            <LongName>DESTATIS Schlüssel Staat</LongName>
+            <Data Type="string"/>
+        </Column>
+        <Column Id="Suchbegriff" Use="required">
+            <ShortName>Suchbegriff</ShortName>
+            <LongName>Suchbegriff</LongName>
+           <Data Type="string"/>
+        </Column>
+        <Column Id="Staatsname_kurz" Use="required">
+            <ShortName>Staatsname_kurz</ShortName>
+            <LongName>Staatsname, amtliche Kurzform</LongName>
+            <Data Type="string"/>
+        </Column>
+        <Column Id="Staatsname_voll" Use="optional">
+            <ShortName>Staatsname_voll</ShortName>
+            <LongName>Staatsname, amtliche Vollform</LongName>
+            <Data Type="string"/>
+        </Column>
+        <Column Id="Staatsangehoerigkeit" Use="required">
+            <ShortName>Staatsangehoerigkeit</ShortName>
+            <LongName>Staatsangehörigkeit</LongName>
+            <Data Type="string"/>
+        </Column>
+        <Column Id="Existenz_ab" Use="optional">
+            <ShortName>Existenz_ab</ShortName>
+            <LongName>Existenz ab:</LongName>
+            <Data Type="string"/>
+        </Column>
+        <Column Id="ISO_3" Use="optional">
+            <ShortName>ISO_3</ShortName>
+            <LongName>ISO 3stellig</LongName>
+            <Data Type="string"/>
+        </Column>
+        <Column Id="ISO_2" Use="optional">
+            <ShortName>ISO_2</ShortName>
+            <LongName>ISO 2stellig</LongName>
+            <Data Type="string"/>
+        </Column>
+        <Column Id="Hinweis" Use="optional">
+            <ShortName>Hinweis</ShortName>
+            <LongName>Hinweis</LongName>
+            <Data Type="string"/>
+        </Column>
+        <Key Id="codeKey">
+            <Annotation>
+                <AppInfo>
+                    <xoev-cl-2:xoev-code/>
+                </AppInfo>
+            </Annotation>
+            <ShortName>CodeKey</ShortName>
+            <ColumnRef Ref="DESTATIS_Schluessel_Staat"/>
+        </Key>
+    </ColumnSet>
+    <SimpleCodeList>
+        <Row>
+            <Value ColumnRef="DESTATIS_Schluessel_Staat">
+                <SimpleValue>000</SimpleValue>
+            </Value>
+            <Value ColumnRef="Suchbegriff">
+                <SimpleValue>Deutschland</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_kurz">
+                <SimpleValue>Deutschland</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_voll">
+                <SimpleValue>die Bundesrepublik Deutschland</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsangehoerigkeit">
+                <SimpleValue>deutsch</SimpleValue>
+            </Value>
+            <Value ColumnRef="Existenz_ab">
+                <SimpleValue>23.05.1949</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_3">
+                <SimpleValue>DEU</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_2">
+                <SimpleValue>DE</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+             <Value ColumnRef="DESTATIS_Schluessel_Staat">
+                 <SimpleValue>121</SimpleValue>
+             </Value>
+             <Value ColumnRef="Suchbegriff">
+                 <SimpleValue>Albanien</SimpleValue>
+             </Value>
+             <Value ColumnRef="Staatsname_kurz">
+                 <SimpleValue>Albanien</SimpleValue>
+             </Value>
+             <Value ColumnRef="Staatsname_voll">
+                 <SimpleValue>die Republik Albanien</SimpleValue>
+             </Value>
+             <Value ColumnRef="Staatsangehoerigkeit">
+                 <SimpleValue>albanisch</SimpleValue>
+             </Value>
+             <Value ColumnRef="ISO_3">
+                 <SimpleValue>ALB</SimpleValue>
+             </Value>
+             <Value ColumnRef="ISO_2">
+                 <SimpleValue>AL</SimpleValue>
+             </Value>
+        </Row>
+        <Row>
+             <Value ColumnRef="DESTATIS_Schluessel_Staat">
+                 <SimpleValue>122</SimpleValue>
+             </Value>
+             <Value ColumnRef="Suchbegriff">
+                 <SimpleValue>Bosnien und Herzegowina</SimpleValue>
+             </Value>
+             <Value ColumnRef="Staatsname_kurz">
+                 <SimpleValue>Bosnien und Herzegowina</SimpleValue>
+             </Value>
+             <Value ColumnRef="Staatsname_voll">
+                 <SimpleValue>Bosnien und Herzegowina</SimpleValue>
+             </Value>
+             <Value ColumnRef="Staatsangehoerigkeit">
+                 <SimpleValue>bosnisch-herzegowinisch</SimpleValue>
+             </Value>
+             <Value ColumnRef="Existenz_ab">
+                 <SimpleValue>01.03.1992</SimpleValue>
+             </Value>
+             <Value ColumnRef="ISO_3">
+                 <SimpleValue>BIH</SimpleValue>
+             </Value>
+             <Value ColumnRef="ISO_2">
+                 <SimpleValue>BA</SimpleValue>
+             </Value>
+        </Row>
+        <Row>
+             <Value ColumnRef="DESTATIS_Schluessel_Staat">
+                 <SimpleValue>123</SimpleValue>
+             </Value>
+             <Value ColumnRef="Suchbegriff">
+                 <SimpleValue>Andorra</SimpleValue>
+             </Value>
+             <Value ColumnRef="Staatsname_kurz">
+                 <SimpleValue>Andorra</SimpleValue>
+             </Value>
+             <Value ColumnRef="Staatsname_voll">
+                 <SimpleValue>das Fürstentum Andorra</SimpleValue>
+             </Value>
+             <Value ColumnRef="Staatsangehoerigkeit">
+                 <SimpleValue>andorranisch</SimpleValue>
+             </Value>
+             <Value ColumnRef="ISO_3">
+                 <SimpleValue>AND</SimpleValue>
+             </Value>
+             <Value ColumnRef="ISO_2">
+                 <SimpleValue>AD</SimpleValue>
+             </Value>
+        </Row>
+        <Row>
+             <Value ColumnRef="DESTATIS_Schluessel_Staat">
+                 <SimpleValue>124</SimpleValue>
+             </Value>
+             <Value ColumnRef="Suchbegriff">
+                 <SimpleValue>Belgien</SimpleValue>
+             </Value>
+             <Value ColumnRef="Staatsname_kurz">
+                 <SimpleValue>Belgien</SimpleValue>
+             </Value>
+             <Value ColumnRef="Staatsname_voll">
+                 <SimpleValue>das Königreich Belgien</SimpleValue>
+             </Value>
+             <Value ColumnRef="Staatsangehoerigkeit">
+                 <SimpleValue>belgisch</SimpleValue>
+             </Value>
+             <Value ColumnRef="ISO_3">
+                 <SimpleValue>BEL</SimpleValue>
+             </Value>
+             <Value ColumnRef="ISO_2">
+                 <SimpleValue>BE</SimpleValue>
+             </Value>
+        </Row>
+        <Row>
+             <Value ColumnRef="DESTATIS_Schluessel_Staat">
+                 <SimpleValue>125</SimpleValue>
+             </Value>
+             <Value ColumnRef="Suchbegriff">
+                 <SimpleValue>Bulgarien</SimpleValue>
+             </Value>
+             <Value ColumnRef="Staatsname_kurz">
+                 <SimpleValue>Bulgarien</SimpleValue>
+             </Value>
+             <Value ColumnRef="Staatsname_voll">
+                 <SimpleValue>die Republik Bulgarien</SimpleValue>
+             </Value>
+             <Value ColumnRef="Staatsangehoerigkeit">
+                 <SimpleValue>bulgarisch</SimpleValue>
+             </Value>
+             <Value ColumnRef="ISO_3">
+                 <SimpleValue>BGR</SimpleValue>
+             </Value>
+             <Value ColumnRef="ISO_2">
+                 <SimpleValue>BG</SimpleValue>
+             </Value>
+        </Row>
+        <Row>
+             <Value ColumnRef="DESTATIS_Schluessel_Staat">
+                 <SimpleValue>126</SimpleValue>
+             </Value>
+             <Value ColumnRef="Suchbegriff">
+                 <SimpleValue>Dänemark</SimpleValue>
+             </Value>
+             <Value ColumnRef="Staatsname_kurz">
+                 <SimpleValue>Dänemark</SimpleValue>
+             </Value>
+             <Value ColumnRef="Staatsname_voll">
+                 <SimpleValue>das Königreich Dänemark</SimpleValue>
+             </Value>
+             <Value ColumnRef="Staatsangehoerigkeit">
+                 <SimpleValue>dänisch</SimpleValue>
+             </Value>
+             <Value ColumnRef="ISO_3">
+                 <SimpleValue>DNK</SimpleValue>
+             </Value>
+             <Value ColumnRef="ISO_2">
+                 <SimpleValue>DK</SimpleValue>
+             </Value>
+        </Row>
+        <Row>
+             <Value ColumnRef="DESTATIS_Schluessel_Staat">
+                 <SimpleValue>127</SimpleValue>
+             </Value>
+             <Value ColumnRef="Suchbegriff">
+                 <SimpleValue>Estland</SimpleValue>
+             </Value>
+             <Value ColumnRef="Staatsname_kurz">
+                 <SimpleValue>Estland</SimpleValue>
+             </Value>
+             <Value ColumnRef="Staatsname_voll">
+                 <SimpleValue>die Republik Estland</SimpleValue>
+             </Value>
+             <Value ColumnRef="Staatsangehoerigkeit">
+                 <SimpleValue>estnisch</SimpleValue>
+             </Value>
+             <Value ColumnRef="Existenz_ab">
+                 <SimpleValue>20.08.1991</SimpleValue>
+             </Value>
+             <Value ColumnRef="ISO_3">
+                 <SimpleValue>EST</SimpleValue>
+             </Value>
+             <Value ColumnRef="ISO_2">
+                 <SimpleValue>EE</SimpleValue>
+             </Value>
+         </Row>
+        <Row>
+            <Value ColumnRef="DESTATIS_Schluessel_Staat">
+                <SimpleValue>128</SimpleValue>
+            </Value>
+            <Value ColumnRef="Suchbegriff">
+                <SimpleValue>Finnland</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_kurz">
+                <SimpleValue>Finnland</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_voll">
+                <SimpleValue>die Republik Finnland</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsangehoerigkeit">
+                <SimpleValue>finnisch</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_3">
+                <SimpleValue>FIN</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_2">
+                <SimpleValue>FI</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="DESTATIS_Schluessel_Staat">
+                <SimpleValue>129</SimpleValue>
+            </Value>
+            <Value ColumnRef="Suchbegriff">
+                <SimpleValue>Frankreich</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_kurz">
+                <SimpleValue>Frankreich</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_voll">
+                <SimpleValue>die Französische Republik</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsangehoerigkeit">
+                <SimpleValue>französisch</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_3">
+                <SimpleValue>FRA</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_2">
+                <SimpleValue>FR</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="DESTATIS_Schluessel_Staat">
+                <SimpleValue>130</SimpleValue>
+            </Value>
+            <Value ColumnRef="Suchbegriff">
+                <SimpleValue>Kroatien</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_kurz">
+                <SimpleValue>Kroatien</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_voll">
+                <SimpleValue>die Republik Kroatien</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsangehoerigkeit">
+                <SimpleValue>kroatisch</SimpleValue>
+            </Value>
+            <Value ColumnRef="Existenz_ab">
+                <SimpleValue>25.06.1991</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_3">
+                <SimpleValue>HRV</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_2">
+                <SimpleValue>HR</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="DESTATIS_Schluessel_Staat">
+                <SimpleValue>131</SimpleValue>
+            </Value>
+            <Value ColumnRef="Suchbegriff">
+                <SimpleValue>Slowenien</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_kurz">
+                <SimpleValue>Slowenien</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_voll">
+                <SimpleValue>die Republik Slowenien</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsangehoerigkeit">
+                <SimpleValue>slowenisch</SimpleValue>
+            </Value>
+            <Value ColumnRef="Existenz_ab">
+                <SimpleValue>25.06.1991</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_3">
+                <SimpleValue>SVN</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_2">
+                <SimpleValue>SI</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="DESTATIS_Schluessel_Staat">
+                <SimpleValue>134</SimpleValue>
+            </Value>
+            <Value ColumnRef="Suchbegriff">
+                <SimpleValue>Griechenland</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_kurz">
+                <SimpleValue>Griechenland</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_voll">
+                <SimpleValue>die Hellenische Republik</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsangehoerigkeit">
+                <SimpleValue>griechisch</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_3">
+                <SimpleValue>GRC</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_2">
+                <SimpleValue>GR</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="DESTATIS_Schluessel_Staat">
+                <SimpleValue>135</SimpleValue>
+            </Value>
+            <Value ColumnRef="Suchbegriff">
+                <SimpleValue>Irland</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_kurz">
+                <SimpleValue>Irland</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_voll">
+                <SimpleValue>Irland</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsangehoerigkeit">
+                <SimpleValue>irisch</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_3">
+                <SimpleValue>IRL</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_2">
+                <SimpleValue>IE</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="DESTATIS_Schluessel_Staat">
+                <SimpleValue>136</SimpleValue>
+            </Value>
+            <Value ColumnRef="Suchbegriff">
+                <SimpleValue>Island</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_kurz">
+                <SimpleValue>Island</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_voll">
+                <SimpleValue>die Republik Island</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsangehoerigkeit">
+                <SimpleValue>isländisch</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_3">
+                <SimpleValue>ISL</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_2">
+                <SimpleValue>IS</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="DESTATIS_Schluessel_Staat">
+                <SimpleValue>137</SimpleValue>
+            </Value>
+            <Value ColumnRef="Suchbegriff">
+                <SimpleValue>Italien</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_kurz">
+                <SimpleValue>Italien</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_voll">
+                <SimpleValue>die Italienische Republik</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsangehoerigkeit">
+                <SimpleValue>italienisch</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_3">
+                <SimpleValue>ITA</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_2">
+                <SimpleValue>IT</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="DESTATIS_Schluessel_Staat">
+                <SimpleValue>139</SimpleValue>
+            </Value>
+            <Value ColumnRef="Suchbegriff">
+                <SimpleValue>Lettland</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_kurz">
+                <SimpleValue>Lettland</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_voll">
+                <SimpleValue>die Republik Lettland</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsangehoerigkeit">
+                <SimpleValue>lettisch</SimpleValue>
+            </Value>
+            <Value ColumnRef="Existenz_ab">
+                <SimpleValue>21.08.1991</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_3">
+                <SimpleValue>LVA</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_2">
+                <SimpleValue>LV</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="DESTATIS_Schluessel_Staat">
+                <SimpleValue>140</SimpleValue>
+            </Value>
+            <Value ColumnRef="Suchbegriff">
+                <SimpleValue>Montenegro</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_kurz">
+                <SimpleValue>Montenegro</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_voll">
+                <SimpleValue>Montenegro</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsangehoerigkeit">
+                <SimpleValue>montenegrinisch</SimpleValue>
+            </Value>
+            <Value ColumnRef="Existenz_ab">
+                <SimpleValue>03.06.2006</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_3">
+                <SimpleValue>MNE</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_2">
+                <SimpleValue>ME</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="DESTATIS_Schluessel_Staat">
+                <SimpleValue>141</SimpleValue>
+            </Value>
+            <Value ColumnRef="Suchbegriff">
+                <SimpleValue>Liechtenstein</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_kurz">
+                <SimpleValue>Liechtenstein</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_voll">
+                <SimpleValue>das Fürstentum Liechtenstein</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsangehoerigkeit">
+                <SimpleValue>liechtensteinisch</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_3">
+                <SimpleValue>LIE</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_2">
+                <SimpleValue>LI</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="DESTATIS_Schluessel_Staat">
+                <SimpleValue>142</SimpleValue>
+            </Value>
+            <Value ColumnRef="Suchbegriff">
+                <SimpleValue>Litauen</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_kurz">
+                <SimpleValue>Litauen</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_voll">
+                <SimpleValue>die Republik Litauen</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsangehoerigkeit">
+                <SimpleValue>litauisch</SimpleValue>
+            </Value>
+            <Value ColumnRef="Existenz_ab">
+                <SimpleValue>11.03.1990</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_3">
+                <SimpleValue>LTU</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_2">
+                <SimpleValue>LT</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="DESTATIS_Schluessel_Staat">
+                <SimpleValue>143</SimpleValue>
+            </Value>
+            <Value ColumnRef="Suchbegriff">
+                <SimpleValue>Luxemburg</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_kurz">
+                <SimpleValue>Luxemburg</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_voll">
+                <SimpleValue>das Großherzogtum Luxemburg</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsangehoerigkeit">
+                <SimpleValue>luxemburgisch</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_3">
+                <SimpleValue>LUX</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_2">
+                <SimpleValue>LU</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="DESTATIS_Schluessel_Staat">
+                <SimpleValue>144</SimpleValue>
+            </Value>
+            <Value ColumnRef="Suchbegriff">
+                <SimpleValue>Nordmazedonien</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_kurz">
+                <SimpleValue>Nordmazedonien</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_voll">
+                <SimpleValue>die Republik Nordmazedonien</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsangehoerigkeit">
+                <SimpleValue>mazedonisch</SimpleValue>
+            </Value>
+            <Value ColumnRef="Existenz_ab">
+                <SimpleValue>08.09.1991</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_3">
+                <SimpleValue>MKD</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_2">
+                <SimpleValue>MK</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="DESTATIS_Schluessel_Staat">
+                <SimpleValue>145</SimpleValue>
+            </Value>
+            <Value ColumnRef="Suchbegriff">
+                <SimpleValue>Malta</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_kurz">
+                <SimpleValue>Malta</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_voll">
+                <SimpleValue>die Republik Malta</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsangehoerigkeit">
+                <SimpleValue>maltesisch</SimpleValue>
+            </Value>
+            <Value ColumnRef="Existenz_ab">
+                <SimpleValue>21.09.1964</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_3">
+                <SimpleValue>MLT</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_2">
+                <SimpleValue>MT</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="DESTATIS_Schluessel_Staat">
+                <SimpleValue>146</SimpleValue>
+            </Value>
+            <Value ColumnRef="Suchbegriff">
+                <SimpleValue>Moldau</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_kurz">
+                <SimpleValue>Republik Moldau</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_voll">
+                <SimpleValue>die Republik Moldau</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsangehoerigkeit">
+                <SimpleValue>moldauisch</SimpleValue>
+            </Value>
+            <Value ColumnRef="Existenz_ab">
+                <SimpleValue>27.08.1991</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_3">
+                <SimpleValue>MDA</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_2">
+                <SimpleValue>MD</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="DESTATIS_Schluessel_Staat">
+                <SimpleValue>147</SimpleValue>
+            </Value>
+            <Value ColumnRef="Suchbegriff">
+                <SimpleValue>Monaco</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_kurz">
+                <SimpleValue>Monaco</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_voll">
+                <SimpleValue>das Fürstentum Monaco</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsangehoerigkeit">
+                <SimpleValue>monegassisch</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_3">
+                <SimpleValue>MCO</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_2">
+                <SimpleValue>MC</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="DESTATIS_Schluessel_Staat">
+                <SimpleValue>148</SimpleValue>
+            </Value>
+            <Value ColumnRef="Suchbegriff">
+                <SimpleValue>Niederlande</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_kurz">
+                <SimpleValue>Niederlande</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_voll">
+                <SimpleValue>das Königreich der Niederlande</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsangehoerigkeit">
+                <SimpleValue>niederländisch</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_3">
+                <SimpleValue>NLD</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_2">
+                <SimpleValue>NL</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="DESTATIS_Schluessel_Staat">
+                <SimpleValue>149</SimpleValue>
+            </Value>
+            <Value ColumnRef="Suchbegriff">
+                <SimpleValue>Norwegen</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_kurz">
+                <SimpleValue>Norwegen</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_voll">
+                <SimpleValue>das Königreich Norwegen</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsangehoerigkeit">
+                <SimpleValue>norwegisch</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_3">
+                <SimpleValue>NOR</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_2">
+                <SimpleValue>NO</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="DESTATIS_Schluessel_Staat">
+                <SimpleValue>150</SimpleValue>
+            </Value>
+            <Value ColumnRef="Suchbegriff">
+                <SimpleValue>Kosovo</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_kurz">
+                <SimpleValue>Kosovo</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_voll">
+                <SimpleValue>die Republik Kosovo</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsangehoerigkeit">
+                <SimpleValue>kosovarisch</SimpleValue>
+            </Value>
+            <Value ColumnRef="Existenz_ab">
+                <SimpleValue>17.02.2008</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_3">
+                <SimpleValue>XXK</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_2">
+                <SimpleValue>XK</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="DESTATIS_Schluessel_Staat">
+                <SimpleValue>151</SimpleValue>
+            </Value>
+            <Value ColumnRef="Suchbegriff">
+                <SimpleValue>Österreich</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_kurz">
+                <SimpleValue>Österreich</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_voll">
+                <SimpleValue>die Republik Österreich</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsangehoerigkeit">
+                <SimpleValue>österreichisch</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_3">
+                <SimpleValue>AUT</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_2">
+                <SimpleValue>AT</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="DESTATIS_Schluessel_Staat">
+                <SimpleValue>152</SimpleValue>
+            </Value>
+            <Value ColumnRef="Suchbegriff">
+                <SimpleValue>Polen</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_kurz">
+                <SimpleValue>Polen</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_voll">
+                <SimpleValue>die Republik Polen</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsangehoerigkeit">
+                <SimpleValue>polnisch</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_3">
+                <SimpleValue>POL</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_2">
+                <SimpleValue>PL</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="DESTATIS_Schluessel_Staat">
+                <SimpleValue>153</SimpleValue>
+            </Value>
+            <Value ColumnRef="Suchbegriff">
+                <SimpleValue>Portugal</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_kurz">
+                <SimpleValue>Portugal</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_voll">
+                <SimpleValue>die Portugiesische Republik</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsangehoerigkeit">
+                <SimpleValue>portugiesisch</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_3">
+                <SimpleValue>PRT</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_2">
+                <SimpleValue>PT</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="DESTATIS_Schluessel_Staat">
+                <SimpleValue>154</SimpleValue>
+            </Value>
+            <Value ColumnRef="Suchbegriff">
+                <SimpleValue>Rumänien</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_kurz">
+                <SimpleValue>Rumänien</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_voll">
+                <SimpleValue>Rumänien</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsangehoerigkeit">
+                <SimpleValue>rumänisch</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_3">
+                <SimpleValue>ROU</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_2">
+                <SimpleValue>RO</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="DESTATIS_Schluessel_Staat">
+                <SimpleValue>155</SimpleValue>
+            </Value>
+            <Value ColumnRef="Suchbegriff">
+                <SimpleValue>Slowakei</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_kurz">
+                <SimpleValue>Slowakei</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_voll">
+                <SimpleValue>die Slowakische Republik</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsangehoerigkeit">
+                <SimpleValue>slowakisch</SimpleValue>
+            </Value>
+            <Value ColumnRef="Existenz_ab">
+                <SimpleValue>01.01.1993</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_3">
+                <SimpleValue>SVK</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_2">
+                <SimpleValue>SK</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="DESTATIS_Schluessel_Staat">
+                <SimpleValue>156</SimpleValue>
+            </Value>
+            <Value ColumnRef="Suchbegriff">
+                <SimpleValue>San Marino</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_kurz">
+                <SimpleValue>San Marino</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_voll">
+                <SimpleValue>die Republik San Marino</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsangehoerigkeit">
+                <SimpleValue>san-marinesisch</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_3">
+                <SimpleValue>SMR</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_2">
+                <SimpleValue>SM</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="DESTATIS_Schluessel_Staat">
+                <SimpleValue>157</SimpleValue>
+            </Value>
+            <Value ColumnRef="Suchbegriff">
+                <SimpleValue>Schweden</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_kurz">
+                <SimpleValue>Schweden</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_voll">
+                <SimpleValue>das Königreich Schweden</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsangehoerigkeit">
+                <SimpleValue>schwedisch</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_3">
+                <SimpleValue>SWE</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_2">
+                <SimpleValue>SE</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="DESTATIS_Schluessel_Staat">
+                <SimpleValue>158</SimpleValue>
+            </Value>
+            <Value ColumnRef="Suchbegriff">
+                <SimpleValue>Schweiz</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_kurz">
+                <SimpleValue>Schweiz</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_voll">
+                <SimpleValue>die Schweizerische Eidgenossenschaft</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsangehoerigkeit">
+                <SimpleValue>schweizerisch</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_3">
+                <SimpleValue>CHE</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_2">
+                <SimpleValue>CH</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="DESTATIS_Schluessel_Staat">
+                <SimpleValue>160</SimpleValue>
+            </Value>
+            <Value ColumnRef="Suchbegriff">
+                <SimpleValue>Russische Föderation</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_kurz">
+                <SimpleValue>Russische Föderation</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_voll">
+                <SimpleValue>die Russische Föderation</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsangehoerigkeit">
+                <SimpleValue>russisch</SimpleValue>
+            </Value>
+            <Value ColumnRef="Existenz_ab">
+                <SimpleValue>25.12.1991</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_3">
+                <SimpleValue>RUS</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_2">
+                <SimpleValue>RU</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="DESTATIS_Schluessel_Staat">
+                <SimpleValue>161</SimpleValue>
+            </Value>
+            <Value ColumnRef="Suchbegriff">
+                <SimpleValue>Spanien</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_kurz">
+                <SimpleValue>Spanien</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_voll">
+                <SimpleValue>das Königreich Spanien</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsangehoerigkeit">
+                <SimpleValue>spanisch</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_3">
+                <SimpleValue>ESP</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_2">
+                <SimpleValue>ES</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="DESTATIS_Schluessel_Staat">
+                <SimpleValue>163</SimpleValue>
+            </Value>
+            <Value ColumnRef="Suchbegriff">
+                <SimpleValue>Türkei</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_kurz">
+                <SimpleValue>Türkei</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_voll">
+                <SimpleValue>die Republik Türkei</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsangehoerigkeit">
+                <SimpleValue>türkisch</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_3">
+                <SimpleValue>TUR</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_2">
+                <SimpleValue>TR</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="DESTATIS_Schluessel_Staat">
+                <SimpleValue>164</SimpleValue>
+            </Value>
+            <Value ColumnRef="Suchbegriff">
+                <SimpleValue>Tschechien</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_kurz">
+                <SimpleValue>Tschechien</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_voll">
+                <SimpleValue>die Tschechische Republik</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsangehoerigkeit">
+                <SimpleValue>tschechisch</SimpleValue>
+            </Value>
+            <Value ColumnRef="Existenz_ab">
+                <SimpleValue>01.01.1993</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_3">
+                <SimpleValue>CZE</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_2">
+                <SimpleValue>CZ</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="DESTATIS_Schluessel_Staat">
+                <SimpleValue>165</SimpleValue>
+            </Value>
+            <Value ColumnRef="Suchbegriff">
+                <SimpleValue>Ungarn</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_kurz">
+                <SimpleValue>Ungarn</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_voll">
+                <SimpleValue>Ungarn</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsangehoerigkeit">
+                <SimpleValue>ungarisch</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_3">
+                <SimpleValue>HUN</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_2">
+                <SimpleValue>HU</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="DESTATIS_Schluessel_Staat">
+                <SimpleValue>166</SimpleValue>
+            </Value>
+            <Value ColumnRef="Suchbegriff">
+                <SimpleValue>Ukraine</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_kurz">
+                <SimpleValue>Ukraine</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_voll">
+                <SimpleValue>die Ukraine</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsangehoerigkeit">
+                <SimpleValue>ukrainisch</SimpleValue>
+            </Value>
+            <Value ColumnRef="Existenz_ab">
+                <SimpleValue>24.08.1991</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_3">
+                <SimpleValue>UKR</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_2">
+                <SimpleValue>UA</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="DESTATIS_Schluessel_Staat">
+                <SimpleValue>167</SimpleValue>
+            </Value>
+            <Value ColumnRef="Suchbegriff">
+                <SimpleValue>Vatikanstadt</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_kurz">
+                <SimpleValue>Vatikanstadt</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_voll">
+                <SimpleValue>der Staat Vatikanstadt</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsangehoerigkeit">
+                <SimpleValue>vatikanisch</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_3">
+                <SimpleValue>VAT</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_2">
+                <SimpleValue>VA</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="DESTATIS_Schluessel_Staat">
+                <SimpleValue>168</SimpleValue>
+            </Value>
+            <Value ColumnRef="Suchbegriff">
+                <SimpleValue>Vereinigtes Königreich</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_kurz">
+                <SimpleValue>Vereinigtes Königreich</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_voll">
+                <SimpleValue>das Vereinigte Königreich Großbritannien und Nordirland</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsangehoerigkeit">
+                <SimpleValue>britisch</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_3">
+                <SimpleValue>GBR</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_2">
+                <SimpleValue>GB</SimpleValue>
+            </Value>
+            <Value ColumnRef="Hinweis">
+                <SimpleValue>Staatsangehörigkeit "British Citizen" im Feld "Nationality" auf der Pass-Personaldatenseite.</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="DESTATIS_Schluessel_Staat">
+                <SimpleValue>169</SimpleValue>
+            </Value>
+            <Value ColumnRef="Suchbegriff">
+                <SimpleValue>Weißrussland</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_kurz">
+                <SimpleValue>Weißrussland</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_voll">
+                <SimpleValue>die Republik Weißrussland</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsangehoerigkeit">
+                <SimpleValue>weißrussisch</SimpleValue>
+            </Value>
+            <Value ColumnRef="Existenz_ab">
+                <SimpleValue>27.08.1991</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_3">
+                <SimpleValue>BLR</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_2">
+                <SimpleValue>BY</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="DESTATIS_Schluessel_Staat">
+                <SimpleValue>170</SimpleValue>
+            </Value>
+            <Value ColumnRef="Suchbegriff">
+                <SimpleValue>Serbien</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_kurz">
+                <SimpleValue>Serbien</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_voll">
+                <SimpleValue>die Republik Serbien</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsangehoerigkeit">
+                <SimpleValue>serbisch</SimpleValue>
+            </Value>
+            <Value ColumnRef="Existenz_ab">
+                <SimpleValue>17.02.2008</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_3">
+                <SimpleValue>SRB</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_2">
+                <SimpleValue>RS</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="DESTATIS_Schluessel_Staat">
+                <SimpleValue>181</SimpleValue>
+            </Value>
+            <Value ColumnRef="Suchbegriff">
+                <SimpleValue>Zypern</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_kurz">
+                <SimpleValue>Zypern</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_voll">
+                <SimpleValue>die Republik Zypern</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsangehoerigkeit">
+                <SimpleValue>zyprisch</SimpleValue>
+            </Value>
+            <Value ColumnRef="Existenz_ab">
+                <SimpleValue>16.08.1960</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_3">
+                <SimpleValue>CYP</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_2">
+                <SimpleValue>CY</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="DESTATIS_Schluessel_Staat">
+                <SimpleValue>221</SimpleValue>
+            </Value>
+            <Value ColumnRef="Suchbegriff">
+                <SimpleValue>Algerien</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_kurz">
+                <SimpleValue>Algerien</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_voll">
+                <SimpleValue>die Demokratische Volksrepublik Algerien</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsangehoerigkeit">
+                <SimpleValue>algerisch</SimpleValue>
+            </Value>
+            <Value ColumnRef="Existenz_ab">
+                <SimpleValue>05.07.1962</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_3">
+                <SimpleValue>DZA</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_2">
+                <SimpleValue>DZ</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="DESTATIS_Schluessel_Staat">
+                <SimpleValue>223</SimpleValue>
+            </Value>
+            <Value ColumnRef="Suchbegriff">
+                <SimpleValue>Angola</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_kurz">
+                <SimpleValue>Angola</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_voll">
+                <SimpleValue>die Republik Angola</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsangehoerigkeit">
+                <SimpleValue>angolanisch</SimpleValue>
+            </Value>
+            <Value ColumnRef="Existenz_ab">
+                <SimpleValue>11.11.1975</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_3">
+                <SimpleValue>AGO</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_2">
+                <SimpleValue>AO</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="DESTATIS_Schluessel_Staat">
+                <SimpleValue>224</SimpleValue>
+            </Value>
+            <Value ColumnRef="Suchbegriff">
+                <SimpleValue>Eritrea</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_kurz">
+                <SimpleValue>Eritrea</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_voll">
+                <SimpleValue>der Staat Eritrea</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsangehoerigkeit">
+                <SimpleValue>eritreisch</SimpleValue>
+            </Value>
+            <Value ColumnRef="Existenz_ab">
+                <SimpleValue>24.05.1993</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_3">
+                <SimpleValue>ERI</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_2">
+                <SimpleValue>ER</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="DESTATIS_Schluessel_Staat">
+                <SimpleValue>225</SimpleValue>
+            </Value>
+            <Value ColumnRef="Suchbegriff">
+                <SimpleValue>Äthiopien</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_kurz">
+                <SimpleValue>Äthiopien</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_voll">
+                <SimpleValue>die Demokratische Bundesrepublik Äthiopien</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsangehoerigkeit">
+                <SimpleValue>äthiopisch</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_3">
+                <SimpleValue>ETH</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_2">
+                <SimpleValue>ET</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="DESTATIS_Schluessel_Staat">
+                <SimpleValue>226</SimpleValue>
+            </Value>
+            <Value ColumnRef="Suchbegriff">
+                <SimpleValue>Lesotho</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_kurz">
+                <SimpleValue>Lesotho</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_voll">
+                <SimpleValue>das Königreich Lesotho</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsangehoerigkeit">
+                <SimpleValue>lesothisch</SimpleValue>
+            </Value>
+            <Value ColumnRef="Existenz_ab">
+                <SimpleValue>04.10.1966</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_3">
+                <SimpleValue>LSO</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_2">
+                <SimpleValue>LS</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="DESTATIS_Schluessel_Staat">
+                <SimpleValue>227</SimpleValue>
+            </Value>
+            <Value ColumnRef="Suchbegriff">
+                <SimpleValue>Botsuana</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_kurz">
+                <SimpleValue>Botsuana</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_voll">
+                <SimpleValue>die Republik Botsuana</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsangehoerigkeit">
+                <SimpleValue>botsuanisch</SimpleValue>
+            </Value>
+            <Value ColumnRef="Existenz_ab">
+                <SimpleValue>30.09.1966</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_3">
+                <SimpleValue>BWA</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_2">
+                <SimpleValue>BW</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="DESTATIS_Schluessel_Staat">
+                <SimpleValue>229</SimpleValue>
+            </Value>
+            <Value ColumnRef="Suchbegriff">
+                <SimpleValue>Benin</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_kurz">
+                <SimpleValue>Benin</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_voll">
+                <SimpleValue>die Republik Benin</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsangehoerigkeit">
+                <SimpleValue>beninisch</SimpleValue>
+            </Value>
+            <Value ColumnRef="Existenz_ab">
+                <SimpleValue>01.08.1960</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_3">
+                <SimpleValue>BEN</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_2">
+                <SimpleValue>BJ</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="DESTATIS_Schluessel_Staat">
+                <SimpleValue>230</SimpleValue>
+            </Value>
+            <Value ColumnRef="Suchbegriff">
+                <SimpleValue>Dschibuti</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_kurz">
+                <SimpleValue>Dschibuti</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_voll">
+                <SimpleValue>die Republik Dschibuti</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsangehoerigkeit">
+                <SimpleValue>dschibutisch</SimpleValue>
+            </Value>
+            <Value ColumnRef="Existenz_ab">
+                <SimpleValue>27.06.1977</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_3">
+                <SimpleValue>DJI</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_2">
+                <SimpleValue>DJ</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="DESTATIS_Schluessel_Staat">
+                <SimpleValue>231</SimpleValue>
+            </Value>
+            <Value ColumnRef="Suchbegriff">
+                <SimpleValue>Côte d'Ivoire</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_kurz">
+                <SimpleValue>Côte d'Ivoire</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_voll">
+                <SimpleValue>die Republik Côte d'Ivoire</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsangehoerigkeit">
+                <SimpleValue>ivorisch</SimpleValue>
+            </Value>
+            <Value ColumnRef="Existenz_ab">
+                <SimpleValue>07.08.1960</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_3">
+                <SimpleValue>CIV</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_2">
+                <SimpleValue>CI</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="DESTATIS_Schluessel_Staat">
+                <SimpleValue>232</SimpleValue>
+            </Value>
+            <Value ColumnRef="Suchbegriff">
+                <SimpleValue>Nigeria</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_kurz">
+                <SimpleValue>Nigeria</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_voll">
+                <SimpleValue>die Bundesrepublik Nigeria</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsangehoerigkeit">
+                <SimpleValue>nigerianisch</SimpleValue>
+            </Value>
+            <Value ColumnRef="Existenz_ab">
+                <SimpleValue>01.10.1960</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_3">
+                <SimpleValue>NGA</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_2">
+                <SimpleValue>NG</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="DESTATIS_Schluessel_Staat">
+                <SimpleValue>233</SimpleValue>
+            </Value>
+            <Value ColumnRef="Suchbegriff">
+                <SimpleValue>Simbabwe</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_kurz">
+                <SimpleValue>Simbabwe</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_voll">
+                <SimpleValue>die Republik Simbabwe</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsangehoerigkeit">
+                <SimpleValue>simbabwisch</SimpleValue>
+            </Value>
+            <Value ColumnRef="Existenz_ab">
+                <SimpleValue>18.04.1980</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_3">
+                <SimpleValue>ZWE</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_2">
+                <SimpleValue>ZW</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="DESTATIS_Schluessel_Staat">
+                <SimpleValue>236</SimpleValue>
+            </Value>
+            <Value ColumnRef="Suchbegriff">
+                <SimpleValue>Gabun</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_kurz">
+                <SimpleValue>Gabun</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_voll">
+                <SimpleValue>die Gabunische Republik</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsangehoerigkeit">
+                <SimpleValue>gabunisch</SimpleValue>
+            </Value>
+            <Value ColumnRef="Existenz_ab">
+                <SimpleValue>17.08.1960</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_3">
+                <SimpleValue>GAB</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_2">
+                <SimpleValue>GA</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="DESTATIS_Schluessel_Staat">
+                <SimpleValue>237</SimpleValue>
+            </Value>
+            <Value ColumnRef="Suchbegriff">
+                <SimpleValue>Gambia</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_kurz">
+                <SimpleValue>Gambia</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_voll">
+                <SimpleValue>die Republik Gambia</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsangehoerigkeit">
+                <SimpleValue>gambisch</SimpleValue>
+            </Value>
+            <Value ColumnRef="Existenz_ab">
+                <SimpleValue>18.02.1965</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_3">
+                <SimpleValue>GMB</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_2">
+                <SimpleValue>GM</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="DESTATIS_Schluessel_Staat">
+                <SimpleValue>238</SimpleValue>
+            </Value>
+            <Value ColumnRef="Suchbegriff">
+                <SimpleValue>Ghana</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_kurz">
+                <SimpleValue>Ghana</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_voll">
+                <SimpleValue>die Republik Ghana</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsangehoerigkeit">
+                <SimpleValue>ghanaisch</SimpleValue>
+            </Value>
+            <Value ColumnRef="Existenz_ab">
+                <SimpleValue>06.03.1957</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_3">
+                <SimpleValue>GHA</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_2">
+                <SimpleValue>GH</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="DESTATIS_Schluessel_Staat">
+                <SimpleValue>239</SimpleValue>
+            </Value>
+            <Value ColumnRef="Suchbegriff">
+                <SimpleValue>Mauretanien</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_kurz">
+                <SimpleValue>Mauretanien</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_voll">
+                <SimpleValue>die Islamische Republik Mauretanien</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsangehoerigkeit">
+                <SimpleValue>mauretanisch</SimpleValue>
+            </Value>
+            <Value ColumnRef="Existenz_ab">
+                <SimpleValue>28.11.1960</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_3">
+                <SimpleValue>MRT</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_2">
+                <SimpleValue>MR</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="DESTATIS_Schluessel_Staat">
+                <SimpleValue>242</SimpleValue>
+            </Value>
+            <Value ColumnRef="Suchbegriff">
+                <SimpleValue>Cabo Verde</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_kurz">
+                <SimpleValue>Cabo Verde</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_voll">
+                <SimpleValue>die Republik Cabo Verde</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsangehoerigkeit">
+                <SimpleValue>cabo-verdisch</SimpleValue>
+            </Value>
+            <Value ColumnRef="Existenz_ab">
+                <SimpleValue>05.07.1975</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_3">
+                <SimpleValue>CPV</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_2">
+                <SimpleValue>CV</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="DESTATIS_Schluessel_Staat">
+                <SimpleValue>243</SimpleValue>
+            </Value>
+            <Value ColumnRef="Suchbegriff">
+                <SimpleValue>Kenia</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_kurz">
+                <SimpleValue>Kenia</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_voll">
+                <SimpleValue>die Republik Kenia</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsangehoerigkeit">
+                <SimpleValue>kenianisch</SimpleValue>
+            </Value>
+            <Value ColumnRef="Existenz_ab">
+                <SimpleValue>12.12.1963</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_3">
+                <SimpleValue>KEN</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_2">
+                <SimpleValue>KE</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="DESTATIS_Schluessel_Staat">
+                <SimpleValue>244</SimpleValue>
+            </Value>
+            <Value ColumnRef="Suchbegriff">
+                <SimpleValue>Komoren</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_kurz">
+                <SimpleValue>Komoren</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_voll">
+                <SimpleValue>die Union der Komoren</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsangehoerigkeit">
+                <SimpleValue>komorisch</SimpleValue>
+            </Value>
+            <Value ColumnRef="Existenz_ab">
+                <SimpleValue>06.07.1975</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_3">
+                <SimpleValue>COM</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_2">
+                <SimpleValue>KM</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="DESTATIS_Schluessel_Staat">
+                <SimpleValue>245</SimpleValue>
+            </Value>
+            <Value ColumnRef="Suchbegriff">
+                <SimpleValue>Kongo</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_kurz">
+                <SimpleValue>Kongo</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_voll">
+                <SimpleValue>die Republik Kongo</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsangehoerigkeit">
+                <SimpleValue>kongolesisch</SimpleValue>
+            </Value>
+            <Value ColumnRef="Existenz_ab">
+                <SimpleValue>15.08.1960</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_3">
+                <SimpleValue>COG</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_2">
+                <SimpleValue>CG</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="DESTATIS_Schluessel_Staat">
+                <SimpleValue>246</SimpleValue>
+            </Value>
+            <Value ColumnRef="Suchbegriff">
+                <SimpleValue>Kongo, Demokratische Republik</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_kurz">
+                <SimpleValue>Demokratische Republik Kongo</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_voll">
+                <SimpleValue>die Demokratische Republik Kongo</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsangehoerigkeit">
+                <SimpleValue>der Demokratischen Republik Kongo</SimpleValue>
+            </Value>
+            <Value ColumnRef="Existenz_ab">
+                <SimpleValue>30.06.1960</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_3">
+                <SimpleValue>COD</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_2">
+                <SimpleValue>CD</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="DESTATIS_Schluessel_Staat">
+                <SimpleValue>247</SimpleValue>
+            </Value>
+            <Value ColumnRef="Suchbegriff">
+                <SimpleValue>Liberia</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_kurz">
+                <SimpleValue>Liberia</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_voll">
+                <SimpleValue>die Republik Liberia</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsangehoerigkeit">
+                <SimpleValue>liberianisch</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_3">
+                <SimpleValue>LBR</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_2">
+                <SimpleValue>LR</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="DESTATIS_Schluessel_Staat">
+                <SimpleValue>248</SimpleValue>
+            </Value>
+            <Value ColumnRef="Suchbegriff">
+                <SimpleValue>Libyen</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_kurz">
+                <SimpleValue>Libyen</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_voll">
+                <SimpleValue>der Staat Libyen</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsangehoerigkeit">
+                <SimpleValue>libysch</SimpleValue>
+            </Value>
+            <Value ColumnRef="Existenz_ab">
+                <SimpleValue>24.12.1951</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_3">
+                <SimpleValue>LBY</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_2">
+                <SimpleValue>LY</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="DESTATIS_Schluessel_Staat">
+                <SimpleValue>249</SimpleValue>
+            </Value>
+            <Value ColumnRef="Suchbegriff">
+                <SimpleValue>Madagaskar</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_kurz">
+                <SimpleValue>Madagaskar</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_voll">
+                <SimpleValue>die Republik Madagaskar</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsangehoerigkeit">
+                <SimpleValue>madagassisch</SimpleValue>
+            </Value>
+            <Value ColumnRef="Existenz_ab">
+                <SimpleValue>26.06.1960</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_3">
+                <SimpleValue>MDG</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_2">
+                <SimpleValue>MG</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="DESTATIS_Schluessel_Staat">
+                <SimpleValue>251</SimpleValue>
+            </Value>
+            <Value ColumnRef="Suchbegriff">
+                <SimpleValue>Mali</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_kurz">
+                <SimpleValue>Mali</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_voll">
+                <SimpleValue>die Republik Mali</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsangehoerigkeit">
+                <SimpleValue>malisch</SimpleValue>
+            </Value>
+            <Value ColumnRef="Existenz_ab">
+                <SimpleValue>22.09.1960</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_3">
+                <SimpleValue>MLI</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_2">
+                <SimpleValue>ML</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="DESTATIS_Schluessel_Staat">
+                <SimpleValue>252</SimpleValue>
+            </Value>
+            <Value ColumnRef="Suchbegriff">
+                <SimpleValue>Marokko</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_kurz">
+                <SimpleValue>Marokko</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_voll">
+                <SimpleValue>das Königreich Marokko</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsangehoerigkeit">
+                <SimpleValue>marokkanisch</SimpleValue>
+            </Value>
+            <Value ColumnRef="Existenz_ab">
+                <SimpleValue>02.03.1956</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_3">
+                <SimpleValue>MAR</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_2">
+                <SimpleValue>MA</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="DESTATIS_Schluessel_Staat">
+                <SimpleValue>253</SimpleValue>
+            </Value>
+            <Value ColumnRef="Suchbegriff">
+                <SimpleValue>Mauritius</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_kurz">
+                <SimpleValue>Mauritius</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_voll">
+                <SimpleValue>die Republik Mauritius</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsangehoerigkeit">
+                <SimpleValue>mauritisch</SimpleValue>
+            </Value>
+            <Value ColumnRef="Existenz_ab">
+                <SimpleValue>12.03.1968</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_3">
+                <SimpleValue>MUS</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_2">
+                <SimpleValue>MU</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="DESTATIS_Schluessel_Staat">
+                <SimpleValue>254</SimpleValue>
+            </Value>
+            <Value ColumnRef="Suchbegriff">
+                <SimpleValue>Mosambik</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_kurz">
+                <SimpleValue>Mosambik</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_voll">
+                <SimpleValue>die Republik Mosambik</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsangehoerigkeit">
+                <SimpleValue>mosambikanisch</SimpleValue>
+            </Value>
+            <Value ColumnRef="Existenz_ab">
+                <SimpleValue>25.06.1975</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_3">
+                <SimpleValue>MOZ</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_2">
+                <SimpleValue>MZ</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="DESTATIS_Schluessel_Staat">
+                <SimpleValue>255</SimpleValue>
+            </Value>
+            <Value ColumnRef="Suchbegriff">
+                <SimpleValue>Niger</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_kurz">
+                <SimpleValue>Niger</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_voll">
+                <SimpleValue>die Republik Niger</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsangehoerigkeit">
+                <SimpleValue>nigrisch</SimpleValue>
+            </Value>
+            <Value ColumnRef="Existenz_ab">
+                <SimpleValue>03.08.1960</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_3">
+                <SimpleValue>NER</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_2">
+                <SimpleValue>NE</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="DESTATIS_Schluessel_Staat">
+                <SimpleValue>256</SimpleValue>
+            </Value>
+            <Value ColumnRef="Suchbegriff">
+                <SimpleValue>Malawi</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_kurz">
+                <SimpleValue>Malawi</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_voll">
+                <SimpleValue>die Republik Malawi</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsangehoerigkeit">
+                <SimpleValue>malawisch</SimpleValue>
+            </Value>
+            <Value ColumnRef="Existenz_ab">
+                <SimpleValue>06.07.1964</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_3">
+                <SimpleValue>MWI</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_2">
+                <SimpleValue>MW</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="DESTATIS_Schluessel_Staat">
+                <SimpleValue>257</SimpleValue>
+            </Value>
+            <Value ColumnRef="Suchbegriff">
+                <SimpleValue>Sambia</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_kurz">
+                <SimpleValue>Sambia</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_voll">
+                <SimpleValue>die Republik Sambia</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsangehoerigkeit">
+                <SimpleValue>sambisch</SimpleValue>
+            </Value>
+            <Value ColumnRef="Existenz_ab">
+                <SimpleValue>24.10.1964</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_3">
+                <SimpleValue>ZMB</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_2">
+                <SimpleValue>ZM</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="DESTATIS_Schluessel_Staat">
+                <SimpleValue>258</SimpleValue>
+            </Value>
+            <Value ColumnRef="Suchbegriff">
+                <SimpleValue>Burkina Faso</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_kurz">
+                <SimpleValue>Burkina Faso</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_voll">
+                <SimpleValue>Burkina Faso</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsangehoerigkeit">
+                <SimpleValue>burkinisch</SimpleValue>
+            </Value>
+            <Value ColumnRef="Existenz_ab">
+                <SimpleValue>05.08.1960</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_3">
+                <SimpleValue>BFA</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_2">
+                <SimpleValue>BF</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="DESTATIS_Schluessel_Staat">
+                <SimpleValue>259</SimpleValue>
+            </Value>
+            <Value ColumnRef="Suchbegriff">
+                <SimpleValue>Guinea-Bissau</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_kurz">
+                <SimpleValue>Guinea-Bissau</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_voll">
+                <SimpleValue>die Republik Guinea-Bissau</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsangehoerigkeit">
+                <SimpleValue>guinea-bissauisch</SimpleValue>
+            </Value>
+            <Value ColumnRef="Existenz_ab">
+                <SimpleValue>24.09.1973</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_3">
+                <SimpleValue>GNB</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_2">
+                <SimpleValue>GW</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="DESTATIS_Schluessel_Staat">
+                <SimpleValue>261</SimpleValue>
+            </Value>
+            <Value ColumnRef="Suchbegriff">
+                <SimpleValue>Guinea</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_kurz">
+                <SimpleValue>Guinea</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_voll">
+                <SimpleValue>die Republik Guinea</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsangehoerigkeit">
+                <SimpleValue>guineisch</SimpleValue>
+            </Value>
+            <Value ColumnRef="Existenz_ab">
+                <SimpleValue>02.10.1958</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_3">
+                <SimpleValue>GIN</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_2">
+                <SimpleValue>GN</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="DESTATIS_Schluessel_Staat">
+                <SimpleValue>262</SimpleValue>
+            </Value>
+            <Value ColumnRef="Suchbegriff">
+                <SimpleValue>Kamerun</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_kurz">
+                <SimpleValue>Kamerun</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_voll">
+                <SimpleValue>die Republik Kamerun</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsangehoerigkeit">
+                <SimpleValue>kamerunisch</SimpleValue>
+            </Value>
+            <Value ColumnRef="Existenz_ab">
+                <SimpleValue>01.01.1960</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_3">
+                <SimpleValue>CMR</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_2">
+                <SimpleValue>CM</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="DESTATIS_Schluessel_Staat">
+                <SimpleValue>263</SimpleValue>
+            </Value>
+            <Value ColumnRef="Suchbegriff">
+                <SimpleValue>Südafrika</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_kurz">
+                <SimpleValue>Südafrika</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_voll">
+                <SimpleValue>die Republik Südafrika</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsangehoerigkeit">
+                <SimpleValue>südafrikanisch</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_3">
+                <SimpleValue>ZAF</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_2">
+                <SimpleValue>ZA</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="DESTATIS_Schluessel_Staat">
+                <SimpleValue>265</SimpleValue>
+            </Value>
+            <Value ColumnRef="Suchbegriff">
+                <SimpleValue>Ruanda</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_kurz">
+                <SimpleValue>Ruanda</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_voll">
+                <SimpleValue>die Republik Ruanda</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsangehoerigkeit">
+                <SimpleValue>ruandisch</SimpleValue>
+            </Value>
+            <Value ColumnRef="Existenz_ab">
+                <SimpleValue>01.07.1962</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_3">
+                <SimpleValue>RWA</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_2">
+                <SimpleValue>RW</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="DESTATIS_Schluessel_Staat">
+                <SimpleValue>267</SimpleValue>
+            </Value>
+            <Value ColumnRef="Suchbegriff">
+                <SimpleValue>Namibia</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_kurz">
+                <SimpleValue>Namibia</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_voll">
+                <SimpleValue>die Republik Namibia</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsangehoerigkeit">
+                <SimpleValue>namibisch</SimpleValue>
+            </Value>
+            <Value ColumnRef="Existenz_ab">
+                <SimpleValue>21.03.1990</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_3">
+                <SimpleValue>NAM</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_2">
+                <SimpleValue>NA</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="DESTATIS_Schluessel_Staat">
+                <SimpleValue>268</SimpleValue>
+            </Value>
+            <Value ColumnRef="Suchbegriff">
+                <SimpleValue>São Tomé und Príncipe</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_kurz">
+                <SimpleValue>São Tomé und Príncipe</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_voll">
+                <SimpleValue>die Demokratische Republik São Tomé und Príncipe</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsangehoerigkeit">
+                <SimpleValue>são-toméisch</SimpleValue>
+            </Value>
+            <Value ColumnRef="Existenz_ab">
+                <SimpleValue>12.07.1975</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_3">
+                <SimpleValue>STP</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_2">
+                <SimpleValue>ST</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="DESTATIS_Schluessel_Staat">
+                <SimpleValue>269</SimpleValue>
+            </Value>
+            <Value ColumnRef="Suchbegriff">
+                <SimpleValue>Senegal</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_kurz">
+                <SimpleValue>Senegal</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_voll">
+                <SimpleValue>die Republik Senegal</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsangehoerigkeit">
+                <SimpleValue>senegalesisch</SimpleValue>
+            </Value>
+            <Value ColumnRef="Existenz_ab">
+                <SimpleValue>20.08.1960</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_3">
+                <SimpleValue>SEN</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_2">
+                <SimpleValue>SN</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="DESTATIS_Schluessel_Staat">
+                <SimpleValue>271</SimpleValue>
+            </Value>
+            <Value ColumnRef="Suchbegriff">
+                <SimpleValue>Seychellen</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_kurz">
+                <SimpleValue>Seychellen</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_voll">
+                <SimpleValue>die Republik Seychellen</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsangehoerigkeit">
+                <SimpleValue>seychellisch</SimpleValue>
+            </Value>
+            <Value ColumnRef="Existenz_ab">
+                <SimpleValue>28.06.1976</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_3">
+                <SimpleValue>SYC</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_2">
+                <SimpleValue>SC</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="DESTATIS_Schluessel_Staat">
+                <SimpleValue>272</SimpleValue>
+            </Value>
+            <Value ColumnRef="Suchbegriff">
+                <SimpleValue>Sierra Leone</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_kurz">
+                <SimpleValue>Sierra Leone</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_voll">
+                <SimpleValue>die Republik Sierra Leone</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsangehoerigkeit">
+                <SimpleValue>sierra-leonisch</SimpleValue>
+            </Value>
+            <Value ColumnRef="Existenz_ab">
+                <SimpleValue>27.04.1961</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_3">
+                <SimpleValue>SLE</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_2">
+                <SimpleValue>SL</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="DESTATIS_Schluessel_Staat">
+                <SimpleValue>273</SimpleValue>
+            </Value>
+            <Value ColumnRef="Suchbegriff">
+                <SimpleValue>Somalia</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_kurz">
+                <SimpleValue>Somalia</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_voll">
+                <SimpleValue>die Bundesrepublik Somalia</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsangehoerigkeit">
+                <SimpleValue>somalisch</SimpleValue>
+            </Value>
+            <Value ColumnRef="Existenz_ab">
+                <SimpleValue>01.07.1960</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_3">
+                <SimpleValue>SOM</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_2">
+                <SimpleValue>SO</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="DESTATIS_Schluessel_Staat">
+                <SimpleValue>274</SimpleValue>
+            </Value>
+            <Value ColumnRef="Suchbegriff">
+                <SimpleValue>Äquatorialguinea</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_kurz">
+                <SimpleValue>Äquatorialguinea</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_voll">
+                <SimpleValue>die Republik Äquatorialguinea</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsangehoerigkeit">
+                <SimpleValue>äquatorialguineisch</SimpleValue>
+            </Value>
+            <Value ColumnRef="Existenz_ab">
+                <SimpleValue>12.10.1968</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_3">
+                <SimpleValue>GNQ</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_2">
+                <SimpleValue>GQ</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="DESTATIS_Schluessel_Staat">
+                <SimpleValue>277</SimpleValue>
+            </Value>
+            <Value ColumnRef="Suchbegriff">
+                <SimpleValue>Sudan</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_kurz">
+                <SimpleValue>Sudan</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_voll">
+                <SimpleValue>die Republik Sudan</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsangehoerigkeit">
+                <SimpleValue>sudanesisch</SimpleValue>
+            </Value>
+            <Value ColumnRef="Existenz_ab">
+                <SimpleValue>09.07.2011</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_3">
+                <SimpleValue>SDN</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_2">
+                <SimpleValue>SD</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="DESTATIS_Schluessel_Staat">
+                <SimpleValue>278</SimpleValue>
+            </Value>
+            <Value ColumnRef="Suchbegriff">
+                <SimpleValue>Südsudan</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_kurz">
+                <SimpleValue>Südsudan</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_voll">
+                <SimpleValue>die Republik Südsudan</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsangehoerigkeit">
+                <SimpleValue>südsudanesisch</SimpleValue>
+            </Value>
+            <Value ColumnRef="Existenz_ab">
+                <SimpleValue>09.07.2011</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_3">
+                <SimpleValue>SSD</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_2">
+                <SimpleValue>SS</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="DESTATIS_Schluessel_Staat">
+                <SimpleValue>281</SimpleValue>
+            </Value>
+            <Value ColumnRef="Suchbegriff">
+                <SimpleValue>Eswatini</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_kurz">
+                <SimpleValue>Eswatini</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_voll">
+                <SimpleValue>das Königreich Eswatini</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsangehoerigkeit">
+                <SimpleValue>eswatinisch</SimpleValue>
+            </Value>
+            <Value ColumnRef="Existenz_ab">
+                <SimpleValue>06.09.1968</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_3">
+                <SimpleValue>SWZ</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_2">
+                <SimpleValue>SZ</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="DESTATIS_Schluessel_Staat">
+                <SimpleValue>282</SimpleValue>
+            </Value>
+            <Value ColumnRef="Suchbegriff">
+                <SimpleValue>Tansania</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_kurz">
+                <SimpleValue>Vereinigte Republik Tansania</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_voll">
+                <SimpleValue>die Vereinigte Republik Tansania</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsangehoerigkeit">
+                <SimpleValue>tansanisch</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_3">
+                <SimpleValue>TZA</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_2">
+                <SimpleValue>TZ</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="DESTATIS_Schluessel_Staat">
+                <SimpleValue>283</SimpleValue>
+            </Value>
+            <Value ColumnRef="Suchbegriff">
+                <SimpleValue>Togo</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_kurz">
+                <SimpleValue>Togo</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_voll">
+                <SimpleValue>die Republik Togo</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsangehoerigkeit">
+                <SimpleValue>togoisch</SimpleValue>
+            </Value>
+            <Value ColumnRef="Existenz_ab">
+                <SimpleValue>27.04.1960</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_3">
+                <SimpleValue>TGO</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_2">
+                <SimpleValue>TG</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="DESTATIS_Schluessel_Staat">
+                <SimpleValue>284</SimpleValue>
+            </Value>
+            <Value ColumnRef="Suchbegriff">
+                <SimpleValue>Tschad</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_kurz">
+                <SimpleValue>Tschad</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_voll">
+                <SimpleValue>die Republik Tschad</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsangehoerigkeit">
+                <SimpleValue>tschadisch</SimpleValue>
+            </Value>
+            <Value ColumnRef="Existenz_ab">
+                <SimpleValue>11.08.1960</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_3">
+                <SimpleValue>TCD</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_2">
+                <SimpleValue>TD</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="DESTATIS_Schluessel_Staat">
+                <SimpleValue>285</SimpleValue>
+            </Value>
+            <Value ColumnRef="Suchbegriff">
+                <SimpleValue>Tunesien</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_kurz">
+                <SimpleValue>Tunesien</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_voll">
+                <SimpleValue>die Tunesische Republik</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsangehoerigkeit">
+                <SimpleValue>tunesisch</SimpleValue>
+            </Value>
+            <Value ColumnRef="Existenz_ab">
+                <SimpleValue>20.03.1956</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_3">
+                <SimpleValue>TUN</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_2">
+                <SimpleValue>TN</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="DESTATIS_Schluessel_Staat">
+                <SimpleValue>286</SimpleValue>
+            </Value>
+            <Value ColumnRef="Suchbegriff">
+                <SimpleValue>Uganda</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_kurz">
+                <SimpleValue>Uganda</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_voll">
+                <SimpleValue>die Republik Uganda</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsangehoerigkeit">
+                <SimpleValue>ugandisch</SimpleValue>
+            </Value>
+            <Value ColumnRef="Existenz_ab">
+                <SimpleValue>09.10.1962</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_3">
+                <SimpleValue>UGA</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_2">
+                <SimpleValue>UG</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="DESTATIS_Schluessel_Staat">
+                <SimpleValue>287</SimpleValue>
+            </Value>
+            <Value ColumnRef="Suchbegriff">
+                <SimpleValue>Ägypten</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_kurz">
+                <SimpleValue>Ägypten</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_voll">
+                <SimpleValue>die Arabische Republik Ägypten</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsangehoerigkeit">
+                <SimpleValue>ägyptisch</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_3">
+                <SimpleValue>EGY</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_2">
+                <SimpleValue>EG</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="DESTATIS_Schluessel_Staat">
+                <SimpleValue>289</SimpleValue>
+            </Value>
+            <Value ColumnRef="Suchbegriff">
+                <SimpleValue>Zentralafrikanische Republik</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_kurz">
+                <SimpleValue>Zentralafrikanische Republik</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_voll">
+                <SimpleValue>die Zentralafrikanische Republik</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsangehoerigkeit">
+                <SimpleValue>zentralafrikanisch</SimpleValue>
+            </Value>
+            <Value ColumnRef="Existenz_ab">
+                <SimpleValue>13.08.1960</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_3">
+                <SimpleValue>CAF</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_2">
+                <SimpleValue>CF</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="DESTATIS_Schluessel_Staat">
+                <SimpleValue>291</SimpleValue>
+            </Value>
+            <Value ColumnRef="Suchbegriff">
+                <SimpleValue>Burundi</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_kurz">
+                <SimpleValue>Burundi</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_voll">
+                <SimpleValue>die Republik Burundi</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsangehoerigkeit">
+                <SimpleValue>burundisch</SimpleValue>
+            </Value>
+            <Value ColumnRef="Existenz_ab">
+                <SimpleValue>01.07.1962</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_3">
+                <SimpleValue>BDI</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_2">
+                <SimpleValue>BI</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="DESTATIS_Schluessel_Staat">
+                <SimpleValue>320</SimpleValue>
+            </Value>
+            <Value ColumnRef="Suchbegriff">
+                <SimpleValue>Antigua und Barbuda</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_kurz">
+                <SimpleValue>Antigua und Barbuda</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_voll">
+                <SimpleValue>Antigua und Barbuda</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsangehoerigkeit">
+                <SimpleValue>antiguanisch</SimpleValue>
+            </Value>
+            <Value ColumnRef="Existenz_ab">
+                <SimpleValue>01.11.1981</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_3">
+                <SimpleValue>ATG</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_2">
+                <SimpleValue>AG</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="DESTATIS_Schluessel_Staat">
+                <SimpleValue>322</SimpleValue>
+            </Value>
+            <Value ColumnRef="Suchbegriff">
+                <SimpleValue>Barbados</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_kurz">
+                <SimpleValue>Barbados</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_voll">
+                <SimpleValue>Barbados</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsangehoerigkeit">
+                <SimpleValue>barbadisch</SimpleValue>
+            </Value>
+            <Value ColumnRef="Existenz_ab">
+                <SimpleValue>30.11.1966</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_3">
+                <SimpleValue>BRB</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_2">
+                <SimpleValue>BB</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="DESTATIS_Schluessel_Staat">
+                <SimpleValue>323</SimpleValue>
+            </Value>
+            <Value ColumnRef="Suchbegriff">
+                <SimpleValue>Argentinien</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_kurz">
+                <SimpleValue>Argentinien</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_voll">
+                <SimpleValue>die Argentinische Republik</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsangehoerigkeit">
+                <SimpleValue>argentinisch</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_3">
+                <SimpleValue>ARG</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_2">
+                <SimpleValue>AR</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="DESTATIS_Schluessel_Staat">
+                <SimpleValue>324</SimpleValue>
+            </Value>
+            <Value ColumnRef="Suchbegriff">
+                <SimpleValue>Bahamas</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_kurz">
+                <SimpleValue>Bahamas</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_voll">
+                <SimpleValue>das Commonwealth der Bahamas</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsangehoerigkeit">
+                <SimpleValue>bahamaisch</SimpleValue>
+            </Value>
+            <Value ColumnRef="Existenz_ab">
+                <SimpleValue>10.07.1973</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_3">
+                <SimpleValue>BHS</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_2">
+                <SimpleValue>BS</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="DESTATIS_Schluessel_Staat">
+                <SimpleValue>326</SimpleValue>
+            </Value>
+            <Value ColumnRef="Suchbegriff">
+                <SimpleValue>Bolivien</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_kurz">
+                <SimpleValue>Plurinationaler Staat Bolivien</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_voll">
+                <SimpleValue>der Plurinationale Staat Bolivien</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsangehoerigkeit">
+                <SimpleValue>bolivianisch</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_3">
+                <SimpleValue>BOL</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_2">
+                <SimpleValue>BO</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="DESTATIS_Schluessel_Staat">
+                <SimpleValue>327</SimpleValue>
+            </Value>
+            <Value ColumnRef="Suchbegriff">
+                <SimpleValue>Brasilien</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_kurz">
+                <SimpleValue>Brasilien</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_voll">
+                <SimpleValue>die Föderative Republik Brasilien</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsangehoerigkeit">
+                <SimpleValue>brasilianisch</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_3">
+                <SimpleValue>BRA</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_2">
+                <SimpleValue>BR</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="DESTATIS_Schluessel_Staat">
+                <SimpleValue>328</SimpleValue>
+            </Value>
+            <Value ColumnRef="Suchbegriff">
+                <SimpleValue>Guyana</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_kurz">
+                <SimpleValue>Guyana</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_voll">
+                <SimpleValue>die Kooperative Republik Guyana</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsangehoerigkeit">
+                <SimpleValue>guyanisch</SimpleValue>
+            </Value>
+            <Value ColumnRef="Existenz_ab">
+                <SimpleValue>26.05.1966</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_3">
+                <SimpleValue>GUY</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_2">
+                <SimpleValue>GY</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="DESTATIS_Schluessel_Staat">
+                <SimpleValue>330</SimpleValue>
+            </Value>
+            <Value ColumnRef="Suchbegriff">
+                <SimpleValue>Belize</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_kurz">
+                <SimpleValue>Belize</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_voll">
+                <SimpleValue>Belize</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsangehoerigkeit">
+                <SimpleValue>belizisch</SimpleValue>
+            </Value>
+            <Value ColumnRef="Existenz_ab">
+                <SimpleValue>21.09.1981</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_3">
+                <SimpleValue>BLZ</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_2">
+                <SimpleValue>BZ</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="DESTATIS_Schluessel_Staat">
+                <SimpleValue>332</SimpleValue>
+            </Value>
+            <Value ColumnRef="Suchbegriff">
+                <SimpleValue>Chile</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_kurz">
+                <SimpleValue>Chile</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_voll">
+                <SimpleValue>die Republik Chile</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsangehoerigkeit">
+                <SimpleValue>chilenisch</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_3">
+                <SimpleValue>CHL</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_2">
+                <SimpleValue>CL</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="DESTATIS_Schluessel_Staat">
+                <SimpleValue>333</SimpleValue>
+            </Value>
+            <Value ColumnRef="Suchbegriff">
+                <SimpleValue>Dominica</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_kurz">
+                <SimpleValue>Dominica</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_voll">
+                <SimpleValue>das Commonwealth Dominica</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsangehoerigkeit">
+                <SimpleValue>dominicanisch</SimpleValue>
+            </Value>
+            <Value ColumnRef="Existenz_ab">
+                <SimpleValue>03.11.1978</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_3">
+                <SimpleValue>DMA</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_2">
+                <SimpleValue>DM</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="DESTATIS_Schluessel_Staat">
+                <SimpleValue>334</SimpleValue>
+            </Value>
+            <Value ColumnRef="Suchbegriff">
+                <SimpleValue>Costa Rica</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_kurz">
+                <SimpleValue>Costa Rica</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_voll">
+                <SimpleValue>die Republik Costa Rica</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsangehoerigkeit">
+                <SimpleValue>costa-ricanisch</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_3">
+                <SimpleValue>CRI</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_2">
+                <SimpleValue>CR</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="DESTATIS_Schluessel_Staat">
+                <SimpleValue>335</SimpleValue>
+            </Value>
+            <Value ColumnRef="Suchbegriff">
+                <SimpleValue>Dominikanische Republik</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_kurz">
+                <SimpleValue>Dominikanische Republik</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_voll">
+                <SimpleValue>die Dominikanische Republik</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsangehoerigkeit">
+                <SimpleValue>dominikanisch</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_3">
+                <SimpleValue>DOM</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_2">
+                <SimpleValue>DO</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="DESTATIS_Schluessel_Staat">
+                <SimpleValue>336</SimpleValue>
+            </Value>
+            <Value ColumnRef="Suchbegriff">
+                <SimpleValue>Ecuador</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_kurz">
+                <SimpleValue>Ecuador</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_voll">
+                <SimpleValue>die Republik Ecuador</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsangehoerigkeit">
+                <SimpleValue>ecuadorianisch</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_3">
+                <SimpleValue>ECU</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_2">
+                <SimpleValue>EC</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="DESTATIS_Schluessel_Staat">
+                <SimpleValue>337</SimpleValue>
+            </Value>
+            <Value ColumnRef="Suchbegriff">
+                <SimpleValue>El Salvador</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_kurz">
+                <SimpleValue>El Salvador</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_voll">
+                <SimpleValue>die Republik El Salvador</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsangehoerigkeit">
+                <SimpleValue>salvadorianisch</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_3">
+                <SimpleValue>SLV</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_2">
+                <SimpleValue>SV</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="DESTATIS_Schluessel_Staat">
+                <SimpleValue>340</SimpleValue>
+            </Value>
+            <Value ColumnRef="Suchbegriff">
+                <SimpleValue>Grenada</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_kurz">
+                <SimpleValue>Grenada</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_voll">
+                <SimpleValue>Grenada</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsangehoerigkeit">
+                <SimpleValue>grenadisch</SimpleValue>
+            </Value>
+            <Value ColumnRef="Existenz_ab">
+                <SimpleValue>07.02.1974</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_3">
+                <SimpleValue>GRD</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_2">
+                <SimpleValue>GD</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="DESTATIS_Schluessel_Staat">
+                <SimpleValue>345</SimpleValue>
+            </Value>
+            <Value ColumnRef="Suchbegriff">
+                <SimpleValue>Guatemala</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_kurz">
+                <SimpleValue>Guatemala</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_voll">
+                <SimpleValue>die Republik Guatemala</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsangehoerigkeit">
+                <SimpleValue>guatemaltekisch</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_3">
+                <SimpleValue>GTM</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_2">
+                <SimpleValue>GT</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="DESTATIS_Schluessel_Staat">
+                <SimpleValue>346</SimpleValue>
+            </Value>
+            <Value ColumnRef="Suchbegriff">
+                <SimpleValue>Haiti</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_kurz">
+                <SimpleValue>Haiti</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_voll">
+                <SimpleValue>die Republik Haiti</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsangehoerigkeit">
+                <SimpleValue>haitianisch</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_3">
+                <SimpleValue>HTI</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_2">
+                <SimpleValue>HT</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="DESTATIS_Schluessel_Staat">
+                <SimpleValue>347</SimpleValue>
+            </Value>
+            <Value ColumnRef="Suchbegriff">
+                <SimpleValue>Honduras</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_kurz">
+                <SimpleValue>Honduras</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_voll">
+                <SimpleValue>die Republik Honduras</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsangehoerigkeit">
+                <SimpleValue>honduranisch</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_3">
+                <SimpleValue>HND</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_2">
+                <SimpleValue>HN</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="DESTATIS_Schluessel_Staat">
+                <SimpleValue>348</SimpleValue>
+            </Value>
+            <Value ColumnRef="Suchbegriff">
+                <SimpleValue>Kanada</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_kurz">
+                <SimpleValue>Kanada</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_voll">
+                <SimpleValue>Kanada</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsangehoerigkeit">
+                <SimpleValue>kanadisch</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_3">
+                <SimpleValue>CAN</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_2">
+                <SimpleValue>CA</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="DESTATIS_Schluessel_Staat">
+                <SimpleValue>349</SimpleValue>
+            </Value>
+            <Value ColumnRef="Suchbegriff">
+                <SimpleValue>Kolumbien</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_kurz">
+                <SimpleValue>Kolumbien</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_voll">
+                <SimpleValue>die Republik Kolumbien</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsangehoerigkeit">
+                <SimpleValue>kolumbianisch</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_3">
+                <SimpleValue>COL</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_2">
+                <SimpleValue>CO</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="DESTATIS_Schluessel_Staat">
+                <SimpleValue>351</SimpleValue>
+            </Value>
+            <Value ColumnRef="Suchbegriff">
+                <SimpleValue>Kuba</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_kurz">
+                <SimpleValue>Kuba</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_voll">
+                <SimpleValue>die Republik Kuba</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsangehoerigkeit">
+                <SimpleValue>kubanisch</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_3">
+                <SimpleValue>CUB</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_2">
+                <SimpleValue>CU</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="DESTATIS_Schluessel_Staat">
+                <SimpleValue>353</SimpleValue>
+            </Value>
+            <Value ColumnRef="Suchbegriff">
+                <SimpleValue>Mexiko</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_kurz">
+                <SimpleValue>Mexiko</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_voll">
+                <SimpleValue>die Vereinigten Mexikanischen Staaten</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsangehoerigkeit">
+                <SimpleValue>mexikanisch</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_3">
+                <SimpleValue>MEX</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_2">
+                <SimpleValue>MX</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="DESTATIS_Schluessel_Staat">
+                <SimpleValue>354</SimpleValue>
+            </Value>
+            <Value ColumnRef="Suchbegriff">
+                <SimpleValue>Nicaragua</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_kurz">
+                <SimpleValue>Nicaragua</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_voll">
+                <SimpleValue>die Republik Nicaragua</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsangehoerigkeit">
+                <SimpleValue>nicaraguanisch</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_3">
+                <SimpleValue>NIC</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_2">
+                <SimpleValue>NI</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="DESTATIS_Schluessel_Staat">
+                <SimpleValue>355</SimpleValue>
+            </Value>
+            <Value ColumnRef="Suchbegriff">
+                <SimpleValue>Jamaika</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_kurz">
+                <SimpleValue>Jamaika</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_voll">
+                <SimpleValue>Jamaika</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsangehoerigkeit">
+                <SimpleValue>jamaikanisch</SimpleValue>
+            </Value>
+            <Value ColumnRef="Existenz_ab">
+                <SimpleValue>06.08.1962</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_3">
+                <SimpleValue>JAM</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_2">
+                <SimpleValue>JM</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="DESTATIS_Schluessel_Staat">
+                <SimpleValue>357</SimpleValue>
+            </Value>
+            <Value ColumnRef="Suchbegriff">
+                <SimpleValue>Panama</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_kurz">
+                <SimpleValue>Panama</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_voll">
+                <SimpleValue>die Republik Panama</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsangehoerigkeit">
+                <SimpleValue>panamaisch</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_3">
+                <SimpleValue>PAN</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_2">
+                <SimpleValue>PA</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="DESTATIS_Schluessel_Staat">
+                <SimpleValue>359</SimpleValue>
+            </Value>
+            <Value ColumnRef="Suchbegriff">
+                <SimpleValue>Paraguay</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_kurz">
+                <SimpleValue>Paraguay</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_voll">
+                <SimpleValue>die Republik Paraguay</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsangehoerigkeit">
+                <SimpleValue>paraguayisch</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_3">
+                <SimpleValue>PRY</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_2">
+                <SimpleValue>PY</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="DESTATIS_Schluessel_Staat">
+                <SimpleValue>361</SimpleValue>
+            </Value>
+            <Value ColumnRef="Suchbegriff">
+                <SimpleValue>Peru</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_kurz">
+                <SimpleValue>Peru</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_voll">
+                <SimpleValue>die Republik Peru</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsangehoerigkeit">
+                <SimpleValue>peruanisch</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_3">
+                <SimpleValue>PER</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_2">
+                <SimpleValue>PE</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="DESTATIS_Schluessel_Staat">
+                <SimpleValue>364</SimpleValue>
+            </Value>
+            <Value ColumnRef="Suchbegriff">
+                <SimpleValue>Suriname</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_kurz">
+                <SimpleValue>Suriname</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_voll">
+                <SimpleValue>die Republik Suriname</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsangehoerigkeit">
+                <SimpleValue>surinamisch</SimpleValue>
+            </Value>
+            <Value ColumnRef="Existenz_ab">
+                <SimpleValue>25.11.1975</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_3">
+                <SimpleValue>SUR</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_2">
+                <SimpleValue>SR</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="DESTATIS_Schluessel_Staat">
+                <SimpleValue>365</SimpleValue>
+            </Value>
+            <Value ColumnRef="Suchbegriff">
+                <SimpleValue>Uruguay</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_kurz">
+                <SimpleValue>Uruguay</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_voll">
+                <SimpleValue>die Republik Östlich des Uruguay</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsangehoerigkeit">
+                <SimpleValue>uruguayisch</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_3">
+                <SimpleValue>URY</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_2">
+                <SimpleValue>UY</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="DESTATIS_Schluessel_Staat">
+                <SimpleValue>366</SimpleValue>
+            </Value>
+            <Value ColumnRef="Suchbegriff">
+                <SimpleValue>St. Lucia</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_kurz">
+                <SimpleValue>St. Lucia</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_voll">
+                <SimpleValue>St. Lucia</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsangehoerigkeit">
+                <SimpleValue>lucianisch</SimpleValue>
+            </Value>
+            <Value ColumnRef="Existenz_ab">
+                <SimpleValue>22.02.1979</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_3">
+                <SimpleValue>LCA</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_2">
+                <SimpleValue>LC</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="DESTATIS_Schluessel_Staat">
+                <SimpleValue>367</SimpleValue>
+            </Value>
+            <Value ColumnRef="Suchbegriff">
+                <SimpleValue>Venezuela</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_kurz">
+                <SimpleValue>Bolivarische Republik Venezuela</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_voll">
+                <SimpleValue>die Bolivarische Republik Venezuela</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsangehoerigkeit">
+                <SimpleValue>venezolanisch</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_3">
+                <SimpleValue>VEN</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_2">
+                <SimpleValue>VE</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="DESTATIS_Schluessel_Staat">
+                <SimpleValue>368</SimpleValue>
+            </Value>
+            <Value ColumnRef="Suchbegriff">
+                <SimpleValue>Vereinigte Staaten</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_kurz">
+                <SimpleValue>Vereinigte Staaten</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_voll">
+                <SimpleValue>die Vereinigten Staaten von Amerika</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsangehoerigkeit">
+                <SimpleValue>amerikanisch</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_3">
+                <SimpleValue>USA</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_2">
+                <SimpleValue>US</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="DESTATIS_Schluessel_Staat">
+                <SimpleValue>369</SimpleValue>
+            </Value>
+            <Value ColumnRef="Suchbegriff">
+                <SimpleValue>St. Vincent und die Grenadinen</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_kurz">
+                <SimpleValue>St. Vincent und die Grenadinen</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_voll">
+                <SimpleValue>St. Vincent und die Grenadinen</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsangehoerigkeit">
+                <SimpleValue>vincentisch</SimpleValue>
+            </Value>
+            <Value ColumnRef="Existenz_ab">
+                <SimpleValue>27.10.1979</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_3">
+                <SimpleValue>VCT</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_2">
+                <SimpleValue>VC</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="DESTATIS_Schluessel_Staat">
+                <SimpleValue>370</SimpleValue>
+            </Value>
+            <Value ColumnRef="Suchbegriff">
+                <SimpleValue>St. Kitts und Nevis</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_kurz">
+                <SimpleValue>St. Kitts und Nevis</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_voll">
+                <SimpleValue>die Föderation St. Kitts und Nevis</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsangehoerigkeit">
+                <SimpleValue>von St. Kitts und Nevis</SimpleValue>
+            </Value>
+            <Value ColumnRef="Existenz_ab">
+                <SimpleValue>19.09.1983</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_3">
+                <SimpleValue>KNA</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_2">
+                <SimpleValue>KN</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="DESTATIS_Schluessel_Staat">
+                <SimpleValue>371</SimpleValue>
+            </Value>
+            <Value ColumnRef="Suchbegriff">
+                <SimpleValue>Trinidad und Tobago</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_kurz">
+                <SimpleValue>Trinidad und Tobago</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_voll">
+                <SimpleValue>die Republik Trinidad und Tobago</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsangehoerigkeit">
+                <SimpleValue>von Trinidad und Tobago</SimpleValue>
+            </Value>
+            <Value ColumnRef="Existenz_ab">
+                <SimpleValue>31.08.1962</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_3">
+                <SimpleValue>TTO</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_2">
+                <SimpleValue>TT</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="DESTATIS_Schluessel_Staat">
+                <SimpleValue>421</SimpleValue>
+            </Value>
+            <Value ColumnRef="Suchbegriff">
+                <SimpleValue>Jemen</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_kurz">
+                <SimpleValue>Jemen</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_voll">
+                <SimpleValue>die Republik Jemen</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsangehoerigkeit">
+                <SimpleValue>jemenitisch</SimpleValue>
+            </Value>
+            <Value ColumnRef="Existenz_ab">
+                <SimpleValue>30.11.1967</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_3">
+                <SimpleValue>YEM</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_2">
+                <SimpleValue>YE</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="DESTATIS_Schluessel_Staat">
+                <SimpleValue>422</SimpleValue>
+            </Value>
+            <Value ColumnRef="Suchbegriff">
+                <SimpleValue>Armenien</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_kurz">
+                <SimpleValue>Armenien</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_voll">
+                <SimpleValue>die Republik Armenien</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsangehoerigkeit">
+                <SimpleValue>armenisch</SimpleValue>
+            </Value>
+            <Value ColumnRef="Existenz_ab">
+                <SimpleValue>21.09.1991</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_3">
+                <SimpleValue>ARM</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_2">
+                <SimpleValue>AM</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="DESTATIS_Schluessel_Staat">
+                <SimpleValue>423</SimpleValue>
+            </Value>
+            <Value ColumnRef="Suchbegriff">
+                <SimpleValue>Afghanistan</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_kurz">
+                <SimpleValue>Afghanistan</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_voll">
+                <SimpleValue>die Islamische Republik Afghanistan</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsangehoerigkeit">
+                <SimpleValue>afghanisch</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_3">
+                <SimpleValue>AFG</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_2">
+                <SimpleValue>AF</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="DESTATIS_Schluessel_Staat">
+                <SimpleValue>424</SimpleValue>
+            </Value>
+            <Value ColumnRef="Suchbegriff">
+                <SimpleValue>Bahrain</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_kurz">
+                <SimpleValue>Bahrain</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_voll">
+                <SimpleValue>das Königreich Bahrain</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsangehoerigkeit">
+                <SimpleValue>bahrainisch</SimpleValue>
+            </Value>
+            <Value ColumnRef="Existenz_ab">
+                <SimpleValue>14.08.1971</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_3">
+                <SimpleValue>BHR</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_2">
+                <SimpleValue>BH</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="DESTATIS_Schluessel_Staat">
+                <SimpleValue>425</SimpleValue>
+            </Value>
+            <Value ColumnRef="Suchbegriff">
+                <SimpleValue>Aserbaidschan</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_kurz">
+                <SimpleValue>Aserbaidschan</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_voll">
+                <SimpleValue>die Republik Aserbaidschan</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsangehoerigkeit">
+                <SimpleValue>aserbaidschanisch</SimpleValue>
+            </Value>
+            <Value ColumnRef="Existenz_ab">
+                <SimpleValue>30.08.1991</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_3">
+                <SimpleValue>AZE</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_2">
+                <SimpleValue>AZ</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="DESTATIS_Schluessel_Staat">
+                <SimpleValue>426</SimpleValue>
+            </Value>
+            <Value ColumnRef="Suchbegriff">
+                <SimpleValue>Bhutan</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_kurz">
+                <SimpleValue>Bhutan</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_voll">
+                <SimpleValue>das Königreich Bhutan</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsangehoerigkeit">
+                <SimpleValue>bhutanisch</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_3">
+                <SimpleValue>BTN</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_2">
+                <SimpleValue>BT</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="DESTATIS_Schluessel_Staat">
+                <SimpleValue>427</SimpleValue>
+            </Value>
+            <Value ColumnRef="Suchbegriff">
+                <SimpleValue>Myanmar</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_kurz">
+                <SimpleValue>Myanmar</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_voll">
+                <SimpleValue>die Republik der Union Myanmar</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsangehoerigkeit">
+                <SimpleValue>myanmarisch</SimpleValue>
+            </Value>
+            <Value ColumnRef="Existenz_ab">
+                <SimpleValue>04.01.1948</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_3">
+                <SimpleValue>MMR</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_2">
+                <SimpleValue>MM</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="DESTATIS_Schluessel_Staat">
+                <SimpleValue>429</SimpleValue>
+            </Value>
+            <Value ColumnRef="Suchbegriff">
+                <SimpleValue>Brunei Darussalam</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_kurz">
+                <SimpleValue>Brunei Darussalam</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_voll">
+                <SimpleValue>Brunei Darussalam</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsangehoerigkeit">
+                <SimpleValue>bruneiisch</SimpleValue>
+            </Value>
+            <Value ColumnRef="Existenz_ab">
+                <SimpleValue>01.01.1984</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_3">
+                <SimpleValue>BRN</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_2">
+                <SimpleValue>BN</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="DESTATIS_Schluessel_Staat">
+                <SimpleValue>430</SimpleValue>
+            </Value>
+            <Value ColumnRef="Suchbegriff">
+                <SimpleValue>Georgien</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_kurz">
+                <SimpleValue>Georgien</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_voll">
+                <SimpleValue>Georgien</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsangehoerigkeit">
+                <SimpleValue>georgisch</SimpleValue>
+            </Value>
+            <Value ColumnRef="Existenz_ab">
+                <SimpleValue>09.04.1991</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_3">
+                <SimpleValue>GEO</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_2">
+                <SimpleValue>GE</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="DESTATIS_Schluessel_Staat">
+                <SimpleValue>431</SimpleValue>
+            </Value>
+            <Value ColumnRef="Suchbegriff">
+                <SimpleValue>Sri Lanka</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_kurz">
+                <SimpleValue>Sri Lanka</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_voll">
+                <SimpleValue>die Demokratische Sozialistische Republik Sri Lanka</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsangehoerigkeit">
+                <SimpleValue>sri-lankisch</SimpleValue>
+            </Value>
+            <Value ColumnRef="Existenz_ab">
+                <SimpleValue>04.02.1948</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_3">
+                <SimpleValue>LKA</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_2">
+                <SimpleValue>LK</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="DESTATIS_Schluessel_Staat">
+                <SimpleValue>432</SimpleValue>
+            </Value>
+            <Value ColumnRef="Suchbegriff">
+                <SimpleValue>Vietnam</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_kurz">
+                <SimpleValue>Vietnam</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_voll">
+                <SimpleValue>die Sozialistische Republik Vietnam</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsangehoerigkeit">
+                <SimpleValue>vietnamesisch</SimpleValue>
+            </Value>
+            <Value ColumnRef="Existenz_ab">
+                <SimpleValue>02.07.1976</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_3">
+                <SimpleValue>VNM</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_2">
+                <SimpleValue>VN</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="DESTATIS_Schluessel_Staat">
+                <SimpleValue>434</SimpleValue>
+            </Value>
+            <Value ColumnRef="Suchbegriff">
+                <SimpleValue>Korea, Demokratische Volksrepublik</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_kurz">
+                <SimpleValue>Demokratische Volksrepublik Korea</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_voll">
+                <SimpleValue>die Demokratische Volksrepublik Korea</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsangehoerigkeit">
+                <SimpleValue>der Demokratischen Volksrepublik Korea</SimpleValue>
+            </Value>
+            <Value ColumnRef="Existenz_ab">
+                <SimpleValue>09.09.1948</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_3">
+                <SimpleValue>PRK</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_2">
+                <SimpleValue>KP</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="DESTATIS_Schluessel_Staat">
+                <SimpleValue>436</SimpleValue>
+            </Value>
+            <Value ColumnRef="Suchbegriff">
+                <SimpleValue>Indien</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_kurz">
+                <SimpleValue>Indien</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_voll">
+                <SimpleValue>die Republik Indien</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsangehoerigkeit">
+                <SimpleValue>indisch</SimpleValue>
+            </Value>
+            <Value ColumnRef="Existenz_ab">
+                <SimpleValue>15.08.1947</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_3">
+                <SimpleValue>IND</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_2">
+                <SimpleValue>IN</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="DESTATIS_Schluessel_Staat">
+                <SimpleValue>437</SimpleValue>
+            </Value>
+            <Value ColumnRef="Suchbegriff">
+                <SimpleValue>Indonesien</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_kurz">
+                <SimpleValue>Indonesien</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_voll">
+                <SimpleValue>die Republik Indonesien</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsangehoerigkeit">
+                <SimpleValue>indonesisch</SimpleValue>
+            </Value>
+            <Value ColumnRef="Existenz_ab">
+                <SimpleValue>17.08.1945</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_3">
+                <SimpleValue>IDN</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_2">
+                <SimpleValue>ID</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="DESTATIS_Schluessel_Staat">
+                <SimpleValue>438</SimpleValue>
+            </Value>
+            <Value ColumnRef="Suchbegriff">
+                <SimpleValue>Irak</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_kurz">
+                <SimpleValue>Irak</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_voll">
+                <SimpleValue>die Republik Irak</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsangehoerigkeit">
+                <SimpleValue>irakisch</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_3">
+                <SimpleValue>IRQ</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_2">
+                <SimpleValue>IQ</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="DESTATIS_Schluessel_Staat">
+                <SimpleValue>439</SimpleValue>
+            </Value>
+            <Value ColumnRef="Suchbegriff">
+                <SimpleValue>Iran</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_kurz">
+                <SimpleValue>Islamische Republik Iran</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_voll">
+                <SimpleValue>die Islamische Republik Iran</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsangehoerigkeit">
+                <SimpleValue>iranisch</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_3">
+                <SimpleValue>IRN</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_2">
+                <SimpleValue>IR</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="DESTATIS_Schluessel_Staat">
+                <SimpleValue>441</SimpleValue>
+            </Value>
+            <Value ColumnRef="Suchbegriff">
+                <SimpleValue>Israel</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_kurz">
+                <SimpleValue>Israel</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_voll">
+                <SimpleValue>der Staat Israel</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsangehoerigkeit">
+                <SimpleValue>israelisch</SimpleValue>
+            </Value>
+            <Value ColumnRef="Existenz_ab">
+                <SimpleValue>14.05.1948</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_3">
+                <SimpleValue>ISR</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_2">
+                <SimpleValue>IL</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="DESTATIS_Schluessel_Staat">
+                <SimpleValue>442</SimpleValue>
+            </Value>
+            <Value ColumnRef="Suchbegriff">
+                <SimpleValue>Japan</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_kurz">
+                <SimpleValue>Japan</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_voll">
+                <SimpleValue>Japan</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsangehoerigkeit">
+                <SimpleValue>japanisch</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_3">
+                <SimpleValue>JPN</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_2">
+                <SimpleValue>JP</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="DESTATIS_Schluessel_Staat">
+                <SimpleValue>444</SimpleValue>
+            </Value>
+            <Value ColumnRef="Suchbegriff">
+                <SimpleValue>Kasachstan</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_kurz">
+                <SimpleValue>Kasachstan</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_voll">
+                <SimpleValue>die Republik Kasachstan</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsangehoerigkeit">
+                <SimpleValue>kasachisch</SimpleValue>
+            </Value>
+            <Value ColumnRef="Existenz_ab">
+                <SimpleValue>16.12.1991</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_3">
+                <SimpleValue>KAZ</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_2">
+                <SimpleValue>KZ</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="DESTATIS_Schluessel_Staat">
+                <SimpleValue>445</SimpleValue>
+            </Value>
+            <Value ColumnRef="Suchbegriff">
+                <SimpleValue>Jordanien</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_kurz">
+                <SimpleValue>Jordanien</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_voll">
+                <SimpleValue>das Haschemitische Königreich Jordanien</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsangehoerigkeit">
+                <SimpleValue>jordanisch</SimpleValue>
+            </Value>
+            <Value ColumnRef="Existenz_ab">
+                <SimpleValue>25.05.1946</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_3">
+                <SimpleValue>JOR</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_2">
+                <SimpleValue>JO</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="DESTATIS_Schluessel_Staat">
+                <SimpleValue>446</SimpleValue>
+            </Value>
+            <Value ColumnRef="Suchbegriff">
+                <SimpleValue>Kambodscha</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_kurz">
+                <SimpleValue>Kambodscha</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_voll">
+                <SimpleValue>das Königreich Kambodscha</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsangehoerigkeit">
+                <SimpleValue>kambodschanisch</SimpleValue>
+            </Value>
+            <Value ColumnRef="Existenz_ab">
+                <SimpleValue>09.11.1953</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_3">
+                <SimpleValue>KHM</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_2">
+                <SimpleValue>KH</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="DESTATIS_Schluessel_Staat">
+                <SimpleValue>447</SimpleValue>
+            </Value>
+            <Value ColumnRef="Suchbegriff">
+                <SimpleValue>Katar</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_kurz">
+                <SimpleValue>Katar</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_voll">
+                <SimpleValue>der Staat Katar</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsangehoerigkeit">
+                <SimpleValue>katarisch</SimpleValue>
+            </Value>
+            <Value ColumnRef="Existenz_ab">
+                <SimpleValue>01.09.1971</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_3">
+                <SimpleValue>QAT</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_2">
+                <SimpleValue>QA</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="DESTATIS_Schluessel_Staat">
+                <SimpleValue>448</SimpleValue>
+            </Value>
+            <Value ColumnRef="Suchbegriff">
+                <SimpleValue>Kuwait</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_kurz">
+                <SimpleValue>Kuwait</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_voll">
+                <SimpleValue>der Staat Kuwait</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsangehoerigkeit">
+                <SimpleValue>kuwaitisch</SimpleValue>
+            </Value>
+            <Value ColumnRef="Existenz_ab">
+                <SimpleValue>19.06.1961</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_3">
+                <SimpleValue>KWT</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_2">
+                <SimpleValue>KW</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="DESTATIS_Schluessel_Staat">
+                <SimpleValue>449</SimpleValue>
+            </Value>
+            <Value ColumnRef="Suchbegriff">
+                <SimpleValue>Laos</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_kurz">
+                <SimpleValue>Demokratische Volksrepublik Laos</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_voll">
+                <SimpleValue>die Demokratische Volksrepublik Laos</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsangehoerigkeit">
+                <SimpleValue>laotisch</SimpleValue>
+            </Value>
+            <Value ColumnRef="Existenz_ab">
+                <SimpleValue>20.07.1954</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_3">
+                <SimpleValue>LAO</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_2">
+                <SimpleValue>LA</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="DESTATIS_Schluessel_Staat">
+                <SimpleValue>450</SimpleValue>
+            </Value>
+            <Value ColumnRef="Suchbegriff">
+                <SimpleValue>Kirgisistan</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_kurz">
+                <SimpleValue>Kirgisistan</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_voll">
+                <SimpleValue>die Kirgisische Republik</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsangehoerigkeit">
+                <SimpleValue>kirgisisch</SimpleValue>
+            </Value>
+            <Value ColumnRef="Existenz_ab">
+                <SimpleValue>31.08.1991</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_3">
+                <SimpleValue>KGZ</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_2">
+                <SimpleValue>KG</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="DESTATIS_Schluessel_Staat">
+                <SimpleValue>451</SimpleValue>
+            </Value>
+            <Value ColumnRef="Suchbegriff">
+                <SimpleValue>Libanon</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_kurz">
+                <SimpleValue>Libanon</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_voll">
+                <SimpleValue>die Libanesische Republik</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsangehoerigkeit">
+                <SimpleValue>libanesisch</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_3">
+                <SimpleValue>LBN</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_2">
+                <SimpleValue>LB</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="DESTATIS_Schluessel_Staat">
+                <SimpleValue>454</SimpleValue>
+            </Value>
+            <Value ColumnRef="Suchbegriff">
+                <SimpleValue>Malediven</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_kurz">
+                <SimpleValue>Malediven</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_voll">
+                <SimpleValue>die Republik Malediven</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsangehoerigkeit">
+                <SimpleValue>maledivisch</SimpleValue>
+            </Value>
+            <Value ColumnRef="Existenz_ab">
+                <SimpleValue>26.07.1965</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_3">
+                <SimpleValue>MDV</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_2">
+                <SimpleValue>MV</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="DESTATIS_Schluessel_Staat">
+                <SimpleValue>456</SimpleValue>
+            </Value>
+            <Value ColumnRef="Suchbegriff">
+                <SimpleValue>Oman</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_kurz">
+                <SimpleValue>Oman</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_voll">
+                <SimpleValue>das Sultanat Oman</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsangehoerigkeit">
+                <SimpleValue>omanisch</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_3">
+                <SimpleValue>OMN</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_2">
+                <SimpleValue>OM</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="DESTATIS_Schluessel_Staat">
+                <SimpleValue>457</SimpleValue>
+            </Value>
+            <Value ColumnRef="Suchbegriff">
+                <SimpleValue>Mongolei</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_kurz">
+                <SimpleValue>Mongolei</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_voll">
+                <SimpleValue>die Mongolei</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsangehoerigkeit">
+                <SimpleValue>mongolisch</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_3">
+                <SimpleValue>MNG</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_2">
+                <SimpleValue>MN</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="DESTATIS_Schluessel_Staat">
+                <SimpleValue>458</SimpleValue>
+            </Value>
+            <Value ColumnRef="Suchbegriff">
+                <SimpleValue>Nepal</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_kurz">
+                <SimpleValue>Nepal</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_voll">
+                <SimpleValue>die Demokratische Bundesrepublik Nepal</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsangehoerigkeit">
+                <SimpleValue>nepalesisch</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_3">
+                <SimpleValue>NPL</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_2">
+                <SimpleValue>NP</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="DESTATIS_Schluessel_Staat">
+                <SimpleValue>460</SimpleValue>
+            </Value>
+            <Value ColumnRef="Suchbegriff">
+                <SimpleValue>Bangladesch</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_kurz">
+                <SimpleValue>Bangladesch</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_voll">
+                <SimpleValue>die Volksrepublik Bangladesch</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsangehoerigkeit">
+                <SimpleValue>bangladeschisch</SimpleValue>
+            </Value>
+            <Value ColumnRef="Existenz_ab">
+                <SimpleValue>26.03.1971</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_3">
+                <SimpleValue>BGD</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_2">
+                <SimpleValue>BD</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="DESTATIS_Schluessel_Staat">
+                <SimpleValue>461</SimpleValue>
+            </Value>
+            <Value ColumnRef="Suchbegriff">
+                <SimpleValue>Pakistan</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_kurz">
+                <SimpleValue>Pakistan</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_voll">
+                <SimpleValue>die Islamische Republik Pakistan</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsangehoerigkeit">
+                <SimpleValue>pakistanisch</SimpleValue>
+            </Value>
+            <Value ColumnRef="Existenz_ab">
+                <SimpleValue>14.08.1947</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_3">
+                <SimpleValue>PAK</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_2">
+                <SimpleValue>PK</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="DESTATIS_Schluessel_Staat">
+                <SimpleValue>462</SimpleValue>
+            </Value>
+            <Value ColumnRef="Suchbegriff">
+                <SimpleValue>Philippinen</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_kurz">
+                <SimpleValue>Philippinen</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_voll">
+                <SimpleValue>die Republik der Philippinen</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsangehoerigkeit">
+                <SimpleValue>philippinisch</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_3">
+                <SimpleValue>PHL</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_2">
+                <SimpleValue>PH</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="DESTATIS_Schluessel_Staat">
+                <SimpleValue>467</SimpleValue>
+            </Value>
+            <Value ColumnRef="Suchbegriff">
+                <SimpleValue>Korea, Republik</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_kurz">
+                <SimpleValue>Republik Korea</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_voll">
+                <SimpleValue>die Republik Korea</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsangehoerigkeit">
+                <SimpleValue>der Republik Korea</SimpleValue>
+            </Value>
+            <Value ColumnRef="Existenz_ab">
+                <SimpleValue>15.08.1948</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_3">
+                <SimpleValue>KOR</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_2">
+                <SimpleValue>KR</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="DESTATIS_Schluessel_Staat">
+                <SimpleValue>469</SimpleValue>
+            </Value>
+            <Value ColumnRef="Suchbegriff">
+                <SimpleValue>Vereinigte Arabische Emirate</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_kurz">
+                <SimpleValue>Vereinigte Arabische Emirate</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_voll">
+                <SimpleValue>die Vereinigten Arabischen Emirate (Abu Dhabi, Adschman, Dubai, Fudschaira, Ras al Chaima, Schardscha, Umm al Kaiwain)</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsangehoerigkeit">
+                <SimpleValue>der Vereinigten Arabischen Emirate</SimpleValue>
+            </Value>
+            <Value ColumnRef="Existenz_ab">
+                <SimpleValue>02.12.1971</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_3">
+                <SimpleValue>ARE</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_2">
+                <SimpleValue>AE</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="DESTATIS_Schluessel_Staat">
+                <SimpleValue>470</SimpleValue>
+            </Value>
+            <Value ColumnRef="Suchbegriff">
+                <SimpleValue>Tadschikistan</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_kurz">
+                <SimpleValue>Tadschikistan</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_voll">
+                <SimpleValue>die Republik Tadschikistan</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsangehoerigkeit">
+                <SimpleValue>tadschikisch</SimpleValue>
+            </Value>
+            <Value ColumnRef="Existenz_ab">
+                <SimpleValue>09.09.1991</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_3">
+                <SimpleValue>TJK</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_2">
+                <SimpleValue>TJ</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="DESTATIS_Schluessel_Staat">
+                <SimpleValue>471</SimpleValue>
+            </Value>
+            <Value ColumnRef="Suchbegriff">
+                <SimpleValue>Turkmenistan</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_kurz">
+                <SimpleValue>Turkmenistan</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_voll">
+                <SimpleValue>Turkmenistan</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsangehoerigkeit">
+                <SimpleValue>turkmenisch</SimpleValue>
+            </Value>
+            <Value ColumnRef="Existenz_ab">
+                <SimpleValue>27.10.1991</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_3">
+                <SimpleValue>TKM</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_2">
+                <SimpleValue>TM</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="DESTATIS_Schluessel_Staat">
+                <SimpleValue>472</SimpleValue>
+            </Value>
+            <Value ColumnRef="Suchbegriff">
+                <SimpleValue>Saudi-Arabien</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_kurz">
+                <SimpleValue>Saudi-Arabien</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_voll">
+                <SimpleValue>das Königreich Saudi-Arabien</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsangehoerigkeit">
+                <SimpleValue>saudi-arabisch</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_3">
+                <SimpleValue>SAU</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_2">
+                <SimpleValue>SA</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="DESTATIS_Schluessel_Staat">
+                <SimpleValue>474</SimpleValue>
+            </Value>
+            <Value ColumnRef="Suchbegriff">
+                <SimpleValue>Singapur</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_kurz">
+                <SimpleValue>Singapur</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_voll">
+                <SimpleValue>die Republik Singapur</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsangehoerigkeit">
+                <SimpleValue>singapurisch</SimpleValue>
+            </Value>
+            <Value ColumnRef="Existenz_ab">
+                <SimpleValue>08.04.1980</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_3">
+                <SimpleValue>SGP</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_2">
+                <SimpleValue>SG</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="DESTATIS_Schluessel_Staat">
+                <SimpleValue>475</SimpleValue>
+            </Value>
+            <Value ColumnRef="Suchbegriff">
+                <SimpleValue>Syrien</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_kurz">
+                <SimpleValue>Arabische Republik Syrien</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_voll">
+                <SimpleValue>die Arabische Republik Syrien</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsangehoerigkeit">
+                <SimpleValue>syrisch</SimpleValue>
+            </Value>
+            <Value ColumnRef="Existenz_ab">
+                <SimpleValue>17.04.1946</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_3">
+                <SimpleValue>SYR</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_2">
+                <SimpleValue>SY</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="DESTATIS_Schluessel_Staat">
+                <SimpleValue>476</SimpleValue>
+            </Value>
+            <Value ColumnRef="Suchbegriff">
+                <SimpleValue>Thailand</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_kurz">
+                <SimpleValue>Thailand</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_voll">
+                <SimpleValue>das Königreich Thailand</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsangehoerigkeit">
+                <SimpleValue>thailändisch</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_3">
+                <SimpleValue>THA</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_2">
+                <SimpleValue>TH</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="DESTATIS_Schluessel_Staat">
+                <SimpleValue>477</SimpleValue>
+            </Value>
+            <Value ColumnRef="Suchbegriff">
+                <SimpleValue>Usbekistan</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_kurz">
+                <SimpleValue>Usbekistan</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_voll">
+                <SimpleValue>die Republik Usbekistan</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsangehoerigkeit">
+                <SimpleValue>usbekisch</SimpleValue>
+            </Value>
+            <Value ColumnRef="Existenz_ab">
+                <SimpleValue>01.09.1991</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_3">
+                <SimpleValue>UZB</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_2">
+                <SimpleValue>UZ</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="DESTATIS_Schluessel_Staat">
+                <SimpleValue>479</SimpleValue>
+            </Value>
+            <Value ColumnRef="Suchbegriff">
+                <SimpleValue>China</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_kurz">
+                <SimpleValue>China</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_voll">
+                <SimpleValue>die Volksrepublik China</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsangehoerigkeit">
+                <SimpleValue>chinesisch</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_3">
+                <SimpleValue>CHN</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_2">
+                <SimpleValue>CN</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="DESTATIS_Schluessel_Staat">
+                <SimpleValue>482</SimpleValue>
+            </Value>
+            <Value ColumnRef="Suchbegriff">
+                <SimpleValue>Malaysia</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_kurz">
+                <SimpleValue>Malaysia</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_voll">
+                <SimpleValue>Malaysia</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsangehoerigkeit">
+                <SimpleValue>malaysisch</SimpleValue>
+            </Value>
+            <Value ColumnRef="Existenz_ab">
+                <SimpleValue>31.08.1957</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_3">
+                <SimpleValue>MYS</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_2">
+                <SimpleValue>MY</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="DESTATIS_Schluessel_Staat">
+                <SimpleValue>483</SimpleValue>
+            </Value>
+            <Value ColumnRef="Suchbegriff">
+                <SimpleValue>Timor-Leste</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_kurz">
+                <SimpleValue>Timor-Leste</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_voll">
+                <SimpleValue>die Demokratische Republik Timor-Leste</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsangehoerigkeit">
+                <SimpleValue>von Timor-Leste</SimpleValue>
+            </Value>
+            <Value ColumnRef="Existenz_ab">
+                <SimpleValue>20.05.2002</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_3">
+                <SimpleValue>TLS</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_2">
+                <SimpleValue>TL</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="DESTATIS_Schluessel_Staat">
+                <SimpleValue>523</SimpleValue>
+            </Value>
+            <Value ColumnRef="Suchbegriff">
+                <SimpleValue>Australien</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_kurz">
+                <SimpleValue>Australien</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_voll">
+                <SimpleValue>Australien</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsangehoerigkeit">
+                <SimpleValue>australisch</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_3">
+                <SimpleValue>AUS</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_2">
+                <SimpleValue>AU</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="DESTATIS_Schluessel_Staat">
+                <SimpleValue>524</SimpleValue>
+            </Value>
+            <Value ColumnRef="Suchbegriff">
+                <SimpleValue>Salomonen</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_kurz">
+                <SimpleValue>Salomonen</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_voll">
+                <SimpleValue>die Salomonen</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsangehoerigkeit">
+                <SimpleValue>salomonisch</SimpleValue>
+            </Value>
+            <Value ColumnRef="Existenz_ab">
+                <SimpleValue>07.07.1978</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_3">
+                <SimpleValue>SLB</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_2">
+                <SimpleValue>SB</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="DESTATIS_Schluessel_Staat">
+                <SimpleValue>526</SimpleValue>
+            </Value>
+            <Value ColumnRef="Suchbegriff">
+                <SimpleValue>Fidschi</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_kurz">
+                <SimpleValue>Fidschi</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_voll">
+                <SimpleValue>die Republik Fidschi</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsangehoerigkeit">
+                <SimpleValue>fidschianisch</SimpleValue>
+            </Value>
+            <Value ColumnRef="Existenz_ab">
+                <SimpleValue>10.10.1970</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_3">
+                <SimpleValue>FJI</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_2">
+                <SimpleValue>FJ</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="DESTATIS_Schluessel_Staat">
+                <SimpleValue>527</SimpleValue>
+            </Value>
+            <Value ColumnRef="Suchbegriff">
+                <SimpleValue>Cookinseln</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_kurz">
+                <SimpleValue>Cookinseln</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_voll">
+                <SimpleValue>die Cookinseln</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsangehoerigkeit">
+                <SimpleValue>neuseeländisch</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_3">
+                <SimpleValue>COK</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_2">
+                <SimpleValue>CK</SimpleValue>
+            </Value>
+            <Value ColumnRef="Hinweis">
+                <SimpleValue>Die Cookinseln verfügen über keine eigene Staatsangehörigkeit. Die Staatsangehörigen weisen sich mit Dokumenten von Neuseeland aus, mit dem die Cookinseln durch entsprechende Verträge „in freier Assoziiierung“ verbunden sind.</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="DESTATIS_Schluessel_Staat">
+                <SimpleValue>530</SimpleValue>
+            </Value>
+            <Value ColumnRef="Suchbegriff">
+                <SimpleValue>Kiribati</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_kurz">
+                <SimpleValue>Kiribati</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_voll">
+                <SimpleValue>die Republik Kiribati</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsangehoerigkeit">
+                <SimpleValue>kiribatisch</SimpleValue>
+            </Value>
+            <Value ColumnRef="Existenz_ab">
+                <SimpleValue>12.07.1979</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_3">
+                <SimpleValue>KIR</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_2">
+                <SimpleValue>KI</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="DESTATIS_Schluessel_Staat">
+                <SimpleValue>531</SimpleValue>
+            </Value>
+            <Value ColumnRef="Suchbegriff">
+                <SimpleValue>Nauru</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_kurz">
+                <SimpleValue>Nauru</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_voll">
+                <SimpleValue>die Republik Nauru</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsangehoerigkeit">
+                <SimpleValue>nauruisch</SimpleValue>
+            </Value>
+            <Value ColumnRef="Existenz_ab">
+                <SimpleValue>31.01.1968</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_3">
+                <SimpleValue>NRU</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_2">
+                <SimpleValue>NR</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="DESTATIS_Schluessel_Staat">
+                <SimpleValue>532</SimpleValue>
+            </Value>
+            <Value ColumnRef="Suchbegriff">
+                <SimpleValue>Vanuatu</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_kurz">
+                <SimpleValue>Vanuatu</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_voll">
+                <SimpleValue>die Republik Vanuatu</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsangehoerigkeit">
+                <SimpleValue>vanuatuisch</SimpleValue>
+            </Value>
+            <Value ColumnRef="Existenz_ab">
+                <SimpleValue>30.07.1980</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_3">
+                <SimpleValue>VUT</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_2">
+                <SimpleValue>VU</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="DESTATIS_Schluessel_Staat">
+                <SimpleValue>533</SimpleValue>
+            </Value>
+            <Value ColumnRef="Suchbegriff">
+                <SimpleValue>Niue</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_kurz">
+                <SimpleValue>Niue</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_voll">
+                <SimpleValue>Niue</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsangehoerigkeit">
+                <SimpleValue>neuseeländisch</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_3">
+                <SimpleValue>NIU</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_2">
+                <SimpleValue>NU</SimpleValue>
+            </Value>
+            <Value ColumnRef="Hinweis">
+                <SimpleValue>Niue verfügt über keine eigene Staatsangehörigkeit. Die Staatsangehörigen weisen sich mit Dokumenten von Neuseeland aus, mit denen Niue durch entsprechende Verträge „in freier Assoziiierung“ verbunden ist.</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="DESTATIS_Schluessel_Staat">
+                <SimpleValue>536</SimpleValue>
+            </Value>
+            <Value ColumnRef="Suchbegriff">
+                <SimpleValue>Neuseeland</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_kurz">
+                <SimpleValue>Neuseeland</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_voll">
+                <SimpleValue>Neuseeland</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsangehoerigkeit">
+                <SimpleValue>neuseeländisch</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_3">
+                <SimpleValue>NZL</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_2">
+                <SimpleValue>NZ</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="DESTATIS_Schluessel_Staat">
+                <SimpleValue>537</SimpleValue>
+            </Value>
+            <Value ColumnRef="Suchbegriff">
+                <SimpleValue>Palau</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_kurz">
+                <SimpleValue>Palau</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_voll">
+                <SimpleValue>die Republik Palau</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsangehoerigkeit">
+                <SimpleValue>palauisch</SimpleValue>
+            </Value>
+            <Value ColumnRef="Existenz_ab">
+                <SimpleValue>01.10.1994</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_3">
+                <SimpleValue>PLW</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_2">
+                <SimpleValue>PW</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="DESTATIS_Schluessel_Staat">
+                <SimpleValue>538</SimpleValue>
+            </Value>
+            <Value ColumnRef="Suchbegriff">
+                <SimpleValue>Papua-Neuguinea</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_kurz">
+                <SimpleValue>Papua-Neuguinea</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_voll">
+                <SimpleValue>der Unabhängige Staat Papua-Neuguinea</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsangehoerigkeit">
+                <SimpleValue>papua-neuguineisch</SimpleValue>
+            </Value>
+            <Value ColumnRef="Existenz_ab">
+                <SimpleValue>16.09.1975</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_3">
+                <SimpleValue>PNG</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_2">
+                <SimpleValue>PG</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="DESTATIS_Schluessel_Staat">
+                <SimpleValue>540</SimpleValue>
+            </Value>
+            <Value ColumnRef="Suchbegriff">
+                <SimpleValue>Tuvalu</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_kurz">
+                <SimpleValue>Tuvalu</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_voll">
+                <SimpleValue>Tuvalu</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsangehoerigkeit">
+                <SimpleValue>tuvaluisch</SimpleValue>
+            </Value>
+            <Value ColumnRef="Existenz_ab">
+                <SimpleValue>01.10.1978</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_3">
+                <SimpleValue>TUV</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_2">
+                <SimpleValue>TV</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="DESTATIS_Schluessel_Staat">
+                <SimpleValue>541</SimpleValue>
+            </Value>
+            <Value ColumnRef="Suchbegriff">
+                <SimpleValue>Tonga</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_kurz">
+                <SimpleValue>Tonga</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_voll">
+                <SimpleValue>das Königreich Tonga</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsangehoerigkeit">
+                <SimpleValue>tongaisch</SimpleValue>
+            </Value>
+            <Value ColumnRef="Existenz_ab">
+                <SimpleValue>04.06.1970</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_3">
+                <SimpleValue>TON</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_2">
+                <SimpleValue>TO</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="DESTATIS_Schluessel_Staat">
+                <SimpleValue>543</SimpleValue>
+            </Value>
+            <Value ColumnRef="Suchbegriff">
+                <SimpleValue>Samoa</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_kurz">
+                <SimpleValue>Samoa</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_voll">
+                <SimpleValue>der Unabhängige Staat Samoa</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsangehoerigkeit">
+                <SimpleValue>samoanisch</SimpleValue>
+            </Value>
+            <Value ColumnRef="Existenz_ab">
+                <SimpleValue>01.01.1962</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_3">
+                <SimpleValue>WSM</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_2">
+                <SimpleValue>WS</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="DESTATIS_Schluessel_Staat">
+                <SimpleValue>544</SimpleValue>
+            </Value>
+            <Value ColumnRef="Suchbegriff">
+                <SimpleValue>Marshallinseln</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_kurz">
+                <SimpleValue>Marshallinseln</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_voll">
+                <SimpleValue>die Republik Marshallinseln</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsangehoerigkeit">
+                <SimpleValue>marshallisch</SimpleValue>
+            </Value>
+            <Value ColumnRef="Existenz_ab">
+                <SimpleValue>22.12.1990</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_3">
+                <SimpleValue>MHL</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_2">
+                <SimpleValue>MH</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="DESTATIS_Schluessel_Staat">
+                <SimpleValue>545</SimpleValue>
+            </Value>
+            <Value ColumnRef="Suchbegriff">
+                <SimpleValue>Mikronesien</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_kurz">
+                <SimpleValue>Föderierte Staaten von Mikronesien</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsname_voll">
+                <SimpleValue>die Föderierten Staaten von Mikronesien</SimpleValue>
+            </Value>
+            <Value ColumnRef="Staatsangehoerigkeit">
+                <SimpleValue>mikronesisch</SimpleValue>
+            </Value>
+            <Value ColumnRef="Existenz_ab">
+                <SimpleValue>22.12.1990</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_3">
+                <SimpleValue>FSM</SimpleValue>
+            </Value>
+            <Value ColumnRef="ISO_2">
+                <SimpleValue>FM</SimpleValue>
+            </Value>
+        </Row>
+    </SimpleCodeList>
+</gc:CodeList>

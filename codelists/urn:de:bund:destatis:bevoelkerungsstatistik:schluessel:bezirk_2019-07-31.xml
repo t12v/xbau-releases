@@ -1,0 +1,367 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gc:CodeList xmlns:gc="http://docs.oasis-open.org/codelist/ns/genericode/1.0/"
+   xmlns:xoev-cl-2="http://xoev.de/schemata/genericode/2"
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+   <Annotation>
+      <Description>
+         <xoev-cl-2:nameKurz>Bezirk</xoev-cl-2:nameKurz>
+         <xoev-cl-2:beschreibung-codeliste>Die Bundesrepublik Deutschland ist ein Zusammenschluss
+            von Bundesländern. Die meisten Bundesländer umfassen mehrere Kreise und Bezirke bzw.
+            Regierungsbezirke. Diese Codeliste stellt alle Bezirke nach dem Gemeindeverzeichnis des
+            Statistischen Bundesamtes dar. Dieser Code ist auch Bestandteil des Amtlichen
+            Gemeindeschlüssels (AGS).</xoev-cl-2:beschreibung-codeliste>
+         <xoev-cl-2:beschreibung-versionCodeliste>Update am 10.05.2023: Diese Codeliste wurde von
+            der KoSIT angepasst um Konformität mit Codelistenregelungen herzustellen. Es gibt keine
+            inhaltlichen Änderungen.</xoev-cl-2:beschreibung-versionCodeliste>
+         <xoev-cl-2:herausgebernameKurz>Destatis</xoev-cl-2:herausgebernameKurz>
+         <xoev-cl-2:datumGueltigkeitAb>2019-07-31</xoev-cl-2:datumGueltigkeitAb>
+         <xoev-cl-2:versionXOEVHandbuch>2.1</xoev-cl-2:versionXOEVHandbuch>
+         <xoev-cl-2:aenderungZurVorversion>Hinweis Stadt-/Ortsteil bzw.
+            Stadtbezirk</xoev-cl-2:aenderungZurVorversion>
+      </Description>
+   </Annotation>
+   <Identification>
+      <ShortName>Bezirk</ShortName>
+      <LongName>Bezirke bzw. Regierungsbezirke der deutschen Bundesländer nach dem Gemeindeverzeichnis des Statistischen Bundesamtes</LongName>
+      <Version>2019-07-31</Version>
+      <CanonicalUri>urn:de:bund:destatis:bevoelkerungsstatistik:schluessel:bezirk</CanonicalUri>
+      <CanonicalVersionUri>urn:de:bund:destatis:bevoelkerungsstatistik:schluessel:bezirk_2019-07-31</CanonicalVersionUri>
+      <Agency>
+         <LongName>Statistisches Bundesamt, Wiesbaden</LongName>
+      </Agency>
+   </Identification>
+   <ColumnSet>
+      <Column Id="SCHLUESSEL" Use="required">
+         <ShortName>SCHLUESSEL</ShortName>
+         <Data Type="string"/>
+      </Column>
+      <Column Id="Bezeichnung" Use="required">
+         <ShortName>Bezeichnung</ShortName>
+         <Data Type="string"/>
+      </Column>
+      <Column Id="Hinweis" Use="optional">
+         <ShortName>Hinweis</ShortName>
+         <Data Type="string"/>
+      </Column>
+      <Key Id="codeKey">
+         <Annotation>
+            <AppInfo>
+               <xoev-cl-2:xoev-code/>
+            </AppInfo>
+         </Annotation>
+         <ShortName>codeKey</ShortName>
+         <ColumnRef Ref="SCHLUESSEL"/>
+      </Key>
+   </ColumnSet>
+   <SimpleCodeList>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>021</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Bezirk Hamburg-Mitte</SimpleValue>
+         </Value>
+         <Value ColumnRef="Hinweis">
+            <SimpleValue>Stadt-/Ortsteil bzw. Stadtbezirk</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>022</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Bezirk Altona</SimpleValue>
+         </Value>
+         <Value ColumnRef="Hinweis">
+            <SimpleValue>Stadt-/Ortsteil bzw. Stadtbezirk</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>023</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Bezirk Eimsbüttel</SimpleValue>
+         </Value>
+         <Value ColumnRef="Hinweis">
+            <SimpleValue>Stadt-/Ortsteil bzw. Stadtbezirk</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>024</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Bezirk Hamburg-Nord</SimpleValue>
+         </Value>
+         <Value ColumnRef="Hinweis">
+            <SimpleValue>Stadt-/Ortsteil bzw. Stadtbezirk</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>025</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Bezirk Wandsbek</SimpleValue>
+         </Value>
+         <Value ColumnRef="Hinweis">
+            <SimpleValue>Stadt-/Ortsteil bzw. Stadtbezirk</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>026</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Bezirk Bergedorf</SimpleValue>
+         </Value>
+         <Value ColumnRef="Hinweis">
+            <SimpleValue>Stadt-/Ortsteil bzw. Stadtbezirk</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>027</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Bezirk Harburg</SimpleValue>
+         </Value>
+         <Value ColumnRef="Hinweis">
+            <SimpleValue>Stadt-/Ortsteil bzw. Stadtbezirk</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>031</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Statistische Region Braunschweig</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>032</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Statistische Region Hannover</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>033</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Statistische Region Lüneburg</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>034</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Statistische Region Weser-Ems</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>051</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Reg.-Bez. Düsseldorf</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>053</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Reg.-Bez. Köln</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>055</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Reg.-Bez. Münster</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>057</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Reg.-Bez. Detmold</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>059</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Reg.-Bez. Arnsberg</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>064</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Reg.-Bez. Darmstadt</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>065</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Reg.-Bez. Gießen</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>066</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Reg.-Bez. Kassel</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>071</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>früher: Reg.-Bez. Koblenz</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>072</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>früher: Reg.-Bez. Trier</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>073</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>früher: Reg.-Bez. Rheinhessen-Pfalz</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>081</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Reg.-Bez. Stuttgart</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>082</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Reg.-Bez. Karlsruhe</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>083</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Reg.-Bez. Freiburg</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>084</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Reg.-Bez. Tübingen</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>091</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Oberbayern</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>092</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Niederbayern</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>093</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Oberpfalz</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>094</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Oberfranken</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>095</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Mittelfranken</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>096</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Unterfranken</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>097</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Schwaben</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>145</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>früher: Direktionsbezirk Chemnitz</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>146</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>früher: Direktionsbezirk Dresden</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>147</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>früher: Direktionsbezirk Leipzig</SimpleValue>
+         </Value>
+      </Row>
+   </SimpleCodeList>
+</gc:CodeList>

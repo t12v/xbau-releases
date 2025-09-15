@@ -1,0 +1,382 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gc:CodeList xmlns:gc="http://docs.oasis-open.org/codelist/ns/genericode/1.0/"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xmlns:xoev-cl-4="http://xoev.de/schemata/genericode/4">
+   <Annotation>
+      <Description>
+         <xoev-cl-4:shortName>XBau Status Bauportal</xoev-cl-4:shortName>
+         <xoev-cl-4:codelistDescription>Mögliche Ausprägungen der Statusinformation, die die Bauaufsichtsbehörde ans Bauportal senden kann. Entsprechend wird der Lebenszyklus zum Vorgang im Portal auf der Basis des Vorgangs in der Behörde synchronisiert.</xoev-cl-4:codelistDescription>
+         <xoev-cl-4:agencyShortName>BMK</xoev-cl-4:agencyShortName>
+         <xoev-cl-4:versionHandbook>1.2</xoev-cl-4:versionHandbook>
+      </Description>
+   </Annotation>
+   <Identification>
+      <ShortName>statusbauportal</ShortName>
+      <LongName>XBau Status Bauportal</LongName>
+      <Version>1.0</Version>
+      <CanonicalUri>urn:xoev-de:xbau:codeliste:statusbauportal</CanonicalUri>
+      <CanonicalVersionUri>urn:xoev-de:xbau:codeliste:statusbauportal_1.0</CanonicalVersionUri>
+      <Agency>
+         <LongName>Bauministerkonferenz</LongName>
+      </Agency>
+   </Identification>
+   <ColumnSet>
+      <Column Id="code" Use="required">
+         <ShortName>code</ShortName>
+         <LongName>Code</LongName>
+         <Data Type="string"/>
+      </Column>
+      <Column Id="beschreibung" Use="required">
+         <ShortName>beschreibung</ShortName>
+         <LongName>Beschreibung</LongName>
+         <Data Type="string"/>
+      </Column>
+      <Column Id="hinweis" Use="optional">
+         <ShortName>hinweis</ShortName>
+         <LongName>Hinweis</LongName>
+         <Data Type="string"/>
+      </Column>
+      <Column Id="wirkungProjektraum" Use="optional">
+         <ShortName>wirkungProjektraum</ShortName>
+         <LongName>Auswirkung der Statusinformation auf das Verhalten des Projektraums im Portal</LongName>
+         <Data Type="string"/>
+      </Column>
+      <Key Id="codeKey">
+         <Annotation>
+            <AppInfo>
+               <xoev-cl-4:recommendedKeyColumn/>
+            </AppInfo>
+         </Annotation>
+         <ShortName>codeKey</ShortName>
+         <ColumnRef Ref="code"/>
+      </Key>
+   </ColumnSet>
+   <SimpleCodeList>
+      <Row>
+         <Value ColumnRef="code">
+            <SimpleValue>01</SimpleValue>
+         </Value>
+         <Value ColumnRef="beschreibung">
+            <SimpleValue>Alle beantragten Abweichungen zugelassen</SimpleValue>
+         </Value>
+         <Value ColumnRef="hinweis"/>
+         <Value ColumnRef="wirkungProjektraum"/>
+      </Row>
+      <Row>
+         <Value ColumnRef="code">
+            <SimpleValue>02</SimpleValue>
+         </Value>
+         <Value ColumnRef="beschreibung">
+            <SimpleValue>Änderungen zum Antrag eingegangen</SimpleValue>
+         </Value>
+         <Value ColumnRef="hinweis"/>
+         <Value ColumnRef="wirkungProjektraum"/>
+      </Row>
+      <Row>
+         <Value ColumnRef="code">
+            <SimpleValue>03</SimpleValue>
+         </Value>
+         <Value ColumnRef="beschreibung">
+            <SimpleValue>Anhörung zur Ablehnung ausstehend</SimpleValue>
+         </Value>
+         <Value ColumnRef="hinweis"/>
+         <Value ColumnRef="wirkungProjektraum">
+            <SimpleValue>Ggf. Hochladen verbieten, Nachrichten weiter möglich</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="code">
+            <SimpleValue>04</SimpleValue>
+         </Value>
+         <Value ColumnRef="beschreibung">
+            <SimpleValue>Antrag abgelehnt</SimpleValue>
+         </Value>
+         <Value ColumnRef="hinweis"/>
+         <Value ColumnRef="wirkungProjektraum">
+            <SimpleValue>Ggf. Hochladen verbieten, Nachrichten weiter möglich</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="code">
+            <SimpleValue>05</SimpleValue>
+         </Value>
+         <Value ColumnRef="beschreibung">
+            <SimpleValue>Baubeginn angezeigt</SimpleValue>
+         </Value>
+         <Value ColumnRef="hinweis"/>
+         <Value ColumnRef="wirkungProjektraum"/>
+      </Row>
+      <Row>
+         <Value ColumnRef="code">
+            <SimpleValue>06</SimpleValue>
+         </Value>
+         <Value ColumnRef="beschreibung">
+            <SimpleValue>Baugenehmigungsantrag abgelehnt</SimpleValue>
+         </Value>
+         <Value ColumnRef="hinweis"/>
+         <Value ColumnRef="wirkungProjektraum">
+            <SimpleValue>Ggf. Hochladen verbieten, Nachrichten weiter möglich</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="code">
+            <SimpleValue>07</SimpleValue>
+         </Value>
+         <Value ColumnRef="beschreibung">
+            <SimpleValue>Bauvorhaben genehmigungsfreigestellt</SimpleValue>
+         </Value>
+         <Value ColumnRef="hinweis"/>
+         <Value ColumnRef="wirkungProjektraum"/>
+      </Row>
+      <Row>
+         <Value ColumnRef="code">
+            <SimpleValue>08</SimpleValue>
+         </Value>
+         <Value ColumnRef="beschreibung">
+            <SimpleValue>Behördenbeteiligung eingeleitet</SimpleValue>
+         </Value>
+         <Value ColumnRef="hinweis">
+            <SimpleValue>Eine Änderung des Vorgangs kann die eingeleitete Behördenbeteiligung verzögern bzw. neu erforderlich machen.</SimpleValue>
+         </Value>
+         <Value ColumnRef="wirkungProjektraum"/>
+      </Row>
+      <Row>
+         <Value ColumnRef="code">
+            <SimpleValue>09</SimpleValue>
+         </Value>
+         <Value ColumnRef="beschreibung">
+            <SimpleValue>Behördenbeteiligung vollständig abgeschlossen</SimpleValue>
+         </Value>
+         <Value ColumnRef="hinweis"/>
+         <Value ColumnRef="wirkungProjektraum"/>
+      </Row>
+      <Row>
+         <Value ColumnRef="code">
+            <SimpleValue>10</SimpleValue>
+         </Value>
+         <Value ColumnRef="beschreibung">
+            <SimpleValue>Bescheid erteilt</SimpleValue>
+         </Value>
+         <Value ColumnRef="hinweis"/>
+         <Value ColumnRef="wirkungProjektraum"/>
+      </Row>
+      <Row>
+         <Value ColumnRef="code">
+            <SimpleValue>11</SimpleValue>
+         </Value>
+         <Value ColumnRef="beschreibung">
+            <SimpleValue>Gültigkeit der Baugenehmigung verlängert</SimpleValue>
+         </Value>
+         <Value ColumnRef="hinweis"/>
+         <Value ColumnRef="wirkungProjektraum"/>
+      </Row>
+      <Row>
+         <Value ColumnRef="code">
+            <SimpleValue>12</SimpleValue>
+         </Value>
+         <Value ColumnRef="beschreibung">
+            <SimpleValue>Mitteilung der Rücknahmefiktion</SimpleValue>
+         </Value>
+         <Value ColumnRef="hinweis"/>
+         <Value ColumnRef="wirkungProjektraum">
+            <SimpleValue>Ggf. Hochladen verbieten, Nachrichten weiter möglich</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="code">
+            <SimpleValue>13</SimpleValue>
+         </Value>
+         <Value ColumnRef="beschreibung">
+            <SimpleValue>Prüfung bautechnischer Nachweise angefordert</SimpleValue>
+         </Value>
+         <Value ColumnRef="hinweis"/>
+         <Value ColumnRef="wirkungProjektraum"/>
+      </Row>
+      <Row>
+         <Value ColumnRef="code">
+            <SimpleValue>14</SimpleValue>
+         </Value>
+         <Value ColumnRef="beschreibung">
+            <SimpleValue>Quittierung: Eingang Vorgang</SimpleValue>
+         </Value>
+         <Value ColumnRef="hinweis">
+            <SimpleValue>Fristen gelten ab vollständigem Eingang der Unterlagen.</SimpleValue>
+         </Value>
+         <Value ColumnRef="wirkungProjektraum">
+            <SimpleValue>Fristende optional im Antragsraum mitsenden</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="code">
+            <SimpleValue>15</SimpleValue>
+         </Value>
+         <Value ColumnRef="beschreibung">
+            <SimpleValue>Rücknahme des Vorgangs bestätigt</SimpleValue>
+         </Value>
+         <Value ColumnRef="hinweis">
+            <SimpleValue>Vorgang kann nicht mehr bearbeitet werden.</SimpleValue>
+         </Value>
+         <Value ColumnRef="wirkungProjektraum"/>
+      </Row>
+      <Row>
+         <Value ColumnRef="code">
+            <SimpleValue>16</SimpleValue>
+         </Value>
+         <Value ColumnRef="beschreibung">
+            <SimpleValue>Stellungnahme oder Nachbesserung eingegangen</SimpleValue>
+         </Value>
+         <Value ColumnRef="hinweis"/>
+         <Value ColumnRef="wirkungProjektraum"/>
+      </Row>
+      <Row>
+         <Value ColumnRef="code">
+            <SimpleValue>17</SimpleValue>
+         </Value>
+         <Value ColumnRef="beschreibung">
+            <SimpleValue>Unterlagen nachgefordert</SimpleValue>
+         </Value>
+         <Value ColumnRef="hinweis"/>
+         <Value ColumnRef="wirkungProjektraum">
+            <SimpleValue>Ggf. Hochladen verbieten, Nachrichten weiter möglich</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="code">
+            <SimpleValue>18</SimpleValue>
+         </Value>
+         <Value ColumnRef="beschreibung">
+            <SimpleValue>Unterlagen vollständig</SimpleValue>
+         </Value>
+         <Value ColumnRef="hinweis"/>
+         <Value ColumnRef="wirkungProjektraum"/>
+      </Row>
+      <Row>
+         <Value ColumnRef="code">
+            <SimpleValue>19</SimpleValue>
+         </Value>
+         <Value ColumnRef="beschreibung">
+            <SimpleValue>Vorbescheid erteilt</SimpleValue>
+         </Value>
+         <Value ColumnRef="hinweis"/>
+         <Value ColumnRef="wirkungProjektraum">
+            <SimpleValue>Neuer Vorgang Bauantrag müsste eingehen</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="code">
+            <SimpleValue>20</SimpleValue>
+         </Value>
+         <Value ColumnRef="beschreibung">
+            <SimpleValue>Vorgang abgeschlossen</SimpleValue>
+         </Value>
+         <Value ColumnRef="hinweis"/>
+         <Value ColumnRef="wirkungProjektraum">
+            <SimpleValue>Sperrung des Vorgangsraumes. Projektraum wird den Antragstellenden zum Download angeboten. Nach Frist X wird der Projektraum gelöscht.</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="code">
+            <SimpleValue>21</SimpleValue>
+         </Value>
+         <Value ColumnRef="beschreibung">
+            <SimpleValue>Vorgang kann nicht mehr zurückgezogen werden</SimpleValue>
+         </Value>
+         <Value ColumnRef="hinweis"/>
+         <Value ColumnRef="wirkungProjektraum"/>
+      </Row>
+      <Row>
+         <Value ColumnRef="code">
+            <SimpleValue>22</SimpleValue>
+         </Value>
+         <Value ColumnRef="beschreibung">
+            <SimpleValue>Vorgang wurde versendet</SimpleValue>
+         </Value>
+         <Value ColumnRef="hinweis"/>
+         <Value ColumnRef="wirkungProjektraum">
+            <SimpleValue>Anlegen des Vorgangsraumes</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="code">
+            <SimpleValue>23</SimpleValue>
+         </Value>
+         <Value ColumnRef="beschreibung">
+            <SimpleValue>Vorgang zurückgezogen</SimpleValue>
+         </Value>
+         <Value ColumnRef="hinweis"/>
+         <Value ColumnRef="wirkungProjektraum"/>
+      </Row>
+      <Row>
+         <Value ColumnRef="code">
+            <SimpleValue>50</SimpleValue>
+         </Value>
+         <Value ColumnRef="beschreibung">
+            <SimpleValue>Bautechnische Nachweise geprüft - sind ordnungsgemäß</SimpleValue>
+         </Value>
+         <Value ColumnRef="hinweis"/>
+         <Value ColumnRef="wirkungProjektraum"/>
+      </Row>
+      <Row>
+         <Value ColumnRef="code">
+            <SimpleValue>51</SimpleValue>
+         </Value>
+         <Value ColumnRef="beschreibung">
+            <SimpleValue>Bautechnische Nachweise geprüft - sind nicht ordnungsgemäß</SimpleValue>
+         </Value>
+         <Value ColumnRef="hinweis"/>
+         <Value ColumnRef="wirkungProjektraum"/>
+      </Row>
+      <Row>
+         <Value ColumnRef="code">
+            <SimpleValue>52</SimpleValue>
+         </Value>
+         <Value ColumnRef="beschreibung">
+            <SimpleValue>Bauüberwachung durchgeführt - Mängelbeseitigung angeordnet</SimpleValue>
+         </Value>
+         <Value ColumnRef="hinweis"/>
+         <Value ColumnRef="wirkungProjektraum"/>
+      </Row>
+      <Row>
+         <Value ColumnRef="code">
+            <SimpleValue>53</SimpleValue>
+         </Value>
+         <Value ColumnRef="beschreibung">
+            <SimpleValue>Bauüberwachung durchgeführt - Baueinstellung angeordnet</SimpleValue>
+         </Value>
+         <Value ColumnRef="hinweis"/>
+         <Value ColumnRef="wirkungProjektraum"/>
+      </Row>
+      <Row>
+         <Value ColumnRef="code">
+            <SimpleValue>54</SimpleValue>
+         </Value>
+         <Value ColumnRef="beschreibung">
+            <SimpleValue>Bauüberwachung durchgeführt - Bauausführung entspricht den geprüften bautechnischen Nachweisen</SimpleValue>
+         </Value>
+         <Value ColumnRef="hinweis"/>
+         <Value ColumnRef="wirkungProjektraum"/>
+      </Row>
+      <Row>
+         <Value ColumnRef="code">
+            <SimpleValue>55</SimpleValue>
+         </Value>
+         <Value ColumnRef="beschreibung">
+            <SimpleValue>Bauüberwachung abgeschlossen</SimpleValue>
+         </Value>
+         <Value ColumnRef="hinweis"/>
+         <Value ColumnRef="wirkungProjektraum"/>
+      </Row>
+      <Row>
+         <Value ColumnRef="code">
+            <SimpleValue>56</SimpleValue>
+         </Value>
+         <Value ColumnRef="beschreibung">
+            <SimpleValue>Abschluss der bautechnischen Prüfung</SimpleValue>
+         </Value>
+         <Value ColumnRef="hinweis">
+            <SimpleValue>Übersendung des Schluss-, Prüf- und Überwachungsberichtes und der geprüften bautechnischen Nachweise</SimpleValue>
+         </Value>
+         <Value ColumnRef="wirkungProjektraum"/>
+      </Row>
+   </SimpleCodeList>
+</gc:CodeList>

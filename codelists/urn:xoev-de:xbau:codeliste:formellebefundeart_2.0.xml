@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gc:CodeList xmlns:gc="http://docs.oasis-open.org/codelist/ns/genericode/1.0/"
+             xmlns:xoev-cl-4="http://xoev.de/schemata/genericode/4"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+   <Annotation>
+      <Description>
+         <xoev-cl-4:shortName>XBau Befunde der formellen Prüfung</xoev-cl-4:shortName>
+         <xoev-cl-4:codelistDescription>Codeliste mit Arten von Befunden einer universell einsetzbaren Befundliste für die formelle Prüfung von Anträgen, Anzeigen und Erklärungen.</xoev-cl-4:codelistDescription>
+         <xoev-cl-4:agencyShortName>XLeitstelle</xoev-cl-4:agencyShortName>
+         <xoev-cl-4:versionDescription>Codeliste mit Arten von Befunden einer universell einsetzbaren Befundliste für die formelle Prüfung von Anträgen, Anzeigen und Erklärungen.</xoev-cl-4:versionDescription>
+         <xoev-cl-4:validFrom>2019-07-09</xoev-cl-4:validFrom>
+         <xoev-cl-4:versionHandbook>1.2</xoev-cl-4:versionHandbook>
+         <xoev-cl-4:changes>Reduzierung der Codelisteneinträge</xoev-cl-4:changes>
+      </Description>
+   </Annotation>
+   <Identification>
+      <ShortName>formellebefundeart</ShortName>
+      <LongName>XBau Befunde der formellen Prüfung</LongName>
+      <Version>2.0</Version>
+      <CanonicalUri>urn:xoev-de:xbau:codeliste:formellebefundeart</CanonicalUri>
+      <CanonicalVersionUri>urn:xoev-de:xbau:codeliste:formellebefundeart_2.0</CanonicalVersionUri>
+      <AlternateFormatLocationUri>http://www.xrepository.de</AlternateFormatLocationUri>
+      <Agency>
+         <LongName>Leitstelle XPlanung / XBau</LongName>
+      </Agency>
+   </Identification>
+   <ColumnSet>
+      <Column Id="Code" Use="required">
+         <ShortName>Code</ShortName>
+         <LongName>Code</LongName>
+         <Data Type="string"/>
+      </Column>
+      <Column Id="Befund" Use="required">
+         <ShortName>Befund</ShortName>
+         <LongName>Befund formelle Prüfung</LongName>
+         <Data Type="string"/>
+      </Column>
+      <Key Id="CodeKey">
+         <Annotation>
+            <AppInfo>
+               <xoev-cl-4:recommendedKeyColumn/>
+            </AppInfo>
+         </Annotation>
+         <ShortName>CodeKey</ShortName>
+         <ColumnRef Ref="Code"/>
+      </Key>
+   </ColumnSet>
+   <SimpleCodeList>
+      <Row>
+         <Value ColumnRef="Code">
+            <SimpleValue>01</SimpleValue>
+         </Value>
+         <Value ColumnRef="Befund">
+            <SimpleValue>Angaben zu den Beteiligten fehlerhaft oder unvollständig</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Code">
+            <SimpleValue>02</SimpleValue>
+         </Value>
+         <Value ColumnRef="Befund">
+            <SimpleValue>Angaben zum Bauvorhaben fehlerhaft oder unvollständig</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Code">
+            <SimpleValue>03</SimpleValue>
+         </Value>
+         <Value ColumnRef="Befund">
+            <SimpleValue>Angaben zur Lokalisierung fehlerhaft oder unvollständig</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Code">
+            <SimpleValue>04</SimpleValue>
+         </Value>
+         <Value ColumnRef="Befund">
+            <SimpleValue>Eingereichte Bauvorlage oder sonstige Anlage hat Mängel</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Code">
+            <SimpleValue>05</SimpleValue>
+         </Value>
+         <Value ColumnRef="Befund">
+            <SimpleValue>Bauvorlage oder sonstige Anlage fehlt</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Code">
+            <SimpleValue>06</SimpleValue>
+         </Value>
+         <Value ColumnRef="Befund">
+            <SimpleValue>Abweichungsantrag fehlt</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="Code">
+            <SimpleValue>100</SimpleValue>
+         </Value>
+         <Value ColumnRef="Befund">
+            <SimpleValue>Die zur Stellungnahme aufgeforderte Behörde ist für eine Stellungnahme unter dem angegebenen Gesichtspunkt nicht zuständig</SimpleValue>
+         </Value>
+      </Row>
+   </SimpleCodeList>
+</gc:CodeList>
