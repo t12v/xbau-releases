@@ -1,15 +1,14 @@
-import { access, readFile, writeFile } from 'fs/promises';
-import { constants, mkdirSync } from 'fs';
+import { readFile, writeFile } from 'fs/promises';
+import { existsSync, mkdirSync } from 'fs';
 import { dirname } from 'path';
 
 function ensureDirExists(filePath: string) {
   const dir = dirname(filePath);
   mkdirSync(dir, { recursive: true });
 }
-export async function fileExists(path: string): Promise<boolean> {
+export function fileExists(path: string): boolean {
   try {
-    await access(path, constants.F_OK);
-    return true;
+    return existsSync(path);
   } catch {
     return false;
   }
@@ -29,7 +28,7 @@ export async function writeToFile(file: string, content: string): Promise<void> 
   try {
     ensureDirExists(file);
     await writeFile(file, content, 'utf-8');
-    console.log('File written successfully.');
+    console.debug('File written successfully. ' + file);
   } catch (err) {
     console.error('Error writing file:', err);
   }

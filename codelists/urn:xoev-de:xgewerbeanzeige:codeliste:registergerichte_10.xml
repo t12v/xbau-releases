@@ -1,0 +1,3574 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gc:CodeList xmlns:gc="http://docs.oasis-open.org/codelist/ns/genericode/1.0/"
+   xmlns:xoev-cl="http://xoev.de/schemata/genericode/1_0"
+   xmlns:xoev-cl-2="http://xoev.de/schemata/genericode/2"
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+   <Annotation>
+      <Description>
+         <xoev-cl:beschreibung>Enthält alle Registergerichte. Als Schlüssel für die
+                    Datenübermittlung ist die Spalte XJustiz_Id zu verwenden.</xoev-cl:beschreibung>
+         <xoev-cl:datumgueltigkeitab>2020-05-01</xoev-cl:datumgueltigkeitab>
+         <xoev-cl-2:nameKurz>Registergerichte</xoev-cl-2:nameKurz>
+         <xoev-cl-2:beschreibung-codeliste>Enthält alle Registergerichte. Als Schlüssel
+                    für die Datenübermittlung ist die Spalte XJustiz_Id zu verwenden.</xoev-cl-2:beschreibung-codeliste>
+         <xoev-cl-2:herausgebernameKurz>XGewerbeanzeige</xoev-cl-2:herausgebernameKurz>
+         <xoev-cl-2:datumGueltigkeitAb>2020-05-01</xoev-cl-2:datumGueltigkeitAb>
+         <xoev-cl-2:versionXOEVHandbuch>2.1</xoev-cl-2:versionXOEVHandbuch>
+         <xoev-cl-2:aenderungZurVorversion>Folgender Eintrag wurde wieder aufgenommen: R2707 (Amtsgericht Ahlen)</xoev-cl-2:aenderungZurVorversion>
+      </Description>
+   </Annotation>
+   <Identification>
+      <ShortName>RGG</ShortName>
+      <LongName>Registergerichte</LongName>
+      <Version>10</Version>
+      <CanonicalUri>urn:xoev-de:xgewerbeanzeige:codeliste:registergerichte</CanonicalUri>
+      <CanonicalVersionUri>urn:xoev-de:xgewerbeanzeige:codeliste:registergerichte_10</CanonicalVersionUri>
+      <Agency>
+         <ShortName>XGewerbeanzeige</ShortName>
+         <LongName>Betreiber XGewerbeanzeige (KoSIT und IT.NRW im Auftrag des
+                    Bundesministeriums für Wirtschaft und Energie)</LongName>
+      </Agency>
+   </Identification>
+   <ColumnSet>
+      <Column Id="XJustiz_Id" Use="required">
+         <ShortName>XJustiz_Id</ShortName>
+         <Data Type="string"/>
+      </Column>
+      <Column Id="Registergericht" Use="required">
+         <ShortName>Registergericht</ShortName>
+         <Data Type="string"/>
+      </Column>
+      <Column Id="Art" Use="required">
+         <ShortName>Art</ShortName>
+         <Data Type="string"/>
+      </Column>
+      <Column Id="Land" Use="optional">
+         <ShortName>Land</ShortName>
+         <Data Type="string"/>
+      </Column>
+      <Column Id="PLZ" Use="optional">
+         <ShortName>PLZ</ShortName>
+         <Data Type="string"/>
+      </Column>
+      <Column Id="gueltigBis" Use="optional">
+         <ShortName>gueltigBis</ShortName>
+         <Data Type="string"/>
+      </Column>
+      <Column Id="kuenftigZuVerwendendeCodes" Use="optional">
+         <ShortName>kuenftigZuVerwendendeCodes</ShortName>
+         <Data Type="string"/>
+      </Column>
+      <Key Id="CodeKey">
+         <Annotation>
+            <AppInfo>
+               <xoev-cl:xoev-code/>
+               <xoev-cl-2:xoev-code/>
+            </AppInfo>
+         </Annotation>
+         <ShortName>CodeKey</ShortName>
+         <ColumnRef Ref="XJustiz_Id"/>
+      </Key>
+   </ColumnSet>
+   <SimpleCodeList>
+      <Row>
+         <Value ColumnRef="XJustiz_Id">
+            <SimpleValue>R2702</SimpleValue>
+         </Value>
+         <Value ColumnRef="Registergericht">
+            <SimpleValue>Amtsgericht Ahlen</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art">
+            <SimpleValue>Handels- und Genossenschaftsregister, Vereinsregister</SimpleValue>
+         </Value>
+         <Value ColumnRef="Land">
+            <SimpleValue>Nordrhein-Westfalen</SimpleValue>
+         </Value>
+         <Value ColumnRef="PLZ">
+            <SimpleValue>59227</SimpleValue>
+         </Value>
+         <Value ColumnRef="gueltigBis">
+            <SimpleValue>30.04.2020</SimpleValue>
+         </Value>
+         <Value ColumnRef="kuenftigZuVerwendendeCodes">
+            <SimpleValue>R2713</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="XJustiz_Id">
+            <SimpleValue>N1202</SimpleValue>
+         </Value>
+         <Value ColumnRef="Registergericht">
+            <SimpleValue>Greifswald</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art">
+            <SimpleValue>Vereinsregister</SimpleValue>
+         </Value>
+         <Value ColumnRef="Land">
+            <SimpleValue>Mecklenburg-Vorpommern</SimpleValue>
+         </Value>
+         <Value ColumnRef="PLZ">
+            <SimpleValue>17489</SimpleValue>
+         </Value>
+         <Value ColumnRef="gueltigBis">
+            <SimpleValue>31.10.2019</SimpleValue>
+         </Value>
+         <Value ColumnRef="kuenftigZuVerwendendeCodes">
+            <SimpleValue>N1209V</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="XJustiz_Id">
+            <SimpleValue>N1303</SimpleValue>
+         </Value>
+         <Value ColumnRef="Registergericht">
+            <SimpleValue>Güstrow</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art">
+            <SimpleValue>Vereinsregister</SimpleValue>
+         </Value>
+         <Value ColumnRef="Land">
+            <SimpleValue>Mecklenburg-Vorpommern</SimpleValue>
+         </Value>
+         <Value ColumnRef="PLZ">
+            <SimpleValue>18273</SimpleValue>
+         </Value>
+         <Value ColumnRef="gueltigBis">
+            <SimpleValue>31.10.2019</SimpleValue>
+         </Value>
+         <Value ColumnRef="kuenftigZuVerwendendeCodes">
+            <SimpleValue>N1206V</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="XJustiz_Id">
+            <SimpleValue>N1305</SimpleValue>
+         </Value>
+         <Value ColumnRef="Registergericht">
+            <SimpleValue>Ludwigslust</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art">
+            <SimpleValue>Vereinsregister</SimpleValue>
+         </Value>
+         <Value ColumnRef="Land">
+            <SimpleValue>Mecklenburg-Vorpommern</SimpleValue>
+         </Value>
+         <Value ColumnRef="PLZ">
+            <SimpleValue>19288</SimpleValue>
+         </Value>
+         <Value ColumnRef="gueltigBis">
+            <SimpleValue>31.10.2019</SimpleValue>
+         </Value>
+         <Value ColumnRef="kuenftigZuVerwendendeCodes">
+            <SimpleValue>N1308V</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="XJustiz_Id">
+            <SimpleValue>N1105</SimpleValue>
+         </Value>
+         <Value ColumnRef="Registergericht">
+            <SimpleValue>Neubrandenburg</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art">
+            <SimpleValue>Handels- und Genossenschaftsregister</SimpleValue>
+         </Value>
+         <Value ColumnRef="Land">
+            <SimpleValue>Mecklenburg-Vorpommern</SimpleValue>
+         </Value>
+         <Value ColumnRef="PLZ">
+            <SimpleValue>17033</SimpleValue>
+         </Value>
+         <Value ColumnRef="gueltigBis">
+            <SimpleValue>31.10.2019</SimpleValue>
+         </Value>
+         <Value ColumnRef="kuenftigZuVerwendendeCodes">
+            <SimpleValue>N1105V</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="XJustiz_Id">
+            <SimpleValue>N1107</SimpleValue>
+         </Value>
+         <Value ColumnRef="Registergericht">
+            <SimpleValue>Pasewalk</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art">
+            <SimpleValue>Vereinsregister</SimpleValue>
+         </Value>
+         <Value ColumnRef="Land">
+            <SimpleValue>Mecklenburg-Vorpommern</SimpleValue>
+         </Value>
+         <Value ColumnRef="PLZ">
+            <SimpleValue>17309</SimpleValue>
+         </Value>
+         <Value ColumnRef="gueltigBis">
+            <SimpleValue>31.10.2019</SimpleValue>
+         </Value>
+         <Value ColumnRef="kuenftigZuVerwendendeCodes">
+            <SimpleValue>N1105V</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="XJustiz_Id">
+            <SimpleValue>N1206</SimpleValue>
+         </Value>
+         <Value ColumnRef="Registergericht">
+            <SimpleValue>Rostock</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art">
+            <SimpleValue>Handels- und Genossenschaftsregister</SimpleValue>
+         </Value>
+         <Value ColumnRef="Land">
+            <SimpleValue>Mecklenburg-Vorpommern</SimpleValue>
+         </Value>
+         <Value ColumnRef="PLZ">
+            <SimpleValue>18057</SimpleValue>
+         </Value>
+         <Value ColumnRef="gueltigBis">
+            <SimpleValue>31.10.2019</SimpleValue>
+         </Value>
+         <Value ColumnRef="kuenftigZuVerwendendeCodes">
+            <SimpleValue>N1206V</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="XJustiz_Id">
+            <SimpleValue>N1308</SimpleValue>
+         </Value>
+         <Value ColumnRef="Registergericht">
+            <SimpleValue>Schwerin</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art">
+            <SimpleValue>Handels- und Genossenschaftsregister</SimpleValue>
+         </Value>
+         <Value ColumnRef="Land">
+            <SimpleValue>Mecklenburg-Vorpommern</SimpleValue>
+         </Value>
+         <Value ColumnRef="PLZ">
+            <SimpleValue>19053</SimpleValue>
+         </Value>
+         <Value ColumnRef="gueltigBis">
+            <SimpleValue>31.10.2019</SimpleValue>
+         </Value>
+         <Value ColumnRef="kuenftigZuVerwendendeCodes">
+            <SimpleValue>N1308V</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="XJustiz_Id">
+            <SimpleValue>N1209</SimpleValue>
+         </Value>
+         <Value ColumnRef="Registergericht">
+            <SimpleValue>Stralsund</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art">
+            <SimpleValue>Handels- und Genossenschaftsregister</SimpleValue>
+         </Value>
+         <Value ColumnRef="Land">
+            <SimpleValue>Mecklenburg-Vorpommern</SimpleValue>
+         </Value>
+         <Value ColumnRef="PLZ">
+            <SimpleValue>18439</SimpleValue>
+         </Value>
+         <Value ColumnRef="gueltigBis">
+            <SimpleValue>31.10.2019</SimpleValue>
+         </Value>
+         <Value ColumnRef="kuenftigZuVerwendendeCodes">
+            <SimpleValue>N1209V</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="XJustiz_Id">
+            <SimpleValue>N1112</SimpleValue>
+         </Value>
+         <Value ColumnRef="Registergericht">
+            <SimpleValue>Waren (Müritz)</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art">
+            <SimpleValue>Vereinsregister</SimpleValue>
+         </Value>
+         <Value ColumnRef="Land">
+            <SimpleValue>Mecklenburg-Vorpommern</SimpleValue>
+         </Value>
+         <Value ColumnRef="PLZ">
+            <SimpleValue>17192</SimpleValue>
+         </Value>
+         <Value ColumnRef="gueltigBis">
+            <SimpleValue>31.10.2019</SimpleValue>
+         </Value>
+         <Value ColumnRef="kuenftigZuVerwendendeCodes">
+            <SimpleValue>N1105V</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="XJustiz_Id">
+            <SimpleValue>N1210</SimpleValue>
+         </Value>
+         <Value ColumnRef="Registergericht">
+            <SimpleValue>Wismar</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art">
+            <SimpleValue>Vereinsregister</SimpleValue>
+         </Value>
+         <Value ColumnRef="Land">
+            <SimpleValue>Mecklenburg-Vorpommern</SimpleValue>
+         </Value>
+         <Value ColumnRef="PLZ">
+            <SimpleValue>23966</SimpleValue>
+         </Value>
+         <Value ColumnRef="gueltigBis">
+            <SimpleValue>31.10.2019</SimpleValue>
+         </Value>
+         <Value ColumnRef="kuenftigZuVerwendendeCodes">
+            <SimpleValue>N1308V</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="XJustiz_Id">
+            <SimpleValue>R3101</SimpleValue>
+         </Value>
+         <Value ColumnRef="Registergericht">
+            <SimpleValue>Amtsgericht Aachen</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art">
+            <SimpleValue>Handels- und Genossenschaftsregister, Vereinsregister</SimpleValue>
+         </Value>
+         <Value ColumnRef="Land">
+            <SimpleValue>Nordrhein-Westfalen</SimpleValue>
+         </Value>
+         <Value ColumnRef="PLZ">
+            <SimpleValue>52070</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="XJustiz_Id">
+            <SimpleValue>Y1201</SimpleValue>
+         </Value>
+         <Value ColumnRef="Registergericht">
+            <SimpleValue>Amtsgericht Altenburg</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art">
+            <SimpleValue>Vereinsregister</SimpleValue>
+         </Value>
+         <Value ColumnRef="Land">
+            <SimpleValue>Thüringen</SimpleValue>
+         </Value>
+         <Value ColumnRef="PLZ">
+            <SimpleValue>04600</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="XJustiz_Id">
+            <SimpleValue>D3101</SimpleValue>
+         </Value>
+         <Value ColumnRef="Registergericht">
+            <SimpleValue>Amtsgericht Amberg</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art">
+            <SimpleValue>Vereinsregister</SimpleValue>
+         </Value>
+         <Value ColumnRef="Land">
+            <SimpleValue>Bayern</SimpleValue>
+         </Value>
+         <Value ColumnRef="PLZ">
+            <SimpleValue>92224</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="XJustiz_Id">
+            <SimpleValue>D3101V</SimpleValue>
+         </Value>
+         <Value ColumnRef="Registergericht">
+            <SimpleValue>Amtsgericht Amberg</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art">
+            <SimpleValue>Handels- und Genossenschaftsregister</SimpleValue>
+         </Value>
+         <Value ColumnRef="Land">
+            <SimpleValue>Bayern</SimpleValue>
+         </Value>
+         <Value ColumnRef="PLZ">
+            <SimpleValue>92224</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="XJustiz_Id">
+            <SimpleValue>D3201</SimpleValue>
+         </Value>
+         <Value ColumnRef="Registergericht">
+            <SimpleValue>Amtsgericht Ansbach</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art">
+            <SimpleValue>Vereinsregister</SimpleValue>
+         </Value>
+         <Value ColumnRef="Land">
+            <SimpleValue>Bayern</SimpleValue>
+         </Value>
+         <Value ColumnRef="PLZ">
+            <SimpleValue>91522</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="XJustiz_Id">
+            <SimpleValue>D3201V</SimpleValue>
+         </Value>
+         <Value ColumnRef="Registergericht">
+            <SimpleValue>Amtsgericht Ansbach</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art">
+            <SimpleValue>Handels- und Genossenschaftsregister</SimpleValue>
+         </Value>
+         <Value ColumnRef="Land">
+            <SimpleValue>Bayern</SimpleValue>
+         </Value>
+         <Value ColumnRef="PLZ">
+            <SimpleValue>91522</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="XJustiz_Id">
+            <SimpleValue>Y1101</SimpleValue>
+         </Value>
+         <Value ColumnRef="Registergericht">
+            <SimpleValue>Amtsgericht Apolda</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art">
+            <SimpleValue>Vereinsregister</SimpleValue>
+         </Value>
+         <Value ColumnRef="Land">
+            <SimpleValue>Thüringen</SimpleValue>
+         </Value>
+         <Value ColumnRef="PLZ">
+            <SimpleValue>99510</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="XJustiz_Id">
+            <SimpleValue>R1901</SimpleValue>
+         </Value>
+         <Value ColumnRef="Registergericht">
+            <SimpleValue>Amtsgericht Arnsberg</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art">
+            <SimpleValue>Handels- und Genossenschaftsregister, Vereinsregister</SimpleValue>
+         </Value>
+         <Value ColumnRef="Land">
+            <SimpleValue>Nordrhein-Westfalen</SimpleValue>
+         </Value>
+         <Value ColumnRef="PLZ">
+            <SimpleValue>59821</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="XJustiz_Id">
+            <SimpleValue>Y1102</SimpleValue>
+         </Value>
+         <Value ColumnRef="Registergericht">
+            <SimpleValue>Amtsgericht Arnstadt</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art">
+            <SimpleValue>Vereinsregister</SimpleValue>
+         </Value>
+         <Value ColumnRef="Land">
+            <SimpleValue>Thüringen</SimpleValue>
+         </Value>
+         <Value ColumnRef="PLZ">
+            <SimpleValue>99310</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="XJustiz_Id">
+            <SimpleValue>Y1303</SimpleValue>
+         </Value>
+         <Value ColumnRef="Registergericht">
+            <SimpleValue>Amtsgericht Arnstadt - Zweigstelle Ilmenau</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art">
+            <SimpleValue>Vereinsregister</SimpleValue>
+         </Value>
+         <Value ColumnRef="Land">
+            <SimpleValue>Thüringen</SimpleValue>
+         </Value>
+         <Value ColumnRef="PLZ">
+            <SimpleValue>98693</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="XJustiz_Id">
+            <SimpleValue>D4102</SimpleValue>
+         </Value>
+         <Value ColumnRef="Registergericht">
+            <SimpleValue>Amtsgericht Aschaffenburg</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art">
+            <SimpleValue>Vereinsregister</SimpleValue>
+         </Value>
+         <Value ColumnRef="Land">
+            <SimpleValue>Bayern</SimpleValue>
+         </Value>
+         <Value ColumnRef="PLZ">
+            <SimpleValue>63739</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="XJustiz_Id">
+            <SimpleValue>D4102V</SimpleValue>
+         </Value>
+         <Value ColumnRef="Registergericht">
+            <SimpleValue>Amtsgericht Aschaffenburg</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art">
+            <SimpleValue>Handels- und Genossenschaftsregister</SimpleValue>
+         </Value>
+         <Value ColumnRef="Land">
+            <SimpleValue>Bayern</SimpleValue>
+         </Value>
+         <Value ColumnRef="PLZ">
+            <SimpleValue>63739</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="XJustiz_Id">
+            <SimpleValue>D2102</SimpleValue>
+         </Value>
+         <Value ColumnRef="Registergericht">
+            <SimpleValue>Amtsgericht Augsburg</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art">
+            <SimpleValue>Vereinsregister</SimpleValue>
+         </Value>
+         <Value ColumnRef="Land">
+            <SimpleValue>Bayern</SimpleValue>
+         </Value>
+         <Value ColumnRef="PLZ">
+            <SimpleValue>86150</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="XJustiz_Id">
+            <SimpleValue>D2102V</SimpleValue>
+         </Value>
+         <Value ColumnRef="Registergericht">
+            <SimpleValue>Amtsgericht Augsburg</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art">
+            <SimpleValue>Handels- und Genossenschaftsregister</SimpleValue>
+         </Value>
+         <Value ColumnRef="Land">
+            <SimpleValue>Bayern</SimpleValue>
+         </Value>
+         <Value ColumnRef="PLZ">
+            <SimpleValue>86150</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="XJustiz_Id">
+            <SimpleValue>P3101</SimpleValue>
+         </Value>
+         <Value ColumnRef="Registergericht">
+            <SimpleValue>Amtsgericht Aurich</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art">
+            <SimpleValue>Handels- und Genossenschaftsregister, Vereinsregister</SimpleValue>
+         </Value>
+         <Value ColumnRef="Land">
+            <SimpleValue>Niedersachsen</SimpleValue>
+         </Value>
+         <Value ColumnRef="PLZ">
+            <SimpleValue>26603</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="XJustiz_Id">
+            <SimpleValue>M1305</SimpleValue>
+         </Value>
+         <Value ColumnRef="Registergericht">
+            <SimpleValue>Amtsgericht Bad Hersfeld</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art">
+            <SimpleValue>Handels- und Genossenschaftsregister, Vereinsregister</SimpleValue>
+         </Value>
+         <Value ColumnRef="Land">
+            <SimpleValue>Hessen</SimpleValue>
+         </Value>
+         <Value ColumnRef="PLZ">
+            <SimpleValue>36251</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="XJustiz_Id">
+            <SimpleValue>M1202</SimpleValue>
+         </Value>
+         <Value ColumnRef="Registergericht">
+            <SimpleValue>Amtsgericht Bad Homburg v.d. Höhe</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art">
+            <SimpleValue>Handels- und Genossenschaftsregister, Vereinsregister</SimpleValue>
+         </Value>
+         <Value ColumnRef="Land">
+            <SimpleValue>Hessen</SimpleValue>
+         </Value>
+         <Value ColumnRef="PLZ">
+            <SimpleValue>61352</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="XJustiz_Id">
+            <SimpleValue>T2101V</SimpleValue>
+         </Value>
+         <Value ColumnRef="Registergericht">
+            <SimpleValue>Amtsgericht Bad Kreuznach</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art">
+            <SimpleValue>Handels- und Genossenschaftsregister, Vereinsregister</SimpleValue>
+         </Value>
+         <Value ColumnRef="Land">
+            <SimpleValue>Rheinland-Pfalz</SimpleValue>
+         </Value>
+         <Value ColumnRef="PLZ">
+            <SimpleValue>55543</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="XJustiz_Id">
+            <SimpleValue>R2108</SimpleValue>
+         </Value>
+         <Value ColumnRef="Registergericht">
+            <SimpleValue>Amtsgericht Bad Oeynhausen</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art">
+            <SimpleValue>Handels- und Genossenschaftsregister, Vereinsregister</SimpleValue>
+         </Value>
+         <Value ColumnRef="Land">
+            <SimpleValue>Nordrhein-Westfalen</SimpleValue>
+         </Value>
+         <Value ColumnRef="PLZ">
+            <SimpleValue>32545</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="XJustiz_Id">
+            <SimpleValue>Y1301</SimpleValue>
+         </Value>
+         <Value ColumnRef="Registergericht">
+            <SimpleValue>Amtsgericht Bad Salzungen</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art">
+            <SimpleValue>Vereinsregister</SimpleValue>
+         </Value>
+         <Value ColumnRef="Land">
+            <SimpleValue>Thüringen</SimpleValue>
+         </Value>
+         <Value ColumnRef="PLZ">
+            <SimpleValue>36433</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="XJustiz_Id">
+            <SimpleValue>D4201</SimpleValue>
+         </Value>
+         <Value ColumnRef="Registergericht">
+            <SimpleValue>Amtsgericht Bamberg</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art">
+            <SimpleValue>Vereinsregister</SimpleValue>
+         </Value>
+         <Value ColumnRef="Land">
+            <SimpleValue>Bayern</SimpleValue>
+         </Value>
+         <Value ColumnRef="PLZ">
+            <SimpleValue>96047</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="XJustiz_Id">
+            <SimpleValue>D4201V</SimpleValue>
+         </Value>
+         <Value ColumnRef="Registergericht">
+            <SimpleValue>Amtsgericht Bamberg</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art">
+            <SimpleValue>Handels- und Genossenschaftsregister</SimpleValue>
+         </Value>
+         <Value ColumnRef="Land">
+            <SimpleValue>Bayern</SimpleValue>
+         </Value>
+         <Value ColumnRef="PLZ">
+            <SimpleValue>96047</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="XJustiz_Id">
+            <SimpleValue>D4301</SimpleValue>
+         </Value>
+         <Value ColumnRef="Registergericht">
+            <SimpleValue>Amtsgericht Bayreuth</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art">
+            <SimpleValue>Vereinsregister</SimpleValue>
+         </Value>
+         <Value ColumnRef="Land">
+            <SimpleValue>Bayern</SimpleValue>
+         </Value>
+         <Value ColumnRef="PLZ">
+            <SimpleValue>95444</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="XJustiz_Id">
+            <SimpleValue>D4301V</SimpleValue>
+         </Value>
+         <Value ColumnRef="Registergericht">
+            <SimpleValue>Amtsgericht Bayreuth</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art">
+            <SimpleValue>Handels- und Genossenschaftsregister</SimpleValue>
+         </Value>
+         <Value ColumnRef="Land">
+            <SimpleValue>Bayern</SimpleValue>
+         </Value>
+         <Value ColumnRef="PLZ">
+            <SimpleValue>95444</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="XJustiz_Id">
+            <SimpleValue>R2101</SimpleValue>
+         </Value>
+         <Value ColumnRef="Registergericht">
+            <SimpleValue>Amtsgericht Bielefeld</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art">
+            <SimpleValue>Handels- und Genossenschaftsregister, Vereinsregister</SimpleValue>
+         </Value>
+         <Value ColumnRef="Land">
+            <SimpleValue>Nordrhein-Westfalen</SimpleValue>
+         </Value>
+         <Value ColumnRef="PLZ">
+            <SimpleValue>33602</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="XJustiz_Id">
+            <SimpleValue>R2201</SimpleValue>
+         </Value>
+         <Value ColumnRef="Registergericht">
+            <SimpleValue>Amtsgericht Bochum</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art">
+            <SimpleValue>Handels- und Genossenschaftsregister, Vereinsregister</SimpleValue>
+         </Value>
+         <Value ColumnRef="Land">
+            <SimpleValue>Nordrhein-Westfalen</SimpleValue>
+         </Value>
+         <Value ColumnRef="PLZ">
+            <SimpleValue>44787</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="XJustiz_Id">
+            <SimpleValue>R3201</SimpleValue>
+         </Value>
+         <Value ColumnRef="Registergericht">
+            <SimpleValue>Amtsgericht Bonn</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art">
+            <SimpleValue>Handels- und Genossenschaftsregister, Vereinsregister</SimpleValue>
+         </Value>
+         <Value ColumnRef="Land">
+            <SimpleValue>Nordrhein-Westfalen</SimpleValue>
+         </Value>
+         <Value ColumnRef="PLZ">
+            <SimpleValue>53111</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="XJustiz_Id">
+            <SimpleValue>P1103</SimpleValue>
+         </Value>
+         <Value ColumnRef="Registergericht">
+            <SimpleValue>Amtsgericht Braunschweig</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art">
+            <SimpleValue>Handels- und Genossenschaftsregister, Vereinsregister</SimpleValue>
+         </Value>
+         <Value ColumnRef="Land">
+            <SimpleValue>Niedersachsen</SimpleValue>
+         </Value>
+         <Value ColumnRef="PLZ">
+            <SimpleValue>38100</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="XJustiz_Id">
+            <SimpleValue>H1101</SimpleValue>
+         </Value>
+         <Value ColumnRef="Registergericht">
+            <SimpleValue>Amtsgericht Bremen</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art">
+            <SimpleValue>Handels- und Genossenschaftsregister, Vereinsregister</SimpleValue>
+         </Value>
+         <Value ColumnRef="Land">
+            <SimpleValue>Bremen</SimpleValue>
+         </Value>
+         <Value ColumnRef="PLZ">
+            <SimpleValue>28195</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="XJustiz_Id">
+            <SimpleValue>R2102</SimpleValue>
+         </Value>
+         <Value ColumnRef="Registergericht">
+            <SimpleValue>Amtsgericht Bünde</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art">
+            <SimpleValue>Vereinsregister</SimpleValue>
+         </Value>
+         <Value ColumnRef="Land">
+            <SimpleValue>Nordrhein-Westfalen</SimpleValue>
+         </Value>
+         <Value ColumnRef="PLZ">
+            <SimpleValue>32257</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="XJustiz_Id">
+            <SimpleValue>F1103</SimpleValue>
+         </Value>
+         <Value ColumnRef="Registergericht">
+            <SimpleValue>Amtsgericht Charlottenburg</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art">
+            <SimpleValue>Vereinsregister</SimpleValue>
+         </Value>
+         <Value ColumnRef="Land">
+            <SimpleValue>Berlin</SimpleValue>
+         </Value>
+         <Value ColumnRef="PLZ">
+            <SimpleValue>14057</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="XJustiz_Id">
+            <SimpleValue>F1103R</SimpleValue>
+         </Value>
+         <Value ColumnRef="Registergericht">
+            <SimpleValue>Amtsgericht Charlottenburg</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art">
+            <SimpleValue>Handels- und Genossenschaftsregister</SimpleValue>
+         </Value>
+         <Value ColumnRef="Land">
+            <SimpleValue>Berlin</SimpleValue>
+         </Value>
+         <Value ColumnRef="PLZ">
+            <SimpleValue>10623</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="XJustiz_Id">
+            <SimpleValue>U1206</SimpleValue>
+         </Value>
+         <Value ColumnRef="Registergericht">
+            <SimpleValue>Amtsgericht Chemnitz</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art">
+            <SimpleValue>Handels- und Genossenschaftsregister, Vereinsregister</SimpleValue>
+         </Value>
+         <Value ColumnRef="Land">
+            <SimpleValue>Sachsen</SimpleValue>
+         </Value>
+         <Value ColumnRef="PLZ">
+            <SimpleValue>09112</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="XJustiz_Id">
+            <SimpleValue>D4401</SimpleValue>
+         </Value>
+         <Value ColumnRef="Registergericht">
+            <SimpleValue>Amtsgericht Coburg</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art">
+            <SimpleValue>Vereinsregister</SimpleValue>
+         </Value>
+         <Value ColumnRef="Land">
+            <SimpleValue>Bayern</SimpleValue>
+         </Value>
+         <Value ColumnRef="PLZ">
+            <SimpleValue>96450</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="XJustiz_Id">
+            <SimpleValue>D4401V</SimpleValue>
+         </Value>
+         <Value ColumnRef="Registergericht">
+            <SimpleValue>Amtsgericht Coburg</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art">
+            <SimpleValue>Handels- und Genossenschaftsregister</SimpleValue>
+         </Value>
+         <Value ColumnRef="Land">
+            <SimpleValue>Bayern</SimpleValue>
+         </Value>
+         <Value ColumnRef="PLZ">
+            <SimpleValue>96450</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="XJustiz_Id">
+            <SimpleValue>R2707</SimpleValue>
+         </Value>
+         <Value ColumnRef="Registergericht">
+            <SimpleValue>Amtsgericht Coesfeld</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art">
+            <SimpleValue>Handels- und Genossenschaftsregister, Vereinsregister</SimpleValue>
+         </Value>
+         <Value ColumnRef="Land">
+            <SimpleValue>Nordrhein-Westfalen</SimpleValue>
+         </Value>
+         <Value ColumnRef="PLZ">
+            <SimpleValue>48653</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="XJustiz_Id">
+            <SimpleValue>G1103</SimpleValue>
+         </Value>
+         <Value ColumnRef="Registergericht">
+            <SimpleValue>Amtsgericht Cottbus</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art">
+            <SimpleValue>Handels- und Genossenschaftsregister, Vereinsregister</SimpleValue>
+         </Value>
+         <Value ColumnRef="Land">
+            <SimpleValue>Brandenburg</SimpleValue>
+         </Value>
+         <Value ColumnRef="PLZ">
+            <SimpleValue>03046</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="XJustiz_Id">
+            <SimpleValue>M1103</SimpleValue>
+         </Value>
+         <Value ColumnRef="Registergericht">
+            <SimpleValue>Amtsgericht Darmstadt</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art">
+            <SimpleValue>Handels- und Genossenschaftsregister, Vereinsregister</SimpleValue>
+         </Value>
+         <Value ColumnRef="Land">
+            <SimpleValue>Hessen</SimpleValue>
+         </Value>
+         <Value ColumnRef="PLZ">
+            <SimpleValue>64283</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="XJustiz_Id">
+            <SimpleValue>D2201</SimpleValue>
+         </Value>
+         <Value ColumnRef="Registergericht">
+            <SimpleValue>Amtsgericht Deggendorf</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art">
+            <SimpleValue>Vereinsregister</SimpleValue>
+         </Value>
+         <Value ColumnRef="Land">
+            <SimpleValue>Bayern</SimpleValue>
+         </Value>
+         <Value ColumnRef="PLZ">
+            <SimpleValue>94469</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="XJustiz_Id">
+            <SimpleValue>D2201V</SimpleValue>
+         </Value>
+         <Value ColumnRef="Registergericht">
+            <SimpleValue>Amtsgericht Deggendorf</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art">
+            <SimpleValue>Handels- und Genossenschaftsregister</SimpleValue>
+         </Value>
+         <Value ColumnRef="Land">
+            <SimpleValue>Bayern</SimpleValue>
+         </Value>
+         <Value ColumnRef="PLZ">
+            <SimpleValue>94469</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="XJustiz_Id">
+            <SimpleValue>R2402</SimpleValue>
+         </Value>
+         <Value ColumnRef="Registergericht">
+            <SimpleValue>Amtsgericht Dortmund</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art">
+            <SimpleValue>Handels- und Genossenschaftsregister, Vereinsregister</SimpleValue>
+         </Value>
+         <Value ColumnRef="Land">
+            <SimpleValue>Nordrhein-Westfalen</SimpleValue>
+         </Value>
+         <Value ColumnRef="PLZ">
+            <SimpleValue>44135</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="XJustiz_Id">
+            <SimpleValue>U1104</SimpleValue>
+         </Value>
+         <Value ColumnRef="Registergericht">
+            <SimpleValue>Amtsgericht Dresden</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art">
+            <SimpleValue>Handels- und Genossenschaftsregister, Vereinsregister</SimpleValue>
+         </Value>
+         <Value ColumnRef="Land">
+            <SimpleValue>Sachsen</SimpleValue>
+         </Value>
+         <Value ColumnRef="PLZ">
+            <SimpleValue>01069</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="XJustiz_Id">
+            <SimpleValue>R1202</SimpleValue>
+         </Value>
+         <Value ColumnRef="Registergericht">
+            <SimpleValue>Amtsgericht Duisburg</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art">
+            <SimpleValue>Handels- und Genossenschaftsregister, Vereinsregister</SimpleValue>
+         </Value>
+         <Value ColumnRef="Land">
+            <SimpleValue>Nordrhein-Westfalen</SimpleValue>
+         </Value>
+         <Value ColumnRef="PLZ">
+            <SimpleValue>47051</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="XJustiz_Id">
+            <SimpleValue>R3103</SimpleValue>
+         </Value>
+         <Value ColumnRef="Registergericht">
+            <SimpleValue>Amtsgericht Düren</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art">
+            <SimpleValue>Handels- und Genossenschaftsregister, Vereinsregister</SimpleValue>
+         </Value>
+         <Value ColumnRef="Land">
+            <SimpleValue>Nordrhein-Westfalen</SimpleValue>
+         </Value>
+         <Value ColumnRef="PLZ">
+            <SimpleValue>52349</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="XJustiz_Id">
+            <SimpleValue>R1101</SimpleValue>
+         </Value>
+         <Value ColumnRef="Registergericht">
+            <SimpleValue>Amtsgericht Düsseldorf</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art">
+            <SimpleValue>Handels- und Genossenschaftsregister, Vereinsregister</SimpleValue>
+         </Value>
+         <Value ColumnRef="Land">
+            <SimpleValue>Nordrhein-Westfalen</SimpleValue>
+         </Value>
+         <Value ColumnRef="PLZ">
+            <SimpleValue>40227</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="XJustiz_Id">
+            <SimpleValue>Y1105</SimpleValue>
+         </Value>
+         <Value ColumnRef="Registergericht">
+            <SimpleValue>Amtsgericht Eisenach</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art">
+            <SimpleValue>Vereinsregister</SimpleValue>
+         </Value>
+         <Value ColumnRef="Land">
+            <SimpleValue>Thüringen</SimpleValue>
+         </Value>
+         <Value ColumnRef="PLZ">
+            <SimpleValue>99817</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="XJustiz_Id">
+            <SimpleValue>Y1106</SimpleValue>
+         </Value>
+         <Value ColumnRef="Registergericht">
+            <SimpleValue>Amtsgericht Erfurt</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art">
+            <SimpleValue>Vereinsregister</SimpleValue>
+         </Value>
+         <Value ColumnRef="Land">
+            <SimpleValue>Thüringen</SimpleValue>
+         </Value>
+         <Value ColumnRef="PLZ">
+            <SimpleValue>99092</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="XJustiz_Id">
+            <SimpleValue>R1502</SimpleValue>
+         </Value>
+         <Value ColumnRef="Registergericht">
+            <SimpleValue>Amtsgericht Erkelenz</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art">
+            <SimpleValue>Vereinsregister</SimpleValue>
+         </Value>
+         <Value ColumnRef="Land">
+            <SimpleValue>Nordrhein-Westfalen</SimpleValue>
+         </Value>
+         <Value ColumnRef="PLZ">
+            <SimpleValue>41812</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="XJustiz_Id">
+            <SimpleValue>M1602</SimpleValue>
+         </Value>
+         <Value ColumnRef="Registergericht">
+            <SimpleValue>Amtsgericht Eschwege</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art">
+            <SimpleValue>Handels- und Genossenschaftsregister, Vereinsregister</SimpleValue>
+         </Value>
+         <Value ColumnRef="Land">
+            <SimpleValue>Hessen</SimpleValue>
+         </Value>
+         <Value ColumnRef="PLZ">
+            <SimpleValue>37269</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="XJustiz_Id">
+            <SimpleValue>R2503</SimpleValue>
+         </Value>
+         <Value ColumnRef="Registergericht">
+            <SimpleValue>Amtsgericht Essen</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art">
+            <SimpleValue>Handels- und Genossenschaftsregister, Vereinsregister</SimpleValue>
+         </Value>
+         <Value ColumnRef="Land">
+            <SimpleValue>Nordrhein-Westfalen</SimpleValue>
+         </Value>
+         <Value ColumnRef="PLZ">
+            <SimpleValue>45130</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="XJustiz_Id">
+            <SimpleValue>X1112R</SimpleValue>
+         </Value>
+         <Value ColumnRef="Registergericht">
+            <SimpleValue>Amtsgericht Flensburg</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art">
+            <SimpleValue>Handels- und Genossenschaftsregister, Vereinsregister</SimpleValue>
+         </Value>
+         <Value ColumnRef="Land">
+            <SimpleValue>Schleswig-Holstein</SimpleValue>
+         </Value>
+         <Value ColumnRef="PLZ">
+            <SimpleValue>24937</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="XJustiz_Id">
+            <SimpleValue>G1207</SimpleValue>
+         </Value>
+         <Value ColumnRef="Registergericht">
+            <SimpleValue>Amtsgericht Frankfurt (Oder)</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art">
+            <SimpleValue>Handels- und Genossenschaftsregister, Vereinsregister</SimpleValue>
+         </Value>
+         <Value ColumnRef="Land">
+            <SimpleValue>Brandenburg</SimpleValue>
+         </Value>
+         <Value ColumnRef="PLZ">
+            <SimpleValue>15236</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="XJustiz_Id">
+            <SimpleValue>M1201</SimpleValue>
+         </Value>
+         <Value ColumnRef="Registergericht">
+            <SimpleValue>Amtsgericht Frankfurt am Main</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art">
+            <SimpleValue>Handels- und Genossenschaftsregister, Vereinsregister</SimpleValue>
+         </Value>
+         <Value ColumnRef="Land">
+            <SimpleValue>Hessen</SimpleValue>
+         </Value>
+         <Value ColumnRef="PLZ">
+            <SimpleValue>60313</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="XJustiz_Id">
+            <SimpleValue>B8536</SimpleValue>
+         </Value>
+         <Value ColumnRef="Registergericht">
+            <SimpleValue>Amtsgericht Freiburg</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art">
+            <SimpleValue>Handels- und Genossenschaftsregister, Vereinsregister</SimpleValue>
+         </Value>
+         <Value ColumnRef="Land">
+            <SimpleValue>Baden-Württemberg</SimpleValue>
+         </Value>
+         <Value ColumnRef="PLZ">
+            <SimpleValue>79098</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="XJustiz_Id">
+            <SimpleValue>M1405</SimpleValue>
+         </Value>
+         <Value ColumnRef="Registergericht">
+            <SimpleValue>Amtsgericht Friedberg (Hessen)</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art">
+            <SimpleValue>Handels- und Genossenschaftsregister, Vereinsregister</SimpleValue>
+         </Value>
+         <Value ColumnRef="Land">
+            <SimpleValue>Hessen</SimpleValue>
+         </Value>
+         <Value ColumnRef="PLZ">
+            <SimpleValue>61169</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="XJustiz_Id">
+            <SimpleValue>M1603</SimpleValue>
+         </Value>
+         <Value ColumnRef="Registergericht">
+            <SimpleValue>Amtsgericht Fritzlar</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art">
+            <SimpleValue>Handels- und Genossenschaftsregister, Vereinsregister</SimpleValue>
+         </Value>
+         <Value ColumnRef="Land">
+            <SimpleValue>Hessen</SimpleValue>
+         </Value>
+         <Value ColumnRef="PLZ">
+            <SimpleValue>34560</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="XJustiz_Id">
+            <SimpleValue>M1301</SimpleValue>
+         </Value>
+         <Value ColumnRef="Registergericht">
+            <SimpleValue>Amtsgericht Fulda</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art">
+            <SimpleValue>Handels- und Genossenschaftsregister, Vereinsregister</SimpleValue>
+         </Value>
+         <Value ColumnRef="Land">
+            <SimpleValue>Hessen</SimpleValue>
+         </Value>
+         <Value ColumnRef="PLZ">
+            <SimpleValue>36037</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="XJustiz_Id">
+            <SimpleValue>D3304</SimpleValue>
+         </Value>
+         <Value ColumnRef="Registergericht">
+            <SimpleValue>Amtsgericht Fürth</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art">
+            <SimpleValue>Vereinsregister</SimpleValue>
+         </Value>
+         <Value ColumnRef="Land">
+            <SimpleValue>Bayern</SimpleValue>
+         </Value>
+         <Value ColumnRef="PLZ">
+            <SimpleValue>90762</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="XJustiz_Id">
+            <SimpleValue>D3304V</SimpleValue>
+         </Value>
+         <Value ColumnRef="Registergericht">
+            <SimpleValue>Amtsgericht Fürth</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art">
+            <SimpleValue>Handels- und Genossenschaftsregister</SimpleValue>
+         </Value>
+         <Value ColumnRef="Land">
+            <SimpleValue>Bayern</SimpleValue>
+         </Value>
+         <Value ColumnRef="PLZ">
+            <SimpleValue>90762</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="XJustiz_Id">
+            <SimpleValue>R1302</SimpleValue>
+         </Value>
+         <Value ColumnRef="Registergericht">
+            <SimpleValue>Amtsgericht Geldern</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art">
+            <SimpleValue>Vereinsregister</SimpleValue>
+         </Value>
+         <Value ColumnRef="Land">
+            <SimpleValue>Nordrhein-Westfalen</SimpleValue>
+         </Value>
+         <Value ColumnRef="PLZ">
+            <SimpleValue>47608</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="XJustiz_Id">
+            <SimpleValue>R2507</SimpleValue>
+         </Value>
+         <Value ColumnRef="Registergericht">
+            <SimpleValue>Amtsgericht Gelsenkirchen</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art">
+            <SimpleValue>Handels- und Genossenschaftsregister, Vereinsregister</SimpleValue>
+         </Value>
+         <Value ColumnRef="Land">
+            <SimpleValue>Nordrhein-Westfalen</SimpleValue>
+         </Value>
+         <Value ColumnRef="PLZ">
+            <SimpleValue>45886</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="XJustiz_Id">
+            <SimpleValue>Y1203</SimpleValue>
+         </Value>
+         <Value ColumnRef="Registergericht">
+            <SimpleValue>Amtsgericht Gera</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art">
+            <SimpleValue>Vereinsregister</SimpleValue>
+         </Value>
+         <Value ColumnRef="Land">
+            <SimpleValue>Thüringen</SimpleValue>
+         </Value>
+         <Value ColumnRef="PLZ">
+            <SimpleValue>07545</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="XJustiz_Id">
+            <SimpleValue>M1406</SimpleValue>
+         </Value>
+         <Value ColumnRef="Registergericht">
+            <SimpleValue>Amtsgericht Gießen</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art">
+            <SimpleValue>Handels- und Genossenschaftsregister, Vereinsregister</SimpleValue>
+         </Value>
+         <Value ColumnRef="Land">
+            <SimpleValue>Hessen</SimpleValue>
+         </Value>
+         <Value ColumnRef="PLZ">
+            <SimpleValue>35390</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="XJustiz_Id">
+            <SimpleValue>Y1108</SimpleValue>
+         </Value>
+         <Value ColumnRef="Registergericht">
+            <SimpleValue>Amtsgericht Gotha</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art">
+            <SimpleValue>Vereinsregister</SimpleValue>
+         </Value>
+         <Value ColumnRef="Land">
+            <SimpleValue>Thüringen</SimpleValue>
+         </Value>
+         <Value ColumnRef="PLZ">
+            <SimpleValue>99867</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="XJustiz_Id">
+            <SimpleValue>Y1205</SimpleValue>
+         </Value>
+         <Value ColumnRef="Registergericht">
+            <SimpleValue>Amtsgericht Greiz</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art">
+            <SimpleValue>Vereinsregister</SimpleValue>
+         </Value>
+         <Value ColumnRef="Land">
+            <SimpleValue>Thüringen</SimpleValue>
+         </Value>
+         <Value ColumnRef="PLZ">
+            <SimpleValue>07973</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="XJustiz_Id">
+            <SimpleValue>P2204</SimpleValue>
+         </Value>
+         <Value ColumnRef="Registergericht">
+            <SimpleValue>Amtsgericht Göttingen</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art">
+            <SimpleValue>Handels- und Genossenschaftsregister, Vereinsregister</SimpleValue>
+         </Value>
+         <Value ColumnRef="Land">
+            <SimpleValue>Niedersachsen</SimpleValue>
+         </Value>
+         <Value ColumnRef="PLZ">
+            <SimpleValue>37073</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="XJustiz_Id">
+            <SimpleValue>R2103</SimpleValue>
+         </Value>
+         <Value ColumnRef="Registergericht">
+            <SimpleValue>Amtsgericht Gütersloh</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art">
+            <SimpleValue>Handels- und Genossenschaftsregister, Vereinsregister</SimpleValue>
+         </Value>
+         <Value ColumnRef="Land">
+            <SimpleValue>Nordrhein-Westfalen</SimpleValue>
+         </Value>
+         <Value ColumnRef="PLZ">
+            <SimpleValue>33330</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="XJustiz_Id">
+            <SimpleValue>R2602</SimpleValue>
+         </Value>
+         <Value ColumnRef="Registergericht">
+            <SimpleValue>Amtsgericht Hagen</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art">
+            <SimpleValue>Handels- und Genossenschaftsregister, Vereinsregister</SimpleValue>
+         </Value>
+         <Value ColumnRef="Land">
+            <SimpleValue>Nordrhein-Westfalen</SimpleValue>
+         </Value>
+         <Value ColumnRef="PLZ">
+            <SimpleValue>58097</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="XJustiz_Id">
+            <SimpleValue>K1101R</SimpleValue>
+         </Value>
+         <Value ColumnRef="Registergericht">
+            <SimpleValue>Amtsgericht Hamburg</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art">
+            <SimpleValue>Handels- und Genossenschaftsregister, Vereinsregister</SimpleValue>
+         </Value>
+         <Value ColumnRef="Land">
+            <SimpleValue>Hamburg</SimpleValue>
+         </Value>
+         <Value ColumnRef="PLZ">
+            <SimpleValue>20355</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="XJustiz_Id">
+            <SimpleValue>R2404</SimpleValue>
+         </Value>
+         <Value ColumnRef="Registergericht">
+            <SimpleValue>Amtsgericht Hamm</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art">
+            <SimpleValue>Handels- und Genossenschaftsregister, Vereinsregister</SimpleValue>
+         </Value>
+         <Value ColumnRef="Land">
+            <SimpleValue>Nordrhein-Westfalen</SimpleValue>
+         </Value>
+         <Value ColumnRef="PLZ">
+            <SimpleValue>59065</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="XJustiz_Id">
+            <SimpleValue>M1502</SimpleValue>
+         </Value>
+         <Value ColumnRef="Registergericht">
+            <SimpleValue>Amtsgericht Hanau</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art">
+            <SimpleValue>Handels- und Genossenschaftsregister, Vereinsregister</SimpleValue>
+         </Value>
+         <Value ColumnRef="Land">
+            <SimpleValue>Hessen</SimpleValue>
+         </Value>
+         <Value ColumnRef="PLZ">
+            <SimpleValue>63450</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="XJustiz_Id">
+            <SimpleValue>P2305</SimpleValue>
+         </Value>
+         <Value ColumnRef="Registergericht">
+            <SimpleValue>Amtsgericht Hannover</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art">
+            <SimpleValue>Handels- und Genossenschaftsregister, Vereinsregister</SimpleValue>
+         </Value>
+         <Value ColumnRef="Land">
+            <SimpleValue>Niedersachsen</SimpleValue>
+         </Value>
+         <Value ColumnRef="PLZ">
+            <SimpleValue>30175</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="XJustiz_Id">
+            <SimpleValue>Y1109</SimpleValue>
+         </Value>
+         <Value ColumnRef="Registergericht">
+            <SimpleValue>Amtsgericht Heilbad Heiligenstadt</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art">
+            <SimpleValue>Vereinsregister</SimpleValue>
+         </Value>
+         <Value ColumnRef="Land">
+            <SimpleValue>Thüringen</SimpleValue>
+         </Value>
+         <Value ColumnRef="PLZ">
+            <SimpleValue>37308</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="XJustiz_Id">
+            <SimpleValue>R2105</SimpleValue>
+         </Value>
+         <Value ColumnRef="Registergericht">
+            <SimpleValue>Amtsgericht Herford</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art">
+            <SimpleValue>Vereinsregister</SimpleValue>
+         </Value>
+         <Value ColumnRef="Land">
+            <SimpleValue>Nordrhein-Westfalen</SimpleValue>
+         </Value>
+         <Value ColumnRef="PLZ">
+            <SimpleValue>32052</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="XJustiz_Id">
+            <SimpleValue>R2203</SimpleValue>
+         </Value>
+         <Value ColumnRef="Registergericht">
+            <SimpleValue>Amtsgericht Herne</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art">
+            <SimpleValue>Vereinsregister</SimpleValue>
+         </Value>
+         <Value ColumnRef="Land">
+            <SimpleValue>Nordrhein-Westfalen</SimpleValue>
+         </Value>
+         <Value ColumnRef="PLZ">
+            <SimpleValue>44623</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="XJustiz_Id">
+            <SimpleValue>Y1302</SimpleValue>
+         </Value>
+         <Value ColumnRef="Registergericht">
+            <SimpleValue>Amtsgericht Hildburghausen</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art">
+            <SimpleValue>Vereinsregister</SimpleValue>
+         </Value>
+         <Value ColumnRef="Land">
+            <SimpleValue>Thüringen</SimpleValue>
+         </Value>
+         <Value ColumnRef="PLZ">
+            <SimpleValue>98646</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="XJustiz_Id">
+            <SimpleValue>P2408</SimpleValue>
+         </Value>
+         <Value ColumnRef="Registergericht">
+            <SimpleValue>Amtsgericht Hildesheim</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art">
+            <SimpleValue>Handels- und Genossenschaftsregister, Vereinsregister</SimpleValue>
+         </Value>
+         <Value ColumnRef="Land">
+            <SimpleValue>Niedersachsen</SimpleValue>
+         </Value>
+         <Value ColumnRef="PLZ">
+            <SimpleValue>31134</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="XJustiz_Id">
+            <SimpleValue>D4501</SimpleValue>
+         </Value>
+         <Value ColumnRef="Registergericht">
+            <SimpleValue>Amtsgericht Hof</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art">
+            <SimpleValue>Vereinsregister</SimpleValue>
+         </Value>
+         <Value ColumnRef="Land">
+            <SimpleValue>Bayern</SimpleValue>
+         </Value>
+         <Value ColumnRef="PLZ">
+            <SimpleValue>95030</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="XJustiz_Id">
+            <SimpleValue>D4501V</SimpleValue>
+         </Value>
+         <Value ColumnRef="Registergericht">
+            <SimpleValue>Amtsgericht Hof</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art">
+            <SimpleValue>Handels- und Genossenschaftsregister</SimpleValue>
+         </Value>
+         <Value ColumnRef="Land">
+            <SimpleValue>Bayern</SimpleValue>
+         </Value>
+         <Value ColumnRef="PLZ">
+            <SimpleValue>95030</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="XJustiz_Id">
+            <SimpleValue>V1102</SimpleValue>
+         </Value>
+         <Value ColumnRef="Registergericht">
+            <SimpleValue>Amtsgericht Homburg</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art">
+            <SimpleValue>Vereinsregister</SimpleValue>
+         </Value>
+         <Value ColumnRef="Land">
+            <SimpleValue>Saarland</SimpleValue>
+         </Value>
+         <Value ColumnRef="PLZ">
+            <SimpleValue>66424</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="XJustiz_Id">
+            <SimpleValue>D5701</SimpleValue>
+         </Value>
+         <Value ColumnRef="Registergericht">
+            <SimpleValue>Amtsgericht Ingolstadt</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art">
+            <SimpleValue>Vereinsregister</SimpleValue>
+         </Value>
+         <Value ColumnRef="Land">
+            <SimpleValue>Bayern</SimpleValue>
+         </Value>
+         <Value ColumnRef="PLZ">
+            <SimpleValue>85049</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="XJustiz_Id">
+            <SimpleValue>D5701V</SimpleValue>
+         </Value>
+         <Value ColumnRef="Registergericht">
+            <SimpleValue>Amtsgericht Ingolstadt</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art">
+            <SimpleValue>Handels- und Genossenschaftsregister</SimpleValue>
+         </Value>
+         <Value ColumnRef="Land">
+            <SimpleValue>Bayern</SimpleValue>
+         </Value>
+         <Value ColumnRef="PLZ">
+            <SimpleValue>85049</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="XJustiz_Id">
+            <SimpleValue>R2604</SimpleValue>
+         </Value>
+         <Value ColumnRef="Registergericht">
+            <SimpleValue>Amtsgericht Iserlohn</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art">
+            <SimpleValue>Handels- und Genossenschaftsregister, Vereinsregister</SimpleValue>
+         </Value>
+         <Value ColumnRef="Land">
+            <SimpleValue>Nordrhein-Westfalen</SimpleValue>
+         </Value>
+         <Value ColumnRef="PLZ">
+            <SimpleValue>58636</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="XJustiz_Id">
+            <SimpleValue>Y1206</SimpleValue>
+         </Value>
+         <Value ColumnRef="Registergericht">
+            <SimpleValue>Amtsgericht Jena</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art">
+            <SimpleValue>Vereinsregister</SimpleValue>
+         </Value>
+         <Value ColumnRef="Land">
+            <SimpleValue>Thüringen</SimpleValue>
+         </Value>
+         <Value ColumnRef="PLZ">
+            <SimpleValue>07745</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="XJustiz_Id">
+            <SimpleValue>Y1206V</SimpleValue>
+         </Value>
+         <Value ColumnRef="Registergericht">
+            <SimpleValue>Amtsgericht Jena</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art">
+            <SimpleValue>Handels- und Genossenschaftsregister</SimpleValue>
+         </Value>
+         <Value ColumnRef="Land">
+            <SimpleValue>Thüringen</SimpleValue>
+         </Value>
+         <Value ColumnRef="PLZ">
+            <SimpleValue>07745</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="XJustiz_Id">
+            <SimpleValue>T3201V</SimpleValue>
+         </Value>
+         <Value ColumnRef="Registergericht">
+            <SimpleValue>Amtsgericht Kaiserslautern</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art">
+            <SimpleValue>Handels- und Genossenschaftsregister, Vereinsregister</SimpleValue>
+         </Value>
+         <Value ColumnRef="Land">
+            <SimpleValue>Rheinland-Pfalz</SimpleValue>
+         </Value>
+         <Value ColumnRef="PLZ">
+            <SimpleValue>67655</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="XJustiz_Id">
+            <SimpleValue>M1607</SimpleValue>
+         </Value>
+         <Value ColumnRef="Registergericht">
+            <SimpleValue>Amtsgericht Kassel</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art">
+            <SimpleValue>Handels- und Genossenschaftsregister, Vereinsregister</SimpleValue>
+         </Value>
+         <Value ColumnRef="Land">
+            <SimpleValue>Hessen</SimpleValue>
+         </Value>
+         <Value ColumnRef="PLZ">
+            <SimpleValue>34117</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="XJustiz_Id">
+            <SimpleValue>D2304</SimpleValue>
+         </Value>
+         <Value ColumnRef="Registergericht">
+            <SimpleValue>Amtsgericht Kempten (Allgäu)</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art">
+            <SimpleValue>Vereinsregister</SimpleValue>
+         </Value>
+         <Value ColumnRef="Land">
+            <SimpleValue>Bayern</SimpleValue>
+         </Value>
+         <Value ColumnRef="PLZ">
+            <SimpleValue>87435</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="XJustiz_Id">
+            <SimpleValue>D2304V</SimpleValue>
+         </Value>
+         <Value ColumnRef="Registergericht">
+            <SimpleValue>Amtsgericht Kempten (Allgäu)</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art">
+            <SimpleValue>Handels- und Genossenschaftsregister</SimpleValue>
+         </Value>
+         <Value ColumnRef="Land">
+            <SimpleValue>Bayern</SimpleValue>
+         </Value>
+         <Value ColumnRef="PLZ">
+            <SimpleValue>87435</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="XJustiz_Id">
+            <SimpleValue>X1517R</SimpleValue>
+         </Value>
+         <Value ColumnRef="Registergericht">
+            <SimpleValue>Amtsgericht Kiel</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art">
+            <SimpleValue>Handels- und Genossenschaftsregister, Vereinsregister</SimpleValue>
+         </Value>
+         <Value ColumnRef="Land">
+            <SimpleValue>Schleswig-Holstein</SimpleValue>
+         </Value>
+         <Value ColumnRef="PLZ">
+            <SimpleValue>24114</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="XJustiz_Id">
+            <SimpleValue>R1304</SimpleValue>
+         </Value>
+         <Value ColumnRef="Registergericht">
+            <SimpleValue>Amtsgericht Kleve</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art">
+            <SimpleValue>Handels- und Genossenschaftsregister, Vereinsregister</SimpleValue>
+         </Value>
+         <Value ColumnRef="Land">
+            <SimpleValue>Nordrhein-Westfalen</SimpleValue>
+         </Value>
+         <Value ColumnRef="PLZ">
+            <SimpleValue>47533</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="XJustiz_Id">
+            <SimpleValue>T2210V</SimpleValue>
+         </Value>
+         <Value ColumnRef="Registergericht">
+            <SimpleValue>Amtsgericht Koblenz</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art">
+            <SimpleValue>Handels- und Genossenschaftsregister, Vereinsregister</SimpleValue>
+         </Value>
+         <Value ColumnRef="Land">
+            <SimpleValue>Rheinland-Pfalz</SimpleValue>
+         </Value>
+         <Value ColumnRef="PLZ">
+            <SimpleValue>56068</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="XJustiz_Id">
+            <SimpleValue>M1608</SimpleValue>
+         </Value>
+         <Value ColumnRef="Registergericht">
+            <SimpleValue>Amtsgericht Korbach</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art">
+            <SimpleValue>Handels- und Genossenschaftsregister, Vereinsregister</SimpleValue>
+         </Value>
+         <Value ColumnRef="Land">
+            <SimpleValue>Hessen</SimpleValue>
+         </Value>
+         <Value ColumnRef="PLZ">
+            <SimpleValue>34497</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="XJustiz_Id">
+            <SimpleValue>R1402</SimpleValue>
+         </Value>
+         <Value ColumnRef="Registergericht">
+            <SimpleValue>Amtsgericht Krefeld</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art">
+            <SimpleValue>Handels- und Genossenschaftsregister, Vereinsregister</SimpleValue>
+         </Value>
+         <Value ColumnRef="Land">
+            <SimpleValue>Nordrhein-Westfalen</SimpleValue>
+         </Value>
+         <Value ColumnRef="PLZ">
+            <SimpleValue>47798</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="XJustiz_Id">
+            <SimpleValue>R3306</SimpleValue>
+         </Value>
+         <Value ColumnRef="Registergericht">
+            <SimpleValue>Amtsgericht Köln</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art">
+            <SimpleValue>Handels- und Genossenschaftsregister, Vereinsregister</SimpleValue>
+         </Value>
+         <Value ColumnRef="Land">
+            <SimpleValue>Nordrhein-Westfalen</SimpleValue>
+         </Value>
+         <Value ColumnRef="PLZ">
+            <SimpleValue>50670</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="XJustiz_Id">
+            <SimpleValue>M1203</SimpleValue>
+         </Value>
+         <Value ColumnRef="Registergericht">
+            <SimpleValue>Amtsgericht Königstein im Taunus</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art">
+            <SimpleValue>Handels- und Genossenschaftsregister, Vereinsregister</SimpleValue>
+         </Value>
+         <Value ColumnRef="Land">
+            <SimpleValue>Hessen</SimpleValue>
+         </Value>
+         <Value ColumnRef="PLZ">
+            <SimpleValue>61462</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="XJustiz_Id">
+            <SimpleValue>T3304V</SimpleValue>
+         </Value>
+         <Value ColumnRef="Registergericht">
+            <SimpleValue>Amtsgericht Landau in der Pfalz</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art">
+            <SimpleValue>Handels- und Genossenschaftsregister, Vereinsregister</SimpleValue>
+         </Value>
+         <Value ColumnRef="Land">
+            <SimpleValue>Rheinland-Pfalz</SimpleValue>
+         </Value>
+         <Value ColumnRef="PLZ">
+            <SimpleValue>76829</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="XJustiz_Id">
+            <SimpleValue>D2404</SimpleValue>
+         </Value>
+         <Value ColumnRef="Registergericht">
+            <SimpleValue>Amtsgericht Landshut</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art">
+            <SimpleValue>Vereinsregister</SimpleValue>
+         </Value>
+         <Value ColumnRef="Land">
+            <SimpleValue>Bayern</SimpleValue>
+         </Value>
+         <Value ColumnRef="PLZ">
+            <SimpleValue>84028</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="XJustiz_Id">
+            <SimpleValue>D2404V</SimpleValue>
+         </Value>
+         <Value ColumnRef="Registergericht">
+            <SimpleValue>Amtsgericht Landshut</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art">
+            <SimpleValue>Handels- und Genossenschaftsregister</SimpleValue>
+         </Value>
+         <Value ColumnRef="Land">
+            <SimpleValue>Bayern</SimpleValue>
+         </Value>
+         <Value ColumnRef="PLZ">
+            <SimpleValue>84028</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="XJustiz_Id">
+            <SimpleValue>V1103</SimpleValue>
+         </Value>
+         <Value ColumnRef="Registergericht">
+            <SimpleValue>Amtsgericht Lebach</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art">
+            <SimpleValue>Vereinsregister</SimpleValue>
+         </Value>
+         <Value ColumnRef="Land">
+            <SimpleValue>Saarland</SimpleValue>
+         </Value>
+         <Value ColumnRef="PLZ">
+            <SimpleValue>66822</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="XJustiz_Id">
+            <SimpleValue>U1308</SimpleValue>
+         </Value>
+         <Value ColumnRef="Registergericht">
+            <SimpleValue>Amtsgericht Leipzig</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art">
+            <SimpleValue>Handels- und Genossenschaftsregister, Vereinsregister</SimpleValue>
+         </Value>
+         <Value ColumnRef="Land">
+            <SimpleValue>Sachsen</SimpleValue>
+         </Value>
+         <Value ColumnRef="PLZ">
+            <SimpleValue>04275</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="XJustiz_Id">
+            <SimpleValue>R2307</SimpleValue>
+         </Value>
+         <Value ColumnRef="Registergericht">
+            <SimpleValue>Amtsgericht Lemgo</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art">
+            <SimpleValue>Handels- und Genossenschaftsregister, Vereinsregister</SimpleValue>
+         </Value>
+         <Value ColumnRef="Land">
+            <SimpleValue>Nordrhein-Westfalen</SimpleValue>
+         </Value>
+         <Value ColumnRef="PLZ">
+            <SimpleValue>32657</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="XJustiz_Id">
+            <SimpleValue>M1706</SimpleValue>
+         </Value>
+         <Value ColumnRef="Registergericht">
+            <SimpleValue>Amtsgericht Limburg a. d. Lahn</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art">
+            <SimpleValue>Handels- und Genossenschaftsregister, Vereinsregister</SimpleValue>
+         </Value>
+         <Value ColumnRef="Land">
+            <SimpleValue>Hessen</SimpleValue>
+         </Value>
+         <Value ColumnRef="PLZ">
+            <SimpleValue>65549</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="XJustiz_Id">
+            <SimpleValue>T3104V</SimpleValue>
+         </Value>
+         <Value ColumnRef="Registergericht">
+            <SimpleValue>Amtsgericht Ludwigshafen am Rhein</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art">
+            <SimpleValue>Handels- und Genossenschaftsregister, Vereinsregister</SimpleValue>
+         </Value>
+         <Value ColumnRef="Land">
+            <SimpleValue>Rheinland-Pfalz</SimpleValue>
+         </Value>
+         <Value ColumnRef="PLZ">
+            <SimpleValue>67061</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="XJustiz_Id">
+            <SimpleValue>X1721R</SimpleValue>
+         </Value>
+         <Value ColumnRef="Registergericht">
+            <SimpleValue>Amtsgericht Lübeck</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art">
+            <SimpleValue>Handels- und Genossenschaftsregister, Vereinsregister</SimpleValue>
+         </Value>
+         <Value ColumnRef="Land">
+            <SimpleValue>Schleswig-Holstein</SimpleValue>
+         </Value>
+         <Value ColumnRef="PLZ">
+            <SimpleValue>23568</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="XJustiz_Id">
+            <SimpleValue>P2507</SimpleValue>
+         </Value>
+         <Value ColumnRef="Registergericht">
+            <SimpleValue>Amtsgericht Lüneburg</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art">
+            <SimpleValue>Handels- und Genossenschaftsregister, Vereinsregister</SimpleValue>
+         </Value>
+         <Value ColumnRef="Land">
+            <SimpleValue>Niedersachsen</SimpleValue>
+         </Value>
+         <Value ColumnRef="PLZ">
+            <SimpleValue>21335</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="XJustiz_Id">
+            <SimpleValue>R2406</SimpleValue>
+         </Value>
+         <Value ColumnRef="Registergericht">
+            <SimpleValue>Amtsgericht Lünen</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art">
+            <SimpleValue>Vereinsregister</SimpleValue>
+         </Value>
+         <Value ColumnRef="Land">
+            <SimpleValue>Nordrhein-Westfalen</SimpleValue>
+         </Value>
+         <Value ColumnRef="PLZ">
+            <SimpleValue>44532</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="XJustiz_Id">
+            <SimpleValue>T2304V</SimpleValue>
+         </Value>
+         <Value ColumnRef="Registergericht">
+            <SimpleValue>Amtsgericht Mainz</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art">
+            <SimpleValue>Handels- und Genossenschaftsregister, Vereinsregister</SimpleValue>
+         </Value>
+         <Value ColumnRef="Land">
+            <SimpleValue>Rheinland-Pfalz</SimpleValue>
+         </Value>
+         <Value ColumnRef="PLZ">
+            <SimpleValue>55116</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="XJustiz_Id">
+            <SimpleValue>B8535</SimpleValue>
+         </Value>
+         <Value ColumnRef="Registergericht">
+            <SimpleValue>Amtsgericht Mannheim</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art">
+            <SimpleValue>Handels- und Genossenschaftsregister, Vereinsregister</SimpleValue>
+         </Value>
+         <Value ColumnRef="Land">
+            <SimpleValue>Baden-Württemberg</SimpleValue>
+         </Value>
+         <Value ColumnRef="PLZ">
+            <SimpleValue>68159</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="XJustiz_Id">
+            <SimpleValue>M1809</SimpleValue>
+         </Value>
+         <Value ColumnRef="Registergericht">
+            <SimpleValue>Amtsgericht Marburg</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art">
+            <SimpleValue>Handels- und Genossenschaftsregister, Vereinsregister</SimpleValue>
+         </Value>
+         <Value ColumnRef="Land">
+            <SimpleValue>Hessen</SimpleValue>
+         </Value>
+         <Value ColumnRef="PLZ">
+            <SimpleValue>35037</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="XJustiz_Id">
+            <SimpleValue>Y1304</SimpleValue>
+         </Value>
+         <Value ColumnRef="Registergericht">
+            <SimpleValue>Amtsgericht Meiningen</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art">
+            <SimpleValue>Vereinsregister</SimpleValue>
+         </Value>
+         <Value ColumnRef="Land">
+            <SimpleValue>Thüringen</SimpleValue>
+         </Value>
+         <Value ColumnRef="PLZ">
+            <SimpleValue>98617</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="XJustiz_Id">
+            <SimpleValue>D2505</SimpleValue>
+         </Value>
+         <Value ColumnRef="Registergericht">
+            <SimpleValue>Amtsgericht Memmingen</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art">
+            <SimpleValue>Vereinsregister</SimpleValue>
+         </Value>
+         <Value ColumnRef="Land">
+            <SimpleValue>Bayern</SimpleValue>
+         </Value>
+         <Value ColumnRef="PLZ">
+            <SimpleValue>87700</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="XJustiz_Id">
+            <SimpleValue>D2505V</SimpleValue>
+         </Value>
+         <Value ColumnRef="Registergericht">
+            <SimpleValue>Amtsgericht Memmingen</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art">
+            <SimpleValue>Handels- und Genossenschaftsregister</SimpleValue>
+         </Value>
+         <Value ColumnRef="Land">
+            <SimpleValue>Bayern</SimpleValue>
+         </Value>
+         <Value ColumnRef="PLZ">
+            <SimpleValue>87700</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="XJustiz_Id">
+            <SimpleValue>V1104</SimpleValue>
+         </Value>
+         <Value ColumnRef="Registergericht">
+            <SimpleValue>Amtsgericht Merzig</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art">
+            <SimpleValue>Vereinsregister</SimpleValue>
+         </Value>
+         <Value ColumnRef="Land">
+            <SimpleValue>Saarland</SimpleValue>
+         </Value>
+         <Value ColumnRef="PLZ">
+            <SimpleValue>66663</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="XJustiz_Id">
+            <SimpleValue>V1116</SimpleValue>
+         </Value>
+         <Value ColumnRef="Registergericht">
+            <SimpleValue>Amtsgericht Merzig - Zweigstelle Wadern</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art">
+            <SimpleValue>Vereinsregister</SimpleValue>
+         </Value>
+         <Value ColumnRef="Land">
+            <SimpleValue>Saarland</SimpleValue>
+         </Value>
+         <Value ColumnRef="PLZ">
+            <SimpleValue>66687</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="XJustiz_Id">
+            <SimpleValue>T2214V</SimpleValue>
+         </Value>
+         <Value ColumnRef="Registergericht">
+            <SimpleValue>Amtsgericht Montabaur</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art">
+            <SimpleValue>Handels- und Genossenschaftsregister, Vereinsregister</SimpleValue>
+         </Value>
+         <Value ColumnRef="Land">
+            <SimpleValue>Rheinland-Pfalz</SimpleValue>
+         </Value>
+         <Value ColumnRef="PLZ">
+            <SimpleValue>56410</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="XJustiz_Id">
+            <SimpleValue>R1504</SimpleValue>
+         </Value>
+         <Value ColumnRef="Registergericht">
+            <SimpleValue>Amtsgericht Mönchengladbach</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art">
+            <SimpleValue>Handels- und Genossenschaftsregister, Vereinsregister</SimpleValue>
+         </Value>
+         <Value ColumnRef="Land">
+            <SimpleValue>Nordrhein-Westfalen</SimpleValue>
+         </Value>
+         <Value ColumnRef="PLZ">
+            <SimpleValue>41061</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="XJustiz_Id">
+            <SimpleValue>Y1110</SimpleValue>
+         </Value>
+         <Value ColumnRef="Registergericht">
+            <SimpleValue>Amtsgericht Mühlhausen</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art">
+            <SimpleValue>Vereinsregister</SimpleValue>
+         </Value>
+         <Value ColumnRef="Land">
+            <SimpleValue>Thüringen</SimpleValue>
+         </Value>
+         <Value ColumnRef="PLZ">
+            <SimpleValue>99974</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="XJustiz_Id">
+            <SimpleValue>D2601</SimpleValue>
+         </Value>
+         <Value ColumnRef="Registergericht">
+            <SimpleValue>Amtsgericht München</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art">
+            <SimpleValue>Vereinsregister</SimpleValue>
+         </Value>
+         <Value ColumnRef="Land">
+            <SimpleValue>Bayern</SimpleValue>
+         </Value>
+         <Value ColumnRef="PLZ">
+            <SimpleValue>80797</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="XJustiz_Id">
+            <SimpleValue>D2601V</SimpleValue>
+         </Value>
+         <Value ColumnRef="Registergericht">
+            <SimpleValue>Amtsgericht München</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art">
+            <SimpleValue>Handels- und Genossenschaftsregister</SimpleValue>
+         </Value>
+         <Value ColumnRef="Land">
+            <SimpleValue>Bayern</SimpleValue>
+         </Value>
+         <Value ColumnRef="PLZ">
+            <SimpleValue>80797</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="XJustiz_Id">
+            <SimpleValue>R2713</SimpleValue>
+         </Value>
+         <Value ColumnRef="Registergericht">
+            <SimpleValue>Amtsgericht Münster</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art">
+            <SimpleValue>Handels- und Genossenschaftsregister, Vereinsregister</SimpleValue>
+         </Value>
+         <Value ColumnRef="Land">
+            <SimpleValue>Nordrhein-Westfalen</SimpleValue>
+         </Value>
+         <Value ColumnRef="PLZ">
+            <SimpleValue>48149</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="XJustiz_Id">
+            <SimpleValue>N1105V</SimpleValue>
+         </Value>
+         <Value ColumnRef="Registergericht">
+            <SimpleValue>Amtsgericht Neubrandenburg</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art">
+            <SimpleValue>Handels- und Genossenschaftsregister, Vereinsregister</SimpleValue>
+         </Value>
+         <Value ColumnRef="Land">
+            <SimpleValue>Mecklenburg-Vorpommern</SimpleValue>
+         </Value>
+         <Value ColumnRef="PLZ">
+            <SimpleValue>17033</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="XJustiz_Id">
+            <SimpleValue>V1105</SimpleValue>
+         </Value>
+         <Value ColumnRef="Registergericht">
+            <SimpleValue>Amtsgericht Neunkirchen</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art">
+            <SimpleValue>Vereinsregister</SimpleValue>
+         </Value>
+         <Value ColumnRef="Land">
+            <SimpleValue>Saarland</SimpleValue>
+         </Value>
+         <Value ColumnRef="PLZ">
+            <SimpleValue>66538</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="XJustiz_Id">
+            <SimpleValue>G1309</SimpleValue>
+         </Value>
+         <Value ColumnRef="Registergericht">
+            <SimpleValue>Amtsgericht Neuruppin</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art">
+            <SimpleValue>Handels- und Genossenschaftsregister, Vereinsregister</SimpleValue>
+         </Value>
+         <Value ColumnRef="Land">
+            <SimpleValue>Brandenburg</SimpleValue>
+         </Value>
+         <Value ColumnRef="PLZ">
+            <SimpleValue>16816</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="XJustiz_Id">
+            <SimpleValue>R1102</SimpleValue>
+         </Value>
+         <Value ColumnRef="Registergericht">
+            <SimpleValue>Amtsgericht Neuss</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art">
+            <SimpleValue>Handels- und Genossenschaftsregister, Vereinsregister</SimpleValue>
+         </Value>
+         <Value ColumnRef="Land">
+            <SimpleValue>Nordrhein-Westfalen</SimpleValue>
+         </Value>
+         <Value ColumnRef="PLZ">
+            <SimpleValue>41460</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="XJustiz_Id">
+            <SimpleValue>Y1111</SimpleValue>
+         </Value>
+         <Value ColumnRef="Registergericht">
+            <SimpleValue>Amtsgericht Nordhausen</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art">
+            <SimpleValue>Vereinsregister</SimpleValue>
+         </Value>
+         <Value ColumnRef="Land">
+            <SimpleValue>Thüringen</SimpleValue>
+         </Value>
+         <Value ColumnRef="PLZ">
+            <SimpleValue>99734</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="XJustiz_Id">
+            <SimpleValue>D3310</SimpleValue>
+         </Value>
+         <Value ColumnRef="Registergericht">
+            <SimpleValue>Amtsgericht Nürnberg</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art">
+            <SimpleValue>Vereinsregister</SimpleValue>
+         </Value>
+         <Value ColumnRef="Land">
+            <SimpleValue>Bayern</SimpleValue>
+         </Value>
+         <Value ColumnRef="PLZ">
+            <SimpleValue>90402</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="XJustiz_Id">
+            <SimpleValue>D3310V</SimpleValue>
+         </Value>
+         <Value ColumnRef="Registergericht">
+            <SimpleValue>Amtsgericht Nürnberg</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art">
+            <SimpleValue>Handels- und Genossenschaftsregister</SimpleValue>
+         </Value>
+         <Value ColumnRef="Land">
+            <SimpleValue>Bayern</SimpleValue>
+         </Value>
+         <Value ColumnRef="PLZ">
+            <SimpleValue>90402</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="XJustiz_Id">
+            <SimpleValue>R1206</SimpleValue>
+         </Value>
+         <Value ColumnRef="Registergericht">
+            <SimpleValue>Amtsgericht Oberhausen</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art">
+            <SimpleValue>Vereinsregister</SimpleValue>
+         </Value>
+         <Value ColumnRef="Land">
+            <SimpleValue>Nordrhein-Westfalen</SimpleValue>
+         </Value>
+         <Value ColumnRef="PLZ">
+            <SimpleValue>46045</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="XJustiz_Id">
+            <SimpleValue>M1114</SimpleValue>
+         </Value>
+         <Value ColumnRef="Registergericht">
+            <SimpleValue>Amtsgericht Offenbach am Main</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art">
+            <SimpleValue>Handels- und Genossenschaftsregister, Vereinsregister</SimpleValue>
+         </Value>
+         <Value ColumnRef="Land">
+            <SimpleValue>Hessen</SimpleValue>
+         </Value>
+         <Value ColumnRef="PLZ">
+            <SimpleValue>63065</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="XJustiz_Id">
+            <SimpleValue>P3210</SimpleValue>
+         </Value>
+         <Value ColumnRef="Registergericht">
+            <SimpleValue>Amtsgericht Oldenburg (Oldenburg)</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art">
+            <SimpleValue>Handels- und Genossenschaftsregister, Vereinsregister</SimpleValue>
+         </Value>
+         <Value ColumnRef="Land">
+            <SimpleValue>Niedersachsen</SimpleValue>
+         </Value>
+         <Value ColumnRef="PLZ">
+            <SimpleValue>26135</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="XJustiz_Id">
+            <SimpleValue>P3313</SimpleValue>
+         </Value>
+         <Value ColumnRef="Registergericht">
+            <SimpleValue>Amtsgericht Osnabrück</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art">
+            <SimpleValue>Handels- und Genossenschaftsregister, Vereinsregister</SimpleValue>
+         </Value>
+         <Value ColumnRef="Land">
+            <SimpleValue>Niedersachsen</SimpleValue>
+         </Value>
+         <Value ColumnRef="PLZ">
+            <SimpleValue>49074</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="XJustiz_Id">
+            <SimpleValue>V1107</SimpleValue>
+         </Value>
+         <Value ColumnRef="Registergericht">
+            <SimpleValue>Amtsgericht Ottweiler</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art">
+            <SimpleValue>Vereinsregister</SimpleValue>
+         </Value>
+         <Value ColumnRef="Land">
+            <SimpleValue>Saarland</SimpleValue>
+         </Value>
+         <Value ColumnRef="PLZ">
+            <SimpleValue>66564</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="XJustiz_Id">
+            <SimpleValue>R2809</SimpleValue>
+         </Value>
+         <Value ColumnRef="Registergericht">
+            <SimpleValue>Amtsgericht Paderborn</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art">
+            <SimpleValue>Handels- und Genossenschaftsregister, Vereinsregister</SimpleValue>
+         </Value>
+         <Value ColumnRef="Land">
+            <SimpleValue>Nordrhein-Westfalen</SimpleValue>
+         </Value>
+         <Value ColumnRef="PLZ">
+            <SimpleValue>33098</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="XJustiz_Id">
+            <SimpleValue>D2803</SimpleValue>
+         </Value>
+         <Value ColumnRef="Registergericht">
+            <SimpleValue>Amtsgericht Passau</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art">
+            <SimpleValue>Vereinsregister</SimpleValue>
+         </Value>
+         <Value ColumnRef="Land">
+            <SimpleValue>Bayern</SimpleValue>
+         </Value>
+         <Value ColumnRef="PLZ">
+            <SimpleValue>94032</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="XJustiz_Id">
+            <SimpleValue>D2803V</SimpleValue>
+         </Value>
+         <Value ColumnRef="Registergericht">
+            <SimpleValue>Amtsgericht Passau</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art">
+            <SimpleValue>Handels- und Genossenschaftsregister</SimpleValue>
+         </Value>
+         <Value ColumnRef="Land">
+            <SimpleValue>Bayern</SimpleValue>
+         </Value>
+         <Value ColumnRef="PLZ">
+            <SimpleValue>94032</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="XJustiz_Id">
+            <SimpleValue>X1321R</SimpleValue>
+         </Value>
+         <Value ColumnRef="Registergericht">
+            <SimpleValue>Amtsgericht Pinneberg</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art">
+            <SimpleValue>Handels- und Genossenschaftsregister, Vereinsregister</SimpleValue>
+         </Value>
+         <Value ColumnRef="Land">
+            <SimpleValue>Schleswig-Holstein</SimpleValue>
+         </Value>
+         <Value ColumnRef="PLZ">
+            <SimpleValue>25421</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="XJustiz_Id">
+            <SimpleValue>G1312</SimpleValue>
+         </Value>
+         <Value ColumnRef="Registergericht">
+            <SimpleValue>Amtsgericht Potsdam</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art">
+            <SimpleValue>Handels- und Genossenschaftsregister, Vereinsregister</SimpleValue>
+         </Value>
+         <Value ColumnRef="Land">
+            <SimpleValue>Brandenburg</SimpleValue>
+         </Value>
+         <Value ColumnRef="PLZ">
+            <SimpleValue>14467</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="XJustiz_Id">
+            <SimpleValue>Y1209</SimpleValue>
+         </Value>
+         <Value ColumnRef="Registergericht">
+            <SimpleValue>Amtsgericht Pößneck</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art">
+            <SimpleValue>Vereinsregister</SimpleValue>
+         </Value>
+         <Value ColumnRef="Land">
+            <SimpleValue>Thüringen</SimpleValue>
+         </Value>
+         <Value ColumnRef="PLZ">
+            <SimpleValue>07381</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="XJustiz_Id">
+            <SimpleValue>Y1208</SimpleValue>
+         </Value>
+         <Value ColumnRef="Registergericht">
+            <SimpleValue>Amtsgericht Pößneck - Zweigstelle Bad Lobenstein_</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art">
+            <SimpleValue>Vereinsregister</SimpleValue>
+         </Value>
+         <Value ColumnRef="Land">
+            <SimpleValue>Thüringen</SimpleValue>
+         </Value>
+         <Value ColumnRef="PLZ">
+            <SimpleValue>07356</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="XJustiz_Id">
+            <SimpleValue>R1104</SimpleValue>
+         </Value>
+         <Value ColumnRef="Registergericht">
+            <SimpleValue>Amtsgericht Ratingen</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art">
+            <SimpleValue>Vereinsregister</SimpleValue>
+         </Value>
+         <Value ColumnRef="Land">
+            <SimpleValue>Nordrhein-Westfalen</SimpleValue>
+         </Value>
+         <Value ColumnRef="PLZ">
+            <SimpleValue>40878</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="XJustiz_Id">
+            <SimpleValue>R2204</SimpleValue>
+         </Value>
+         <Value ColumnRef="Registergericht">
+            <SimpleValue>Amtsgericht Recklinghausen</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art">
+            <SimpleValue>Handels- und Genossenschaftsregister, Vereinsregister</SimpleValue>
+         </Value>
+         <Value ColumnRef="Land">
+            <SimpleValue>Nordrhein-Westfalen</SimpleValue>
+         </Value>
+         <Value ColumnRef="PLZ">
+            <SimpleValue>45657</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="XJustiz_Id">
+            <SimpleValue>D3410</SimpleValue>
+         </Value>
+         <Value ColumnRef="Registergericht">
+            <SimpleValue>Amtsgericht Regensburg</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art">
+            <SimpleValue>Vereinsregister</SimpleValue>
+         </Value>
+         <Value ColumnRef="Land">
+            <SimpleValue>Bayern</SimpleValue>
+         </Value>
+         <Value ColumnRef="PLZ">
+            <SimpleValue>93049</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="XJustiz_Id">
+            <SimpleValue>D3410V</SimpleValue>
+         </Value>
+         <Value ColumnRef="Registergericht">
+            <SimpleValue>Amtsgericht Regensburg</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art">
+            <SimpleValue>Handels- und Genossenschaftsregister</SimpleValue>
+         </Value>
+         <Value ColumnRef="Land">
+            <SimpleValue>Bayern</SimpleValue>
+         </Value>
+         <Value ColumnRef="PLZ">
+            <SimpleValue>93049</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="XJustiz_Id">
+            <SimpleValue>R1603</SimpleValue>
+         </Value>
+         <Value ColumnRef="Registergericht">
+            <SimpleValue>Amtsgericht Remscheid</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art">
+            <SimpleValue>Vereinsregister</SimpleValue>
+         </Value>
+         <Value ColumnRef="Land">
+            <SimpleValue>Nordrhein-Westfalen</SimpleValue>
+         </Value>
+         <Value ColumnRef="PLZ">
+            <SimpleValue>42853</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="XJustiz_Id">
+            <SimpleValue>N1206V</SimpleValue>
+         </Value>
+         <Value ColumnRef="Registergericht">
+            <SimpleValue>Amtsgericht Rostock</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art">
+            <SimpleValue>Handels- und Genossenschaftsregister, Vereinsregister</SimpleValue>
+         </Value>
+         <Value ColumnRef="Land">
+            <SimpleValue>Mecklenburg-Vorpommern</SimpleValue>
+         </Value>
+         <Value ColumnRef="PLZ">
+            <SimpleValue>18057</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="XJustiz_Id">
+            <SimpleValue>Y1210</SimpleValue>
+         </Value>
+         <Value ColumnRef="Registergericht">
+            <SimpleValue>Amtsgericht Rudolstadt</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art">
+            <SimpleValue>Vereinsregister</SimpleValue>
+         </Value>
+         <Value ColumnRef="Land">
+            <SimpleValue>Thüringen</SimpleValue>
+         </Value>
+         <Value ColumnRef="PLZ">
+            <SimpleValue>07407</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="XJustiz_Id">
+            <SimpleValue>Y1211</SimpleValue>
+         </Value>
+         <Value ColumnRef="Registergericht">
+            <SimpleValue>Amtsgericht Rudolstadt - Zweigstelle Saalfeld</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art">
+            <SimpleValue>Vereinsregister</SimpleValue>
+         </Value>
+         <Value ColumnRef="Land">
+            <SimpleValue>Thüringen</SimpleValue>
+         </Value>
+         <Value ColumnRef="PLZ">
+            <SimpleValue>07318</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="XJustiz_Id">
+            <SimpleValue>V1109</SimpleValue>
+         </Value>
+         <Value ColumnRef="Registergericht">
+            <SimpleValue>Amtsgericht Saarbrücken</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art">
+            <SimpleValue>Handels- und Genossenschaftsregister, Vereinsregister</SimpleValue>
+         </Value>
+         <Value ColumnRef="Land">
+            <SimpleValue>Saarland</SimpleValue>
+         </Value>
+         <Value ColumnRef="PLZ">
+            <SimpleValue>66119</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="XJustiz_Id">
+            <SimpleValue>V1110</SimpleValue>
+         </Value>
+         <Value ColumnRef="Registergericht">
+            <SimpleValue>Amtsgericht Saarlouis</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art">
+            <SimpleValue>Vereinsregister</SimpleValue>
+         </Value>
+         <Value ColumnRef="Land">
+            <SimpleValue>Saarland</SimpleValue>
+         </Value>
+         <Value ColumnRef="PLZ">
+            <SimpleValue>66740</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="XJustiz_Id">
+            <SimpleValue>V1111</SimpleValue>
+         </Value>
+         <Value ColumnRef="Registergericht">
+            <SimpleValue>Amtsgericht Sankt Ingbert</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art">
+            <SimpleValue>Vereinsregister</SimpleValue>
+         </Value>
+         <Value ColumnRef="Land">
+            <SimpleValue>Saarland</SimpleValue>
+         </Value>
+         <Value ColumnRef="PLZ">
+            <SimpleValue>66386</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="XJustiz_Id">
+            <SimpleValue>V1112</SimpleValue>
+         </Value>
+         <Value ColumnRef="Registergericht">
+            <SimpleValue>Amtsgericht Sankt Wendel</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art">
+            <SimpleValue>Vereinsregister</SimpleValue>
+         </Value>
+         <Value ColumnRef="Land">
+            <SimpleValue>Saarland</SimpleValue>
+         </Value>
+         <Value ColumnRef="PLZ">
+            <SimpleValue>66606</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="XJustiz_Id">
+            <SimpleValue>R3106</SimpleValue>
+         </Value>
+         <Value ColumnRef="Registergericht">
+            <SimpleValue>Amtsgericht Schleiden</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art">
+            <SimpleValue>Vereinsregister</SimpleValue>
+         </Value>
+         <Value ColumnRef="Land">
+            <SimpleValue>Nordrhein-Westfalen</SimpleValue>
+         </Value>
+         <Value ColumnRef="PLZ">
+            <SimpleValue>53937</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="XJustiz_Id">
+            <SimpleValue>D4608</SimpleValue>
+         </Value>
+         <Value ColumnRef="Registergericht">
+            <SimpleValue>Amtsgericht Schweinfurt</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art">
+            <SimpleValue>Vereinsregister</SimpleValue>
+         </Value>
+         <Value ColumnRef="Land">
+            <SimpleValue>Bayern</SimpleValue>
+         </Value>
+         <Value ColumnRef="PLZ">
+            <SimpleValue>97421</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="XJustiz_Id">
+            <SimpleValue>D4608V</SimpleValue>
+         </Value>
+         <Value ColumnRef="Registergericht">
+            <SimpleValue>Amtsgericht Schweinfurt</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art">
+            <SimpleValue>Handels- und Genossenschaftsregister</SimpleValue>
+         </Value>
+         <Value ColumnRef="Land">
+            <SimpleValue>Bayern</SimpleValue>
+         </Value>
+         <Value ColumnRef="PLZ">
+            <SimpleValue>97421</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="XJustiz_Id">
+            <SimpleValue>N1308V</SimpleValue>
+         </Value>
+         <Value ColumnRef="Registergericht">
+            <SimpleValue>Amtsgericht Schwerin</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art">
+            <SimpleValue>Handels- und Genossenschaftsregister, Vereinsregister</SimpleValue>
+         </Value>
+         <Value ColumnRef="Land">
+            <SimpleValue>Mecklenburg-Vorpommern</SimpleValue>
+         </Value>
+         <Value ColumnRef="PLZ">
+            <SimpleValue>19053</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="XJustiz_Id">
+            <SimpleValue>R3208</SimpleValue>
+         </Value>
+         <Value ColumnRef="Registergericht">
+            <SimpleValue>Amtsgericht Siegburg</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art">
+            <SimpleValue>Handels- und Genossenschaftsregister, Vereinsregister</SimpleValue>
+         </Value>
+         <Value ColumnRef="Land">
+            <SimpleValue>Nordrhein-Westfalen</SimpleValue>
+         </Value>
+         <Value ColumnRef="PLZ">
+            <SimpleValue>53721</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="XJustiz_Id">
+            <SimpleValue>R2909</SimpleValue>
+         </Value>
+         <Value ColumnRef="Registergericht">
+            <SimpleValue>Amtsgericht Siegen</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art">
+            <SimpleValue>Handels- und Genossenschaftsregister, Vereinsregister</SimpleValue>
+         </Value>
+         <Value ColumnRef="Land">
+            <SimpleValue>Nordrhein-Westfalen</SimpleValue>
+         </Value>
+         <Value ColumnRef="PLZ">
+            <SimpleValue>57072</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="XJustiz_Id">
+            <SimpleValue>R1911</SimpleValue>
+         </Value>
+         <Value ColumnRef="Registergericht">
+            <SimpleValue>Amtsgericht Soest</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art">
+            <SimpleValue>Vereinsregister</SimpleValue>
+         </Value>
+         <Value ColumnRef="Land">
+            <SimpleValue>Nordrhein-Westfalen</SimpleValue>
+         </Value>
+         <Value ColumnRef="PLZ">
+            <SimpleValue>59494</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="XJustiz_Id">
+            <SimpleValue>R1605</SimpleValue>
+         </Value>
+         <Value ColumnRef="Registergericht">
+            <SimpleValue>Amtsgericht Solingen</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art">
+            <SimpleValue>Vereinsregister</SimpleValue>
+         </Value>
+         <Value ColumnRef="Land">
+            <SimpleValue>Nordrhein-Westfalen</SimpleValue>
+         </Value>
+         <Value ColumnRef="PLZ">
+            <SimpleValue>42651</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="XJustiz_Id">
+            <SimpleValue>Y1113</SimpleValue>
+         </Value>
+         <Value ColumnRef="Registergericht">
+            <SimpleValue>Amtsgericht Sondershausen</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art">
+            <SimpleValue>Vereinsregister</SimpleValue>
+         </Value>
+         <Value ColumnRef="Land">
+            <SimpleValue>Thüringen</SimpleValue>
+         </Value>
+         <Value ColumnRef="PLZ">
+            <SimpleValue>99706</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="XJustiz_Id">
+            <SimpleValue>Y1307</SimpleValue>
+         </Value>
+         <Value ColumnRef="Registergericht">
+            <SimpleValue>Amtsgericht Sonneberg</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art">
+            <SimpleValue>Vereinsregister</SimpleValue>
+         </Value>
+         <Value ColumnRef="Land">
+            <SimpleValue>Thüringen</SimpleValue>
+         </Value>
+         <Value ColumnRef="PLZ">
+            <SimpleValue>96515</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="XJustiz_Id">
+            <SimpleValue>P2106</SimpleValue>
+         </Value>
+         <Value ColumnRef="Registergericht">
+            <SimpleValue>Amtsgericht Stadthagen</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art">
+            <SimpleValue>Handels- und Genossenschaftsregister, Vereinsregister</SimpleValue>
+         </Value>
+         <Value ColumnRef="Land">
+            <SimpleValue>Niedersachsen</SimpleValue>
+         </Value>
+         <Value ColumnRef="PLZ">
+            <SimpleValue>31655</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="XJustiz_Id">
+            <SimpleValue>Y1214</SimpleValue>
+         </Value>
+         <Value ColumnRef="Registergericht">
+            <SimpleValue>Amtsgericht Stadtroda</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art">
+            <SimpleValue>Vereinsregister</SimpleValue>
+         </Value>
+         <Value ColumnRef="Land">
+            <SimpleValue>Thüringen</SimpleValue>
+         </Value>
+         <Value ColumnRef="PLZ">
+            <SimpleValue>07646</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="XJustiz_Id">
+            <SimpleValue>R2706</SimpleValue>
+         </Value>
+         <Value ColumnRef="Registergericht">
+            <SimpleValue>Amtsgericht Steinfurt</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art">
+            <SimpleValue>Handels- und Genossenschaftsregister, Vereinsregister</SimpleValue>
+         </Value>
+         <Value ColumnRef="Land">
+            <SimpleValue>Nordrhein-Westfalen</SimpleValue>
+         </Value>
+         <Value ColumnRef="PLZ">
+            <SimpleValue>48565</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="XJustiz_Id">
+            <SimpleValue>W1215</SimpleValue>
+         </Value>
+         <Value ColumnRef="Registergericht">
+            <SimpleValue>Amtsgericht Stendal</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art">
+            <SimpleValue>Handels- und Genossenschaftsregister, Vereinsregister</SimpleValue>
+         </Value>
+         <Value ColumnRef="Land">
+            <SimpleValue>Sachsen-Anhalt</SimpleValue>
+         </Value>
+         <Value ColumnRef="PLZ">
+            <SimpleValue>39576</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="XJustiz_Id">
+            <SimpleValue>N1209V</SimpleValue>
+         </Value>
+         <Value ColumnRef="Registergericht">
+            <SimpleValue>Amtsgericht Stralsund</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art">
+            <SimpleValue>Handels- und Genossenschaftsregister, Vereinsregister</SimpleValue>
+         </Value>
+         <Value ColumnRef="Land">
+            <SimpleValue>Mecklenburg-Vorpommern</SimpleValue>
+         </Value>
+         <Value ColumnRef="PLZ">
+            <SimpleValue>18439</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="XJustiz_Id">
+            <SimpleValue>D3413</SimpleValue>
+         </Value>
+         <Value ColumnRef="Registergericht">
+            <SimpleValue>Amtsgericht Straubing</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art">
+            <SimpleValue>Vereinsregister</SimpleValue>
+         </Value>
+         <Value ColumnRef="Land">
+            <SimpleValue>Bayern</SimpleValue>
+         </Value>
+         <Value ColumnRef="PLZ">
+            <SimpleValue>94315</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="XJustiz_Id">
+            <SimpleValue>D3413V</SimpleValue>
+         </Value>
+         <Value ColumnRef="Registergericht">
+            <SimpleValue>Amtsgericht Straubing</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art">
+            <SimpleValue>Handels- und Genossenschaftsregister</SimpleValue>
+         </Value>
+         <Value ColumnRef="Land">
+            <SimpleValue>Bayern</SimpleValue>
+         </Value>
+         <Value ColumnRef="PLZ">
+            <SimpleValue>94315</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="XJustiz_Id">
+            <SimpleValue>B8534</SimpleValue>
+         </Value>
+         <Value ColumnRef="Registergericht">
+            <SimpleValue>Amtsgericht Stuttgart</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art">
+            <SimpleValue>Handels- und Genossenschaftsregister, Vereinsregister</SimpleValue>
+         </Value>
+         <Value ColumnRef="Land">
+            <SimpleValue>Baden-Württemberg</SimpleValue>
+         </Value>
+         <Value ColumnRef="PLZ">
+            <SimpleValue>70190</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="XJustiz_Id">
+            <SimpleValue>Y1308</SimpleValue>
+         </Value>
+         <Value ColumnRef="Registergericht">
+            <SimpleValue>Amtsgericht Suhl</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art">
+            <SimpleValue>Vereinsregister</SimpleValue>
+         </Value>
+         <Value ColumnRef="Land">
+            <SimpleValue>Thüringen</SimpleValue>
+         </Value>
+         <Value ColumnRef="PLZ">
+            <SimpleValue>98527</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="XJustiz_Id">
+            <SimpleValue>Y1112</SimpleValue>
+         </Value>
+         <Value ColumnRef="Registergericht">
+            <SimpleValue>Amtsgericht Sömmerda</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art">
+            <SimpleValue>Vereinsregister</SimpleValue>
+         </Value>
+         <Value ColumnRef="Land">
+            <SimpleValue>Thüringen</SimpleValue>
+         </Value>
+         <Value ColumnRef="PLZ">
+            <SimpleValue>99610</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="XJustiz_Id">
+            <SimpleValue>P2613</SimpleValue>
+         </Value>
+         <Value ColumnRef="Registergericht">
+            <SimpleValue>Amtsgericht Tostedt</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art">
+            <SimpleValue>Handels- und Genossenschaftsregister, Vereinsregister</SimpleValue>
+         </Value>
+         <Value ColumnRef="Land">
+            <SimpleValue>Niedersachsen</SimpleValue>
+         </Value>
+         <Value ColumnRef="PLZ">
+            <SimpleValue>21255</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="XJustiz_Id">
+            <SimpleValue>D2910</SimpleValue>
+         </Value>
+         <Value ColumnRef="Registergericht">
+            <SimpleValue>Amtsgericht Traunstein</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art">
+            <SimpleValue>Vereinsregister</SimpleValue>
+         </Value>
+         <Value ColumnRef="Land">
+            <SimpleValue>Bayern</SimpleValue>
+         </Value>
+         <Value ColumnRef="PLZ">
+            <SimpleValue>83278</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="XJustiz_Id">
+            <SimpleValue>D2910V</SimpleValue>
+         </Value>
+         <Value ColumnRef="Registergericht">
+            <SimpleValue>Amtsgericht Traunstein</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art">
+            <SimpleValue>Handels- und Genossenschaftsregister</SimpleValue>
+         </Value>
+         <Value ColumnRef="Land">
+            <SimpleValue>Bayern</SimpleValue>
+         </Value>
+         <Value ColumnRef="PLZ">
+            <SimpleValue>83278</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="XJustiz_Id">
+            <SimpleValue>B8537</SimpleValue>
+         </Value>
+         <Value ColumnRef="Registergericht">
+            <SimpleValue>Amtsgericht Ulm</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art">
+            <SimpleValue>Handels- und Genossenschaftsregister, Vereinsregister</SimpleValue>
+         </Value>
+         <Value ColumnRef="Land">
+            <SimpleValue>Baden-Württemberg</SimpleValue>
+         </Value>
+         <Value ColumnRef="PLZ">
+            <SimpleValue>89073</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="XJustiz_Id">
+            <SimpleValue>V1115</SimpleValue>
+         </Value>
+         <Value ColumnRef="Registergericht">
+            <SimpleValue>Amtsgericht Völklingen</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art">
+            <SimpleValue>Vereinsregister</SimpleValue>
+         </Value>
+         <Value ColumnRef="Land">
+            <SimpleValue>Saarland</SimpleValue>
+         </Value>
+         <Value ColumnRef="PLZ">
+            <SimpleValue>66333</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="XJustiz_Id">
+            <SimpleValue>P2716</SimpleValue>
+         </Value>
+         <Value ColumnRef="Registergericht">
+            <SimpleValue>Amtsgericht Walsrode</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art">
+            <SimpleValue>Handels- und Genossenschaftsregister, Vereinsregister</SimpleValue>
+         </Value>
+         <Value ColumnRef="Land">
+            <SimpleValue>Niedersachsen</SimpleValue>
+         </Value>
+         <Value ColumnRef="PLZ">
+            <SimpleValue>29664</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="XJustiz_Id">
+            <SimpleValue>R2813</SimpleValue>
+         </Value>
+         <Value ColumnRef="Registergericht">
+            <SimpleValue>Amtsgericht Warburg</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art">
+            <SimpleValue>Vereinsregister</SimpleValue>
+         </Value>
+         <Value ColumnRef="Land">
+            <SimpleValue>Nordrhein-Westfalen</SimpleValue>
+         </Value>
+         <Value ColumnRef="PLZ">
+            <SimpleValue>34414</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="XJustiz_Id">
+            <SimpleValue>R1912</SimpleValue>
+         </Value>
+         <Value ColumnRef="Registergericht">
+            <SimpleValue>Amtsgericht Warstein</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art">
+            <SimpleValue>Vereinsregister</SimpleValue>
+         </Value>
+         <Value ColumnRef="Land">
+            <SimpleValue>Nordrhein-Westfalen</SimpleValue>
+         </Value>
+         <Value ColumnRef="PLZ">
+            <SimpleValue>59581</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="XJustiz_Id">
+            <SimpleValue>D3508</SimpleValue>
+         </Value>
+         <Value ColumnRef="Registergericht">
+            <SimpleValue>Amtsgericht Weiden i.d. OPf.</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art">
+            <SimpleValue>Vereinsregister</SimpleValue>
+         </Value>
+         <Value ColumnRef="Land">
+            <SimpleValue>Bayern</SimpleValue>
+         </Value>
+         <Value ColumnRef="PLZ">
+            <SimpleValue>92637</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="XJustiz_Id">
+            <SimpleValue>D3508V</SimpleValue>
+         </Value>
+         <Value ColumnRef="Registergericht">
+            <SimpleValue>Amtsgericht Weiden i.d. OPf.</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art">
+            <SimpleValue>Handels- und Genossenschaftsregister</SimpleValue>
+         </Value>
+         <Value ColumnRef="Land">
+            <SimpleValue>Bayern</SimpleValue>
+         </Value>
+         <Value ColumnRef="PLZ">
+            <SimpleValue>92637</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="XJustiz_Id">
+            <SimpleValue>Y1114</SimpleValue>
+         </Value>
+         <Value ColumnRef="Registergericht">
+            <SimpleValue>Amtsgericht Weimar</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art">
+            <SimpleValue>Vereinsregister</SimpleValue>
+         </Value>
+         <Value ColumnRef="Land">
+            <SimpleValue>Thüringen</SimpleValue>
+         </Value>
+         <Value ColumnRef="PLZ">
+            <SimpleValue>99423</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="XJustiz_Id">
+            <SimpleValue>M1710</SimpleValue>
+         </Value>
+         <Value ColumnRef="Registergericht">
+            <SimpleValue>Amtsgericht Wetzlar</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art">
+            <SimpleValue>Handels- und Genossenschaftsregister, Vereinsregister</SimpleValue>
+         </Value>
+         <Value ColumnRef="Land">
+            <SimpleValue>Hessen</SimpleValue>
+         </Value>
+         <Value ColumnRef="PLZ">
+            <SimpleValue>35578</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="XJustiz_Id">
+            <SimpleValue>M1906</SimpleValue>
+         </Value>
+         <Value ColumnRef="Registergericht">
+            <SimpleValue>Amtsgericht Wiesbaden</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art">
+            <SimpleValue>Handels- und Genossenschaftsregister, Vereinsregister</SimpleValue>
+         </Value>
+         <Value ColumnRef="Land">
+            <SimpleValue>Hessen</SimpleValue>
+         </Value>
+         <Value ColumnRef="PLZ">
+            <SimpleValue>65185</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="XJustiz_Id">
+            <SimpleValue>R2207</SimpleValue>
+         </Value>
+         <Value ColumnRef="Registergericht">
+            <SimpleValue>Amtsgericht Witten</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art">
+            <SimpleValue>Vereinsregister</SimpleValue>
+         </Value>
+         <Value ColumnRef="Land">
+            <SimpleValue>Nordrhein-Westfalen</SimpleValue>
+         </Value>
+         <Value ColumnRef="PLZ">
+            <SimpleValue>58452</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="XJustiz_Id">
+            <SimpleValue>T2408V</SimpleValue>
+         </Value>
+         <Value ColumnRef="Registergericht">
+            <SimpleValue>Amtsgericht Wittlich</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art">
+            <SimpleValue>Handels- und Genossenschaftsregister, Vereinsregister</SimpleValue>
+         </Value>
+         <Value ColumnRef="Land">
+            <SimpleValue>Rheinland-Pfalz</SimpleValue>
+         </Value>
+         <Value ColumnRef="PLZ">
+            <SimpleValue>54516</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="XJustiz_Id">
+            <SimpleValue>R1608</SimpleValue>
+         </Value>
+         <Value ColumnRef="Registergericht">
+            <SimpleValue>Amtsgericht Wuppertal</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art">
+            <SimpleValue>Handels- und Genossenschaftsregister, Vereinsregister</SimpleValue>
+         </Value>
+         <Value ColumnRef="Land">
+            <SimpleValue>Nordrhein-Westfalen</SimpleValue>
+         </Value>
+         <Value ColumnRef="PLZ">
+            <SimpleValue>42103</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="XJustiz_Id">
+            <SimpleValue>D4708</SimpleValue>
+         </Value>
+         <Value ColumnRef="Registergericht">
+            <SimpleValue>Amtsgericht Würzburg</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art">
+            <SimpleValue>Vereinsregister</SimpleValue>
+         </Value>
+         <Value ColumnRef="Land">
+            <SimpleValue>Bayern</SimpleValue>
+         </Value>
+         <Value ColumnRef="PLZ">
+            <SimpleValue>97070</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="XJustiz_Id">
+            <SimpleValue>D4708V</SimpleValue>
+         </Value>
+         <Value ColumnRef="Registergericht">
+            <SimpleValue>Amtsgericht Würzburg</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art">
+            <SimpleValue>Handels- und Genossenschaftsregister</SimpleValue>
+         </Value>
+         <Value ColumnRef="Land">
+            <SimpleValue>Bayern</SimpleValue>
+         </Value>
+         <Value ColumnRef="PLZ">
+            <SimpleValue>97070</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="XJustiz_Id">
+            <SimpleValue>T3403V</SimpleValue>
+         </Value>
+         <Value ColumnRef="Registergericht">
+            <SimpleValue>Amtsgericht Zweibrücken</SimpleValue>
+         </Value>
+         <Value ColumnRef="Art">
+            <SimpleValue>Handels- und Genossenschaftsregister, Vereinsregister</SimpleValue>
+         </Value>
+         <Value ColumnRef="Land">
+            <SimpleValue>Rheinland-Pfalz</SimpleValue>
+         </Value>
+         <Value ColumnRef="PLZ">
+            <SimpleValue>66482</SimpleValue>
+         </Value>
+      </Row>
+   </SimpleCodeList>
+</gc:CodeList>

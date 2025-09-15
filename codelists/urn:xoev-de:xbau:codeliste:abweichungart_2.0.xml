@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gc:CodeList xmlns:gc="http://docs.oasis-open.org/codelist/ns/genericode/1.0/"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xmlns:xoev-cl-4="http://xoev.de/schemata/genericode/4">
+   <Annotation>
+      <Description>
+         <xoev-cl-4:shortName>Abweichung Art</xoev-cl-4:shortName>
+         <xoev-cl-4:codelistDescription>Definition der Arten von beantragten oder genehmigten Abweichungen eines Bauvorhabens von den Rechtsnormen.</xoev-cl-4:codelistDescription>
+         <xoev-cl-4:agencyShortName>BMK</xoev-cl-4:agencyShortName>
+         <xoev-cl-4:versionHandbook>1.2</xoev-cl-4:versionHandbook>
+         <xoev-cl-4:changes>neue Werte; Änderung im Namensraum der XÖV-Metadaten „http://xoev.de/schemata/genericode/4“ (Präfix „xoev-cl-4“); Änderung der Versionsangabe des Codelistenhandbuchs  („1.2“ )</xoev-cl-4:changes>
+      </Description>
+   </Annotation>
+   <Identification>
+      <ShortName>abweichungart</ShortName>
+      <LongName>Abweichung Art</LongName>
+      <Version>2.0</Version>
+      <CanonicalUri>urn:xoev-de:xbau:codeliste:abweichungart</CanonicalUri>
+      <CanonicalVersionUri>urn:xoev-de:xbau:codeliste:abweichungart_2.0</CanonicalVersionUri>
+      <Agency>
+         <LongName>Bauministerkonferenz</LongName>
+      </Agency>
+   </Identification>
+   <ColumnSet>
+      <Column Id="code" Use="required">
+         <ShortName>code</ShortName>
+         <LongName>Code</LongName>
+         <Data Type="string"/>
+      </Column>
+      <Column Id="beschreibung" Use="required">
+         <ShortName>beschreibung</ShortName>
+         <LongName>Beschreibung</LongName>
+         <Data Type="string"/>
+      </Column>
+      <Column Id="dokumentation" Use="optional">
+         <ShortName>dokumentation</ShortName>
+         <LongName>Dokumentation</LongName>
+         <Data Type="string"/>
+      </Column>
+      <Key Id="codeKey">
+         <Annotation>
+            <AppInfo>
+               <xoev-cl-4:recommendedKeyColumn/>
+            </AppInfo>
+         </Annotation>
+         <ShortName>codeKey</ShortName>
+         <ColumnRef Ref="code"/>
+      </Key>
+   </ColumnSet>
+   <SimpleCodeList>
+      <Row>
+         <Value ColumnRef="code">
+            <SimpleValue>1</SimpleValue>
+         </Value>
+         <Value ColumnRef="beschreibung">
+            <SimpleValue>Befreiung</SimpleValue>
+         </Value>
+         <Value ColumnRef="dokumentation">
+            <SimpleValue>Befreiungen nach § 31 Abs. 2 und Abs. 3 BauGB</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="code">
+            <SimpleValue>2</SimpleValue>
+         </Value>
+         <Value ColumnRef="beschreibung">
+            <SimpleValue>Ausnahme (Bebauungsplan)</SimpleValue>
+         </Value>
+         <Value ColumnRef="dokumentation">
+            <SimpleValue>Ausnahmen nach § 31 Abs. 1 BauGB</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="code">
+            <SimpleValue>3</SimpleValue>
+         </Value>
+         <Value ColumnRef="beschreibung">
+            <SimpleValue>Abweichung (§ 67 Abs. 1 MBO)</SimpleValue>
+         </Value>
+         <Value ColumnRef="dokumentation">
+            <SimpleValue>Abweichungen nach § 67 Abs. 1 MBO</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="code">
+            <SimpleValue>4</SimpleValue>
+         </Value>
+         <Value ColumnRef="beschreibung">
+            <SimpleValue>Abweichung (§ 67 Abs. 2 S. 2 MBO)</SimpleValue>
+         </Value>
+         <Value ColumnRef="dokumentation">
+            <SimpleValue>Abweichungen nach § 67 Abs. 2 Satz 2 MBO</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="code">
+            <SimpleValue>5</SimpleValue>
+         </Value>
+         <Value ColumnRef="beschreibung">
+            <SimpleValue>Ausnahme (Veränderungssperre)</SimpleValue>
+         </Value>
+         <Value ColumnRef="dokumentation">
+            <SimpleValue>Ausnahme von der Veränderungssperre nach § 14 BauGB</SimpleValue>
+         </Value>
+      </Row>
+   </SimpleCodeList>
+</gc:CodeList>

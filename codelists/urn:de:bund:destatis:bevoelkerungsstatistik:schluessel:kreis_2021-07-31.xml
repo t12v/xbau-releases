@@ -1,0 +1,4540 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gc:CodeList xmlns:gc="http://docs.oasis-open.org/codelist/ns/genericode/1.0/"
+             xmlns:xoev-cl-3="http://xoev.de/schemata/genericode/3"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+   <Annotation>
+      <Description>
+         <xoev-cl-3:nameKurz>Kreis</xoev-cl-3:nameKurz>
+         <xoev-cl-3:beschreibung-codeliste>Die Bundesrepublik Deutschland ist ein Zusammenschluss von Bundesländern. Die meisten Bundesländer umfassen mehrere Kreise und Bezirke.Diese Codeliste stellt die Kreise der deutschen Bundesländer nach dem Gemeindeverzeichnis des Statistischen Bundesamtes dar. Dieser Code ist auch Bestandteil des Amtlichen Gemeindeschlüssels (AGS).</xoev-cl-3:beschreibung-codeliste>
+         <xoev-cl-3:herausgebernameKurz>Destatis</xoev-cl-3:herausgebernameKurz>
+         <xoev-cl-3:datumGueltigkeitAb>2021-07-31</xoev-cl-3:datumGueltigkeitAb>
+         <xoev-cl-3:versionCodelistenHandbuch>1.0</xoev-cl-3:versionCodelistenHandbuch>
+         <xoev-cl-3:aenderungZurVorversion>Mehrere Aenderungen</xoev-cl-3:aenderungZurVorversion>
+      </Description>
+   </Annotation>
+   <Identification>
+      <ShortName>Kreis</ShortName>
+      <LongName xml:lang="de-DE">Die Kreise der deutschen Bundesländer nach dem Gemeindeverzeichnis des Statistischen Bundesamtes</LongName>
+      <Version>2021-07-31</Version>
+      <CanonicalUri>urn:de:bund:destatis:bevoelkerungsstatistik:schluessel:kreis</CanonicalUri>
+      <CanonicalVersionUri>urn:de:bund:destatis:bevoelkerungsstatistik:schluessel:kreis_2021-07-31</CanonicalVersionUri>
+      <Agency>
+         <LongName xml:lang="de-DE">Statistisches Bundesamt, Wiesbaden</LongName>
+      </Agency>
+   </Identification>
+   <ColumnSet>
+      <Column Id="SCHLUESSEL" Use="required">
+         <ShortName>SCHLUESSEL</ShortName>
+         <LongName xml:lang="de-DE">SCHLUESSEL</LongName>
+         <Data Type="string"/>
+      </Column>
+      <Column Id="Bezeichnung" Use="required">
+         <ShortName>Bezeichnung</ShortName>
+         <LongName xml:lang="de-DE">Bezeichnung</LongName>
+         <Data Type="string"/>
+      </Column>
+      <Column Id="Hinweis" Use="optional">
+         <ShortName>Hinweis</ShortName>
+         <LongName xml:lang="de-DE">Hinweis</LongName>
+         <Data Type="string"/>
+      </Column>
+      <Key Id="SCHLUESSELKey">
+         <Annotation>
+            <AppInfo>
+               <xoev-cl-3:empfohleneCodeSpalte/>
+            </AppInfo>
+         </Annotation>
+         <ShortName>SCHLUESSELKey</ShortName>
+         <ColumnRef Ref="SCHLUESSEL"/>
+      </Key>
+   </ColumnSet>
+   <SimpleCodeList>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>01001</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Flensburg, Stadt</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>01002</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Kiel, Landeshauptstadt</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>01003</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Lübeck, Hansestadt</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>01004</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Neumünster, Stadt</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>01051</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Dithmarschen</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>01053</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Herzogtum Lauenburg</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>01054</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Nordfriesland</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>01055</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Ostholstein</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>01056</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Pinneberg</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>01057</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Plön</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>01058</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Rendsburg-Eckernförde</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>01059</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Schleswig-Flensburg</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>01060</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Segeberg</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>01061</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Steinburg</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>01062</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Stormarn</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>02000</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Hamburg, Freie und Hansestadt</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>02101</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Hamburg-Altstadt</SimpleValue>
+         </Value>
+         <Value ColumnRef="Hinweis">
+            <SimpleValue>Stadt-/Ortsteil bzw. Stadtbezirk</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>02102</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>HafenCity</SimpleValue>
+         </Value>
+         <Value ColumnRef="Hinweis">
+            <SimpleValue>Stadt-/Ortsteil bzw. Stadtbezirk</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>02103</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Neustadt</SimpleValue>
+         </Value>
+         <Value ColumnRef="Hinweis">
+            <SimpleValue>Stadt-/Ortsteil bzw. Stadtbezirk</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>02104</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>St. Pauli</SimpleValue>
+         </Value>
+         <Value ColumnRef="Hinweis">
+            <SimpleValue>Stadt-/Ortsteil bzw. Stadtbezirk</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>02105</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>St. Georg</SimpleValue>
+         </Value>
+         <Value ColumnRef="Hinweis">
+            <SimpleValue>Stadt-/Ortsteil bzw. Stadtbezirk</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>02106</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Hammerbrook</SimpleValue>
+         </Value>
+         <Value ColumnRef="Hinweis">
+            <SimpleValue>Stadt-/Ortsteil bzw. Stadtbezirk</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>02107</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Borgfelde</SimpleValue>
+         </Value>
+         <Value ColumnRef="Hinweis">
+            <SimpleValue>Stadt-/Ortsteil bzw. Stadtbezirk</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>02108</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Hamm</SimpleValue>
+         </Value>
+         <Value ColumnRef="Hinweis">
+            <SimpleValue>Stadt-/Ortsteil bzw. Stadtbezirk</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>02111</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Horn</SimpleValue>
+         </Value>
+         <Value ColumnRef="Hinweis">
+            <SimpleValue>Stadt-/Ortsteil bzw. Stadtbezirk</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>02112</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Billstedt</SimpleValue>
+         </Value>
+         <Value ColumnRef="Hinweis">
+            <SimpleValue>Stadt-/Ortsteil bzw. Stadtbezirk</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>02113</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Billbrook</SimpleValue>
+         </Value>
+         <Value ColumnRef="Hinweis">
+            <SimpleValue>Stadt-/Ortsteil bzw. Stadtbezirk</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>02114</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Rothenburgsort</SimpleValue>
+         </Value>
+         <Value ColumnRef="Hinweis">
+            <SimpleValue>Stadt-/Ortsteil bzw. Stadtbezirk</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>02115</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Veddel</SimpleValue>
+         </Value>
+         <Value ColumnRef="Hinweis">
+            <SimpleValue>Stadt-/Ortsteil bzw. Stadtbezirk</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>02116</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Wilhelmsburg</SimpleValue>
+         </Value>
+         <Value ColumnRef="Hinweis">
+            <SimpleValue>Stadt-/Ortsteil bzw. Stadtbezirk</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>02117</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Kleiner Grasbrook</SimpleValue>
+         </Value>
+         <Value ColumnRef="Hinweis">
+            <SimpleValue>Stadt-/Ortsteil bzw. Stadtbezirk</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>02118</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Steinwerder</SimpleValue>
+         </Value>
+         <Value ColumnRef="Hinweis">
+            <SimpleValue>Stadt-/Ortsteil bzw. Stadtbezirk</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>02119</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Waltershof</SimpleValue>
+         </Value>
+         <Value ColumnRef="Hinweis">
+            <SimpleValue>Stadt-/Ortsteil bzw. Stadtbezirk</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>02120</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Finkenwerder</SimpleValue>
+         </Value>
+         <Value ColumnRef="Hinweis">
+            <SimpleValue>Stadt-/Ortsteil bzw. Stadtbezirk</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>02121</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Neuwerk</SimpleValue>
+         </Value>
+         <Value ColumnRef="Hinweis">
+            <SimpleValue>Stadt-/Ortsteil bzw. Stadtbezirk</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>02122</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Seeleute/Binnenschiffer</SimpleValue>
+         </Value>
+         <Value ColumnRef="Hinweis">
+            <SimpleValue>Stadt-/Ortsteil bzw. Stadtbezirk</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>02201</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Altona-Altstadt</SimpleValue>
+         </Value>
+         <Value ColumnRef="Hinweis">
+            <SimpleValue>Stadt-/Ortsteil bzw. Stadtbezirk</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>02202</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Sternschanze</SimpleValue>
+         </Value>
+         <Value ColumnRef="Hinweis">
+            <SimpleValue>Stadt-/Ortsteil bzw. Stadtbezirk</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>02203</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Altona-Nord</SimpleValue>
+         </Value>
+         <Value ColumnRef="Hinweis">
+            <SimpleValue>Stadt-/Ortsteil bzw. Stadtbezirk</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>02204</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Ottensen</SimpleValue>
+         </Value>
+         <Value ColumnRef="Hinweis">
+            <SimpleValue>Stadt-/Ortsteil bzw. Stadtbezirk</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>02205</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Bahrenfeld</SimpleValue>
+         </Value>
+         <Value ColumnRef="Hinweis">
+            <SimpleValue>Stadt-/Ortsteil bzw. Stadtbezirk</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>02206</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Groß Flottbek</SimpleValue>
+         </Value>
+         <Value ColumnRef="Hinweis">
+            <SimpleValue>Stadt-/Ortsteil bzw. Stadtbezirk</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>02207</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Othmarschen</SimpleValue>
+         </Value>
+         <Value ColumnRef="Hinweis">
+            <SimpleValue>Stadt-/Ortsteil bzw. Stadtbezirk</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>02208</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Lurup</SimpleValue>
+         </Value>
+         <Value ColumnRef="Hinweis">
+            <SimpleValue>Stadt-/Ortsteil bzw. Stadtbezirk</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>02209</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Osdorf</SimpleValue>
+         </Value>
+         <Value ColumnRef="Hinweis">
+            <SimpleValue>Stadt-/Ortsteil bzw. Stadtbezirk</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>02210</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Nienstedten</SimpleValue>
+         </Value>
+         <Value ColumnRef="Hinweis">
+            <SimpleValue>Stadt-/Ortsteil bzw. Stadtbezirk</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>02211</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Blankenese</SimpleValue>
+         </Value>
+         <Value ColumnRef="Hinweis">
+            <SimpleValue>Stadt-/Ortsteil bzw. Stadtbezirk</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>02212</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Iserbrook</SimpleValue>
+         </Value>
+         <Value ColumnRef="Hinweis">
+            <SimpleValue>Stadt-/Ortsteil bzw. Stadtbezirk</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>02213</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Sülldorf</SimpleValue>
+         </Value>
+         <Value ColumnRef="Hinweis">
+            <SimpleValue>Stadt-/Ortsteil bzw. Stadtbezirk</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>02214</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Rissen</SimpleValue>
+         </Value>
+         <Value ColumnRef="Hinweis">
+            <SimpleValue>Stadt-/Ortsteil bzw. Stadtbezirk</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>02301</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Eimsbüttel</SimpleValue>
+         </Value>
+         <Value ColumnRef="Hinweis">
+            <SimpleValue>Stadt-/Ortsteil bzw. Stadtbezirk</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>02302</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Rotherbaum</SimpleValue>
+         </Value>
+         <Value ColumnRef="Hinweis">
+            <SimpleValue>Stadt-/Ortsteil bzw. Stadtbezirk</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>02303</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Harvestehude</SimpleValue>
+         </Value>
+         <Value ColumnRef="Hinweis">
+            <SimpleValue>Stadt-/Ortsteil bzw. Stadtbezirk</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>02304</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Hoheluft-West</SimpleValue>
+         </Value>
+         <Value ColumnRef="Hinweis">
+            <SimpleValue>Stadt-/Ortsteil bzw. Stadtbezirk</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>02305</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Lokstedt</SimpleValue>
+         </Value>
+         <Value ColumnRef="Hinweis">
+            <SimpleValue>Stadt-/Ortsteil bzw. Stadtbezirk</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>02306</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Niendorf</SimpleValue>
+         </Value>
+         <Value ColumnRef="Hinweis">
+            <SimpleValue>Stadt-/Ortsteil bzw. Stadtbezirk</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>02307</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Schnelsen</SimpleValue>
+         </Value>
+         <Value ColumnRef="Hinweis">
+            <SimpleValue>Stadt-/Ortsteil bzw. Stadtbezirk</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>02308</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Eidelstedt</SimpleValue>
+         </Value>
+         <Value ColumnRef="Hinweis">
+            <SimpleValue>Stadt-/Ortsteil bzw. Stadtbezirk</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>02309</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Stellingen</SimpleValue>
+         </Value>
+         <Value ColumnRef="Hinweis">
+            <SimpleValue>Stadt-/Ortsteil bzw. Stadtbezirk</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>02401</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Hoheluft-Ost</SimpleValue>
+         </Value>
+         <Value ColumnRef="Hinweis">
+            <SimpleValue>Stadt-/Ortsteil bzw. Stadtbezirk</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>02402</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Eppendorf</SimpleValue>
+         </Value>
+         <Value ColumnRef="Hinweis">
+            <SimpleValue>Stadt-/Ortsteil bzw. Stadtbezirk</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>02403</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Gross-Borstel</SimpleValue>
+         </Value>
+         <Value ColumnRef="Hinweis">
+            <SimpleValue>Stadt-/Ortsteil bzw. Stadtbezirk</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>02404</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Alsterdorf</SimpleValue>
+         </Value>
+         <Value ColumnRef="Hinweis">
+            <SimpleValue>Stadt-/Ortsteil bzw. Stadtbezirk</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>02405</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Winterhude</SimpleValue>
+         </Value>
+         <Value ColumnRef="Hinweis">
+            <SimpleValue>Stadt-/Ortsteil bzw. Stadtbezirk</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>02406</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Uhlenhorst</SimpleValue>
+         </Value>
+         <Value ColumnRef="Hinweis">
+            <SimpleValue>Stadt-/Ortsteil bzw. Stadtbezirk</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>02407</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Hohenfelde</SimpleValue>
+         </Value>
+         <Value ColumnRef="Hinweis">
+            <SimpleValue>Stadt-/Ortsteil bzw. Stadtbezirk</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>02408</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Barmbek-Süd</SimpleValue>
+         </Value>
+         <Value ColumnRef="Hinweis">
+            <SimpleValue>Stadt-/Ortsteil bzw. Stadtbezirk</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>02409</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Dulsberg</SimpleValue>
+         </Value>
+         <Value ColumnRef="Hinweis">
+            <SimpleValue>Stadt-/Ortsteil bzw. Stadtbezirk</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>02410</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Barmbek-Nord</SimpleValue>
+         </Value>
+         <Value ColumnRef="Hinweis">
+            <SimpleValue>Stadt-/Ortsteil bzw. Stadtbezirk</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>02411</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Ohlsdorf</SimpleValue>
+         </Value>
+         <Value ColumnRef="Hinweis">
+            <SimpleValue>Stadt-/Ortsteil bzw. Stadtbezirk</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>02412</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Fuhlsbüttel</SimpleValue>
+         </Value>
+         <Value ColumnRef="Hinweis">
+            <SimpleValue>Stadt-/Ortsteil bzw. Stadtbezirk</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>02413</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Langenhorn</SimpleValue>
+         </Value>
+         <Value ColumnRef="Hinweis">
+            <SimpleValue>Stadt-/Ortsteil bzw. Stadtbezirk</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>02501</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Eilbek</SimpleValue>
+         </Value>
+         <Value ColumnRef="Hinweis">
+            <SimpleValue>Stadt-/Ortsteil bzw. Stadtbezirk</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>02502</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Wandsbek</SimpleValue>
+         </Value>
+         <Value ColumnRef="Hinweis">
+            <SimpleValue>Stadt-/Ortsteil bzw. Stadtbezirk</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>02503</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Marienthal</SimpleValue>
+         </Value>
+         <Value ColumnRef="Hinweis">
+            <SimpleValue>Stadt-/Ortsteil bzw. Stadtbezirk</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>02504</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Jenfeld</SimpleValue>
+         </Value>
+         <Value ColumnRef="Hinweis">
+            <SimpleValue>Stadt-/Ortsteil bzw. Stadtbezirk</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>02505</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Tonndorf</SimpleValue>
+         </Value>
+         <Value ColumnRef="Hinweis">
+            <SimpleValue>Stadt-/Ortsteil bzw. Stadtbezirk</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>02506</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Farmsen-Berne</SimpleValue>
+         </Value>
+         <Value ColumnRef="Hinweis">
+            <SimpleValue>Stadt-/Ortsteil bzw. Stadtbezirk</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>02507</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Bramfeld</SimpleValue>
+         </Value>
+         <Value ColumnRef="Hinweis">
+            <SimpleValue>Stadt-/Ortsteil bzw. Stadtbezirk</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>02508</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Steilshoop</SimpleValue>
+         </Value>
+         <Value ColumnRef="Hinweis">
+            <SimpleValue>Stadt-/Ortsteil bzw. Stadtbezirk</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>02509</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Wellingsbüttel</SimpleValue>
+         </Value>
+         <Value ColumnRef="Hinweis">
+            <SimpleValue>Stadt-/Ortsteil bzw. Stadtbezirk</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>02510</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Sasel</SimpleValue>
+         </Value>
+         <Value ColumnRef="Hinweis">
+            <SimpleValue>Stadt-/Ortsteil bzw. Stadtbezirk</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>02511</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Poppenbüttel</SimpleValue>
+         </Value>
+         <Value ColumnRef="Hinweis">
+            <SimpleValue>Stadt-/Ortsteil bzw. Stadtbezirk</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>02512</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Hummelsbüttel</SimpleValue>
+         </Value>
+         <Value ColumnRef="Hinweis">
+            <SimpleValue>Stadt-/Ortsteil bzw. Stadtbezirk</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>02513</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Lemsahl-Mellingstedt</SimpleValue>
+         </Value>
+         <Value ColumnRef="Hinweis">
+            <SimpleValue>Stadt-/Ortsteil bzw. Stadtbezirk</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>02514</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Duvenstedt</SimpleValue>
+         </Value>
+         <Value ColumnRef="Hinweis">
+            <SimpleValue>Stadt-/Ortsteil bzw. Stadtbezirk</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>02515</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Wohldorf-Ohlstedt</SimpleValue>
+         </Value>
+         <Value ColumnRef="Hinweis">
+            <SimpleValue>Stadt-/Ortsteil bzw. Stadtbezirk</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>02516</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Bergstedt</SimpleValue>
+         </Value>
+         <Value ColumnRef="Hinweis">
+            <SimpleValue>Stadt-/Ortsteil bzw. Stadtbezirk</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>02517</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Volksdorf</SimpleValue>
+         </Value>
+         <Value ColumnRef="Hinweis">
+            <SimpleValue>Stadt-/Ortsteil bzw. Stadtbezirk</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>02518</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Rahlstedt</SimpleValue>
+         </Value>
+         <Value ColumnRef="Hinweis">
+            <SimpleValue>Stadt-/Ortsteil bzw. Stadtbezirk</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>02601</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Lohbrügge</SimpleValue>
+         </Value>
+         <Value ColumnRef="Hinweis">
+            <SimpleValue>Stadt-/Ortsteil bzw. Stadtbezirk</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>02602</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Bergedorf</SimpleValue>
+         </Value>
+         <Value ColumnRef="Hinweis">
+            <SimpleValue>Stadt-/Ortsteil bzw. Stadtbezirk</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>02603</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Curslack</SimpleValue>
+         </Value>
+         <Value ColumnRef="Hinweis">
+            <SimpleValue>Stadt-/Ortsteil bzw. Stadtbezirk</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>02604</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Altengamme</SimpleValue>
+         </Value>
+         <Value ColumnRef="Hinweis">
+            <SimpleValue>Stadt-/Ortsteil bzw. Stadtbezirk</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>02605</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Neuengamme</SimpleValue>
+         </Value>
+         <Value ColumnRef="Hinweis">
+            <SimpleValue>Stadt-/Ortsteil bzw. Stadtbezirk</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>02606</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Kirchwerder</SimpleValue>
+         </Value>
+         <Value ColumnRef="Hinweis">
+            <SimpleValue>Stadt-/Ortsteil bzw. Stadtbezirk</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>02607</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Ochsenwerder</SimpleValue>
+         </Value>
+         <Value ColumnRef="Hinweis">
+            <SimpleValue>Stadt-/Ortsteil bzw. Stadtbezirk</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>02608</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Reitbrook</SimpleValue>
+         </Value>
+         <Value ColumnRef="Hinweis">
+            <SimpleValue>Stadt-/Ortsteil bzw. Stadtbezirk</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>02609</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Allermöhe</SimpleValue>
+         </Value>
+         <Value ColumnRef="Hinweis">
+            <SimpleValue>Stadt-/Ortsteil bzw. Stadtbezirk</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>02610</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Billwerder</SimpleValue>
+         </Value>
+         <Value ColumnRef="Hinweis">
+            <SimpleValue>Stadt-/Ortsteil bzw. Stadtbezirk</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>02611</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Moorfleet</SimpleValue>
+         </Value>
+         <Value ColumnRef="Hinweis">
+            <SimpleValue>Stadt-/Ortsteil bzw. Stadtbezirk</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>02612</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Tatenberg</SimpleValue>
+         </Value>
+         <Value ColumnRef="Hinweis">
+            <SimpleValue>Stadt-/Ortsteil bzw. Stadtbezirk</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>02613</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Spadenland</SimpleValue>
+         </Value>
+         <Value ColumnRef="Hinweis">
+            <SimpleValue>Stadt-/Ortsteil bzw. Stadtbezirk</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>02614</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Neuallermöhe</SimpleValue>
+         </Value>
+         <Value ColumnRef="Hinweis">
+            <SimpleValue>Stadt-/Ortsteil bzw. Stadtbezirk</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>02701</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Harburg</SimpleValue>
+         </Value>
+         <Value ColumnRef="Hinweis">
+            <SimpleValue>Stadt-/Ortsteil bzw. Stadtbezirk</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>02702</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Neuland</SimpleValue>
+         </Value>
+         <Value ColumnRef="Hinweis">
+            <SimpleValue>Stadt-/Ortsteil bzw. Stadtbezirk</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>02703</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Gut Moor</SimpleValue>
+         </Value>
+         <Value ColumnRef="Hinweis">
+            <SimpleValue>Stadt-/Ortsteil bzw. Stadtbezirk</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>02704</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Wilstorf</SimpleValue>
+         </Value>
+         <Value ColumnRef="Hinweis">
+            <SimpleValue>Stadt-/Ortsteil bzw. Stadtbezirk</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>02705</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Rönneburg</SimpleValue>
+         </Value>
+         <Value ColumnRef="Hinweis">
+            <SimpleValue>Stadt-/Ortsteil bzw. Stadtbezirk</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>02706</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Langenbek</SimpleValue>
+         </Value>
+         <Value ColumnRef="Hinweis">
+            <SimpleValue>Stadt-/Ortsteil bzw. Stadtbezirk</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>02707</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Sinstorf</SimpleValue>
+         </Value>
+         <Value ColumnRef="Hinweis">
+            <SimpleValue>Stadt-/Ortsteil bzw. Stadtbezirk</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>02708</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Marmstorf</SimpleValue>
+         </Value>
+         <Value ColumnRef="Hinweis">
+            <SimpleValue>Stadt-/Ortsteil bzw. Stadtbezirk</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>02709</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Eißendorf</SimpleValue>
+         </Value>
+         <Value ColumnRef="Hinweis">
+            <SimpleValue>Stadt-/Ortsteil bzw. Stadtbezirk</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>02710</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Heimfeld</SimpleValue>
+         </Value>
+         <Value ColumnRef="Hinweis">
+            <SimpleValue>Stadt-/Ortsteil bzw. Stadtbezirk</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>02711</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Moorburg</SimpleValue>
+         </Value>
+         <Value ColumnRef="Hinweis">
+            <SimpleValue>Stadt-/Ortsteil bzw. Stadtbezirk</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>02712</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Altenwerder</SimpleValue>
+         </Value>
+         <Value ColumnRef="Hinweis">
+            <SimpleValue>Stadt-/Ortsteil bzw. Stadtbezirk</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>02713</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Hausbruch</SimpleValue>
+         </Value>
+         <Value ColumnRef="Hinweis">
+            <SimpleValue>Stadt-/Ortsteil bzw. Stadtbezirk</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>02714</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Neugraben-Fischbek</SimpleValue>
+         </Value>
+         <Value ColumnRef="Hinweis">
+            <SimpleValue>Stadt-/Ortsteil bzw. Stadtbezirk</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>02715</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Francop</SimpleValue>
+         </Value>
+         <Value ColumnRef="Hinweis">
+            <SimpleValue>Stadt-/Ortsteil bzw. Stadtbezirk</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>02716</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Neuenfelde</SimpleValue>
+         </Value>
+         <Value ColumnRef="Hinweis">
+            <SimpleValue>Stadt-/Ortsteil bzw. Stadtbezirk</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>02717</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Cranz</SimpleValue>
+         </Value>
+         <Value ColumnRef="Hinweis">
+            <SimpleValue>Stadt-/Ortsteil bzw. Stadtbezirk</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>03101</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Braunschweig, Stadt</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>03102</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Salzgitter, Stadt</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>03103</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Wolfsburg, Stadt</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>03151</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Gifhorn</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>03153</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Goslar</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>03154</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Helmstedt</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>03155</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Northeim</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>03157</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Peine</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>03158</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Wolfenbüttel</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>03159</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Göttingen</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>03241</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Region Hannover</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>03251</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Diepholz</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>03252</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Hameln-Pyrmont</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>03254</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Hildesheim</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>03255</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Holzminden</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>03256</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Nienburg (Weser)</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>03257</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Schaumburg</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>03351</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Celle</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>03352</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Cuxhaven</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>03353</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Harburg</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>03354</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Lüchow-Dannenberg</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>03355</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Lüneburg</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>03356</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Osterholz</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>03357</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Rotenburg (Wümme)</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>03358</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Heidekreis</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>03359</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Stade</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>03360</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Uelzen</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>03361</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Verden</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>03401</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Delmenhorst, Stadt</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>03402</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Emden, Stadt</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>03403</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Oldenburg (Oldenburg), Stadt</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>03404</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Osnabrück, Stadt</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>03405</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Wilhelmshaven, Stadt</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>03451</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Ammerland</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>03452</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Aurich</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>03453</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Cloppenburg</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>03454</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Emsland</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>03455</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Friesland</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>03456</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Grafschaft Bentheim</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>03457</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Leer</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>03458</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Oldenburg</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>03459</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Osnabrück</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>03460</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Vechta</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>03461</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Wesermarsch</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>03462</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Wittmund</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>04011</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Bremen, Stadt</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>04012</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Bremerhaven, Stadt</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>05111</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Düsseldorf, Stadt</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>05112</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Duisburg, Stadt</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>05113</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Essen, Stadt</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>05114</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Krefeld, Stadt</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>05116</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Mönchengladbach, Stadt</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>05117</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Mülheim an der Ruhr, Stadt</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>05119</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Oberhausen, Stadt</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>05120</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Remscheid, Stadt</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>05122</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Solingen, Klingenstadt</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>05124</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Wuppertal, Stadt</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>05154</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Kleve</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>05158</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Mettmann</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>05162</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Rhein-Kreis Neuss</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>05166</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Viersen</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>05170</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Wesel</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>05314</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Bonn, Stadt</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>05315</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Köln, Stadt</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>05316</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Leverkusen, Stadt</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>05334</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Städteregion Aachen</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>05358</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Düren</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>05362</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Rhein-Erft-Kreis</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>05366</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Euskirchen</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>05370</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Heinsberg</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>05374</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Oberbergischer Kreis</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>05378</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Rheinisch-Bergischer Kreis</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>05382</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Rhein-Sieg-Kreis</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>05512</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Bottrop, Stadt</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>05513</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Gelsenkirchen, Stadt</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>05515</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Münster, Stadt</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>05554</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Borken</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>05558</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Coesfeld</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>05562</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Recklinghausen</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>05566</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Steinfurt</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>05570</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Warendorf</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>05711</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Bielefeld, Stadt</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>05754</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Gütersloh</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>05758</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Herford</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>05762</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Höxter</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>05766</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Lippe</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>05770</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Minden-Lübbecke</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>05774</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Paderborn</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>05911</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Bochum, Stadt</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>05913</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Dortmund, Stadt</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>05914</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Hagen, Stadt der FernUniversität</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>05915</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Hamm, Stadt</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>05916</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Herne, Stadt</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>05954</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Ennepe-Ruhr-Kreis</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>05958</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Hochsauerlandkreis</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>05962</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Märkischer Kreis</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>05966</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Olpe</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>05970</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Siegen-Wittgenstein</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>05974</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Soest</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>05978</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Unna</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>06411</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Darmstadt, Wissenschaftsstadt</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>06412</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Frankfurt am Main, Stadt</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>06413</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Offenbach am Main, Stadt</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>06414</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Wiesbaden, Landeshauptstadt</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>06431</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Bergstraße</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>06432</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Darmstadt-Dieburg</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>06433</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Groß-Gerau</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>06434</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Hochtaunuskreis</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>06435</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Main-Kinzig-Kreis</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>06436</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Main-Taunus-Kreis</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>06437</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Odenwaldkreis</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>06438</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Offenbach</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>06439</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Rheingau-Taunus-Kreis</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>06440</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Wetteraukreis</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>06531</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Gießen</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>06532</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Lahn-Dill-Kreis</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>06533</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Limburg-Weilburg</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>06534</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Marburg-Biedenkopf</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>06535</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Vogelsbergkreis</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>06611</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Kassel, documenta-Stadt</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>06631</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Fulda</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>06632</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Hersfeld-Rotenburg</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>06633</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Kassel</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>06634</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Schwalm-Eder-Kreis</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>06635</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Waldeck-Frankenberg</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>06636</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Werra-Meißner-Kreis</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>07111</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Koblenz, kreisfreie Stadt</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>07131</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Ahrweiler</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>07132</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Altenkirchen (Westerwald)</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>07133</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Bad Kreuznach</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>07134</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Birkenfeld</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>07135</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Cochem-Zell</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>07137</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Mayen-Koblenz</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>07138</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Neuwied</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>07140</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Rhein-Hunsrück-Kreis</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>07141</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Rhein-Lahn-Kreis</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>07143</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Westerwaldkreis</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>07211</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Trier, kreisfreie Stadt</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>07231</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Bernkastel-Wittlich</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>07232</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Eifelkreis Bitburg-Prüm</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>07233</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Vulkaneifel</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>07235</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Trier-Saarburg</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>07311</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Frankenthal (Pfalz), kreisfreie Stadt</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>07312</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Kaiserslautern, kreisfreie Stadt</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>07313</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Landau in der Pfalz, kreisfreie Stadt</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>07314</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Ludwigshafen am Rhein, kreisfreie Stadt</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>07315</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Mainz, kreisfreie Stadt</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>07316</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Neustadt an der Weinstraße, kreisfreie Stadt</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>07317</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Pirmasens, kreisfreie Stadt</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>07318</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Speyer, kreisfreie Stadt</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>07319</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Worms, kreisfreie Stadt</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>07320</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Zweibrücken, kreisfreie Stadt</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>07331</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Alzey-Worms</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>07332</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Bad Dürkheim</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>07333</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Donnersbergkreis</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>07334</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Germersheim</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>07335</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Kaiserslautern</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>07336</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Kusel</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>07337</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Südliche Weinstraße</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>07338</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Rhein-Pfalz-Kreis</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>07339</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Mainz-Bingen</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>07340</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Südwestpfalz</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>08111</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Stuttgart, Stadtkreis</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>08115</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Böblingen</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>08116</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Esslingen</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>08117</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Göppingen</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>08118</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Ludwigsburg</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>08119</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Rems-Murr-Kreis</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>08121</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Heilbronn, Stadtkreis</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>08125</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Heilbronn</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>08126</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Hohenlohekreis</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>08127</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Schwäbisch Hall</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>08128</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Main-Tauber-Kreis</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>08135</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Heidenheim</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>08136</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Ostalbkreis</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>08211</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Baden-Baden, Stadtkreis</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>08212</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Karlsruhe, Stadtkreis</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>08215</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Karlsruhe</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>08216</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Rastatt</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>08221</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Heidelberg, Stadtkreis</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>08222</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Mannheim, Stadtkreis</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>08225</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Neckar-Odenwald-Kreis</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>08226</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Rhein-Neckar-Kreis</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>08231</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Pforzheim, Stadtkreis</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>08235</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Calw</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>08236</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Enzkreis</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>08237</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Freudenstadt</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>08311</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Freiburg im Breisgau, Stadtkreis</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>08315</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Breisgau-Hochschwarzwald</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>08316</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Emmendingen</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>08317</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Ortenaukreis</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>08325</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Rottweil</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>08326</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Schwarzwald-Baar-Kreis</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>08327</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Tuttlingen</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>08335</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Konstanz</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>08336</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Lörrach</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>08337</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Waldshut</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>08415</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Reutlingen</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>08416</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Tübingen</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>08417</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Zollernalbkreis</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>08421</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Ulm, Stadtkreis</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>08425</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Alb-Donau-Kreis</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>08426</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Biberach</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>08435</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Bodenseekreis</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>08436</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Ravensburg</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>08437</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Sigmaringen</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>09161</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Ingolstadt</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>09162</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>München, Landeshauptstadt</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>09163</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Rosenheim</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>09171</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Altötting</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>09172</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Berchtesgadener Land</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>09173</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Bad Tölz-Wolfratshausen</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>09174</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Dachau</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>09175</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Ebersberg</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>09176</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Eichstätt</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>09177</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Erding</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>09178</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Freising</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>09179</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Fürstenfeldbruck</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>09180</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Garmisch-Partenkirchen</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>09181</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Landsberg am Lech</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>09182</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Miesbach</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>09183</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Mühldorf a.Inn</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>09184</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>München</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>09185</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Neuburg-Schrobenhausen</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>09186</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Pfaffenhofen a.d.Ilm</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>09187</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Rosenheim</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>09188</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Starnberg</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>09189</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Traunstein</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>09190</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Weilheim-Schongau</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>09261</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Landshut</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>09262</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Passau</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>09263</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Straubing</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>09271</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Deggendorf</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>09272</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Freyung-Grafenau</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>09273</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Kelheim</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>09274</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Landshut</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>09275</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Passau</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>09276</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Regen</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>09277</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Rottal-Inn</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>09278</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Straubing-Bogen</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>09279</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Dingolfing-Landau</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>09361</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Amberg</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>09362</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Regensburg</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>09363</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Weiden i.d.OPf.</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>09371</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Amberg-Sulzbach</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>09372</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Cham</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>09373</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Neumarkt i.d.OPf.</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>09374</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Neustadt a.d.Waldnaab</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>09375</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Regensburg</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>09376</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Schwandorf</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>09377</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Tirschenreuth</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>09461</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Bamberg</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>09462</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Bayreuth</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>09463</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Coburg</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>09464</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Hof</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>09471</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Bamberg</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>09472</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Bayreuth</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>09473</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Coburg</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>09474</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Forchheim</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>09475</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Hof</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>09476</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Kronach</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>09477</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Kulmbach</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>09478</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Lichtenfels</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>09479</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Wunsiedel i.Fichtelgebirge</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>09561</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Ansbach</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>09562</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Erlangen</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>09563</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Fürth</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>09564</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Nürnberg</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>09565</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Schwabach</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>09571</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Ansbach</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>09572</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Erlangen-Höchstadt</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>09573</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Fürth</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>09574</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Nürnberger Land</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>09575</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Neustadt a.d.Aisch-Bad Windsheim</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>09576</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Roth</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>09577</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Weißenburg-Gunzenhausen</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>09661</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Aschaffenburg</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>09662</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Schweinfurt</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>09663</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Würzburg</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>09671</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Aschaffenburg</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>09672</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Bad Kissingen</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>09673</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Rhön-Grabfeld</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>09674</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Haßberge</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>09675</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Kitzingen</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>09676</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Miltenberg</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>09677</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Main-Spessart</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>09678</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Schweinfurt</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>09679</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Würzburg</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>09761</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Augsburg</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>09762</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Kaufbeuren</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>09763</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Kempten (Allgäu)</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>09764</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Memmingen</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>09771</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Aichach-Friedberg</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>09772</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Augsburg</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>09773</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Dillingen a.d.Donau</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>09774</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Günzburg</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>09775</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Neu-Ulm</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>09776</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Lindau (Bodensee)</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>09777</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Ostallgäu</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>09778</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Unterallgäu</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>09779</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Donau-Ries</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>09780</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Oberallgäu</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>10041</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Regionalverband Saarbrücken</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>10042</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Merzig-Wadern</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>10043</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Neunkirchen</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>10044</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Saarlouis</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>10045</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Saarpfalz-Kreis</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>10046</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>St. Wendel</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>11000</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Berlin, Stadt</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>11001</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Mitte</SimpleValue>
+         </Value>
+         <Value ColumnRef="Hinweis">
+            <SimpleValue>Stadt-/Ortsteil bzw. Stadtbezirk</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>11002</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Friedrichshain-Kreuzberg</SimpleValue>
+         </Value>
+         <Value ColumnRef="Hinweis">
+            <SimpleValue>Stadt-/Ortsteil bzw. Stadtbezirk</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>11003</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Pankow</SimpleValue>
+         </Value>
+         <Value ColumnRef="Hinweis">
+            <SimpleValue>Stadt-/Ortsteil bzw. Stadtbezirk</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>11004</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Charlottenburg-Wilmersdorf</SimpleValue>
+         </Value>
+         <Value ColumnRef="Hinweis">
+            <SimpleValue>Stadt-/Ortsteil bzw. Stadtbezirk</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>11005</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Spandau</SimpleValue>
+         </Value>
+         <Value ColumnRef="Hinweis">
+            <SimpleValue>Stadt-/Ortsteil bzw. Stadtbezirk</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>11006</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Steglitz-Zehlendorf</SimpleValue>
+         </Value>
+         <Value ColumnRef="Hinweis">
+            <SimpleValue>Stadt-/Ortsteil bzw. Stadtbezirk</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>11007</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Tempelhof-Schöneberg</SimpleValue>
+         </Value>
+         <Value ColumnRef="Hinweis">
+            <SimpleValue>Stadt-/Ortsteil bzw. Stadtbezirk</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>11008</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Neukölln</SimpleValue>
+         </Value>
+         <Value ColumnRef="Hinweis">
+            <SimpleValue>Stadt-/Ortsteil bzw. Stadtbezirk</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>11009</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Treptow-Köpenick</SimpleValue>
+         </Value>
+         <Value ColumnRef="Hinweis">
+            <SimpleValue>Stadt-/Ortsteil bzw. Stadtbezirk</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>11010</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Marzahn-Hellersdorf</SimpleValue>
+         </Value>
+         <Value ColumnRef="Hinweis">
+            <SimpleValue>Stadt-/Ortsteil bzw. Stadtbezirk</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>11011</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Lichtenberg</SimpleValue>
+         </Value>
+         <Value ColumnRef="Hinweis">
+            <SimpleValue>Stadt-/Ortsteil bzw. Stadtbezirk</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>11012</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Reinickendorf</SimpleValue>
+         </Value>
+         <Value ColumnRef="Hinweis">
+            <SimpleValue>Stadt-/Ortsteil bzw. Stadtbezirk</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>12051</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Brandenburg an der Havel, Stadt</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>12052</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Cottbus, Stadt</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>12053</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Frankfurt (Oder), Stadt</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>12054</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Potsdam, Stadt</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>12060</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Barnim</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>12061</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Dahme-Spreewald</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>12062</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Elbe-Elster</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>12063</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Havelland</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>12064</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Märkisch-Oderland</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>12065</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Oberhavel</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>12066</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Oberspreewald-Lausitz</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>12067</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Oder-Spree</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>12068</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Ostprignitz-Ruppin</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>12069</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Potsdam-Mittelmark</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>12070</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Prignitz</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>12071</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Spree-Neiße</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>12072</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Teltow-Fläming</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>12073</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Uckermark</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>13003</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Rostock</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>13004</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Schwerin</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>13071</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Mecklenburgische Seenplatte</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>13072</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Landkreis Rostock</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>13073</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Vorpommern-Rügen</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>13074</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Nordwestmecklenburg</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>13075</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Vorpommern-Greifswald</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>13076</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Ludwigslust-Parchim</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>14511</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Chemnitz, Stadt</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>14521</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Erzgebirgskreis</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>14522</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Mittelsachsen</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>14523</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Vogtlandkreis</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>14524</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Zwickau</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>14612</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Dresden, Stadt</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>14625</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Bautzen</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>14626</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Görlitz</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>14627</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Meißen</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>14628</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Sächsische Schweiz-Osterzgebirge</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>14713</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Leipzig, Stadt</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>14729</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Leipzig</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>14730</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Nordsachsen</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>15001</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Dessau-Roßlau, Stadt</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>15002</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Halle (Saale), Stadt</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>15003</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Magdeburg, Landeshauptstadt</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>15081</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Altmarkkreis Salzwedel</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>15082</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Anhalt-Bitterfeld</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>15083</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Börde</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>15084</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Burgenlandkreis</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>15085</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Harz</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>15086</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Jerichower Land</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>15087</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Mansfeld-Südharz</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>15088</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Saalekreis</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>15089</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Salzlandkreis</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>15090</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Stendal</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>15091</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Wittenberg</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>16051</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Erfurt, Stadt</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>16052</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Gera, Stadt</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>16053</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Jena, Stadt</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>16054</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Suhl, Stadt</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>16055</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Weimar, Stadt</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>16061</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Eichsfeld</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>16062</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Nordhausen</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>16063</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Wartburgkreis</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>16064</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Unstrut-Hainich-Kreis</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>16065</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Kyffhäuserkreis</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>16066</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Schmalkalden-Meiningen</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>16067</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Gotha</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>16068</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Sömmerda</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>16069</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Hildburghausen</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>16070</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Ilm-Kreis</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>16071</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Weimarer Land</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>16072</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Sonneberg</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>16073</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Saalfeld-Rudolstadt</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>16074</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Saale-Holzland-Kreis</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>16075</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Saale-Orla-Kreis</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>16076</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Greiz</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="SCHLUESSEL">
+            <SimpleValue>16077</SimpleValue>
+         </Value>
+         <Value ColumnRef="Bezeichnung">
+            <SimpleValue>Altenburger Land</SimpleValue>
+         </Value>
+      </Row>
+   </SimpleCodeList>
+</gc:CodeList>
