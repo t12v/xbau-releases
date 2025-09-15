@@ -1,3 +1,5 @@
+export const artifactsFolder = 'artifacts';
+
 export function getEnumKeyByValue<T extends Record<string, string | number>>(
   enumObj: T,
   value: T[keyof T]
