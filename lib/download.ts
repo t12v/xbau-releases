@@ -82,13 +82,13 @@ export async function downloadArtifacts(standard: Standard, updates: UpdateDetai
           });
           if (detailsResponse.data) {
             const versions = <Array<string>>(<any>detailsResponse.data).alleVersionsKennungen;
-            versions.map(async (version) => {
+            for (const version of versions) {
               await download(
                 `${artifactsFolder}/codelists/${version}.xml`,
                 `https://www.xrepository.de/api/xrepository/${version}:technischerBestandteilGenericode`
               );
               codeLists.push(`${version}.xml`);
-            });
+            }
           }
         } else {
           await download(
@@ -100,7 +100,7 @@ export async function downloadArtifacts(standard: Standard, updates: UpdateDetai
       }
     }
     // write code lists as json for each standard
-    await writeToFile(`${folderName}/codelists.json`, JSON.stringify(codeLists));
+    await writeToFile(`${folderName}/codelists.json`, JSON.stringify(codeLists, null, 4));
   });
   return Promise.all(downloads);
 }
