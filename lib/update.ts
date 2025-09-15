@@ -2,12 +2,12 @@ import { fileExists, readFileContent, writeToFile } from './file';
 import { Standard, UpdateDetails } from './types';
 import { getChecksum } from './checksum';
 import { getDetails } from './search';
-import { getEnumKeyByValue } from './utils';
+import { artifactsFolder, getEnumKeyByValue } from './utils';
 
 export async function checkForUpdates(standard: Standard): Promise<UpdateDetails> {
   const standardDetails = await getDetails(standard);
   const checksum = await getChecksum(standardDetails);
-  const checksumFile = getEnumKeyByValue(Standard, standard) + '/checksum.md5';
+  const checksumFile = `${artifactsFolder}/${getEnumKeyByValue(Standard, standard)}/checksum.md5`;
   const exists = fileExists(checksumFile);
   const details: UpdateDetails = {
     updated: standardDetails.updated,
@@ -32,7 +32,7 @@ export async function checkForUpdates(standard: Standard): Promise<UpdateDetails
 
 export async function update(standard: Standard, updateChecksum: boolean = false): Promise<UpdateDetails> {
   const result = await checkForUpdates(standard);
-  const checksumFile = getEnumKeyByValue(Standard, standard) + '/checksum.md5';
+  const checksumFile = `${artifactsFolder}/${getEnumKeyByValue(Standard, standard)}/checksum.md5`;
   if (result.updateDetected) {
     if (updateChecksum) {
       try {

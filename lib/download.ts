@@ -1,7 +1,7 @@
 import axios from 'axios';
 import axiosRetry from 'axios-retry';
 import { Standard, UpdateDetails } from './types';
-import { getEnumKeyByValue } from './utils';
+import { artifactsFolder, getEnumKeyByValue } from './utils';
 import { fileExists, writeToFile } from './file';
 import { resolve } from 'path';
 
@@ -64,7 +64,7 @@ async function download(file: string, resource: string): Promise<void> {
 }
 export async function downloadArtifacts(standard: Standard, updates: UpdateDetails): Promise<any> {
   const details = updates.details;
-  const rootFolder = getEnumKeyByValue(Standard, standard);
+  const rootFolder = `${artifactsFolder}/${getEnumKeyByValue(Standard, standard)}`;
   const downloads = <Array<Promise<void>>>details.versionen.map(async (standard) => {
     const folderName = resolve(`${rootFolder}/${standard.version}`);
     const codeLists = new Array<string>();
@@ -84,7 +84,7 @@ export async function downloadArtifacts(standard: Standard, updates: UpdateDetai
             const versions = <Array<string>>(<any>detailsResponse.data).alleVersionsKennungen;
             versions.map(async (version) => {
               await download(
-                `codelists/${version}.xml`,
+                `${artifactsFolder}/codelists/${version}.xml`,
                 `https://www.xrepository.de/api/xrepository/${version}:technischerBestandteilGenericode`
               );
               codeLists.push(`${version}.xml`);
@@ -92,7 +92,7 @@ export async function downloadArtifacts(standard: Standard, updates: UpdateDetai
           }
         } else {
           await download(
-            `codelists/${codelist.kennung}.xml`,
+            `${artifactsFolder}/codelists/${codelist.kennung}.xml`,
             `https://www.xrepository.de/api/xrepository/${codelist.kennung}:technischerBestandteilGenericode`
           );
           codeLists.push(`${codelist.kennung}.xml`);
