@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:xbau="http://www.xleitstelle.de/xbau/2/4"
+           xmlns:din91379="urn:xoev-de:kosit:xoev:datentyp:din-91379_2022-08"
+           xmlns:xbauk="http://www.xleitstelle.de/xbau/kernmodul/1/2/1"
+           xmlns:xoev-lc="http://xoev.de/latinchars/1_1/datatypes"
+           targetNamespace="http://www.xleitstelle.de/xbau/2/4"
+           version="2.4"
+           elementFormDefault="qualified"
+           attributeFormDefault="unqualified">
+   <xs:annotation>
+      <xs:appinfo>
+         <standard>
+            <nameLang>XBau - Standard für die Datenkommunikation der Bauaufsichtsbehörde</nameLang>
+            <nameKurz>XBau</nameKurz>
+            <nameTechnisch>xbau</nameTechnisch>
+            <kennung>urn:xoev-de:bmk:standard:xbau</kennung>
+            <beschreibung>XBau ist der XÖV-Standard für den Datenaustausch der Bauaufsichtsbehörden mit ihren Kommunikationspartnern (Bauherren, Architektenbüros, Behörden zahlreicher Rechtsbereiche). </beschreibung>
+         </standard>
+         <versionStandard>
+            <version>2.4</version>
+            <beschreibung>XBau Hochbau unterstützt neu den Prozess der Verlängerung einer erteilten Baugenehmigung, sowie erweiterte Prozesse für Akteneinsicht und für Behördenbeteiligung. Weitere Neuigkeiten: Die Bauaufsichtsbehörde kann jetzt für Anträge auf Baugenehmigung die Information übermitteln, dass die Antragsunterlagen vollständig eingegangen sind und damit die Uhr für die materielle Prüfung des Antrags zu ticken begonnen hat. Gebührenbescheide können innerhalb passender Vorgänge auch prozessfrei übermittelt werden. Für Nachrichten an Portale (z.B. Beteiligungsportal, Portal ELBA der Prüfingenieure) sind jetzt die Adressaten innerhalb des Portals individuell adressierbar. Hersteller von Architektensoftware haben die Möglichkeit, Stamm- und Antragsdaten zu Vorgängen medienbruchfrei in die Portale für Online Baugenehmigung zu importieren. Die Datenübermittlungen an die amtliche Statistik wurden in vielen Details der Nachrichten und Datentypen verbessert, erweitert und dokumentiert. Alle XBau-Nachrichten sind an die neue Nachrichtenarchitektur gemäß XÖV-Bibliothek angepasst, d.h verwenden die Struktur der XÖV-Basisnachricht. Details dieser und weiterer Änderungen sind in der Versionshistorie des Spezifikationsdokuments beschrieben.</beschreibung>
+            <versionXOEVProfil>3.0.0</versionXOEVProfil>
+            <versionXOEVHandbuch>3.0.1</versionXOEVHandbuch>
+            <versionXGenerator>3.1.1</versionXGenerator>
+            <versionModellierungswerkzeug>19.0</versionModellierungswerkzeug>
+            <nameModellierungswerkzeug>MagicDraw</nameModellierungswerkzeug>
+         </versionStandard>
+      </xs:appinfo>
+   </xs:annotation>
+   <xs:include schemaLocation="xbau-baukasten.xsd"/>
+   <xs:include schemaLocation="xbau-codes.xsd"/>
+   <xs:import schemaLocation="http://xoev.de/latinchars/1_1/datatypes/latinchars.xsd"
+              namespace="http://xoev.de/latinchars/1_1/datatypes"/>
+   <xs:import schemaLocation="https://xleitstelle.de/xbau/schema/kernmodul/1/2/1/xbau-kernmodul-datentypen.xsd"
+              namespace="http://www.xleitstelle.de/xbau/kernmodul/1/2/1"/>
+   <xs:import schemaLocation="https://xoev.de/schemata/din/91379/2022-08/din-norm-91379-datatypes.xsd"
+              namespace="urn:xoev-de:kosit:xoev:datentyp:din-91379_2022-08"/>
+   <xs:element name="prozessnachrichten.aenderungProjektraumdaten.0100">
+      <xs:annotation>
+         <xs:appinfo>
+            <title>Änderung von Daten zum Bauvorhaben im Projektraum</title>
+         </xs:appinfo>
+         <xs:documentation>Mittels dieser Nachricht kann die Bauaufsichtsbehörde bestimmte geänderte Daten zum Bauvorhaben im Projektraum aktualisieren.</xs:documentation>
+      </xs:annotation>
+      <xs:complexType>
+         <xs:complexContent>
+            <xs:extension base="xbau:Nachricht.G2G">
+               <xs:sequence>
+                  <xs:element name="bezug" minOccurs="0" type="xbauk:BezugErweitert">
+                     <xs:annotation>
+                        <xs:documentation>In diesem Element wird die Nachricht eingetragen, durch deren Eingang bei der Bauaufsichtsbehörde der Vorgang ausgelöst worden ist.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+                  <xs:element name="geaenderteDaten">
+                     <xs:annotation>
+                        <xs:documentation>Eine Instanz dieses Elements umfasst die geänderten Daten zum Bauvorhaben.</xs:documentation>
+                     </xs:annotation>
+                     <xs:complexType>
+                        <xs:sequence>
+                           <xs:element name="verfahrenskennzeichen" minOccurs="0">
+                              <xs:annotation>
+                                 <xs:documentation>In diesem Element werden geänderte Verfahrenskennzeichen übermittelt.</xs:documentation>
+                              </xs:annotation>
+                              <xs:complexType>
+                                 <xs:sequence>
+                                    <xs:element name="verfahrensart" minOccurs="0" type="xbau:Code.Verfahrensart">
+                                       <xs:annotation>
+                                          <xs:documentation>In diesem Element wird die geänderte baurechtliche Verfahrensart übermittelt.</xs:documentation>
+                                       </xs:annotation>
+                                    </xs:element>
+                                    <xs:element name="artDerMassnahme"
+                                                minOccurs="0"
+                                                type="xbau:Code.BaumassnahmeArt">
+                                       <xs:annotation>
+                                          <xs:documentation>In diesem Element wird die geänderte Art der Maßnahme übermittelt.</xs:documentation>
+                                       </xs:annotation>
+                                    </xs:element>
+                                 </xs:sequence>
+                              </xs:complexType>
+                           </xs:element>
+                           <xs:element name="bezeichnungDesBauvorhabens"
+                                       minOccurs="0"
+                                       type="din91379:datatypeC">
+                              <xs:annotation>
+                                 <xs:documentation>In diesem Element wird die geänderte Bezeichnung des Bauvorhabens übermittelt.</xs:documentation>
+                              </xs:annotation>
+                           </xs:element>
+                           <xs:element name="antragstellerdaten"
+                                       minOccurs="0"
+                                       maxOccurs="unbounded"
+                                       type="xbauk:Akteur">
+                              <xs:annotation>
+                                 <xs:documentation>In diesem Element werden geänderte Daten zum Antragsteller übermittelt.</xs:documentation>
+                              </xs:annotation>
+                           </xs:element>
+                           <xs:element name="beteiligteGeaendert"
+                                       minOccurs="0"
+                                       type="xbau:BeteiligteBauprojekt">
+                              <xs:annotation>
+                                 <xs:documentation>Mit diesem Element werden ggf. geänderte Daten zu Beteiligten am Verfahren übermittelt.</xs:documentation>
+                              </xs:annotation>
+                           </xs:element>
+                           <xs:element name="datenBaugrundstueck" minOccurs="0" type="xbau:Baugrundstueck">
+                              <xs:annotation>
+                                 <xs:documentation>In diesem Element werden geänderte Daten zum Baugrundstück übermittelt.</xs:documentation>
+                              </xs:annotation>
+                           </xs:element>
+                        </xs:sequence>
+                     </xs:complexType>
+                  </xs:element>
+               </xs:sequence>
+            </xs:extension>
+         </xs:complexContent>
+      </xs:complexType>
+   </xs:element>
+</xs:schema>

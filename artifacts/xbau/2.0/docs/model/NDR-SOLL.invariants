@@ -1,0 +1,221 @@
+<?xml version='1.0' encoding='iso-8859-1'?>
+<invariants xmlns="http://www.osci.de/xoev/invariants" level="shall">
+  
+  <rule name='NDR-4: Erlaubte Einbindungsarten für Codelisten'>
+  
+  <invariant context='Class' name='maximumLengthOfListVersionID'>
+    <body><![CDATA[
+      self.extension_xsdCode.isDefined and self.hlpIsPartOfXModel() and
+      self.getAttribute('listVersionID').default.isDefined implies
+        self.getAttribute('listVersionID').default.size < 16
+      ]]>
+    </body>
+    <documentation>
+      Codelisten-Versionen sollen aus nicht mehr als 16 Zeichen bestehen.
+    </documentation>
+  </invariant>
+  
+  <invariant context='Enumeration' name='EnumerationsAreUsedInContextOfFirstXOEVCodeType'>
+    <body><![CDATA[
+      let codes:Set(Class) = Class.allInstances->
+          select(c|c.extension_xsdCode.isDefined() and 
+          c.hlpTopMostSuperType().name = 'Code' and
+          c.hlpTopMostSuperType().hlpOwningPackage().name='XOEV-Basisdatentypen' and 
+		  c.hlpIsPartOfXModel() and
+          c.ownedAttribute->
+            exists(a|(a.extension_xsdElement.isDefined() or a.extension_xsdAttribute.isDefined()) and a.type = self))
+        in
+      self.extension_xsdCodeList.isDefined and
+      self.hlpIsPartOfXModel() implies
+        (codes->forAll(c1|(c1.ownedAttribute->exists
+		   (a1|a1.name = 'code' and 
+            a1.extension_xsdElement.isDefined() and 
+            a1.upper = 1 and
+            a1.lower = 1)) and
+         (c1.ownedAttribute->exists
+		  (a1|a1.name = 'listURI' and 
+            a1.extension_xsdAttribute.isDefined() and 
+            a1.upper = 1 and
+            a1.default.isDefined and a1.default <> '' and
+            a1.isReadOnly.isDefined and a1.isReadOnly = true)) and
+         (c1.ownedAttribute->exists
+		   (a1|a1.name = 'listVersionID' and 
+            a1.extension_xsdAttribute.isDefined() and 
+            a1.upper = 1 and
+            a1.default.isDefined and a1.default <> '' and
+            a1.isReadOnly.isDefined and a1.isReadOnly = true))))
+    ]]></body>
+    <documentation>
+      Eine Codeliste (UML-Enumeration mit dem Stereotyp «xsdCodeList») wird von einer UML-Klasse mit dem 
+      Stereotyp «xsdCode» eingebunden. Die einbindende UML-Klasse entspricht mit den Namen, 
+      Multiplizitäten und Fix-Werten der Eigenschaften den Vorgaben zu der Einbindungsart 1 von 
+      Codelisten.
+    </documentation>
+  </invariant>
+
+  <invariant context='Class' name='CodeTypesConformToXOEVCodes'>
+    <body><![CDATA[
+      let a:Sequence(Property) = self.ownedAttribute in
+      self.extension_xsdCode.isDefined and
+      self.hlpIsPartOfXModel() implies
+        ((a->exists(a1|a1.name = 'code' and 
+          a1.extension_xsdElement.isDefined() and 
+          a1.upper = 1 and
+          a1.lower = 1)) and
+        (a->exists(a3|a3.name = 'listURI' and 
+          a3.extension_xsdAttribute.isDefined() and 
+          a3.upper = 1 and
+          a3.default.isDefined and a3.default <> '' and
+          a3.isReadOnly.isDefined and a3.isReadOnly = true)) and
+        (a->exists(a4|a4.name = 'listVersionID' and 
+          a4.extension_xsdAttribute.isDefined() and 
+          a4.upper = 1 and
+          a4.default.isDefined and a4.default <> '' and
+          a4.isReadOnly.isDefined and a4.isReadOnly = true)))
+        
+        or
+        
+        ((a->exists(a1|a1.name = 'code' and 
+          a1.extension_xsdElement.isDefined() and 
+          a1.upper = 1 and
+          a1.lower = 1)) and
+        (a->exists(a3|a3.name = 'listURI' and 
+          a3.extension_xsdAttribute.isDefined() and 
+          a3.upper = 1 and
+          a3.default.isDefined and a3.default <> '' and
+          a3.isReadOnly.isDefined and a3.isReadOnly = true)) and
+        (a->exists(a4|a4.name = 'listVersionID' and 
+          a4.extension_xsdAttribute.isDefined() and 
+          a4.upper = 1 and
+          a4.lower = 1))) 	
+    
+        or
+ 
+        ((a->exists(a1|a1.name = 'code' and 
+          a1.extension_xsdElement.isDefined() and 
+          a1.upper = 1 and
+          a1.lower = 1)) and
+        (a->exists(a3|a3.name = 'listURI' and 
+          a3.extension_xsdAttribute.isDefined() and 
+          a3.upper = 1 and
+          a3.lower = 1)) and
+        (a->exists(a4|a4.name = 'listVersionID' and 
+          a4.extension_xsdAttribute.isDefined() and 
+          a4.upper = 1 and
+          a4.lower = 1))) 
+    ]]></body>
+    <documentation>
+      Ein Code-Datentyp (UML-Klasse mit dem Stereotyp «xsdCode») entspricht mit den Namen, 
+      Multiplizitäten und Fix-Werten den Vorgaben zu der Einbindungsart 1, 2, 3 oder 4 von Codelisten.   
+    </documentation>	
+  </invariant>
+  </rule>  
+  <rule name='NDR-11: Erlaubte Zeichen für Namen'>
+	    
+  <invariant context='Class' name='CharacterRestrictionForTypeAndGlobalElementNames'>
+    <body><![CDATA[
+      (self.extension_xsdNamedType.isDefined() or self.extension_xsdGlobalElement.isDefined()) 
+	    and self.hlpIsPartOfXModel() implies 
+        self.hlpNameIsToken()
+    ]]></body>
+    <documentation>
+      Die Namen von mit «xsdNamedType» oder «xsdGlobalElement» markierten UML-Klassen dürfen nur aus 
+      lateinischen Buchstaben, Ziffern, Unterstrichen, Bindestrichen und Punkten bestehen. 
+    </documentation> 
+  </invariant>	
+    
+  <invariant context='Property' name='CharacterRestrictionForElementAndAttributeNames'>
+    <body><![CDATA[
+      (self.extension_xsdAttribute.isDefined() or 
+        self.extension_xsdElement.isDefined()) and
+      self.hlpIsPartOfXModel() implies
+        self.hlpNameIsToken()
+    ]]></body>
+    <documentation>
+      Die Namen von mit «xsdElement» oder «xsdAttribute» markierten UML-Klasseneigenschaften dürfen nur 
+      aus lateinischen Buchstaben, Ziffern, Unterstrichen, Bindestrichen und Punkten bestehen. 
+    </documentation> 
+  </invariant>
+	
+  <invariant context='Enumeration' name='CharacterRestrictionForCodeListNames'>
+    <body><![CDATA[
+      self.extension_xsdCodeList.isDefined() and
+      self.extension_xsdNamedType.isDefined() and
+	  self.hlpIsPartOfXModel() implies 
+        self.hlpNameIsToken()
+    ]]></body>
+    <documentation>
+      Die Namen von gleichzeitig mit «xsdCodeList» und «xsdNamedType» markierten UML-Enumerationen 
+      dürfen nur aus lateinischen Buchstaben, Ziffern, Unterstrichen, Bindestrichen und Punkten bestehen.
+    </documentation> 
+  </invariant>	
+  </rule>	
+  <rule name='NDR-12: Erlaubte Zeichen für Klassifikationen in Namen'>
+	 
+  <invariant context='Class' name='PeriodsClassifyTypeAndGlobalElementNames'>
+    <body><![CDATA[
+      (self.extension_xsdNamedType.isDefined() or 
+	    self.extension_xsdGlobalElement.isDefined()) and
+      self.hlpIsPartOfXModel() implies 
+        self.hlpNameHasNoSequencedPeriods()
+    ]]></body>
+    <documentation>
+      Die Namen von mit «xsdNamedType» und «xsdGlobalElement» markierten UML-Klassen dürfen keine zwei 
+      aufeinander folgenden Punkte enthalten. 
+    </documentation> 
+  </invariant>	
+   
+  <invariant context='Property' name='PeriodsClassifyElementAndAttributesNames'>
+    <body><![CDATA[
+      (self.extension_xsdAttribute.isDefined() or 
+        self.extension_xsdElement.isDefined()) and
+      self.hlpIsPartOfXModel() implies
+        self.hlpNameHasNoSequencedPeriods()
+    ]]></body>
+    <documentation>
+      Die Namen von mit «xsdElement» und «xsdAttribute» markierten UML-Klasseneigenschaften dürfen keine 
+      zwei aufeinander folgenden Punkte enthalten.
+    </documentation> 
+  </invariant>
+	 
+  <invariant context='Enumeration' name='PeriodsClassifyCodeListNames'>
+    <body><![CDATA[
+      self.extension_xsdCodeList.isDefined() and 
+      self.hlpIsPartOfXModel() and
+      self.extension_xsdNamedType.isDefined() implies 
+        self.hlpNameHasNoSequencedPeriods()
+    ]]></body>
+    <documentation>
+      Die Namen von gleichzeitig mit «xsdCodeList» und «xsdNamedType» markierten UML-Enumerationen 
+      dürfen keine zwei aufeinander folgenden Punkte enthalten.
+    </documentation> 
+  </invariant>	 
+  </rule>  
+  <!-- Erfordert Diskussion in Technikgruppe: -->  
+  <!--<rule name='NDR-24: Wiederverwendung generischer Nachrichten-Eigenschaften'>
+  <invariant context='Model' name='MessageSuperTypeDefinedAndUsed'>
+    <body><![CDATA[
+      let n:Set(Class) = Class.allInstances->select(c|c.extension_xsdMessage.isDefined() and c.hlpIsPartOfXModel()) in
+      let n1:Class = n->asSequence()->first() in
+      let n1type:Classifier = 
+        if (n1.hlpElements()->first.type.oclAsType(Class).hlpTopMostSuperType().isDefined()) then
+          n1.hlpElements()->first.type.oclAsType(Class).hlpTopMostSuperType()
+        else
+          n1.hlpElements()->first.type.oclAsType(Classifier)
+        endif
+      in
+      self = self.hlpXModel() implies
+        n->forAll(m|m.hlpTopMostSuperType().isDefined() and 
+         n1.hlpTopMostSuperType().isDefined() and 
+         m.hlpTopMostSuperType() = n1.hlpTopMostSuperType()) or
+          (n->forAll(m|
+            (m.hlpElements()->first.type.oclAsType(Class).hlpTopMostSuperType() = n1type) or
+			(m.hlpElements()->first.type.oclAsType(Classifier) = n1type)))
+    ]]></body>
+    <documentation>
+      Es gibt einen Supertyp für «xsdMessage»-UML-Klassen oder deren «xsdElement»-UML-Klasseneigenschaft 
+      mit der Eigenschaft "position = 1".
+    </documentation>
+  </invariant>
+  </rule>  -->		
+</invariants>

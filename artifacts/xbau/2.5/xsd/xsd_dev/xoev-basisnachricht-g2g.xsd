@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:bn-g2g="http://xoev.de/schemata/basisnachricht/g2g/1_0"
+           xmlns:bn-beh="http://xoev.de/schemata/basisnachricht/behoerde/1_0"
+           xmlns:dinspec91379="urn:xoev-de:kosit:xoev:datentyp:din-spec-91379_2019-03"
+           xmlns:xoev-code="http://xoev.de/schemata/code/1_0"
+           targetNamespace="http://xoev.de/schemata/basisnachricht/g2g/1_0"
+           version="1.0"
+           elementFormDefault="qualified"
+           attributeFormDefault="unqualified">
+   <xs:import schemaLocation="din-91379-datatypes.xsd"
+              namespace="urn:xoev-de:kosit:xoev:datentyp:din-spec-91379_2019-03"/>
+   <xs:import schemaLocation="xoev-basisnachricht-behoerde.xsd"
+              namespace="http://xoev.de/schemata/basisnachricht/behoerde/1_0"/>
+   <xs:import schemaLocation="xoev-code.xsd"
+              namespace="http://xoev.de/schemata/code/1_0"/>
+   <xs:complexType name="Identifikation.NachrichtType">
+      <xs:annotation>
+         <xs:documentation>Dieser Typ enthält Angaben zur eindeutigen Identifikation einer Nachricht.</xs:documentation>
+      </xs:annotation>
+      <xs:sequence>
+         <xs:element name="nachrichtenUUID" type="bn-g2g:UUID">
+            <xs:annotation>
+               <xs:documentation>Dieses Element enthält den „Universally Unique IDentifier (UUID)“ der Nachricht, der das primäre Identifikationsmerkmal einer Nachricht darstellt. Der UUID der Nachricht wird entsprechend rfc4122 gebildet und ermöglicht Nachrichten hersteller- und anwendungsübergreifend weltweit eindeutig zu identifizieren. Für jede Nachricht muss ein neuer UUID erzeugt werden, um eine eindeutige Identifikation der Nachricht sicherzustellen. Insbesondere ist es nicht zulässig, in einer korrigierten Nachricht den UUID der ursprünglichen Nachricht wiederzuverwenden. Sofern eine einmal erzeugte Nachricht ein weiteres Mal gesendet werden soll (bspw. aufgrund von Problemen beim Nachrichtentransport), muss der UUID nicht angepasst werden.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element name="nachrichtentyp" type="xoev-code:Code">
+            <xs:annotation>
+               <xs:documentation>Dieses Element enthält eine eindeutige Kennzeichnung des Nachrichtentyps. Die Identifikation erfolgt über eine Codeliste des entsprechenden XÖV-Standards.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element name="erstellungszeitpunkt" type="xs:dateTime">
+            <xs:annotation>
+               <xs:documentation>Dieses Element enthält den Erstellungszeitpunkt der Nachricht - es enthält explizit nicht den Sende- und Empfangszeitpunkt. Der Erstellungszeitpunkt muss neben einer Angabe zum Datum eine zeitliche Information beinhalten. Diese ist mit einer Genauigkeit auf Ebene von Millisekunden und der Angabe zur Zeitzone zu übermitteln.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="Nachricht.G2GType">
+      <xs:annotation>
+         <xs:appinfo>
+            <datentyp>
+               <nameLang>XÖV-Basisnachricht: Government-to-Government</nameLang>
+               <nameKurz>XÖV-Basisnachricht G2G</nameKurz>
+               <nameTechnisch>Nachricht.G2GType</nameTechnisch>
+               <kennung>urn:xoev-de:kosit:xoev:datentyp:nachricht.g2gtype</kennung>
+            </datentyp>
+            <versionDatentyp>
+               <version>1.0</version>
+               <lizenz>Creative Commons Namensnennung - Keine Bearbeitung 4.0 International</lizenz>
+               <bezugsort>http://www.xoev.de/de/bibliothek</bezugsort>
+            </versionDatentyp>
+         </xs:appinfo>
+         <xs:documentation>Basistyp für alle Nachrichten zwischen Behörden und anderen öffentlichen Stellen (government-to-government).</xs:documentation>
+      </xs:annotation>
+      <xs:sequence>
+         <xs:element ref="bn-g2g:nachrichtenkopf.g2g">
+            <xs:annotation>
+               <xs:documentation>Nachrichtenkopf für Nachrichten zwischen Behörden und anderen (öffentlichen) Stellen. Der Nachrichtenkopf umfasst Angaben zur eindeutigen Identifikation des Autors und des Lesers der Nachricht sowie der Nachricht selbst.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+      </xs:sequence>
+      <xs:attribute name="produkt" type="dinspec91379:datatypeC" use="required">
+         <xs:annotation>
+            <xs:documentation>In diesem Attribut ist der Name des Produktes (der Software) einzutragen, mit dem die Nachricht erstellt worden ist.</xs:documentation>
+         </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="produkthersteller"
+                    type="dinspec91379:datatypeC"
+                    use="required">
+         <xs:annotation>
+            <xs:documentation>In diesem Attribut wird der Name der Organisation / Firma übermittelt, die für das Produkt (die Software) verantwortlich ist, mit dem die Nachricht erstellt wurde.</xs:documentation>
+         </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="produktversion" type="dinspec91379:datatypeC" use="optional">
+         <xs:annotation>
+            <xs:documentation>In diesem Attribut werden ergänzende Hinweise zu dem Produkt eingetragen. Dies sind Angaben, die für eine möglichst präzise Identifikation im Fehlerfall hilfreich sind, wie zum Beispiel Version und Patchlevel.</xs:documentation>
+         </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="standard" type="dinspec91379:datatypeC" use="required">
+         <xs:annotation>
+            <xs:documentation>In diesem Attribut wird der Name des XÖV-Standards angegeben, aus dem die Nachricht stammt.</xs:documentation>
+         </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="test" type="dinspec91379:datatypeC" use="optional">
+         <xs:annotation>
+            <xs:documentation>Ist dieses Attribut vorhanden, handelt es sich aus Sicht des Autors um eine Testnachricht, die nicht im normalen Produktivbetrieb verarbeitet werden darf. Autor und Leser können bilateral weitere Absprachen über den konkreten Inhalt des Attributs treffen.</xs:documentation>
+         </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="version" type="dinspec91379:datatypeC" use="required">
+         <xs:annotation>
+            <xs:documentation>In diesem Attribut wird die Version des XÖV-Standards eingetragen, aus dem die Nachricht stammt.</xs:documentation>
+         </xs:annotation>
+      </xs:attribute>
+   </xs:complexType>
+   <xs:complexType name="Nachrichtenkopf.G2GType">
+      <xs:annotation>
+         <xs:documentation>Nachrichtenkopf für Nachrichten zwischen Behörden und anderen (öffentlichen) Stellen. Der Nachrichtenkopf umfasst Angaben zur eindeutigen Identifikation des Autors und des Lesers der Nachricht sowie der Nachricht selbst.</xs:documentation>
+      </xs:annotation>
+      <xs:sequence>
+         <xs:element ref="bn-g2g:identifikation.nachricht">
+            <xs:annotation>
+               <xs:documentation>Dieses Element enthält Angaben zur eindeutigen Identifikation einer Nachricht.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element ref="bn-g2g:leser">
+            <xs:annotation>
+               <xs:documentation>Dieses Element enthält Angaben zum Leser der Nachricht. Der Leser ist die fachlich zuständige Behörde / öffentliche Stelle, der die Nachricht zugestellt werden soll und die die Nachricht fachlich verarbeiten soll.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element ref="bn-g2g:autor">
+            <xs:annotation>
+               <xs:documentation>Dieses Element enthält Angaben zum Autor der Nachricht, die es dem Leser ermöglichen, bei Bedarf mit dem Autor in Verbindung zu treten. Der Autor ist die fachlich zuständige Behörde / öffentliche Stelle, die die Nachricht erstellt.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:simpleType name="UUID">
+      <xs:annotation>
+         <xs:documentation>Ein „Universally Unique IDentifier (UUID)“ entsprechend rfc4122.</xs:documentation>
+      </xs:annotation>
+      <xs:restriction base="xs:normalizedString">
+         <xs:pattern value="[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}"/>
+      </xs:restriction>
+   </xs:simpleType>
+   <xs:element name="autor" type="bn-beh:BehoerdeType">
+      <xs:annotation>
+         <xs:documentation>Dieses Element enthält Angaben zum Autor der Nachricht, die es dem Leser ermöglichen, bei Bedarf mit dem Autor in Verbindung zu treten. Der Autor ist die fachlich zuständige Behörde / öffentliche Stelle, die die Nachricht erstellt.</xs:documentation>
+      </xs:annotation>
+   </xs:element>
+   <xs:element name="identifikation.nachricht"
+               type="bn-g2g:Identifikation.NachrichtType">
+      <xs:annotation>
+         <xs:documentation>Dieses Element enthält Angaben zur eindeutigen Identifikation einer Nachricht.</xs:documentation>
+      </xs:annotation>
+   </xs:element>
+   <xs:element name="leser" type="bn-beh:BehoerdeType">
+      <xs:annotation>
+         <xs:documentation>Dieses Element enthält Angaben zum Leser der Nachricht. Der Leser ist die fachlich zuständige Behörde / öffentliche Stelle, der die Nachricht zugestellt werden soll und die die Nachricht fachlich verarbeiten soll.</xs:documentation>
+      </xs:annotation>
+   </xs:element>
+   <xs:element name="nachrichtenkopf.g2g" type="bn-g2g:Nachrichtenkopf.G2GType">
+      <xs:annotation>
+         <xs:documentation>Nachrichtenkopf für Nachrichten zwischen Behörden und anderen (öffentlichen) Stellen. Der Nachrichtenkopf umfasst Angaben zur eindeutigen Identifikation des Autors und des Lesers der Nachricht sowie der Nachricht selbst.</xs:documentation>
+      </xs:annotation>
+   </xs:element>
+</xs:schema>

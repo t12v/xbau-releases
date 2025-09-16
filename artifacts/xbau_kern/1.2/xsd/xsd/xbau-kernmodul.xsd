@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="http://www.xleitstelle.de/xbau/kernmodul/1/2"
+           version="1.2"
+           elementFormDefault="unqualified"
+           attributeFormDefault="unqualified">
+   <xs:include schemaLocation="xbau-kernmodul-basisdatentypen.xsd"/>
+   <xs:include schemaLocation="xbau-kernmodul-codes.xsd"/>
+   <xs:include schemaLocation="xbau-kernmodul-datentypen.xsd"/>
+   <xs:include schemaLocation="xbau-kernmodul-nachrichten.xsd"/>
+</xs:schema>

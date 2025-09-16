@@ -1,0 +1,561 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:xbau="http://www.xleitstelle.de/xbau/2/5"
+           xmlns:bn-g2g="http://xoev.de/schemata/basisnachricht/g2g/1_1"
+           xmlns:din91379="urn:xoev-de:kosit:xoev:datentyp:din-91379_2022-08"
+           xmlns:xbauk="http://www.xleitstelle.de/xbau/kernmodul/1/2/2"
+           targetNamespace="http://www.xleitstelle.de/xbau/2/5"
+           version="2.5"
+           elementFormDefault="qualified"
+           attributeFormDefault="unqualified">
+   <xs:annotation>
+      <xs:appinfo>
+         <standard>
+            <nameLang>XBau - Standard für die Datenkommunikation der Bauaufsichtsbehörde</nameLang>
+            <nameKurz>XBau</nameKurz>
+            <nameTechnisch>xbau</nameTechnisch>
+            <kennung>urn:xoev-de:bmk:standard:xbau</kennung>
+            <beschreibung>XBau ist der XÖV-Standard für den Datenaustausch der Bauaufsichtsbehörden mit ihren Kommunikationspartnern (Bauherren, Architektenbüros, Behörden zahlreicher Rechtsbereiche). </beschreibung>
+         </standard>
+         <versionStandard>
+            <version>2.5</version>
+            <beschreibung>Die Datenübermittlung an die Statistischen Landesämter gemäß novelliertem Hochbaustatistikgesetz (HBauStatG) wurde in der vorliegenden XBau-Version in einem eigenen Kapitel ausgearbeitet und differenziert. Der Nachrichtenaustausch mit dem Portal ELBA des Bundesverbands der Prüfingenieure wurde überarbeitet und um den Prozess der Bauüberwachung erweitert. Neu aufgenommen wurde auch die Beteiligung von Angrenzern bei der Prüfung eines Bauvorhabens, sowie die Datenübermittlung an den Unfallversicherungsträger. Die Umsetzung des Gebäudeenergiegesetzes wurde der neuen rechtlichen Lage angepasst. Details zu weiteren Änderungen und Erweiterungen sind wie immer in der Versionshistorie beschrieben.</beschreibung>
+            <versionXOEVProfil>3.0.0</versionXOEVProfil>
+            <versionXOEVHandbuch>3.0.1</versionXOEVHandbuch>
+            <versionXGenerator>3.1.1</versionXGenerator>
+            <versionModellierungswerkzeug>19.0</versionModellierungswerkzeug>
+            <nameModellierungswerkzeug>MagicDraw</nameModellierungswerkzeug>
+         </versionStandard>
+      </xs:appinfo>
+   </xs:annotation>
+   <xs:include schemaLocation="xbau-baukasten.xsd"/>
+   <xs:import schemaLocation="http://xoev.de/schemata/basisnachricht/g2g/1_1/xoev-basisnachricht-g2g_1.1.xsd"
+              namespace="http://xoev.de/schemata/basisnachricht/g2g/1_1"/>
+   <xs:import schemaLocation="https://xleitstelle.de/xbau/schema/kernmodul/1/2/2/xbau-kernmodul-datentypen.xsd"
+              namespace="http://www.xleitstelle.de/xbau/kernmodul/1/2/2"/>
+   <xs:import schemaLocation="https://xoev.de/schemata/din/91379/2022-08/din-norm-91379-datatypes.xsd"
+              namespace="urn:xoev-de:kosit:xoev:datentyp:din-91379_2022-08"/>
+   <xs:complexType name="RahmendatenGebuehrenberechnung">
+      <xs:annotation>
+         <xs:documentation>Dieser Typ dient dazu, Rahmendaten zur Gebührenberechnung für einen erteilten Prüfauftrag an einen Prüfingenieur abzubilden. Sie geben dem Auftragnehmer die Möglichkeit, die Komplexität des Bauvorhabens einzuschätzen, in dessen Kontext der Auftrag erteilt wird, und entsprechend Aufwand und Auftragswert des Prüfauftrags zu kalkulieren. Der Typ stellt die alternativen Ansätze für die Gebührenberechnung dar, in der Anwendung des Typs ist genau eine dieser Alternativen anzuwenden.</xs:documentation>
+      </xs:annotation>
+      <xs:sequence>
+         <xs:element name="bauwerksinformationen">
+            <xs:annotation>
+               <xs:documentation>In diesem Element werden Angaben zu den Elementen gemacht, die zu der Gebührenberechnung genutzt werden.</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+               <xs:sequence>
+                  <xs:element name="bauwerksklasse" type="xbau:Code.MppvoBauwerksklasse">
+                     <xs:annotation>
+                        <xs:documentation>Hier ist die Bauwerksklasse abgebildet, die dem Bauvorhaben zugeordnet werden kann.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+                  <xs:element name="bruttorauminhalt" type="xs:positiveInteger">
+                     <xs:annotation>
+                        <xs:documentation>Bruttorauminhalt dieser Gebäudeart: Hier ist die Anzahl an Kubikmetern anzugeben, mit der diese Gebäudeart im Bauvorhaben repräsentiert ist.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+                  <xs:element name="gebauedeklasse" type="xbau:Code.Gebaeudeklasse">
+                     <xs:annotation>
+                        <xs:documentation>Hier ist die Gebäudeklasse abgebildet, die dem Bauvorhaben zugeordnet werden kann. Die Information kann aus dem Element "gebauederechtlicheKlassifikation" aus der Nachricht 0200 entnommen werden.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+                  <xs:element name="sonderbautatbestand" type="xbau:Code.Sonderbauten">
+                     <xs:annotation>
+                        <xs:documentation>Hier ist der Sonderbautatbestand abgebildet, die dem Bauvorhaben zugeordnet werden kann. Die Information kann aus dem Element "gebauederechtlicheKlassifikation" aus der Nachricht 0200 entnommen werden.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+                  <xs:element name="gebaeudeartBauwert" type="xbau:Code.BauwerteGebaeudeartenPPVO">
+                     <xs:annotation>
+                        <xs:documentation>In diesem Element sind die Gebäudeart mit dem zugehörigem relativen Bauwert (Eurocent pro Kubikmeter) genannt. Sie sind bei der Berechnung der anrechenbaren Bauwerte zu berücksichtigen gemäß zutreffender Verordnung für die Prüfingenieure und Prüfsachverständige.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+               </xs:sequence>
+            </xs:complexType>
+         </xs:element>
+         <xs:element name="herstellungskosten" minOccurs="0" type="xs:positiveInteger">
+            <xs:annotation>
+               <xs:documentation>Gebührenberechnung nach Herstellungskosten: Prognostizierte Herstellungskosten des Bauvorhabens in Eurocent.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element name="aufwand" minOccurs="0">
+            <xs:annotation>
+               <xs:documentation>Gebührenberechnung nach Aufwand: Die Gebühr für die beauftragten Leistungen wird nach Zeitaufwand in Rechnung zu stellen sein. In diesem Element ist der Stundensatz (netto) in Eurocent anzugeben, zu dem der Auftragnehmer seine Leistungen in Rechnung stellen darf. Diese Alternative wird angewendet, falls die Basiswerte nicht ermittelt werden können. Falls das Bauvorhaben in einem Umbau oder Anbau besteht, kann z. B. kein Bauvolumen ermittelt werden.</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+               <xs:sequence>
+                  <xs:element name="stundensatz" type="xs:positiveInteger">
+                     <xs:annotation>
+                        <xs:documentation>Der Stundensatz, der der Berechnung des voraussichtlichen Aufwands zugrunde liegt (in Eurocent).</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+                  <xs:element name="anzahlStunden" type="xs:positiveInteger">
+                     <xs:annotation>
+                        <xs:documentation>Der voraussichtlich zu leistende Aufwand in Stunden.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+                  <xs:element name="geschaetzteGebuehr" type="xs:positiveInteger">
+                     <xs:annotation>
+                        <xs:documentation>Die sich auf der Basis von Stundensatz und voraussichtlich zu leistendem Aufwand ergebende Gebühr (in Eurocent).</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+               </xs:sequence>
+            </xs:complexType>
+         </xs:element>
+         <xs:element name="anlagen" minOccurs="0" type="xbau:Anlagen">
+            <xs:annotation>
+               <xs:documentation>In diesem Element kann die Gebührenberechnung (z.B. durch BVS, PI oder Baurechtsbehörde erstellt) als Anlage beigefügt werden.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="pruefingenieure.pruefauftrag.0500">
+      <xs:annotation>
+         <xs:appinfo>
+            <title>Beauftragung des Prüfingenieurs</title>
+         </xs:appinfo>
+         <xs:documentation>Diese Nachricht enthält die Auftragsinformationen und die zu prüfenden Dokumente (bautechnische Planungsdokumente).</xs:documentation>
+      </xs:annotation>
+      <xs:complexType>
+         <xs:complexContent>
+            <xs:extension base="xbau:Nachricht.G2G">
+               <xs:sequence>
+                  <xs:element name="bezug" type="xbauk:BezugErweitert">
+                     <xs:annotation>
+                        <xs:documentation>Hier trägt die Bauaufsichtsbehörde die Vorgangsnummer (Beauftragung und damit zusammenhängende Kommunikation) für künftige Referenzierung ein.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+                  <xs:element name="pruefingenieur">
+                     <xs:annotation>
+                        <xs:documentation>In diesem Element werden identifizierende Angaben zum zu beauftragenden Prüfingenieur gemacht.</xs:documentation>
+                     </xs:annotation>
+                     <xs:complexType>
+                        <xs:sequence>
+                           <xs:element name="name" type="xbauk:NameNatuerlichePerson">
+                              <xs:annotation>
+                                 <xs:documentation>Hier ist der Name des Prüfingenieurs einzutragen.</xs:documentation>
+                              </xs:annotation>
+                           </xs:element>
+                           <xs:element name="ingenieurbuero" minOccurs="0" type="xbauk:NameOrganisation">
+                              <xs:annotation>
+                                 <xs:documentation>Hier kann das Ingenieurbüro eingetragen werden, zu dem der Püfingenieur gehört.</xs:documentation>
+                              </xs:annotation>
+                           </xs:element>
+                           <xs:element name="piKennung" type="bn-g2g:UUID">
+                              <xs:annotation>
+                                 <xs:documentation>Hier ist die PI-Kennung (Prüfingenieurskennung) einzutragen, mit der der Prüfingenieur eindeutig identifiziert werden kann. Die Kennung kann über den Verzeichnisdienst https://ds.bvpi-elba.de abgefragt werden. Der Verzeichnisdienst wird mit geeigneten Mitteln abgesichert. Eine Beschreibung der Zugriffe und der API steht unter https://ds.bvpi-elba.de/api zur Verfügung.</xs:documentation>
+                              </xs:annotation>
+                           </xs:element>
+                        </xs:sequence>
+                     </xs:complexType>
+                  </xs:element>
+                  <xs:element name="pruefauftrag">
+                     <xs:annotation>
+                        <xs:documentation>In diesem Element wird der Prüfauftrag detailliert. Jeder Prüfauftrag bezieht sich auf genau einen Typ bautechnischen Nachweis und die damit verbundenen Aufgaben der Bauüberwachung.</xs:documentation>
+                     </xs:annotation>
+                     <xs:complexType>
+                        <xs:sequence>
+                           <xs:element name="auftrag" type="xbauk:Text">
+                              <xs:annotation>
+                                 <xs:documentation>Dieses Element enthält die Formulierung des Prüfauftrags.</xs:documentation>
+                              </xs:annotation>
+                           </xs:element>
+                           <xs:element name="referenzAuftrag" type="xbau:ReferenzAuftrag">
+                              <xs:annotation>
+                                 <xs:documentation>Eine vom Auftragsservice mit dieser Nachricht vergebene eindeutige Kennung des Auftragsvorgangs. Sofern der Auftragnehmer auf den Auftrag reagiert, muss er sich in seinen Reaktionsnachrichten auf diese Kennung beziehen.</xs:documentation>
+                              </xs:annotation>
+                           </xs:element>
+                           <xs:element name="fachgebiet" type="xbau:Code.Fachgebiet">
+                              <xs:annotation>
+                                 <xs:documentation>Dieses Element bezeichnet das Fachgebiet des zu prüfenden bautechnischen Nachweises.</xs:documentation>
+                              </xs:annotation>
+                           </xs:element>
+                           <xs:element name="gegenstand"
+                                       minOccurs="0"
+                                       maxOccurs="unbounded"
+                                       type="xbau:Code.BautechnischerNachweisArt">
+                              <xs:annotation>
+                                 <xs:documentation>Dieses Element bezeichnet die Art des zu prüfenden bautechnischen Nachweises.</xs:documentation>
+                              </xs:annotation>
+                           </xs:element>
+                           <xs:element name="baustoffe" maxOccurs="unbounded" type="xbau:Code.BaustoffPI">
+                              <xs:annotation>
+                                 <xs:documentation>Dieses Element bezeichnet den Hauptbaustoff des Bauvorhabens für den zu prüfenden bautechnischen Nachweises. Die Elemente werden aus dem Bauantrag entnommen, wobei die Werte 1-4 aus der Codeliste Baustoff hier in 1 "Mauerwerk/Massivbau" zusammengefasst werden.</xs:documentation>
+                              </xs:annotation>
+                           </xs:element>
+                        </xs:sequence>
+                     </xs:complexType>
+                  </xs:element>
+                  <xs:element name="rahmendatenGebuehrenberechnung"
+                              type="xbau:RahmendatenGebuehrenberechnung">
+                     <xs:annotation>
+                        <xs:documentation>In diesem Element sind Rahmendaten zur Gebührenberechnung aus Sicht der Bauaufsichtsbehörde abgebildet, soweit sie auf den hier erteilten Auftrag anwendbar sind. Sie geben dem Auftragnehmer die Möglichkeit, die Komplexität des Bauvorhabens einzuschätzen, in dessen Kontext der Auftrag erteilt wird, und entsprechend Aufwand und Auftragswert des Prüfauftrags zu kalkulieren.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+                  <xs:element name="ansprechpartnerBauamt" type="xbau:AnsprechpartnerBauamt">
+                     <xs:annotation>
+                        <xs:documentation>Dieser Typ deckt Namen und Erreichbarkeit des Ansprechpartners im Bauamt für Rückfragen ab.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+                  <xs:element name="beauftragendeBehoerde" minOccurs="0" type="xs:token">
+                     <xs:annotation>
+                        <xs:documentation>In diesem Element ist die Bauaufsichtsbehörde anzugeben, die Absender der Nachricht ist, wenn diese nicht aus dem Nachrichtenkopf ersichtlich ist, z.B. weil sie über das Bauportal verschickt wurde.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+                  <xs:element name="bundesland" type="xbauk:Code.Bundesland">
+                     <xs:annotation>
+                        <xs:documentation>In diesem Element ist das Bundesland der Bauvorhabens anzugeben</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+                  <xs:element name="bauvorhaben" type="xbau:Bauvorhaben">
+                     <xs:annotation>
+                        <xs:documentation>Hier sind die Daten zum Bauvorhaben (Wer, Was, Wo) enthalten.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+                  <xs:element name="anlagen" type="xbau:Anlagen">
+                     <xs:annotation>
+                        <xs:documentation>Dieses Objekt enthält die Unterlagen (bzw. deren Metadaten), die für die Erfüllung des Prüfauftrags benötigt werden. Auch die zu prüfenden bautechnischen Nachweise gehören zu diesen Unterlagen.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+               </xs:sequence>
+            </xs:extension>
+         </xs:complexContent>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="pruefingenieure.auftragsbestaetigung.0501">
+      <xs:annotation>
+         <xs:appinfo>
+            <title>Antwort zur Beauftragung</title>
+         </xs:appinfo>
+         <xs:documentation>Der Prüfingenieur bestätigt mit dieser Nachricht den Erhalt des Auftrags nebst der Tatsache der Auftragsannahme oder -ablehnung.</xs:documentation>
+      </xs:annotation>
+      <xs:complexType>
+         <xs:complexContent>
+            <xs:extension base="xbau:Nachricht.G2G">
+               <xs:sequence>
+                  <xs:element name="bezug" type="xbauk:BezugErweitert">
+                     <xs:annotation>
+                        <xs:documentation>Dieses Elements stellt den Bezug zum erteilten Auftrag (Vorgangsnummer) und zur entsprechenden Nachricht 0500 her. Dieser Auftrag wird mit dieser Nachricht bestätigt.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+                  <xs:element name="referenzPruefauftrag" type="xbau:ReferenzAuftrag">
+                     <xs:annotation>
+                        <xs:documentation>Dieses Element enthält die Kennung des Prüfauftrags. Jeder Prüfauftrag bezieht sich auf genau einen bautechnischen Nachweis.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+                  <xs:element name="auftragSachverhalt">
+                     <xs:complexType>
+                        <xs:sequence>
+                           <xs:element name="auftragAkzeptiert" type="xs:boolean">
+                              <xs:annotation>
+                                 <xs:documentation>Falls der Auftrag angenommen wird ist hier 'true' zu übermitteln, andernfalls 'false'.</xs:documentation>
+                              </xs:annotation>
+                           </xs:element>
+                           <xs:element name="begruendung" minOccurs="0" type="xbauk:Text">
+                              <xs:annotation>
+                                 <xs:documentation>Im Falle einer Ablehnung des Auftrags (Element auftragAkzeptiert = false), muss hier eine Erklärung abgegeben werden.</xs:documentation>
+                              </xs:annotation>
+                           </xs:element>
+                        </xs:sequence>
+                     </xs:complexType>
+                  </xs:element>
+               </xs:sequence>
+            </xs:extension>
+         </xs:complexContent>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="pruefingenieure.formellePruefung.0502">
+      <xs:annotation>
+         <xs:appinfo>
+            <title>Ergebnis der formellen Prüfung</title>
+         </xs:appinfo>
+         <xs:documentation>Diese Nachricht nennt Mängel bzw. Nachbesserungsbedarf zu einem erteilten Prüfauftrag bzw. fordert Dokumentation im Rahmen der formellen Prüfung des Auftrags nach.</xs:documentation>
+      </xs:annotation>
+      <xs:complexType>
+         <xs:complexContent>
+            <xs:extension base="xbau:Nachricht.G2G">
+               <xs:sequence>
+                  <xs:element name="bezug" type="xbauk:BezugErweitert">
+                     <xs:annotation>
+                        <xs:documentation>Hier trägt der Auftragnehmer die Vorgangsnummer der Bauaufsichtsbehörde ein, die ihm mit der Beauftragung (Nachricht 0500) zugestellt wurde. Außerdem wird die Referenz auf die Nachricht 0500 eingetragen.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+                  <xs:element name="referenzPruefauftrag" type="xbau:ReferenzAuftrag">
+                     <xs:annotation>
+                        <xs:documentation>Dieses Element enthält die Kennung des Prüfauftrags. Jeder Prüfauftrag bezieht sich auf genau einen bautechnischen Nachweis.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+                  <xs:element name="befundliste" type="xbau:BefundlisteFormell">
+                     <xs:annotation>
+                        <xs:documentation>Nach der Prüfung des Auftrags durch den Auftragnehmer: Hier sind die Ergebnisse der formellen Prüfung als Befundliste enthalten. Für jeden Befund sind die entsprechenden Parameter gefüllt, die Inhalt und Bezug des Befundes nachvollziehbar machen.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+               </xs:sequence>
+            </xs:extension>
+         </xs:complexContent>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="pruefingenieure.pruefauftragKorrektur.0503">
+      <xs:annotation>
+         <xs:appinfo>
+            <title>Angepasster Prüfauftrag</title>
+         </xs:appinfo>
+         <xs:documentation>Diese Nachricht enthält geänderte oder ergänzte Daten zum Prüfauftrag. Sie bezieht sich auf einen bereits erteilten Prüfauftrag und auf eine zu diesem vorliegende Mängel- bzw. Befundliste.</xs:documentation>
+      </xs:annotation>
+      <xs:complexType>
+         <xs:complexContent>
+            <xs:extension base="xbau:Nachricht.G2G">
+               <xs:sequence>
+                  <xs:element name="bezug" type="xbauk:BezugErweitert">
+                     <xs:annotation>
+                        <xs:documentation>Hier ist die Vorgangsnummer der Bauaufsichtsbehörde (Beauftragung) einzutragen, wie in der Nachricht 0500 vergeben. Außerdem ist auf die Nachricht 0502 zu verweisen, mit der eine Befundliste übermittelt wurde. Falls die Nachricht nicht auf eine 0502 Nachricht antwortet, kann auch auf die Nachricht 0500 verwiesen werden.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+                  <xs:element name="pruefauftrag" minOccurs="0">
+                     <xs:annotation>
+                        <xs:documentation>In diesem Element wird der ggf. angepasste Prüfauftrag übermittelt.</xs:documentation>
+                     </xs:annotation>
+                     <xs:complexType>
+                        <xs:sequence>
+                           <xs:element name="auftrag" type="xbauk:Text">
+                              <xs:annotation>
+                                 <xs:documentation>Dieses Element enthält die Formulierung des Prüfauftrags.</xs:documentation>
+                              </xs:annotation>
+                           </xs:element>
+                           <xs:element name="referenzAuftrag" type="xbau:ReferenzAuftrag">
+                              <xs:annotation>
+                                 <xs:documentation>Eine vom Auftragsservice mit dieser Nachricht vergebene eindeutige Kennung des Auftragsvorgangs. Sofern der Auftragnehmer auf den Auftrag reagiert, muss er sich in seinen Reaktionsnachrichten auf diese Kennung beziehen.</xs:documentation>
+                              </xs:annotation>
+                           </xs:element>
+                           <xs:element name="fachgebiet" type="xbau:Code.Fachgebiet">
+                              <xs:annotation>
+                                 <xs:documentation>Dieses Element bezeichnet das Fachgebiet des zu prüfenden bautechnischen Nachweises.</xs:documentation>
+                              </xs:annotation>
+                           </xs:element>
+                           <xs:element name="gegenstand"
+                                       minOccurs="0"
+                                       maxOccurs="unbounded"
+                                       type="xbau:Code.BautechnischerNachweisArt">
+                              <xs:annotation>
+                                 <xs:documentation>Dieses Element bezeichnet die Art des zu prüfenden bautechnischen Nachweises.</xs:documentation>
+                              </xs:annotation>
+                           </xs:element>
+                           <xs:element name="baustoffe" maxOccurs="unbounded" type="xbau:Code.BaustoffPI">
+                              <xs:annotation>
+                                 <xs:documentation>Dieses Element bezeichnet den Hauptbaustoff des Bauvorhabens für den zu prüfenden bautechnischen Nachweises. Die Elemente werden aus dem Bauantrag entnommen, wobei die Werte 1-4 aus der Codeliste Baustoff hier in 1 "Mauerwerk/Massivbau" zusammengefasst werden.</xs:documentation>
+                              </xs:annotation>
+                           </xs:element>
+                        </xs:sequence>
+                     </xs:complexType>
+                  </xs:element>
+                  <xs:element name="rahmendatenGebuehrenberechnung"
+                              minOccurs="0"
+                              type="xbau:RahmendatenGebuehrenberechnung">
+                     <xs:annotation>
+                        <xs:documentation>Hier können die ggf. korrigierten Rahmendaten zur Gebührenberechnung eingetragen werden.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+                  <xs:element name="bauvorhaben" minOccurs="0" type="xbau:Bauvorhaben">
+                     <xs:annotation>
+                        <xs:documentation>Hier werden angepasste Daten zum Bauvorhaben (Wer, Was, Wo) eingetragen, falls eine solche Anpassung in einem Bereich notwendig war (Bruttoprinzip).</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+                  <xs:element name="anlagen" minOccurs="0" type="xbau:Anlagen">
+                     <xs:annotation>
+                        <xs:documentation>Hier können korrigierte bzw. ergänzte Unterlagen, die für die Erfüllung des Prüfauftrags benötigt werden, eingetragen werden.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+               </xs:sequence>
+            </xs:extension>
+         </xs:complexContent>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="pruefingenieure.nachforderungUnterlagen.0504">
+      <xs:annotation>
+         <xs:appinfo>
+            <title>Nachforderung von Unterlagen</title>
+         </xs:appinfo>
+         <xs:documentation>Diese Nachricht nennt inhaltliche Mängel an einem Bauvorhaben und fordert im Rahmen der materiellen Prüfung nachgebesserte Unterlagen ein. Das kann für die Prüfung bautechnischer Nachweise oder der Bauüberwachung nötig sein. Nachforderungen gemäß dieser Nachricht sind in geeigneter Form dem Bauherrn oder Bauleiter zur Verfügung zu stellen.</xs:documentation>
+      </xs:annotation>
+      <xs:complexType>
+         <xs:complexContent>
+            <xs:extension base="xbau:Nachricht.G2G">
+               <xs:sequence>
+                  <xs:element name="bezug" type="xbauk:BezugErweitert">
+                     <xs:annotation>
+                        <xs:documentation>Hier ist die Vorgangsnummer der Bauaufsichtsbehörde (Beauftragung) einzutragen, wie in der Nachricht 0500 vergeben. Außerdem wird die Referenz auf Nachricht 0500 eingetragen.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+                  <xs:element name="referenzPruefauftrag"
+                              minOccurs="0"
+                              type="xbau:ReferenzAuftrag">
+                     <xs:annotation>
+                        <xs:documentation>Dieses Element enthält die Kennung des Prüfauftrags. Jeder Prüfauftrag bezieht sich auf genau einen bautechnischen Nachweis.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+                  <xs:element name="aufforderungZurStellungnahme" minOccurs="0" type="xbauk:Text">
+                     <xs:annotation>
+                        <xs:documentation>Hier ist die Aufforderung zu Stellungnahme bzw. Kommentar formuliert, soweit anwendbar.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+                  <xs:element name="befundliste" type="xbau:BefundlisteMateriell">
+                     <xs:annotation>
+                        <xs:documentation>Nach der Prüfung der vorliegenden Dokumente werden hier die Ergebnisse als Befundliste eingetragen. Jeder Befund wird mit den nötigen Details erläutert..</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+               </xs:sequence>
+            </xs:extension>
+         </xs:complexContent>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="pruefingenieure.angepassteUnterlagen.0505">
+      <xs:annotation>
+         <xs:appinfo>
+            <title>Angepasste Unterlagen</title>
+         </xs:appinfo>
+         <xs:documentation>Diese Nachricht enthält nachgebesserte Unterlagen zum Prüfauftrag. Sie bezieht sich auf einen erteilten Prüfauftrag und auf eine Nachricht, die zur Nachbesserung von Unterlagen gesendet worden ist.</xs:documentation>
+      </xs:annotation>
+      <xs:complexType>
+         <xs:complexContent>
+            <xs:extension base="xbau:Nachricht.G2G">
+               <xs:sequence>
+                  <xs:element name="bezug" type="xbauk:BezugErweitert">
+                     <xs:annotation>
+                        <xs:documentation>Hier ist die Vorgangsnummer der Bauaufsichtsbehörde (Beauftragung) einzutragen, wie in der Nachricht 0500 vergeben. Außerdem ist auf die Nachricht 0504 zu verweisen, mit der eine Befundliste übermittelt wurde. Falls die Nachricht nicht auf eine 0504 Nachricht antwortet, kann auch auf die Nachricht 0500 verwiesen werden.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+                  <xs:element name="autor" type="xbauk:Text">
+                     <xs:annotation>
+                        <xs:documentation>In diesem Element soll ergänzt werden, wer der ursprüngliche Herausgeber/Autor ist der nachgereichten Unterlagen ist.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+                  <xs:element name="referenzPruefauftrag"
+                              minOccurs="0"
+                              type="xbau:ReferenzAuftrag">
+                     <xs:annotation>
+                        <xs:documentation>Dieses Element enthält die Kennung des Prüfauftrags. Jeder Prüfauftrag bezieht sich auf genau einen bautechnischen Nachweis.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+                  <xs:element name="anlagen" minOccurs="0" type="xbau:Anlagen">
+                     <xs:annotation>
+                        <xs:documentation>Hier sind die angepassten Unterlagen eingetragen.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+               </xs:sequence>
+            </xs:extension>
+         </xs:complexContent>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="pruefingenieure.pruefbericht.0506">
+      <xs:annotation>
+         <xs:appinfo>
+            <title>Prüfbericht des Auftragnehmers</title>
+         </xs:appinfo>
+         <xs:documentation>Diese Nachricht nennt die Ergebnisse der Prüfung bautechnische Nachweise oder Aktivitäten im Rahmen der Prüfung bautechnischer Nachweise oder der Bauüberwachung.</xs:documentation>
+      </xs:annotation>
+      <xs:complexType>
+         <xs:complexContent>
+            <xs:extension base="xbau:Nachricht.G2G">
+               <xs:sequence>
+                  <xs:element name="bezug" type="xbauk:BezugErweitert">
+                     <xs:annotation>
+                        <xs:documentation>Hier trägt der Auftragnehmer die Vorgangsnummer der Bauaufsichtsbehörde ein, die ihm mit der Beauftragung zugestellt wurde. Außerdem wird die Referenz auf die Nachricht 0500 eingetragen.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+                  <xs:element name="pruefbericht" maxOccurs="unbounded">
+                     <xs:annotation>
+                        <xs:documentation>In diesem Element werden die Prüfergebnisse dargestellt und durch Nebensbestimmungen und Anmerkungen ergänzt.</xs:documentation>
+                     </xs:annotation>
+                     <xs:complexType>
+                        <xs:sequence>
+                           <xs:element name="referenzAuftrag" type="xbau:ReferenzAuftrag">
+                              <xs:annotation>
+                                 <xs:documentation>Dieses Element enthält die Kennung des Prüfauftrags. Jeder Prüfauftrag bezieht sich auf genau einen bautechnischen Nachweis.</xs:documentation>
+                              </xs:annotation>
+                           </xs:element>
+                           <xs:element name="ergebnis">
+                              <xs:annotation>
+                                 <xs:documentation>Hier wird das Prüfergebnis formuliert und erläutert.</xs:documentation>
+                              </xs:annotation>
+                              <xs:complexType>
+                                 <xs:sequence>
+                                    <xs:element name="pruefstatus" type="xbau:Code.StatusBauportal">
+                                       <xs:annotation>
+                                          <xs:documentation>In dieses Element wird der Status eingetragen, der übermittelt werden soll. Der Status übermittelt ebenfalls das Prüfergebnis. Folgende Einträge der Codeliste sind zulässig: 50-56.</xs:documentation>
+                                       </xs:annotation>
+                                    </xs:element>
+                                    <xs:element name="erlaeuterung" minOccurs="0" type="xbauk:Text">
+                                       <xs:annotation>
+                                          <xs:documentation>In diesen Textabschnitten wird aufgelistet, welche Gegenstände geprüft wurden, welche Methoden dabei angewendet wurden und zu welchen Ergebnissen der Prüfer gelangt ist.</xs:documentation>
+                                       </xs:annotation>
+                                    </xs:element>
+                                 </xs:sequence>
+                              </xs:complexType>
+                           </xs:element>
+                           <xs:element name="abweichung"
+                                       minOccurs="0"
+                                       maxOccurs="unbounded"
+                                       type="xbau:AbweichungBearbeitet">
+                              <xs:annotation>
+                                 <xs:documentation>Hier können bei Bedarf Empfehlungen an die Bauaufsichtsbehörde zur Zulassung von Abweichungen eingetragen werden.</xs:documentation>
+                              </xs:annotation>
+                           </xs:element>
+                           <xs:element name="nebenbestimmung"
+                                       minOccurs="0"
+                                       maxOccurs="unbounded"
+                                       type="xbau:Nebenbestimmung">
+                              <xs:annotation>
+                                 <xs:documentation>Hier sind die Nebenbestimmungen zum Prüfergebnis einzufügen (z. B. Auflagen, die einem positiven Prüfergebnis beigegeben werden), falls solche gemäß der Bewertung des Prüfingenieurs festgesetzt werden sollten. Diese Nebenbestimmungen haben dieselbe Struktur wie im Kontext eines Bescheides der Bauaufsichtsbehörde. Im Unterschied zu dort findet im vorliegenden Kontext aber nur der Rechtsbereich des Bauordnungsrechts Anwendung.</xs:documentation>
+                              </xs:annotation>
+                           </xs:element>
+                           <xs:element name="artBericht" type="xbau:Code.ArtBerichtPruefingenieur">
+                              <xs:annotation>
+                                 <xs:documentation>In diesem Element wird die Art des Berichts angegeben.</xs:documentation>
+                              </xs:annotation>
+                           </xs:element>
+                        </xs:sequence>
+                     </xs:complexType>
+                  </xs:element>
+                  <xs:element name="anlagen" minOccurs="0" type="xbau:Anlagen">
+                     <xs:annotation>
+                        <xs:documentation>Hier sind, soweit zutreffend, weitere Anlagen zu dem Prüfbericht als Verlinkung mittels URI angefügt. Die Verlinkung lässt sich manuell und maschinell verarbeiten. Die Verlinkung verweist immer auf https://docs.bvpi-elba.de. Die Verlinkung wird mit geeigneten Mitteln abgesichert. Eine Beschreibung der Zugriffe und der API steht unter https://docs.bvpi-elba.de/api zur Verfügung.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+               </xs:sequence>
+            </xs:extension>
+         </xs:complexContent>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="pruefingenieure.mitteilungBaubeginnsanzeige.0508">
+      <xs:annotation>
+         <xs:appinfo>
+            <title>Mitteilung über Baubeginnsanzeige</title>
+         </xs:appinfo>
+         <xs:documentation>Mit dieser Nachricht informiert die Bauaufsichtsbehörde den Prüfingenieur über eine eingegangene Anzeige zum Baubeginn und damit über den anstehenden Baubeginn.</xs:documentation>
+      </xs:annotation>
+      <xs:complexType>
+         <xs:complexContent>
+            <xs:extension base="xbau:Nachricht.G2G">
+               <xs:sequence>
+                  <xs:element name="bezug" type="xbauk:BezugErweitert">
+                     <xs:annotation>
+                        <xs:documentation>In diesem Element werden Eintragungen vorgenommen, um auf die Baugenehmigung Bezug zu nehmen, die der aktuellen Baumaßnahme zugrunde liegt. Ggf. wird auf die entsprechende XBau-Nachricht zum Bescheid referenziert.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+                  <xs:element name="sachverhalt" type="xbauk:Text">
+                     <xs:annotation>
+                        <xs:documentation>In diesem Element wird der eingetretene Bauzustand erläutert, der angezeigt wurde. Es wird auf entsprechende Termine hingewiesen.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+                  <xs:element name="anlagen" minOccurs="0" type="xbau:Anlagen">
+                     <xs:annotation>
+                        <xs:documentation>Hier können mit der Bauzustandsanzeige eingegangene Bauvorlagen als Anlage beigefügt werden.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+               </xs:sequence>
+            </xs:extension>
+         </xs:complexContent>
+      </xs:complexType>
+   </xs:element>
+</xs:schema>

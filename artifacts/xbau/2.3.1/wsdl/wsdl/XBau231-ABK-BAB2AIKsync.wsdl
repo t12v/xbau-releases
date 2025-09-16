@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Service -->
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ns="http://schemas.xmlsoap.org/soap/encoding/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:osci="http://www.osci.de/2006/07/wsdl/" xmlns:tpl="http://www.dvdv.de/dvdv/template/" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:tns="http://www.xleitstelle.de/xbau/2/3/1/XBau231-ABK-BAB2AIKsync.wsdl" xmlns:xbau="http://www.xleitstelle.de/xbau/2/3/1" xmlns:xbauk="http://www.xleitstelle.de/xbau/kernmodul/1/2" name="XBau231-ABK-BAB2AIKsync" targetNamespace="http://www.xleitstelle.de/xbau/2/3/1/XBau231-ABK-BAB2AIKsync.wsdl" xsi:schemaLocation="http://schemas.xmlsoap.org/wsdl/ http://schemas.xmlsoap.org/wsdl/">
+	<documentation>
+	
+	<![CDATA[
+	<html>
+	<body><h1>Datenübermittlungen zwischen den Architekten- und Ingenieurkammern und den Bauaufsichtsbehörden im Rahmen des Nachweises der Bauvorlageberechtigung </h1>
+	<p>
+		Folgende Nachrichten des XBau-Schemas sind als Input der Operation <i>sendeABK-BAB2AIKsync</i> zulässig:
+		<ul>
+			<ul>
+				<li>xbau:kammernverzeichnis.anfrage.0930</li>
+				<li>xbau:kammernverzeichnis.auskunft.0931</li>
+				<li>xbauk:prozessnachrichten.rueckweisung.G2G.1100</li>
+			</ul>
+		</ul>
+	</p>
+	<p>
+		Organisationsschlüssel für <i>find.servicedescription</i>-Anfragen sind die entsprechende Codes der unter der XBau-Spezifikation veröffentlichten Codeliste urn:xoev-de:xbau:codeliste:kammer; der zu verwendende Präfix lautet "<b>aik</b>". Sowie  die amtlichen Gemeindeschlüssel bzw. Kreiskennungen der Bauaufsichtsbehörden; der zu verwendende Präfix lautet "<b>bab</b>"
+	</p>
+	<p>
+		Zulässige Dienstanbieter und -nutzer sind  die Architekten- und Ingenieurkammern (DVDV-Organisationskategorie „Architekten- und Ingenieurkammer“). 
+	</p>
+		
+	</body>
+	</html>]]>
+	
+	<tpl:categories>
+		<tpl:category>Architekten- und Ingenieurkammer</tpl:category>
+	</tpl:categories> 
+
+	
+	
+	</documentation>
+	<import namespace="http://www.osci.de/2006/07/wsdl/" location="http://www.osci.de/wsdl-osci-binding/WSDL-OSCI-Binding_1.2.xsd"/>
+	<import namespace="http://www.xleitstelle.de/xbau/2/3/1" location="https://www.xleitstelle.de/xbau/schema/2/3/1/xbau-nachrichten-kammernverzeichnis.xsd"/>
+	<import namespace="http://www.xleitstelle.de/xbau/kernmodul/1/2" location="https://www.xleitstelle.de/xbau/schema/kernmodul/1/2/xbau-kernmodul-nachrichten.xsd"/>
+	<message name="abk-bab2aiksyncRequestNachricht">
+		<part name="request" element="xbau:kammernverzeichnis.anfrage.0930"/>
+		<part name="optionaleNachricht" type="xs:anyType"/>
+	</message>
+	<message name="abk-bab2aiksyncResponseNachricht">
+		<part name="response" element="xbau:kammernverzeichnis.auskunft.0931"/>
+		<part name="optionaleNachricht" type="xs:anyType"/>
+	</message>
+	<message name="abk-bab2aiksyncFaultNachricht">
+		<part name="fault" element="xbauk:prozessnachrichten.rueckweisung.G2G.1100"/>
+		<part name="optionaleNachricht" type="xs:anyType"/>
+	</message>
+	<portType name="osciABK-BAB2AIKsyncInterface">
+		<operation name="sendeABK-BAB2AIKsync">
+			<input message="tns:abk-bab2aiksyncRequestNachricht"/>
+			<output message="tns:abk-bab2aiksyncResponseNachricht"/>
+			<fault name="faultMessage" message="tns:abk-bab2aiksyncFaultNachricht"/>
+		</operation>
+	</portType>
+	<binding name="osciBinding" type="tns:osciABK-BAB2AIKsyncInterface">
+		<osci:binding signatureLevel="none" encrypted="true">
+			<osci:reader name="Inhaltsdaten-Verschlüsselungszertifikat">
+				<tpl:certificate/>
+			</osci:reader>
+			<osci:author name="Inhaltsdaten-Signaturzertifikat">
+				<tpl:certificate/>
+			</osci:author>
+		</osci:binding>
+		<!-- Vorbelegung der Richtlinien zur Signatur und Verschlüsselung der Nutzdaten für alle Operationen -->
+		<operation name="sendeABK-BAB2AIKsync">
+			<osci:operation communicationType="request-response" subject="XBAU_DATA"/>
+			<input>
+				<osci:container signatureLevel="advanced" encrypted="true" name="XBAU_DATA" required="true">
+					<osci:readerRef ref="Inhaltsdaten-Verschlüsselungszertifikat"/>
+					<osci:part>
+						<osci:content part="tns:request"/>
+					</osci:part>
+				</osci:container>
+				<osci:container signatureLevel="none" encrypted="false" required="false">
+					<osci:part>
+						<osci:content part="tns:optionaleNachricht"/>
+					</osci:part>
+				</osci:container>
+			</input>
+			<output>
+				<osci:container signatureLevel="advanced" encrypted="true" name="XBAU_DATA" required="true">
+					<osci:readerRef ref="Inhaltsdaten-Verschlüsselungszertifikat"/>
+					<osci:part>
+						<osci:content part="tns:response"/>
+					</osci:part>
+				</osci:container>
+				<osci:container signatureLevel="none" encrypted="false" required="false">
+					<osci:part>
+						<osci:content part="tns:optionaleNachricht"/>
+					</osci:part>
+				</osci:container>
+			</output>
+			<fault name="faultMessage">
+				<osci:container signatureLevel="advanced" encrypted="true" name="XBAU_DATA" required="true">
+					<osci:readerRef ref="Inhaltsdaten-Verschlüsselungszertifikat"/>
+					<osci:part>
+						<osci:content part="tns:fault"/>
+					</osci:part>
+				</osci:container>
+				<osci:container signatureLevel="none" encrypted="false" required="false">
+					<osci:part>
+						<osci:content part="tns:optionaleNachricht"/>
+					</osci:part>
+				</osci:container>
+			</fault>
+		</operation>
+	</binding>
+	<service name="osciABK-BAB2AIKsyncService">
+		<!-- OSCI Infrastrukturserver -->
+		<osci:devices>
+			<osci:intermediary uri="" name="InternetIntermediär">
+				<osci:signatureCertificate>
+					<tpl:certificate/>
+				</osci:signatureCertificate>
+				<osci:cipherCertificate>
+					<tpl:certificate/>
+				</osci:cipherCertificate>
+			</osci:intermediary>
+			<osci:intermediary uri="" name="TESTAIntermediär">
+				<osci:signatureCertificate>
+					<tpl:certificate/>
+				</osci:signatureCertificate>
+				<osci:cipherCertificate>
+					<tpl:certificate/>
+				</osci:cipherCertificate>
+			</osci:intermediary>
+			<osci:addressee name="InternetEmpfänger">
+				<osci:cipherCertificate>
+					<tpl:certificate/>
+				</osci:cipherCertificate>
+			</osci:addressee>
+			<osci:addressee name="TESTAEmpfänger">
+				<osci:cipherCertificate>
+					<tpl:certificate/>
+				</osci:cipherCertificate>
+			</osci:addressee>
+		</osci:devices>
+		<!-- Endpunkt im Internet -->
+		<port name="osciABK-BAB2AIKsyncInternetPort" binding="tns:osciBinding">
+			<documentation>
+				<tpl:use>required</tpl:use> Dieser Port ist nicht optional </documentation>
+			<osci:address>
+				<osci:intermediaryRef ref="InternetIntermediär"/>
+				<osci:addresseeRef ref="InternetEmpfänger"/>
+			</osci:address>
+		</port>
+		<!-- Endpunkt im TESTA -->
+		<port name="osciABK-BAB2AIKsyncTestaPort" binding="tns:osciBinding">
+			<documentation>
+				<tpl:use>optional</tpl:use> Dieser Port ist optional </documentation>
+			<osci:address>
+				<osci:intermediaryRef ref="TESTAIntermediär"/>
+				<osci:addresseeRef ref="TESTAEmpfänger"/>
+			</osci:address>
+		</port>
+	</service>
+</definitions>

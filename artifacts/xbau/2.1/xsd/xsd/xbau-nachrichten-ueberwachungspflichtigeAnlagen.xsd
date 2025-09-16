@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xbau="http://www.xleitstelle.de/xbau/schema/2/1/" xmlns:xoev-lc="http://xoev.de/latinchars/1_1/datatypes" targetNamespace="http://www.xleitstelle.de/xbau/schema/2/1/" version="2.1" elementFormDefault="qualified" attributeFormDefault="unqualified">
+  <xs:annotation>
+    <xs:appinfo>
+      <standard>
+        <nameLang>XBau - Standard für die Datenkommunikation der Bauaufsichtsbehörde</nameLang>
+        <nameKurz>XBau</nameKurz>
+        <nameTechnisch>xbau</nameTechnisch>
+        <kennung>urn:xoev-de:bmk:standard:xbau</kennung>
+        <beschreibung>XBau ist der XÖV-Standard für den Datenaustausch der Bauaufsichtsbehörden mit ihren Kommunikationspartnern (Bauherren, Architektenbüros, Behörden zahlreicher Rechtsbereiche).</beschreibung>
+      </standard>
+      <versionStandard>
+        <version>2.1</version>
+        <beschreibung>In vielen Teilen überarbeitete und erweiterte produktionsreife Fassung des Standards XBau. Auf der Basis des Baurechts des Bundes und der Länder und eng am Bedarf der Praxis der Behörden entwickelt. Erweiterungen und Verbesserungen befinden sich in der Planung auch für die Zukunft.</beschreibung>
+        <versionXOEVHandbuch>2.1.0</versionXOEVHandbuch>
+        <versionXGenerator>2.6.1</versionXGenerator>
+        <versionModellierungswerkzeug>18.0</versionModellierungswerkzeug>
+        <nameModellierungswerkzeug>MagicDraw</nameModellierungswerkzeug>
+      </versionStandard>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:include schemaLocation="xbau-baukasten.xsd" />
+  <xs:import schemaLocation="http://xoev.de/latinchars/1_1/datatypes/latinchars.xsd" namespace="http://xoev.de/latinchars/1_1/datatypes" />
+  <xs:complexType name="MppvoPruefergebnis">
+    <xs:annotation>
+      <xs:documentation>Dieser Typ deckt zum Prüfgegenstand die wichtigsten Ergebnisse der durchgeführten Prüfung ab.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="keinMangel" type="xs:boolean">
+        <xs:annotation>
+          <xs:documentation>Falls in der Prüfung der technischen Anlage kein Mangel festgestellt wurde (alle Pflichteigenschaften für den freigegebenen Betrieb sind gewährleistet), enthält dieses Element "true", andernfalls "false".</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="nachpruefung">
+        <xs:annotation>
+          <xs:documentation>Dieses Element enthält die Festlegungen im Prüfergebnis zu einer ggf. erforderlichen Nachprüfung.</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:choice>
+            <xs:element name="nichtErforderlich" fixed="true" type="xs:boolean">
+              <xs:annotation>
+                <xs:documentation>Dieses Element ist auszuwählen, falls eine Nachprüfung nicht notwendig ist.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="erforderlich">
+              <xs:annotation>
+                <xs:documentation>Dieses Element ist auszuwählen, falls eine Nachprüfung notwendig ist. Es enthält Informationen über die dafür vorliegenden Gründe.</xs:documentation>
+              </xs:annotation>
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="grund" maxOccurs="unbounded" type="xbau:Code.MppvoNachpruefungGrund">
+                    <xs:annotation>
+                      <xs:documentation>Pro Instanz dieses Elements wird ein Grund genannt dafür, dass eine Nachprüfung notwendig ist (es können mehrere Gründe zutreffen).</xs:documentation>
+                    </xs:annotation>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:choice>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="weiterbetrieb">
+        <xs:annotation>
+          <xs:documentation>Dieses Element enthält die Festlegungen im Prüfergebnis zu einem zugelassenen bzw. nicht zugelassenen Weiterbrieb der geprüften technischen Anlage.</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="festlegung" type="xbau:Code.MppvoTechnischeAnlageWeiterbetrieb">
+              <xs:annotation>
+                <xs:documentation>Hier ist die Information zu hinterlegen, ob und ggf. bis zu welcher Frist ein Weiterbetrieb der geprüften technischen Anlage gestattet ist.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="frist" minOccurs="0" maxOccurs="unbounded" type="xs:date">
+              <xs:annotation>
+                <xs:documentation>Falls der Weiterbetrieb nur befristet gestattet wird, ist hier das Datum des Fristablaufs zu hinterlegen.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ueberwachungspflichtigeAnlagen.pruefbescheinigung.0800">
+    <xs:annotation>
+      <xs:appinfo>
+        <title>Prüfbescheinigung</title>
+      </xs:appinfo>
+      <xs:documentation>Diese Nachricht dient zur Übermittlung der Prüfbescheinigung an die Bauaufsichtsbehörde. Sie enthält alle relevanten Informationen zur Bewertung der Wirksamkeit und Betriebssicherheit der geprüften überwachungspflichtigen Anlagen.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:complexContent>
+        <xs:extension base="xbau:Nachricht.privat2G">
+          <xs:sequence>
+            <xs:element name="bezug" type="xbau:Bezug">
+              <xs:annotation>
+                <xs:documentation>In diesem Element wird die Vorgangsnummer bzw. das Aktenzeichen zur erteilten Baugenehmigung übermittelt, die der Errichtung des Gebäudes und der technischen Anlage(n) zu Grunde lag.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="gebaeude" type="xbau:Baugrundstueck">
+              <xs:annotation>
+                <xs:documentation>Hier wird der Ort der Prüfung bezeichnet, nämlich Anschrift und Flurstück zum Gebäude, in dem die geprüften technischen Anlagen installiert sind.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="pruefgegenstand" maxOccurs="unbounded">
+              <xs:annotation>
+                <xs:documentation>Jede Instanz dieses Elements beinhaltet Informationen zu einem Gegenstand der Prüfung (eine bestimmte technische Anlage in dem lokalisierten Gebäude) und zum Ergebnis der Prüfung dieses Gegenstands. Pro Element wird genau eine technische Anlage referenziert; die Prüfung kann mehrere technische Anlagen in dem Gebäude zum Gegenstand haben.</xs:documentation>
+              </xs:annotation>
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="identifikation" type="xoev-lc:String.Latin">
+                    <xs:annotation>
+                      <xs:documentation>Hier ist die Identifikation des Prüfgegenstands, z.B. die Seriennummer, einzutragen.</xs:documentation>
+                    </xs:annotation>
+                  </xs:element>
+                  <xs:element name="bezeichnung" type="xoev-lc:String.Latin">
+                    <xs:annotation>
+                      <xs:documentation>Hier steht eine deskriptive Bezeichnung des Prüfgegenstands (z.B. Lüftungsanlage im Gebäudetrakt Süd).</xs:documentation>
+                    </xs:annotation>
+                  </xs:element>
+                  <xs:element name="artDerTechnischenAnlage" type="xbau:Code.MppvoTechnischeAnlage">
+                    <xs:annotation>
+                      <xs:documentation>Dieses Element enthält Angaben zur Art der geprüften technischen Anlage.</xs:documentation>
+                    </xs:annotation>
+                  </xs:element>
+                  <xs:element name="anlassDerPruefung">
+                    <xs:annotation>
+                      <xs:documentation>In diesem Element wird zum gegebenen Prüfgegenstand der Anlass der durchgeführten Prüfung genannt.</xs:documentation>
+                    </xs:annotation>
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:element name="anlass" type="xbau:Code.MppvoPruefungTechnischeAnlageAnlass">
+                          <xs:annotation>
+                            <xs:documentation>Dieses Element nennt den Anlass der durchgeführten Prüfung. Es deckt eine Reihe von Standardfällen ab.</xs:documentation>
+                          </xs:annotation>
+                        </xs:element>
+                        <xs:element name="nebenbestimmung" minOccurs="0" maxOccurs="unbounded" type="xbau:Nebenbestimmung">
+                          <xs:annotation>
+                            <xs:documentation>Hier werden ggf. die Nebenbestimmungen der Baugenehmigung, insofern diese Prüfungen vorsehen, aufgeführt. Diese können ebenfalls Anlass einer durchgeführten Prüfung sein.</xs:documentation>
+                          </xs:annotation>
+                        </xs:element>
+                      </xs:sequence>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element name="pruefergebnis" type="xbau:MppvoPruefergebnis">
+                    <xs:annotation>
+                      <xs:documentation>In dieses Element sind zum Prüfgegenstand die wichtigsten Ergebnisse der durchgeführten Prüfung einzutragen. Weitere Details zum Prüfergebnis sind dem Prüfbericht zu entnehmen, der in der Anlage zur vorliegenden Nachricht enthalten ist.</xs:documentation>
+                    </xs:annotation>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="anlagen" type="xbau:Anlagen">
+              <xs:annotation>
+                <xs:documentation>Die Anlagen enthalten den Prüfbericht, der auch die Bewertung des Prüfergebnisses vornimmt und Konsequenzen empfiehlt. Der Inhalt des Prüfberichts ist in den Musterprüfgrundsätzen definiert (Anlage zur Musterprüfverordnung Ziffer 4). Der Betreiber der technischen Anlagen hat den Prüfbericht typischerweise als Papierdokument vom Prüfsachverständigen erhalten.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+          </xs:sequence>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ueberwachungspflichtigeAnlagen.erinnerung.0801">
+    <xs:annotation>
+      <xs:appinfo>
+        <title>Erinnerung</title>
+      </xs:appinfo>
+      <xs:documentation>Diese Nachricht dient der Information des Betreibers, dass eine Prüfbescheinigung überfällig ist.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:complexContent>
+        <xs:extension base="xbau:Nachricht.G2privat">
+          <xs:sequence>
+            <xs:element name="bezug" type="xbau:Bezug">
+              <xs:annotation>
+                <xs:documentation>In diesem Element wird die Vorgangsnummer bzw. das Aktenzeichen zur erteilten Baugenehmigung übermittelt, die der Errichtung des Gebäudes und der technischen Anlage(n) zu Grunde lag.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="pruefgegenstand">
+              <xs:annotation>
+                <xs:documentation>Dieses Element bezeichnet den Gegenstand der Prüfung, eine bestimmte technische Anlage in dem lokalisierten Gebäude. Pro Element wird genau eine technische Anlage referenziert. Die Prüfung kann mehrere technische Anlagen in dem Gebäude zum Gegenstand haben.</xs:documentation>
+              </xs:annotation>
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="identifikation" type="xoev-lc:String.Latin">
+                    <xs:annotation>
+                      <xs:documentation>Hier ist die Identifikation des Prüfgegenstands, z.B. die Seriennummer, einzutragen.</xs:documentation>
+                    </xs:annotation>
+                  </xs:element>
+                  <xs:element name="bezeichnung" type="xoev-lc:String.Latin">
+                    <xs:annotation>
+                      <xs:documentation>Hier steht eine deskriptive Bezeichnung des Prüfgegenstands (z.B. Lüftungsanlage im Gebäudetrakt Süd).</xs:documentation>
+                    </xs:annotation>
+                  </xs:element>
+                  <xs:element name="artDerTechnischenAnlage" type="xbau:Code.MppvoTechnischeAnlage">
+                    <xs:annotation>
+                      <xs:documentation>Dieses Element enthält Angaben zur Art der geprüften technischen Anlage.</xs:documentation>
+                    </xs:annotation>
+                  </xs:element>
+                  <xs:element name="anlassDerPruefung">
+                    <xs:annotation>
+                      <xs:documentation>In diesem Element wird zum gegebenen Prüfgegenstand der Anlass der durchgeführten Prüfung genannt.</xs:documentation>
+                    </xs:annotation>
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:element name="anlass" type="xbau:Code.MppvoPruefungTechnischeAnlageAnlass">
+                          <xs:annotation>
+                            <xs:documentation>Dieses Element nennt den Anlass der durchgeführten Prüfung. Es deckt eine Reihe von Standardfällen ab.</xs:documentation>
+                          </xs:annotation>
+                        </xs:element>
+                        <xs:element name="nebenbestimmung" minOccurs="0" maxOccurs="unbounded" type="xbau:Nebenbestimmung">
+                          <xs:annotation>
+                            <xs:documentation>Hier werden ggf. die Nebenbestimmungen der Baugenehmigung, insofern diese Prüfungen vorsehen, aufgeführt. Diese können ebenfalls Anlass einer durchgeführten Prüfung sein.</xs:documentation>
+                          </xs:annotation>
+                        </xs:element>
+                      </xs:sequence>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element name="pruefergebnis" type="xbau:MppvoPruefergebnis">
+                    <xs:annotation>
+                      <xs:documentation>In dieses Element sind zum Prüfgegenstand die wichtigsten Ergebnisse der durchgeführten Prüfung einzutragen. Weitere Details zum Prüfergebnis sind dem Prüfbericht zu entnehmen, der in der Anlage zur vorliegenden Nachricht enthalten ist.</xs:documentation>
+                    </xs:annotation>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="anlassDerPruefung">
+              <xs:annotation>
+                <xs:documentation>In diesem Element wird der Anlass der durchgeführten Prüfung genannt, über deren Ergebnis berichtet wird.</xs:documentation>
+              </xs:annotation>
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="anlass" type="xbau:Code.MppvoPruefungTechnischeAnlageAnlass">
+                    <xs:annotation>
+                      <xs:documentation>Dieses Element nennt den Anlass der durchgeführten Prüfung. Es deckt eine Reihe von Standardfällen ab.</xs:documentation>
+                    </xs:annotation>
+                  </xs:element>
+                  <xs:element name="nebenbestimmung" minOccurs="0" maxOccurs="unbounded" type="xbau:Nebenbestimmung">
+                    <xs:annotation>
+                      <xs:documentation>Hier werden ggf. die Nebenbestimmungen der Baugenehmigung, insofern diese Prüfungen vorsehen, aufgeführt. Diese können ebenfalls Anlass einer durchgeführten Prüfung sein.</xs:documentation>
+                    </xs:annotation>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
+

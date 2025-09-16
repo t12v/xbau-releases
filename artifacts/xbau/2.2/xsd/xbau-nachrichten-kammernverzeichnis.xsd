@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:xbau="http://www.xleitstelle.de/xbau/2/2"
+           targetNamespace="http://www.xleitstelle.de/xbau/2/2"
+           version="2.2"
+           elementFormDefault="qualified"
+           attributeFormDefault="unqualified">
+   <xs:annotation>
+      <xs:appinfo>
+         <standard>
+            <nameLang>XBau - Standard für die Datenkommunikation der Bauaufsichtsbehörde</nameLang>
+            <nameKurz>XBau</nameKurz>
+            <nameTechnisch>xbau</nameTechnisch>
+            <kennung>urn:xoev-de:bmk:standard:xbau</kennung>
+            <beschreibung>XBau ist der XÖV-Standard für den Datenaustausch der Bauaufsichtsbehörden mit ihren Kommunikationspartnern (Bauherren, Architektenbüros, Behörden zahlreicher Rechtsbereiche).</beschreibung>
+         </standard>
+         <versionStandard>
+            <version>2.2</version>
+            <beschreibung>Erweiterte Fassung des Standards XBau. Sie unterstützt im Rahmen der OZG-Umsetzung die Nachrichtenkommunikation der Online-Portale mit den Bauaufsichtsbehörden. Sie deckt die umfangreichen Datenspektren ab (Antragsformulare, Daten zum Bauvorhaben), die in den OZG-Umsetzungsprojekten in den Ländern benötigt werden. Es wurde als neues Verfahren die Antragstellung Teilbaugenehmigung aufgenommen, die Anlässe für die Datenlieferungen der Bauaufsichtsbehörden an die amtliche Statistik wurden vervollständigt. Außerdem ist jetzt eine Abfrage zur Mitgliedschaft in einer Architekten- oder Ingenieurkammer vorgesehen (im Rahmen der Überprüfung einer Bauvorlageberechtigung). Die Datentypen zu Grund- und Flurstücken - und eine lange Liste weiterer Datentypen und Codelisten - wurden praxisnah ausgearbeitet und differenziert. Weitere Änderungen und Erweiterungen sind in der Versionshistorie des Spezifikationsdokuments beschrieben.</beschreibung>
+            <versionXOEVProfil>1.6.1</versionXOEVProfil>
+            <versionXOEVHandbuch>2.2.0</versionXOEVHandbuch>
+            <versionXGenerator>3.0.1</versionXGenerator>
+            <versionModellierungswerkzeug>19.0</versionModellierungswerkzeug>
+            <nameModellierungswerkzeug>MagicDraw</nameModellierungswerkzeug>
+         </versionStandard>
+      </xs:appinfo>
+   </xs:annotation>
+   <xs:include schemaLocation="xbau-baukasten.xsd"/>
+   <xs:element name="kammernverzeichnis.anfrage.0930">
+      <xs:annotation>
+         <xs:appinfo>
+            <title>Anfrage zur Mitgliedschaft einer Person in einer Kammer</title>
+         </xs:appinfo>
+         <xs:documentation>Mit dieser Nachricht wird eine Anfrage an den Verzeichnisdienst der Kammern gerichtet.</xs:documentation>
+      </xs:annotation>
+      <xs:complexType>
+         <xs:complexContent>
+            <xs:extension base="xbau:Nachricht.G2G">
+               <xs:sequence>
+                  <xs:element name="referenzAbfrage" type="xbau:ReferenzAbfrage">
+                     <xs:annotation>
+                        <xs:documentation>Eine vom Antragsservice vergebene eindeutige Kennung des Antragsvorgangs. Sofern die Bauaufsichtsbehörde auf die Antragstellung reagiert, bezieht sie sich in ihren Reaktionsnachrichten auf diese Kennung.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+                  <xs:element name="angabenAbfrage" type="xbau:Merkmale">
+                     <xs:annotation>
+                        <xs:documentation>Eine Instanz dieses Elements enthält die Merkmale, auf deren Basis ein Datensatz im Verzeichnis einer Architekten- oder Ingenieurkammer identifiziert werden soll.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+               </xs:sequence>
+            </xs:extension>
+         </xs:complexContent>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="kammernverzeichnis.auskunft.0931">
+      <xs:annotation>
+         <xs:appinfo>
+            <title>Auskunft zur Mitgliedschaft einer Person in einer Kammer</title>
+         </xs:appinfo>
+         <xs:documentation>Diese Nachricht liefert die Auskunft des Verzeichnisdienstes der Kammern.</xs:documentation>
+      </xs:annotation>
+      <xs:complexType>
+         <xs:complexContent>
+            <xs:extension base="xbau:Nachricht.G2G">
+               <xs:sequence>
+                  <xs:element name="bezug" type="xbau:Bezug">
+                     <xs:annotation>
+                        <xs:documentation>In diesem Objekt werden Eintragungen vorgenommen, um auf die Anfrage Bezug zu nehmen, zu der die vorliegende Nachricht Auskünfte enthält.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+                  <xs:element name="angabenAnfrage" type="xbau:Merkmale">
+                     <xs:annotation>
+                        <xs:documentation>Hier sind die Merkmale einzutragen, die in der korrespondierenden Anfrage übermittelt wurden.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+                  <xs:element name="auskunftKammernverzeichnis" minOccurs="0">
+                     <xs:annotation>
+                        <xs:documentation>In einer Instanz dieses Elements werden die Daten aus dem angefragten Kammernverzeichnis zur Person mit der angefragten Mitgliedsnummer übermittelt. Ein Fehlen dieses Elements zeigt an, dass die Anfrage korrekt bearbeitet werden konnte, das angefragte Kammernverzeichnis zu den übermittelten Merkmalen aber keinen Eintrag enthält (es wird keine Person mit der angegebenen Mitgliedsnummer geführt).</xs:documentation>
+                     </xs:annotation>
+                     <xs:complexType>
+                        <xs:sequence>
+                           <xs:element name="name" type="xbau:NameNatuerlichePerson">
+                              <xs:annotation>
+                                 <xs:documentation>Namensangaben zur angefragten Person</xs:documentation>
+                              </xs:annotation>
+                           </xs:element>
+                           <xs:element name="mitgliedschaft" type="xbau:Merkmale">
+                              <xs:annotation>
+                                 <xs:documentation>Angaben zur Kammernzugehörigkeit der angefragten Person. Wenn die vorliegende Nachrichteninstanz Daten aus einem Kammernverzeichns liefert, dann muss dieses Element gefüllt sein.</xs:documentation>
+                              </xs:annotation>
+                           </xs:element>
+                           <xs:element name="fachrichtung"
+                                       minOccurs="0"
+                                       maxOccurs="unbounded"
+                                       type="xbau:Code.BauvorlageberechtigungSachverhalt">
+                              <xs:annotation>
+                                 <xs:documentation>Angaben zur Fachrichtung (Architekt, Stadtplaner usw.). Pro Angabe ist genau ein Element zu instanziieren.</xs:documentation>
+                              </xs:annotation>
+                           </xs:element>
+                           <xs:element name="qualifikation" minOccurs="0" type="xbau:Text">
+                              <xs:annotation>
+                                 <xs:documentation>Angaben zu Nachweis und Prüfberechtigung. Pro Angabe ist ein separates Text-Element zu befüllen.</xs:documentation>
+                              </xs:annotation>
+                           </xs:element>
+                        </xs:sequence>
+                     </xs:complexType>
+                  </xs:element>
+               </xs:sequence>
+            </xs:extension>
+         </xs:complexContent>
+      </xs:complexType>
+   </xs:element>
+</xs:schema>

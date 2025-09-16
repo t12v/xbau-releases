@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gc:CodeList xmlns:gc="http://docs.oasis-open.org/codelist/ns/genericode/1.0/"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xmlns:xoev-cl-3="http://xoev.de/schemata/genericode/3">
+   <Annotation>
+      <Description>
+         <xoev-cl-3:nameKurz>Statistik Bauherr oder Eigentümer Art</xoev-cl-3:nameKurz>
+         <xoev-cl-3:beschreibung-codeliste>Diese Codeliste definiert die Arten des Bauherren oder Eigentümers.</xoev-cl-3:beschreibung-codeliste>
+         <xoev-cl-3:herausgebernameKurz>BMK</xoev-cl-3:herausgebernameKurz>
+         <xoev-cl-3:versionCodelistenHandbuch>1.1</xoev-cl-3:versionCodelistenHandbuch>
+      </Description>
+   </Annotation>
+   <Identification>
+      <ShortName>bauherrodereigentuemerart</ShortName>
+      <LongName>Statistik Bauherr oder Eigentümer Art</LongName>
+      <Version>1.0</Version>
+      <CanonicalUri>urn:xoev-de:xbau:codeliste:bauherrodereigentuemerart</CanonicalUri>
+      <CanonicalVersionUri>urn:xoev-de:xbau:codeliste:bauherrodereigentuemerart_1.0</CanonicalVersionUri>
+      <Agency>
+         <LongName>Bauministerkonferenz</LongName>
+      </Agency>
+   </Identification>
+   <ColumnSet>
+      <Column Id="code" Use="required">
+         <ShortName>code</ShortName>
+         <LongName>Code</LongName>
+         <Data Type="string"/>
+      </Column>
+      <Column Id="beschreibung" Use="required">
+         <ShortName>beschreibung</ShortName>
+         <LongName>Beschreibung</LongName>
+         <Data Type="string"/>
+      </Column>
+      <Key Id="codeKey">
+         <Annotation>
+            <AppInfo>
+               <xoev-cl-3:empfohleneCodeSpalte/>
+            </AppInfo>
+         </Annotation>
+         <ShortName>codeKey</ShortName>
+         <ColumnRef Ref="code"/>
+      </Key>
+   </ColumnSet>
+   <SimpleCodeList>
+      <Row>
+         <Value ColumnRef="code">
+            <SimpleValue>1</SimpleValue>
+         </Value>
+         <Value ColumnRef="beschreibung">
+            <SimpleValue>Öffentlich</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="code">
+            <SimpleValue>2</SimpleValue>
+         </Value>
+         <Value ColumnRef="beschreibung">
+            <SimpleValue>Wohnungsunternehmen</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="code">
+            <SimpleValue>3</SimpleValue>
+         </Value>
+         <Value ColumnRef="beschreibung">
+            <SimpleValue>Immobilienfonds</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="code">
+            <SimpleValue>4</SimpleValue>
+         </Value>
+         <Value ColumnRef="beschreibung">
+            <SimpleValue>Land- und Forstwirtschaft, Tierhaltung, Fischerei</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="code">
+            <SimpleValue>5</SimpleValue>
+         </Value>
+         <Value ColumnRef="beschreibung">
+            <SimpleValue>Produzierendes Gewerbe</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="code">
+            <SimpleValue>6</SimpleValue>
+         </Value>
+         <Value ColumnRef="beschreibung">
+            <SimpleValue>Handel, Kreditinstitute, Versicherungsgewerbe, Dienstleistungen sowie Verkehr und Nachrichtenübermittlung</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="code">
+            <SimpleValue>7</SimpleValue>
+         </Value>
+         <Value ColumnRef="beschreibung">
+            <SimpleValue>Private Haushalte</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="code">
+            <SimpleValue>8</SimpleValue>
+         </Value>
+         <Value ColumnRef="beschreibung">
+            <SimpleValue>Organisationen ohne Erwerbszweck</SimpleValue>
+         </Value>
+      </Row>
+   </SimpleCodeList>
+</gc:CodeList>

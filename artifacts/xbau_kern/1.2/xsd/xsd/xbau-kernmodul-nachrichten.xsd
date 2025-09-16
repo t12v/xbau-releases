@@ -1,0 +1,319 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:xbauk="http://www.xleitstelle.de/xbau/kernmodul/1/2"
+           xmlns:xink="http://www.osci.de/xinneres/basisnachricht/5"
+           xmlns:xoev-lc="http://xoev.de/latinchars/1_1/datatypes"
+           targetNamespace="http://www.xleitstelle.de/xbau/kernmodul/1/2"
+           version="1.2"
+           elementFormDefault="unqualified"
+           attributeFormDefault="unqualified">
+   <xs:annotation>
+      <xs:appinfo>
+         <standard>
+            <nameLang>XBau-Kernmodul</nameLang>
+            <nameKurz>XBau-Kernmodul</nameKurz>
+            <nameTechnisch>xbau-kernmodul</nameTechnisch>
+            <kennung>urn:xoev-de:bmk:standard:xbau-kernmodul</kennung>
+            <beschreibung>Das XBau-Kernmodul umfasst die von den XBau-Fachmodulen gemeinsam verwendeten Daten- und Nachrichtentypen.</beschreibung>
+         </standard>
+         <versionStandard>
+            <version>1.2</version>
+            <beschreibung>Für diese Version wurden die Datentypen zu den am Bauvorhaben Beteiligten ergänzt und differenziert (Vertreter von Personengruppen). Es wurde eine eigene ID für jede Person im Rahmen der Bearbeitung des Vorgangs eingeführt. Es wurden erweiterte Möglichkeiten geschaffen, um Ansprechpartner für Organisationen zu benennen. Für die Anbindung der IT-Verfahren der Fachbehörden an OZG-Portale und Kollaborationsplattformen sind jetzt erweiterte Mechanismen definiert. Außerdem sind jetzt die Datentypen zur Übertragung von Primärdokumenten und zur Darstellung von formatiertem Text mit weiterer Funktionalität ausgestattet. - Alle Änderungen und Erweiterungen sind in der Versionshistorie des Spezifikationsdokuments dokumentiert.</beschreibung>
+            <versionXOEVProfil>1.7.1</versionXOEVProfil>
+            <versionXOEVHandbuch>2.3</versionXOEVHandbuch>
+            <versionXGenerator>3.0.1</versionXGenerator>
+            <versionModellierungswerkzeug>19.0</versionModellierungswerkzeug>
+            <nameModellierungswerkzeug>MagicDraw</nameModellierungswerkzeug>
+         </versionStandard>
+      </xs:appinfo>
+   </xs:annotation>
+   <xs:include schemaLocation="xbau-kernmodul-basisdatentypen.xsd"/>
+   <xs:include schemaLocation="xbau-kernmodul-codes.xsd"/>
+   <xs:include schemaLocation="xbau-kernmodul-datentypen.xsd"/>
+   <xs:import schemaLocation="http://www.osci.de/xinneres/basisnachricht/5/xinneres-basisnachricht.xsd"
+              namespace="http://www.osci.de/xinneres/basisnachricht/5"/>
+   <xs:import schemaLocation="http://xoev.de/latinchars/1_1/datatypes/latinchars.xsd"
+              namespace="http://xoev.de/latinchars/1_1/datatypes"/>
+   <xs:element name="prozessnachrichten.rueckweisung.G2G.1100">
+      <xs:annotation>
+         <xs:appinfo>
+            <title>Rückweisungsnachricht G2G</title>
+         </xs:appinfo>
+         <xs:documentation>Mittels dieser Nachricht wird eine Nachricht abgewiesen, die Fehler enthält, so dass sie nicht zielführend verarbeitet werden kann (Behörde-Behörde-Kommunikation). Der Autor der fehlerhaften Nachricht wird über die Fehler unterrichtet. Die abgewiesene Nachricht wird zur Information aufgeführt.</xs:documentation>
+      </xs:annotation>
+      <xs:complexType>
+         <xs:complexContent>
+            <xs:extension base="xbauk:Nachricht.G2G">
+               <xs:sequence>
+                  <xs:element name="anbindungFachverfahren"
+                              minOccurs="0"
+                              type="xbauk:AnbindungFachverfahren">
+                     <xs:annotation>
+                        <xs:documentation>Dieses Element kann verwendet werden, um die behördliche Fachanwendung an das Antragsportal oder die Kollaborationsplattform anzubinden.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+                  <xs:element name="rueckweisungDaten" type="xbauk:Rueckweisung">
+                     <xs:annotation>
+                        <xs:documentation>Mit diesem Element wird der Fehler einer gegebenenen Nachricht benannt, der zu der vorliegenden Rückweisung geführt hat.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+               </xs:sequence>
+            </xs:extension>
+         </xs:complexContent>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="prozessnachrichten.eingangsbestaetigung.1120">
+      <xs:annotation>
+         <xs:appinfo>
+            <title>Bestägigung Eingang von Antrag oder Anzeige</title>
+         </xs:appinfo>
+         <xs:documentation>Diese Nachricht wird durch die Bauaufsichtsbehörde (bzw. Aufsichtsbehörde für den Breitbandausbau) verwendet, um als Reaktion auf einen Antrag (modifizierten Antrag, Rücknahme eines Antrags, Anzeige) zu informieren, dass das Anliegen eingegangen ist und sich in Bearbeitung befindet. Sie enthält die nötigen Informationen, um den Bezug auf die Nachricht, deren Eingang sie bestätigt, herzustellen.</xs:documentation>
+      </xs:annotation>
+      <xs:complexType>
+         <xs:complexContent>
+            <xs:extension base="xbauk:Nachricht.G2G">
+               <xs:sequence>
+                  <xs:element name="bezug" type="xbauk:BezugErweitert">
+                     <xs:annotation>
+                        <xs:documentation>Dieses Element enthält, um Bezug zu nehmen, die Vorgangsnummer bzw. die Referenz des Antrags (Zeichen des Antragstellers). Außerdem enthält es - mandatorisch - eine Referenzierung auf die Nachricht, durch die der Antrag (modifizierter Antrag) bzw. die Anzeige eingereicht worden ist, deren Empfang bestätigt wird.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+                  <xs:element name="information" minOccurs="0" type="xbauk:Text">
+                     <xs:annotation>
+                        <xs:documentation>Hier kann die Bauaufsichtsbehörde (bzw. Aufsichtsbehörde für den Breitbandausbau) ergänzend erläuternden Text in die Nachricht einfügen.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+               </xs:sequence>
+            </xs:extension>
+         </xs:complexContent>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="prozessnachrichten.aktenzeichen.1121">
+      <xs:annotation>
+         <xs:appinfo>
+            <title>Mitteilung des zugewiesenen Aktenzeichens</title>
+         </xs:appinfo>
+         <xs:documentation>Diese Nachricht wird durch die Bauaufsichtsbehörde (bzw. Aufsichtsbehörde für den Breitbandausbau) verwendet, um einen Antragsteller über die zugewiesene Vorgangsnummer bzw. das zugewiesene Aktenzeichen zu informieren.</xs:documentation>
+      </xs:annotation>
+      <xs:complexType>
+         <xs:complexContent>
+            <xs:extension base="xbauk:Nachricht.G2G">
+               <xs:sequence>
+                  <xs:element name="bezug" type="xbauk:BezugErweitert">
+                     <xs:annotation>
+                        <xs:documentation>Dieses Element enthält zur Information die Vorgangsnummer bzw. das Aktenzeichen, unter der die Behörde das Anliegen bearbeitet. Mit der Angabe der Referenz des Antragstellers wird der Bezug für diesen hergestellt. Eine Referenzierung auf eine Nachricht wird in diese Nachricht nicht eingetragen.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+               </xs:sequence>
+            </xs:extension>
+         </xs:complexContent>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="prozessnachrichten.ruecknahme.1130">
+      <xs:annotation>
+         <xs:appinfo>
+            <title>Rücknahme eines Antrags</title>
+         </xs:appinfo>
+         <xs:documentation>Diese Nachricht kann durch einen Antragsteller verwendet werden, um einen in der Vergangenheit gestellten Antrag zurückzuziehen bzw. die Absicht einer solchen Rücknahme zu kommunizieren.</xs:documentation>
+      </xs:annotation>
+      <xs:complexType>
+         <xs:complexContent>
+            <xs:extension base="xbauk:Nachricht.G2G">
+               <xs:sequence>
+                  <xs:element name="bezug" type="xbauk:BezugErweitert">
+                     <xs:annotation>
+                        <xs:documentation>In dieses Element sind die Referenzen von Antragsteller und ggf. Behörde einzutragen. Eine Referenzierung auf eine Nachricht wird in diese Nachricht nicht eingetragen.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+                  <xs:element name="information" minOccurs="0" type="xbauk:Text">
+                     <xs:annotation>
+                        <xs:documentation>Hier kann optional durch den Antragsteller eine Begründung eingetragen werden.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+                  <xs:element name="anlagen" minOccurs="0" type="xbauk:Anlagen">
+                     <xs:annotation>
+                        <xs:documentation>Ggf. will der Antragsteller der Rücknahme des Antrags ein Schreiben beilegen. Das lässt sich mit diesem Element abbilden.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+               </xs:sequence>
+            </xs:extension>
+         </xs:complexContent>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="prozessnachrichten.quittierungRuecknahme.1131">
+      <xs:annotation>
+         <xs:appinfo>
+            <title>Quittierung der Rücknahme eines Antrags</title>
+         </xs:appinfo>
+         <xs:documentation>Diese Nachricht wird von der Bauaufsichtsbehörde (bzw. Aufsichtsbehörde für den Breitbandausbau) verwendet, um die Rücknahme des Antrags durch den Antragsteller zu quittieren, also zu bestätigen, dass die Rücknahme durch die Behörde akzeptiert wurde (mit gegebenen Konsequenzen für den Antragsteller). Ggf. kann sie aber auch die Information enthalten, dass der Antrag nicht mehr zurückgenommen werden kann.</xs:documentation>
+      </xs:annotation>
+      <xs:complexType>
+         <xs:complexContent>
+            <xs:extension base="xbauk:Nachricht.G2G">
+               <xs:sequence>
+                  <xs:element name="bezug" type="xbauk:BezugErweitert">
+                     <xs:annotation>
+                        <xs:documentation>In dieses Element sind die Referenzen von Antragsteller und ggf. Behörde einzutragen. Es ist die Nachricht des Antragstellers zu referenzieren, mittels derer er über seine Absicht informiert hat, den Antrag zurückzunehmen.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+                  <xs:element name="ruecknahmeAkzeptiert" type="xs:boolean">
+                     <xs:annotation>
+                        <xs:documentation>Falls die Rücknahme des Antrags durch die Bauaufsichtsbehörde (bzw. Aufsichtsbehörde für den Breitbandausbau) akzeptiert wurde, wird in diesem Element "true" übermittelt. Andernfalls wird "false" übermittelt. Dann ist eine Rücknahme des Antrags nicht mehr möglich, weil bereits ein Bescheid erteilt wurde, der dem Antragsteller auf dem vorgesehenen Wege zugehen wird oder bereits zugegangen ist.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+                  <xs:element name="information" minOccurs="0" type="xbauk:Text">
+                     <xs:annotation>
+                        <xs:documentation>Hier kann optional eine Begründung oder Erläuterung der Bauaufsichtsbehörde (bzw. Aufsichtsbehörde für den Breitbandausbau) eingetragen werden.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+               </xs:sequence>
+            </xs:extension>
+         </xs:complexContent>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="prozessnachrichten.formellePruefungBefundliste.1140">
+      <xs:annotation>
+         <xs:appinfo>
+            <title>Befundliste als Ergebnis einer formellen Prüfung</title>
+         </xs:appinfo>
+         <xs:documentation>Diese Nachricht bezieht sich auf einen gestellten Antrag oder eine übermittelte Anzeige oder Erklärung. Enthalten sind die Ergebnisse einer formellen Prüfung (Befunde) sowie ggf. eine Frist, innerhalb derer Antrag bzw. Anzeige anzupassen ist (bei einer Anpassung kann es sich um Korrekturen oder um eine Vervollständigung handeln).</xs:documentation>
+      </xs:annotation>
+      <xs:complexType>
+         <xs:complexContent>
+            <xs:extension base="xbauk:Nachricht.G2G">
+               <xs:sequence>
+                  <xs:element name="bezug" type="xbauk:BezugErweitert">
+                     <xs:annotation>
+                        <xs:documentation>Bezug auf Vorgang und Nachricht, auf die sich die Inhalte der vorliegenden Nachricht beziehen.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+                  <xs:element name="befundliste" type="xbauk:BefundlisteFormell">
+                     <xs:annotation>
+                        <xs:documentation>In diesem Element sind die Ergebnisse der formellen Prüfung enthalten. Sie haben die Form einer Liste von Mängeln des geprüften Gegenstandes.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+                  <xs:element name="frist" minOccurs="0" type="xs:date">
+                     <xs:annotation>
+                        <xs:documentation>In dieses Element wird - falls im entsprechenden Vorgang vorgesehen - die durch die Behörde gesetzte Frist eingetragen, innerhalb derer die genannten Mängel zu beseitigen und die Unterlagen erneut einzureichen sind.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+               </xs:sequence>
+            </xs:extension>
+         </xs:complexContent>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="prozessnachrichten.zustellungSchreiben.1141">
+      <xs:annotation>
+         <xs:appinfo>
+            <title>Zustellung eines Schreibens der Bauaufsichtsbehörde an Bauherrn oder Entwurfsverfasser</title>
+         </xs:appinfo>
+         <xs:documentation>Mittels dieser Nachricht kann die Bauaufsichtsbehörde (bzw. Aufsichtsbehörde für den Breitbandausbau) einem Antragsteller oder sonstigem Beteiligten am Bauvorhaben eine Nachricht (Anschreiben mit Anlagen) zustellen.</xs:documentation>
+      </xs:annotation>
+      <xs:complexType>
+         <xs:complexContent>
+            <xs:extension base="xbauk:Nachricht.G2G">
+               <xs:sequence>
+                  <xs:element name="bezug" type="xbauk:BezugErweitert">
+                     <xs:annotation>
+                        <xs:documentation>Bezug auf Vorgang und Nachricht, auf die sich die Inhalte der vorliegenden Nachricht beziehen. Oder Angabe einer Vorgangsnummer für zukünftige Bezugnahme auf diese Nachricht.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+                  <xs:element name="anschreiben" type="xbauk:Text">
+                     <xs:annotation>
+                        <xs:documentation>In dieses Element ist der Anschreibentext der Nachricht einzutragen.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+                  <xs:element name="angebotFuerAntwortLeser"
+                              minOccurs="0"
+                              type="xbauk:Verlinkung">
+                     <xs:annotation>
+                        <xs:documentation>Dieses Element kann verwendet werden, um Webressourcen für ggf. nötige Reaktionen des Lesers auf die vorliegende Nachricht anzugeben .</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+                  <xs:element name="anlagen" minOccurs="0" type="xbauk:Anlagen">
+                     <xs:annotation>
+                        <xs:documentation>Dieses Element ist für Anlagen zur Nachricht zu verwenden.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+               </xs:sequence>
+            </xs:extension>
+         </xs:complexContent>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="prozessnachrichten.fachlicheKommunikation.1142">
+      <xs:annotation>
+         <xs:appinfo>
+            <title>Fachliche Kommunikation im Verfahren</title>
+         </xs:appinfo>
+         <xs:documentation>Diese Nachricht dient der informellen, fachlichen Kommunikation innerhalb eines Verfahrens. Sie wird zum einem für Rückfragen eines Beteiligten des Verfahrens (Anschreiben ohne Anlagen) und zum anderem für die zugehörige Antwort der Bauaufsichtsbehörde (bzw. Aufsichtsbehörde für den Breitbandausbau) verwendet.</xs:documentation>
+      </xs:annotation>
+      <xs:complexType>
+         <xs:complexContent>
+            <xs:extension base="xbauk:Nachricht.G2G">
+               <xs:sequence>
+                  <xs:element name="bezug" type="xbauk:BezugErweitert">
+                     <xs:annotation>
+                        <xs:documentation>Bezug auf Vorgang und Nachricht, auf die sich die Inhalte der vorliegenden Nachricht beziehen.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+                  <xs:element name="anschreiben">
+                     <xs:annotation>
+                        <xs:documentation>In dieses Element ist der Anschreibentext der Nachricht (Rückfrage des Beteiligten oder Antwort der Behörde) einzutragen. Der Anschreibentext kann unformatiert oder formatiert übermittelt werden.</xs:documentation>
+                     </xs:annotation>
+                     <xs:complexType>
+                        <xs:choice>
+                           <xs:element name="textUnformatiert" type="xbauk:Text">
+                              <xs:annotation>
+                                 <xs:documentation>Hier wird der unformatierte Text übermittelt.</xs:documentation>
+                              </xs:annotation>
+                           </xs:element>
+                           <xs:element name="textFormatiert" type="xbauk:TextFormatiert">
+                              <xs:annotation>
+                                 <xs:documentation>Hier wird der formatierte Text übermittelt.</xs:documentation>
+                              </xs:annotation>
+                           </xs:element>
+                        </xs:choice>
+                     </xs:complexType>
+                  </xs:element>
+                  <xs:element name="anlagen" minOccurs="0" type="xbauk:Anlagen">
+                     <xs:annotation>
+                        <xs:documentation>Mit diesem Element können Metadaten zu Anlagen übermittelt werden.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+               </xs:sequence>
+            </xs:extension>
+         </xs:complexContent>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="prozessnachrichten.einstellenDokumente.1150">
+      <xs:annotation>
+         <xs:appinfo>
+            <title>Einstellen von Dokumenten in einen Projektraum</title>
+         </xs:appinfo>
+         <xs:documentation>Mit dieser Nachricht kann die Bauaufsichtsbehörde (bzw. Aufsichtsbehörde für den Breitbandausbau) Dokumente in einen Projektraum einstellen, z. B. ergänzende Dokumentation zum Antrag, zur Prüfung des Antrags, zur Ämterbeteiligung oder einen digitalisierten Papierantrag mit Anlagen.</xs:documentation>
+      </xs:annotation>
+      <xs:complexType>
+         <xs:complexContent>
+            <xs:extension base="xbauk:Nachricht.G2G">
+               <xs:sequence>
+                  <xs:element name="bezug" type="xbauk:BezugErweitert">
+                     <xs:annotation>
+                        <xs:documentation>Hier können Eintragungen vorgenommen werden, falls sich das Dokument einem vorhandenen Vorgang zuordnen lässt.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+                  <xs:element name="ablageort" minOccurs="0" type="xbauk:Code.Ablageort">
+                     <xs:annotation>
+                        <xs:documentation>Mit diesem Element kann ein Ablageort innerhalb der jeweiligen Struktur des Portals bzw. der Plattform für das Dokument angegeben werden.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+                  <xs:element name="anlagen" type="xbauk:Anlagen">
+                     <xs:annotation>
+                        <xs:documentation>In diesem Element werden die Metadaten zur Anlage übermittelt.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+               </xs:sequence>
+            </xs:extension>
+         </xs:complexContent>
+      </xs:complexType>
+   </xs:element>
+</xs:schema>

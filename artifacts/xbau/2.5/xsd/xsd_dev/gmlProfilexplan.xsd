@@ -1,0 +1,532 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:gml="http://www.opengis.net/gml/3.2"
+           targetNamespace="http://www.opengis.net/gml/3.2"
+           version="3.2.1"
+           elementFormDefault="qualified"
+           attributeFormDefault="unqualified">
+   <xs:annotation>
+      <xs:appinfo>
+         <versionStandard>
+            <version>3.2</version>
+            <versionXOEVProfil>3.0.0</versionXOEVProfil>
+            <versionXOEVHandbuch/>
+            <versionXGenerator/>
+            <versionModellierungswerkzeug/>
+            <nameModellierungswerkzeug>MagicDraw</nameModellierungswerkzeug>
+         </versionStandard>
+      </xs:appinfo>
+      <xs:documentation>GML 3.2.1 profile for NAS version 6.0_B</xs:documentation>
+   </xs:annotation>
+   <xs:group name="AggregationAttributeGroup">
+      <xs:sequence>
+         <xs:element name="aggregationType" type="gml:AggregationType"/>
+      </xs:sequence>
+   </xs:group>
+   <xs:attributeGroup name="SRSReferenceGroup">
+      <xs:attribute name="srsDimension" type="xs:positiveInteger" use="required"/>
+      <xs:attribute name="srsName" type="xs:anyURI" use="required"/>
+   </xs:attributeGroup>
+   <xs:complexType name="AbstractCurveType" abstract="true">
+      <xs:complexContent>
+         <xs:extension base="gml:AbstractGeometricPrimitiveType"/>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="AbstractFeatureType" abstract="true">
+      <xs:complexContent>
+         <xs:extension base="gml:AbstractGMLType">
+            <xs:sequence>
+               <xs:element name="boundedBy_ref" minOccurs="0">
+                  <xs:annotation>
+                     <xs:documentation>GML 3.2.1 profile for NAS version 6.0_B</xs:documentation>
+                  </xs:annotation>
+                  <xs:complexType>
+                     <xs:sequence>
+                        <xs:any minOccurs="0"
+                                maxOccurs="unbounded"
+                                namespace="##any"
+                                processContents="strict"/>
+                     </xs:sequence>
+                  </xs:complexType>
+               </xs:element>
+            </xs:sequence>
+         </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="AbstractGMLType" abstract="true"/>
+   <xs:complexType name="AbstractGeometricAggregateType" abstract="true">
+      <xs:complexContent>
+         <xs:extension base="gml:AbstractGeometryType"/>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="AbstractGeometricPrimitiveType" abstract="true">
+      <xs:complexContent>
+         <xs:extension base="gml:AbstractGeometryType"/>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="AbstractGeometryType" abstract="true">
+      <xs:complexContent>
+         <xs:extension base="gml:AbstractGMLType"/>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="AbstractRingPropertyType">
+      <xs:sequence>
+         <xs:element name="AbstractRing_ref">
+            <xs:annotation>
+               <xs:documentation>GML 3.2.1 profile for NAS version 6.0_B</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+               <xs:sequence>
+                  <xs:any minOccurs="0"
+                          maxOccurs="unbounded"
+                          namespace="##any"
+                          processContents="strict"/>
+               </xs:sequence>
+            </xs:complexType>
+         </xs:element>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="AbstractRingType" abstract="true"/>
+   <xs:complexType name="AbstractSurfacePatchType" abstract="true"/>
+   <xs:complexType name="AbstractSurfaceType" abstract="true">
+      <xs:complexContent>
+         <xs:extension base="gml:AbstractGeometricPrimitiveType"/>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:simpleType name="AggregationType">
+      <xs:restriction base="xs:string"/>
+   </xs:simpleType>
+   <xs:simpleType name="CurveInterpolationType">
+      <xs:restriction base="xs:string"/>
+   </xs:simpleType>
+   <xs:complexType name="CurvePropertyType">
+      <xs:sequence>
+         <xs:element name="AbstractCurve_ref">
+            <xs:annotation>
+               <xs:documentation>GML 3.2.1 profile for NAS version 6.0_B</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+               <xs:sequence>
+                  <xs:any minOccurs="0"
+                          maxOccurs="unbounded"
+                          namespace="##any"
+                          processContents="strict"/>
+               </xs:sequence>
+            </xs:complexType>
+         </xs:element>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="CurveSegmentArrayPropertyType">
+      <xs:sequence>
+         <xs:element name="AbstractCurveSegment_ref">
+            <xs:annotation>
+               <xs:documentation>GML 3.2.1 profile for NAS version 6.0_B</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+               <xs:sequence>
+                  <xs:any minOccurs="0"
+                          maxOccurs="unbounded"
+                          namespace="##any"
+                          processContents="strict"/>
+               </xs:sequence>
+            </xs:complexType>
+         </xs:element>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="CurveType">
+      <xs:complexContent>
+         <xs:extension base="gml:AbstractCurveType">
+            <xs:sequence>
+               <xs:element name="segments_ref">
+                  <xs:annotation>
+                     <xs:documentation>GML 3.2.1 profile for NAS version 6.0_B</xs:documentation>
+                  </xs:annotation>
+                  <xs:complexType>
+                     <xs:sequence>
+                        <xs:any minOccurs="0"
+                                maxOccurs="unbounded"
+                                namespace="##any"
+                                processContents="strict"/>
+                     </xs:sequence>
+                  </xs:complexType>
+               </xs:element>
+            </xs:sequence>
+         </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="FeaturePropertyType">
+      <xs:sequence>
+         <xs:element name="AbstractFeature_ref">
+            <xs:annotation>
+               <xs:documentation>GML 3.2.1 profile for NAS version 6.0_B</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+               <xs:sequence>
+                  <xs:any minOccurs="0"
+                          maxOccurs="unbounded"
+                          namespace="##any"
+                          processContents="strict"/>
+               </xs:sequence>
+            </xs:complexType>
+         </xs:element>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="GeometryPropertyType">
+      <xs:sequence>
+         <xs:element name="AbstractGeometry_ref">
+            <xs:annotation>
+               <xs:documentation>GML 3.2.1 profile for NAS version 6.0_B</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+               <xs:sequence>
+                  <xs:any minOccurs="0"
+                          maxOccurs="unbounded"
+                          namespace="##any"
+                          processContents="strict"/>
+               </xs:sequence>
+            </xs:complexType>
+         </xs:element>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="LineStringType">
+      <xs:complexContent>
+         <xs:extension base="gml:AbstractCurveType">
+            <xs:sequence>
+               <xs:element name="posList_ref">
+                  <xs:annotation>
+                     <xs:documentation>GML 3.2.1 profile for NAS version 6.0_B</xs:documentation>
+                  </xs:annotation>
+                  <xs:complexType>
+                     <xs:sequence>
+                        <xs:any minOccurs="0"
+                                maxOccurs="unbounded"
+                                namespace="##any"
+                                processContents="strict"/>
+                     </xs:sequence>
+                  </xs:complexType>
+               </xs:element>
+            </xs:sequence>
+         </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="MultiCurvePropertyType">
+      <xs:sequence>
+         <xs:element name="MultiCurve_ref">
+            <xs:annotation>
+               <xs:documentation>GML 3.2.1 profile for NAS version 6.0_B</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+               <xs:sequence>
+                  <xs:any minOccurs="0"
+                          maxOccurs="unbounded"
+                          namespace="##any"
+                          processContents="strict"/>
+               </xs:sequence>
+            </xs:complexType>
+         </xs:element>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="MultiCurveType">
+      <xs:complexContent>
+         <xs:extension base="gml:AbstractGeometricAggregateType">
+            <xs:sequence>
+               <xs:element name="curveMember_ref" minOccurs="0" maxOccurs="unbounded">
+                  <xs:annotation>
+                     <xs:documentation>GML 3.2.1 profile for NAS version 6.0_B</xs:documentation>
+                  </xs:annotation>
+                  <xs:complexType>
+                     <xs:sequence>
+                        <xs:any minOccurs="0"
+                                maxOccurs="unbounded"
+                                namespace="##any"
+                                processContents="strict"/>
+                     </xs:sequence>
+                  </xs:complexType>
+               </xs:element>
+            </xs:sequence>
+         </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="MultiPointPropertyType">
+      <xs:sequence>
+         <xs:element name="MultiPoint_ref">
+            <xs:annotation>
+               <xs:documentation>GML 3.2.1 profile for NAS version 6.0_B</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+               <xs:sequence>
+                  <xs:any minOccurs="0"
+                          maxOccurs="unbounded"
+                          namespace="##any"
+                          processContents="strict"/>
+               </xs:sequence>
+            </xs:complexType>
+         </xs:element>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="MultiPointType">
+      <xs:complexContent>
+         <xs:extension base="gml:AbstractGeometricAggregateType">
+            <xs:sequence>
+               <xs:element name="pointMember_ref" minOccurs="0" maxOccurs="unbounded">
+                  <xs:annotation>
+                     <xs:documentation>GML 3.2.1 profile for NAS version 6.0_B</xs:documentation>
+                  </xs:annotation>
+                  <xs:complexType>
+                     <xs:sequence>
+                        <xs:any minOccurs="0"
+                                maxOccurs="unbounded"
+                                namespace="##any"
+                                processContents="strict"/>
+                     </xs:sequence>
+                  </xs:complexType>
+               </xs:element>
+            </xs:sequence>
+         </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="MultiSurfacePropertyType">
+      <xs:sequence>
+         <xs:element name="MultiSurface_ref">
+            <xs:annotation>
+               <xs:documentation>GML 3.2.1 profile for NAS version 6.0_B</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+               <xs:sequence>
+                  <xs:any minOccurs="0"
+                          maxOccurs="unbounded"
+                          namespace="##any"
+                          processContents="strict"/>
+               </xs:sequence>
+            </xs:complexType>
+         </xs:element>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="MultiSurfaceType">
+      <xs:complexContent>
+         <xs:extension base="gml:AbstractGeometricAggregateType">
+            <xs:sequence>
+               <xs:element name="surfaceMember_ref" minOccurs="0" maxOccurs="unbounded">
+                  <xs:annotation>
+                     <xs:documentation>GML 3.2.1 profile for NAS version 6.0_B</xs:documentation>
+                  </xs:annotation>
+                  <xs:complexType>
+                     <xs:sequence>
+                        <xs:any minOccurs="0"
+                                maxOccurs="unbounded"
+                                namespace="##any"
+                                processContents="strict"/>
+                     </xs:sequence>
+                  </xs:complexType>
+               </xs:element>
+            </xs:sequence>
+         </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="NCNameList"/>
+   <xs:complexType name="PointPropertyType">
+      <xs:sequence>
+         <xs:element name="Point_ref">
+            <xs:annotation>
+               <xs:documentation>GML 3.2.1 profile for NAS version 6.0_B</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+               <xs:sequence>
+                  <xs:any minOccurs="0"
+                          maxOccurs="unbounded"
+                          namespace="##any"
+                          processContents="strict"/>
+               </xs:sequence>
+            </xs:complexType>
+         </xs:element>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="PointType">
+      <xs:complexContent>
+         <xs:extension base="gml:AbstractGeometricPrimitiveType">
+            <xs:sequence>
+               <xs:element name="pos_ref">
+                  <xs:annotation>
+                     <xs:documentation>GML 3.2.1 profile for NAS version 6.0_B</xs:documentation>
+                  </xs:annotation>
+                  <xs:complexType>
+                     <xs:sequence>
+                        <xs:any minOccurs="0"
+                                maxOccurs="unbounded"
+                                namespace="##any"
+                                processContents="strict"/>
+                     </xs:sequence>
+                  </xs:complexType>
+               </xs:element>
+            </xs:sequence>
+         </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="PolygonType">
+      <xs:complexContent>
+         <xs:extension base="gml:AbstractSurfaceType">
+            <xs:sequence>
+               <xs:element name="exterior_ref" minOccurs="0">
+                  <xs:annotation>
+                     <xs:documentation>GML 3.2.1 profile for NAS version 6.0_B</xs:documentation>
+                  </xs:annotation>
+                  <xs:complexType>
+                     <xs:sequence>
+                        <xs:any minOccurs="0"
+                                maxOccurs="unbounded"
+                                namespace="##any"
+                                processContents="strict"/>
+                     </xs:sequence>
+                  </xs:complexType>
+               </xs:element>
+               <xs:element name="interior_ref" minOccurs="0" maxOccurs="unbounded">
+                  <xs:annotation>
+                     <xs:documentation>GML 3.2.1 profile for NAS version 6.0_B</xs:documentation>
+                  </xs:annotation>
+                  <xs:complexType>
+                     <xs:sequence>
+                        <xs:any minOccurs="0"
+                                maxOccurs="unbounded"
+                                namespace="##any"
+                                processContents="strict"/>
+                     </xs:sequence>
+                  </xs:complexType>
+               </xs:element>
+            </xs:sequence>
+         </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="ReferenceType"/>
+   <xs:complexType name="RingType">
+      <xs:complexContent>
+         <xs:extension base="gml:AbstractRingType">
+            <xs:sequence>
+               <xs:element name="curveMember_ref" maxOccurs="unbounded">
+                  <xs:annotation>
+                     <xs:documentation>GML 3.2.1 profile for NAS version 6.0_B</xs:documentation>
+                  </xs:annotation>
+                  <xs:complexType>
+                     <xs:sequence>
+                        <xs:any minOccurs="0"
+                                maxOccurs="unbounded"
+                                namespace="##any"
+                                processContents="strict"/>
+                     </xs:sequence>
+                  </xs:complexType>
+               </xs:element>
+            </xs:sequence>
+         </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="StandardObjectProperties">
+      <xs:sequence>
+         <xs:element name="description_ref" minOccurs="0">
+            <xs:annotation>
+               <xs:documentation>GML 3.2.1 profile for NAS version 6.0_B</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+               <xs:sequence>
+                  <xs:any minOccurs="0"
+                          maxOccurs="unbounded"
+                          namespace="##any"
+                          processContents="strict"/>
+               </xs:sequence>
+            </xs:complexType>
+         </xs:element>
+         <xs:element name="descriptionReference_ref" minOccurs="0">
+            <xs:annotation>
+               <xs:documentation>GML 3.2.1 profile for NAS version 6.0_B</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+               <xs:sequence>
+                  <xs:any minOccurs="0"
+                          maxOccurs="unbounded"
+                          namespace="##any"
+                          processContents="strict"/>
+               </xs:sequence>
+            </xs:complexType>
+         </xs:element>
+         <xs:element name="identifier_ref" minOccurs="0">
+            <xs:annotation>
+               <xs:documentation>GML 3.2.1 profile for NAS version 6.0_B</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+               <xs:sequence>
+                  <xs:any minOccurs="0"
+                          maxOccurs="unbounded"
+                          namespace="##any"
+                          processContents="strict"/>
+               </xs:sequence>
+            </xs:complexType>
+         </xs:element>
+         <xs:element name="name_ref" minOccurs="0" maxOccurs="unbounded">
+            <xs:annotation>
+               <xs:documentation>GML 3.2.1 profile for NAS version 6.0_B</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+               <xs:sequence>
+                  <xs:any minOccurs="0"
+                          maxOccurs="unbounded"
+                          namespace="##any"
+                          processContents="strict"/>
+               </xs:sequence>
+            </xs:complexType>
+         </xs:element>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="SurfacePatchArrayPropertyType">
+      <xs:sequence>
+         <xs:element name="AbstractSurfacePatch_ref">
+            <xs:annotation>
+               <xs:documentation>GML 3.2.1 profile for NAS version 6.0_B</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+               <xs:sequence>
+                  <xs:any minOccurs="0"
+                          maxOccurs="unbounded"
+                          namespace="##any"
+                          processContents="strict"/>
+               </xs:sequence>
+            </xs:complexType>
+         </xs:element>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="SurfacePropertyType">
+      <xs:sequence>
+         <xs:element name="AbstractSurface_ref">
+            <xs:annotation>
+               <xs:documentation>GML 3.2.1 profile for NAS version 6.0_B</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+               <xs:sequence>
+                  <xs:any minOccurs="0"
+                          maxOccurs="unbounded"
+                          namespace="##any"
+                          processContents="strict"/>
+               </xs:sequence>
+            </xs:complexType>
+         </xs:element>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="SurfaceType">
+      <xs:complexContent>
+         <xs:extension base="gml:AbstractSurfaceType">
+            <xs:sequence>
+               <xs:element name="patches_ref">
+                  <xs:annotation>
+                     <xs:documentation>GML 3.2.1 profile for NAS version 6.0_B</xs:documentation>
+                  </xs:annotation>
+                  <xs:complexType>
+                     <xs:sequence>
+                        <xs:any minOccurs="0"
+                                maxOccurs="unbounded"
+                                namespace="##any"
+                                processContents="strict"/>
+                     </xs:sequence>
+                  </xs:complexType>
+               </xs:element>
+            </xs:sequence>
+         </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+</xs:schema>

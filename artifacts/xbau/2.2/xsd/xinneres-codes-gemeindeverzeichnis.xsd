@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xicgvz="http://www.osci.de/xinneres/codes/gemeindeverzeichnis/2" xmlns:xoev-code="http://xoev.de/schemata/code/1_0" targetNamespace="http://www.osci.de/xinneres/codes/gemeindeverzeichnis/2" version="2" elementFormDefault="unqualified" attributeFormDefault="unqualified">
+  <xs:import schemaLocation="xoev-code.xsd" namespace="http://xoev.de/schemata/code/1_0" />
+  <xs:complexType name="Code.GemeindeVZ.AmtlicherGemeindeschluessel">
+    <xs:annotation>
+      <xs:appinfo>
+        <title>Amtlicher Gemeindeschlüssel</title>
+        <codeliste>
+          <nameLang>Gemeinden, dargestellt durch den Amtlichen Gemeindeschlüssel(AGS) des Statistischen Bundesamtes</nameLang>
+          <nameKurz>AGS</nameKurz>
+          <nameTechnisch>ags</nameTechnisch>
+          <kennung>urn:de:bund:destatis:bevoelkerungsstatistik:schluessel:ags</kennung>
+          <beschreibung>Diese Codeliste stellt alle Gemeinden Deutschlands durch den Amtlichen Gemeindeschlüssel (AGS) dar, wie im Gemeindeverzeichnis des Statistischen Bundesamtes enthalten.</beschreibung>
+          <herausgebernameLang>Statistisches Bundesamt, Wiesbaden</herausgebernameLang>
+          <herausgebernameKurz>Destatis</herausgebernameKurz>
+        </codeliste>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:restriction base="xoev-code:Code">
+        <xs:sequence>
+          <xs:element name="code" type="xs:token">
+            <xs:annotation>
+              <xs:documentation>Dokumentation aus XOEV-Bibliothek:</xs:documentation>
+              <xs:documentation>In diesem XML-Element wird der Code einer Codeliste übermittelt.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="name" minOccurs="0" type="xs:normalizedString">
+            <xs:annotation>
+              <xs:documentation>Dokumentation aus XOEV-Bibliothek:</xs:documentation>
+              <xs:documentation>Mit diesem optionalen XML-Element kann die Beschreibung des Codes, wie in der jeweiligen Beschreibungsspalte der Codeliste vorgegeben, übermittelt werden.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+        <xs:attribute name="listURI" type="xs:anyURI" use="optional" fixed="urn:de:bund:destatis:bevoelkerungsstatistik:schluessel:ags">
+          <xs:annotation>
+            <xs:documentation>Dokumentation aus XOEV-Bibliothek:</xs:documentation>
+            <xs:documentation>Mit diesem XML-Attribut wird die Kennung der Codeliste übermittelt, in deren Kontext der jeweilige Code zu interpretieren ist. Die Kennung identifiziert die Codeliste, nicht jedoch deren Version eindeutig.
+
+Wird bereits im Rahmen des XÖV-Standards eine Kennung vorgegeben (es handelt sich in diesem Fall um einen Code-Typ 1, 2 oder 3) darf auf eine nochmalige Angabe der Kennung bei der Übermittlung eines Codes verzichtet werden. Aus diesem Grund ist das XML-Attribut listURI zunächst als optional deklariert.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="listVersionID" type="xs:normalizedString" use="required">
+          <xs:annotation>
+            <xs:documentation>Dokumentation aus XOEV-Bibliothek:</xs:documentation>
+            <xs:documentation>Die konkrete Version der zu nutzenden Codeliste wird mit diesem XML-Attribut übertragen.
+
+Analog zum listURI ist die Bestimmung der Version einer Codeliste bei der Übertragung eines Codes zwingend. Die Version kann jedoch ebenfalls bereits im XÖV-Standard festgelegt werden (es handelt sich in diesem Fall um einen Code-Typ 1 oder 2).</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:restriction>
+    </xs:complexContent>
+  </xs:complexType>
+</xs:schema>
+

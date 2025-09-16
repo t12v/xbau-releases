@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:bn-kom="http://xoev.de/schemata/basisnachricht/kommunikation/1_0"
+           xmlns:dinspec91379="urn:xoev-de:kosit:xoev:datentyp:din-spec-91379_2019-03"
+           xmlns:xoev-code="http://xoev.de/schemata/code/1_0"
+           targetNamespace="http://xoev.de/schemata/basisnachricht/kommunikation/1_0"
+           version="1.0"
+           elementFormDefault="qualified"
+           attributeFormDefault="unqualified">
+   <xs:import schemaLocation="din-91379-datatypes.xsd"
+              namespace="urn:xoev-de:kosit:xoev:datentyp:din-spec-91379_2019-03"/>
+   <xs:import schemaLocation="xoev-code.xsd"
+              namespace="http://xoev.de/schemata/code/1_0"/>
+   <xs:complexType name="Code.Kommunikation.KanalType">
+      <xs:annotation>
+         <xs:appinfo>
+            <codeliste>
+               <nameLang>Kommunikationskanal / Erreichbarkeit</nameLang>
+               <nameKurz>Erreichbarkeit</nameKurz>
+               <nameTechnisch>erreichbarkeit</nameTechnisch>
+               <kennung>urn:de:xoev:codeliste:erreichbarkeit</kennung>
+               <beschreibung>Eine Liste der Kommunikationsmedien und -kanäle, über die man eine Person oder Institution erreichen kann.</beschreibung>
+               <herausgebernameLang>Koordinierungsstelle für IT-Standards</herausgebernameLang>
+               <herausgebernameKurz>KoSIT</herausgebernameKurz>
+            </codeliste>
+         </xs:appinfo>
+      </xs:annotation>
+      <xs:complexContent>
+         <xs:restriction base="xoev-code:Code">
+            <xs:sequence>
+               <xs:element name="code" type="xs:token" form="unqualified"/>
+            </xs:sequence>
+            <xs:attribute name="listURI"
+                          type="xs:anyURI"
+                          use="optional"
+                          fixed="urn:de:xoev:codeliste:erreichbarkeit"/>
+            <xs:attribute name="listVersionID" type="xs:normalizedString" use="required"/>
+         </xs:restriction>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="KommunikationType">
+      <xs:annotation>
+         <xs:documentation>Dieser Typ enthält Angaben zur Erreichbarkeit über elektronische Kommunikationskanäle (z. B. Telefon, E-Mail).</xs:documentation>
+      </xs:annotation>
+      <xs:sequence>
+         <xs:element name="kanal" type="bn-kom:Code.Kommunikation.KanalType">
+            <xs:annotation>
+               <xs:documentation>Der 'kanal' gibt an, über welchen Kommunikationskanal eine Erreichbarkeit besteht.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element name="kennung" type="dinspec91379:datatypeC">
+            <xs:annotation>
+               <xs:documentation>Die Kennung beinhaltet die konkreten Angaben zur Erreichbarkeit über einen Kommunikationskanal, d. h. die Telefonnummer, E-Mail-Adresse oder dergleichen.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element name="zusatz" minOccurs="0" type="dinspec91379:datatypeC">
+            <xs:annotation>
+               <xs:documentation>Eine zusätzliche Bemerkung.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="erreichbarkeit" type="bn-kom:KommunikationType">
+      <xs:annotation>
+         <xs:documentation>In diesem Element werden Angaben zur Erreichbarkeit übermittelt, mit denen die Behörde / öffentliche Stelle über Telefon, E-Mail etc. erreicht werden kann. Diese Angaben können z. B. verwendet werden, um in Einzelfällen Rückfragen zu stellen oder Problemklärungen durchzuführen.</xs:documentation>
+      </xs:annotation>
+   </xs:element>
+</xs:schema>

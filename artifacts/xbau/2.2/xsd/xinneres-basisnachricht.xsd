@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xink="http://www.osci.de/xinneres/basisnachricht/4" xmlns:xibehoerde="http://www.osci.de/xinneres/behoerde/4" xmlns:xoev-code="http://xoev.de/schemata/code/1_0" xmlns:xoev-lc="http://xoev.de/latinchars/1_1/datatypes" targetNamespace="http://www.osci.de/xinneres/basisnachricht/4" version="4" elementFormDefault="unqualified" attributeFormDefault="unqualified">
+  <xs:import schemaLocation="xinneres-behoerde.xsd" namespace="http://www.osci.de/xinneres/behoerde/4" />
+  <xs:import schemaLocation="latinchars.xsd" namespace="http://xoev.de/latinchars/1_1/datatypes" />
+  <xs:import schemaLocation="xoev-code.xsd" namespace="http://xoev.de/schemata/code/1_0" />
+  <xs:import schemaLocation="xoev-code.xsd" namespace="http://xoev.de/schemata/code/1_0" />
+  <xs:complexType name="Code.Nachrichtentyp.Typ4">
+    <xs:annotation>
+      <xs:documentation>Typ-4 Code-Datentyp für die Übermittlung von Nachrichtentypen, wo die zugrundeliegenden Schlüsseltabellen und deren Version erst zum Zeitpunkt der Nachrichtenerstellung nach den Vorgaben des xinneres-fachmodul festgelegt werden.</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:restriction base="xoev-code:Code">
+        <xs:sequence>
+          <xs:element name="code" type="xs:token">
+            <xs:annotation>
+              <xs:documentation>Dokumentation aus XOEV-Bibliothek:</xs:documentation>
+              <xs:documentation>In diesem XML-Element wird der Code einer Codeliste übermittelt.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="name" minOccurs="0" type="xs:normalizedString">
+            <xs:annotation>
+              <xs:documentation>Dokumentation aus XOEV-Bibliothek:</xs:documentation>
+              <xs:documentation>Mit diesem optionalen XML-Element kann die Beschreibung des Codes, wie in der jeweiligen Beschreibungsspalte der Codeliste vorgegeben, übermittelt werden.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+        <xs:attribute name="listURI" type="xs:anyURI" use="required">
+          <xs:annotation>
+            <xs:documentation>Dokumentation aus XOEV-Bibliothek:</xs:documentation>
+            <xs:documentation>Mit diesem XML-Attribut wird die Kennung der Codeliste übermittelt, in deren Kontext der jeweilige Code zu interpretieren ist. Die Kennung identifiziert die Codeliste, nicht jedoch deren Version eindeutig.
+
+Wird bereits im Rahmen des XÖV-Standards eine Kennung vorgegeben (es handelt sich in diesem Fall um einen Code-Typ 1, 2 oder 3) darf auf eine nochmalige Angabe der Kennung bei der Übermittlung eines Codes verzichtet werden. Aus diesem Grund ist das XML-Attribut listURI zunächst als optional deklariert.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="listVersionID" type="xs:normalizedString" use="required">
+          <xs:annotation>
+            <xs:documentation>Dokumentation aus XOEV-Bibliothek:</xs:documentation>
+            <xs:documentation>Die konkrete Version der zu nutzenden Codeliste wird mit diesem XML-Attribut übertragen.
+
+Analog zum listURI ist die Bestimmung der Version einer Codeliste bei der Übertragung eines Codes zwingend. Die Version kann jedoch ebenfalls bereits im XÖV-Standard festgelegt werden (es handelt sich in diesem Fall um einen Code-Typ 1 oder 2).</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:restriction>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="Identifikation.Ereignis">
+    <xs:annotation>
+      <xs:documentation>Dieser Typ enthält Angaben, die ein Ereignis eindeutig identifizieren und es dem Leser einer Nachricht ermöglichen, die Reihenfolge von Ereignissen beim Autor nachzuvollziehen.
+Sofern dieses Element in einer Nachricht mit mehreren Datensätzen verwendet wird (Sammelnachricht), dient es der Identifikation des Einzelfalls. Es  muss dann entsprechend für jeden Einzelfall in der Sammelnachricht übermittelt werden.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="ereignis.zeitpunkt" type="xs:dateTime">
+        <xs:annotation>
+          <xs:documentation>Dieses Element kann verwendet werden, um beim Leser die ursprüngliche Chronologie der Ereignisse beim Autor der Nachricht zu rekonstruieren.
+
+Welcher Zeitpunkt hier zu übermitteln ist, wird durch die xinneres-fachmodule an den fachlichen Nutzungsstellen festgelegt.
+
+Der Ereigniszeitpunkt muss neben einer Angabe zum Datum eine zeitliche Information beinhalten. Diese ist mit einer Genauigkeit auf Ebene von Millisekunden und der Angabe zur Zeitzone zu übermitteln. 
+
+Der hier übermittelte Zeitpunkt kann von dem Erstellungszeitpunkt der Nachricht, in der das Ereignis übermittelt wird, abweichen.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="ereignis.zeichen" type="xink:Identifikation.Ereignis.Zeichen">
+        <xs:annotation>
+          <xs:documentation>Mit diesem Element wird ein (Geschäfts-)Zeichen zu dem Ereignis übermittelt, das das Ereignis innerhalb einer Nachricht eindeutig identifiziert. Das (Geschäfts-)Zeichen kann durch den Autor der Nachricht beliebig gestaltet werden, es muss nur sichergestellt werden, 
+
+   dass ein Ereignis innerhalb einer Nachricht eindeutig identifiziert (nur relevant bei Sammelnachrichten) wird und
+dass der Autor einer Nachricht in der Lage ist, das übermittelte Ereignis mithilfe des (Geschäfts-)Zeichens und den identifizierenden Angaben zur Nachricht wieder aufzufinden.
+  
+ Ein solches Zeichen darf maximal 100 Zeichen umfassen. Außer den Zeichen A..Z, a..z sowie den Ziffern 0..9 sind maximal acht Sonderzeichen erlaubt. Umlaute und das ß gelten ebenfalls als Sonderzeichen.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="Identifikation.Ereignis.Zeichen">
+    <xs:annotation>
+      <xs:documentation>Das ein Ereignis identifizierende Zeichen darf maximal 100 Zeichen umfassen. Außer den Zeichen A..Z, a..z sowie den Ziffern 0..9 sind maximal acht Sonderzeichen erlaubt. Umlaute und das ß gelten als Sonderzeichen.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xoev-lc:String.Latin">
+      <xs:pattern value=".{1,100}" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="Identifikation.Nachricht">
+    <xs:annotation>
+      <xs:documentation>Dieser Typ enthält die für die Identifikation einer Nachricht erforderlichen Informationen. Er kann verwendet werden, um
+
+  Identifizierungsmerkmale zu setzen, auf die sich Leser oder Empfänger beziehen kann (Verwendung im Nachrichtenkopf)   oder
+  sich auf Identifizierungsmerkmale einer übermittelten Nachricht zu beziehen (Verwendung im Nachrichteninhalt von Reaktions- oder RtS-Nachrichten).
+
+Darüber hinaus enthält der Typ den Erstellungszeitpunkt.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="nachrichtenUUID" type="xink:UUID">
+        <xs:annotation>
+          <xs:documentation>Hier wird der Universally Unique Identifier (UUID) der Nachricht mitgeteilt, der das primäre Identifikationsmerkmal einer Nachricht darstellt. Der UUID der Nachricht ist weltweit eindeutig. So wird es möglich, Nachrichten hersteller- und anwendungsübergreifend eindeutig zu identifizieren. 
+Für jede Nachricht muss ein neuer UUID erzeugt werden, um eine eindeutige Identifikation der Nachricht sicherzustellen. Insbesondere ist es nicht zulässig, in einer korrigierten Nachricht (bspw. nach Erhalt einer RTS-Nachricht) den UUID der ursprünglichen Nachricht wiederzuverwenden.
+Sofern eine einmal erzeugte Nachricht ein weiteres Mal gesendet werden soll (bspw. aufgrund von Problemen beim Nachrichtentransport), muss der UUID nicht angepasst werden.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="nachrichtentyp" type="xoev-code:Code">
+        <xs:annotation>
+          <xs:documentation>Die eindeutige Identifizierungsnummer für einen Nachrichtentyp. Der konkret zu verwendende Datentyp für die Übermittlung des Schlüsselwertes wird durch das xinneres-fachmodul auf Schemaebene festgelegt.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="erstellungszeitpunkt" type="xs:dateTime">
+        <xs:annotation>
+          <xs:documentation>Der Zeitpunkt, an dem die Nachricht erstellt wurde.
+Dieses Feld wird durch das Fachverfahren beim Erstellen der Nachricht gefüllt. Hier ist explizit nicht der Sende- und Empfangszeitpunkt  festgehalten, denn die können in der Regel der Transportschicht entnommen werden.
+Der Erstellungszeitpunkt muss neben einer Angabe zum Datum eine zeitliche Information beinhalten. Diese ist mit einer Genauigkeit auf Ebene von Millisekunden und der Angabe zur Zeitzone zu übermitteln.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Identifikation.Nachricht.Typ4">
+    <xs:annotation>
+      <xs:documentation>Dieser Typ enthält die für die Identifikation einer Nachricht erforderlichen Informationen, wobei der Nachrichtentyp hier als Typ-4 Code-Datentyp modelliert ist. 
+Dieser Typ sollte daher an den Stellen genutzt werden, in denen identifizierende Angaben zu Nachrichten aus mehr als einem xinneres-fachmodul übermittelt werden müssen.</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:restriction base="xink:Identifikation.Nachricht">
+        <xs:sequence>
+          <xs:element name="nachrichtenUUID" type="xink:UUID">
+            <xs:annotation>
+              <xs:documentation>Hier wird der Universally Unique Identifier (UUID) der Nachricht mitgeteilt, der das primäre Identifikationsmerkmal einer Nachricht darstellt. Der UUID der Nachricht ist weltweit eindeutig. So wird es möglich, Nachrichten hersteller- und anwendungsübergreifend eindeutig zu identifizieren.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="nachrichtentyp" type="xink:Code.Nachrichtentyp.Typ4">
+            <xs:annotation>
+              <xs:documentation>Die eindeutige Identifizierungsnummer für einen Nachrichtentyp. Die konkret genutzte Schlüsseltabelle, sowie deren Version werden erst zum Zeitpunkt der Nachrichtenerstellung festgelegt und sind daher immer zu übermitteln (Typ-4 Code-Datentyp).</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="erstellungszeitpunkt" type="xs:dateTime">
+            <xs:annotation>
+              <xs:documentation>Der Zeitpunkt, an dem die Nachricht erstellt wurde.
+Dieses Feld wird durch das Fachverfahren beim Erstellen der Nachricht gefüllt. Hier ist explizit nicht der Sende- und Empfangszeitpunkt  festgehalten, denn die können in der Regel der Transportschicht entnommen werden.
+Der Erstellungszeitpunkt muss neben einer Angabe zum Datum eine zeitliche Information beinhalten. Diese ist mit einer Genauigkeit auf Ebene von Millisekunden und der Angabe zur Zeitzone zu übermitteln.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:restriction>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="Nachricht.G2G" abstract="true">
+    <xs:annotation>
+      <xs:appinfo>
+        <title>Basisnachricht für Nachrichten zwischen Behörden</title>
+      </xs:appinfo>
+      <xs:documentation>Dieser Typ realisiert die abstrakte Oberklasse für alle Nachrichten zwischen Behörden und anderen (öffentlichen) Stellen. Jede im xinneres-basismodul und den xinneres-fachmodulen definierte konkrete Nachricht erbt von diesem Typ. Auf diese Weise wird für alle xinneres-Nachrichten eine einheitliche Grundstruktur gewährleistet.
+Der Zusatz G2G ist die Abkürzung für den Begriff  government-to-government, also die Kommunikation zwischen staatlichen Einrichtungen.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="nachrichtenkopf" type="xink:Nachrichtenkopf.G2G" />
+    </xs:sequence>
+    <xs:attribute name="produkt" type="xoev-lc:String.Latin" use="required">
+      <xs:annotation>
+        <xs:documentation>In diesem Attribut ist der Name des Produktes (der Software) einzutragen, mit dem diese Nachricht erstellt worden ist.</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="produkthersteller" type="xoev-lc:String.Latin" use="required">
+      <xs:annotation>
+        <xs:documentation>In diesem Attribut ist der Name der Firma oder der Organisation einzutragen, die für das DV-Verfahren verantwortlich ist, mit dem diese Nachricht erstellt worden ist.</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="produktversion" type="xoev-lc:String.Latin" use="optional">
+      <xs:annotation>
+        <xs:documentation>In diesem Attribut sollen ergänzende Hinweise zu dem Produkt, mit dem diese Nachricht erstellt worden ist, eingetragen werden. Dies sind Angaben, die für eine möglichst präzise Identifikation im Fehlerfall hilfreich sind, wie zum Beispiel Version und Patchlevel.</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="standard" type="xoev-lc:String.Latin" use="required">
+      <xs:annotation>
+        <xs:documentation>In diesem Attribut wird der Name des xinneres-basismoduls bzw. des xinneres-fachmoduls übermittelt, aus dem die Nachricht stammt. Der Name des xinneres-basismoduls bzw. des xinneres-fachmoduls wird durch das xinneres-basismodul bzw. das xinneres-fachmodul als fixed-Value auf Schemaebene festgelegt (z. B. XPersonenstand).</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="test" type="xoev-lc:String.Latin" use="optional">
+      <xs:annotation>
+        <xs:documentation>Dieses Attribut ist optional. Ist es vorhanden, so sagt dies aus, dass es sich um eine Nachricht handelt, die (aus Sicht des Autors der Nachricht) nicht im normalen Produktivbetrieb behandelt werden soll. Über den Inhalt des Attributes wird nichts weiter ausgesagt, dies kann bilateral zwischen den Kommunikationspartnern vereinbart werden.</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="version" type="xoev-lc:String.Latin" use="required">
+      <xs:annotation>
+        <xs:documentation>In diesem Attribut wird die Version des xinneres-basismoduls bzw. xinneres-fachmoduls übermittelt, aus dem die Nachricht stammt. Die Versionsbezeichnung wird durch das xinneres-basismodul bzw. xinneres-fachmodul als fixed-Value auf Schemaebene festgelegt (z. B. 1.5.0).</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+  </xs:complexType>
+  <xs:complexType name="Nachrichtenkopf.G2G" abstract="true">
+    <xs:annotation>
+      <xs:documentation>Nachrichtenkopf für Nachrichten zwischen Behörden und anderen (öffentlichen) Stellen.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="identifikation.nachricht" type="xink:Identifikation.Nachricht" />
+      <xs:element name="leser" type="xibehoerde:Behoerde">
+        <xs:annotation>
+          <xs:documentation>Hier werden Angaben über den Leser der Nachricht übermittelt. Der Leser ist die Behörde oder andere (öffentliche) Stelle, der die Nachricht zugestellt werden soll.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="autor" type="xibehoerde:Behoerde.Erreichbar">
+        <xs:annotation>
+          <xs:documentation>Hier werden Angaben über den Autor der Nachricht übermittelt, die es dem Leser ermöglichen mit dem Autor in Verbindung zu treten. Der Autor ist die Behörde oder andere (öffentliche) Stelle, die aufgrund eines Geschäftsvorfalls die Nachricht erstellt, also bspw. eine Meldebehörde oder ein Standesamt.
+Für die sendende Behörde wird in der behoerdenkennung immer die Kennung der für den Betroffenen zuständigen Gemeinde bzw. Ausländerbehörde oder die Kennung des für den Personenstandsfall zuständigen Standesamtes übermittelt. Sofern die sendende Behörde für einen Gemeindeverbund oder im Auftrag einer anderen Behörde handelt, ist in diesen Fällen deshalb die Angabe der zuständigen Stelle (Gemeinde oder Behörde) verpflichtend. Daraus ergibt sich auch die Konsequenz, dass Sammelnachrichten nur für die einzelnen Gemeinden bzw. Behörden zulässig sind.
+Sofern es keine dem obigen Sinn nach zuständige Gemeinde oder Behörde gibt (bspw. bei der Beantragung eine Führungszeugnisses in einer nicht für den Wohnort des Beantragenden zuständigen Meldebehörde), ist in dem Kindelement behoerdenkennung eine beliebige Kennung zu übermitteln, mit der der Autor im DVDV adressiert werden kann.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="UUID">
+    <xs:annotation>
+      <xs:documentation>Dies ist der Typ für die Übemittlung eines Universally Unique Identifiers (UUID) gemäß RFC 4122. In dem Typ sind die formalen Vorgaben zum Aufbau eines UUID über ein Pattern auf Schemaeben berücksichtigt. Die Verwendung des Prafix urn:uuid: ist nicht zuläassig.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:normalizedString">
+      <xs:pattern value="[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}" />
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>
+

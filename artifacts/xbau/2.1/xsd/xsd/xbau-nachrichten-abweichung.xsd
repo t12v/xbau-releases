@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xbau="http://www.xleitstelle.de/xbau/schema/2/1/" targetNamespace="http://www.xleitstelle.de/xbau/schema/2/1/" version="2.1" elementFormDefault="qualified" attributeFormDefault="unqualified">
+  <xs:annotation>
+    <xs:appinfo>
+      <standard>
+        <nameLang>XBau - Standard für die Datenkommunikation der Bauaufsichtsbehörde</nameLang>
+        <nameKurz>XBau</nameKurz>
+        <nameTechnisch>xbau</nameTechnisch>
+        <kennung>urn:xoev-de:bmk:standard:xbau</kennung>
+        <beschreibung>XBau ist der XÖV-Standard für den Datenaustausch der Bauaufsichtsbehörden mit ihren Kommunikationspartnern (Bauherren, Architektenbüros, Behörden zahlreicher Rechtsbereiche).</beschreibung>
+      </standard>
+      <versionStandard>
+        <version>2.1</version>
+        <beschreibung>In vielen Teilen überarbeitete und erweiterte produktionsreife Fassung des Standards XBau. Auf der Basis des Baurechts des Bundes und der Länder und eng am Bedarf der Praxis der Behörden entwickelt. Erweiterungen und Verbesserungen befinden sich in der Planung auch für die Zukunft.</beschreibung>
+        <versionXOEVHandbuch>2.1.0</versionXOEVHandbuch>
+        <versionXGenerator>2.6.1</versionXGenerator>
+        <versionModellierungswerkzeug>18.0</versionModellierungswerkzeug>
+        <nameModellierungswerkzeug>MagicDraw</nameModellierungswerkzeug>
+      </versionStandard>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:include schemaLocation="xbau-baukasten.xsd" />
+  <xs:element name="abweichung.antrag.0220">
+    <xs:annotation>
+      <xs:appinfo>
+        <title>Beantragung einer Abweichung</title>
+      </xs:appinfo>
+      <xs:documentation>Durch das Senden dieser Nachricht an die Bauaufsichtsbehörde beantragt der Absender die Genehmigung einer oder mehrerer Abweichungen.
+Die Nachricht enthält zu jeder beantragten Abweichung die Vorschrift, von der in der Planung abgewichen werden soll und die Gesetzesgrundlage, nach der von dieser Vorschrift abgewichen werden kann. Außerdem sind enthalten die Begründung für die beantragte Abweichung und die Unterlagen, die benötigt werden, um das Anliegen zu bewerten.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:complexContent>
+        <xs:extension base="xbau:Nachricht.privat2G">
+          <xs:sequence>
+            <xs:element name="referenzAntragsteller" type="xbau:ReferenzAntragsteller">
+              <xs:annotation>
+                <xs:documentation>In dieses Element sind Daten einzutragen, durch die sich der Antrag für spätere Referenzierung in Reaktionsnachrichten der Bauaufsichtsbehörde identifiziert.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="beantragteAbweichung" maxOccurs="unbounded" type="xbau:AbweichungBeantragt">
+              <xs:annotation>
+                <xs:documentation>Hier sind die Daten zum Abweichungsantrag enthalten. Jedes Element betrifft eine beantragte Abweichung. Die betreffenden Aspekte der Abweichung werden dargestellt und das Ersuchen um Zulassung formuliert.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="bauvorhaben" type="xbau:Bauvorhaben">
+              <xs:annotation>
+                <xs:documentation>Hier sind die Daten zum  Bauvorhaben (Wer, Was, Wo) enthalten.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="anlagen" type="xbau:Anlagen">
+              <xs:annotation>
+                <xs:documentation>Hier sind die Anlagen zum Abweichungsantrag  bzw. Verweise auf diese Anlagen enthalten.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+          </xs:sequence>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="abweichung.formellePruefung.0221">
+    <xs:annotation>
+      <xs:appinfo>
+        <title>Ergebnis der formellen Prüfung</title>
+      </xs:appinfo>
+      <xs:documentation>Enthalten sind hier die Ergebnisse der formellen Prüfung (Befunde) sowie eine Frist, innerhalb derer der Antragsteller den Abweichungsantrag bzw. die angelegten Bauunterlagen anzupassen hat.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:complexContent>
+        <xs:extension base="xbau:Nachricht.G2privat">
+          <xs:sequence>
+            <xs:element name="bezug" type="xbau:Bezug">
+              <xs:annotation>
+                <xs:documentation>Unterhalb dieses Elements werden Eintragungen vorgenommen, um auf den Vorgang (oder den Antrag) bzw. die Nachricht 0220 Bezug zu nehmen, durch deren Eingang bei der Bauaufsichtsbehörde der Vorgang ausgelöst worden ist.
+Damit wird gleichzeitig dem Antragsteller die entsprechende Vorgangsnummer für künftige Referenzierung mitgeteilt.  Dadurch ist der Bezug zum Antrag hergestellt, zu dessen formeller Prüfung die vorliegende Nachricht Ergebnisse enthält.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="befundliste" type="xbau:BefundlisteAntragFormell">
+              <xs:annotation>
+                <xs:documentation>Hier sind die Ergebnisse der formellen Prüfung enthalten.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="frist" type="xs:date">
+              <xs:annotation>
+                <xs:documentation>Dies ist die durch die Behörde gesetzte Frist, innerhalb derer die genannten Mängel durch den Antragsteller zu beseitigen sind und ein überarbeiteter Antrag einzureichen ist.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+          </xs:sequence>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="abweichung.antragGeaendert.0222">
+    <xs:annotation>
+      <xs:appinfo>
+        <title>Änderungen zum Antrag</title>
+      </xs:appinfo>
+      <xs:documentation>Diese Nachricht enthält geänderte oder ergänzte Daten des Abweichungsantrags bzw. geänderte oder ergänzte Bauvorlagen. Sie bezieht sich also auf einen bereits gestellten Abweichungsantrag.
+Entweder  ist sie eine Reaktion auf eine zum Bauantrag vorliegende Mängelliste der Bauaufsichtsbehörde, oder der Antragsteller reicht aus anderen Gründen eine modifizierte Planung im laufenden Verfahren nach.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:complexContent>
+        <xs:extension base="xbau:Nachricht.privat2G">
+          <xs:sequence>
+            <xs:element name="bezug" type="xbau:Bezug">
+              <xs:annotation>
+                <xs:documentation>Unterhalb dieses Elements werden Eintragungen vorgenommen, um auf den Vorgang und ggf. auf die Nachricht 0221, die im Rahmen dieses Vorgangs gesendet worden ist, Bezug zu nehmen. 
+Falls die vorliegende Nachrichteninstanz eine geänderte Planung initiativ einreicht, ist der Bezug auf eine solche Nachricht nicht enthalten.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="beantragteAbweichung" maxOccurs="unbounded" type="xbau:AbweichungBeantragt">
+              <xs:annotation>
+                <xs:documentation>Hier sind ggf. geänderte oder ergänzte Daten zu den beantragten Abweichungen enthalten.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="bauvorhabenAenderungsdaten" minOccurs="0" type="xbau:Bauvorhaben">
+              <xs:annotation>
+                <xs:documentation>Ggf. sind in diesem Element korrigierte oder ergänzte Daten zum Bauvorhaben (Wer, Was, Wo)  zu übermitteln. Daten, die an dieser Stelle eingetragen sind, sollen die aufgeführten Mängel im Antragsumfang beheben.
+Geänderte oder ergänzte Daten werden als Brutto-Datensatz geschickt.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="anlagen" minOccurs="0" type="xbau:Anlagen">
+              <xs:annotation>
+                <xs:documentation>Hier sind ggf. überarbeitete oder nachgereichte Anlagen bzw. Verweise auf überarbeitete oder nachgereichte Anlagen enthalten.
+Nachgereichte Anlagen: Aus der Beschreibung bzw. Bezeichnung der Anlage muss (wie immer) der Charakter der nachgereichten Unterlage hervorgehen. Ein gesonderter Bezug auf den Befund der Befundliste (z.B. Befund-Nr.), der zur Übermittlung dieser Unterlage führte, ist nicht erforderlich.
+Geänderte Anlagen: In diesem Fall wird eine neue Version (jüngeres Erstellungsdatum) einer bereits vorher gelieferten Bauvorlage übermittelt. 
+Falls die Nachrichteninstanz eine modifizierte Planung aus Gründen des Antragstellers im laufenden Verfahren einbringt, muss unter den Anlagen (je nach Landesbauordnung) ggf. eine Übereinstimmungserklärung enthalten sein. Außerdem muss unter den Anlagen eine Begründung bzw. Erläuterung zur eingereichten geänderten Planung enthalten sein.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+          </xs:sequence>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="abweichung.anhoerung.0223">
+    <xs:annotation>
+      <xs:appinfo>
+        <title>Hinweis auf Gelegenheit zur Anhörung</title>
+      </xs:appinfo>
+      <xs:documentation>In dieser  Nachricht sind die Befunde enthalten, die das Ergebnis der materiellen Prüfung waren. Diese werden hier aufgelistet bzw. erläutert mit dem Hinweis, dass Gelegenheit zu Stellungnahme bzw. Nachbesserung  besteht.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:complexContent>
+        <xs:extension base="xbau:Nachricht.G2privat">
+          <xs:sequence>
+            <xs:element name="bezug" type="xbau:Bezug">
+              <xs:annotation>
+                <xs:documentation>Unterhalb dieses Elements werden Eintragungen vorgenommen, um auf den laufenden Vorgang zum Bauantrag Bezug zu nehmen; außerdem ggf. auf die Nachricht 0220, die den Vorgang ausgelöst hat.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="aufforderungZurStellungnahme" type="xbau:TextFormatiert">
+              <xs:annotation>
+                <xs:documentation>Aufforderung zu Stellungnahme bzw. Kommentar.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="befundliste" type="xbau:BefundlisteMateriell">
+              <xs:annotation>
+                <xs:documentation>Diese Befundliste enthält die Punkte (belastendene Verwaltungsakte) der laufenden Prüfung des Abweichungsantrags, zu denen die Nachricht zu einer Stellungnahme auffordert.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="frist" type="xs:date">
+              <xs:annotation>
+                <xs:documentation>Dies ist die durch die Behörde gesetzte Frist, innerhalb derer eine Stellungnahme des Antragstellers vorliegen muss, damit sie berücksichtigt werden kann.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+          </xs:sequence>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="abweichung.stellungnahme.0224">
+    <xs:annotation>
+      <xs:appinfo>
+        <title>Stellungnahme oder Nachbesserung</title>
+      </xs:appinfo>
+      <xs:documentation>Diese Nachricht enthält Stellungnahmen des Bauherrn zu den Eigenschaften des Abweichungsantrags, die von der Bauaufsichtsbehörde beanstandet wurden. Sie enthält ggf. außerdem den nachgebesserten Antrag bzw. nachgebesserte Bauvorlagen.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:complexContent>
+        <xs:extension base="xbau:Nachricht.privat2G">
+          <xs:sequence>
+            <xs:element name="bezug" type="xbau:Bezug">
+              <xs:annotation>
+                <xs:documentation>Unterhalb dieses Elements werden Eintragungen vorgenommen, um auf den laufenden Vorgang zum Antrag Bezug zu nehmen und außerdem auf die Nachricht 0223, auf deren Inhalt sich die vorliegende Nachricht bezieht.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="stellungnahme" maxOccurs="unbounded" type="xbau:StellungnahmeBelastenderVerwaltungsakt">
+              <xs:annotation>
+                <xs:documentation>Hier ist die Reaktion auf die in der Anhörungsnachricht enthaltenen Punkte einzutragen. Dies kann eine Verteidigung der ursprünglichen Konzeption sein, dies kann aber auch eine geänderte Antragsunterlage sein, welche in diesem Fall im Abschnitt Anpassungen dokumentiert ist.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="bauvorhabenAenderungsdaten" minOccurs="0" type="xbau:Bauvorhaben">
+              <xs:annotation>
+                <xs:documentation>Ggf. sind hier geänderte oder ergänzte Daten zum Bauvorhaben enthalten, passend zur weiter oben gegebenen Stellungnahme bzw. Erläuterung der Anpassung.
+Geänderte oder ergänzte Daten werden als Brutto-Datensatz geschickt. Es werden mit diesem Element also die bereinigten und ggf. ergänzten Daten vollständig gesendet, so dass der Empfänger einen 'Datensatz nach Änderung' erhält.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="anlagen" minOccurs="0" type="xbau:Anlagen">
+              <xs:annotation>
+                <xs:documentation>Hier sind ggf. überarbeitete oder nachgereichte Anlagen bzw. Verweise auf überarbeitete oder nachgereichte Anlagen enthalten, passend zur weiter oben gegebenen Stellungnahme bzw. Erläuterung der Anpassung.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+          </xs:sequence>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="abweichung.bescheid.0225">
+    <xs:annotation>
+      <xs:appinfo>
+        <title>Bescheid</title>
+      </xs:appinfo>
+      <xs:documentation>In dieser Nachricht sind die Inhalte des erteilten Bescheids enthalten. Das Senden dieser Nachricht stellt das Erteilen des Abweichungsbescheids dar.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:complexContent>
+        <xs:extension base="xbau:Nachricht.G2privat">
+          <xs:sequence>
+            <xs:element name="bezug" type="xbau:Bezug">
+              <xs:annotation>
+                <xs:documentation>Dieses Objekt enthält die Eintragungen, die auf den Vorgang (oder den Antrag) bzw. die Nachricht 0220 mit dem Antrag Bezug nehmen, zu dem die vorliegende Nachricht den Bescheid enthält.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="bescheid" type="xbau:Bescheid">
+              <xs:annotation>
+                <xs:documentation>In diesem Objekt sind die verschiedenen Komponenten des Bescheides enthalten.
+Ein Bescheid mit positivem Tenor  geht mit zugelassenen Abweichungen (Element abweichung) einher. Nicht zugelassene Abweichungen können nur in einem Bescheid mit negativem Tenor enthalten sein.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="anlagen" type="xbau:Anlagen">
+              <xs:annotation>
+                <xs:documentation>Hier sind die Anlagen zum Bescheid  bzw. Verweise auf diese Anlagen enthalten. Es handelt sich ggf. um Bauvorlagen, die von der Bauaufsichtsbehörde fortgeschrieben wurden.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+          </xs:sequence>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="abweichung.gebuehrenbescheid.0226">
+    <xs:annotation>
+      <xs:appinfo>
+        <title>Gebührenbescheid</title>
+      </xs:appinfo>
+      <xs:documentation>In dieser Nachricht sind die Angaben zu den für die Durchführung des Abweichungsverfahrens zu entrichtenden Gebühren enthalten.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:complexContent>
+        <xs:extension base="xbau:Nachricht.G2privat">
+          <xs:sequence>
+            <xs:element name="bezug" type="xbau:Bezug">
+              <xs:annotation>
+                <xs:documentation>Dieses Objekt enthält die Eintragungen, die auf den Vorgang bzw. die Nachricht 0220 mit dem Antrag Bezug nehmen, zu dem die vorliegende Nachricht den Bescheid enthält.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="gebuehrenbescheid" type="xbau:Gebuehrenbescheid">
+              <xs:annotation>
+                <xs:documentation>Unterhalb dieses Element finden sich die Angaben zur Gebührenberechnung und -begründung, sowie die Zahlungsdaten und weitere Informationen.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="frist" type="xs:date">
+              <xs:annotation>
+                <xs:documentation>Dies ist die durch die Behörde gesetzte Zahlungsfrist.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+          </xs:sequence>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
+

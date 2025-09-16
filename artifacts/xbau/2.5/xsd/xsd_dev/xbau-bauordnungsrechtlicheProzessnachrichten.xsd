@@ -1,0 +1,302 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:xbau="http://www.xleitstelle.de/xbau/2/5"
+           xmlns:bn-g2g="http://xoev.de/schemata/basisnachricht/g2g/1_1"
+           xmlns:din91379="urn:xoev-de:kosit:xoev:datentyp:din-91379_2022-08"
+           xmlns:xbauk="http://www.xleitstelle.de/xbau/kernmodul/1/2/2"
+           xmlns:xoev-lc="http://xoev.de/latinchars/1_1/datatypes"
+           targetNamespace="http://www.xleitstelle.de/xbau/2/5"
+           version="2.5"
+           elementFormDefault="qualified"
+           attributeFormDefault="unqualified">
+   <xs:annotation>
+      <xs:appinfo>
+         <standard>
+            <nameLang>XBau - Standard für die Datenkommunikation der Bauaufsichtsbehörde</nameLang>
+            <nameKurz>XBau</nameKurz>
+            <nameTechnisch>xbau</nameTechnisch>
+            <kennung>urn:xoev-de:bmk:standard:xbau</kennung>
+            <beschreibung>XBau ist der XÖV-Standard für den Datenaustausch der Bauaufsichtsbehörden mit ihren Kommunikationspartnern (Bauherren, Architektenbüros, Behörden zahlreicher Rechtsbereiche). </beschreibung>
+         </standard>
+         <versionStandard>
+            <version>2.5</version>
+            <beschreibung>Die Datenübermittlung an die Statistischen Landesämter gemäß novelliertem Hochbaustatistikgesetz (HBauStatG) wurde in der vorliegenden XBau-Version in einem eigenen Kapitel ausgearbeitet und differenziert. Der Nachrichtenaustausch mit dem Portal ELBA des Bundesverbands der Prüfingenieure wurde überarbeitet und um den Prozess der Bauüberwachung erweitert. Neu aufgenommen wurde auch die Beteiligung von Angrenzern bei der Prüfung eines Bauvorhabens, sowie die Datenübermittlung an den Unfallversicherungsträger. Die Umsetzung des Gebäudeenergiegesetzes wurde der neuen rechtlichen Lage angepasst. Details zu weiteren Änderungen und Erweiterungen sind wie immer in der Versionshistorie beschrieben.</beschreibung>
+            <versionXOEVProfil>3.0.0</versionXOEVProfil>
+            <versionXOEVHandbuch>3.0.1</versionXOEVHandbuch>
+            <versionXGenerator>3.1.1</versionXGenerator>
+            <versionModellierungswerkzeug>19.0</versionModellierungswerkzeug>
+            <nameModellierungswerkzeug>MagicDraw</nameModellierungswerkzeug>
+         </versionStandard>
+      </xs:appinfo>
+   </xs:annotation>
+   <xs:include schemaLocation="xbau-baukasten.xsd"/>
+   <xs:include schemaLocation="xbau-codes.xsd"/>
+   <xs:import schemaLocation="din-norm-91379-datatypes.xsd"
+              namespace="urn:xoev-de:kosit:xoev:datentyp:din-91379_2022-08"/>
+   <xs:import schemaLocation="latinchars.xsd"
+              namespace="http://xoev.de/latinchars/1_1/datatypes"/>
+   <xs:import schemaLocation="xbau-kernmodul-datentypen.xsd"
+              namespace="http://www.xleitstelle.de/xbau/kernmodul/1/2/2"/>
+   <xs:import schemaLocation="xoev-basisnachricht-g2g_1.1.xsd"
+              namespace="http://xoev.de/schemata/basisnachricht/g2g/1_1"/>
+   <xs:element name="prozessnachrichten.aenderungProjektraumdaten.0100">
+      <xs:annotation>
+         <xs:appinfo>
+            <title>Änderung von Daten zum Bauvorhaben im Projektraum</title>
+         </xs:appinfo>
+         <xs:documentation>Mittels dieser Nachricht kann die Bauaufsichtsbehörde bestimmte geänderte Daten zum Bauvorhaben im Projektraum aktualisieren.</xs:documentation>
+      </xs:annotation>
+      <xs:complexType>
+         <xs:complexContent>
+            <xs:extension base="xbau:Nachricht.G2G">
+               <xs:sequence>
+                  <xs:element name="bezug" minOccurs="0" type="xbauk:BezugErweitert">
+                     <xs:annotation>
+                        <xs:documentation>In diesem Element wird die Nachricht eingetragen, durch deren Eingang bei der Bauaufsichtsbehörde der Vorgang ausgelöst worden ist.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+                  <xs:element name="geaenderteDaten">
+                     <xs:annotation>
+                        <xs:documentation>Eine Instanz dieses Elements umfasst die geänderten Daten zum Bauvorhaben.</xs:documentation>
+                     </xs:annotation>
+                     <xs:complexType>
+                        <xs:sequence>
+                           <xs:element name="verfahrenskennzeichen" minOccurs="0">
+                              <xs:annotation>
+                                 <xs:documentation>In diesem Element werden geänderte Verfahrenskennzeichen übermittelt.</xs:documentation>
+                              </xs:annotation>
+                              <xs:complexType>
+                                 <xs:sequence>
+                                    <xs:element name="verfahrensart" minOccurs="0" type="xbau:Code.Verfahrensart">
+                                       <xs:annotation>
+                                          <xs:documentation>In diesem Element wird die geänderte baurechtliche Verfahrensart übermittelt.</xs:documentation>
+                                       </xs:annotation>
+                                    </xs:element>
+                                    <xs:element name="artDerMassnahme"
+                                                minOccurs="0"
+                                                type="xbau:Code.BaumassnahmeArt">
+                                       <xs:annotation>
+                                          <xs:documentation>In diesem Element wird die geänderte Art der Maßnahme übermittelt.</xs:documentation>
+                                       </xs:annotation>
+                                    </xs:element>
+                                 </xs:sequence>
+                              </xs:complexType>
+                           </xs:element>
+                           <xs:element name="bezeichnungDesBauvorhabens"
+                                       minOccurs="0"
+                                       type="din91379:datatypeC">
+                              <xs:annotation>
+                                 <xs:documentation>In diesem Element wird die geänderte Bezeichnung des Bauvorhabens übermittelt.</xs:documentation>
+                              </xs:annotation>
+                           </xs:element>
+                           <xs:element name="antragstellerdaten"
+                                       minOccurs="0"
+                                       maxOccurs="unbounded"
+                                       type="xbauk:Akteur">
+                              <xs:annotation>
+                                 <xs:documentation>In diesem Element werden geänderte Daten zum Antragsteller übermittelt.</xs:documentation>
+                              </xs:annotation>
+                           </xs:element>
+                           <xs:element name="beteiligteGeaendert"
+                                       minOccurs="0"
+                                       type="xbau:BeteiligteBauprojekt">
+                              <xs:annotation>
+                                 <xs:documentation>Mit diesem Element werden ggf. geänderte Daten zu Beteiligten am Verfahren übermittelt.</xs:documentation>
+                              </xs:annotation>
+                           </xs:element>
+                           <xs:element name="datenBaugrundstueck" minOccurs="0" type="xbau:Baugrundstueck">
+                              <xs:annotation>
+                                 <xs:documentation>In diesem Element werden geänderte Daten zum Baugrundstück übermittelt.</xs:documentation>
+                              </xs:annotation>
+                           </xs:element>
+                        </xs:sequence>
+                     </xs:complexType>
+                  </xs:element>
+               </xs:sequence>
+            </xs:extension>
+         </xs:complexContent>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="prozessnachrichten.aktenraum.anlegen.0150">
+      <xs:annotation>
+         <xs:appinfo>
+            <title>Anforderung Aktenraum</title>
+         </xs:appinfo>
+         <xs:documentation>Mit dieser Nachricht fordert die Bauaufsichtsbehörde die bereitstellende Komponente auf, einen Aktenraum anzulegen, diesen mit den erforderlichen Informationen aus der Datenbasis zu befüllen und der Bauaufsichtsbehörde die Identität des Aktenraums mitzuteilen.</xs:documentation>
+      </xs:annotation>
+      <xs:complexType>
+         <xs:complexContent>
+            <xs:extension base="xbau:Nachricht.G2G">
+               <xs:sequence>
+                  <xs:element name="bezug" type="xbauk:BezugErweitert">
+                     <xs:annotation>
+                        <xs:documentation>Unterhalb dieses Elements werden Eintragungen vorgenommen, um auf einen Vorgang Bezug zu nehmen.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+                  <xs:element name="aktenzeichen" minOccurs="0" type="xs:token">
+                     <xs:annotation>
+                        <xs:documentation>In dieses Element kann ein zusätzliches Aktenzeichen eingetragen werden, soweit die Vorgangsbezeichnung im Objekt bezug nicht ausreicht.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+                  <xs:element name="bezeichnungDesBauvorhabens"
+                              minOccurs="0"
+                              type="din91379:datatypeC">
+                     <xs:annotation>
+                        <xs:documentation>Dieses Element enthält die Bezeichnung des Bauvorhabens, unter dem es in der Bauaufsichtsbehörde geführt wurde bzw. wird.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+                  <xs:element name="referenzBGV" type="bn-g2g:UUID">
+                     <xs:annotation>
+                        <xs:documentation>In dieses Element ist die eindeutige Referenz im IT-Fachverfahren der Bauaufsichtsbehörde (BGV) einzutragen.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+                  <xs:element name="gegenstandDesAntrags">
+                     <xs:annotation>
+                        <xs:documentation>Hier ist anzugeben, welche Dokumente eingesehen werden sollen.</xs:documentation>
+                     </xs:annotation>
+                     <xs:complexType>
+                        <xs:sequence>
+                           <xs:element name="baugenehmigung"
+                                       minOccurs="0"
+                                       fixed="true"
+                                       type="xs:boolean">
+                              <xs:annotation>
+                                 <xs:documentation>Durch die Übermittlung dieses Elementes wird mitgeteilt, dass der Bescheid zur Baugenehmigung nebst dazugehöriger Planungsdokumente eingesehen werden soll.</xs:documentation>
+                              </xs:annotation>
+                           </xs:element>
+                           <xs:element name="bautechnischeNachweise"
+                                       minOccurs="0"
+                                       fixed="true"
+                                       type="xs:boolean">
+                              <xs:annotation>
+                                 <xs:documentation>Durch die Übermittlung dieses Elementes wird mitgeteilt, dass bautechnische Nachweise eingesehen werden sollen.</xs:documentation>
+                              </xs:annotation>
+                           </xs:element>
+                           <xs:element name="sonstiges" minOccurs="0" type="din91379:datatypeC">
+                              <xs:annotation>
+                                 <xs:documentation>Hier ist anzugeben, welche sonstigen Dokumente eingesehen werden sollen.</xs:documentation>
+                              </xs:annotation>
+                           </xs:element>
+                        </xs:sequence>
+                     </xs:complexType>
+                  </xs:element>
+                  <xs:element name="grundstueck" minOccurs="0" type="xbau:Grundstueck">
+                     <xs:annotation>
+                        <xs:documentation>Mit diesem Element werden die Daten zu dem Grundstück des Bauvorhabens übermittelt.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+                  <xs:element name="gueltigkeit" type="xs:date">
+                     <xs:annotation>
+                        <xs:documentation>Hier ist das Datum anzugeben, bis zu dem der Aktenraum zur Einsichtsichtnahme zur Verfügung stehen soll.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+                  <xs:element name="mitStellungnahme"
+                              minOccurs="0"
+                              fixed="true"
+                              type="xs:boolean">
+                     <xs:annotation>
+                        <xs:documentation>Durch die Übermittlung dieses Elementes wird mitgeteilt, dass in der Antwortnachricht die Möglichkeit zur Stellungnahme gegeben werden soll.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+                  <xs:element name="anlagen" minOccurs="0" type="xbau:Anlagen">
+                     <xs:annotation>
+                        <xs:documentation>Hier sind die Anlagen zum Auftrag enthalten. Jede Instanz des Elements steht für ein angehängtes Dokument.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+               </xs:sequence>
+            </xs:extension>
+         </xs:complexContent>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="prozessnachrichten.aktenraum.angelegt.0151">
+      <xs:annotation>
+         <xs:appinfo>
+            <title>Übermittlung der Informationen zum Aktenraum</title>
+         </xs:appinfo>
+         <xs:documentation>Mit dieser Nachricht versendet die bereitstellende Komponente die Bestätigung, dass ein Aktenraum angelegt und mit den erforderlichen Informationen gefüllt wurde, an die Bauaufsichtsbehörde.</xs:documentation>
+      </xs:annotation>
+      <xs:complexType>
+         <xs:complexContent>
+            <xs:extension base="xbau:Nachricht.G2G">
+               <xs:sequence>
+                  <xs:element name="bezug" type="xbauk:BezugErweitert">
+                     <xs:annotation>
+                        <xs:documentation>Unterhalb dieses Elements werden Eintragungen vorgenommen, um auf den Vorgang bzw. die Nachrichteninstanz Bezug zu nehmen, durch deren Eingang bei der bereitstellenden Komponente das Anlegen des Aktenraums ausgelöst worden ist.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+                  <xs:element name="aktenraum" minOccurs="0" type="din91379:datatypeC">
+                     <xs:annotation>
+                        <xs:documentation>Dieses Element enthält Informationen zur Identität des angelegten Aktenraums bzw. die entsprechenden Zugangsdaten.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+                  <xs:element name="zugangslink" minOccurs="0">
+                     <xs:annotation>
+                        <xs:documentation>In diesem Element kann der Zugang zum Aktenraum per Verlinkung zum Ablageort der Dokumente eingetragen werden.</xs:documentation>
+                     </xs:annotation>
+                     <xs:complexType>
+                        <xs:sequence>
+                           <xs:element name="link" maxOccurs="unbounded">
+                              <xs:annotation>
+                                 <xs:documentation>Jedes instanziierte Element steht für einen Link auf eine Webseite oder Ressource.</xs:documentation>
+                              </xs:annotation>
+                              <xs:complexType>
+                                 <xs:sequence>
+                                    <xs:element name="url" type="xs:anyURI">
+                                       <xs:annotation>
+                                          <xs:documentation>Hier ist die URL einer Webseite oder Ressource anzugeben.</xs:documentation>
+                                       </xs:annotation>
+                                    </xs:element>
+                                    <xs:element name="beschreibung" minOccurs="0" type="din91379:datatypeC">
+                                       <xs:annotation>
+                                          <xs:documentation>Hier kann die zur URL passende Beschreibung der Webseite oder Ressource eingetragen werden.</xs:documentation>
+                                       </xs:annotation>
+                                    </xs:element>
+                                 </xs:sequence>
+                              </xs:complexType>
+                           </xs:element>
+                        </xs:sequence>
+                     </xs:complexType>
+                  </xs:element>
+                  <xs:element name="mitStellungnahme"
+                              minOccurs="0"
+                              fixed="true"
+                              type="xs:boolean">
+                     <xs:annotation>
+                        <xs:documentation>Durch die Übermittlung dieses Elementes wird mitgeteilt, dass in der Antwortnachricht die Möglichkeit zur Stellungnahme verschaffen worden ist.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+               </xs:sequence>
+            </xs:extension>
+         </xs:complexContent>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="prozessnachrichten.aktenraum.zugriffVerweigern.0152">
+      <xs:annotation>
+         <xs:appinfo>
+            <title>Zugriff auf Aktenraum verweigern</title>
+         </xs:appinfo>
+         <xs:documentation>Mit dieser Nachricht initiiert die Bauaufsichtsbehörde den vorzeitigen Entzug von Zugriffsrechten auf den Aktenraum, z.B. bei Missbrauchsverdacht. Der Aktenraum soll damit vor dessen Gültigkeitsende unzugänglich gemacht werden.</xs:documentation>
+      </xs:annotation>
+      <xs:complexType>
+         <xs:complexContent>
+            <xs:extension base="xbau:Nachricht.G2G">
+               <xs:sequence>
+                  <xs:element name="bezug" type="xbauk:BezugErweitert">
+                     <xs:annotation>
+                        <xs:documentation>Unterhalb dieses Elements werden Eintragungen vorgenommen, um auf einen Vorgang bzw. die Nachricht Bezug zu nehmen, die das Anlegen des Aktenraums veranlasst hat.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+                  <xs:element name="zugriffVerweigern"
+                              minOccurs="0"
+                              fixed="true"
+                              type="xs:boolean">
+                     <xs:annotation>
+                        <xs:documentation>Durch die Übermittlung dieses Elementes wird mitgeteilt, dass der Zugangscode zu widerrufen ist und der Aktenraum unzugänglich gemacht werden soll.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+               </xs:sequence>
+            </xs:extension>
+         </xs:complexContent>
+      </xs:complexType>
+   </xs:element>
+</xs:schema>

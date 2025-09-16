@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="http://www.xleitstelle.de/xbau/2/5"
+           version="2.5"
+           elementFormDefault="qualified"
+           attributeFormDefault="unqualified">
+   <xs:include schemaLocation="xbau-baukasten.xsd"/>
+   <xs:include schemaLocation="xbau-bauordnungsrechtlicheProzessnachrichten.xsd"/>
+   <xs:include schemaLocation="xbau-codes.xsd"/>
+   <xs:include schemaLocation="xbau-nachrichten-abgeschlossenheitsbescheinigung.xsd"/>
+   <xs:include schemaLocation="xbau-nachrichten-abweichung.xsd"/>
+   <xs:include schemaLocation="xbau-nachrichten-akteneinsicht.xsd"/>
+   <xs:include schemaLocation="xbau-nachrichten-angrenzer.xsd"/>
+   <xs:include schemaLocation="xbau-nachrichten-anzeige.xsd"/>
+   <xs:include schemaLocation="xbau-nachrichten-bauberatung.xsd"/>
+   <xs:include schemaLocation="xbau-nachrichten-baugenehmigung.xsd"/>
+   <xs:include schemaLocation="xbau-nachrichten-baulasten.xsd"/>
+   <xs:include schemaLocation="xbau-nachrichten-baulastenverzeichnis.xsd"/>
+   <xs:include schemaLocation="xbau-nachrichten-bauzustand.xsd"/>
+   <xs:include schemaLocation="xbau-nachrichten-beteiligung.xsd"/>
+   <xs:include schemaLocation="xbau-nachrichten-genehmigungsfreistellung.xsd"/>
+   <xs:include schemaLocation="xbau-nachrichten-grundstuecksteilung.xsd"/>
+   <xs:include schemaLocation="xbau-nachrichten-informationsempfaenger.xsd"/>
+   <xs:include schemaLocation="xbau-nachrichten-kammernverzeichnis.xsd"/>
+   <xs:include schemaLocation="xbau-nachrichten-pruefingenieure.xsd"/>
+   <xs:include schemaLocation="xbau-nachrichten-statistik.xsd"/>
+   <xs:include schemaLocation="xbau-nachrichten-teilbaugenehmigung.xsd"/>
+   <xs:include schemaLocation="xbau-nachrichten-ueberwachungspflichtigeAnlagen.xsd"/>
+   <xs:include schemaLocation="xbau-nachrichten-verlaengerung.xsd"/>
+   <xs:include schemaLocation="xbau-nachrichten-vorbescheid.xsd"/>
+</xs:schema>

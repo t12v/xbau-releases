@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:xbau="http://www.xleitstelle.de/xbau/2/3"
+           xmlns:xbauk="http://www.xleitstelle.de/xbau/kernmodul/1/1"
+           xmlns:xoev-lc="http://xoev.de/latinchars/1_1/datatypes"
+           targetNamespace="http://www.xleitstelle.de/xbau/2/3"
+           version="2.3"
+           elementFormDefault="qualified"
+           attributeFormDefault="unqualified">
+   <xs:annotation>
+      <xs:appinfo>
+         <standard>
+            <nameLang>XBau - Standard für die Datenkommunikation der Bauaufsichtsbehörde</nameLang>
+            <nameKurz>XBau</nameKurz>
+            <nameTechnisch>xbau</nameTechnisch>
+            <kennung>urn:xoev-de:bmk:standard:xbau</kennung>
+            <beschreibung>XBau ist der XÖV-Standard für den Datenaustausch der Bauaufsichtsbehörden mit ihren Kommunikationspartnern (Bauherren, Architektenbüros, Behörden zahlreicher Rechtsbereiche). </beschreibung>
+         </standard>
+         <versionStandard>
+            <version>2.3</version>
+            <beschreibung>Erweiterte Fassung des Fachmoduls XBau-Hochbau: Die Verfahren der Bauberatung, der Akteneinsicht und der Beantragung einer Abgeschlossenheitsbescheinigung gemäß Wohnungseigentumsgesetz wurden aufgenommen. Eine Reihe von Datentypen für die OZG-Umsetzung bei der Antragstellung Hochbau wurden optimiert, ebenso wie die Datenübermittlung der Bauaufsichtsbehörden an die amtliche Statistik vervollständigt. Die Metadaten für die Übermittlung von Bauvorlagen bzw. sonstigen Anlagen wurden konsolidiert, so dass Bauvorlagen jetzt entweder als Anhang (Attachment) oder per Verlinkung bereitgestellt werden. Weitere Änderungen und Erweiterungen sind in der Versionshistorie des Spezifikationsdokuments beschrieben.</beschreibung>
+            <versionXOEVProfil>1.7.1</versionXOEVProfil>
+            <versionXOEVHandbuch>2.3</versionXOEVHandbuch>
+            <versionXGenerator>3.0.1</versionXGenerator>
+            <versionModellierungswerkzeug>19.0</versionModellierungswerkzeug>
+            <nameModellierungswerkzeug>MagicDraw</nameModellierungswerkzeug>
+         </versionStandard>
+      </xs:appinfo>
+   </xs:annotation>
+   <xs:include schemaLocation="xbau-baukasten.xsd"/>
+   <xs:import schemaLocation="http://xoev.de/latinchars/1_1/datatypes/latinchars.xsd"
+              namespace="http://xoev.de/latinchars/1_1/datatypes"/>
+   <xs:import schemaLocation="https://www.xleitstelle.de/xbau/schema/kernmodul/1/1/xbau-kernmodul-datentypen.xsd"
+              namespace="http://www.xleitstelle.de/xbau/kernmodul/1/1"/>
+   <xs:element name="bauberatung.anfrage.0110">
+      <xs:annotation>
+         <xs:appinfo>
+            <title>Bauberatung Anfrage</title>
+         </xs:appinfo>
+         <xs:documentation>Mit dieser Nachricht wird eine formlose Anfrage zur Bauberatung an die Bauaufsichtsbehörde übermittelt.</xs:documentation>
+      </xs:annotation>
+      <xs:complexType>
+         <xs:complexContent>
+            <xs:extension base="xbau:Nachricht.G2G">
+               <xs:sequence>
+                  <xs:element name="referenzAnfrageservice" type="xbauk:ReferenzAntragsservice">
+                     <xs:annotation>
+                        <xs:documentation>Eine vom Anfrageservice (bzw. OZG-Portal) vergebene eindeutige Kennung des Anfragevorgangs. Sofern die Bauaufsichtsbehörde auf die Anfrage reagiert, bezieht sie sich in ihren Reaktionsnachrichten auf diese Kennung.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+                  <xs:element name="anfragendePerson" type="xbauk:Akteur">
+                     <xs:annotation>
+                        <xs:documentation>Mit diesem Element werden die Daten der anfragenden Person übermittelt.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+                  <xs:element name="bezug" minOccurs="0" type="xbau:Bezug">
+                     <xs:annotation>
+                        <xs:documentation>Hier können Eintragungen vorgenommen werden, falls sich die Anfrage auf vorhandene Vorgänge bezieht.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+                  <xs:element name="anfrage" type="xbauk:TextFormatiert">
+                     <xs:annotation>
+                        <xs:documentation>In diesem Element wird der Inhalt der Anfrage übermittelt.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+                  <xs:element name="anlagen" minOccurs="0" type="xbau:Anlagen">
+                     <xs:annotation>
+                        <xs:documentation>Dieses Element kann für Bauvorlagen verwendet werden, die der Anfrage beigelegt werden sollen.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+               </xs:sequence>
+            </xs:extension>
+         </xs:complexContent>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="bauberatung.auskunft.0111">
+      <xs:annotation>
+         <xs:appinfo>
+            <title>Bauberatung Auskunft</title>
+         </xs:appinfo>
+         <xs:documentation>Diese Nachricht enthält die Auskunft der Bauaufsichtsbehörde zur Anfrage Bauberatung.</xs:documentation>
+      </xs:annotation>
+      <xs:complexType>
+         <xs:complexContent>
+            <xs:extension base="xbau:Nachrichtenkopf.G2G">
+               <xs:sequence>
+                  <xs:element name="bezug" type="xbau:Bezug">
+                     <xs:annotation>
+                        <xs:documentation>Hier ist ein Aktenzeichen einzutragen, falls die Bauaufsichtsbehörde dem Anfragevorgang ein solches zuordnen will. Jedenfalls ist hier die Referenz (UUID) auf die Anfrage zu übermitteln.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+                  <xs:element name="auskunft" type="xbauk:TextFormatiert">
+                     <xs:annotation>
+                        <xs:documentation>Mit diesem Element wird die Beratungsauskunft der Bauaufsichtsbehörde zu der formlosen Anfrage übermittelt.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+                  <xs:element name="anlagen" minOccurs="0" type="xbau:Anlagen">
+                     <xs:annotation>
+                        <xs:documentation>Dieses Element beinhaltet Anlagen zur Auskunft, falls solche übermittelt werden sollen.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+               </xs:sequence>
+            </xs:extension>
+         </xs:complexContent>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="bauberatung.gebuehrenbescheid.0112">
+      <xs:annotation>
+         <xs:appinfo>
+            <title>Bauberatung Gebührenbescheid</title>
+         </xs:appinfo>
+         <xs:documentation>Diese Nachricht bildet den Gebührenbescheid zur geleisteten Bauberatung ab.</xs:documentation>
+      </xs:annotation>
+      <xs:complexType>
+         <xs:complexContent>
+            <xs:extension base="xbau:Nachrichtenkopf.G2G">
+               <xs:sequence>
+                  <xs:element name="bezug" type="xbau:Bezug">
+                     <xs:annotation>
+                        <xs:documentation>Hier ist das Aktenzeichen einzutragen, das die Bauaufsichtsbehörde dem Vorgang zugeordnet hat.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+                  <xs:element name="gebuehrenbescheid" type="xbau:Gebuehrenbescheid">
+                     <xs:annotation>
+                        <xs:documentation>Dieses Element enthält den Gebührenbescheid.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+                  <xs:element name="frist" minOccurs="0" type="xbau:Anlagen">
+                     <xs:annotation>
+                        <xs:documentation>Hier kann die Behörde die Zahlungsfrist eintragen.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+               </xs:sequence>
+            </xs:extension>
+         </xs:complexContent>
+      </xs:complexType>
+   </xs:element>
+</xs:schema>

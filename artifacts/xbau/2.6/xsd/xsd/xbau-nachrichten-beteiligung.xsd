@@ -1,0 +1,360 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:xbau="http://www.xleitstelle.de/xbau/2/6"
+           xmlns:bn-g2g="http://xoev.de/schemata/basisnachricht/g2g/1_1"
+           xmlns:din91379="urn:xoev-de:kosit:xoev:datentyp:din-91379_2022-08"
+           xmlns:xbauk="http://www.xleitstelle.de/xbau/kernmodul/1/3/0"
+           targetNamespace="http://www.xleitstelle.de/xbau/2/6"
+           version="2.6"
+           elementFormDefault="qualified"
+           attributeFormDefault="unqualified">
+   <xs:annotation>
+      <xs:appinfo>
+         <standard>
+            <nameLang>XBau - Standard für die Datenkommunikation der Bauaufsichtsbehörde</nameLang>
+            <nameKurz>XBau</nameKurz>
+            <nameTechnisch>xbau</nameTechnisch>
+            <kennung>urn:xoev-de:bmk:standard:xbau</kennung>
+            <beschreibung>XBau ist der XÖV-Standard für den Datenaustausch der Bauaufsichtsbehörden mit ihren Kommunikationspartnern (Bauherren, Architektenbüros, Behörden zahlreicher Rechtsbereiche). </beschreibung>
+         </standard>
+         <versionStandard>
+            <version>2.6</version>
+            <beschreibung>Erweiterung von Prozess und Nachrichten zur Baulast: Es wurden Nachrichten zur Löschung und zur Eintragung von Baulasten erstellt. Erweiterung des Prozesses Anzeige Bauzustand: Erweiterung zu einem vollständigen und produktionsreifen Prozess auf Basis der 900er-Nachrichten. Vervollständigung der Prozessstringenz: Es wurden Nachrichten zur Benachrichtigung über den Abruf des Bescheids und die Zustellquittierung sowie Hinweise auf die Rücknahmefiktion ergänzt. Geschäftsregeln: Es wurden Geschäftsregeln im Schematronstandard für Datenübermittlungen zur Hochbaustatistik bereitgestellt. Weitere Details zu Erweiterungen und Änderungen sind in der Versionshistorie beschrieben.</beschreibung>
+            <versionXOEVProfil>3.0.0</versionXOEVProfil>
+            <versionXOEVHandbuch>3.0.1</versionXOEVHandbuch>
+            <versionXGenerator>3.1.1</versionXGenerator>
+            <versionModellierungswerkzeug>19.0</versionModellierungswerkzeug>
+            <nameModellierungswerkzeug>MagicDraw</nameModellierungswerkzeug>
+         </versionStandard>
+      </xs:appinfo>
+   </xs:annotation>
+   <xs:include schemaLocation="xbau-baukasten.xsd"/>
+   <xs:import schemaLocation="http://xoev.de/schemata/basisnachricht/g2g/1_1/xoev-basisnachricht-g2g_1.1.xsd"
+              namespace="http://xoev.de/schemata/basisnachricht/g2g/1_1"/>
+   <xs:import schemaLocation="https://xleitstelle.de/xbau/schema/kernmodul/1/3/0/xbau-kernmodul-datentypen.xsd"
+              namespace="http://www.xleitstelle.de/xbau/kernmodul/1/3/0"/>
+   <xs:import schemaLocation="https://xoev.de/schemata/din/91379/2022-08/din-norm-91379-datatypes.xsd"
+              namespace="urn:xoev-de:kosit:xoev:datentyp:din-91379_2022-08"/>
+   <xs:element name="beteiligung.aufforderung.0300">
+      <xs:annotation>
+         <xs:appinfo>
+            <rechtsgrundlage>§§ 69, 70 (1) MBO</rechtsgrundlage>
+            <title>Aufforderung zu Prüfung und Stellungnahme</title>
+         </xs:appinfo>
+         <xs:documentation>Diese Nachricht enthält die Aufforderung der Bauaufsichtsbehörde zur Stellungnahme unter Angabe von Grund bzw. Anlass der Beteiligung. In der Anlage sind alle Unterlagen aus dem Antragsverfahren enthalten, die die adressierte Stelle braucht, um der Aufforderung zur Beteiligung nachzukommen.</xs:documentation>
+      </xs:annotation>
+      <xs:complexType>
+         <xs:complexContent>
+            <xs:extension base="xbau:Nachricht.G2G">
+               <xs:sequence>
+                  <xs:element name="bezug" type="xbauk:BezugErweitert">
+                     <xs:annotation>
+                        <xs:documentation>Unterhalb dieses Elements werden Eintragungen vorgenommen, um auf den laufenden Vorgang der Bauaufsichtsbehörde zum Bauantrag Bezug zu nehmen. Eine Referenz auf eine Nachricht ist hier i.d.R. nicht einzutragen.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+                  <xs:element name="referenzAufforderung" type="xbau:ReferenzAuftrag">
+                     <xs:annotation>
+                        <xs:documentation>Eine vom Aufforderungsservice mit dieser Nachricht vergebene eindeutige Kennung des Aufforderungsvorgangs. Sofern die aufgeforderte Stelle auf die Aufforderung reagiert, muss sie sich in ihren Reaktionsnachrichten auf diese Kennung beziehen.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+                  <xs:element name="zuBeteiligendeStelle" minOccurs="0" type="xs:token">
+                     <xs:annotation>
+                        <xs:documentation>Die Information in diesem Element wird in den Fällen benötigt, wo eine Plattform adressiert wird, d.h. mehrere Stellen durch einen Leser adressiert werden. Die Stelle sollte technisch eindeutig benannt werden, z.B. durch die ID eines Unternehmenskonto oder eine E-Mail-Adresse.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+                  <xs:element name="anliegenBeteiligung" type="xbau:AnliegenBeteiligung">
+                     <xs:annotation>
+                        <xs:documentation>Hier wird der Grund bzw. das Anliegen der Beteiligung genannt.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+                  <xs:element name="bauvorhaben" type="xbau:Bauvorhaben">
+                     <xs:annotation>
+                        <xs:documentation>Hier werden die Daten des Bauantrags übermittelt, soweit für die adressierte Behörde von Relevanz für die Erstellung ihrer Stellungnahme.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+                  <xs:element name="anlagen" minOccurs="0" type="xbau:Anlagen">
+                     <xs:annotation>
+                        <xs:documentation>Es sind ggf. Dokumente zum geplanten Bauvorhaben anzulegen (Alternativ Verweise auf solche Dokumente), soweit von der adressierten Behörde benötigt für die Stellungnahme zu den Fragen, die ihr vorgelegt worden sind. Es muss sich nicht um dieselben Unterlagen handeln, die dem Bauantrag beilagen, sondern es können Bauvorlagen ggf. aufbereitet oder ergänzt worden sein, z.B. beim Raumbezug von Baugrundstücken, denen noch keine Adresse zugeordnet ist oder war.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+                  <xs:element name="frist" type="xs:date">
+                     <xs:annotation>
+                        <xs:documentation>Dies ist die durch die Bauaufsichtsbehörde gesetzte Frist, innerhalb derer die Stellungnahme durch die adressierte Stelle vorliegen muss, so dass sie berücksichtigt werden kann.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+                  <xs:element name="rechtsfolgeFristversaeumnis" type="xbauk:Text">
+                     <xs:annotation>
+                        <xs:documentation>Hier werden gemäß geltendem Recht Angaben zu den Konsequenzen bei Fristversäumnis eingetragen (Zustimmung durch Untätigkeit).</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+               </xs:sequence>
+            </xs:extension>
+         </xs:complexContent>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="beteiligung.formellePruefung.0301">
+      <xs:annotation>
+         <xs:appinfo>
+            <title>Ergebnis der formellen Prüfung</title>
+         </xs:appinfo>
+         <xs:documentation>Diese Nachricht adressiert die beteiligte Behörde an die Bauaufsichtsbehörde. Sie enthält die Ergebnisse der formellen Prüfung der vorliegenden Aufforderung zur Stellungnahme.</xs:documentation>
+      </xs:annotation>
+      <xs:complexType>
+         <xs:complexContent>
+            <xs:extension base="xbau:Nachricht.G2G">
+               <xs:sequence>
+                  <xs:element name="bezug" type="xbauk:BezugErweitert">
+                     <xs:annotation>
+                        <xs:documentation>Unterhalb dieses Elements werden Eintragungen vorgenommen, um auf den laufenden Vorgang der adressierten Bauaufsichtsbehörde Bezug zu nehmen; außerdem auf die Nachricht 0300, auf die die vorliegende Nachricht antwortet.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+                  <xs:element name="referenzAufforderung" type="xbau:ReferenzAuftrag">
+                     <xs:annotation>
+                        <xs:documentation>Eine vom Aufforderungsservice vergebene eindeutige Kennung des Aufforderungsvorgangs. Die aufgeforderte Stelle bezieht sie sich in ihren Reaktionsnachrichten auf diese Kennung.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+                  <xs:element name="befundliste" type="xbau:BefundlisteFormell">
+                     <xs:annotation>
+                        <xs:documentation>Hier sind die Ergebnisse der formellen Prüfung der Anfrage enthalten. Es handelt sich um Listen ggf. vorliegender Mängel der Anfrage bzw. der anliegenden Dokumentation (Nachricht 0300).</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+                  <xs:element name="anlagen" minOccurs="0" type="xbau:Anlagen">
+                     <xs:annotation>
+                        <xs:documentation>Falls die Behörde der Nachricht Anlagen beifügen möchte, ist dieses Element zu verwenden.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+               </xs:sequence>
+            </xs:extension>
+         </xs:complexContent>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="beteiligung.aufforderungKorrektur.0302">
+      <xs:annotation>
+         <xs:appinfo>
+            <title>Angepasste Beteiligungsaufforderung</title>
+         </xs:appinfo>
+         <xs:documentation>Die Bauaufsichtsbehörde hat Korrekturen und Ergänzungen der Unterlagen vom Bauherrn erhalten und versendet mittels dieser Nachricht die überarbeiteten Unterlagen.</xs:documentation>
+      </xs:annotation>
+      <xs:complexType>
+         <xs:complexContent>
+            <xs:extension base="xbau:Nachricht.G2G">
+               <xs:sequence>
+                  <xs:element name="bezug" type="xbauk:BezugErweitert">
+                     <xs:annotation>
+                        <xs:documentation>Unterhalb dieses Elements werden Eintragungen vorgenommen, um auf den laufenden Vorgang der Bauaufsichtsbehörde Bezug zu nehmen; außerdem auf die Nachricht 0301, auf die die vorliegende Nachricht antwortet. Falls die Nachricht aufgrund einer geänderten Planung ohne vorhergehende Nachricht 0301 eingereicht wird, ist der Bezug auf eine solche Nachricht nicht enthalten.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+                  <xs:element name="referenzAufforderung" type="xbau:ReferenzAuftrag">
+                     <xs:annotation>
+                        <xs:documentation>Eine vom Aufforderungsservice vergebene eindeutige Kennung des Aufforderungsvorgangs. Die aufgeforderte Stelle bezieht sie sich in ihren Reaktionsnachrichten auf diese Kennung.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+                  <xs:element name="zuBeteiligendeStelle" minOccurs="0" type="din91379:datatypeC">
+                     <xs:annotation>
+                        <xs:documentation>In den Fällen, in denen Beteiligungsplattformen verwendet werden, sollte an dieser Stelle, die Bezeichnung der zu beteiligenden Dienststelle angegeben werden.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+                  <xs:element name="anliegenBeteiligung" type="xbau:AnliegenBeteiligung">
+                     <xs:annotation>
+                        <xs:documentation>Der Grund bzw. das Anliegen der Beteiligung wird in diesem Objekt reformuliert, insoweit Mängel korrigiert werden mussten, die in der Befundliste der Nachricht 0301 aufgeführten waren.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+                  <xs:element name="bauvorhabenAenderungsdaten" type="xbau:Bauvorhaben">
+                     <xs:annotation>
+                        <xs:documentation>Hier sind korrigierte und ggf. ergänzte Daten zum Bauantrag enthalten. Die Daten, die an dieser Stelle eingetragen sind, sollen die in der Befundliste der Nachricht 0301 aufgeführten Mängel beheben. Geänderte oder ergänzte Daten werden als Brutto-Datensatz übermittelt.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+                  <xs:element name="anlagen" minOccurs="0" type="xbau:Anlagen">
+                     <xs:annotation>
+                        <xs:documentation>Hier sind ggf. überarbeitete oder nachgereichte Anlagen bzw. Verweise auf überarbeitete oder nachgereichte Anlagen enthalten. Es wird damit auf in der Befundliste der Nachricht 0301 aufgeführten Mängel reagiert.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+                  <xs:element name="frist" type="xs:date">
+                     <xs:annotation>
+                        <xs:documentation>Dies ist die aktualisierte durch die Bauaufsichtsbehörde gesetzte Frist, innerhalb derer die Stellungnahme durch die adressierte Stelle vorliegen muss, so dass sie berücksichtigt werden kann.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+                  <xs:element name="rechtsfolgeFristversaeumnis" type="xbauk:Text">
+                     <xs:annotation>
+                        <xs:documentation>Hier werden gemäß geltendem Recht Angaben zu den Konsequenzen bei Fristversäumnis eingetragen (Zustimmung durch Untätigkeit).</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+               </xs:sequence>
+            </xs:extension>
+         </xs:complexContent>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="beteiligung.stellungnahme.0303">
+      <xs:annotation>
+         <xs:appinfo>
+            <rechtsgrundlage>§ 70 (1) S. 3 MBO</rechtsgrundlage>
+            <title>Stellungnahme</title>
+         </xs:appinfo>
+         <xs:documentation>Diese Nachricht verwendet die beteiligte Behörde, um der Bauaufsichtsbehörde ihre Stellungnahme zuzustellen. In der Regel wird die Gemeinde von der Bauaufsichtsbehörde zur Stellungnahme aufgerufen und antwortet daraufhin mit dieser Nachricht. Die Gemeinde kann aber auch initiativ, d.h. unaufgefordert eine Stellungnahme einreichen, wenn sie eine Information über den eingereichten Bauantrag erhält.</xs:documentation>
+      </xs:annotation>
+      <xs:complexType>
+         <xs:complexContent>
+            <xs:extension base="xbau:Nachricht.G2G">
+               <xs:sequence>
+                  <xs:element name="bezug" type="xbauk:BezugErweitert">
+                     <xs:annotation>
+                        <xs:documentation>In diesem Element werden Eintragungen vorgenommen, die den Zusammenhang zum laufenden Vorgang der adressierten Bauaufsichtsbehörde herstellen. Außerdem wird Bezug genommen auf die entsprechende Nachricht, auf die mit der vorliegenden Nachricht geantwortet wird. Dabei kann es sich um die Beteiligungsaufforderung (Nachricht 0300), die angepasste Beteiligungsaufforderung (Nachricht 0302) oder bei einer initiativ von der Gemeinde eingereichten Stellungnahme um den Bauantrag (Nachricht 0200) handeln. Bei initiativen Stellungnahmen wird im Unterelement "referenz" die Antrags-UUID aus Nachricht 0200 angegeben, das Unterelement "bezugnachricht" wird nicht befüllt, das Unterelement "vorgang" muss nicht befüllt werden, da die Vorgangsnummer der Bauaufsichtsbehörde der Gemeinde gegebenenfalls nicht bekannt ist.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+                  <xs:element name="referenzAufforderung" type="xbau:ReferenzAuftrag">
+                     <xs:annotation>
+                        <xs:documentation>Eine vom Aufforderungsservice vergebene eindeutige Kennung des Aufforderungsvorgangs. Die aufgeforderte Stelle bezieht sie sich in ihren Reaktionsnachrichten auf diese Kennung.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+                  <xs:element name="stellungnahme">
+                     <xs:annotation>
+                        <xs:documentation>Unterhalb dieses Elements ist die Stellungnahme eingefügt, die aus der materiellen Prüfung durch die beteiligte Behörde hervorgegangen ist. Die Stellungnahme wird in der Nachricht in einer von zwei alternativen Formaten übermittelt.</xs:documentation>
+                     </xs:annotation>
+                     <xs:complexType>
+                        <xs:sequence>
+                           <xs:element name="stellungnahmeStrukturiert"
+                                       maxOccurs="unbounded"
+                                       type="xbau:StellungnahmeStrukturiert">
+                              <xs:annotation>
+                                 <xs:documentation>Um hier eine strukturierte Stellungnahme einzutragen, ist eine bestimmte Form bei der Dokumentation der Stellungnahme einzuhalten. Es sind die Parameter dieses Objekts zu füllen.</xs:documentation>
+                              </xs:annotation>
+                           </xs:element>
+                           <xs:element name="hinweise" minOccurs="0" type="xbauk:TextFormatiert">
+                              <xs:annotation>
+                                 <xs:documentation>Hier werden ggf. ergänzende Hinweise zur Stellungnahme gegeben.</xs:documentation>
+                              </xs:annotation>
+                           </xs:element>
+                           <xs:element name="rechtshelfsbelehrung"
+                                       minOccurs="0"
+                                       type="xbauk:TextFormatiert">
+                              <xs:annotation>
+                                 <xs:documentation>Hier werden die Rechtshelfsbelehrungen zur Stellungnahme gegeben.</xs:documentation>
+                              </xs:annotation>
+                           </xs:element>
+                        </xs:sequence>
+                     </xs:complexType>
+                  </xs:element>
+               </xs:sequence>
+            </xs:extension>
+         </xs:complexContent>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="beteiligung.ruecknahme.0304">
+      <xs:annotation>
+         <xs:appinfo>
+            <title>Rücknahme einer Aufforderung zur Beteiligung</title>
+         </xs:appinfo>
+         <xs:documentation>Diese Nachricht kann durch die Bauaufsichtsbehörde verwendet werden, um eine in der Vergangenheit gestellte Aufforderung zur Stellungnahme bzw. Beteiligung zurückzuziehen.</xs:documentation>
+      </xs:annotation>
+      <xs:complexType>
+         <xs:complexContent>
+            <xs:extension base="xbau:Nachricht.G2G">
+               <xs:sequence>
+                  <xs:element name="bezug" type="xbauk:BezugErweitert">
+                     <xs:annotation>
+                        <xs:documentation>In dieses Element sind die Referenzen von Antragsteller und ggf. Behörde einzutragen. Eine Referenzierung auf eine Nachricht wird in diese Nachricht nicht eingetragen.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+                  <xs:element name="referenzAufforderung" type="xbau:ReferenzAuftrag">
+                     <xs:annotation>
+                        <xs:documentation>Eine vom Aufforderungsservice vergebene eindeutige Kennung des Aufforderungsvorgangs.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+                  <xs:element name="information" minOccurs="0" type="xbauk:Text">
+                     <xs:annotation>
+                        <xs:documentation>Hier kann optional durch die Bauaufsichtsbehörde eine Begründung eingetragen werden.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+                  <xs:element name="anlagen" minOccurs="0" type="xbau:Anlagen">
+                     <xs:annotation>
+                        <xs:documentation>Ggf. will die Bauaufsichtsbehörde der Rücknahme der Aufforderung ein Schreiben beilegen. Das lässt sich mit diesem Element abbilden.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+               </xs:sequence>
+            </xs:extension>
+         </xs:complexContent>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="beteiligung.zwischennachricht.0305">
+      <xs:annotation>
+         <xs:appinfo>
+            <title>Zwischennachricht</title>
+         </xs:appinfo>
+         <xs:documentation>Diese Nachricht ermöglicht einerseits der beteiligten Behörde, der Bauaufsichtsbehörde eine Zwischennachricht zukommen zu lassen. Dabei kann es sich beispielsweise um eine Bitte um Fristverlängerung oder um einen Hinweis auf ein laufendes immissionsschutzrechtliches Verfahren handeln. Ebenso können fachliche Nachfragen, Benachrichtigungen über eigene Tätigkeiten im Zusammenhang mit dem Baugenehmigungsverfahren oder die Organisation der Mitwirkung bei Abnahmen durchgeführt werden. Andererseits kann auch die Bauaufsicht der beteiligten Stelle Nachrichten übermitteln, zum Beispiel die Meldung der Erreichung eines Bauzustands, der Tätigkeiten der beteiligten Stelle auslöst, oder Informationen zur Mitwirkung bei Abnahmen.</xs:documentation>
+      </xs:annotation>
+      <xs:complexType>
+         <xs:complexContent>
+            <xs:extension base="xbau:Nachricht.G2G">
+               <xs:sequence>
+                  <xs:element name="bezug" type="xbauk:BezugErweitert">
+                     <xs:annotation>
+                        <xs:documentation>In diesem Element werden Eintragungen vorgenommen, die den Zusammenhang zum laufenden Vorgang der adressierten Bauaufsichtsbehörde herstellen. Außerdem wird Bezug genommen auf die entsprechende Nachricht 0300 oder 0302, auf die mit der vorliegenden Nachricht geantwortet wird.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+                  <xs:element name="referenzAufforderung" type="xbau:ReferenzAuftrag">
+                     <xs:annotation>
+                        <xs:documentation>Eine vom Aufforderungsservice vergebene eindeutige Kennung des Aufforderungsvorgangs. Die aufgeforderte Stelle bezieht sie sich in ihren Reaktionsnachrichten auf diese Kennung.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+                  <xs:element name="anliegenZwischennachricht" type="xbauk:Text">
+                     <xs:annotation>
+                        <xs:documentation>Hier wird der Grund bzw. das Anliegen der Zwischennachricht genannt.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+                  <xs:element name="anlagen" minOccurs="0" type="xbau:Anlagen">
+                     <xs:annotation>
+                        <xs:documentation>Es sind ggf. Dokumente anzulegen (Alternativ Verweise auf solche Dokumente), die mit der Zwischennachricht in Zusammenhang stehen.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+               </xs:sequence>
+            </xs:extension>
+         </xs:complexContent>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="beteiligung.reaktionZwischennachricht.0306">
+      <xs:annotation>
+         <xs:appinfo>
+            <title>Reaktion auf Zwischennachricht</title>
+         </xs:appinfo>
+         <xs:documentation>Diese Nachricht kann die Bauaufsichtsbehörde verwenden, um auf die Zwischennachricht der beteiligten Behörde zu reagieren. Es kann zum Beispiel eine neue Frist für die Stellungnahme mitgeteilt werden. Entsprechend kann auch die beteiligte Stelle auf Zwischennachrichten der Bauaufsichtsbehörde reagieren.</xs:documentation>
+      </xs:annotation>
+      <xs:complexType>
+         <xs:complexContent>
+            <xs:extension base="xbau:Nachricht.G2G">
+               <xs:sequence>
+                  <xs:element name="bezug" type="xbauk:BezugErweitert">
+                     <xs:annotation>
+                        <xs:documentation>Unterhalb dieses Elements werden Eintragungen vorgenommen, um auf die Zwischennachricht 0305 der beteiligten Behörde Bezug zu nehmen.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+                  <xs:element name="referenzAufforderung" type="xbau:ReferenzAuftrag">
+                     <xs:annotation>
+                        <xs:documentation>Eine vom Aufforderungsservice vergebene eindeutige Kennung des Aufforderungsvorgangs. Sofern die aufgeforderte Stelle auf die Zwischennachricht reagiert, bezieht sie sich in ihren Reaktionsnachrichten auf diese Kennung.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+                  <xs:element name="reaktionZwischennachricht" type="xbauk:Text">
+                     <xs:annotation>
+                        <xs:documentation>Hier wird die Antwort der Bauaufsichtsbehörde auf die Zwischennachricht eingetragen.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+                  <xs:element name="anlagen" minOccurs="0" type="xbau:Anlagen">
+                     <xs:annotation>
+                        <xs:documentation>Es sind ggf. Dokumente anzulegen (Alternativ Verweise auf solche Dokumente), die mit der Reaktion auf die Zwischennachricht in Zusammenhang stehen.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+                  <xs:element name="frist" minOccurs="0" type="xs:date">
+                     <xs:annotation>
+                        <xs:documentation>Dies ist die durch die Bauaufsichtsbehörde ggf. gesetzte Frist, innerhalb derer die Stellungnahme durch die adressierte Stelle vorliegen muss, so dass sie berücksichtigt werden kann.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+                  <xs:element name="rechtsfolgeFristversaeumnis" minOccurs="0" type="xbauk:Text">
+                     <xs:annotation>
+                        <xs:documentation>Ggf. können hier gemäß geltendem Recht Angaben zu den Konsequenzen bei Fristversäumnis eingetragen werden (Zustimmung durch Untätigkeit).</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+               </xs:sequence>
+            </xs:extension>
+         </xs:complexContent>
+      </xs:complexType>
+   </xs:element>
+</xs:schema>

@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Service -->
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/"
+             xmlns:xs="http://www.w3.org/2001/XMLSchema"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xmlns:ns="http://schemas.xmlsoap.org/soap/encoding/"
+             xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+             xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+             xmlns:osci="http://www.osci.de/2006/07/wsdl/"
+             xmlns:tpl="http://www.dvdv.de/dvdv/template/"
+             xmlns:ds="http://www.w3.org/2000/09/xmldsig#"
+             xmlns:tns="http://www.xleitstelle.de/xbau/2/3/1/XBau231-AKE-AG2BAB.wsdl"
+             xmlns:xbau="http://www.xleitstelle.de/xbau/2/3/1"
+             name="XBau231-AKE-AG2BAB"
+             targetNamespace="http://www.xleitstelle.de/xbau/2/3/1/XBau231-AKE-AG2BAB.wsdl"
+             xsi:schemaLocation="http://schemas.xmlsoap.org/wsdl/ http://schemas.xmlsoap.org/wsdl/">
+   <documentation><![CDATA[
+	<html>
+	<body><h1>Datenübermittlungen der Amtsgerichte im Rahmen des Verfahrens der Akteneinsicht an die Bauaufsichtsbehörden</h1>
+	<p>
+		Folgende Nachrichten des XBau-Schemas sind als Input der Operation <i>sendeAKE-AG2BAB</i> zulässig:
+		<ul>
+			<ul>
+				<li>xbau:akteneinsicht.uebermittlungGrundbuchauszug.0126</li>
+			</ul>
+		</ul>
+	</p>
+	<p>
+		Organisationsschlüssel für <i>find.servicedescription</i>-Anfragen sind die amtlichen Gemeindeschlüssel bzw. Kreiskennungen der Bauaufsichtsbehörden; der zu verwendende Präfix lautet "<b>bab</b>". 	
+	</p>
+	<p>
+		Zulässige Dienstanbieter sind ausschließlich Organisationen der DVDV-Organisationskategorie "<b>Bauaufsichtsbehörde</b>". Zulässige Dienstnutzer sind ausschließlich Organisationen in der DVDV-Organisationskategorie "<b>Amtsgericht</b>".
+	</p>
+	</body>
+	</html>]]>
+		
+		<tpl:categories>
+			<tpl:category>Bauaufsichtsbehörde</tpl:category>
+		</tpl:categories> 
+	</documentation>
+
+   <import namespace="http://www.osci.de/2006/07/wsdl/"
+           location="http://www.osci.de/wsdl-osci-binding/WSDL-OSCI-Binding_1.2.xsd"/>
+   <import namespace="http://www.xleitstelle.de/xbau/2/3/1"
+           location="https://www.xleitstelle.de/xbau/schema/2/3/1/xbau-nachrichten-akteneinsicht.xsd"/>
+   <message name="ake-ag2babNachricht">
+      <part name="ake-ag2babNachricht"
+            element="xbau:akteneinsicht.uebermittlungGrundbuchauszug.0126"/>
+      <part name="optionaleNachricht" type="xs:anyType"/>
+   </message>
+   <portType name="osciAKE-AG2BABInterface">
+      <operation name="sendeAKE-AG2BAB">
+         <input message="tns:ake-ag2babNachricht"/>
+      </operation>
+   </portType>
+   <binding name="osciBinding" type="tns:osciAKE-AG2BABInterface">
+      <osci:binding signatureLevel="none" encrypted="true">
+         <osci:reader name="Inhaltsdaten-Verschlüsselungszertifikat">
+            <tpl:certificate/>
+         </osci:reader>
+      </osci:binding>
+      <!-- Vorbelegung der Richtlinien zur Signatur und Verschlüsselung der Nutzdaten für alle Operationen -->
+      <operation name="sendeAKE-AG2BAB">
+         <osci:operation communicationType="one-way-active" subject="XBAU_DATA"/>
+         <input>
+            <osci:container signatureLevel="advanced"
+                            encrypted="true"
+                            name="XBAU_DATA"
+                            required="true">
+               <osci:readerRef ref="Inhaltsdaten-Verschlüsselungszertifikat"/>
+               <osci:part>
+                  <osci:content part="tns:ake-ag2babNachricht"/>
+               </osci:part>
+            </osci:container>
+            <osci:container signatureLevel="none" encrypted="false" required="false">
+               <osci:part>
+                  <osci:content part="tns:optionaleNachricht"/>
+               </osci:part>
+            </osci:container>
+         </input>
+      </operation>
+   </binding>
+   <service name="osciAKE-AG2BABService"><!-- OSCI Infrastrukturserver -->
+      <osci:devices>
+         <osci:intermediary uri="" name="InternetIntermediär">
+            <osci:signatureCertificate>
+               <tpl:certificate/>
+            </osci:signatureCertificate>
+            <osci:cipherCertificate>
+               <tpl:certificate/>
+            </osci:cipherCertificate>
+         </osci:intermediary>
+         <osci:intermediary uri="" name="TESTAIntermediär">
+            <osci:signatureCertificate>
+               <tpl:certificate/>
+            </osci:signatureCertificate>
+            <osci:cipherCertificate>
+               <tpl:certificate/>
+            </osci:cipherCertificate>
+         </osci:intermediary>
+         <osci:addressee name="InternetEmpfänger">
+            <osci:cipherCertificate>
+               <tpl:certificate/>
+            </osci:cipherCertificate>
+         </osci:addressee>
+         <osci:addressee name="TESTAEmpfänger">
+            <osci:cipherCertificate>
+               <tpl:certificate/>
+            </osci:cipherCertificate>
+         </osci:addressee>
+      </osci:devices>
+      <!-- Endpunkt im Internet -->
+      <port name="osciAKE-AG2BABInternetPort" binding="tns:osciBinding">
+         <documentation>
+            <tpl:use>required</tpl:use> Dieser Port ist nicht optional </documentation>
+         <osci:address>
+            <osci:intermediaryRef ref="InternetIntermediär"/>
+            <osci:addresseeRef ref="InternetEmpfänger"/>
+         </osci:address>
+      </port>
+      <!-- Endpunkt im TESTA -->
+      <port name="osciAKE-AG2BABTestaPort" binding="tns:osciBinding">
+         <documentation>
+            <tpl:use>optional</tpl:use> Dieser Port ist optional </documentation>
+         <osci:address>
+            <osci:intermediaryRef ref="TESTAIntermediär"/>
+            <osci:addresseeRef ref="TESTAEmpfänger"/>
+         </osci:address>
+      </port>
+   </service>
+</definitions>

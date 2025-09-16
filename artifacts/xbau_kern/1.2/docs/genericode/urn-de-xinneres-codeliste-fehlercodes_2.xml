@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gc:CodeList xmlns:gc="http://docs.oasis-open.org/codelist/ns/genericode/1.0/"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xmlns:xoev-cl-3="http://xoev.de/schemata/genericode/3">
+   <Annotation>
+      <Description>
+         <xoev-cl-3:nameKurz>Fehlercodes in XInneres</xoev-cl-3:nameKurz>
+         <xoev-cl-3:beschreibung-codeliste>Diese Tabelle führt mögliche Gründe für eine Rücksendung einer Nachricht an den Absender auf. Mit dem Präfix des jeweiligen Schlüssels wird folgende Systematik festgelegt: T (Transportproblem), X (formales Problem mit XML), V (Versionsproblem), S (nicht spezifikationskonform).</xoev-cl-3:beschreibung-codeliste>
+         <xoev-cl-3:herausgebernameKurz>KoSIT</xoev-cl-3:herausgebernameKurz>
+         <xoev-cl-3:versionCodelistenHandbuch>1.1</xoev-cl-3:versionCodelistenHandbuch>
+         <xoev-cl-3:aenderungZurVorversion>Der Code S030 wurde aufgenommen.</xoev-cl-3:aenderungZurVorversion>
+      </Description>
+   </Annotation>
+   <Identification>
+      <ShortName>fehlercodes</ShortName>
+      <LongName>Fehlercodes in XInneres</LongName>
+      <Version>2</Version>
+      <CanonicalUri>urn:de:xinneres:codeliste:fehlercodes</CanonicalUri>
+      <CanonicalVersionUri>urn:de:xinneres:codeliste:fehlercodes_2</CanonicalVersionUri>
+      <Agency>
+         <LongName>Koordinierungsstelle für IT-Standards</LongName>
+      </Agency>
+   </Identification>
+   <ColumnSet>
+      <Column Id="key" Use="required">
+         <ShortName>key</ShortName>
+         <LongName>key</LongName>
+         <Data Type="string"/>
+      </Column>
+      <Column Id="name" Use="required">
+         <ShortName>name</ShortName>
+         <LongName>name</LongName>
+         <Data Type="string"/>
+      </Column>
+      <Key Id="keyKey">
+         <Annotation>
+            <AppInfo>
+               <xoev-cl-3:empfohleneCodeSpalte/>
+            </AppInfo>
+         </Annotation>
+         <ShortName>keyKey</ShortName>
+         <ColumnRef Ref="key"/>
+      </Key>
+   </ColumnSet>
+   <SimpleCodeList>
+      <Row>
+         <Value ColumnRef="key">
+            <SimpleValue>S001</SimpleValue>
+         </Value>
+         <Value ColumnRef="name">
+            <SimpleValue>Nicht spezifikationskonform: Die Nachricht ist nicht UTF-8 codiert.</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="key">
+            <SimpleValue>S010</SimpleValue>
+         </Value>
+         <Value ColumnRef="name">
+            <SimpleValue>Nicht spezifikationskonform: Ungültige Schlüsseltabelle.</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="key">
+            <SimpleValue>S011</SimpleValue>
+         </Value>
+         <Value ColumnRef="name">
+            <SimpleValue>Nicht spezifikationskonform: Ungültiger Schlüssel in einer Schlüsseltabelle.</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="key">
+            <SimpleValue>S020</SimpleValue>
+         </Value>
+         <Value ColumnRef="name">
+            <SimpleValue>Nicht spezifikationskonform: Fehlerhafte Einzelfälle</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="key">
+            <SimpleValue>S030</SimpleValue>
+         </Value>
+         <Value ColumnRef="name">
+            <SimpleValue>Nicht spezifikationskonform: In der Nachricht ist mindestens ein mandatorisches Kindelement des Typs dinspec91379:datatypeC leer (d. h. mit einer Zeichenkette der Länge 0) enthalten, für das keine Ausnahmeregelung seitens des Fachmoduls besteht.</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="key">
+            <SimpleValue>S100</SimpleValue>
+         </Value>
+         <Value ColumnRef="name">
+            <SimpleValue>Nicht spezifikationskonform: Rückweisung aufgrund erneuter Lieferung eines bereits erfolgreich verarbeiteten Datensatzes</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="key">
+            <SimpleValue>S999</SimpleValue>
+         </Value>
+         <Value ColumnRef="name">
+            <SimpleValue>Nicht spezifikationskonform aus anderen Gründen.</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="key">
+            <SimpleValue>T000</SimpleValue>
+         </Value>
+         <Value ColumnRef="name">
+            <SimpleValue>Das Zertifikat des Absenders ist abgelaufen.</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="key">
+            <SimpleValue>T001</SimpleValue>
+         </Value>
+         <Value ColumnRef="name">
+            <SimpleValue>Das Zertifikat des Absenders ist widerrufen.</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="key">
+            <SimpleValue>T002</SimpleValue>
+         </Value>
+         <Value ColumnRef="name">
+            <SimpleValue>Das Zertifikat des Absenders ist nicht gültig.</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="key">
+            <SimpleValue>T003</SimpleValue>
+         </Value>
+         <Value ColumnRef="name">
+            <SimpleValue>Das Zertifikat des Absenders fehlt.</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="key">
+            <SimpleValue>T010</SimpleValue>
+         </Value>
+         <Value ColumnRef="name">
+            <SimpleValue>Die Signatur der Inhaltsdaten fehlt oder hat nicht das geforderte Signaturniveau.</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="key">
+            <SimpleValue>T011</SimpleValue>
+         </Value>
+         <Value ColumnRef="name">
+            <SimpleValue>Die Signatur der Inhaltsdaten ist nicht gültig (Integrität verletzt).</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="key">
+            <SimpleValue>T020</SimpleValue>
+         </Value>
+         <Value ColumnRef="name">
+            <SimpleValue>Die Inhaltsdaten können von dem Empfänger nicht dechiffriert werden.</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="key">
+            <SimpleValue>T070</SimpleValue>
+         </Value>
+         <Value ColumnRef="name">
+            <SimpleValue>Der Absender ist zur Inanspruchnahme dieses Dienstes nicht berechtigt.</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="key">
+            <SimpleValue>T080</SimpleValue>
+         </Value>
+         <Value ColumnRef="name">
+            <SimpleValue>Die Nachricht ist dem falschen Empfänger / Leser zugestellt worden, d. h. im Nachrichtenkopf ist eine abweichende Empfängerbehörde eingetragen (Irrläufer).</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="key">
+            <SimpleValue>T099</SimpleValue>
+         </Value>
+         <Value ColumnRef="name">
+            <SimpleValue>Sonstiger Verstoß gegen Anforderungen des OSCI-Transport-Profils</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="key">
+            <SimpleValue>V000</SimpleValue>
+         </Value>
+         <Value ColumnRef="name">
+            <SimpleValue>Nicht spezifikationskonform: Die Nachricht kann in der Version, die in der Nachricht angegeben wird, vom Empfänger nicht bearbeitet werden (Der Dienst ist in dieser Version nicht oder nicht mehr bereit).</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="key">
+            <SimpleValue>X000</SimpleValue>
+         </Value>
+         <Value ColumnRef="name">
+            <SimpleValue>Die Nachricht ist kein wohlgeformtes XML-Dokument.</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="key">
+            <SimpleValue>X001</SimpleValue>
+         </Value>
+         <Value ColumnRef="name">
+            <SimpleValue>Die Nachricht ist nicht valide zu dem Schema der in der Nachricht angegebenen Version</SimpleValue>
+         </Value>
+      </Row>
+   </SimpleCodeList>
+</gc:CodeList>

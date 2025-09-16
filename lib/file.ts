@@ -1,11 +1,36 @@
 import { readFile, writeFile } from 'fs/promises';
-import { existsSync, mkdirSync } from 'fs';
+import { createReadStream, existsSync, mkdirSync, readFileSync } from 'fs';
 import { dirname } from 'path';
+import unzipper from 'unzipper';
 
-function ensureDirExists(filePath: string) {
+export function ensureDirExists(filePath: string) {
   const dir = dirname(filePath);
   mkdirSync(dir, { recursive: true });
 }
+
+export async function unzipFile(zipFilePath: string, outputFolder: string) {
+  // Ensure the output folder exists
+  mkdirSync(outputFolder, { recursive: true });
+
+  // Check first 4 bytes
+  const fileBytes = readFileSync(zipFilePath).slice(0, 4);
+  if (fileBytes[0] !== 0x50 || fileBytes[1] !== 0x4b) {
+    throw new Error('Downloaded file is not a valid ZIP');
+  }
+
+  return new Promise<void>((resolve, reject) => {
+    createReadStream(zipFilePath)
+      .pipe(unzipper.Extract({ path: outputFolder }))
+      .on('close', async () => {
+        console.log(`Extraction complete: ${outputFolder}`);
+        resolve();
+      })
+      .on('error', (err) => {
+        reject(new Error(`Failed to extract ZIP: ${err.message}`));
+      });
+  });
+}
+
 export function fileExists(path: string): boolean {
   try {
     return existsSync(path);
@@ -27,7 +52,7 @@ export async function readFileContent(path: string): Promise<string | null> {
 export async function writeToFile(file: string, content: string): Promise<void> {
   try {
     ensureDirExists(file);
-    await writeFile(file, content, 'utf-8');
+    await writeFile(file, content);
     console.debug('File written successfully. ' + file);
   } catch (err) {
     console.error('Error writing file:', err);

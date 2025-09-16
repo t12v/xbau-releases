@@ -1,0 +1,507 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:xbauk="http://www.xleitstelle.de/xbau/kernmodul/1/2/1/1"
+           xmlns:xoev-code="http://xoev.de/schemata/code/1_0"
+           targetNamespace="http://www.xleitstelle.de/xbau/kernmodul/1/2/1/1"
+           version="1.2.1.1"
+           elementFormDefault="unqualified"
+           attributeFormDefault="unqualified">
+   <xs:annotation>
+      <xs:appinfo>
+         <standard>
+            <nameLang>XBau-Kernmodul</nameLang>
+            <nameKurz>XBau-Kernmodul</nameKurz>
+            <nameTechnisch>xbau-kernmodul</nameTechnisch>
+            <kennung>urn:xoev-de:bmk:standard:xbau-kernmodul</kennung>
+            <beschreibung>Das XBau-Kernmodul umfasst die von den XBau-Fachmodulen gemeinsam verwendeten Daten- und Nachrichtentypen.</beschreibung>
+         </standard>
+         <versionStandard>
+            <version>1.2.1.1</version>
+            <beschreibung>Für diese Version des XBau-Kernmoduls ist umgesetzt worden: Aufgrund von technischen Änderungen erhielten alle Codelisten eine neue Versionsnummer. Außerdem wurde im Datentyp MetadatenAnhang dem Element dokumentid der Datentyp anyURI zugeordnet.</beschreibung>
+            <versionXOEVProfil>3.0.0</versionXOEVProfil>
+            <versionXOEVHandbuch>3.0.2</versionXOEVHandbuch>
+            <versionXGenerator>3.1.1</versionXGenerator>
+            <versionModellierungswerkzeug>19.0</versionModellierungswerkzeug>
+            <nameModellierungswerkzeug>MagicDraw</nameModellierungswerkzeug>
+         </versionStandard>
+      </xs:appinfo>
+   </xs:annotation>
+   <xs:import schemaLocation="http://xoev.de/schemata/code/1_0/xoev-code.xsd"
+              namespace="http://xoev.de/schemata/code/1_0"/>
+   <xs:complexType name="Code.Ablageort">
+      <xs:annotation>
+         <xs:documentation>Diese Codeliste enthält Ablageorte des Projektraums, an dem ein Dokument abgelegt werden soll. In diesen Typ ist eine auszuwählende bzw. selbst zu definierende Codeliste einzubinden, die eine solche Klassifikation bietet. Im Anwendungskontext sind in die Attribute des vorliegenden Typs die Codelisten-URI und die Nummer der Version der ausgewählten Codeliste (in die XBau-Nachrichteninstanzen) einzutragen.</xs:documentation>
+      </xs:annotation>
+      <xs:complexContent>
+         <xs:restriction base="xoev-code:Code">
+            <xs:sequence>
+               <xs:element name="code" type="xs:token"/>
+            </xs:sequence>
+            <xs:attribute name="listURI" type="xs:anyURI" use="required"/>
+            <xs:attribute name="listVersionID" type="xs:normalizedString" use="required"/>
+         </xs:restriction>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="Code.AmtlicherGemeindeschluessel">
+      <xs:annotation>
+         <xs:appinfo>
+            <codeliste>
+               <nameLang>Gemeinden gemäß Amtlicher Gemeindeschlüssel (AGS)</nameLang>
+               <nameKurz>Destatis AGS</nameKurz>
+               <nameTechnisch>ags</nameTechnisch>
+               <kennung>urn:de:bund:destatis:bevoelkerungsstatistik:schluessel:ags</kennung>
+               <beschreibung>Diese Codeliste stellt alle Gemeinden Deutschlands durch den Amtlichen Gemeindeschlüssel (AGS) dar, wie im Gemeindeverzeichnis des Statistischen Bundesamtes enthalten.</beschreibung>
+               <herausgebernameLang>Statistisches Bundesamt, Wiesbaden</herausgebernameLang>
+               <herausgebernameKurz>Destatis</herausgebernameKurz>
+            </codeliste>
+         </xs:appinfo>
+         <xs:documentation>Diese Codeliste stellt alle Gemeinden Deutschlands durch den Amtlichen Gemeindeschlüssel (AGS) dar, wie im Gemeindeverzeichnis des Statistischen Bundesamtes enthalten. Die Codeliste ist im XRepository (www.xrepository.de) unter Nennung ihrer Codelisten-URI auffindbar und kann von dort im XML-Format OASIS Genericode abgerufen werden.</xs:documentation>
+      </xs:annotation>
+      <xs:complexContent>
+         <xs:restriction base="xoev-code:Code">
+            <xs:sequence>
+               <xs:element name="code" type="xs:token"/>
+            </xs:sequence>
+            <xs:attribute name="listURI"
+                          type="xs:anyURI"
+                          use="optional"
+                          fixed="urn:de:bund:destatis:bevoelkerungsstatistik:schluessel:ags"/>
+            <xs:attribute name="listVersionID" type="xs:normalizedString" use="required"/>
+         </xs:restriction>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="Code.AmtlicherRegionalschluessel">
+      <xs:annotation>
+         <xs:appinfo>
+            <codeliste>
+               <nameLang>Gemeinden gemäß Amtlicher Regionalschlüssel (ARS)</nameLang>
+               <nameKurz>Destatis ARS</nameKurz>
+               <nameTechnisch>rs</nameTechnisch>
+               <kennung>urn:de:bund:destatis:bevoelkerungsstatistik:schluessel:rs</kennung>
+               <beschreibung>Diese Codeliste stellt alle Gemeinden Deutschlands durch den Amtlichen Regionalschlüssel (ARS) dar, wie im Gemeindeverzeichnis des Statistischen Bundesamtes enthalten. Darüber hinaus enthält die Codeliste für die Stadtstaaten Hamburg, Bremen und Berlin Einträge für Stadt-/Ortsteile bzw. Stadtbezirke. Diese Einträge sind mit einem entsprechenden Hinweis versehen.</beschreibung>
+               <herausgebernameLang>Statistisches Bundesamt, Wiesbaden</herausgebernameLang>
+               <herausgebernameKurz>Destatis</herausgebernameKurz>
+            </codeliste>
+         </xs:appinfo>
+         <xs:documentation>Diese Codeliste stellt alle Gemeinden Deutschlands durch den Amtlichen Regionalschlüssel (ARS) dar, wie im Gemeindeverzeichnis des Statistischen Bundesamtes enthalten. Die Codeliste ist im XRepository (www.xrepository.de) unter Nennung ihrer Codelisten-URI auffindbar und kann von dort im XML-Format OASIS Genericode abgerufen werden.</xs:documentation>
+      </xs:annotation>
+      <xs:complexContent>
+         <xs:restriction base="xoev-code:Code">
+            <xs:sequence>
+               <xs:element name="code" type="xs:token"/>
+            </xs:sequence>
+            <xs:attribute name="listURI"
+                          type="xs:anyURI"
+                          use="optional"
+                          fixed="urn:de:bund:destatis:bevoelkerungsstatistik:schluessel:rs"/>
+            <xs:attribute name="listVersionID" type="xs:normalizedString" use="required"/>
+         </xs:restriction>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="Code.AnlageArt">
+      <xs:annotation>
+         <xs:documentation>Dieser Code-Datentyp dient der Einbindung einer Codeliste, die Arten von Bauvorlagen oder sonstigen Anlagen unterscheidet, die einer XBau-Nachricht als Anlage beigefügt sein können. In diesen Typ ist eine auszuwählende bzw. selbst zu definierende Codeliste einzubinden, die eine solche Klassifikation bietet. Im Anwendungskontext sind in die Attribute des vorliegenden Typs die Codelisten-URI und die Nummer der Version der ausgewählten Codeliste (in die XBau-Nachrichteninstanzen) einzutragen. Codelisten, die im Rahmen des Betriebs XBau definiert und im XRepository (www.xrepository.de) bereitgestellt werden, und ggf. für den vorliegenden Zweck geeignet sein können: urn:xoev-de:xbau:codeliste:anlagen</xs:documentation>
+      </xs:annotation>
+      <xs:complexContent>
+         <xs:restriction base="xoev-code:Code">
+            <xs:sequence>
+               <xs:element name="code" type="xs:token"/>
+            </xs:sequence>
+            <xs:attribute name="listURI" type="xs:anyURI" use="required"/>
+            <xs:attribute name="listVersionID" type="xs:normalizedString" use="required"/>
+         </xs:restriction>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="Code.Bezirk">
+      <xs:annotation>
+         <xs:appinfo>
+            <codeliste>
+               <nameLang>Bezirke bzw. Regierungsbezirke der deutschen Bundesländer nach dem Gemeindeverzeichnis des Statistischen Bundesamtes</nameLang>
+               <nameKurz>Destatis Bezirk</nameKurz>
+               <nameTechnisch>Bezirk</nameTechnisch>
+               <kennung>urn:de:bund:destatis:bevoelkerungsstatistik:schluessel:bezirk</kennung>
+               <beschreibung>Die Bundesrepublik Deutschland ist ein Zusammenschluss von Bundesländern. Die meisten Bundesländer umfassen mehrere Kreise und Bezirke bzw. Regierungsbezirke. Diese Codeliste stellt alle Bezirke nach dem Gemeindeverzeichnis des Statistischen Bundesamtes dar. Dieser Code ist auch Bestandteil des Amtlichen Gemeindeschlüssels (AGS).</beschreibung>
+               <herausgebernameLang>Statistisches Bundesamt, Wiesbaden</herausgebernameLang>
+               <herausgebernameKurz>Destatis</herausgebernameKurz>
+            </codeliste>
+         </xs:appinfo>
+         <xs:documentation>Diese Codeliste stellt alle Bezirke nach dem Gemeindeverzeichnis des Statistischen Bundesamtes dar. Dieser Code ist auch Bestandteil des Amtlichen Gemeindeschlüssels (AGS). Die Codeliste ist im XRepository (www.xrepository.de) unter Nennung ihrer Codelisten-URI auffindbar und kann von dort im XML-Format OASIS Genericode abgerufen werden.</xs:documentation>
+      </xs:annotation>
+      <xs:complexContent>
+         <xs:restriction base="xoev-code:Code">
+            <xs:sequence>
+               <xs:element name="code" type="xs:token"/>
+            </xs:sequence>
+            <xs:attribute name="listURI"
+                          type="xs:anyURI"
+                          use="optional"
+                          fixed="urn:de:bund:destatis:bevoelkerungsstatistik:schluessel:bezirk"/>
+            <xs:attribute name="listVersionID" type="xs:normalizedString" use="required"/>
+         </xs:restriction>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="Code.Bundesland">
+      <xs:annotation>
+         <xs:appinfo>
+            <codeliste>
+               <nameLang>Länder der Bundesrepublik Deutschland</nameLang>
+               <nameKurz>Destatis Bundesland</nameKurz>
+               <nameTechnisch>bundesland</nameTechnisch>
+               <kennung>urn:de:bund:destatis:bevoelkerungsstatistik:schluessel:bundesland</kennung>
+               <beschreibung>Die Bundesrepublik Deutschland ist ein Zusammenschluss von Ländern. Die meisten Bundesländer umfassen mehrere Kreise und Bezirke. Diese Codeliste stellt die deutschen Bundesländer nach dem Gemeindeverzeichnis des Statistischen Bundesamtes dar. Dieser Code ist auch Bestandteil des Amtlichen Gemeindeschlüssels (AGS).</beschreibung>
+               <herausgebernameLang>Statistisches Bundesamt, Wiesbaden</herausgebernameLang>
+               <herausgebernameKurz>Destatis</herausgebernameKurz>
+            </codeliste>
+         </xs:appinfo>
+         <xs:documentation>Diese Codeliste stellt die deutschen Bundesländer nach dem Gemeindeverzeichnis des Statistischen Bundesamtes dar. Dieser Code ist auch Bestandteil des Amtlichen Gemeindeschlüssels (AGS). Die Codeliste ist im XRepository (www.xrepository.de) unter Nennung ihrer Codelisten-URI auffindbar und kann von dort im XML-Format OASIS Genericode abgerufen werden.</xs:documentation>
+      </xs:annotation>
+      <xs:complexContent>
+         <xs:restriction base="xoev-code:Code">
+            <xs:sequence>
+               <xs:element name="code" type="xs:token"/>
+            </xs:sequence>
+            <xs:attribute name="listURI"
+                          type="xs:anyURI"
+                          use="optional"
+                          fixed="urn:de:bund:destatis:bevoelkerungsstatistik:schluessel:bundesland"/>
+            <xs:attribute name="listVersionID" type="xs:normalizedString" use="required"/>
+         </xs:restriction>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="Code.Erreichbarkeit">
+      <xs:annotation>
+         <xs:appinfo>
+            <codeliste>
+               <nameLang>Erreichbarkeit</nameLang>
+               <nameKurz>Erreichbarkeit</nameKurz>
+               <nameTechnisch>erreichbarkeit</nameTechnisch>
+               <kennung>urn:de:xoev:codeliste:erreichbarkeit</kennung>
+               <beschreibung>Eine Liste der Kommunikationsmedien und -kanäle, über die man eine Person oder Institution erreichen kann.</beschreibung>
+               <herausgebernameLang>Koordinierungsstelle für IT-Standards</herausgebernameLang>
+               <herausgebernameKurz>KoSIT</herausgebernameKurz>
+            </codeliste>
+         </xs:appinfo>
+         <xs:documentation>Die von der XÖV-Koordination bereitgestellte Codeliste beschreibt die gängigen Kanäle der Kommunikation wie z. B. Telefon und E-Mail, über die eine natürliche Person erreichbar sein kann. Die Codeliste ist im XRepository (www.xrepository.de) unter Nennung ihrer Codelisten-URI auffindbar und kann von dort im XML-Format OASIS Genericode abgerufen werden.</xs:documentation>
+      </xs:annotation>
+      <xs:complexContent>
+         <xs:restriction base="xoev-code:Code">
+            <xs:sequence>
+               <xs:element name="code" type="xs:token"/>
+            </xs:sequence>
+            <xs:attribute name="listURI"
+                          type="xs:anyURI"
+                          use="optional"
+                          fixed="urn:de:xoev:codeliste:erreichbarkeit"/>
+            <xs:attribute name="listVersionID" type="xs:normalizedString" use="required"/>
+         </xs:restriction>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="Code.FormelleBefundeArt">
+      <xs:annotation>
+         <xs:documentation>Arten von Befunden einer universell einsetzbaren Befundliste für die formelle Prüfung von Anträgen, Anzeigen und Erklärungen. In diesen Typ ist eine auszuwählende bzw. selbst zu definierende Codeliste einzubinden, die eine solche Klassifikation bietet. Im Anwendungskontext sind in die Attribute des vorliegenden Typs die Codelisten-URI und die Nummer der Version der ausgewählten Codeliste (in die XBau-Nachrichteninstanzen) einzutragen. Als Muster wurde die Codeliste Befunde einer formellen Prüfung (URI: urn:xoev-de:xbau:codeliste:formellebefundeart) als Angebot zur Einbindung für diesen Typ bereitgestellt. Die angebotene Codeliste ist im XRepository (www.xrepository.de) unter dem Stichwort "XBau" auffindbar und kann von dort im XML-Format OASIS Genericode abgerufen werden.</xs:documentation>
+      </xs:annotation>
+      <xs:complexContent>
+         <xs:restriction base="xoev-code:Code">
+            <xs:sequence>
+               <xs:element name="code" type="xs:token"/>
+            </xs:sequence>
+            <xs:attribute name="listURI" type="xs:anyURI" use="required"/>
+            <xs:attribute name="listVersionID" type="xs:normalizedString" use="required"/>
+         </xs:restriction>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="Code.Gemeindeteil">
+      <xs:annotation>
+         <xs:documentation>Diese Codeliste steht für lokal definierte Schlüssel, die die Gemeindeteile einer Gemeinde bezeichnen. Dieser Schlüssel ist, weil nur innerhalb eines Landes definiert, nicht Bestandteil des Amtlichen Gemeindeschlüssels (AGS). In diesen Typ ist eine auszuwählende bzw. selbst zu definierende Codeliste einzubinden, die eine solche Klassifikation bietet. Im Anwendungskontext sind in die Attribute des vorliegenden Typs die Codelisten-URI und die Nummer der Version der ausgewählten Codeliste (in die XBau-Nachrichteninstanzen) einzutragen.</xs:documentation>
+      </xs:annotation>
+      <xs:complexContent>
+         <xs:restriction base="xoev-code:Code">
+            <xs:sequence>
+               <xs:element name="code" type="xs:token"/>
+            </xs:sequence>
+            <xs:attribute name="listURI" type="xs:anyURI" use="required"/>
+            <xs:attribute name="listVersionID" type="xs:normalizedString" use="required"/>
+         </xs:restriction>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="Code.Kreis">
+      <xs:annotation>
+         <xs:appinfo>
+            <codeliste>
+               <nameLang>Die Kreise der deutschen Bundesländer nach dem Gemeindeverzeichnis des Statistischen Bundesamtes</nameLang>
+               <nameKurz>Destatis Kreis</nameKurz>
+               <nameTechnisch>Kreis</nameTechnisch>
+               <kennung>urn:de:bund:destatis:bevoelkerungsstatistik:schluessel:kreis</kennung>
+               <beschreibung>Die Bundesrepublik Deutschland ist ein Zusammenschluss von Bundesländern. Die meisten Bundesländer umfassen mehrere Kreise und Bezirke. Diese Codeliste stellt die Kreise der deutschen Bundesländer nach dem Gemeindeverzeichnis des Statistischen Bundesamtes dar. Dieser Code ist auch Bestandteil des Amtlichen Gemeindeschlüssels (AGS).</beschreibung>
+               <herausgebernameLang>Statistisches Bundesamt, Wiesbaden</herausgebernameLang>
+               <herausgebernameKurz>Destatis</herausgebernameKurz>
+            </codeliste>
+         </xs:appinfo>
+         <xs:documentation>Diese Codeliste stellt die Landkreise nach dem Gemeindeverzeichnis des Statistischen Bundesamtes dar. Dieser Code ist auch Bestandteil des Amtlichen Gemeindeschlüssels (AGS). Die Codeliste ist im XRepository (www.xrepository.de) unter Nennung ihrer Codelisten-URI auffindbar und kann von dort im XML-Format OASIS Genericode abgerufen werden.</xs:documentation>
+      </xs:annotation>
+      <xs:complexContent>
+         <xs:restriction base="xoev-code:Code">
+            <xs:sequence>
+               <xs:element name="code" type="xs:token"/>
+            </xs:sequence>
+            <xs:attribute name="listURI"
+                          type="xs:anyURI"
+                          use="optional"
+                          fixed="urn:de:bund:destatis:bevoelkerungsstatistik:schluessel:kreis"/>
+            <xs:attribute name="listVersionID" type="xs:normalizedString" use="required"/>
+         </xs:restriction>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="Code.Registergericht">
+      <xs:annotation>
+         <xs:appinfo>
+            <codeliste>
+               <nameLang>Registergerichte</nameLang>
+               <nameKurz>Registergerichte</nameKurz>
+               <nameTechnisch>registergerichte</nameTechnisch>
+               <kennung>urn:xoev-de:xgewerbeanzeige:codeliste:registergerichte</kennung>
+               <beschreibung>Enthält alle Registergerichte. Als Schlüssel für die Datenübermittlung ist die Spalte XJustiz_Id zu verwenden.</beschreibung>
+               <herausgebernameLang>Betreiber XGewerbeanzeige (KoSIT und IT.NRW im Auftrag des Bundesministeriums für Wirtschaft und Energie)</herausgebernameLang>
+               <herausgebernameKurz>XGewerbeanzeige</herausgebernameKurz>
+            </codeliste>
+         </xs:appinfo>
+      </xs:annotation>
+      <xs:complexContent>
+         <xs:restriction base="xoev-code:Code">
+            <xs:sequence>
+               <xs:element name="code" type="xs:token"/>
+            </xs:sequence>
+            <xs:attribute name="listURI"
+                          type="xs:anyURI"
+                          use="optional"
+                          fixed="urn:xoev-de:xgewerbeanzeige:codeliste:registergerichte"/>
+            <xs:attribute name="listVersionID" type="xs:normalizedString" use="required"/>
+         </xs:restriction>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="Code.Staat">
+      <xs:annotation>
+         <xs:appinfo>
+            <codeliste>
+               <nameLang>Staatsgebiete gemäß der Staats- und Gebietssystematik des Statistischen Bundesamts</nameLang>
+               <nameKurz>Destatis Staatsgebiete</nameKurz>
+               <nameTechnisch>staatsgebiete</nameTechnisch>
+               <kennung>urn:de:bund:destatis:bevoelkerungsstatistik:schluessel:staatsgebiete</kennung>
+               <beschreibung>Codeliste Staatsgebiete aus der Staats- und Gebietssystematik des Statistischen Bundesamtes.Sie basiert auf dem Verzeichnis der Staatennamen für den amtlichen Gebrauch des Auswärtigen Amtes. Die Codeliste ist im XRepository (www.xrepository.de) unter Nennung ihrer Codelisten-URI auffindbar und kann von dort im XML-Format OASIS Genericode abgerufen werden.</beschreibung>
+               <herausgebernameLang>Statistisches Bundesamt, Wiesbaden</herausgebernameLang>
+               <herausgebernameKurz>Destatis</herausgebernameKurz>
+            </codeliste>
+         </xs:appinfo>
+         <xs:documentation>Codeliste Staatsgebiete aus der Staats- und Gebietssystematik des Statistischen Bundesamtes.Sie basiert auf dem Verzeichnis der Staatennamen für den amtlichen Gebrauch des Auswärtigen Amtes. Die Codeliste ist im XRepository (www.xrepository.de) unter Nennung ihrer Codelisten-URI auffindbar und kann von dort im XML-Format OASIS Genericode abgerufen werden.</xs:documentation>
+      </xs:annotation>
+      <xs:complexContent>
+         <xs:restriction base="xoev-code:Code">
+            <xs:sequence>
+               <xs:element name="code" type="xs:token"/>
+            </xs:sequence>
+            <xs:attribute name="listURI"
+                          type="xs:anyURI"
+                          use="optional"
+                          fixed="urn:de:bund:destatis:bevoelkerungsstatistik:schluessel:staatsgebiete"/>
+            <xs:attribute name="listVersionID" type="xs:normalizedString" use="required"/>
+         </xs:restriction>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="Code.TextOfficeMimeType">
+      <xs:annotation>
+         <xs:appinfo>
+            <codeliste>
+               <nameLang>Office Mime Types für die XML-basierte Darstellung von Office Text in XBau-Nachrichten</nameLang>
+               <nameKurz>Office Mime Types</nameKurz>
+               <nameTechnisch>textofficemimetypes</nameTechnisch>
+               <kennung>urn:xoev-de:xbau:codeliste:textofficemimetypes</kennung>
+               <beschreibung>Diese Codeliste detailliert den Office MimeType von in XBau-Nachrichten als ODF oder OOXML dargestelltem Office Text.</beschreibung>
+               <herausgebernameLang>Bauministerkonferenz</herausgebernameLang>
+               <herausgebernameKurz>BMK</herausgebernameKurz>
+            </codeliste>
+         </xs:appinfo>
+         <xs:documentation>Dieser Code-Typ steht für die Detaillierung des Office MimeTypes von in XBau-Nachrichten als ODF oder OOXML dargestelltem Office Text. Die Codeliste ist im XRepository (www.xrepository.de) unter Nennung ihrer Codelisten-URI auffindbar und kann von dort im XML-Format OASIS Genericode abgerufen werden.</xs:documentation>
+      </xs:annotation>
+      <xs:complexContent>
+         <xs:restriction base="xoev-code:Code">
+            <xs:sequence>
+               <xs:element name="code" type="xs:token"/>
+            </xs:sequence>
+            <xs:attribute name="listURI"
+                          type="xs:anyURI"
+                          use="optional"
+                          fixed="urn:xoev-de:xbau:codeliste:textofficemimetypes"/>
+            <xs:attribute name="listVersionID" type="xs:normalizedString" use="required"/>
+         </xs:restriction>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="Code.XBau-KernmodulNachrichten">
+      <xs:annotation>
+         <xs:appinfo>
+            <codeliste>
+               <nameLang>XBau-Kernmodul-Nachrichten</nameLang>
+               <nameKurz>XBau-Kernmodul-Nachrichten</nameKurz>
+               <nameTechnisch>xbau-kernmodul-nachrichten</nameTechnisch>
+               <kennung>urn:xoev-de:xbau-kernmodul:codeliste:xbau-kernmodul-nachrichten</kennung>
+               <beschreibung>Codeliste der Bezeichnungen aller XBau-Kernmodul-Nachrichten.</beschreibung>
+               <herausgebernameLang>Bauministerkonferenz</herausgebernameLang>
+               <herausgebernameKurz>BMK</herausgebernameKurz>
+            </codeliste>
+            <versionCodeliste>
+               <version>2.0</version>
+               <versionCodelistenHandbuch>1.2</versionCodelistenHandbuch>
+               <aenderungZurVorversion>neue Werte; Änderung im Namensraum der XÖV-Metadaten „http://xoev.de/schemata/genericode/4“ (Präfix „xoev-cl-4“); Änderung der Versionsangabe des Codelistenhandbuchs  („1.2“ )</aenderungZurVorversion>
+            </versionCodeliste>
+            <codelistenspalten>
+               <code>
+                  <spaltennameLang>Code</spaltennameLang>
+                  <datentyp>string</datentyp>
+                  <codeSpalte>true</codeSpalte>
+                  <verwendung>required</verwendung>
+                  <empfohleneCodeSpalte>true</empfohleneCodeSpalte>
+               </code>
+               <beschreibung>
+                  <spaltennameLang>Beschreibung</spaltennameLang>
+                  <datentyp>string</datentyp>
+                  <codeSpalte>false</codeSpalte>
+                  <verwendung>required</verwendung>
+                  <empfohleneCodeSpalte>false</empfohleneCodeSpalte>
+               </beschreibung>
+            </codelistenspalten>
+            <genutzteCodeSpalte>code</genutzteCodeSpalte>
+         </xs:appinfo>
+      </xs:annotation>
+      <xs:complexContent>
+         <xs:restriction base="xoev-code:Code">
+            <xs:sequence>
+               <xs:element name="code">
+                  <xs:simpleType>
+                     <xs:restriction base="xs:token">
+                        <xs:enumeration value="1100">
+                           <xs:annotation>
+                              <xs:appinfo>
+                                 <beschreibung>prozessnachrichten.rueckweisung.G2G.1100</beschreibung>
+                              </xs:appinfo>
+                           </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="1120">
+                           <xs:annotation>
+                              <xs:appinfo>
+                                 <beschreibung>prozessnachrichten.eingangsbestaetigung.1120</beschreibung>
+                              </xs:appinfo>
+                           </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="1121">
+                           <xs:annotation>
+                              <xs:appinfo>
+                                 <beschreibung>prozessnachrichten.aktenzeichen.1121</beschreibung>
+                              </xs:appinfo>
+                           </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="1130">
+                           <xs:annotation>
+                              <xs:appinfo>
+                                 <beschreibung>prozessnachrichten.ruecknahme.1130</beschreibung>
+                              </xs:appinfo>
+                           </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="1131">
+                           <xs:annotation>
+                              <xs:appinfo>
+                                 <beschreibung>prozessnachrichten.quittierungRuecknahme.1131</beschreibung>
+                              </xs:appinfo>
+                           </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="1140">
+                           <xs:annotation>
+                              <xs:appinfo>
+                                 <beschreibung>prozessnachrichten.formellePruefungBefundliste.1140</beschreibung>
+                              </xs:appinfo>
+                           </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="1141">
+                           <xs:annotation>
+                              <xs:appinfo>
+                                 <beschreibung>prozessnachrichten.zustellungSchreiben.1141</beschreibung>
+                              </xs:appinfo>
+                           </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="1142">
+                           <xs:annotation>
+                              <xs:appinfo>
+                                 <beschreibung>prozessnachrichten.fachlicheKommunikation.1142</beschreibung>
+                              </xs:appinfo>
+                           </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="1150">
+                           <xs:annotation>
+                              <xs:appinfo>
+                                 <beschreibung>prozessnachrichten.einstellenDokumente.1150</beschreibung>
+                              </xs:appinfo>
+                           </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="1160">
+                           <xs:annotation>
+                              <xs:appinfo>
+                                 <beschreibung>prozessnachrichten.gebuehrenbescheid.1160</beschreibung>
+                              </xs:appinfo>
+                           </xs:annotation>
+                        </xs:enumeration>
+                     </xs:restriction>
+                  </xs:simpleType>
+               </xs:element>
+            </xs:sequence>
+            <xs:attribute name="listURI"
+                          type="xs:anyURI"
+                          use="optional"
+                          fixed="urn:xoev-de:xbau-kernmodul:codeliste:xbau-kernmodul-nachrichten"/>
+            <xs:attribute name="listVersionID"
+                          type="xs:normalizedString"
+                          use="optional"
+                          fixed="2.0"/>
+         </xs:restriction>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="Code.XBau-MimeType">
+      <xs:annotation>
+         <xs:documentation>Dieser Code-Typ steht für eine Benennung des MimeTypes einer über XBau bereitgestellten Ressource. In diesen Typ ist eine auszuwählende bzw. selbst zu definierende Codeliste einzubinden, die eine dafür passende Auflistung bietet. Im Anwendungskontext sind in die Attribute des vorliegenden Typs die Codelisten-URI und die Nummer der Version der ausgewählten Codeliste (in die XBau-Nachrichteninstanzen) einzutragen. Als Muster wurde eine passende Codeliste definiert und als Angebot zur Einbindung für diesen Typ bereitgestellt. Diese Codeliste kann auf Antrag erweitert bzw. geändert werden. Sie ist im XRepository (www.xrepository.de) unter der Codelisten-URI urn:xoev-de:xbau:codeliste:xbau-mimetypes auffindbar und kann von dort im XML-Format OASIS Genericode abgerufen werden.</xs:documentation>
+      </xs:annotation>
+      <xs:complexContent>
+         <xs:restriction base="xoev-code:Code">
+            <xs:sequence>
+               <xs:element name="code" type="xs:token"/>
+            </xs:sequence>
+            <xs:attribute name="listURI" type="xs:anyURI" use="required"/>
+            <xs:attribute name="listVersionID" type="xs:normalizedString" use="required"/>
+         </xs:restriction>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="Code.XBau.Fehlerkennzahl">
+      <xs:annotation>
+         <xs:appinfo>
+            <codeliste>
+               <nameLang>XBau Fehlerkennzahlen</nameLang>
+               <nameKurz>XBau Fehlerkennzahlen</nameKurz>
+               <nameTechnisch>xbau-fehlerkennzahlen</nameTechnisch>
+               <kennung>urn:xoev-de:xbau:codeliste:xbau-fehlerkennzahlen</kennung>
+               <beschreibung>Codeliste der Fehlerkennzahlen für die Klassifikation von Fehlern, die in XBau-Nachrichteninstanzen angetroffen werden. Die Einträge bestehen aus Fehlerkennzahl und der Angabe deren Bedeutung. Gruppen von Codes: X - formales Problem mit XML oder mit (Inhalten von) Codelisten, V - Versionsproblem, S - nicht spezifikationskonform, A - Problem mit Anlagen zur empfangenen Nachricht. Die Codeliste ist im XRepository (www.xrepository.de) unter der Codelisten-URI auffindbar. Ihre Versionen können von dort im XML-Format OASIS Genericode abgerufen werden.</beschreibung>
+               <herausgebernameLang>Bauministerkonferenz</herausgebernameLang>
+               <herausgebernameKurz>BMK</herausgebernameKurz>
+            </codeliste>
+         </xs:appinfo>
+         <xs:documentation>Codeliste der Fehlerkennzahlen für die Klassifizierung von Fehlern. Die Einträge bestehen aus Fehlerkennzahl und deren Bedeutung. Die Liste wird durch XBau gepflegt. Die Codeliste ist im XRepository (www.xrepository.de) unter der Codelisten-URI auffindbar. Ihre Versionen können von dort im XML-Format OASIS Genericode abgerufen werden.</xs:documentation>
+      </xs:annotation>
+      <xs:complexContent>
+         <xs:restriction base="xoev-code:Code">
+            <xs:sequence>
+               <xs:element name="code" type="xs:token"/>
+            </xs:sequence>
+            <xs:attribute name="listURI"
+                          type="xs:anyURI"
+                          use="optional"
+                          fixed="urn:xoev-de:xbau:codeliste:xbau-fehlerkennzahlen"/>
+            <xs:attribute name="listVersionID" type="xs:normalizedString" use="required"/>
+         </xs:restriction>
+      </xs:complexContent>
+   </xs:complexType>
+</xs:schema>

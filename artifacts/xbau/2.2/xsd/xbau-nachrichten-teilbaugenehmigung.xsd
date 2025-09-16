@@ -1,0 +1,299 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:xbau="http://www.xleitstelle.de/xbau/2/2"
+           targetNamespace="http://www.xleitstelle.de/xbau/2/2"
+           version="2.2"
+           elementFormDefault="qualified"
+           attributeFormDefault="unqualified">
+   <xs:annotation>
+      <xs:appinfo>
+         <standard>
+            <nameLang>XBau - Standard für die Datenkommunikation der Bauaufsichtsbehörde</nameLang>
+            <nameKurz>XBau</nameKurz>
+            <nameTechnisch>xbau</nameTechnisch>
+            <kennung>urn:xoev-de:bmk:standard:xbau</kennung>
+            <beschreibung>XBau ist der XÖV-Standard für den Datenaustausch der Bauaufsichtsbehörden mit ihren Kommunikationspartnern (Bauherren, Architektenbüros, Behörden zahlreicher Rechtsbereiche).</beschreibung>
+         </standard>
+         <versionStandard>
+            <version>2.2</version>
+            <beschreibung>Erweiterte Fassung des Standards XBau. Sie unterstützt im Rahmen der OZG-Umsetzung die Nachrichtenkommunikation der Online-Portale mit den Bauaufsichtsbehörden. Sie deckt die umfangreichen Datenspektren ab (Antragsformulare, Daten zum Bauvorhaben), die in den OZG-Umsetzungsprojekten in den Ländern benötigt werden. Es wurde als neues Verfahren die Antragstellung Teilbaugenehmigung aufgenommen, die Anlässe für die Datenlieferungen der Bauaufsichtsbehörden an die amtliche Statistik wurden vervollständigt. Außerdem ist jetzt eine Abfrage zur Mitgliedschaft in einer Architekten- oder Ingenieurkammer vorgesehen (im Rahmen der Überprüfung einer Bauvorlageberechtigung). Die Datentypen zu Grund- und Flurstücken - und eine lange Liste weiterer Datentypen und Codelisten - wurden praxisnah ausgearbeitet und differenziert. Weitere Änderungen und Erweiterungen sind in der Versionshistorie des Spezifikationsdokuments beschrieben.</beschreibung>
+            <versionXOEVProfil>1.6.1</versionXOEVProfil>
+            <versionXOEVHandbuch>2.2.0</versionXOEVHandbuch>
+            <versionXGenerator>3.0.1</versionXGenerator>
+            <versionModellierungswerkzeug>19.0</versionModellierungswerkzeug>
+            <nameModellierungswerkzeug>MagicDraw</nameModellierungswerkzeug>
+         </versionStandard>
+      </xs:appinfo>
+   </xs:annotation>
+   <xs:include schemaLocation="xbau-baukasten.xsd"/>
+   <xs:element name="teilbaugenehmigung.antrag.0230">
+      <xs:annotation>
+         <xs:appinfo>
+            <title>Beantragung einer Teilbaugenehmigung</title>
+         </xs:appinfo>
+         <xs:documentation>Mittels dieser Nachricht beantragt der Autor eine Teilbaugenehmigung zu einem bereits bei der Bauaufsichtsbehörde vorliegenden Bauantrag. Die Nachricht enthält die Daten zum Antrag Teilbaugenehmigung und ggf. ergänzende Anlagen (zusätzlich zu den der Behörde bereits vorliegenden), die die Bauabschnitte abgrenzen, die den Gegenstand des Antrags bilden.</xs:documentation>
+      </xs:annotation>
+      <xs:complexType>
+         <xs:complexContent>
+            <xs:extension base="xbau:Nachricht.G2G">
+               <xs:sequence>
+                  <xs:element name="referenzAntragsservice" type="xbau:ReferenzAntragsservice">
+                     <xs:annotation>
+                        <xs:documentation>Eine vom Antragsservice vergebene eindeutige Kennung des Antragsvorgangs. Sofern die Bauaufsichtsbehörde auf die Antragstellung reagiert, bezieht sie sich in ihren Reaktionsnachrichten auf diese Kennung.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+                  <xs:element name="antragsteller" maxOccurs="unbounded" type="xbau:Akteur">
+                     <xs:annotation>
+                        <xs:documentation>In dieses Element sind die Daten des Antragstellers bzw. der Antragsteller einzutragen.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+                  <xs:element name="bezug" type="xbau:Bezug">
+                     <xs:annotation>
+                        <xs:documentation>Dieses Element dient der Bezugnahme auf das bei der Behörde laufende Bauenehmigungsverfahren, zu dem die vorliegende Nachricht eine Teilbaugenehmigung beantragt.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+                  <xs:element name="bauvorhaben" type="xbau:Bauvorhaben">
+                     <xs:annotation>
+                        <xs:documentation>Hier sind die Daten zum Bauvorhaben (Wer, Was, Wo) enthalten.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+                  <xs:element name="anlagen" type="xbau:Anlagen">
+                     <xs:annotation>
+                        <xs:documentation>Die für die Prüfung des Antrags notwendigen Bauvorlagen sind dem Antrag als Anlage beizufügen.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+               </xs:sequence>
+            </xs:extension>
+         </xs:complexContent>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="teilbaugenehmigung.formellePruefung.0231">
+      <xs:annotation>
+         <xs:appinfo>
+            <title>Ergebnis der formellen Prüfung</title>
+         </xs:appinfo>
+         <xs:documentation>Diese Nachricht bezieht sich auf einen gestellten Antrag auf Teilbaugenehmigung. Enthalten sind hier die Ergebnisse der formellen Prüfung (Befunde) sowie eine Frist, innerhalb derer der Antragsteller den Antrag bzw. die Bauvorlagen anzupassen hat.</xs:documentation>
+      </xs:annotation>
+      <xs:complexType>
+         <xs:complexContent>
+            <xs:extension base="xbau:Nachricht.G2G">
+               <xs:sequence>
+                  <xs:element name="bezug" type="xbau:Bezug">
+                     <xs:annotation>
+                        <xs:documentation>Unterhalb dieses Elements werden Eintragungen vorgenommen, um auf den Vorgang (oder den Antrag) bzw. die Nachricht Bezug zu nehmen, durch deren Eingang bei der Bauaufsichtsbehörde der Vorgang ausgelöst worden ist. Damit wird gleichzeitig dem Antragsteller die entsprechende Vorgangsnummer für künftige Referenzierung mitgeteilt. Dadurch ist der Bezug zum Antrag hergestellt, zu dessen formeller Prüfung die vorliegende Nachricht Ergebnisse enthält.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+                  <xs:element name="befundliste"
+                              minOccurs="0"
+                              type="xbau:BefundlisteAntragFormell">
+                     <xs:annotation>
+                        <xs:documentation>Hier können die Ergebnisse der formellen Prüfung in Form einer strukturierten Befundliste eingetragen werden (die Liste zählt Mängel des Bauantrags auf).</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+                  <xs:element name="frist" minOccurs="0" type="xs:date">
+                     <xs:annotation>
+                        <xs:documentation>Hier kann eine durch die Behörde gesetzte Frist eingetragen werden, innerhalb derer die genannten Mängel durch den Antragsteller zu beseitigen sind und ein überarbeiteter Antrag einzureichen ist.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+                  <xs:element name="anschreiben" minOccurs="0" type="xbau:Text">
+                     <xs:annotation>
+                        <xs:documentation>In dieses Element kann ein Anschreibentext eingetragen werden.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+                  <xs:element name="angebotFuerAntwortLeser" minOccurs="0" type="xbau:Verlinkung">
+                     <xs:annotation>
+                        <xs:documentation>Dieses Element kann verwendet werden, um Webressourcen für ggf. nötige Reaktionen des Lesers auf die vorliegende Nachricht anzugeben .</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+                  <xs:element name="anlagen" minOccurs="0" type="xbau:Anlagen">
+                     <xs:annotation>
+                        <xs:documentation>Falls die Behörde der Nachricht Anlagen beifügen möchte, ist dieses Element zu verwenden.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+               </xs:sequence>
+            </xs:extension>
+         </xs:complexContent>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="teilbaugenehmigung.antragGeaendert.0232">
+      <xs:annotation>
+         <xs:appinfo>
+            <title>Änderungen zum Antrag</title>
+         </xs:appinfo>
+         <xs:documentation>Diese Nachricht enthält geänderte oder ergänzte Daten des Antrags bzw. geänderte oder ergänzte Bauvorlagen. Entweder ist sie eine Reaktion auf eine zum Antrag vorliegende Mängelliste der Bauaufsichtsbehörde, oder der Antragsteller reicht aus anderen Gründen eine modifizierte Planung im laufenden Verfahren nach.</xs:documentation>
+      </xs:annotation>
+      <xs:complexType>
+         <xs:complexContent>
+            <xs:extension base="xbau:Nachricht.G2G">
+               <xs:sequence>
+                  <xs:element name="bezug" type="xbau:Bezug">
+                     <xs:annotation>
+                        <xs:documentation>Unterhalb dieses Elements werden Eintragungen vorgenommen, um auf einen Vorgang (oder den Antrag) und ggf. auf eine Nachricht, auf die die vorliegende Nachrichteninstanz eine Reaktion ist, Bezug zu nehmen. Falls mit der Nachricht initiativ eine geänderte Planung eingereicht wird, ist der Bezug auf eine solche Nachricht nicht enthalten.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+                  <xs:element name="bauvorhabenAenderungsdaten"
+                              minOccurs="0"
+                              type="xbau:Bauvorhaben">
+                     <xs:annotation>
+                        <xs:documentation>Ggf. sind in diesem Element korrigierte oder ergänzte Daten zum (Teil-)Bauvorhaben (Wer, Was, Wo) zu übermitteln. Daten, die an dieser Stelle eingetragen sind, sollen die aufgeführten Mängel beheben. Geänderte oder ergänzte Daten werden als Brutto-Datensatz geschickt. Es werden mit diesem Element also die bereinigten und ggf. ergänzten Daten vollständig gesendet, so dass der Empfänger einen 'Datensatz nach Änderung' erhält. Dabei wird nicht informiert, welche Daten gestrichen, geändert oder ergänzt wurden. Der Datenempfänger wird das also eigenständig ermitteln, soweit auf seiner Seite notwendig. Auch ein Bezug auf den Befund der Befundliste (z.B. Befund-Nr.), der zur Änderung oder Ergänzung führte, ist nicht in der Nachricht enthalten.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+                  <xs:element name="anlagen" minOccurs="0" type="xbau:Anlagen">
+                     <xs:annotation>
+                        <xs:documentation>Hier sind ggf. überarbeitete oder nachgereichte Anlagen bzw. Verweise auf überarbeitete oder nachgereichte Anlagen enthalten. Nachgereichte Anlagen: Aus der Beschreibung bzw. Bezeichnung der Anlage muss (wie immer) der Charakter der nachgereichten Unterlage hervorgehen. Ein gesonderter Bezug auf den Befund der Befundliste (z.B. Befund-Nr.), der ggf. zur Übermittlung dieser Unterlage führte, ist nicht erforderlich. Geänderte Anlagen: In diesem Fall wird eine neue Version (jüngeres Erstellungsdatum) einer bereits vorher gelieferten Bauvorlage übermittelt. Falls der Antragsteller initiativ mit der Nachricht eine modifizierte Planung einreicht, muss unter den Anlagen (je nach Landesbauordnung) ggf. eine Übereinstimmungserklärung enthalten sein. Außerdem muss unter den Anlagen eine Begründung bzw. Erläuterung zur eingereichten geänderten Planung enthalten sein.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+               </xs:sequence>
+            </xs:extension>
+         </xs:complexContent>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="teilbaugenehmigung.anhoerung.0233">
+      <xs:annotation>
+         <xs:appinfo>
+            <title>Hinweis auf Anhörung</title>
+         </xs:appinfo>
+         <xs:documentation>Diese Nachricht fordert den Bauherrn zur Stellungnahme auf, nachdem die materielle Prüfung des Antrags ergeben hat, dass Gründe vorliegen, die zu seiner Ablehnung durch die Bauaufsichtsbehörde führen können. Es sind die Befunde enthalten, die das Ergebnis der materiellen Prüfung sind. Diese werden hier aufgelistet bzw. erläutert mit dem Hinweis, dass Gelegenheit zu Stellungnahme bzw. Nachbesserung besteht.</xs:documentation>
+      </xs:annotation>
+      <xs:complexType>
+         <xs:complexContent>
+            <xs:extension base="xbau:Nachricht.G2G">
+               <xs:sequence>
+                  <xs:element name="bezug" type="xbau:Bezug">
+                     <xs:annotation>
+                        <xs:documentation>Unterhalb dieses Elements werden Eintragungen vorgenommen, um auf den laufenden Vorgang zum Antrag Bezug zu nehmen; außerdem ggf. auf die Nachricht, die den Vorgang ausgelöst hat.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+                  <xs:element name="aufforderungZurStellungnahme" type="xbau:Text">
+                     <xs:annotation>
+                        <xs:documentation>Hier ist die Aufforderung zu Stellungnahme in Form eines Anschreibens formuliert.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+                  <xs:element name="bescheidlage" minOccurs="0" type="xbau:BefundlisteMateriell">
+                     <xs:annotation>
+                        <xs:documentation>Hier können die Gründe, die nach aktueller Lage zur Ablehnung des Antrags durch die Bauaufsichtsbehörde führen können, in Form einer strukturierten Liste angegeben werden. Es handelt sich um eine Liste von Abweichungen von den öffentlich-rechtlichen Vorschriften, die sich aus der laufenden Prüfung des Bauantrags ergeben hat. Zu jedem Eintrag der Liste fordert die Nachricht zu einer Stellungnahme bzw. Nachbesserung auf.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+                  <xs:element name="frist" minOccurs="0" type="xs:date">
+                     <xs:annotation>
+                        <xs:documentation>Hier kann eine durch die Behörde gesetzte Frist angegeben werden, innerhalb derer eine Stellungnahme des Antragstellers vorliegen muss, damit sie berücksichtigt werden kann.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+                  <xs:element name="angebotFuerAntwortLeser" minOccurs="0" type="xbau:Verlinkung">
+                     <xs:annotation>
+                        <xs:documentation>Dieses Element kann verwendet werden, um Webressourcen für ggf. nötige Reaktionen des Lesers auf die vorliegende Nachricht anzugeben .</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+                  <xs:element name="anlagen" minOccurs="0" type="xbau:Anlagen">
+                     <xs:annotation>
+                        <xs:documentation>Für die Aufforderung zur Stellungnahme ggf. notwendige Anhänge können hier der Nachricht als Anlage beigefügt werden. Gedacht ist dabei auch an Dokumente im Format BIM Collaboration Format (BCF). BCF kann Kommentare und Hinweise auf Inkonsistenzen in BIM-Modellen maschinenlesbar kodieren (Austausch von Informationen zwischen BIM-Softwaresystemen ).</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+               </xs:sequence>
+            </xs:extension>
+         </xs:complexContent>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="teilbaugenehmigung.stellungnahme.0234">
+      <xs:annotation>
+         <xs:appinfo>
+            <title>Stellungnahme oder Nachbesserung</title>
+         </xs:appinfo>
+         <xs:documentation>Diese Nachricht bezieht sich auf einen gestellten Antrag auf Teilbaugenehmigung und auf eine zu diesem vorliegende Anhörungsnachricht. Sie enthält Stellungnahmen des Bauherrn zu den Eigenschaften des Bauvorhabens bzw. des Antrags, die von der Bauaufsichtsbehörde beanstandet wurden. Sie enthält ggf. außerdem den nachgebesserten Antrag bzw. nachgebesserte Bauvorlagen.</xs:documentation>
+      </xs:annotation>
+      <xs:complexType>
+         <xs:complexContent>
+            <xs:extension base="xbau:Nachricht.G2G">
+               <xs:sequence>
+                  <xs:element name="bezug" type="xbau:Bezug">
+                     <xs:annotation>
+                        <xs:documentation>Unterhalb dieses Elements werden Eintragungen vorgenommen, um auf den laufenden Vorgang zum Antrag Bezug zu nehmen und außerdem auf die Nachricht, auf deren Inhalt sich die vorliegende Nachricht bezieht.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+                  <xs:element name="stellungnahme"
+                              maxOccurs="unbounded"
+                              type="xbau:StellungnahmeBelastenderVerwaltungsakt">
+                     <xs:annotation>
+                        <xs:documentation>Hier ist die Reaktion auf die in der Anhörungsnachricht enthaltenen Punkte einzutragen. Dies kann eine Verteidigung der ursprünglichen Konzeption sein, dies kann aber auch eine geänderte Antragsunterlage sein, welche in diesem Fall im Abschnitt Anpassungen dokumentiert ist.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+                  <xs:element name="bauvorhabenAenderungsdaten"
+                              minOccurs="0"
+                              type="xbau:Bauvorhaben">
+                     <xs:annotation>
+                        <xs:documentation>Ggf. sind hier geänderte oder ergänzte Daten zum Bauvorhaben enthalten, passend zur weiter oben gegebenen Stellungnahme bzw. Erläuterung der Anpassung. Geänderte oder ergänzte Daten werden als Brutto-Datensatz geschickt. Es werden mit diesem Element also die bereinigten und ggf. ergänzten Daten vollständig gesendet, so dass der Empfänger einen 'Datensatz nach Änderung' erhält.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+                  <xs:element name="anlagen" minOccurs="0" type="xbau:Anlagen">
+                     <xs:annotation>
+                        <xs:documentation>Hier sind ggf. überarbeitete oder nachgereichte Anlagen bzw. Verweise auf überarbeitete oder nachgereichte Anlagen enthalten, passend zur weiter oben gegebenen Stellungnahme bzw. Erläuterung der Anpassung.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+               </xs:sequence>
+            </xs:extension>
+         </xs:complexContent>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="teilbaugenehmigung.bescheid.0235">
+      <xs:annotation>
+         <xs:appinfo>
+            <title>Bescheid</title>
+         </xs:appinfo>
+         <xs:documentation>Diese Nachricht stellt den Bescheid dar, in den die Bauaufsichtsbehörde die Ergebnisse ihrer materiellen Prüfung einträgt. Der Antrag ist entweder genehmigt, genehmigt mit Nebenbestimmungen (zum Beispiel unter Auflagen) oder abgelehnt. Das Absenden dieser Nachricht stellt das Erteilen des Bescheids dar.</xs:documentation>
+      </xs:annotation>
+      <xs:complexType>
+         <xs:complexContent>
+            <xs:extension base="xbau:Nachricht.G2G">
+               <xs:sequence>
+                  <xs:element name="bezug" type="xbau:Bezug">
+                     <xs:annotation>
+                        <xs:documentation>Dieses Objekt enthält die Eintragungen, die auf den Vorgang (bzw. die Antragsnachricht) Bezug nehmen, zu dem die vorliegende Nachricht den Bescheid enthält.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+                  <xs:element name="bescheid" type="xbau:Bescheid">
+                     <xs:annotation>
+                        <xs:documentation>In diesem Objekt sind die verschiedenen Komponenten des Bescheides enthalten. Ein Bescheid mit positivem Tenor kann zugelassene oder auch nicht zugelassene Abweichungen (Element abweichung) enthalten. Ein Bescheid mit negativem Tenor kann nur nicht zugelassene Abweichungen enthalten.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+                  <xs:element name="anlagen" type="xbau:Anlagen">
+                     <xs:annotation>
+                        <xs:documentation>Hier sind die Anlagen zum Bescheid bzw. Verweise auf diese Anlagen enthalten. Es handelt sich ggf. um Bauvorlagen, die von der Bauaufsichtsbehörde fortgeschrieben wurden.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+               </xs:sequence>
+            </xs:extension>
+         </xs:complexContent>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="teilbaugenehmigung.gebuehrenbescheid.0236">
+      <xs:annotation>
+         <xs:appinfo>
+            <title>Gebührenbescheid</title>
+         </xs:appinfo>
+         <xs:documentation>In dieser Nachricht sind die Angaben zu den für die Durchführung des Teilbaugenehmigungsverfahrens zu entrichtenden Gebühren enthalten.</xs:documentation>
+      </xs:annotation>
+      <xs:complexType>
+         <xs:complexContent>
+            <xs:extension base="xbau:Nachricht.G2G">
+               <xs:sequence>
+                  <xs:element name="bezug" type="xbau:Bezug">
+                     <xs:annotation>
+                        <xs:documentation>Dieses Objekt enthält die Eintragungen, die auf den Vorgang (bzw. die Antragsnachricht) Bezug nehmen, zu dem die vorliegende Nachricht den Bescheid enthält.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+                  <xs:element name="gebuehrenbescheid" type="xbau:Gebuehrenbescheid">
+                     <xs:annotation>
+                        <xs:documentation>Unterhalb dieses Element finden sich die Angaben zur Gebührenberechnung und -begründung, sowie die Zahlungsdaten und weitere Informationen.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+                  <xs:element name="frist" type="xs:date">
+                     <xs:annotation>
+                        <xs:documentation>Dies ist die durch die Behörde gesetzte Zahlungsfrist.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+               </xs:sequence>
+            </xs:extension>
+         </xs:complexContent>
+      </xs:complexType>
+   </xs:element>
+</xs:schema>

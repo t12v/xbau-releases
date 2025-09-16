@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Service -->
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/"
+             xmlns:xs="http://www.w3.org/2001/XMLSchema"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xmlns:ns="http://schemas.xmlsoap.org/soap/encoding/"
+             xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+             xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+             xmlns:osci="http://www.osci.de/2006/07/wsdl/"
+             xmlns:tpl="http://www.dvdv.de/dvdv/template/"
+             xmlns:ds="http://www.w3.org/2000/09/xmldsig#"
+             xmlns:tns="http://www.xleitstelle.de/xbau/kernmodul/1/2/XBauk12-Rueckweisung.wsdl"
+             xmlns:xbauk="http://www.xleitstelle.de/xbau/kernmodul/1/2"
+             name="XBauk12-Rueckweisung"
+             targetNamespace="http://www.xleitstelle.de/xbau/kernmodul/1/2/XBauk12-Rueckweisung.wsdl"
+             xsi:schemaLocation="http://schemas.xmlsoap.org/wsdl/ http://schemas.xmlsoap.org/wsdl/">
+   <documentation><![CDATA[
+	<html>
+		<body><h1>Ein Kommunikationspartner bei XBau/XBreitband weist eine nicht spezifikationskonforme Nachricht ab.</h1>
+		<p>
+			Folgende Nachrichten des XBau-Kernmoduls sind als Input der Operation <i>sendeRueckweisung</i> zulässig:
+			<ul>
+				<ul>
+					<li>xbau:prozessnachrichten.rueckweisung.G2G.1100</li>
+				</ul>
+			</ul>
+		</p>
+		<p>
+			Zulässige Dienstanbieter und Dienstnutzer sind alle Kommunikationspartner von XBau/XBreitband.
+		</p>
+	</html>]]>
+	
+	<tpl:categories>
+		<tpl:category>Bauportal</tpl:category>
+		<tpl:category>Bauaufsichtsbehörde</tpl:category>
+		<tpl:category>Amtsgericht</tpl:category>
+		<tpl:category>Architekten- und Ingenieurkammer</tpl:category>
+		<tpl:category>Prüfingenieur</tpl:category>
+		<tpl:category>Gemeindebauamt</tpl:category>
+		<tpl:category>Bundesbehörde</tpl:category>
+		<tpl:category>Baubeteiligte Stelle</tpl:category>
+	</tpl:categories> 
+
+	</documentation>
+   <import namespace="http://www.osci.de/2006/07/wsdl/"
+           location="http://www.osci.de/wsdl-osci-binding/WSDL-OSCI-Binding_1.2.xsd"/>
+   <import namespace="http://www.xleitstelle.de/xbau/kernmodul/1/2"
+           location="https://www.xleitstelle.de/xbau/schema/kernmodul/1/2/xbau-kernmodul-nachrichten.xsd"/>
+   <message name="rueckweisungNachricht">
+      <part name="rueckweisungNachricht"
+            element="xbauk:prozessnachrichten.rueckweisung.G2G.1100"/>
+      <part name="optionaleNachricht" type="xs:anyType"/>
+   </message>
+   <portType name="osciRueckweisungInterface">
+      <operation name="sendeRueckweisung">
+         <input message="tns:rueckweisungNachricht"/>
+      </operation>
+   </portType>
+   <binding name="osciBinding" type="tns:osciRueckweisungInterface">
+      <osci:binding signatureLevel="none" encrypted="true">
+         <osci:reader name="Inhaltsdaten-Verschlüsselungszertifikat">
+            <tpl:certificate/>
+         </osci:reader>
+      </osci:binding>
+      <!-- Vorbelegung der Richtlinien zur Signatur und Verschlüsselung der Nutzdaten für alle Operationen -->
+      <operation name="sendeRueckweisung">
+         <osci:operation communicationType="one-way-active" subject="XBAU_DATA"/>
+         <input>
+            <osci:container signatureLevel="advanced"
+                            encrypted="true"
+                            name="XBAU_DATA"
+                            required="true">
+               <osci:readerRef ref="Inhaltsdaten-Verschlüsselungszertifikat"/>
+               <osci:part>
+                  <osci:content part="tns:rueckweisungNachricht"/>
+               </osci:part>
+            </osci:container>
+            <osci:container signatureLevel="none" encrypted="false" required="false">
+               <osci:part>
+                  <osci:content part="tns:optionaleNachricht"/>
+               </osci:part>
+            </osci:container>
+         </input>
+      </operation>
+   </binding>
+   <service name="osciRueckweisungService"><!-- OSCI Infrastrukturserver -->
+      <osci:devices>
+         <osci:intermediary uri="" name="InternetIntermediär">
+            <osci:signatureCertificate>
+               <tpl:certificate/>
+            </osci:signatureCertificate>
+            <osci:cipherCertificate>
+               <tpl:certificate/>
+            </osci:cipherCertificate>
+         </osci:intermediary>
+         <osci:intermediary uri="" name="TESTAIntermediär">
+            <osci:signatureCertificate>
+               <tpl:certificate/>
+            </osci:signatureCertificate>
+            <osci:cipherCertificate>
+               <tpl:certificate/>
+            </osci:cipherCertificate>
+         </osci:intermediary>
+         <osci:addressee name="InternetEmpfänger">
+            <osci:cipherCertificate>
+               <tpl:certificate/>
+            </osci:cipherCertificate>
+         </osci:addressee>
+         <osci:addressee name="TESTAEmpfänger">
+            <osci:cipherCertificate>
+               <tpl:certificate/>
+            </osci:cipherCertificate>
+         </osci:addressee>
+      </osci:devices>
+      <!-- Endpunkt im Internet -->
+      <port name="osciRueckweisungInternetPort" binding="tns:osciBinding">
+         <documentation>
+            <tpl:use>required</tpl:use> Dieser Port ist nicht optional </documentation>
+         <osci:address>
+            <osci:intermediaryRef ref="InternetIntermediär"/>
+            <osci:addresseeRef ref="InternetEmpfänger"/>
+         </osci:address>
+      </port>
+      <!-- Endpunkt im TESTA -->
+      <port name="osciRueckweisungTestaPort" binding="tns:osciBinding">
+         <documentation>
+            <tpl:use>optional</tpl:use> Dieser Port ist optional </documentation>
+         <osci:address>
+            <osci:intermediaryRef ref="TESTAIntermediär"/>
+            <osci:addresseeRef ref="TESTAEmpfänger"/>
+         </osci:address>
+      </port>
+   </service>
+</definitions>

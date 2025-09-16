@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Profile xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_18_0_6_5b501fb_1501053662807_849948_38630" name="KoSIT-Codelisten-Profil" visibility="public" URI="" metamodelReference="_18_0_6_5b501fb_1501053662807_562832_38648">
+  <eAnnotations xmi:id="_PyTMEgPyEfCB0u2bt4zcFg" source="http://www.eclipse.org/uml2/2.0.0/UML">
+    <contents xmi:type="ecore:EPackage" xmi:id="_PyTMEwPyEfCB0u2bt4zcFg" name="KoSITCodelistenProfil" nsURI="http:///schemas/KoSITCodelistenProfil/_PwyuUAPyEfCB0u2bt4zcFg/0" nsPrefix="KoSITCodelistenProfil">
+      <eAnnotations xmi:id="_PyTMFAPyEfCB0u2bt4zcFg" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <details xmi:id="_PyTxQAPyEfCB0u2bt4zcFg" key="originalName" value="KoSIT-Codelisten-Profil"/>
+      </eAnnotations>
+      <eAnnotations xmi:id="_PyTxQQPyEfCB0u2bt4zcFg" source="http://www.eclipse.org/uml2/4.0.0/UML">
+        <references xmi:type="uml:Profile" href="UML_Standard_Profile.MagicDraw_Profile.profile.uml#_be00301_1073394351331_445580_2"/>
+      </eAnnotations>
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="_PyTxQgPyEfCB0u2bt4zcFg" name="kositGeneriereGenericode" eSuperTypes="_PyTxRwPyEfCB0u2bt4zcFg">
+        <eAnnotations xmi:id="_PyTxQwPyEfCB0u2bt4zcFg" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_18_0_6_5b501fb_1501053662807_894944_38631"/>
+        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_PyTxRAPyEfCB0u2bt4zcFg" name="base_Enumeration" ordered="false" lowerBound="1">
+          <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Enumeration"/>
+        </eStructuralFeatures>
+      </eClassifiers>
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="_PyTxRwPyEfCB0u2bt4zcFg" name="MagicDrawProfile_InvisibleStereotype">
+        <eAnnotations xmi:id="_PyTxSAPyEfCB0u2bt4zcFg" source="http://www.eclipse.org/uml2/2.0.0/UML">
+          <details xmi:id="_PyTxSQPyEfCB0u2bt4zcFg" key="originalName" value="MagicDraw Profile_InvisibleStereotype"/>
+          <references xmi:type="uml:Stereotype" href="UML_Standard_Profile.MagicDraw_Profile.profile.uml#_9_0_be00301_1108044721245_236588_411"/>
+        </eAnnotations>
+        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_PyTxSgPyEfCB0u2bt4zcFg" name="base_Element" ordered="false" lowerBound="1">
+          <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Element"/>
+        </eStructuralFeatures>
+      </eClassifiers>
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="_PyTxTAPyEfCB0u2bt4zcFg" name="kositCodelistenspalten">
+        <eAnnotations xmi:id="_PyTxTQPyEfCB0u2bt4zcFg" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_18_0_6_5b501fb_1526812335561_863748_4581"/>
+        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_PyTxTgPyEfCB0u2bt4zcFg" name="base_Enumeration" ordered="false" lowerBound="1">
+          <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Enumeration"/>
+        </eStructuralFeatures>
+        <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_PyTxUAPyEfCB0u2bt4zcFg" name="beschreibungsspalte3" ordered="false">
+          <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/uml2/5.0.0/Types#//String"/>
+        </eStructuralFeatures>
+        <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_PyTxUgPyEfCB0u2bt4zcFg" name="beschreibungsspalte4" ordered="false">
+          <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/uml2/5.0.0/Types#//String"/>
+        </eStructuralFeatures>
+        <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_PyTxVAPyEfCB0u2bt4zcFg" name="beschreibungsspalte5" ordered="false">
+          <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/uml2/5.0.0/Types#//String"/>
+        </eStructuralFeatures>
+        <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_PyTxVgPyEfCB0u2bt4zcFg" name="beschreibungsspalte6" ordered="false">
+          <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/uml2/5.0.0/Types#//String"/>
+        </eStructuralFeatures>
+      </eClassifiers>
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="_PyTxWAPyEfCB0u2bt4zcFg" name="kositCodelisteneintrag">
+        <eAnnotations xmi:id="_PyTxWQPyEfCB0u2bt4zcFg" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_18_0_6_5b501fb_1526812344892_885975_4587"/>
+        <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_PyTxWgPyEfCB0u2bt4zcFg" name="wertBeschreibungsspalte3" ordered="false">
+          <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/uml2/5.0.0/Types#//String"/>
+        </eStructuralFeatures>
+        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_PyTxXAPyEfCB0u2bt4zcFg" name="base_EnumerationLiteral" ordered="false" lowerBound="1">
+          <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//EnumerationLiteral"/>
+        </eStructuralFeatures>
+        <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_PyTxXgPyEfCB0u2bt4zcFg" name="wertBeschreibungsspalte4" ordered="false">
+          <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/uml2/5.0.0/Types#//String"/>
+        </eStructuralFeatures>
+        <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_PyTxYAPyEfCB0u2bt4zcFg" name="wertBeschreibungsspalte5" ordered="false">
+          <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/uml2/5.0.0/Types#//String"/>
+        </eStructuralFeatures>
+        <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_PyTxYgPyEfCB0u2bt4zcFg" name="wertBeschreibungsspalte6" ordered="false">
+          <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/uml2/5.0.0/Types#//String"/>
+        </eStructuralFeatures>
+      </eClassifiers>
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="_PyTxZAPyEfCB0u2bt4zcFg" name="kositDokumentiereCodeliste" eSuperTypes="_PyTxRwPyEfCB0u2bt4zcFg">
+        <eAnnotations xmi:id="_PyTxZQPyEfCB0u2bt4zcFg" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_18_0_6_5b501fb_1541688251826_58887_4105"/>
+        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_PyTxZgPyEfCB0u2bt4zcFg" name="base_Enumeration" ordered="false" lowerBound="1">
+          <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Enumeration"/>
+        </eStructuralFeatures>
+        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_PyTxaAPyEfCB0u2bt4zcFg" name="base_Class" ordered="false" lowerBound="1">
+          <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+        </eStructuralFeatures>
+      </eClassifiers>
+    </contents>
+  </eAnnotations>
+  <packageImport xmi:id="_18_0_6_5b501fb_1501053662807_562832_38648">
+    <importedPackage xmi:type="uml:Model" href="pathmap://UML_METAMODELS/UML.metamodel.uml#_0"/>
+  </packageImport>
+  <packageImport xmi:id="_0primitiveTypesKoSIT-Codelisten-Profil">
+    <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#_0"/>
+  </packageImport>
+  <packageImport xmi:id="_0javaPrimitiveTypesKoSIT-Codelisten-Profil">
+    <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#_0"/>
+  </packageImport>
+  <packagedElement xmi:type="uml:Stereotype" xmi:id="_18_0_6_5b501fb_1501053662807_894944_38631" name="kositGeneriereGenericode" visibility="public">
+    <ownedComment xmi:id="_18_0_6_5b501fb_1501053662979_771782_38681" annotatedElement="_18_0_6_5b501fb_1501053662807_894944_38631" body=""/>
+    <generalization xmi:id="_18_0_6_5b501fb_1501053662979_369562_38683">
+      <general xmi:type="uml:Stereotype" href="UML_Standard_Profile.MagicDraw_Profile.profile.uml#_9_0_be00301_1108044721245_236588_411"/>
+    </generalization>
+    <ownedAttribute xmi:id="_18_0_6_5b501fb_1501053709082_866692_38837" name="base_Enumeration" visibility="private" association="_18_0_6_5b501fb_1501053709082_598474_38836">
+      <type xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#Enumeration"/>
+    </ownedAttribute>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Extension" xmi:id="_18_0_6_5b501fb_1501053709082_598474_38836" name="" visibility="public" memberEnd="_18_0_6_5b501fb_1501053709082_866692_38837 _18_0_6_5b501fb_1501053709082_353864_38838" navigableOwnedEnd="_18_0_6_5b501fb_1501053709082_353864_38838">
+    <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_18_0_6_5b501fb_1501053709082_353864_38838" name="extension_kositGeneriereGenericode" visibility="private" type="_18_0_6_5b501fb_1501053662807_894944_38631" aggregation="composite" association="_18_0_6_5b501fb_1501053709082_598474_38836">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_18_0_6_5b501fb_1501053709082_113150_38839" name="" visibility="public"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_18_0_6_5b501fb_1501053709082_957000_38840" name="" visibility="public" value="1"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Stereotype" xmi:id="_18_0_6_5b501fb_1526812335561_863748_4581" name="kositCodelistenspalten" visibility="public">
+    <ownedAttribute xmi:id="_18_0_6_5b501fb_1526812406484_662167_4600" name="base_Enumeration" visibility="private" association="_18_0_6_5b501fb_1526812406484_178844_4599">
+      <type xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#Enumeration"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="_18_0_6_5b501fb_1526812471573_586915_4618" name="beschreibungsspalte3" visibility="private">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_18_0_6_5b501fb_1526812471575_808503_4623" name="" visibility="public"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_18_0_6_5b501fb_1526812471575_904726_4622" name="" visibility="public" value="1"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="_18_0_6_5b501fb_1526812471574_195553_4619" name="beschreibungsspalte4" visibility="private">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_18_0_6_5b501fb_1526812471575_388428_4625" name="" visibility="public"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_18_0_6_5b501fb_1526812471575_248690_4624" name="" visibility="public" value="1"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="_18_0_6_5b501fb_1526812471574_520105_4620" name="beschreibungsspalte5" visibility="private">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_18_0_6_5b501fb_1526812471575_324490_4627" name="" visibility="public"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_18_0_6_5b501fb_1526812471575_830280_4626" name="" visibility="public" value="1"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="_18_0_6_5b501fb_1526812471575_248790_4621" name="beschreibungsspalte6" visibility="private">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_18_0_6_5b501fb_1526812471576_547962_4629" name="" visibility="public"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_18_0_6_5b501fb_1526812471575_617637_4628" name="" visibility="public" value="1"/>
+    </ownedAttribute>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Stereotype" xmi:id="_18_0_6_5b501fb_1526812344892_885975_4587" name="kositCodelisteneintrag" visibility="public">
+    <ownedAttribute xmi:id="_18_0_6_5b501fb_1526812372923_641599_4593" name="wertBeschreibungsspalte3" visibility="private">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_18_0_6_5b501fb_1526812443748_167514_4604" name="" visibility="public"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_18_0_6_5b501fb_1526812443748_316503_4605" name="" visibility="public" value="1"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="_18_0_6_5b501fb_1526812389685_636883_4595" name="base_EnumerationLiteral" visibility="private" association="_18_0_6_5b501fb_1526812389685_53732_4594">
+      <type xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#EnumerationLiteral"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="_18_0_6_5b501fb_1526812447660_401742_4606" name="wertBeschreibungsspalte4" visibility="private">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_18_0_6_5b501fb_1526812447661_748177_4608" name="" visibility="public"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_18_0_6_5b501fb_1526812447661_836198_4607" name="" visibility="public" value="1"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="_18_0_6_5b501fb_1526812449266_127620_4609" name="wertBeschreibungsspalte5" visibility="private">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_18_0_6_5b501fb_1526812449267_467216_4611" name="" visibility="public"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_18_0_6_5b501fb_1526812449266_866726_4610" name="" visibility="public" value="1"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="_18_0_6_5b501fb_1526812450008_656737_4612" name="wertBeschreibungsspalte6" visibility="private">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_18_0_6_5b501fb_1526812450008_67880_4614" name="" visibility="public"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_18_0_6_5b501fb_1526812450008_18055_4613" name="" visibility="public" value="1"/>
+    </ownedAttribute>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Extension" xmi:id="_18_0_6_5b501fb_1526812389685_53732_4594" name="" visibility="public" memberEnd="_18_0_6_5b501fb_1526812389685_636883_4595 _18_0_6_5b501fb_1526812389685_969427_4596" navigableOwnedEnd="_18_0_6_5b501fb_1526812389685_969427_4596">
+    <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_18_0_6_5b501fb_1526812389685_969427_4596" name="extension_kositCodelisteneintrag" visibility="private" type="_18_0_6_5b501fb_1526812344892_885975_4587" aggregation="composite" association="_18_0_6_5b501fb_1526812389685_53732_4594">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_18_0_6_5b501fb_1526812389685_772228_4597" name="" visibility="public"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_18_0_6_5b501fb_1526812389685_999161_4598" name="" visibility="public" value="1"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Extension" xmi:id="_18_0_6_5b501fb_1526812406484_178844_4599" name="" visibility="public" memberEnd="_18_0_6_5b501fb_1526812406484_662167_4600 _18_0_6_5b501fb_1526812406484_288883_4601" navigableOwnedEnd="_18_0_6_5b501fb_1526812406484_288883_4601">
+    <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_18_0_6_5b501fb_1526812406484_288883_4601" name="extension_kositCodelistenspalten" visibility="private" type="_18_0_6_5b501fb_1526812335561_863748_4581" aggregation="composite" association="_18_0_6_5b501fb_1526812406484_178844_4599">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_18_0_6_5b501fb_1526812406484_807621_4602" name="" visibility="public"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_18_0_6_5b501fb_1526812406484_759798_4603" name="" visibility="public" value="1"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Stereotype" xmi:id="_18_0_6_5b501fb_1541688251826_58887_4105" name="kositDokumentiereCodeliste" visibility="public">
+    <ownedComment xmi:id="_18_0_6_5b501fb_1541688251826_343732_4106" annotatedElement="_18_0_6_5b501fb_1541688251826_58887_4105" body=""/>
+    <generalization xmi:id="_18_0_6_5b501fb_1541688251826_865331_4107">
+      <general xmi:type="uml:Stereotype" href="UML_Standard_Profile.MagicDraw_Profile.profile.uml#_9_0_be00301_1108044721245_236588_411"/>
+    </generalization>
+    <ownedAttribute xmi:id="_18_0_6_5b501fb_1541688251841_390624_4109" name="base_Enumeration" visibility="private" association="_18_0_6_5b501fb_1541688251841_76648_4108">
+      <type xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#Enumeration"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="_19_0_3_5b501fb_1585292985886_604989_11959" name="base_Class" visibility="private" association="_19_0_3_5b501fb_1585292985886_115038_11958">
+      <type xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#Class"/>
+    </ownedAttribute>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Extension" xmi:id="_18_0_6_5b501fb_1541688251841_76648_4108" name="" visibility="public" memberEnd="_18_0_6_5b501fb_1541688251841_390624_4109 _18_0_6_5b501fb_1541688251841_597473_4110" navigableOwnedEnd="_18_0_6_5b501fb_1541688251841_597473_4110">
+    <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_18_0_6_5b501fb_1541688251841_597473_4110" name="extension_kositGeneriereGenericode" visibility="private" type="_18_0_6_5b501fb_1541688251826_58887_4105" aggregation="composite" association="_18_0_6_5b501fb_1541688251841_76648_4108">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_18_0_6_5b501fb_1541688251841_40181_4111" name="" visibility="public"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_18_0_6_5b501fb_1541688251841_593029_4112" name="" visibility="public" value="1"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Extension" xmi:id="_19_0_3_5b501fb_1585292985886_115038_11958" name="" visibility="public" memberEnd="_19_0_3_5b501fb_1585292985886_604989_11959 _19_0_3_5b501fb_1585292985886_820815_11960" navigableOwnedEnd="_19_0_3_5b501fb_1585292985886_820815_11960">
+    <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_19_0_3_5b501fb_1585292985886_820815_11960" name="extension_kositDokumentiereCodeliste" visibility="private" type="_18_0_6_5b501fb_1541688251826_58887_4105" aggregation="composite" association="_19_0_3_5b501fb_1585292985886_115038_11958">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_19_0_3_5b501fb_1585292985886_273514_11961" name="" visibility="public"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_19_0_3_5b501fb_1585292985886_510244_11962" name="" visibility="public" value="1"/>
+    </ownedEnd>
+  </packagedElement>
+</uml:Profile>

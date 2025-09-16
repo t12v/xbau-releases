@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xbau="http://www.xleitstelle.de/xbau/schema/2/1/" targetNamespace="http://www.xleitstelle.de/xbau/schema/2/1/" version="2.1" elementFormDefault="qualified" attributeFormDefault="unqualified">
+  <xs:annotation>
+    <xs:appinfo>
+      <standard>
+        <nameLang>XBau - Standard für die Datenkommunikation der Bauaufsichtsbehörde</nameLang>
+        <nameKurz>XBau</nameKurz>
+        <nameTechnisch>xbau</nameTechnisch>
+        <kennung>urn:xoev-de:bmk:standard:xbau</kennung>
+        <beschreibung>XBau ist der XÖV-Standard für den Datenaustausch der Bauaufsichtsbehörden mit ihren Kommunikationspartnern (Bauherren, Architektenbüros, Behörden zahlreicher Rechtsbereiche).</beschreibung>
+      </standard>
+      <versionStandard>
+        <version>2.1</version>
+        <beschreibung>In vielen Teilen überarbeitete und erweiterte produktionsreife Fassung des Standards XBau. Auf der Basis des Baurechts des Bundes und der Länder und eng am Bedarf der Praxis der Behörden entwickelt. Erweiterungen und Verbesserungen befinden sich in der Planung auch für die Zukunft.</beschreibung>
+        <versionXOEVHandbuch>2.1.0</versionXOEVHandbuch>
+        <versionXGenerator>2.6.1</versionXGenerator>
+        <versionModellierungswerkzeug>18.0</versionModellierungswerkzeug>
+        <nameModellierungswerkzeug>MagicDraw</nameModellierungswerkzeug>
+      </versionStandard>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:include schemaLocation="xbau-baukasten.xsd" />
+  <xs:element name="genehmigungsfreistellung.anzeige.0600">
+    <xs:annotation>
+      <xs:appinfo>
+        <title>Anzeige des Bauvorhabens (Gemeinde)</title>
+      </xs:appinfo>
+      <xs:documentation>Mit dieser Nachricht zeigt der Bauherr der Gemeinde wg. möglicher Freistellung von der Genehmigungspflicht sein Vorhaben an. Die Nachricht enthält die einschlägigen Daten zum Vorhaben, ergänzend dokumentiert durch Unterlagen, die Bauvorlagen entsprechen sowie sonstige Unterlagen.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:complexContent>
+        <xs:extension base="xbau:Nachricht.privat2G">
+          <xs:sequence>
+            <xs:element name="bauvorhaben" type="xbau:Bauvorhaben">
+              <xs:annotation>
+                <xs:documentation>Dies ist die Dokumentation zum Bauvorhaben, für das der Bauherr die Genehmigungsfreistellung anzeigt. Die nötigen Daten (Wer, Was, Wo) sind enthalten.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="anlagen" type="xbau:Anlagen">
+              <xs:annotation>
+                <xs:documentation>Die für die Planung des Vorhabens notwendigen Unterlagen sind hier als Anlage beigefügt (MBO, MBauVorlV). In diesem Element sind die nötigen Metadaten und ggf. auch das Primärdokument enthalten.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="alsBauantragWeiterzufuehren" type="xs:boolean">
+              <xs:annotation>
+                <xs:documentation>Hier kann der Bauherr kennzeichnen ("true", andernfalls "false"), dass der Vorgang bei abschlägiger Entscheidung in ein Baugenehmigungsverfahren übergehen soll und die eingereichten Unterlagen dann als Bauvorlagen verwendet werden sollen.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+          </xs:sequence>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="genehmigungsfreistellung.anzeigeBAB.0601">
+    <xs:annotation>
+      <xs:appinfo>
+        <title>Anzeige des Bauvorhabens (Baubehörde)</title>
+      </xs:appinfo>
+      <xs:documentation>Mit dieser Nachricht unterrichtet die Gemeinde die Bauaufsichtsbehörde über die eingegangene Anzeige der Genehmigungsfreistellung.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:complexContent>
+        <xs:extension base="xbau:Nachricht.G2G">
+          <xs:sequence>
+            <xs:element name="bezug" type="xbau:Bezug">
+              <xs:annotation>
+                <xs:documentation>Bezug auf die Anzeige des Bauherrn gegenüber der Gemeinde. Nachricht 0600, die die Gemeinde erhalten hat.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="bauvorhaben" type="xbau:Bauvorhaben">
+              <xs:annotation>
+                <xs:documentation>Dies ist die Dokumentation zum Bauvorhaben, für das der Bauherr die Genehmigungsfreistellung anzeigt.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="anlagen" minOccurs="0" type="xbau:Anlagen">
+              <xs:annotation>
+                <xs:documentation>In diesem Element sind die durch den Bauherrn beigefügten Anlagen enthalten.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="alsBauantragWeiterzufuehren" type="xs:boolean">
+              <xs:annotation>
+                <xs:documentation>Hier ist dokumentiert, ob der  Bauherr wünscht, dass der Vorgang bei abschlägiger Entscheidung als ein Baugenehmigungsverfahren weitergeführt werden soll  ("true", andernfalls "false").</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+          </xs:sequence>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="genehmigungsfreistellung.ergebnis.0602">
+    <xs:annotation>
+      <xs:appinfo>
+        <title>Ergebnis der Prüfung</title>
+      </xs:appinfo>
+      <xs:documentation>Mittels dieser Nachricht teilt die Gemeinde dem Bauherrn das Ergebnis der Prüfung seiner Anzeige mit. Der Bauherr erfährt, ob sein Vorhaben genehmigungspflichtig ist. Auch erhält er Informationen, ob die Gemeinde eine Untersagung gemäß § 15 BauGB beantragt hat.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:complexContent>
+        <xs:extension base="xbau:Nachricht.G2privat">
+          <xs:sequence>
+            <xs:element name="bezug" type="xbau:Bezug">
+              <xs:annotation>
+                <xs:documentation>Bezug auf die Anzeige des Bauherrn gegenüber der Gemeinde. Nachricht 0600, auf die die Gemeinde mit dieser Nachricht antwortet.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="ergebnisDesVerfahrens" type="xbau:Code.Genehmigungsfreistellung">
+              <xs:annotation>
+                <xs:documentation>Die Gemeinde trägt in dieses Element ein, welches Ergebnis die gemeindliche Prüfung der Anzeige ergeben hat.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+          </xs:sequence>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="genehmigungsfreistellung.ergebnisBAB.0603">
+    <xs:annotation>
+      <xs:appinfo>
+        <title>Anzeige des Prüfergebnisses (Baubehörde)</title>
+      </xs:appinfo>
+      <xs:documentation>Diese Nachricht unterrichtet die Bauaufsichtsbehörde über das Ergebnis der Prüfung, das dem Bauherrn von der Gemeinde übermittelt wurde.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:complexContent>
+        <xs:extension base="xbau:Nachricht.G2G">
+          <xs:sequence>
+            <xs:element name="bezug" type="xbau:Bezug">
+              <xs:annotation>
+                <xs:documentation>Bezug auf die Anzeige des Bauherrn gegenüber der Gemeinde. Nachricht 0600, die die Gemeinde erhalten hat.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="ergebnisDesVerfahrens" type="xbau:Code.Genehmigungsfreistellung">
+              <xs:annotation>
+                <xs:documentation>Die Gemeinde trägt in dieses Element ein, welches Ergebnis der gemeindlichen Prüfung der Anzeige sie dem Bauherrn übermittelt hat.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+          </xs:sequence>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
+

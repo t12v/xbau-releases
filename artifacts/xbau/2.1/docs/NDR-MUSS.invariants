@@ -1,0 +1,1614 @@
+<?xml version='1.0' encoding='iso-8859-1'?>
+<!-- XÖV-Profil 1.5.1 - XÖV-Prüfanweisungen (MUSS-Regeln) -->
+<!-- Dieses Werk ist lizensiert unter einer Creative Commons Namensnennung - Keine Bearbeitung 4.0 International Lizenz. -->
+
+<invariants xmlns="http://www.osci.de/xoev/invariants">
+  <rule name='NDR-2: Hauptstruktur des UML-Modells'>
+  <invariant context='Model' name='ExactlyOneTopLevelXModel'>
+    <body><![CDATA[
+		Model.allInstances->select( m1 |
+		  m1.extension_xsdXModel.isDefined() and 
+		  m1.owner.oclAsType(NamedElement).name <> 'Externe Modelle' and
+		  m1.owner.oclAsType(NamedElement).name <> 'Kompatible Modelle')->size() = 1
+		]]>	   
+    </body>
+    <documentation>
+      Nur ein XModel außerhalb von 'Externe Modelle' erlaubt.
+    </documentation>
+  </invariant>
+    
+  <invariant context='Model' name='ExternalXModelsInDedicatedPackage'>
+    <body><![CDATA[
+      self <> self.hlpXModel() and 
+      self.extension_xsdXModel.isDefined() and 
+      self.hlpXModel().isDefined() implies
+        self.hlpSplitString(Tuple{aString=self.qualifiedName, splitChar=':'})->at(3) = 'Externe Modelle'		
+    ]]></body>
+    <documentation>
+      Weitere UML-Modelle mit dem Stereotyp «xsdXModel» neben dem des eigentlichen XÖV-Standards 
+      befinden sich in dem UML-Paket "Externe Modelle".
+    </documentation>
+  </invariant>
+  
+  <invariant context='Model' name='W3CDatatypesPackageExists'>
+    <body><![CDATA[
+      self = self.hlpXModel().hlpOwningPackage() implies
+        (Package.allInstances->exists(p|p.name = 'W3C Data Types' and 
+		  p.ownedMember->exists(m|m.oclIsTypeOf(Class) and m.name='anyURI') and
+		  p.ownedMember->exists(m|m.oclIsTypeOf(Class) and m.name='base64Binary') and
+		  p.ownedMember->exists(m|m.oclIsTypeOf(Class) and m.name='boolean') and
+		  p.ownedMember->exists(m|m.oclIsTypeOf(Class) and m.name='byte') and
+		  p.ownedMember->exists(m|m.oclIsTypeOf(Class) and m.name='date') and
+		  p.ownedMember->exists(m|m.oclIsTypeOf(Class) and m.name='dateTime') and
+		  p.ownedMember->exists(m|m.oclIsTypeOf(Class) and m.name='decimal') and
+		  p.ownedMember->exists(m|m.oclIsTypeOf(Class) and m.name='double') and
+		  p.ownedMember->exists(m|m.oclIsTypeOf(Class) and m.name='duration') and
+		  p.ownedMember->exists(m|m.oclIsTypeOf(Class) and m.name='ENTITY') and
+		  p.ownedMember->exists(m|m.oclIsTypeOf(Class) and m.name='float') and
+		  p.ownedMember->exists(m|m.oclIsTypeOf(Class) and m.name='gDay') and
+		  p.ownedMember->exists(m|m.oclIsTypeOf(Class) and m.name='gMonth') and
+		  p.ownedMember->exists(m|m.oclIsTypeOf(Class) and m.name='gMonthDay') and
+		  p.ownedMember->exists(m|m.oclIsTypeOf(Class) and m.name='gYear') and
+		  p.ownedMember->exists(m|m.oclIsTypeOf(Class) and m.name='gYearMonth') and
+		  p.ownedMember->exists(m|m.oclIsTypeOf(Class) and m.name='hexBinary') and
+		  p.ownedMember->exists(m|m.oclIsTypeOf(Class) and m.name='ID') and
+		  p.ownedMember->exists(m|m.oclIsTypeOf(Class) and m.name='IDREF') and
+		  p.ownedMember->exists(m|m.oclIsTypeOf(Class) and m.name='int') and
+		  p.ownedMember->exists(m|m.oclIsTypeOf(Class) and m.name='integer') and
+		  p.ownedMember->exists(m|m.oclIsTypeOf(Class) and m.name='language') and
+		  p.ownedMember->exists(m|m.oclIsTypeOf(Class) and m.name='long') and
+		  p.ownedMember->exists(m|m.oclIsTypeOf(Class) and m.name='Name') and
+		  p.ownedMember->exists(m|m.oclIsTypeOf(Class) and m.name='NCName') and
+		  p.ownedMember->exists(m|m.oclIsTypeOf(Class) and m.name='negativeInteger') and
+		  p.ownedMember->exists(m|m.oclIsTypeOf(Class) and m.name='NMTOKEN') and
+		  p.ownedMember->exists(m|m.oclIsTypeOf(Class) and m.name='nonNegativeInteger') and
+		  p.ownedMember->exists(m|m.oclIsTypeOf(Class) and m.name='nonPositiveInteger') and
+		  p.ownedMember->exists(m|m.oclIsTypeOf(Class) and m.name='normalizedString') and
+		  p.ownedMember->exists(m|m.oclIsTypeOf(Class) and m.name='NOTATION') and
+		  p.ownedMember->exists(m|m.oclIsTypeOf(Class) and m.name='positiveInteger') and 
+		  p.ownedMember->exists(m|m.oclIsTypeOf(Class) and m.name='QName') and
+		  p.ownedMember->exists(m|m.oclIsTypeOf(Class) and m.name='short') and
+		  p.ownedMember->exists(m|m.oclIsTypeOf(Class) and m.name='string') and
+		  p.ownedMember->exists(m|m.oclIsTypeOf(Class) and m.name='time') and
+		  p.ownedMember->exists(m|m.oclIsTypeOf(Class) and m.name='token') and
+		  p.ownedMember->exists(m|m.oclIsTypeOf(Class) and m.name='unsignedByte') and
+		  p.ownedMember->exists(m|m.oclIsTypeOf(Class) and m.name='unsignedInt') and
+		  p.ownedMember->exists(m|m.oclIsTypeOf(Class) and m.name='unsignedLong') and
+		  p.ownedMember->exists(m|m.oclIsTypeOf(Class) and m.name='unsignedShort')))
+    ]]></body>
+    <documentation>
+      Es existiert ein UML-Paket mit Namen "W3C Data Types" und den darin befindlichen W3C-Datentypen 
+      für XML-Schemata als UML-Klassen.
+    </documentation>
+  </invariant>
+  </rule>
+  
+  <rule name='NDR-3: Nachrichten als globale Elemente'>
+  
+  <invariant context='Class' name='MessagesMustBeGlobalElements'>
+    <body><![CDATA[
+      self.extension_xsdMessage.isDefined() and
+      self.hlpIsPartOfXModel() implies
+        self.extension_xsdGlobalElement.isDefined()
+    ]]></body>
+    <documentation>
+      UML-Klassen mit Stereotyp «xsdMessage» müssen gleichzeitig den 
+      Stereotyp «xsdGlobalElement» besitzen. 
+    </documentation> 
+  </invariant>
+  </rule>
+  
+  <rule name='NDR-23: Umgang mit Restriktionen über unterschiedliche Namensräume'>
+  
+  <invariant context='Generalization' name='TransNamespaceRestrictionImpliesUnqualifiedElements'>
+    <body><![CDATA[
+      self.extension_xsdRestriction.isDefined and	  
+	  (self.general.hlpOwningSchema().hlpPackageNamespace() <> 
+	   self.specific.hlpOwningSchema().hlpPackageNamespace()) and 
+	   self.hlpIsPartOfXModel() implies
+	   
+					(self.general.oclAsType(Class).hlpAllElements()->forAll(e|e.extension_xsdElement.form.isDefined and e.extension_xsdElement.form<>ElementForm::qualified) 
+			
+				and
+			
+					(self.general.oclAsType(Class).hlpAllElements()->exists(e|e.extension_xsdElement.form.isDefined and e.extension_xsdElement.form=ElementForm::default) implies 	
+				
+							(self.general.hlpOwningSchema().extension_xsdSchema.elementFormDefault=ElementForm::unqualified 
+					
+						or 
+					
+							self.general.hlpOwningSchema().extension_xsdSchema.elementFormDefault=ElementForm::default and self.general.hlpOwningModel().extension_xsdXModel.elementFormDefault=ElementFormDefault::unqualified))) 
+		
+			and
+        
+					(self.specific.oclAsType(Class).hlpAllElements()->forAll(e|e.extension_xsdElement.form.isDefined and e.extension_xsdElement.form<>ElementForm::qualified) 
+			
+				and
+			
+					(self.specific.oclAsType(Class).hlpAllElements()->exists(e|e.extension_xsdElement.form.isDefined and e.extension_xsdElement.form=ElementForm::default) implies 	
+				
+							(self.specific.hlpOwningSchema().extension_xsdSchema.elementFormDefault=ElementForm::unqualified 
+					
+						or 
+					
+							self.specific.hlpOwningSchema().extension_xsdSchema.elementFormDefault=ElementForm::default and self.specific.hlpOwningModel().extension_xsdXModel.elementFormDefault=ElementFormDefault::unqualified))) 
+    ]]></body>
+    <documentation>
+      Bei Restriktionen über mehrere Namensräume müssen die UML-Klasseneigenschaften mit «xsdElement» 
+      für die Eigenschaft "form" den Wert "unqualified" aufweisen.
+    </documentation>
+  </invariant> 
+  </rule>
+  
+ <rule name='NDR-28: Valide W3C-XML-Schemata'>
+ 
+  <invariant context='Class' name='UnionsMustBeSimpleType'>
+    <body><![CDATA[
+      self.extension_xsdUnion.isDefined and
+      self.hlpIsPartOfXModel() implies 
+        self.hlpIsSimpleType()
+    ]]></body>
+    <documentation>Der Stereotyp «xsdUnion» darf nur auf einen simple Type angewendet werden.</documentation> 
+  </invariant>
+  
+  <invariant context='Class' name='UnionMembersMustBeSimpleType'>
+    <body><![CDATA[
+      self.extension_xsdUnion.isDefined and
+      self.hlpIsPartOfXModel() implies 
+        self.getUnionMembers()->forAll(m | m.hlpIsSimpleType() or m.isW3CType())
+    ]]></body>
+    <documentation>Unions dürfen nur simple Types als Mitglieder haben.</documentation> 
+  </invariant>
+  
+  <invariant context='Class' name='UnionMembersMustBeReachableByName'>
+    <body><![CDATA[
+      self.extension_xsdUnion.isDefined and
+      self.hlpIsPartOfXModel() implies 
+        self.getUnionMembers()->forAll(m | m.hlpIsReferenceableByName())
+    ]]></body>
+    <documentation>Unions dürfen nur simple Types als Mitglieder haben.</documentation> 
+  </invariant>
+  
+ <invariant context='Dependency' name='KeysKeyrefsUniquesImportsAndIncludesAreExclusive'>
+    <body><![CDATA[
+      (self.extension_xsdImport.isDefined() or
+	   self.extension_xsdInclude.isDefined() or
+	   self.extension_xsdKey.isDefined() or
+	   self.extension_xsdKeyref.isDefined() or
+	   self.extension_xsdUnique.isDefined()) and
+	  self.hlpIsPartOfXModel() implies
+         self.extension_xsdImport.isDefined() and 
+         not self.extension_xsdInclude.isDefined() and
+		 not self.extension_xsdKey.isDefined() and
+		 not self.extension_xsdKeyref.isDefined() and
+		 not self.extension_xsdUnique.isDefined()	
+         or
+         not self.extension_xsdImport.isDefined() and 
+         self.extension_xsdInclude.isDefined() and
+		 not self.extension_xsdKey.isDefined() and
+		 not self.extension_xsdKeyref.isDefined() and
+		 not self.extension_xsdUnique.isDefined()	
+         or
+	     not self.extension_xsdImport.isDefined() and 
+         not self.extension_xsdInclude.isDefined() and
+		 self.extension_xsdKey.isDefined() and
+		 not self.extension_xsdKeyref.isDefined() and
+		 not self.extension_xsdUnique.isDefined()	
+         or
+         not self.extension_xsdImport.isDefined() and 
+         not self.extension_xsdInclude.isDefined() and
+		 not self.extension_xsdKey.isDefined() and
+		 self.extension_xsdKeyref.isDefined() and
+		 not self.extension_xsdUnique.isDefined()	
+         or
+         not self.extension_xsdImport.isDefined() and 
+         not self.extension_xsdInclude.isDefined() and
+		 not self.extension_xsdKey.isDefined() and
+		 not self.extension_xsdKeyref.isDefined() and
+		 self.extension_xsdUnique.isDefined()	
+    ]]></body>
+    <documentation>
+      Die Stereotypen «xsdKey», «xsdKeyref», «xsdUnique», «xsdInclude» und «xsdImport» an UML-Abhängigkeiten schließen einander aus. 
+    </documentation> 
+  </invariant>
+
+  <invariant context='Class' name='NamedTypesAndGlobalElementsAreExclusive'>
+    <body><![CDATA[
+      self.extension_xsdNamedType.isDefined() and
+      self.hlpIsPartOfXModel() implies
+        self.extension_xsdGlobalElement.isUndefined()
+    ]]></body>
+    <documentation>
+      Die Stereotypen «xsdNamedType» und «xsdGlobalElement» an UML-Klassen schließen einander aus.
+    </documentation> 
+  </invariant>
+
+  <invariant context='Property' name='LocalStructuresElementsAndAttributesAreExclusive'>
+    <body><![CDATA[
+      (self.extension_xsdLocalStructure.isDefined() or
+	   self.extension_xsdAttribute.isDefined() or
+	   self.extension_xsdElement.isDefined()) and
+	  self.hlpIsPartOfXModel() implies
+        self.extension_xsdLocalStructure.isDefined() and
+		not self.extension_xsdAttribute.isDefined() and
+		not self.extension_xsdElement.isDefined() 
+        or
+        not self.extension_xsdLocalStructure.isDefined() and
+		self.extension_xsdAttribute.isDefined() and
+		not self.extension_xsdElement.isDefined()	
+        or
+        not self.extension_xsdLocalStructure.isDefined() and
+		not self.extension_xsdAttribute.isDefined() and
+		self.extension_xsdElement.isDefined()				
+	]]></body>
+    <documentation>
+      Die Stereotypen «xsdLocalStructure», «xsdElement» und «xsdAttribute» an UML-Klasseneigenschaften schließen einander aus. 
+    </documentation> 
+  </invariant>
+  
+  <invariant context='Property' name='ElementPositionMustBeNaturalNumber'>
+    <body><![CDATA[	
+      self.extension_xsdElement.isDefined() and
+	  self.hlpIsPartOfXModel() implies
+        self.extension_xsdElement.position.isDefined and
+		self.extension_xsdElement.position > 0
+    ]]></body>
+    <documentation>
+      UML-Klasseneigenschaften, die als «xsdElement» stereotypisiert sind, müssen einen Wert 
+      besitzen, der einer positiven Zahl entspricht.
+    </documentation> 
+  </invariant>
+  
+  <invariant context='Class' name='ElementPositionMustBeUnique'> 
+    <body><![CDATA[
+      self.hlpIsPartOfXModel() implies
+      (self.attribute->select(f |
+        f.extension_xsdElement.isDefined)->forAll(f1,f2 |
+          (f1.extension_xsdElement.position = f2.extension_xsdElement.position)
+          implies (f1 = f2)))
+    ]]></body>
+    <documentation>
+      Innerhalb einer UML-Klasse müssen alle position-Werte eindeutig sein. 
+    </documentation> 
+  </invariant>
+ 
+  <invariant context='Model' name='TypeNamesUniqueInNamespace'>
+    <body><![CDATA[	
+      self = self.hlpXModel() implies
+        Classifier.allInstances->select(c|c.extension_xsdNamedType.isDefined() and c.hlpIsPartOfXModel() and not c.isPartOfAdapter() and not c.oclAsType(Class).extension_xoevACC.isDefined() and not c.oclAsType(Class).extension_xoevABIE.isDefined())->isUnique(c|
+          c.name.concat(c.hlpOwningSchema().hlpPackageNamespace()))
+    ]]></body>
+    <documentation>
+      Der Name eines Datentyps muss innerhalb desselben Namensraums eindeutig sein.
+    </documentation>
+        <errorMessage>Die Namen folgender Datentypen sind nicht eindeutig: 
+    $ocl.eval("let s = Classifier.allInstances->select(c|c.extension_xsdNamedType.isDefined() and c.hlpIsPartOfXModel() and not c.isPartOfAdapter() and not c.oclAsType(Class).extension_xoevACC.isDefined() and not c.oclAsType(Class).extension_xoevABIE.isDefined()) in
+s->select(c1| s->exists(c2| c1&lt;&gt;c2 and c1.name.concat(c1.hlpOwningSchema().hlpPackageNamespace()) = c2.name.concat(c2.hlpOwningSchema().hlpPackageNamespace())))->collect(x|'Name des Datentyps: '+x.name+' (Namensraum: '+x.hlpOwningSchema().hlpPackageNamespace()+')')->asSet()")
+    </errorMessage>
+  </invariant>
+  
+    <invariant context='Model' name='GlobalElementNamesUniqueInNamespace'>
+    <body><![CDATA[	
+      self = self.hlpXModel() implies
+        Classifier.allInstances->select(c|c.extension_xsdGlobalElement.isDefined() and c.hlpIsPartOfXModel() and not c.isPartOfAdapter() and not c.oclAsType(Class).extension_xoevACC.isDefined() and not c.oclAsType(Class).extension_xoevABIE.isDefined())->isUnique(c|
+          c.name.concat(c.hlpOwningSchema().hlpPackageNamespace()))
+    ]]></body>
+    <documentation>
+      Der Name eines globalen Elements muss innerhalb desselben Namensraums eindeutig sein.
+    </documentation>
+    <errorMessage>Die Namen folgender globaler Elemente sind nicht eindeutig: 
+    $ocl.eval("let s = Classifier.allInstances->select(c|c.extension_xsdGlobalElement.isDefined() and c.hlpIsPartOfXModel() and not c.isPartOfAdapter() and not c.oclAsType(Class).extension_xoevACC.isDefined() and not c.oclAsType(Class).extension_xoevABIE.isDefined()) in
+s->select(c1| s->exists(c2| c1&lt;&gt;c2 and c1.name.concat(c1.hlpOwningSchema().hlpPackageNamespace()) = c2.name.concat(c2.hlpOwningSchema().hlpPackageNamespace())))->collect(x|'Name des globalen Elements: '+x.name+' (Namensraum: '+x.hlpOwningSchema().hlpPackageNamespace()+')')->asSet()")
+    </errorMessage>
+  </invariant>
+  
+  <invariant context='Package' name='NoInnerSchemas'>
+    <body><![CDATA[
+      self.extension_xsdSchema.isDefined and
+      self.hlpIsPartOfXModel() implies 
+        self.hlpOwningSchema().isUndefined
+    ]]></body>
+    <documentation>
+      «xsdSchema»-UML-Pakete dürfen nicht ineinander geschachtelt werden. 
+    </documentation> 
+  </invariant>
+
+  <invariant context='Enumeration' name='CodelistsMustBeNamed'>
+    <body><![CDATA[
+      self.extension_xoevCodeliste.isDefined and
+	  self.extension_xsdNamedType.isDefined and
+	  self.hlpIsPartOfXModel() implies
+        self.name.isDefined and 
+        self.name <> ''
+    ]]></body>
+    <documentation>
+      «xoevCodeliste»-UML-Enumerations, die gleichzeitig den Stereotyp «xsdNamedType» besitzen, müssen 
+      einen Namen haben.
+    </documentation> 
+  </invariant>
+  
+  <invariant context='Enumeration' name='CodelistBaseMustBeSimpleType'>
+    <body><![CDATA[
+      self.extension_xsdCodeList.isDefined() and
+	  self.extension_xsdCodeList.base.isDefined() and
+	  self.hlpIsPartOfXModel() implies
+        self.extension_xsdCodeList.base.hlpIsSimpleType()
+    ]]></body>
+    <documentation>
+      «xsdCodeList»-UML-Enumerations, die einen anderen Basistypen als xs:token
+	  definieren, müssen als Basistyp einen SimpleType angeben
+    </documentation> 
+  </invariant>
+  
+  <invariant context='Class' name='CodeEnumerationHasTokenType'>
+    <body><![CDATA[
+      let codeType = self.getAttribute('code').type in
+	  self.extension_xsdCode.isDefined() and
+	  codeType.oclIsKindOf(Enumeration) and
+	  codeType.oclAsType(Enumeration).extension_xsdCodeList.isDefined() and
+	  codeType.oclAsType(Enumeration).extension_xsdCodeList.base.isDefined() and
+	  self.hlpIsPartOfXModel() implies 
+	    (codeType.oclAsType(Enumeration).extension_xsdCodeList.base.name = 'token' or
+         codeType.oclAsType(Enumeration).extension_xsdCodeList.base.allParents()->exists(p | p.name = 'token'))
+    ]]></body>
+    <documentation>«xsdCodeList»-UML-Enumerations, die in einem «xsdCode» verwendet werden
+müssen vom Typ xs:token abgeleitet sein.
+    </documentation> 
+  </invariant>
+  
+  <invariant context='Property' name='ElementsAndAttributesMustBeNamed'>
+    <body><![CDATA[
+      not self.isReference() and 
+	    (self.extension_xsdElement.isDefined or 
+         self.extension_xsdAttribute.isDefined) and
+	  self.hlpIsPartOfXModel() implies
+        self.name.isDefined and 
+        self.name <> ''
+    ]]></body>
+    <documentation>
+      «xsdElement»- oder «xsdAttribute»-UML-Klasseneigenschaften müssen einen Namen haben.
+    </documentation> 
+  </invariant>
+  
+  <invariant context='Class' name='ElementNamesAndGroupRefElementNamesMustBeUniqueOnSamelevel'>
+    <body><![CDATA[
+      self.hlpIsPartOfXModel() implies
+        self.hlpAllElementNamesFlattened()->isUnique(name|name)
+    ]]></body>
+    <documentation>
+      «xsdElement»-UML-Klasseneigenschaften müssen auf der gleichen Tiefe einen eindeutigen Namen haben.
+    </documentation> 
+  </invariant>
+  
+  <invariant context='Class' name='TypedGlobalElementsCannotHaveAdditionalAttributesOrElements'>
+    <body><![CDATA[
+      self.extension_xsdGlobalElement.isDefined() and 
+	  self.hlpIsPartOfXModel() and 
+	  self.getGlobalElementType().isDefined() implies
+         self.hlpAllElements()->isEmpty() and self.hlpAttributes()->isEmpty()
+    ]]></body>
+    <documentation>Typisierte globale Elemente dürfen keine zusätzlichen Attribute oder Elemente definieren.</documentation> 
+  </invariant>
+  
+  <invariant context='Class' name='TypedGlobalElementsCanOnlyHaveOneType'>
+    <body><![CDATA[
+      self.extension_xsdGlobalElement.isDefined() and 
+	  self.hlpIsPartOfXModel() implies
+         self.clientDependency->select(extension_xsdGlobalElementType.isDefined())->size() <= 1
+    ]]></body>
+    <documentation>Typisierte globale Elemente dürfen nur einen Typ angeben.</documentation> 
+  </invariant>
+  
+  <invariant context='Class' name='TypedGlobalElementsReferToNamedType'>
+    <body><![CDATA[
+      let type = self.getGlobalElementType() in
+	    self.extension_xsdGlobalElement.isDefined() and 
+	    type.isDefined() and
+	    self.hlpIsPartOfXModel() implies
+          type.hlpIsReferenceableByName()
+    ]]></body>
+    <documentation>Typisierte globale Elemente müssen auf einen benannten Typen verweisen.</documentation> 
+  </invariant>
+  
+  <invariant context='Property' name='RefTargetsGlobalElementOrGroup'>
+    <body><![CDATA[
+      self.extension_xsdElement.isDefined() and
+	  self.extension_xsdElement.isRef and
+	  self.hlpIsPartOfXModel() implies
+        self.isAttributeReference() or
+		self.isElementReference() or
+		self.isGroupReference()
+    ]]></body>
+    <documentation>Als Referenz markierte Elemente müssen auf globale Elemente oder Elementgruppen verweisen.</documentation>
+  </invariant>
+	 
+  <invariant context='Package' name='SchemaFileMustBeDefined'>
+    <body><![CDATA[
+      let sf:String = self.extension_xsdSchema.schemaFile in
+      not self.isPartOfAdapter() and
+      self.extension_xsdSchema.isDefined() and
+      self.hlpIsPartOfXModel() implies
+        sf.isDefined and sf <> ''
+    ]]></body>
+    <documentation>
+      Die Eigenschaft "schemaFile" muss am Stereotyp «xsdSchema» befüllt sein.
+    </documentation> 
+  </invariant>
+
+  <invariant context='Package' name='SchemaLocationMustBeDefined'>
+    <body><![CDATA[
+      let sl:String = self.extension_xsdSchema.schemaLocation in      
+	  self.extension_xsdSchema.isDefined() and
+	  self.hlpOwningModel().extension_xsdXModel.deployment.isDefined and 
+	  self.hlpOwningModel().extension_xsdXModel.deployment = true and
+      self.hlpIsPartOfXModel() implies
+        (sl.isDefined and sl <> '') or
+		(self.hlpOwningModel().extension_xsdXModel.schemaLocationBase.isDefined and self.hlpOwningModel().extension_xsdXModel.schemaLocationBase <> '')
+    ]]></body>
+    <documentation>
+      Die Eigenschaft "schemaLocation" am Stereotyp «xsdSchema» oder die Eigenschaft "schemaLocationBase" am Stereotyp «xsdXModel» muss befüllt sein für den Fall, dass die Eigenschaft "deployment" am Stereotyp «xsdXModel» mit dem Wert "true" belegt ist.
+    </documentation> 
+  </invariant>  
+   
+  <invariant context='Dependency' name='ImportImpliesDifferentNamespacesAndPrefixes'>
+    <body><![CDATA[
+      self.extension_xsdImport.isDefined and
+	  self.hlpIsPartOfXModel() implies
+       (self.supplier->any(true).oclAsType(Package).hlpPackageNamespace() <>
+         self.client->any(true).oclAsType(Package).hlpPackageNamespace()) and
+       (self.supplier->any(true).oclAsType(Package).hlpPackagePrefix() <>
+       self.client->any(true).oclAsType(Package).hlpPackagePrefix())
+    ]]></body>
+    <documentation>
+      «xsdSchema»-UML-Pakete mit unterschiedlichen Namensräumen ("namespace") dürfen sich nur über eine 
+	  «xsdImport»-UML-Abhängigkeit einbinden und müssen unterschiedliche Präfixe ("prefix") aufweisen.
+    </documentation>
+  </invariant>
+    
+  <invariant context='Package' name='NoCyclicImportsAndIncludes'>
+    <body><![CDATA[
+      self.extension_xsdSchema.isDefined() and
+      self.hlpIsPartOfXModel() implies
+        self.hlpAllImportIncludeCycleFree()
+    ]]></body>
+    <documentation>
+      «xsdImport»- und «xsdInclude»-UML-Abhängigkeiten dürfen nicht zyklisch ein einzelnes 
+      «xsdSchema»-UML-Paket einbinden.
+    </documentation>
+  </invariant>
+   
+  <invariant context='Model' name='UniqueSchemaFileNamesInModel'>
+    <body><![CDATA[
+      if (self = self.hlpXModel() and 
+	   (self.extension_xsdXModel.deployment.isUndefined or 
+	   (self.extension_xsdXModel.deployment = false))) then
+        Package.allInstances()->select(p | 
+          p.hlpIsPartOfXModel() and 
+          p.extension_xsdSchema.isDefined())
+        ->isUnique(p | p.extension_xsdSchema.schemaFile)
+      else
+        true
+      endif
+    ]]></body>
+    <documentation>
+      Die «xsdSchema»-UML-Pakete eines «xsdXModel»-UML-Modells müssen unterschiedliche Werte in der 
+      Eigenschaft "schemaFile" besitzen für den Fall, dass die Eigenschaft "deployment" des «xsdXModel»-UML-Modells nicht belegt oder mit dem Wert "false" belegt ist.
+	</documentation>
+  </invariant>
+  
+  <invariant context='Model' name='UniqueSchemaLocationsInModel'>
+    <body><![CDATA[
+      if (self = self.hlpXModel() and 
+	   self.extension_xsdXModel.deployment = true) then
+        Package.allInstances()->select(p | 
+          p.extension_xsdSchema.isDefined() and
+		  p.hlpIsPartOfXModel())
+        ->isUnique(p | 
+		  if (p.extension_xsdSchema.schemaLocation.isDefined and 
+		   p.extension_xsdSchema.schemaLocation <> '') then
+			p.extension_xsdSchema.schemaLocation
+		  else
+		    p.hlpOwningModel().extension_xsdXModel.schemaLocationBase.concat(p.extension_xsdSchema.schemaFile)
+		  endif)
+      else
+        true
+      endif
+    ]]></body>
+    <documentation>
+      Die «xsdSchema»-UML-Pakete eines «xsdXModel»-UML-Modells müssen unterschiedliche Werte in der 
+      Eigenschaft "schemaLocation" bzw. der Eigenschaftskombination "schemaFile" und "schemaLocationBase" des 
+	  «xsdXModel»-UML-Modells besitzen. Dies gilt für den Fall, dass die Eigenschaft "deployment" des 
+	  «xsdXModel»-UML-Modells mit dem Wert "true" belegt ist.
+	</documentation>
+  </invariant>
+  
+  <invariant context='Dependency' name='IncludeImpliesEqualNamespacesAndPrefixes'>
+    <body><![CDATA[
+      self.extension_xsdInclude.isDefined and
+	  self.hlpIsPartOfXModel() implies
+        ((self.supplier->any(true).oclAsType(Package).hlpPackageNamespace() = 
+        self.client->any(true).oclAsType(Package).hlpPackageNamespace()) and
+		(self.supplier->any(true).oclAsType(Package).hlpPackagePrefix() = 
+        self.client->any(true).oclAsType(Package).hlpPackagePrefix()))
+    ]]></body>
+    <documentation>
+      «xsdSchema»-UML-Pakete, die über eine «xsdInclude»-UML-Abhängigkeit miteinander verbunden sind, 
+      müssen den gleichen Namensraum ("namespace") und Präfix ("prefix") besitzen.
+    </documentation>
+  </invariant>
+
+  <invariant context='Dependency' name='ImportsAndIncludesAreBinaryRelationships'>
+    <body><![CDATA[
+      (self.extension_xsdImport.isDefined or
+        self.extension_xsdInclude.isDefined) and
+      self.hlpIsPartOfXModel() implies 
+        self.client->size = 1 and self.supplier->size = 1
+    ]]></body>
+    <documentation>
+      «xsdInclude»- und «xsdImport»-UML-Abhängigkeiten dürfen genau nur zwei Objekte verbinden (keine 
+      mehrstelligen Verbindungen).
+    </documentation> 
+  </invariant>
+  
+  <invariant context='Dependency' name='ImportsAndIncludesBetweenSchemas'>
+    <body><![CDATA[
+      (self.extension_xsdImport.isDefined or
+        self.extension_xsdInclude.isDefined) and
+      self.hlpIsPartOfXModel() implies
+        (self.client->forAll(c|c.oclAsType(Package).extension_xsdSchema.isDefined) and 
+        self.supplier->forAll(c|c.oclAsType(Package).extension_xsdSchema.isDefined))
+    ]]></body>
+    <documentation>
+      «xsdInclude»- und «xsdImport»-UML-Abhängigkeiten verbinden immer zwei «xsdSchema»-UML-Pakete.
+    </documentation> 
+  </invariant>
+  
+  <invariant context='Class' name='NamedTypesMustBeNamed'>
+    <body><![CDATA[
+      self.extension_xsdNamedType.isDefined and
+      self.hlpIsPartOfXModel() implies
+        self.name.isDefined and self.name <> ''
+    ]]></body>
+    <documentation>
+      UML-Klassen mit dem Stereotypen «xsdNamedType» müssen einen Namen haben.
+    </documentation> 
+  </invariant>  
+  
+  <invariant context='Class' name='GroupsMustBeNamed'>
+    <body><![CDATA[
+      self.extension_xsdGroup.isDefined and
+      self.hlpIsPartOfXModel() implies
+        self.name.isDefined and self.name <> ''
+    ]]></body>
+    <documentation>UML-Klassen mit dem Stereotypen «xsdGroup» müssen einen Namen haben.</documentation> 
+  </invariant>  
+  
+  <invariant context='Class' name='MinOneElementInGroup'>
+    <body><![CDATA[
+      self.extension_xsdGroup.isDefined and
+      self.hlpIsPartOfXModel() implies
+        not (self.hlpElements()->isEmpty() and self.hlpAttributes()->isEmpty())
+    ]]></body>
+    <documentation>UML-Klassen mit dem Stereotypen «xsdGroup» müssen mindestens ein «xsdElement» oder «xsdAttribute» Attribut haben.</documentation> 
+  </invariant>  
+
+  <invariant context='Class' name='OnlyElementsXorAttributesInGroup'>
+    <body><![CDATA[
+      self.extension_xsdGroup.isDefined and
+      self.hlpIsPartOfXModel() implies
+        self.hlpAttributes()->isEmpty() xor self.hlpElements()->isEmpty()
+    ]]></body>
+    <documentation>UML-Klassen mit dem Stereotypen «xsdGroup» dürfen nur «xsdElement» Attribute haben.</documentation> 
+  </invariant>  
+  
+  <invariant context='Class' name='XOEVStereotypedClassesBelongToSchema'>
+    <body><![CDATA[
+      not self.isPartOfKernkomponentenkatalog() and
+      (self.extension_xsdNamedType.isDefined or
+        self.extension_xsdChoice.isDefined or
+        self.extension_xsdCode.isDefined or
+        self.extension_xsdGlobalElement.isDefined or
+        self.extension_xsdAnyContents.isDefined) and
+      self.hlpIsPartOfXModel() implies
+        self.hlpIsPartOfProfiledPackage()
+    ]]></body>
+    <documentation>
+      Mit XÖV-Stereotypen versehene UML-Klassen müssen sich unterhalb eines «xsdSchema»-UML-Pakets 
+      befinden.
+    </documentation> 
+  </invariant>
+    
+  <invariant context='Dependency' name='XOEVStereotypedDependenciesBelongToSchema'>
+    <body><![CDATA[
+      (self.extension_xsdImport.isDefined or
+        self.extension_xsdInclude.isDefined or
+        self.extension_xsdKey.isDefined or
+        self.extension_xsdKeyref.isDefined or
+        self.extension_xsdUnique.isDefined) and
+      self.hlpIsPartOfXModel() implies
+        self.hlpIsPartOfProfiledPackage()
+    ]]></body>
+    <documentation>
+      Mit XÖV-Stereotypen versehene UML-Abhängigkeiten müssen sich unterhalb eines 
+      «xsdSchema»-UML-Pakets befinden.
+    </documentation> 
+  </invariant>
+    
+  <invariant context='Generalization' name='XOEVStereotypedGeneralizationsBelongToSchema'>
+    <body><![CDATA[
+      self.extension_xsdRestriction.isDefined and
+      self.hlpIsPartOfXModel() implies
+        self.hlpIsPartOfProfiledPackage()
+    ]]></body>
+    <documentation>
+      Mit XÖV-Stereotypen versehene UML-Generalisierungen müssen sich unterhalb eines 
+      «xsdSchema»-UML-Pakets befinden.
+    </documentation> 
+  </invariant>
+  
+  <invariant context='Property' name='XOEVStereotypedPropertiesBelongToSchema'>
+    <body><![CDATA[
+      not self.isPartOfKernkomponentenkatalog() and
+      (self.extension_xsdElement.isDefined or
+        self.extension_xsdAttribute.isDefined or
+		self.extension_xsdLocalStructure.isDefined) and
+      self.hlpIsPartOfXModel() implies
+        self.hlpIsPartOfProfiledPackage()
+    ]]></body>
+    <documentation>
+      Mit XÖV-Stereotypen versehene UML-Klasseneigenschaften müssen sich unterhalb eines 
+      «xsdSchema»-UML-Pakets befinden.
+    </documentation> 
+  </invariant>   
+    
+  <invariant context='Class' name='PropertiesOfNamedTypesAndGlobalElementsAreLocalStructuresElementsOrAttributes'>
+    <body><![CDATA[
+      not self.isPartOfAdapter() and
+      (self.extension_xsdNamedType.isDefined() or
+        self.extension_xsdGlobalElement.isDefined()) and
+	  self.hlpIsPartOfProfiledPackage() and
+      self.hlpIsPartOfXModel() 
+       implies
+        self.attribute->forAll(f |
+          f.extension_xsdElement.isDefined or 
+		  f.extension_xsdAttribute.isDefined or
+		  f.extension_xsdLocalStructure.isDefined)
+    ]]></body>
+    <documentation>
+      Alle UML-Klasseneigenschaften einer «xsdNamedType»- oder «xsdGlobalElement»-UML-Klasse müssen als «xsdLocalStructure», 
+      «xsdElement» oder «xsdAttribute» gekennzeichnet sein. Eigenschaften ohne einen dieser Stereotypen 
+      sind nicht zulässig.
+    </documentation> 
+  </invariant>
+  
+  <invariant context='Classifier' name='GlobalElementsMustBeNamed'>
+    <body><![CDATA[
+      self.extension_xsdGlobalElement.isDefined and
+      self.hlpIsPartOfXModel() implies
+        self.name.isDefined and 
+        self.name <> ''
+    ]]></body>
+    <documentation>
+      UML-Klassen mit dem Stereotypen «xsdGlobalElement» müssen einen Namen haben.
+    </documentation> 
+  </invariant> 
+    
+  <invariant context='Class' name='NoPropertiesForAnyContents'>
+    <body><![CDATA[
+      self.extension_xsdAnyContents.isDefined and
+      self.hlpIsPartOfXModel() implies
+        self.attribute->select(p|p.extension_xsdElement.isDefined())->isEmpty
+    ]]></body>
+    <documentation>
+      Eine UML-Klasse mit dem Stereotyp «xsdAnyContents» hat keine UML-Klasseneigenschaften. 
+    </documentation> 
+  </invariant>
+    
+  <invariant context='Class' name='SingleInheritance'>
+    <body><![CDATA[
+      self.hlpIsPartOfProfiledPackage() and
+      self.hlpIsPartOfXModel() implies 
+        self.general->size <= 1
+    ]]></body>
+    <documentation>
+      Eine UML-Klasse hat maximal eine Oberklasse.
+    </documentation>
+  </invariant>
+
+ <invariant context='Class' name='RestrictionRestricts'>
+    <body><![CDATA[
+      self.hlpIsRestriction() and 
+	  self.hlpIsPartOfXModel() and
+      not self.superClass->any(true).isPartOfAdapter() implies
+        self.superClass->any(true).hlpAllElements()->union(self.superClass->any(true).hlpAllAttributes()).name->includesAll(
+          self.hlpAllElements()->union(self.hlpAllAttributes()).name) and 
+        ((self.hlpAllElements()->union(self.hlpAllAttributes())->forAll(a1|
+          self.superClass->any(true).hlpAllElements()->union(self.superClass->any(true).hlpAllAttributes())->exists(a2 | 
+            (a1.type = a2.type or 
+              a1.type.oclAsType(Class).hlpRestrictionBaseType() = a2.type or  
+              a1.type.oclAsType(Classifier).allParents()->exists(t|t.general->asSequence()->first() = a2.type) or
+              ((a2.type.name = 'token' or a2.type.name = 'string' or a2.type.name = 'normalizedString') and a1.type.oclIsTypeOf(Enumeration))) and 
+            a1.name = a2.name and
+            (a1.lower >= a2.lower or (a1.lower.isUndefined() and a2.lower=1)) and
+            ((a1.upper = a2.upper) or (a2.upper = -1 and a1.upper <> -1) or (a2.upper >= a1.upper and a2.upper <> -1)))
+          )
+        ) and
+        not self.extension_xsdChoice.isDefined implies
+		  self.superClass->any(true).ownedAttribute->forAll(a1 |
+			  a1.lower >= 1 implies
+			  	  self.ownedAttribute->exists(a2 |
+			  		 a1.name = a2.name
+		          )
+		  ))
+    ]]></body>
+    <documentation>
+      Eine durch «xsdRestriction» abgeleitete UML-Klasse darf der Oberklasse keine 
+      UML-Klasseneigenschaften mehr hinzufügen, die Typen der Attribute müssen gleich bzw. 
+      Einschränkungen der ursprünglichen Typen sein und die Multiplizitäten dürfen ebenso nur 
+      eingeschränkt und nicht verallgemeinert werden.
+    </documentation> 
+  </invariant>  
+  
+ <!-- <invariant context='Class' name='RestrictionWithValidElementOrder'>
+    <body><![CDATA[
+      self.hlpIsRestriction() and 
+	  self.hlpIsPartOfXModel() and
+      not self.superClass->any(true).isPartOfAdapter() implies
+        self.hlpAllElements()->union(self.hlpAllAttributes())->forAll(a1|
+          self.superClass->any(true).hlpAllElements()->union(self.superClass->any(true).hlpAllAttributes())->forAll(a2 | 
+            a1.name = a2.name implies
+            a1.extension_xsdElement.position = a2.extension_xsdElement.position
+          )
+        )
+    ]]></body>
+    <documentation>
+      Eine durch «xsdRestriction» abgeleitete UML-Klasse darf der Oberklasse keine 
+      UML-Klasseneigenschaften mehr hinzufügen, die Typen der Attribute müssen gleich bzw. 
+      Einschränkungen der ursprünglichen Typen sein und die Multiplizitäten dürfen ebenso nur 
+      eingeschränkt und nicht verallgemeinert werden.
+    </documentation> 
+  </invariant>    -->
+  
+  <invariant context='Class' name='RestrictionWithValidElementOrder'>
+    <body><![CDATA[
+     self.hlpIsRestriction() and 
+     self.hlpIsPartOfXModel() and
+     not self.extension_xsdAll.isDefined() and
+     not self.superClass->any(true).isPartOfAdapter() implies
+        self.superClass->any(true).hlpAllElements()->select(e|self.hlpAllElements()->collect(x|if x.extension_xsdElement.isRef then x.type.name else x.name endif)->includes(if e.extension_xsdElement.isRef then e.type.name else e.name endif))->sortedBy(extension_xsdElement.position)->collect(x|if x.extension_xsdElement.isRef then x.type.name else x.name endif) =
+        self.hlpAllElements()->sortedBy(extension_xsdElement.position)->collect(x|if x.extension_xsdElement.isRef then x.type.name else x.name endif)
+    ]]></body>
+    <documentation>
+      Die XML-Elemente eines per XML-Restriktion abgeleiteten Datentyps müssen in derselben Reihenfolge auftreten wie die Elemente der Basisklasse.
+    </documentation> 
+    <errorMessage>Elementreihenfolge des Basistyps ($ocl.eval("self.superClass->any(true).name")): 
+    $ocl.eval("self.superClass->any(true).hlpAllElements()->select(e|self.hlpAllElements().name->includes(e.name))->sortedBy(extension_xsdElement.position).name"). 
+Elementreihenfolge des ableitenden Typs ($ocl.eval("self.name")):
+    $ocl.eval("self.hlpAllElements()->sortedBy(extension_xsdElement.position).name").
+    
+    </errorMessage>
+  </invariant>    
+    
+  <invariant context='Class' name='RestrictionFacetsOnlyForSimpleContent'>
+    <body><![CDATA[
+      self.hlpRestriction().hlpIsFacetDefined() and
+	  self.oclAsType(Class).hlpIsRestriction() and
+      self.extension_xsdNamedType.isDefined() and
+      self.hlpIsPartOfXModel() 
+      implies
+        self.hlpAllElements()->isEmpty and 
+        self.hlpRestrictionBaseType().oclAsType(Class).hlpAllElements()->isEmpty
+    ]]></body>
+    <documentation>
+      Nur UML-Klassen mit einfachem Inhalt (simpleContent) dürfen die Stereotyp-Eigenschaften von 
+      «xsdRestriction» nutzen.
+    </documentation>
+  </invariant>
+    
+  <invariant context='Class' name='FractionDigitsOnlyForParticularW3CDataTypes'>
+    <body><![CDATA[
+      self.hlpRestriction().extension_xsdRestriction.fractionDigits.isDefined and 
+      self.hlpRestriction().extension_xsdRestriction.fractionDigits <> '' and
+      self.hlpIsPartOfXModel() implies
+        self.hlpRestrictionBaseType().name = 'decimal' or
+        self.hlpRestrictionBaseType().hlpTopMostSuperType().name = 'decimal'
+    ]]></body>
+    <documentation>
+      Die Facette "fractionDigits" gilt nur für «xsdRestriction»-UML-Generalisierungen von den folgenden 
+      W3C-Datentypen: xs:decimal.
+    </documentation>
+  </invariant>
+  
+  <invariant context='Class' name='LengthOnlyForParticularW3CDataTypes'>
+    <body><![CDATA[
+      let w3cTypes: Set(String) = Set{'anyURI','base64Binary','ENTITIES','ENTITY','hexBinary','ID','IDREF','IDREFS','language','Name','NCName','NMTOKEN','NMTOKENS','normalizedString','NOTATION','QName','string','token'} in
+      self.hlpRestriction().extension_xsdRestriction.length.isDefined and 
+      self.hlpRestriction().extension_xsdRestriction.length <> '' and 
+	  self.hlpIsPartOfXModel() implies
+        w3cTypes->includes(self.hlpRestrictionBaseType().name) or
+        w3cTypes->includes(self.hlpRestrictionBaseType().hlpTopMostSuperType().name)		
+    ]]></body>
+    <documentation>
+      Die Facette "length" gilt nur für «xsdRestriction»-UML-Generalisierungen von den folgenden 
+      W3C-Datentypen: xs:anyURI, base64Binary, xs:ENTITIES, xs:ENTITY, xs:hexBinary, xs:ID, xs:IDREF, 
+      xs:IDREFS, xs:language, xs:Name, xs:NCName, xs:NMTOKEN, xs:NMTOKENS, xs:normalizedString, 
+      xs:NOTATION, xs:QName, xs:string, xs:token.
+    </documentation>
+  </invariant>
+   
+  <invariant context='Class' name='MaxExclusiveOnlyForParticularW3CDataTypes'>
+    <body><![CDATA[
+      let w3cTypes: Set(String) = Set{'byte','date','dateTime','decimal','double','duration','float','gDay','gMonth','gYear','gYearMonth','int','integer','long','negativeInteger','nonNegativeInteger','nonPositiveInteger','positiveInteger','short','time','unsignedByte','unsignedInt','unsignedLong','unsignedShort'} in
+      self.hlpRestriction().extension_xsdRestriction.maxExclusive.isDefined and 
+      self.hlpRestriction().extension_xsdRestriction.maxExclusive <> '' and
+	  self.hlpIsPartOfXModel() implies
+        w3cTypes->includes(self.hlpRestrictionBaseType().name) or
+        w3cTypes->includes(self.hlpRestrictionBaseType().hlpTopMostSuperType().name)	
+    ]]></body>
+    <documentation>
+      Die Facette "maxExclusive" gilt nur für «xsdRestriction»-UML-Generalisierungen von den folgenden 
+      W3C-Datentypen: xs:byte, xs:date, xs:dateTime, xs:decimal, xs:double, xs:duration, xs:float, 
+      xs:gDay, xs:gMonth, xs:gYear, xs:gYearMonth, xs:int, xs:integer, xs:long, xs:negativeInteger, 
+      xs:nonNegativeInteger, xs:nonPositiveInteger, xs:positiveInteger, xs:short, xs:time, 
+      xs:unsignedByte, xs:unsignedInt, xs:unsignedLong, xs:unsignedShort.
+    </documentation>
+  </invariant>
+    
+  <invariant context='Class' name='MaxInclusiveOnlyForParticularW3CDataTypes'>
+    <body><![CDATA[
+      let w3cTypes: Set(String) = Set{'byte','date','dateTime','decimal','double','duration','float','gDay','gMonth','gYear','gYearMonth','int','integer','long','negativeInteger','nonNegativeInteger','nonPositiveInteger','positiveInteger','short','time','unsignedByte','unsignedInt','unsignedLong','unsignedShort'} in
+      self.hlpRestriction().extension_xsdRestriction.maxInclusive.isDefined and 
+      self.hlpRestriction().extension_xsdRestriction.maxInclusive <> '' and
+	  self.hlpIsPartOfXModel() implies
+        w3cTypes->includes(self.hlpRestrictionBaseType().name) or
+        w3cTypes->includes(self.hlpRestrictionBaseType().hlpTopMostSuperType().name)
+    ]]></body>
+    <documentation>
+      Die Facette "maxInclusive" gilt nur für «xsdRestriction»-UML-Generalisierungen von den folgenden 
+      W3C-Datentypen: xs:byte, xs:date, xs:dateTime, xs:decimal, xs:double, xs:duration, xs:float, 
+      xs:gDay, xs:gMonth, xs:gYear, xs:gYearMonth, xs:int, xs:integer, xs:long, xs:negativeInteger, 
+      xs:nonNegativeInteger, xs:nonPositiveInteger, xs:positiveInteger, xs:short, xs:time, 
+      xs:unsignedByte, xs:unsignedInt, xs:unsignedLong, xs:unsignedShort.
+    </documentation>
+  </invariant>
+    
+  <invariant context='Class' name='MaxLengthOnlyForParticularW3CDataTypes'>
+    <body><![CDATA[
+      let w3cTypes: Set(String) = Set{'anyURI','base64Binary','ENTITIES','ENTITY','hexBinary','ID','IDREF','IDREFS','language','Name','NCName','NMTOKEN','NMTOKENS','normalizedString','NOTATION','QName','string','token'} in
+      self.hlpRestriction().extension_xsdRestriction.maxLength.isDefined and 
+      self.hlpRestriction().extension_xsdRestriction.maxLength <> '' and
+	  self.hlpIsPartOfXModel() implies
+        w3cTypes->includes(self.hlpRestrictionBaseType().name) or
+        w3cTypes->includes(self.hlpRestrictionBaseType().hlpTopMostSuperType().name)
+	]]></body>
+    <documentation>
+      Die Facette "maxLength" gilt nur für «xsdRestriction»-UML-Generalisierungen von den folgenden 
+      W3C-Datentypen: xs:anyURI, base64Binary, xs:ENTITIES, xs:ENTITY, xs:hexBinary, xs:ID, xs:IDREF, 
+      xs:IDREFS, xs:language, xs:Name, xs:NCName, xs:NMTOKEN, xs:NMTOKENS, xs:normalizedString, 
+      xs:NOTATION, xs:QName, xs:string, xs:token.
+    </documentation>
+  </invariant>
+    
+  <invariant context='Class' name='MinExclusiveOnlyForParticularW3CDataTypes'>
+    <body><![CDATA[
+      let w3cTypes: Set(String) = Set{'byte','date','dateTime','decimal','double','duration','float','gDay','gMonth','gYear','gYearMonth','int','integer','long','negativeInteger','nonNegativeInteger','nonPositiveInteger','positiveInteger','short','time','unsignedByte','unsignedInt','unsignedLong','unsignedShort'} in
+      self.hlpRestriction().extension_xsdRestriction.minExclusive.isDefined and 
+      self.hlpRestriction().extension_xsdRestriction.minExclusive <> '' and
+	  self.hlpIsPartOfXModel() implies
+        w3cTypes->includes(self.hlpRestrictionBaseType().name) or
+        w3cTypes->includes(self.hlpRestrictionBaseType().hlpTopMostSuperType().name)		
+    ]]></body>
+    <documentation>
+      Die Facette "minExclusive" gilt nur für «xsdRestriction»-UML-Generalisierungen von den folgenden 
+      W3C-Datentypen: xs:byte, xs:date, xs:dateTime, xs:decimal, xs:double, xs:duration, xs:float, 
+      xs:gDay, xs:gMonth, xs:gYear, xs:gYearMonth, xs:int, xs:integer, xs:long, xs:negativeInteger, 
+      xs:nonNegativeInteger, xs:nonPositiveInteger, xs:positiveInteger, xs:short,  xs:time, 
+      xs:unsignedByte, xs:unsignedInt, xs:unsignedLong, xs:unsignedShort.
+    </documentation>
+  </invariant>
+    
+  <invariant context='Class' name='MinInclusiveOnlyForParticularW3CDataTypes'>
+    <body><![CDATA[
+      let w3cTypes: Set(String) = Set{'byte','date','dateTime','decimal','double','duration','float','gDay','gMonth','gYear','gYearMonth','int','integer','long','negativeInteger','nonNegativeInteger','nonPositiveInteger','positiveInteger','short','time','unsignedByte','unsignedInt','unsignedLong','unsignedShort'} in
+      self.hlpRestriction().extension_xsdRestriction.minInclusive.isDefined and 
+      self.hlpRestriction().extension_xsdRestriction.minInclusive <> '' and
+	  self.hlpIsPartOfXModel() implies
+        w3cTypes->includes(self.hlpRestrictionBaseType().name) or
+        w3cTypes->includes(self.hlpRestrictionBaseType().hlpTopMostSuperType().name)
+    ]]></body>
+    <documentation>
+      Die Facette "minInclusive" gilt nur für «xsdRestriction»-UML-Generalisierungen von den folgenden 
+      W3C-Datentypen: xs:byte, xs:date, xs:dateTime, xs:decimal, xs:double, xs:duration, xs:float, 
+      xs:gDay, xs:gMonth, xs:gYear, xs:gYearMonth, xs:int, xs:integer, xs:long, xs:negativeInteger, 
+      xs:nonNegativeInteger, xs:nonPositiveInteger, xs:positiveInteger, xs:short, xs:time, 
+      xs:unsignedByte, xs:unsignedInt, xs:unsignedLong, xs:unsignedShort.
+    </documentation>
+  </invariant>
+    
+  <invariant context='Class' name='MinLengthOnlyForParticularW3CDataTypes'>
+    <body><![CDATA[
+      let w3cTypes: Set(String) = Set{'anyURI','base64Binary','ENTITIES','ENTITY','hexBinary','ID','IDREF','IDREFS','language','Name','NCName','NMTOKEN','NMTOKENS','normalizedString','NOTATION','QName','string','token'} in
+      self.hlpRestriction().extension_xsdRestriction.minLength.isDefined and 
+      self.hlpRestriction().extension_xsdRestriction.minLength <> '' and
+	  self.hlpIsPartOfXModel() implies
+        w3cTypes->includes(self.hlpRestrictionBaseType().name) or
+        w3cTypes->includes(self.hlpRestrictionBaseType().hlpTopMostSuperType().name)
+    ]]></body>
+    <documentation>
+      Die Facette "minLength" gilt nur für «xsdRestriction»-UML-Generalisierungen von den folgenden 
+      W3C-Datentypen: xs:anyURI, base64Binary, xs:ENTITIES, xs:ENTITY, xs:hexBinary, xs:ID, xs:IDREF, 
+      xs:IDREFS, xs:language, xs:Name, xs:NCName, xs:NMTOKEN, xs:NMTOKENS, xs:normalizedString, 
+      xs:NOTATION, xs:QName, xs:string, xs:token.
+    </documentation>
+  </invariant>
+    
+  <invariant context='Class' name='PatternOnlyForParticularW3CDataTypes'>
+    <body><![CDATA[
+      let w3cTypes: Set(String) = Set{'anyURI','base64Binary','boolean','byte','date','dateTime','decimal','double','duration','ENTITY','float','gDay','gMonth','gYear','gYearMonth','hexBinary','ID','IDREF','int','integer','language','long','Name','NCName','negativeInteger','NMTOKEN','nonNegativeInteger','nonPositiveInteger','normalizedString','NOTATION','positiveInteger','QName','short','string','time','token','unsignedByte','unsignedInt','unsignedLong','unsignedShort'} in
+      self.hlpRestriction().extension_xsdRestriction.pattern.isDefined and 
+      self.hlpRestriction().extension_xsdRestriction.pattern <> '' and
+	  self.hlpIsPartOfXModel() implies
+        w3cTypes->includes(self.hlpRestrictionBaseType().name) or
+        w3cTypes->includes(self.hlpRestrictionBaseType().hlpTopMostSuperType().name)
+    ]]></body>
+    <documentation>
+      Die Facette "pattern" gilt nur für «xsdRestriction»-UML-Generalisierungen von den folgenden 
+      W3C-Datentypen: xs:anyURI, xs:base64Binary, xs:boolean, xs:byte, xs:date, xs:dateTime, xs:decimal, 
+      xs:double, xs:duration, xs:ENTITY, xs:float, xs:gDay, xs:gMonth, xs:gYear, xs:gYearMonth, 
+      xs:hexBinary, xs:ID, xs:IDREF, xs:int, xs:integer, xs:language, xs:long, xs:Name, xs:NCName, 
+      xs:negativeInteger, xs:NMTOKEN, xs:nonNegativeInteger, xs:nonPositiveInteger, xs:normalizedString, 
+      xs:NOTATION, xs:positiveInteger, xs:QName, xs:short, xs:string, xs:time, xs:token, 
+      xs:unsignedByte, xs:unsignedInt, xs:unsignedLong, xs:unsignedShort.
+    </documentation>
+  </invariant>
+   
+  <invariant context='Class' name='TotalDigitsOnlyForParticularW3CDataTypes'>
+    <body><![CDATA[
+      let w3cTypes: Set(String) = Set{'byte','decimal','int','integer','long','negativeInteger','nonNegativeInteger','nonPositiveInteger','positiveInteger','short','unsignedByte','unsignedInt','unsignedLong','unsignedShort'} in      
+      self.hlpRestriction().extension_xsdRestriction.totalDigits.isDefined and 
+      self.hlpRestriction().extension_xsdRestriction.totalDigits <> '' and
+      self.hlpIsPartOfXModel() implies
+        w3cTypes->includes(self.hlpRestrictionBaseType().name) or
+        w3cTypes->includes(self.hlpRestrictionBaseType().hlpTopMostSuperType().name)
+    ]]></body>
+    <documentation>
+      Die Facette "totalDigits" gilt nur für «xsdRestriction»-UML-Generalisierungen von den folgenden 
+      W3C-Datentypen: xs:byte, xs:decimal, xs:int, xs:integer, xs:long, xs:negativeInteger, 
+      xs:nonNegativeInteger, xs:nonPositiveInteger, xs:positiveInteger, xs:short, xs:unsignedByte, 
+      xs:unsignedInt, xs:unsignedLong, xs:unsignedShort.
+    </documentation>
+  </invariant>
+   
+  <invariant context='Class' name='WhitespaceOnlyForParticularW3CDataTypes'>
+    <body><![CDATA[
+      let w3cTypes: Set(String) = Set{'ENTITIES','ENTITY','ID','IDREF','IDREFS','Name','NCName','NMTOKEN','NMTOKENS','normalizedString','string','token'} in
+      self.hlpRestriction().extension_xsdRestriction.whitespace.isDefined and 
+      self.hlpRestriction().extension_xsdRestriction.whitespace <> '' and
+	  self.hlpIsPartOfXModel() implies
+        w3cTypes->includes(self.hlpRestrictionBaseType().name) or
+        w3cTypes->includes(self.hlpRestrictionBaseType().hlpTopMostSuperType().name)
+    ]]></body>
+    <documentation>
+      Die Facette "whiteSpace" gilt nur für «xsdRestriction»-UML-Generalisierungen von den folgenden 
+      W3C-Datentypen: xs:ENTITIES, xs:ENTITY, xs:ID, xs:IDREF, xs:IDREFS, xs:language, xs:Name, 
+      xs:NCName, xs:NMTOKEN, xs:NMTOKENS, xs:normalizedString, xs:string, xs:token.
+    </documentation>
+  </invariant>
+    
+  <invariant context='Class' name='LengthNonNegativeInteger'>
+    <body><![CDATA[	
+      let valueIndex:Sequence(Integer) = Sequence{1..self.hlpRestriction().extension_xsdRestriction.length.size()} in
+      let digits:Set(String) = self.hlpDigits() in	  
+      self.hlpRestriction().extension_xsdRestriction.isDefined() and self.hlpIsPartOfXModel() implies
+        if (self.hlpRestriction().extension_xsdRestriction.length.isDefined() and 
+		  self.hlpRestriction().extension_xsdRestriction.length <> '') then
+            valueIndex->forAll(i | digits->includes(self.hlpRestriction().extension_xsdRestriction.length.substring(i, i))) 
+        else
+          true
+        endif					
+    ]]></body>
+    <documentation>
+      Die Eigenschaft "length" zum Stereotyp «xsdRestriction» muss eine positive ganze Zahl sein.
+    </documentation>
+  </invariant>
+    
+  <invariant context='Class' name='MaxLengthNonNegativeInteger'>
+    <body><![CDATA[	
+      let valueIndex:Sequence(Integer) = Sequence{1..self.hlpRestriction().extension_xsdRestriction.maxLength.size()} in
+      let digits:Set(String) = self.hlpDigits() in	  
+      self.hlpRestriction().extension_xsdRestriction.isDefined() and self.hlpIsPartOfXModel() implies
+        if (self.hlpRestriction().extension_xsdRestriction.maxLength.isDefined() and
+          self.hlpRestriction().extension_xsdRestriction.maxLength <> '') then
+            valueIndex->forAll(i | digits->includes(self.hlpRestriction().extension_xsdRestriction.maxLength.substring(i, i))) 
+        else
+          true
+        endif					
+    ]]></body>
+    <documentation>
+      Die Eigenschaft "maxLength" zum Stereotyp «xsdRestriction» muss eine positive ganze Zahl sein.
+    </documentation>
+  </invariant>
+   
+  <invariant context='Class' name='MinLengthNonNegativeInteger'>
+    <body><![CDATA[	
+      let valueIndex:Sequence(Integer) = Sequence{1..self.hlpRestriction().extension_xsdRestriction.minLength.size()} in
+      let digits:Set(String) = self.hlpDigits() in	  
+      self.hlpRestriction().extension_xsdRestriction.isDefined() and self.hlpIsPartOfXModel() implies
+        if (self.hlpRestriction().extension_xsdRestriction.minLength.isDefined() and
+          self.hlpRestriction().extension_xsdRestriction.minLength <> '') then
+            valueIndex->forAll(i | digits->includes(self.hlpRestriction().extension_xsdRestriction.minLength.substring(i, i))) 
+        else
+          true
+        endif					
+    ]]></body>
+    <documentation>
+      Die Eigenschaft "minLength" zum Stereotyp «xsdRestriction» muss eine positive ganze Zahl sein.
+    </documentation>
+  </invariant>
+   
+  <invariant context='Class' name='TotalDigitsNonNegativeInteger'>
+    <body><![CDATA[	
+      let valueIndex:Sequence(Integer) = Sequence{1..self.hlpRestriction().extension_xsdRestriction.totalDigits.size()} in
+      let digits:Set(String) = self.hlpDigits() in	  
+      self.hlpRestriction().extension_xsdRestriction.isDefined() and 
+      self.hlpIsPartOfXModel() implies
+        if (self.hlpRestriction().extension_xsdRestriction.totalDigits.isDefined() and
+          self.hlpRestriction().extension_xsdRestriction.totalDigits <> '') then
+            valueIndex->forAll(i | digits->includes(self.hlpRestriction().extension_xsdRestriction.totalDigits.substring(i, i))) 
+        else
+          true
+        endif					
+    ]]></body>
+    <documentation>
+      Die Eigenschaft "totalDigits" zum Stereotyp «xsdRestriction» muss eine positive ganze Zahl sein.
+    </documentation>
+  </invariant>
+    
+  <invariant context='Class' name='FractionDigitsNonNegativeInteger'>
+    <body><![CDATA[	
+      let valueIndex:Sequence(Integer) = Sequence{1..self.hlpRestriction().extension_xsdRestriction.fractionDigits.size()} in
+      let digits:Set(String) = self.hlpDigits() in	  
+      self.hlpRestriction().extension_xsdRestriction.isDefined() and 
+      self.hlpIsPartOfXModel() implies
+        if (self.hlpRestriction().extension_xsdRestriction.fractionDigits.isDefined() and
+          self.hlpRestriction().extension_xsdRestriction.fractionDigits <> '') then
+            valueIndex->forAll(i | digits->includes(self.hlpRestriction().extension_xsdRestriction.fractionDigits.substring(i, i))) 
+        else
+          true
+        endif					
+    ]]></body>
+    <documentation>
+      Die Eigenschaft "fractionDigits" zum Stereotyp «xsdRestriction» muss eine positive ganze Zahl sein.
+    </documentation>
+  </invariant>
+    
+  <invariant context='Class' name='LengthExcludesMaxAndMinLength'>
+    <body><![CDATA[			
+      self.hlpRestriction().extension_xsdRestriction.isDefined() and       
+      self.hlpRestriction().extension_xsdRestriction.length.isDefined() and 
+      self.hlpRestriction().extension_xsdRestriction.length <> '' and
+	  self.hlpIsPartOfXModel() implies			
+        (self.hlpRestriction().extension_xsdRestriction.maxLength = '' or
+         self.hlpRestriction().extension_xsdRestriction.maxLength.isUndefined) and 
+        (self.hlpRestriction().extension_xsdRestriction.minLength = '' or
+		 self.hlpRestriction().extension_xsdRestriction.minLength.isUndefined)
+    ]]></body>
+    <documentation>
+      Die Eigenschaft "length" zum Stereotyp «xsdRestriction» darf nicht parallel mit einer der 
+      Eigenschaften "minLength" oder "maxLength" befüllt sein.
+    </documentation>
+  </invariant>
+    
+  <invariant context='Class' name='MaxExclusiveExcludesMaxInclusive'>
+    <body><![CDATA[			
+      self.hlpRestriction().extension_xsdRestriction.isDefined() and 
+      self.hlpIsPartOfXModel() implies			
+        (self.hlpRestriction().extension_xsdRestriction.maxExclusive.isDefined and
+			self.hlpRestriction().extension_xsdRestriction.maxInclusive.isUndefined) xor 
+        (self.hlpRestriction().extension_xsdRestriction.maxInclusive.isDefined and
+			self.hlpRestriction().extension_xsdRestriction.maxExclusive.isUndefined) xor
+        (self.hlpRestriction().extension_xsdRestriction.maxExclusive.isUndefined and 
+          self.hlpRestriction().extension_xsdRestriction.maxInclusive.isUndefined)
+    ]]></body>
+    <documentation>
+      Es kann nur eine der beiden Eigenschaften "maxExclusive" oder "maxInclusive" am Stereotype 
+      «xsdRestriction» befüllt sein.
+    </documentation>
+  </invariant>
+    
+  <invariant context='Class' name='MinExclusiveExcludesMinInclusive'>
+    <body><![CDATA[			
+      self.hlpRestriction().extension_xsdRestriction.isDefined() and 
+      self.hlpIsPartOfXModel() implies			
+        (self.hlpRestriction().extension_xsdRestriction.minExclusive.isDefined and
+			self.hlpRestriction().extension_xsdRestriction.minInclusive.isUndefined) xor 
+        (self.hlpRestriction().extension_xsdRestriction.minInclusive.isDefined and
+			self.hlpRestriction().extension_xsdRestriction.minExclusive.isUndefined) xor
+       (self.hlpRestriction().extension_xsdRestriction.minExclusive.isUndefined and 
+         self.hlpRestriction().extension_xsdRestriction.minInclusive.isUndefined)
+    ]]></body>
+    <documentation>
+      Es kann nur eine der beiden Eigenschaften "minExclusive" oder "minInclusive" am Stereotype 
+      «xsdRestriction» befüllt sein.
+    </documentation>
+  </invariant>
+    
+  <invariant context='Class' name='ValueRestrictionForWhitespaceFacet'>
+    <body><![CDATA[			
+      self.hlpRestriction().extension_xsdRestriction.isDefined() and 
+      self.hlpRestriction().extension_xsdRestriction.whitespace.isDefined() and
+      self.hlpRestriction().extension_xsdRestriction.whitespace <> '' and
+      self.hlpIsPartOfXModel() implies			
+        self.hlpRestriction().extension_xsdRestriction.whitespace = 'preserve' or
+        self.hlpRestriction().extension_xsdRestriction.whitespace = 'replace' or
+        self.hlpRestriction().extension_xsdRestriction.whitespace = 'collapse'
+    ]]></body>
+    <documentation>
+      Die Eigenschaft "whitespace" an dem Stereotyp «xsdRestriction» darf nur einen der folgenden Werte 
+      besitzen: "preserve", "replace" oder "collapse".
+    </documentation>
+  </invariant>
+    
+  <invariant context='Property' name='AttributeTypesBasedOnW3CDatatypes'>
+    <body><![CDATA[			
+      self.extension_xsdAttribute.isDefined() and not self.isReference() and 		
+      self.hlpIsPartOfXModel() implies
+        self.type.hlpOwningPackage().name='W3C Data Types' or
+        self.type.oclAsType(Type).hlpTopMostSuperType().hlpOwningPackage().name='W3C Data Types' or
+		self.type.oclIsTypeOf(Enumeration) or
+        (self.type.oclIsTypeOf(Class) and
+        self.type.oclAsType(Class).extension_xsdNamedType.isDefined())
+    ]]></body>
+    <documentation>
+      Der Typ einer UML-Klasseneigenschaft mit dem Stereotyp «xsdAttribute» ist entweder direkt ein 
+      W3C-Datentyp bzw. eine Ableitung eines W3C-Datentyps.
+    </documentation>
+  </invariant>
+    
+  <invariant context='Property' name='ElementTypesBasedOnW3CDatatypesOrDefinedSchemaTypes'>
+    <body><![CDATA[			
+      not self.isPartOfKernkomponentenkatalog() and
+      self.extension_xsdElement.isDefined() and 		
+      self.hlpIsPartOfXModel() implies
+        self.type.hlpOwningPackage().name='W3C Data Types' or
+        self.type.oclAsType(Type).hlpTopMostSuperType().hlpOwningPackage().name='W3C Data Types' or
+        self.type.oclAsType(Classifier).hlpIsPartOfProfiledPackage()
+    ]]></body>
+    <documentation>
+      Der Typ einer UML-Klasseneigenschaft mit dem Stereotyp «xsdElement» ist entweder direkt ein 
+      W3C-Datentyp, eine Ableitung eines W3C-Datentyps oder eine im «xsdSchema»-UML-Paket definierte 
+      UML-Klasse oder UML-Enumeration.
+    </documentation>
+  </invariant>
+    
+  <invariant context='Property' name='ElementAndAttributeTypesMustBeVisible'>
+    <body><![CDATA[
+      let owningSchema = self.hlpOwningSchema() in  
+	  self.hlpIsPartOfXModel() and
+      owningSchema.hlpAllImportIncludeCycleFree() and 
+      self.type.oclAsType(Classifier).extension_xsdNamedType.isDefined implies 
+        self.type.oclAsType(Classifier).isVisibleFrom(owningSchema)
+    ]]></body>
+    <documentation>
+      Für UML-Klasseneigenschaften verwendete «xsdNamedType»-Typen müssen in diesem 
+      «xsdSchema»-UML-Paket mit «xsdInclude» oder «xsdImport» sichtbar sein.
+    </documentation> 
+  </invariant>
+  
+  <invariant context='Classifier' name='RestrictedAndExtendedTypesMustBeVisible'>
+    <body><![CDATA[
+      let owningSchema = self.hlpOwningSchema() in
+      self.hlpIsPartOfXModel() and
+      owningSchema.hlpAllImportIncludeCycleFree() implies
+        self.general->forAll(s| 
+          s.oclAsType(Classifier).extension_xsdNamedType.isDefined implies
+            s.oclAsType(Classifier).isVisibleFrom(owningSchema))
+    ]]></body>
+    <documentation>
+      Als Typen von UML-Klasseneigenschaften verwendete «xsdNamedType»-UML-Klassen müssen in diesem 
+      UML-Paket mit «xsdInclude» oder «xsdImport» sichtbar sein.
+    </documentation> 
+  </invariant>
+  
+  <invariant context='Property' name='InlinePropertiesMustBeTyped'>
+    <body><![CDATA[			
+      (self.extension_xsdElement.isDefined() or self.extension_xsdAttribute.isDefined()) and 
+      self.association.isUndefined() and
+      self.hlpIsPartOfXModel() implies
+        self.type.isDefined()
+    ]]></body>
+    <documentation>
+      Eine UML-Klasseneigenschaft mit dem Stereotyp «xsdElement» oder «xsdAttribute», die als 
+      Inline-Klasseneigenschaft innerhalb einer UML-Klasse und nicht als UML-Assoziationsende über einen 
+      Rollennamen definiert ist, muss einen Typ besitzen.
+    </documentation>
+  </invariant>
+    
+  <invariant context='Property' name='AttributesSingleValued'>
+    <body><![CDATA[
+      self.extension_xsdAttribute.isDefined and
+      self.hlpIsPartOfXModel() implies 
+        self.upper = 1 
+    ]]></body>
+    <documentation>
+      «xsdAttribute»-UML-Klasseneigenschaften dürfen nur "0..1" oder "1" als Multiplizität besitzen.
+    </documentation> 
+  </invariant>
+  
+  <invariant context='Package' name='FileExtensionXSDDefinedForSchemas'>
+    <body><![CDATA[
+      let s = self.extension_xsdSchema in
+      s.isDefined() and
+      s.schemaFile.isDefined() and
+      s.schemaFile <> '' and
+      self.hlpIsPartOfXModel() implies 
+        s.schemaFile.substring(s.schemaFile.size()-3,s.schemaFile.size()) = '.xsd' or
+        s.schemaFile.substring(s.schemaFile.size()-3,s.schemaFile.size()) = '.XSD'
+    ]]></body>
+    <documentation>
+      «xsdSchema»-UML-Pakete müssen für die Eigenschaft "schemaFile" die Dateiendung ".xsd" oder ".XSD" 
+      besitzen. 
+    </documentation> 
+  </invariant>
+  
+  <invariant context='Package' name='FileExtensionXSDDefinedForSchemaLocations'>
+    <body><![CDATA[
+      let s = self.extension_xsdSchema in
+      s.isDefined() and	  
+      s.schemaLocation.isDefined() and
+      s.schemaLocation <> '' and
+	  self.hlpIsPartOfXModel()
+       implies 
+        s.schemaLocation.substring(s.schemaLocation.size()-3,s.schemaLocation.size()) = '.xsd' or
+        s.schemaLocation.substring(s.schemaLocation.size()-3,s.schemaLocation.size()) = '.XSD'
+    ]]></body>
+    <documentation>
+      «xsdSchema»-UML-Pakete müssen für die Eigenschaft "schemaLocation" die Dateiendung ".xsd" oder ".XSD" 
+      besitzen. 
+    </documentation> 
+  </invariant>
+    
+  <invariant context='Property' name='AttributeOwnerAlsoOwnsAssociation'>
+    <body><![CDATA[
+      self.association.isDefined and
+      self.hlpIsPartOfXModel() implies 
+        self.owner.owner = self.association.owner
+    ]]></body>
+    <documentation>
+     UML-Assoziationen müssen demselben UML-Paket wie die zusammengesetzte UML-Klasse 
+      angehören.
+    </documentation>
+  </invariant>
+ 
+  <invariant context='Package' name='OnlyOneIncludeDependencyBetweenTwoPackages'>
+    <body><![CDATA[
+      self.hlpIsPartOfXModel() implies
+      self.hlpIncludeDependencies().hlpIncludedPackage()->isUnique(
+	    if (self.hlpOwningModel().extension_xsdXModel.deployment = true) then
+		  if (extension_xsdSchema.schemaLocation.isDefined and 
+		   extension_xsdSchema.schemaLocation <> '') then
+			extension_xsdSchema.schemaLocation
+		  else
+		    self.hlpOwningModel().extension_xsdXModel.schemaLocationBase.concat(extension_xsdSchema.schemaFile)
+		  endif
+		else
+		  extension_xsdSchema.schemaFile
+		endif
+	  )
+    ]]></body>
+    <documentation>
+      Ein «xsdSchema»-UML-Paket darf nicht mehrmals das gleiche «xsdSchema»-UML-Paket per 
+      «xsdInclude»-UML-Abhängigkeit einbinden.
+    </documentation> 
+  </invariant>
+  
+  <invariant context='Classifier' name='GlobalElementExcludesOtherParticularXOEVClassStereotypes'>
+    <body><![CDATA[
+      self.extension_xsdGlobalElement.isDefined and
+	  self.hlpIsPartOfXModel() 
+	   implies
+	    self.oclAsType(Class).extension_xsdAnyContents.isUndefined and
+		self.oclAsType(Class).extension_xsdCode.isUndefined and
+		self.oclAsType(Classifier).extension_xsdNamedType.isUndefined
+    ]]></body>
+    <documentation>
+      Eine «xsdGlobalElement»-UML-Klasse darf zusätzlich nicht einen der folgenden Stereotypen besitzen:
+      «xsdAnyContents», «xsdCode» oder «xsdNamedType».
+    </documentation> 
+  </invariant>
+  
+  <invariant context='Class' name='AnyContentsExcludesOtherParticularXOEVClassStereotypes'>
+    <body><![CDATA[
+      self.extension_xsdAnyContents.isDefined and
+	  self.hlpIsPartOfXModel() 
+	   implies
+	    self.extension_xsdGlobalElement.isUndefined and
+        self.extension_xsdChoice.isUndefined and
+		self.extension_xsdCode.isUndefined
+    ]]></body>
+    <documentation>
+      Eine «xsdAnyContents»-UML-Klasse darf zusätzlich nicht einen der folgenden Stereotypen besitzen:
+      «xsdGlobalElement», «xsdChoice» oder «xsdCode».
+    </documentation> 
+  </invariant>
+  
+  <invariant context='Class' name='ChoiceExcludesOtherParticularXOEVClassStereotypes'>
+    <body><![CDATA[
+      self.extension_xsdChoice.isDefined and
+	  self.hlpIsPartOfXModel() 
+	   implies
+        self.extension_xsdAnyContents.isUndefined and
+		self.extension_xsdCode.isUndefined
+    ]]></body>
+    <documentation>Eine «xsdChoice»-UML-Klasse darf zusätzlich nicht einen der folgenden Stereotypen besitzen:
+«xsdAnyContents» oder «xsdCode».</documentation>
+  </invariant>
+  
+  <invariant context='Class' name='CodeExcludesOtherParticularXOEVClassStereotypes'>
+    <body><![CDATA[
+      self.extension_xsdCode.isDefined and
+	  self.hlpIsPartOfXModel() 
+	   implies
+	    self.extension_xsdGlobalElement.isUndefined and
+        self.extension_xsdAnyContents.isUndefined and
+		self.extension_xsdChoice.isUndefined
+    ]]></body>
+    <documentation>
+      Eine «xsdCode»-UML-Klasse darf zusätzlich nicht einen der folgenden Stereotypen besitzen:
+      «xsdGlobalElement», «xsdAnyContents» oder «xsdChoice».
+    </documentation> 
+  </invariant>
+  
+  <invariant context='Classifier' name='GlobalElementsAreClassesOrEnumerations'>
+    <body><![CDATA[
+      self.extension_xsdGlobalElement.isDefined() and
+      self.hlpIsPartOfXModel() implies 
+        self.oclIsKindOf(Class) or self.oclIsKindOf(Enumeration)
+    ]]></body>
+    <documentation>
+      Der Stereotyp «xsdGlobalElement» darf nur auf UML-Klassen oder UML-Enumerationen angewendet werden.
+    </documentation> 
+  </invariant>
+  
+  <invariant context='Class' name='ActivatedClassesMustNotUseDeactivatedClasses'>
+    <body><![CDATA[
+		self.hlpIsPartOfXModel() and self.attribute->exists( a |
+		  a.type.oclAsType(Class).extension_xsdDraft.isDefined()) implies
+		self.extension_xsdDraft.isDefined()
+		]]>	   
+    </body>
+    <documentation>
+      Mittels Stereotyp «xsdDraft» deaktivierte Inhalte dürfen nicht von aktivierten Inhalten genutzt werden.
+    </documentation>
+  </invariant>
+  </rule>
+     
+  <rule name='NDR-29: Identifizierende Namensräume'>
+  
+  <invariant context='Package' name='SchemaMustHaveNamespace'>
+    <body><![CDATA[
+      let ns:String = self.hlpPackageNamespace() in
+      self.extension_xsdSchema.isDefined and
+      self.hlpIsPartOfXModel() implies 
+        ns.isDefined() and ns <> ''
+    ]]></body>
+    <documentation>
+      Die Eigenschaft "namespace" muss über den Stereotyp «xsdSchema» oder «xsdXModel» befüllt sein.
+    </documentation> 
+  </invariant>
+	  
+  <invariant context='Package' name='SchemaMustHavePrefix'>
+    <body><![CDATA[
+      let pf:String = self.hlpPackagePrefix() in
+      self.extension_xsdSchema.isDefined and
+      self.hlpIsPartOfXModel() implies 
+        pf.isDefined() and pf <> ''
+    ]]></body>
+    <documentation>
+      Die Eigenschaft "prefix" muss über den Stereotyp «xsdSchema» oder «xsdXModel» befüllt sein.
+    </documentation> 
+  </invariant>
+  </rule>
+  
+  <rule name='NDR-30: Versionierung der Schemata'>
+  
+  <invariant context='Package' name='SchemaMustBeVersioned'>
+    <body><![CDATA[
+      let schemaVersion:String = self.hlpPackageVersion() in
+      not self.isPartOfAdapter() and
+      self.extension_xsdSchema.isDefined and
+      self.hlpIsPartOfXModel() implies
+        schemaVersion.isDefined() and schemaVersion <> ''
+    ]]></body>
+    <documentation>
+      Die Eigenschaft "version" muss über den Stereotyp «xsdSchema» oder «xsdXModel» befüllt sein.
+    </documentation> 
+  </invariant>
+    </rule>
+
+	<rule name='NDR-32: Dokumentation der Metadaten des Standards'>
+  
+		<invariant context='Model' name='MetadatenelementStandardNameLangMussBefuelltSein'>
+			<body><![CDATA[
+			let m = self.extension_xoevStandard.nameLang in
+			self = self.hlpXModel() implies m.isDefined and m <> ''
+		]]></body>
+    <documentation>
+      Die Eigenschaft "nameLang" muss im Stereotyp «xoevStandard» befüllt sein.
+    </documentation> 
+  </invariant>
+  
+  <invariant context='Model' name='MetadatenelementStandardNameKurzMussBefuelltSein'>
+			<body><![CDATA[
+			let m = self.extension_xoevStandard.nameKurz in
+			self = self.hlpXModel() implies m.isDefined and m <> ''
+		]]></body>
+    <documentation>
+      Die Eigenschaft "nameKurz" muss im Stereotyp «xoevStandard» befüllt sein.
+    </documentation> 
+  </invariant>
+  
+  <invariant context='Model' name='MetadatenelementStandardNameTechnischMussBefuelltSein'>
+			<body><![CDATA[
+			let m = self.extension_xoevStandard.nameTechnisch in
+			self = self.hlpXModel() implies m.isDefined and m <> ''
+		]]></body>
+    <documentation>
+      Die Eigenschaft "nameTechnisch" muss im Stereotyp «xoevStandard» befüllt sein.
+    </documentation> 
+  </invariant>
+  
+  <invariant context='Model' name='MetadatenelementStandardKennungMussBefuelltSein'>
+			<body><![CDATA[
+			let m = self.extension_xoevStandard.kennung in
+			self = self.hlpXModel() implies m.isDefined and m <> ''
+		]]></body>
+    <documentation>
+      Die Eigenschaft "kennung" muss im Stereotyp «xoevStandard» befüllt sein.
+    </documentation> 
+  </invariant>
+  
+  <invariant context='Model' name='MetadatenelementStandardBeschreibungMussBefuelltSein'>
+			<body><![CDATA[
+			let m = self.extension_xoevStandard.beschreibung in
+			self = self.hlpXModel() implies m.isDefined and m <> ''
+		]]></body>
+    <documentation>
+      Die Eigenschaft "beschreibung" muss im Stereotyp «xoevStandard» befüllt sein.
+    </documentation> 
+  </invariant>
+  
+    <invariant context='Model' name='MetadatenelementVersionStandardVersionMussBefuelltSein'>
+			<body><![CDATA[
+			let m = self.extension_xoevVersionStandard.version in
+			self = self.hlpXModel() implies m.isDefined and m <> ''
+		]]></body>
+    <documentation>
+      Die Eigenschaft "version" muss im Stereotyp «xoevVersionStandard» befüllt sein.
+    </documentation> 
+  </invariant>
+  
+      <invariant context='Model' name='MetadatenelementVersionStandardVersionXOEVHandbuchMussBefuelltSein'>
+			<body><![CDATA[
+			let m = self.extension_xoevVersionStandard.versionXOEVHandbuch in
+			self = self.hlpXModel() implies m.isDefined and m <> ''
+		]]></body>
+    <documentation>
+      Die Eigenschaft "versionXOEVHandbuch" muss im Stereotyp «xoevVersionStandard» befüllt sein.
+    </documentation> 
+  </invariant>
+  
+      <invariant context='Model' name='MetadatenelementVersionStandardVersionXGeneratorMussBefuelltSein'>
+			<body><![CDATA[
+			let m = self.extension_xoevVersionStandard.versionXGenerator in
+			self = self.hlpXModel() implies m.isDefined and m <> ''
+		]]></body>
+    <documentation>
+      Die Eigenschaft "versionXGenerator" muss im Stereotyp «xoevVersionStandard» befüllt sein.
+    </documentation> 
+  </invariant>
+  
+      <invariant context='Model' name='MetadatenelementVersionStandardVersionModellierungswerkzeugMussBefuelltSein'>
+			<body><![CDATA[
+			let m = self.extension_xoevVersionStandard.versionModellierungswerkzeug in
+			self = self.hlpXModel() implies m.isDefined and m <> ''
+		]]></body>
+    <documentation>
+      Die Eigenschaft "versionModellierungswerkzeug" muss im Stereotyp «xoevVersionStandard» befüllt sein.
+    </documentation>
+  </invariant>
+  
+  <invariant context='Model' name='MetadatenelementStandardKennungMussMitUrnXoevDeBeginnen'>
+			<body><![CDATA[
+			let m = self.extension_xoevStandard.kennung in
+			self = self.hlpXModel() implies m.substring(1,12) = 'urn:xoev-de:'
+		]]></body>
+    <documentation>
+      Die Eigenschaft "kennung" im Stereotyp «xoevStandard» muss mit dem String 'urn:xoev-de:' beginnen.
+    </documentation>
+  </invariant>
+  
+  <invariant context='Model' name='MetadatenelementStandardKennungMussStandardEnthalten'>
+			<body><![CDATA[
+			let m = self.extension_xoevStandard.kennung in
+			self = self.hlpXModel() implies Sequence{1..m.size()}->iterate(i; akku : Boolean = false | akku or m.substring(i,i+9) = ':standard:')
+		]]></body>
+    <documentation>
+      Die Eigenschaft "kennung" im Stereotyp «xoevStandard» muss den String ':standard:' enthalten.
+    </documentation>
+  </invariant>
+  
+  <invariant context='Model' name='MetadatenelementStandardKennungMussNameTechnischEnthalten'>
+			<body><![CDATA[
+			let m = self.extension_xoevStandard.kennung in let nt = self.extension_xoevStandard.nameTechnisch.toLower() in
+			self = self.hlpXModel() implies Sequence{1..m.size()}->iterate(i; akku : Boolean = false | akku or m.substring(i,i+nt.size()-1) = nt)
+		]]></body>
+    <documentation>
+      Die Eigenschaft "kennung" im Stereotyp «xoevStandard» muss den technischen Namen des Standards (xoevStandard/nameTechnisch) enthalten.
+    </documentation>
+  </invariant>
+  
+    <invariant context='Model' name='MetadatenelementStandardKennungDarfNichtXoevEnthalten'>
+			<body><![CDATA[
+			let m = self.extension_xoevStandard.kennung in
+			self = self.hlpXModel() implies Sequence{12..m.size()}->iterate(i; akku : Boolean = true | akku and m.substring(i,i+3) <> 'xoev')
+		]]></body>
+    <documentation>
+      Die Eigenschaft "kennung" im Stereotyp «xoevStandard» darf neben dem String ':xoev-de:' nicht den String 'xoev' enthalten.
+    </documentation>
+  </invariant>
+  
+  <invariant context='Model' name='MetadatenelementStandardKennungDarfNurErlaubteZeichenEnthalten'>
+			<body><![CDATA[
+			let m = self.extension_xoevStandard.kennung in
+			self = self.hlpXModel() implies Sequence{1..m.size()}->iterate(i; akku : Boolean = true | akku and Set{'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z','0','1','2','3','4','5','6','7','8','9','.','-',':'}->includes(m.substring(i,i)))
+		]]></body>
+    <documentation>
+      Die Eigenschaft "kennung" im Stereotyp «xoevStandard» darf nur die Zeichen "a-z", "A-Z", "0-9", "-", ":" und "." enthalten.
+    </documentation>
+  </invariant>
+  
+  <invariant context='Model' name='MetadatenelementStandardNameTechnischDarfNurErlaubteZeichenEnthalten'>
+			<body><![CDATA[
+			let m = self.extension_xoevStandard.nameTechnisch in
+			self = self.hlpXModel() implies Sequence{1..m.size()}->iterate(i; akku : Boolean = true | akku and Set{'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z','A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z','0','1','2','3','4','5','6','7','8','9','.','-',':'}->includes(m.substring(i,i)))
+		]]></body>
+    <documentation>
+      Die Eigenschaft "nameTechnisch" im Stereotyp «xoevStandard» darf nur die Zeichen "a-z", "A-Z", "0-9", "-" und "." enthalten.
+    </documentation>
+  </invariant>
+  
+  <invariant context='Model' name='MetadatenelementVersionStandardVersionDarfNurErlaubteZeichenEnthalten'>
+			<body><![CDATA[
+			let m = self.extension_xoevVersionStandard.version in
+			self = self.hlpXModel() implies Sequence{1..m.size()}->iterate(i; akku : Boolean = true | akku and Set{'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z','A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z','0','1','2','3','4','5','6','7','8','9','.','-',':'}->includes(m.substring(i,i)))
+		]]></body>
+    <documentation>
+      Die Eigenschaft "version" im Stereotyp «xoevVersionStandard» darf nur die Zeichen "a-z", "A-Z", "0-9", "-" und "." enthalten.
+    </documentation>
+  </invariant>
+  
+    </rule>
+</invariants>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -14,6 +14,7 @@ export type Dokument = {
   updated: Date;
   downloads: Array<Download>;
   beschreibung: string;
+  type: string;
 };
 
 export type CodeList = {
