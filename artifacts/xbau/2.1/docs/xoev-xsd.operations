@@ -1,0 +1,1320 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!-- XÖV-Profil 1.5.1 - Hilfsoperationen für XÖV-Prüfanweisungen und XÖV-Übersetzungsanweisungen - XML Schema-Teil -->
+<!-- Dieses Werk ist lizensiert unter einer Creative Commons Namensnennung - Keine Bearbeitung 4.0 International Lizenz. -->
+
+<additionalOperations xmlns="http://www.osci.de/xoev/operations">
+
+<!-- XXXXXXXXXXXXXXXXXXXXX context Type XXXXXXXXXXXXXXXXXXXXXXXXXXX -->
+
+  <operation context='Type' name='internStringAfterLastDot'>
+    <result type='String'/>
+    <body>
+      let fullname : String = self.name in
+        Sequence{1 .. fullname.size}->iterate(i;res:String='' |
+          if fullname.substring(i,i)='.' then ''
+          else res.concat(fullname.substring(i,i)) endif)
+    </body>
+    <documentation>
+      Liefert die Zeichenkette eines Typs nach dem letzten Punkt
+      innerhalb des Namens.
+    </documentation>
+  </operation>
+
+  <operation context='Type' name='internNameBeforeFirstDot'>
+    <result type='String'/>
+    <body>
+      let fullname : String = self.name in
+      let punktPos:Integer =
+        Sequence{1..fullname.size}-&gt;iterate(i; pos:Integer=oclUndefined(Integer) |
+          if fullname.substring(i,i)='.' and pos.isUndefined then i
+          else pos endif) in
+      fullname.substring(1,punktPos-1)
+    </body>
+    <documentation>
+      Liefert den Namen eines Typs vor dem ersten Punkt.
+    </documentation>
+  </operation>
+
+<!-- XXXXXXXXXXXXX Operationen verwendet in Templates XXXXXXXXXXXXX -->
+
+<!-- XXXXXXXXXXXXXXXXXXXXXX context Class XXXXXXXXXXXXXXXXXXXXXXXXX -->
+
+  <operation context='Class' name='hlpAttributes'>
+    <result type='Sequence(Property)'/>
+    <body>
+      self.attribute-&gt;select(f | f.extension_xsdAttribute.isDefined)
+        -&gt;asSequence-&gt;sortedBy(p|p.name)
+    </body>
+    <documentation>
+      Alle Properties dieser Klasse, die mit «xsdAttribute» 
+      stereotypisiert sind. Alphabetisch sortiert. 
+    </documentation>
+  </operation>
+  
+  <operation context='Class' name='hlpAllElements'>
+    <result type='Set(Property)'/>
+    <body><![CDATA[
+	  let ownElements:Set(Property) = self.attribute->select(p|p.extension_xsdElement.isDefined)->asSet() in
+        if self.hlpIsRestriction() then
+		  ownElements
+		else
+          ownElements->union(self.parents()->select(oclIsKindOf(Class)).oclAsType(Class).hlpAllElements())->asSet()
+		endif
+	  ]]>
+    </body>
+    <documentation>
+      Alle Properties (Attribute und Kompositionen) dieser Klasse und ihrer Parents, die 
+      mit «xsdElement» stereotypisiert sind. 
+    </documentation>
+  </operation>
+  
+    <operation context='Class' name='hlpAllAttributes'>
+    <result type='Set(Property)'/>
+    <body>
+      self.attribute-&gt;select(p|p.extension_xsdAttribute.isDefined)->asSet()->union(
+      self.allParents().attribute-&gt;select(p|p.extension_xsdAttribute.isDefined)->asSet())
+    </body>
+    <documentation>
+      Alle Properties (Attribute und Kompositionen) dieser Klasse und ihrer Parents, die 
+      mit «xsdElement» stereotypisiert sind. 
+    </documentation>
+  </operation>
+  <operation context='Class' name='hlpAllElementNamesFlattened'>
+    <result type='Bag(String)'/>
+    <body><![CDATA[
+	  self.hlpAllElements()->iterate(p ; res:Bag(String) = oclEmpty(Bag(String)) |
+	    if p.isElementReference() then
+  		  res->including(p.type.oclAsType(Classifier).name)
+		else if p.isGroupReference() then
+		  res->union(p.type.oclAsType(Class).hlpAllElementNamesFlattened())
+		else
+		  res->including(p.name)
+		endif
+		endif
+ 	  )
+    ]]></body>
+    <documentation>
+      Alle Properties (Elemente von Groups oder Local Structures) dieser Klasse, die 
+      mit «xsdElement» stereotypisiert sind. 
+    </documentation>
+  </operation>
+    
+  <operation context='Class' name='hlpElements'>
+    <result type='Sequence(Property)'/>
+    <body>
+      self.attribute-&gt;select(p|p.extension_xsdElement.isDefined() or p.extension_xsdLocalStructure.isDefined())
+        -&gt;asSequence-&gt;sortedBy(p|if p.extension_xsdElement.isDefined() then p.extension_xsdElement.position else p.extension_xsdLocalStructure.position endif)
+    </body>
+    <documentation>
+      Alle Properties (Attribute und Kompositionen) dieser Klasse, die 
+      mit «xsdElement» stereotypisiert sind, sortiert nach ihrer 
+      Sequenznummer (position). 
+    </documentation>
+  </operation>
+
+  <operation context='Type' name='isW3CType'>
+    <result type='Boolean'/>
+    <body>
+      self.hlpOwningPackage().name = 'W3C Data Types'
+    </body>
+    <documentation>
+      True, wenn es sich bei self um einen W3C-Datentyp handelt.
+    </documentation>
+  </operation>
+  
+  <operation context='Property' name='hlpIsCode'>
+    <result type='Boolean'/>
+    <body>
+      self.type.hlpIsCode()
+    </body>
+    <documentation>
+      Ist der Typ dieser Property von Code abgeleitet?
+    </documentation>
+  </operation>
+  <operation context='Type' name='hlpIsCode'>
+    <result type='Boolean'/>
+    <body><![CDATA[
+      let sc : Classifier = self.hlpTopMostSuperType() in
+      let c : Classifier = if sc.isDefined then sc else self.oclAsType(Classifier) endif in
+      c.name='Code'
+    ]]>
+    </body>
+    <documentation>
+      Ist dieser Typ von Code abgeleitet?
+    </documentation>
+  </operation>
+  
+  <operation context='Class' name='getCodeList'>
+	<result type='Enumeration'/>
+	<body><![CDATA[
+	let cl = Enumeration.allInstances->any(e |e.hlpIsPartOfXModel() and e.extension_xoevCodeliste.kennung = self.getAttributeIgnoreCase('listURI').default and (self.getAttributeIgnoreCase('listVersionID').default.isDefined implies e.extension_xoevVersionCodeliste.version = self.getAttributeIgnoreCase('listVersionID').default)) in
+	let clext = Enumeration.allInstances->any(e | not e.hlpIsPartOfXModel() and e.extension_xoevCodeliste.kennung = self.getAttributeIgnoreCase('listURI').default and (self.getAttributeIgnoreCase('listVersionID').default.isDefined implies e.extension_xoevVersionCodeliste.version = self.getAttributeIgnoreCase('listVersionID').default)) in
+	  if cl.isDefined and self.hlpIsPartOfXModel() then
+		cl
+	  else if self.getAttributeIgnoreCase('code').type.oclAsType(Enumeration).isDefined then
+	    self.getAttributeIgnoreCase('code').type.oclAsType(Enumeration)
+	  else
+	    clext
+	  endif endif
+	]]>
+	</body>
+  </operation>
+  
+<!-- XXXXXXXXXXXXXXXXXXXX context Classifier XXXXXXXXXXXXXXXXXXXXXX -->
+
+  <operation context='Classifier' name='allParents'>
+    <result type='Set(Classifier)'/>
+    <body>
+      self.parents()-&gt;union(
+        self.parents()-&gt;collect(p | p.allParents())-&gt;flatten
+      )-&gt;asSet
+    </body>
+    <documentation>
+      Aus der UML-Spec. Die transitive Hülle aller generalisierenden 
+      Typen dieser Klasse. 
+    </documentation>
+  </operation>
+  
+  <operation context='Classifier' name='getDocumentedAttribute'>
+	<result type='Property'/>
+	<param name='attributeName' type='String'/>
+    <body><![CDATA[
+      let attribute:Property = self.getAttribute(attributeName) in
+	    if attribute.getDocumentation().isUndefined() then
+          if self.parents()->notEmpty() then
+		    self.parents()->any(true).getDocumentedAttribute(attributeName)
+          else
+            oclUndefined(Property)
+          endif
+		else
+		  attribute
+		endif
+	]]>
+    </body>
+    <documentation>
+      Liefert eine Eigenschaft (Attribut oder Rolle) mit dem übergebenen Namen, 
+      für die eine Dokumentation existiert. Dabei wird auch die Dokumentation in 
+      den Oberklassen berücksichtigt. Existiert mit dem gegebenen Namen keine dokumentierte
+      Eigenschaft, wird der undefinierte Wert zurückgegeben.
+    </documentation>
+  </operation>
+  
+  <operation context='Classifier' name='hlpRestrictionGeneralization'>
+    <result type='Generalization'/>
+    <body>
+      self.generalization-&gt;any(g | g.extension_xsdRestriction.isDefined)
+    </body>
+    <documentation>
+      Die «xsdRestriction»-Generalization, mit der diese Klasse von einer 
+      anderen abgeleitet ist, sonst Undefined. 
+    </documentation>
+  </operation>
+  
+  <operation context='Classifier' name='hlpIsRestriction'>
+    <result type='Boolean'/>
+    <body>
+      self.generalization-&gt;exists(g | g.extension_xsdRestriction.isDefined)
+    </body>
+    <documentation>
+      Ist diese Klasse über «xsdRestriction» von einer anderen Klasse 
+      abgeleitet? 
+    </documentation>
+  </operation>
+  
+  <operation context='Classifier' name='hlpIsSimpleType'>
+    <result type='Boolean'/>
+    <body><![CDATA[
+      -- Enumeration
+      self.oclIsKindOf(DataType) or
+      self.isW3CType() or
+      ((self.hlpTopMostSuperType().hlpPrefixForType(self.hlpOwningPackage())='xs' or 
+	    self.oclAsType(Class).extension_xsdUnion.isDefined()) and
+       self.allParents()->forAll(t | t.oclAsType(Class).hlpAttributes()->isEmpty) and
+       self.oclAsType(Class).hlpAttributes()->isEmpty)
+    ]]></body>
+    <documentation>
+      Entscheidungsfunktion: Ist diese Klasse in einen xs:simpleType 
+      übersetzbar? Dies ist möglich, wenn die Klasse von einem 
+      primitiven Schema-Datentypen abgeleitet ist oder eine Union ist und keine eigenen 
+      Properties mehr definiert. 
+    </documentation>
+  </operation>
+  
+  <operation context='Classifier' name='parents'>
+    <result type='Set(Classifier)'/>
+    <body>
+      self.generalization.general-&gt;asSet
+    </body>
+   <documentation>
+      Aus der UML-Spec. Die generalisierenden Typen dieser Klasse. 
+    </documentation>
+  </operation>
+  
+  <operation context='Classifier' name='isVisibleFrom'>
+    <result type='Boolean'/>
+	<param name='package' type='Package'/>
+    <body><![CDATA[
+      self.hlpOwningSchema() = package or
+      package.hlpIncludedPackages()->exists(p | self.isVisibleFromAux(p)) or
+      package.hlpImportDependencies().hlpImportedPackage()->exists(p | self.isVisibleFromAux(p))
+    ]]>
+    </body>
+   <documentation>
+      
+    </documentation>
+  
+  </operation>
+  
+    <operation context='Classifier' name='isVisibleFromAux'>
+    <result type='Boolean'/>
+	<param name='package' type='Package'/>
+    <body><![CDATA[
+      self.hlpOwningSchema() = package or
+      package.hlpIncludedPackages()->exists(p | self.isVisibleFromAux(p))
+    ]]>
+    </body>
+   <documentation>
+      Aus der UML-Spec. Die generalisierenden Typen dieser Klasse. 
+    </documentation>
+  </operation>
+
+<!-- XXXXXXXXXXXXXXXXXXXX context Dependency XXXXXXXXXXXXXXXXXXXXXX -->
+  
+  <operation context='Dependency' name='hlpImportedPackage'>
+    <result type='Package'/>
+    <body>
+     if self.extension_xsdImport.isDefined then
+        self.supplier-&gt;any(true).oclAsType(Package)
+     else
+       oclUndefined(Package)
+     endif
+    </body>
+    <documentation>
+      Hilfsmethode zum einfachereren Zugriff auf das importierte Paket 
+      an einer «xsdImport»-Dependency. 
+    </documentation>
+  </operation>
+  
+  <operation context='Dependency' name='getSchemaLocation'>
+    <result type='String'/>
+    <param name='forceDeployment' type='Boolean'/>
+    <body><![CDATA[
+	 if forceDeployment or self.hlpXModel().extension_xsdXModel.deployment then
+	   let importedPackage = self.hlpImportedPackage() in
+       if importedPackage.extension_xsdSchema.schemaLocation.isDefined()
+	      and importedPackage.extension_xsdSchema.schemaLocation <> '' then
+		   importedPackage.extension_xsdSchema.schemaLocation
+       else if self.extension_xsdImport.schemaLocationDeployment.isDefined() and self.extension_xsdImport.schemaLocationDeployment <> '' then
+	       self.extension_xsdImport.schemaLocationDeployment
+	   else
+	       let schemaBase = importedPackage.hlpExternalXModel().extension_xsdXModel.schemaLocationBase in
+		   let schemaBaseAligned = if schemaBase->at(schemaBase->size()) = '/' then schemaBase else schemaBase.concat('/') endif in
+	       schemaBaseAligned.concat(importedPackage.extension_xsdSchema.schemaFile)
+       endif
+	   endif
+	 else
+	   if self.extension_xsdImport.schemaLocationLocal.isDefined() and self.extension_xsdImport.schemaLocationLocal <> '' then
+	      self.extension_xsdImport.schemaLocationLocal
+	   else
+	      self.hlpImportedPackage().extension_xsdSchema.schemaFile
+	   endif
+	 endif
+    ]]></body>
+    <documentation>
+      Hilfsmethode zum einfachereren Zugriff auf die Schemalocation des importierten Pakets 
+      einer «xsdImport»-Dependency.
+    </documentation>
+  </operation>
+  
+  <operation context='Dependency' name='hlpIncludedPackage'>
+    <result type='Package'/>
+    <body>
+      if self.extension_xsdInclude.isDefined then
+        self.supplier-&gt;any(true).oclAsType(Package)
+      else
+        oclUndefined(Package)
+      endif
+    </body>
+    <documentation>
+      Hilfsmethode zum einfachereren Zugriff auf das inkludierte Paket 
+      an einer «xsdInclude»-Dependency. 
+    </documentation>
+  </operation>
+
+<!-- XXXXXXXXXXXXXXXXXXXXX context Element XXXXXXXXXXXXXXXXXXXXXXXX -->
+
+  <operation context='Element' name='getDocumentation'>
+    <result type='String'/>
+    <body><![CDATA[
+      let comment:String = self.ownedComment->iterate(comment; allComments:String = '' | allComments.concat(comment.body)) in
+	    if comment = '' then
+		  oclUndefined(String)
+		else
+		  comment
+		endif
+	]]>
+    </body>
+    <documentation>
+      Liefert den Inhalt aller Dokumentationselemente eines Elements
+      als einen String zurück. Falls kein Dokumentationselement existiert, 
+      oder alle Dokumentationselemente einen leeren String beschreiben, wird der undefinierte
+      Wert zurückgegeben.
+    </documentation>
+  </operation>
+  
+  <operation context='Element' name='hlpIsPartOfXModel'>
+    <result type='Boolean'/>
+    <body><![CDATA[
+      let xmodel:Model = self.hlpXModel() in
+      self.hlpOwningModel() = xmodel and
+        (self.oclIsTypeOf(Class) or
+	     self.oclIsTypeOf(Enumeration) or
+	     self.oclIsTypeOf(EnumerationLiteral) or
+	     self.oclIsTypeOf(Package) or
+	     self.oclIsTypeOf(Property) or
+	     self.oclIsTypeOf(Generalization) or
+	     self.oclIsTypeOf(Dependency))
+  ]]>  
+  </body>
+  <documentation>
+	Ist das Element teil des aktuell zu betrachtenden xsdXModel-Modells?
+  </documentation>
+  </operation>
+
+  <operation context='Element' name='isFromXOEVModel'>
+    <result type='Boolean'/>
+	<body><![CDATA[
+	  let owningModel = self.hlpOwningModel() in
+	    owningModel.owner.isDefined() implies owningModel.owner.oclAsType(NamedElement).name <> 'Kompatible Modelle'
+	]]>
+	</body>
+	<documentation>
+	
+	</documentation>
+  </operation>
+  
+  <operation context='Element' name='hlpIsPartOfProfiledPackage'>
+    <result type='Boolean'/>
+    <body>
+      self.hlpSchema().isDefined
+    </body>
+    <documentation>
+      Ist dieses Element Teil eines «xsdSchema»-Pakets?
+    </documentation>
+  </operation>
+ 
+  <operation context='Element' name='hlpOwningPackage'>
+    <result type='Package'/>
+    <body>
+      if self.owner.oclIsTypeOf(Class) then
+        self.owner.hlpOwningPackage()
+      else
+        self.owner.oclAsType(Package)
+      endif
+    </body>
+    <documentation>
+      Das Paket, in welchem dieses Element enthalten ist. Bei Elementen 
+      in inneren Klassen wird aufsteigend nach einem Paket gesucht. 
+    </documentation>
+  </operation>
+  
+  
+  <operation context='Element' name='isPartOfAdapter'>
+    <result type='Boolean'/>
+    <body><![CDATA[
+      if self.owner.isDefined() then
+        if self.owner.oclIsTypeOf(Package) and self.owner.oclAsType(Package).extension_xoevAdapter.isDefined() then
+          true
+        else 
+          self.owner.isPartOfAdapter()
+        endif
+      else
+        false
+      endif
+      ]]>
+    </body>
+  </operation>
+  
+    <operation context='Element' name='isPartOfKernkomponentenkatalog'>
+    <result type='Boolean'/>
+    <body><![CDATA[
+      if self.owner.isDefined() then
+        if self.owner.oclIsTypeOf(Package) and self.owner.oclAsType(Package).extension_xoevKernkomponentenkatalog.isDefined() then
+          true
+        else 
+          self.owner.isPartOfKernkomponentenkatalog()
+        endif
+      else
+        false
+      endif
+      ]]>
+    </body>
+  </operation>
+
+  <operation context='Element' name='hlpSchema'>
+    <result type='Package'/>
+    <body>
+      if self.oclAsType(Package).extension_xsdSchema.isDefined then
+        self.oclAsType(Package)
+      else
+        self.owner.hlpSchema()
+      endif
+    </body>
+    <documentation>
+      Das «xsdSchema»-Paket, welches dieses Element enthält. Pakete zur 
+      logischen Gruppierung unterhalb eines «xsdSchema»-Pakets sind 
+      zulässig, deshalb wird aufsteigend über die owner-Beziehung 
+      gesucht, bis ein «xsdSchema»-Paket gefunden wird. Liefert auch 
+      self zurück. 
+    </documentation>
+  </operation>
+  
+  <operation context='Element' name='hlpOwningSchema'>
+    <result type='Package'/>
+    <body>
+      if self.owner.oclIsTypeOf(Class) then
+        self.owner.hlpOwningSchema()
+      else if self.owner.oclAsType(Package).extension_xsdSchema.isDefined then
+          self.owner.oclAsType(Package)
+      else if self.owner.isDefined() then
+        self.owner.hlpOwningSchema()
+      else oclUndefined(Package)
+      endif endif endif
+    </body>
+    <documentation>
+      Das «xsdSchema»-Paket, welches dieses Element enthält. Pakete zur 
+      logischen Gruppierung unterhalb eines «xsdSchema»-Pakets sind 
+      zulässig, deshalb wird aufsteigend über die owner-Beziehung 
+      gesucht, bis ein «xsdSchema»-Paket gefunden wird. 
+    </documentation>
+  </operation>
+  
+  <operation context='Element' name='hlpOwningModel'>
+    <result type='Model'/>
+    <body>
+      if self.owner.oclIsTypeOf(Class) then
+        self.owner.hlpOwningModel()
+      else if self.owner.oclIsTypeOf(Model) then
+          self.owner.oclAsType(Model)
+      else
+        self.owner.hlpOwningModel()
+      endif endif
+    </body>
+    <documentation>
+      Das «xsdXModel»-Modell, welches dieses Element enthält.	  
+    </documentation>
+  </operation>
+  
+  <operation context='Element' name='hlpProjectName'>
+    <result type='String'/>
+    <body>
+      self.hlpXModel().name.toLower()
+    </body>
+    <documentation> 
+    </documentation>
+  </operation>
+  
+  <operation context='Element' name='hlpProjectNamespace'>
+    <result type='String'/>
+    <body>
+      self.hlpXModel().extension_xsdXModel.namespace
+    </body>
+    <documentation>
+    </documentation>
+  </operation>
+  
+  <operation context='Element' name='hlpProjectPrefix'>
+    <result type='String'/>
+    <body>
+      self.hlpXModel().extension_xsdXModel.prefix
+    </body>
+    <documentation>
+    </documentation>
+  </operation>
+  
+  <operation context='Element' name='hlpProjectVersion'>
+    <result type='String'/>
+    <body>
+      self.hlpXModel().extension_xoevVersionStandard.version
+    </body>
+    <documentation>
+    </documentation>
+  </operation>
+  
+  <operation context='Element' name='hlpProjectSubVersion'>
+    <result type='String'/>
+    <body>
+      self.hlpXModel().extension_xsdXModel.fassungVom
+    </body>
+    <documentation>
+    </documentation>
+  </operation>
+
+  <operation context='Element' name='hlpExternalXModel'>
+    <result type='Model'/>
+    <body><![CDATA[
+      if self.oclIsTypeOf(Model) then 
+        if self.oclAsType(Model).extension_xsdXModel.isDefined() then
+          self.oclAsType(Model)
+        else
+          oclUndefined(Model)
+        endif
+      else if (self.owner.isDefined) then
+        self.owner.hlpExternalXModel()
+      else oclUndefined(Model) endif endif
+		]]>	   
+    </body>
+    <documentation>
+    </documentation>
+  </operation>  
+  
+  <operation context='Element' name='hlpXModel'>
+    <result type='Model'/>
+    <body><![CDATA[
+		let xmodel:Model = Model.allInstances->any( m1 |
+		  m1.extension_xsdXModel.isDefined() and 
+		  m1.owner.oclAsType(NamedElement).name <> 'Externe Modelle' and
+		  m1.owner.oclAsType(NamedElement).name <> 'Kompatible Modelle') in
+		if (xmodel.isDefined) then
+		  xmodel
+		else
+		  oclUndefined(Model)
+		endif
+		]]>	   
+    </body>
+    <documentation>
+      Liefert das Model, für das der Stereotyp xsdXModel mit den 
+      Properties name und rootpath definiert ist. 
+    </documentation>
+  </operation>
+  
+<!-- XXXXXXXXXXXXXXXXXXXX context Enumeration XXXXXXXXXXXXXXXXXXXXX -->
+
+<!-- XXXXXXXXXXXXXXXXXXX context Model XXXXXXXXXXXXXXXXXXXXX -->  
+
+  <operation context='Model' name='hlpXModelImportName'>
+	<result type='String'/>
+    <body><![CDATA[
+      self.hlpXModelImport().bezeichnung
+	]]>
+    </body>
+    <documentation>
+      Liefert alle «xsdInclude»-Dependencies, über die dieses Paket 
+      andere Pakete inkludiert. 
+    </documentation>
+  </operation>
+  
+  <operation context='Model' name='hlpXModelImport'>
+	<result type='XOEVProfil__xsdXModelImport'/>
+    <body><![CDATA[
+      self.hlpXModel().clientDependency->select(d | 
+	    d.extension_xsdXModelImport.isDefined and d.supplier->any(true).oclAsType(Model) = self)->any(true).extension_xsdXModelImport
+	]]>
+    </body>
+    <documentation>
+      Liefert die Dependency, die das XModel importiert.
+    </documentation>
+  </operation>
+
+<!-- XXXXXXXXXXXXXXXXXXX context NamedElement XXXXXXXXXXXXXXXXXXXXX -->  
+ 
+  <operation context='Element' name='hlpUpperCaseLetters'>
+    <result type='Set(String)'/>
+    <body>
+      Set{'A','B','C','D','E','F','G','H','I','J','K','L','M',
+	      'N','O','P','Q','R','S','T','U','V','W','X','Y','Z'}
+    </body>
+    <documentation>
+      Alle Großbuchstaben für Identifier 
+    </documentation>
+  </operation>
+  
+  <operation context='Element' name='hlpLowerCaseLetters'>
+    <result type='Set(String)'/>
+    <body>
+      Set{'a','b','c','d','e','f','g','h','i','j','k','l','m',
+          'n','o','p','q','r','s','t','u','v','w','x','y','z'}
+    </body>
+    <documentation>
+      Alle Kleinbuchstaben für Identifier
+    </documentation>
+  </operation>
+  
+  <operation context='Element' name='hlpDigits'>
+    <result type='Set(String)'/>
+    <body>
+      Set{'0','1','2','3','4','5','6','7','8','9'}
+    </body>
+    <documentation>
+      Alle Ziffern
+    </documentation>
+  </operation>
+  
+  <operation context='NamedElement' name='hlpNameIsToken'>
+    <result type='Boolean'/>
+    <body>
+      let validChars : Set(String) = Set{'a','b','c','d','e','f','g','h','i','j','k','l','m',
+          'n','o','p','q','r','s','t','u','v','w','x','y','z','A','B','C','D','E','F','G','H','I','J','K','L','M',
+	      'N','O','P','Q','R','S','T','U','V','W','X','Y','Z','0','1','2','3','4','5','6','7','8','9','.','-','_'}
+      in
+      Sequence{1 .. self.name.size}->forAll(i|
+        validChars->includes(self.name.substring(i,i)))
+    </body>
+    <documentation>
+      Ist der Name dieses Elements ein gültiges Token im Sinne von XÖV? 
+    </documentation>
+  </operation>
+  
+  <operation context='NamedElement' name='hlpNameHasNoSequencedPeriods'>
+    <result type='Boolean'/>
+	<body>      
+      Sequence{1 .. self.name.size}->forAll(i|
+        not(self.name.substring(i,i)='.' and self.name.substring(i+1,i+1)='.'))
+    </body>    
+    <documentation>
+      Enthält der Name keine zwei aufeinanderfolgenden Punkte?
+    </documentation>
+  </operation>
+ 
+  <operation context='NamedElement' name='hlpSplitString'>
+    <result type='Sequence(String)'/>
+	<param name='pars' type='Tuple(aString : String, splitChar : String)'/>
+    <body><![CDATA[
+        Sequence{1..pars.aString.size()}->iterate(index ; result : Sequence(String) = Sequence{''} |
+		  if pars.aString.substring(index, index) = pars.splitChar then
+		    result->including('')
+		  else
+			let sTemp:String = result->last() in
+			  let subSeq:Sequence(String) =  
+			    if result->size() = 1 then
+				  oclEmpty(Sequence(String))
+				else
+				  result->subSequence(1, (result->size() - 1))
+				endif
+			  in
+			    subSeq->including(sTemp.concat(pars.aString.substring(index, index)))
+		  endif
+		)
+	]]>
+    </body>
+    <documentation>
+
+    </documentation>
+  </operation>
+
+<!-- XXXXXXXXXXXXXXXXXXXXXX context Package XXXXXXXXXXXXXXXXXXXXXXX -->
+
+ <operation context='Package' name='hlpAllImportIncludePackages'>
+    <result type='Set(Package)'/>
+    <body>
+      self.hlpAllImportIncludePackagesAux(self.clientDependency-&gt;
+        select(d|d.extension_xsdImport.isDefined or 
+                 d.extension_xsdInclude.isDefined).supplier.oclAsType(Package)-&gt;asSet)
+    </body>
+    <documentation>
+      Liefert alle «xsdImport» und «xsdInclude»-Dependencies für dieses 
+      Paket, inklusive der «xsdImport» und «xsdInclude»-Dependencies 
+      aller transitiv eingebundenen Pakete. (kann mit Zyklen umgehen) 
+    </documentation>
+  </operation>
+  
+  <operation context='Package' name='hlpAllImportIncludePackagesAux'>
+    <result type='Set(Package)'/>
+    <param name='collectedPackages' type='Set(Package)'/>
+    <body>
+      let nextPackages = collectedPackages.clientDependency-&gt;
+        select(d|d.extension_xsdImport.isDefined or 
+                 d.extension_xsdInclude.isDefined).supplier.oclAsType(Package)-&gt;asSet 
+      in
+        if collectedPackages-&gt;includesAll(nextPackages) then
+          collectedPackages
+        else
+          self.hlpAllImportIncludePackagesAux(
+            collectedPackages-&gt;union(nextPackages))
+        endif
+    </body>
+    <documentation>
+      Hilfsoperation zur Berechnung der Hülle.
+    </documentation>
+  </operation>
+  
+  <operation context='Package' name='hlpImportIncludeCycleFree'>
+    <result type='Boolean'/>
+    <body>
+      not self.hlpAllImportIncludePackages()-&gt;includes(self)
+    </body>
+    <documentation>
+      Sind die Imports/Includes dieses Pakets zyklenfrei?
+    </documentation>
+  </operation>
+  
+  <operation context='Package' name='hlpAllImportIncludeCycleFree'>
+    <result type='Boolean'/>
+    <body>
+      self.hlpAllImportIncludePackages()-&gt;forAll(p|p.hlpImportIncludeCycleFree())
+    </body>
+    <documentation>
+      Sind die Imports/Includes dieses Pakets und aller erreichbaren Pakete zyklenfrei?
+    </documentation>
+  </operation>
+  
+  <operation context='Package' name='hlpAllIncludedPackages'>
+    <result type='Set(Package)'/>
+    <body>
+      let allPackages:Set(Package) = self.hlpIncludedPackages() in
+      allPackages-&gt;union(allPackages-&gt;collect(p |
+        p.hlpAllIncludedPackages())-&gt;flatten-&gt;asSet)
+    </body>
+    <documentation>
+      Alle Pakete, die dieses Paket über «xsdInclude» einbindet. Dies 
+      ist die transitive Hülle. 
+    </documentation>
+  </operation>
+  
+  <operation context='Package' name='hlpImportDependencies'>
+    <result type='Sequence(Dependency)'/>
+    <body>
+      self.clientDependency-&gt;select(d|d.extension_xsdImport.isDefined)->
+        sortedBy(d|d.hlpImportedPackage().extension_xsdSchema.schemaLocation)
+    </body>
+    <documentation>
+      Liefert alle «xsdImport»-Dependencies, über die dieses Paket 
+      andere Pakete importiert. 
+    </documentation>
+  </operation>
+      
+  <operation context='Package' name='hlpImportPrefixNamespaceStrings'>
+    <result type='Set(String)'/>
+    <body>
+      self.hlpImportDependencies()->iterate(d; 
+        st:Set(String)= oclEmpty(Set(String)) | 
+        st->including('xmlns:'.concat(d.hlpImportPrefix()).
+                               concat('="').
+                               concat(d.hlpImportNamespace()).
+                               concat('"')))
+    </body>
+    <documentation>
+      Liefert alle Präfix-Namensraum-Paare, für Schemata die dieses 
+      Paket importiert. (als vollständigen String) Keine Kombination 
+      tritt doppelt auf. 
+    </documentation>
+  </operation>
+  
+  <operation context='Dependency' name='hlpImportPrefix'>
+    <result type='String'/>
+    <body><![CDATA[
+     if self.extension_xsdImport.prefix.isDefined and self.extension_xsdImport.prefix <> '' then
+		self.extension_xsdImport.prefix
+	  else
+	    self.hlpImportedPackage().hlpPackagePrefix()
+	  endif
+	  ]]>
+    </body>
+    <documentation>
+      Liefert den Präfix eines importierten Schemas. Entweder 
+      definiertes Präfix aus 
+	  «xsdImport» oder aus «xsdSchema» oder aus «xsdXModel»
+    </documentation>
+  </operation>
+  
+  <operation context='Dependency' name='hlpImportNamespace'>
+    <result type='String'/>
+    <body><![CDATA[
+      self.hlpImportedPackage().hlpPackageNamespace()
+	  ]]>
+    </body>
+    <documentation>
+      Liefert den Namespace eines importierten Schemas. Entweder aus 
+      «xsdSchema» oder aus «xsdXModel» 
+    </documentation>
+  </operation>
+  
+  <operation context='Package' name='hlpIncludeDependencies'>
+    <result type='Sequence(Dependency)'/>
+    <body>
+      self.clientDependency-&gt;select(d|d.extension_xsdInclude.isDefined)->
+        sortedBy(d|d.hlpIncludedPackage().extension_xsdSchema.schemaLocation)
+    </body>
+    <documentation>
+      Liefert alle «xsdInclude»-Dependencies, über die dieses Paket 
+      andere Pakete inkludiert. 
+    </documentation>
+  </operation>
+  
+  <operation context='Package' name='hlpIncludedPackages'>
+    <result type='Set(Package)'/>
+    <body>
+      self.hlpIncludeDependencies()-&gt;collect(d |
+        d.supplier-&gt;any(true)-&gt;oclAsType(Package))-&gt;asSet
+    </body>
+    <documentation>
+      Die Pakete, die dieses Paket über «xsdInclude» einbindet. 
+    </documentation>
+  </operation>
+  
+  <operation context='Package' name='hlpOwnedTypes'>
+    <result type='Set(Classifier)'/>
+    <body><![CDATA[
+      self.ownedMember->iterate(m;
+        res:Set(Classifier)=oclEmpty(Set(Classifier)) |
+          if m.oclIsKindOf(Class) or m.oclIsKindOf(DataType) then
+            res->including(m.oclAsType(Classifier))
+          else
+            if m.oclIsKindOf(Package) then
+              res->union(m.oclAsType(Package).hlpOwnedTypes())
+            else res endif
+          endif)
+	]]>
+    </body>
+    <documentation>
+      Alle Typen innerhalb dieses Pakets.
+    </documentation>
+  </operation>
+  
+  <operation context='Package' name='hlpIsMessagePackage'>
+    <result type='Boolean'/>
+    <body><![CDATA[
+      if self.hlpOwningModel()=self.hlpXModel() then
+        if self.hlpSchema().owner.oclAsType(Package).name='Nachrichten' or self.hlpOwningSchema().owner.oclAsType(Package).name='Fachmodule' then
+          true
+        else
+          self.owner.oclAsType(Package).hlpIsMessagePackage()
+        endif
+      else
+        false
+      endif]]>
+    </body>
+    <documentation>
+      Das aeusserste Paket, in welchem dieses Element enthalten ist.
+    </documentation>
+  </operation>
+  
+  <operation context='Package' name='hlpPackageNamespace'>
+    <result type='String'/>
+    <body><![CDATA[
+	  if self.extension_xsdSchema.isDefined then
+		  let ns:String = self.extension_xsdSchema.namespace in
+		  if ns.isDefined and ns <> '' then
+			ns
+		  else
+			self.hlpOwningModel().extension_xsdXModel.namespace
+		  endif
+	  else
+	    oclUndefined(String)
+	  endif
+      ]]>
+    </body>
+    <documentation>
+      Der Namespace des Pakets (definiert über xsdSchema) oder des 
+      Projekts (definiert über xsdXModel). 
+    </documentation>
+  </operation>
+  
+  <operation context='Package' name='hlpPackagePrefix'>
+    <result type='String'/>
+    <body><![CDATA[
+	  if self.extension_xsdSchema.isDefined then
+		  let pf:String = self.extension_xsdSchema.prefix in
+		  if pf.isDefined and pf <> '' then
+			pf
+		  else
+		    self.hlpOwningModel().extension_xsdXModel.prefix
+		  endif
+	  else
+	    oclUndefined(String)
+	  endif
+      ]]>
+    </body>
+    <documentation>
+      Der Prefix des Pakets (definiert über xsdSchema) oder des 
+      Projekts (definiert über xsdXModel). 
+    </documentation>
+  </operation>
+  
+  <operation context='Package' name='hlpPackageVersion'>
+    <result type='String'/>
+    <body><![CDATA[
+	  if self.extension_xsdSchema.isDefined then
+		  let version:String = self.extension_xsdSchema.version in
+		  if version.isDefined and version <> '' then
+			version
+		  else
+			self.hlpOwningModel().extension_xoevVersionStandard.version
+		  endif
+	  else
+	    oclUndefined(String)
+	  endif
+      ]]>
+    </body>
+    <documentation>
+      Die Version des Pakets (definiert über xsdSchema) oder des 
+      Projekts (definiert über xsdXModel) 
+    </documentation>
+  </operation>
+
+
+<!-- XXXXXXXXXXXXXXXXXXXXX context Property XXXXXXXXXXXXXXXXXXXXXXX -->
+
+  <operation context='Property' name='hlpIsLocalStructure'>
+    <result type='Boolean'/>
+    <body>
+        self.extension_xsdLocalStructure.isDefined
+    </body>
+    <documentation>
+      Entscheidungsfunktion für die Umsetzung von nicht global 
+      genutzten «xsdChoice»-Typen. Diese können grundsätzlich auch ohne 
+      ein separates xs:element realisiert werden (xs:choice direkt 
+      innerhalb von xs:sequence). Wird gegenwärtig nur in XJustiz 
+      benötigt. 
+    </documentation>
+  </operation>
+
+  <operation context='Property' name='hlpPropertyName'>
+    <result type='String'/>
+    <body>
+        self.name
+    </body>
+    <documentation>
+      Diese Methode bildet den Namen den eine Eigenschaft im Schema
+      bekommen soll.
+    </documentation>
+  </operation>
+
+  <operation context='Property' name='isReference'>
+    <result type='Boolean'/>
+    <body>
+            self.extension_xsdAttribute.isDefined() and self.extension_xsdAttribute.isRef
+		or  self.extension_xsdElement.isDefined() and self.extension_xsdElement.isRef
+    </body>
+    <documentation>
+      True, wenn die Property eine Referenz auf ein globales Element oder eine
+	  Group ist, also keinen Namen benötigt.
+    </documentation>
+  </operation>
+  
+  <operation context='Property' name='isAttributeReference'>
+    <result type='Boolean'/>
+    <body>
+		self.extension_xsdAttribute.isDefined() and 
+		self.extension_xsdAttribute.isRef and 
+		self.type.oclAsType(Class).extension_xsdGlobalElement.isDefined()
+    </body>
+    <documentation>
+      True, wenn die Property eine Referenz auf ein globales Element ist.
+    </documentation>
+  </operation>
+  
+  <operation context='Property' name='isElementReference'>
+    <result type='Boolean'/>
+    <body>
+		self.extension_xsdElement.isDefined() and 
+		self.extension_xsdElement.isRef and 
+		self.type.oclAsType(Classifier).extension_xsdGlobalElement.isDefined()
+    </body>
+    <documentation>
+      True, wenn die Property eine Referenz auf ein globales Element ist.
+    </documentation>
+  </operation>
+  
+  <operation context='Property' name='isGroupReference'>
+    <result type='Boolean'/>
+    <body>
+		self.extension_xsdElement.isDefined() and 
+		self.extension_xsdElement.isRef and 
+		self.type.oclAsType(Class).extension_xsdGroup.isDefined()
+    </body>
+    <documentation>
+      True, wenn die Property eine Referenz auf eine Elementgruppe ist.
+    </documentation>
+  </operation>
+  
+  <operation context='Classifier' name='isElementGroup'>
+    <result type='Boolean'/>
+    <body>
+		self.oclIsKindOf(Class) and 
+		self.oclAsType(Class).extension_xsdGroup.isDefined() and
+		self.oclAsType(Class).hlpAllElements()->notEmpty()
+    </body>
+    <documentation>
+      True, wenn der Classifier eine Elementgruppe darstellt.
+    </documentation>
+  </operation>
+  
+  <operation context='Classifier' name='isAttributeGroup'>
+    <result type='Boolean'/>
+    <body>
+		self.oclIsKindOf(Class) and 
+		self.oclAsType(Class).extension_xsdGroup.isDefined() and
+		self.oclAsType(Class).hlpAllAttributes()->notEmpty()
+    </body>
+    <documentation>
+      True, wenn der Classifier eine Attributgruppe darstellt.
+    </documentation>
+  </operation>
+  
+  <operation context='Property' name='isAttributeGroupReference'>
+    <result type='Boolean'/>
+    <body>
+		self.extension_xsdAttribute.isDefined() and 
+		self.extension_xsdAttribute.isRef and 
+		self.type.oclAsType(Class).extension_xsdGroup.isDefined()
+    </body>
+    <documentation>
+      True, wenn die Property eine Referenz auf eine Attributgruppe ist.
+    </documentation>
+  </operation>
+<!-- XXXXXXXXXXXXXXXXXXXXXXX context Type XXXXXXXXXXXXXXXXXXXXXXXXX -->
+
+  <operation context='Type' name='hlpTopMostSuperType'>
+    <result type='Classifier'/>
+    <body>
+      self.oclAsType(Classifier).allParents()->any(t|t.general->isEmpty)
+    </body>
+    <documentation>
+      Der allgemeinste Supertyp dieses Typs -- die Oberklasse, für die 
+      es selbst keine Oberklasse mehr gibt. 
+    </documentation>
+  </operation>
+
+  <operation context='Type' name='hlpIsReferenceableByName'>
+    <result type='Boolean'/>
+    <body>
+        self.hlpOwningPackage().name='W3C Data Types' or
+        self.oclAsType(Classifier).extension_xsdNamedType.isDefined
+        <!-- or self.oclAsType(Classifier).hlpPrefixForType(oclUndefined(Package)).isDefined -->
+    </body>
+    <documentation>
+      Entscheidungsfunktion: Kann dieser Typ über den Namen
+      referenziert werden (über type='...' und base='...' im Schema).
+    </documentation>
+  </operation>
+    
+  <operation context='Type' name='hlpPrefixForType'>
+    <result type='String'/>
+    <param name='referringPackage' type='Package'/>
+    <body><![CDATA[
+	    let owningPackage = self.hlpOwningPackage() in
+        if owningPackage.name='W3C Data Types' then
+          'xs'
+        else
+		  if owningPackage.hlpSchema() = referringPackage.hlpSchema() or
+             referringPackage.hlpSchema().hlpAllIncludedPackages()->exists(p|p=owningPackage.hlpSchema()) then
+               owningPackage.hlpSchema().hlpPackagePrefix()
+		  else
+			if referringPackage.hlpSchema().hlpImportDependencies()->
+				  exists(d| d.hlpImportedPackage() = owningPackage.hlpSchema() or
+							d.hlpImportedPackage().oclAsType(Package).hlpAllIncludedPackages()->
+							  exists(p | p = owningPackage.hlpSchema())
+				  ) then
+				referringPackage.hlpSchema().hlpImportDependencies()->
+					  select(d| d.hlpImportedPackage() = owningPackage.hlpSchema() or
+								d.hlpImportedPackage().oclAsType(Package).hlpAllIncludedPackages()->
+								  exists(p | p = owningPackage.hlpSchema())
+					  )->any(true).hlpImportPrefix()
+			else
+				oclUndefined(String)
+			endif
+		  endif
+        endif
+		]]>
+    </body>
+    <documentation>
+      Bestimmt das Präfix, mit dem ein Typ im XML Schema qualifiziert 
+      werden muss. 
+    </documentation>
+  </operation>
+
+  <operation context='Type' name='hlpQualifiedTypeName'>
+    <result type='String'/>
+    <param name='referringPackage' type='Package'/>
+    <body>
+      let n1 : String = self.name in
+        let prefix : String = self.hlpPrefixForType(referringPackage) in
+          if prefix.isDefined then
+            prefix.concat(':').concat(n1)
+          else
+            n1
+          endif
+    </body>
+    <documentation>
+      Liefert den qualifierten Namen eines Elements, d.h. ein
+      entsprechendes Präfix wird ggf. vorangestellt.
+    </documentation>
+  </operation>  
+
+  <operation context='Generalization' name='hlpIsFacetDefined'>
+    <result type='Boolean'/>
+    <body><![CDATA[
+        (self.extension_xsdRestriction.fractionDigits.isDefined and self.extension_xsdRestriction.fractionDigits <> '')
+      or 
+        (self.extension_xsdRestriction.length.isDefined and self.extension_xsdRestriction.length <> '')
+      or 
+        (self.extension_xsdRestriction.totalDigits.isDefined and self.extension_xsdRestriction.totalDigits <> '')
+      or 
+        (self.extension_xsdRestriction.maxExclusive.isDefined and self.extension_xsdRestriction.maxExclusive <> '')
+      or 
+        (self.extension_xsdRestriction.maxInclusive.isDefined and self.extension_xsdRestriction.maxInclusive <> '')
+      or 
+        (self.extension_xsdRestriction.maxLength.isDefined and self.extension_xsdRestriction.maxLength <> '')
+      or 
+        (self.extension_xsdRestriction.minInclusive.isDefined and self.extension_xsdRestriction.minExclusive <> '')
+      or 
+        (self.extension_xsdRestriction.minInclusive.isDefined and self.extension_xsdRestriction.minInclusive <> '')
+      or 
+        (self.extension_xsdRestriction.minLength.isDefined and self.extension_xsdRestriction.minLength <> '')
+      or 
+        (self.extension_xsdRestriction.pattern.isDefined and self.extension_xsdRestriction.pattern <> '')
+      or 
+        (self.extension_xsdRestriction.whitespace.isDefined and self.extension_xsdRestriction.whitespace <> '')
+	  ]]>
+    </body>
+    <documentation>
+      Ist zu dieser Generalisierung eine Facette definiert (und mit 
+      einem Wert belegt)? 
+    </documentation>
+  </operation>
+  
+  <operation context='Classifier' name='hlpRestriction'>
+    <result type='Generalization'/>
+    <body>
+      self.generalization->any(g|g.extension_xsdRestriction.isDefined)
+    </body>
+    <documentation>
+      Hilfsmethode zum Zugriff auf eine xsdRestriction.
+    </documentation>
+  </operation>
+  
+  <operation context='Classifier' name='hlpRestrictionBaseType'>
+    <result type='Classifier'/>
+    <body>
+      self.generalization->any(g|g.extension_xsdRestriction.isDefined).general
+    </body>
+    <documentation>
+      Hilfsmethode zum Zugriff auf den Basistyp einer xsdRestriction.
+    </documentation>
+  </operation>   
+  
+  <operation context='Classifier' name='getGlobalElementType'>
+    <result type='Classifier'/>
+    <body>
+      self.clientDependency->any(extension_xsdGlobalElementType.isDefined()).supplier->any(true).oclAsType(Classifier)
+    </body>
+    <documentation>
+      Hilfsmethode zum Zugriff auf den Typ eines globalen Elements.
+    </documentation>
+  </operation>   
+  
+<!-- Key, Keyref, Unique -->
+
+  <operation context='Property' name='hlpUniqueDependencies'>
+    <result type='Set(Dependency)'/>
+    <body>
+      let propdeps : Set(Dependency) = 
+        self.clientDependency-&gt;select(d|d.extension_xsdUnique.isDefined) in
+      if self.association.isDefined then
+        self.association.clientDependency-&gt;select(d|d.extension_xsdUnique.isDefined)-&gt;union(propdeps)
+      else
+        propdeps
+      endif
+    </body>
+    <documentation>
+      
+    </documentation>
+  </operation>
+
+  <operation context='Property' name='hlpKeyDependencies'>
+    <result type='Set(Dependency)'/>
+    <body>
+      let propdeps : Set(Dependency) = 
+        self.clientDependency-&gt;select(d|d.extension_xsdKey.isDefined) in
+      if self.association.isDefined then
+        self.association.clientDependency-&gt;select(d|d.extension_xsdKey.isDefined)-&gt;union(propdeps)
+      else
+        propdeps
+      endif
+    </body>
+    <documentation>
+      
+    </documentation>
+  </operation>
+
+  <operation context='Property' name='hlpKeyrefDependencies'>
+    <result type='Set(Dependency)'/>
+    <body>
+      let propdeps : Set(Dependency) = 
+        self.clientDependency-&gt;select(d|d.extension_xsdKeyref.isDefined) in
+      if self.association.isDefined then
+        self.association.clientDependency-&gt;select(d|d.extension_xsdKeyref.isDefined)-&gt;union(propdeps)
+      else
+        propdeps
+      endif
+    </body>
+    <documentation>
+      
+    </documentation>
+  </operation>
+
+  <operation context='Classifier' name='hlpUniqueDependencies'>
+    <result type='Set(Dependency)'/>
+    <body>
+      self.clientDependency-&gt;select(d|d.extension_xsdUnique.isDefined)
+    </body>
+    <documentation>
+      
+    </documentation>
+  </operation>
+
+  <operation context='Classifier' name='hlpKeyDependencies'>
+    <result type='Set(Dependency)'/>
+    <body>
+      self.clientDependency-&gt;select(d|d.extension_xsdKey.isDefined)
+    </body>
+    <documentation>
+      
+    </documentation>
+  </operation>
+
+  <operation context='Classifier' name='hlpKeyrefDependencies'>
+    <result type='Set(Dependency)'/>
+    <body>
+      self.clientDependency-&gt;select(d|d.extension_xsdKeyref.isDefined)
+    </body>
+    <documentation>
+      
+    </documentation>
+  </operation>
+
+  <operation context='Class' name='getUnionMembers'>
+    <result type='Set(Class)'/>
+    <body>
+      self.clientDependency->select(d|d.extension_xsdUnionMember.isDefined).supplier.oclAsType(Class)->asSet()
+    </body>
+    <documentation>Liefert alle </documentation>
+  </operation>  
+  
+  <!-- Some generic operations -->
+  <operation context='Classifier' name='getAttribute'>
+    <result type='Property'/>
+    <param name='aName' type='String'/>
+	<body><![CDATA[
+	  self.attribute.any(a | a.name = aName)
+	]]>
+	</body>
+	<documentation>
+	
+	</documentation>
+  </operation>
+  <operation context='Classifier' name='getAttributeIgnoreCase'>
+    <result type='Property'/>
+    <param name='aName' type='String'/>
+	<body><![CDATA[
+	  self.attribute.any(a | a.name.toLower = aName.toLower)
+	]]>
+	</body>
+	<documentation>
+	
+	</documentation>
+  </operation>
+</additionalOperations>
+
+

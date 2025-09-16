@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Service -->
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/"
+             xmlns:xs="http://www.w3.org/2001/XMLSchema"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xmlns:ns="http://schemas.xmlsoap.org/soap/encoding/"
+             xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+             xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+             xmlns:osci="http://www.osci.de/2006/07/wsdl/"
+             xmlns:tpl="http://www.dvdv.de/dvdv/template/"
+             xmlns:ds="http://www.w3.org/2000/09/xmldsig#"
+             xmlns:tns="http://www.xleitstelle.de/xbau/kernmodul/1/0/XBauk10-APB-BAB2BH.wsdl"
+             xmlns:xbauk="http://www.xleitstelle.de/xbau/kernmodul/1/0"
+             name="XBauk10-APB-BAB2BH"
+             targetNamespace="http://www.xleitstelle.de/xbau/kernmodul/1/0/XBauk10-APB-BAB2BH.wsdl"
+             xsi:schemaLocation="http://schemas.xmlsoap.org/wsdl/ http://schemas.xmlsoap.org/wsdl/">
+   <documentation><![CDATA[<html>
+         <ul>
+            <li>xbauk:prozessnachrichten.eingangsbestaetigung.1120</li>
+            <li>xbauk:prozessnachrichten.aktenzeichen.1121</li>
+            <li>xbauk:prozessnachrichten.quittierungRuecknahme.1131</li>
+            <li>xbauk:prozessnachrichten.formellePruefungBefundliste.1140</li>
+            <li>xbauk:prozessnachrichten.zustellungSchreiben.1141</li>
+         </ul>
+      </html>]]></documentation>
+   <import namespace="http://www.osci.de/2006/07/wsdl/"
+           location="http://www.osci.de/wsdl-osci-binding/WSDL-OSCI-Binding_1.2.xsd"/>
+   <wsdl:types>
+      <xs:schema xmlns="http://www.xleitstelle.de/xbau/kernmodul/1/0"
+                 targetNamespace="http://www.xleitstelle.de/xbau/kernmodul/1/0/XBauk10-APB-BAB2BH.wsdl">
+         <xs:import namespace="http://www.xleitstelle.de/xbau/kernmodul/1/0"
+                    schemaLocation="https://www.xleitstelle.de/xbau/schema/kernmodul/1/0/xbau-kernmodul-nachrichten.xsd"/>
+         <xs:complexType name="apb-bab2bhSchemata">
+            <xs:choice>
+               <xs:element name="prozessnachrichten.aktenzeichen.1121"/>
+               <xs:element name="prozessnachrichten.eingangsbestaetigung.1120"/>
+               <xs:element name="prozessnachrichten.formellePruefungBefundliste.1140"/>
+               <xs:element name="prozessnachrichten.quittierungRuecknahme.1131"/>
+               <xs:element name="prozessnachrichten.zustellungSchreiben.1141"/>
+            </xs:choice>
+         </xs:complexType>
+      </xs:schema>
+   </wsdl:types>
+   <message name="apb-bab2bhNachricht">
+      <part name="apb-bab2bhNachricht" type="tns:apb-bab2bhSchemata"/>
+      <part name="optionaleNachricht" type="xs:anyType"/>
+   </message>
+   <portType name="osciAPB-BAB2BHInterface">
+      <operation name="sendeAPB-BAB2BH">
+         <input message="tns:apb-bab2bhNachricht"/>
+      </operation>
+   </portType>
+   <binding name="osciBinding" type="tns:osciAPB-BAB2BHInterface">
+      <osci:binding signatureLevel="none" encrypted="true">
+         <osci:reader name="Inhaltsdaten-Verschlüsselungszertifikat">
+            <tpl:certificate/>
+         </osci:reader>
+      </osci:binding>
+      <!-- Vorbelegung der Richtlinien zur Signatur und Verschlüsselung der Nutzdaten für alle Operationen -->
+      <operation name="sendeAPB-BAB2BH">
+         <osci:operation communicationType="one-way-active" subject="XBAU_DATA"/>
+         <input>
+            <osci:container signatureLevel="advanced"
+                            encrypted="true"
+                            name="XBAU_DATA"
+                            required="true">
+               <osci:readerRef ref="Inhaltsdaten-Verschlüsselungszertifikat"/>
+               <osci:part>
+                  <osci:content part="tns:apb-bab2bhNachricht"/>
+               </osci:part>
+            </osci:container>
+            <osci:container signatureLevel="none" encrypted="false" required="false">
+               <osci:part>
+                  <osci:content part="tns:optionaleNachricht"/>
+               </osci:part>
+            </osci:container>
+         </input>
+      </operation>
+   </binding>
+   <service name="osciAPB-BAB2BHService"><!-- OSCI Infrastrukturserver -->
+      <osci:devices>
+         <osci:intermediary uri="" name="InternetIntermediär">
+            <osci:signatureCertificate>
+               <tpl:certificate/>
+            </osci:signatureCertificate>
+            <osci:cipherCertificate>
+               <tpl:certificate/>
+            </osci:cipherCertificate>
+         </osci:intermediary>
+         <osci:intermediary uri="" name="TESTAIntermediär">
+            <osci:signatureCertificate>
+               <tpl:certificate/>
+            </osci:signatureCertificate>
+            <osci:cipherCertificate>
+               <tpl:certificate/>
+            </osci:cipherCertificate>
+         </osci:intermediary>
+         <osci:addressee name="InternetEmpfänger">
+            <osci:cipherCertificate>
+               <tpl:certificate/>
+            </osci:cipherCertificate>
+         </osci:addressee>
+         <osci:addressee name="TESTAEmpfänger">
+            <osci:cipherCertificate>
+               <tpl:certificate/>
+            </osci:cipherCertificate>
+         </osci:addressee>
+      </osci:devices>
+      <!-- Endpunkt im Internet -->
+      <port name="osciAPB-BAB2BHInternetPort" binding="tns:osciBinding">
+         <documentation>
+            <tpl:use>required</tpl:use> Dieser Port ist nicht optional </documentation>
+         <osci:address>
+            <osci:intermediaryRef ref="InternetIntermediär"/>
+            <osci:addresseeRef ref="InternetEmpfänger"/>
+         </osci:address>
+      </port>
+      <!-- Endpunkt im TESTA -->
+      <port name="osciAPB-BAB2BHTestaPort" binding="tns:osciBinding">
+         <documentation>
+            <tpl:use>optional</tpl:use> Dieser Port ist optional </documentation>
+         <osci:address>
+            <osci:intermediaryRef ref="TESTAIntermediär"/>
+            <osci:addresseeRef ref="TESTAEmpfänger"/>
+         </osci:address>
+      </port>
+   </service>
+</definitions>

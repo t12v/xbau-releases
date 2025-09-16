@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:xbau="http://www.xleitstelle.de/xbau/2/4/0/1"
+           xmlns:xbauk="http://www.xleitstelle.de/xbau/kernmodul/1/2/1/1"
+           xmlns:xoev-lc="http://xoev.de/latinchars/1_1/datatypes"
+           targetNamespace="http://www.xleitstelle.de/xbau/2/4/0/1"
+           version="2.4.0.1"
+           elementFormDefault="qualified"
+           attributeFormDefault="unqualified">
+   <xs:annotation>
+      <xs:appinfo>
+         <standard>
+            <nameLang>XBau - Standard für die Datenkommunikation der Bauaufsichtsbehörde</nameLang>
+            <nameKurz>XBau</nameKurz>
+            <nameTechnisch>xbau</nameTechnisch>
+            <kennung>urn:xoev-de:bmk:standard:xbau</kennung>
+            <beschreibung>XBau ist der XÖV-Standard für den Datenaustausch der Bauaufsichtsbehörden mit ihren Kommunikationspartnern (Bauherren, Architektenbüros, Behörden zahlreicher Rechtsbereiche). </beschreibung>
+         </standard>
+         <versionStandard>
+            <version>2.4.0.1</version>
+            <beschreibung>Minorversion 2.4.0.1 --> aufgrund von technischen Änderungen erhielten alle Codelisten eine neue Versionsnummer. Außerdem wurden die Dienste für das Beteiligungsverfahren und das Genehmigungsfreistellungsverfahren korrigiert. Details dieser und weiterer Änderungen sind in der Versionshistorie des Spezifikationsdokuments beschrieben. --- In XBau 2.4 wurden folgende Änderungen dokumentiert --> XBau Hochbau unterstützt neu den Prozess der Verlängerung einer erteilten Baugenehmigung, sowie erweiterte Prozesse für Akteneinsicht und für Behördenbeteiligung. Weitere Neuigkeiten: Die Bauaufsichtsbehörde kann jetzt im Rahmen von Antragsverfahren die Information übermitteln, dass die Antragsunterlagen vollständig eingegangen sind und damit die Uhr für die materielle Prüfung des Antrags zu ticken begonnen hat. Gebührenbescheide können innerhalb passender Vorgänge jetzt auch prozessfrei übermittelt werden. Für Nachrichten an Portale (z.B. Beteiligungsportale oder Portal ELBA der Prüfingenieure) sind jetzt die Adressaten innerhalb des Portals individuell adressierbar. Hersteller von Architektensoftware haben die Möglichkeit, Stamm- und Antragsdaten zu Vorgängen medienbruchfrei in die Bauportale zu importieren. Die Datenübermittlungen an die amtliche Statistik wurden in vielen Details der Nachrichten und Datentypen verbessert, erweitert und dokumentiert. Alle XBau-Nachrichten sind an die neue Nachrichtenarchitektur gemäß XÖV-Bibliothek angepasst, d.h verwenden die Struktur der XÖV-Basisnachricht. Details dieser und weiterer Änderungen sind in der Versionshistorie des Spezifikationsdokuments beschrieben.</beschreibung>
+            <versionXOEVProfil>3.0.0</versionXOEVProfil>
+            <versionXOEVHandbuch>3.0.2</versionXOEVHandbuch>
+            <versionXGenerator>3.1.1</versionXGenerator>
+            <versionModellierungswerkzeug>19.0</versionModellierungswerkzeug>
+            <nameModellierungswerkzeug>MagicDraw</nameModellierungswerkzeug>
+         </versionStandard>
+      </xs:appinfo>
+   </xs:annotation>
+   <xs:include schemaLocation="xbau-baukasten.xsd"/>
+   <xs:import schemaLocation="latinchars.xsd"
+              namespace="http://xoev.de/latinchars/1_1/datatypes"/>
+   <xs:import schemaLocation="xbau-kernmodul-datentypen.xsd"
+              namespace="http://www.xleitstelle.de/xbau/kernmodul/1/2/1/1"/>
+   <xs:element name="bauberatung.anfrage.0110">
+      <xs:annotation>
+         <xs:appinfo>
+            <title>Bauberatung Anfrage</title>
+         </xs:appinfo>
+         <xs:documentation>Mit dieser Nachricht wird eine formlose Anfrage zur Bauberatung an die Bauaufsichtsbehörde übermittelt.</xs:documentation>
+      </xs:annotation>
+      <xs:complexType>
+         <xs:complexContent>
+            <xs:extension base="xbau:Nachricht.G2G">
+               <xs:sequence>
+                  <xs:element name="referenzAnfrageservice" type="xbauk:ReferenzAntragsservice">
+                     <xs:annotation>
+                        <xs:documentation>Eine vom Anfrageservice (bzw. OZG-Portal) vergebene eindeutige Kennung des Anfragevorgangs. Sofern die Bauaufsichtsbehörde auf die Anfrage reagiert, bezieht sie sich in ihren Reaktionsnachrichten auf diese Kennung.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+                  <xs:element name="anfragendePerson" type="xbauk:Akteur">
+                     <xs:annotation>
+                        <xs:documentation>Mit diesem Element werden die Daten der anfragenden Person übermittelt.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+                  <xs:element name="bezug" minOccurs="0" type="xbauk:BezugErweitert">
+                     <xs:annotation>
+                        <xs:documentation>Hier können Eintragungen vorgenommen werden, falls sich die Anfrage auf vorhandene Vorgänge bezieht.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+                  <xs:element name="anfrage" type="xbauk:TextFormatiert">
+                     <xs:annotation>
+                        <xs:documentation>In diesem Element wird der Inhalt der Anfrage übermittelt.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+                  <xs:element name="anlagen" minOccurs="0" type="xbau:Anlagen">
+                     <xs:annotation>
+                        <xs:documentation>Dieses Element kann für Bauvorlagen verwendet werden, die der Anfrage beigelegt werden sollen.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+               </xs:sequence>
+            </xs:extension>
+         </xs:complexContent>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="bauberatung.auskunft.0111">
+      <xs:annotation>
+         <xs:appinfo>
+            <title>Bauberatung Auskunft</title>
+         </xs:appinfo>
+         <xs:documentation>Diese Nachricht enthält die Auskunft der Bauaufsichtsbehörde zur Anfrage Bauberatung.</xs:documentation>
+      </xs:annotation>
+      <xs:complexType>
+         <xs:complexContent>
+            <xs:extension base="xbau:Nachricht.G2G">
+               <xs:sequence>
+                  <xs:element name="bezug" type="xbauk:BezugErweitert">
+                     <xs:annotation>
+                        <xs:documentation>Hier ist ein Aktenzeichen einzutragen, falls die Bauaufsichtsbehörde dem Anfragevorgang ein solches zuordnen will. Jedenfalls ist hier die Referenz (UUID) auf die Anfrage zu übermitteln.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+                  <xs:element name="auskunft" type="xbauk:TextFormatiert">
+                     <xs:annotation>
+                        <xs:documentation>Mit diesem Element wird die Beratungsauskunft der Bauaufsichtsbehörde zu der formlosen Anfrage übermittelt.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+                  <xs:element name="anlagen" minOccurs="0" type="xbau:Anlagen">
+                     <xs:annotation>
+                        <xs:documentation>Dieses Element beinhaltet Anlagen zur Auskunft, falls solche übermittelt werden sollen.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+               </xs:sequence>
+            </xs:extension>
+         </xs:complexContent>
+      </xs:complexType>
+   </xs:element>
+</xs:schema>

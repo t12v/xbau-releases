@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:xbau="http://www.xleitstelle.de/xbau/2/6"
+           xmlns:din91379="urn:xoev-de:kosit:xoev:datentyp:din-91379_2022-08"
+           xmlns:xbauk="http://www.xleitstelle.de/xbau/kernmodul/1/3/0"
+           xmlns:xoev-lc="http://xoev.de/latinchars/1_1/datatypes"
+           targetNamespace="http://www.xleitstelle.de/xbau/2/6"
+           version="2.6"
+           elementFormDefault="qualified"
+           attributeFormDefault="unqualified">
+   <xs:annotation>
+      <xs:appinfo>
+         <standard>
+            <nameLang>XBau - Standard für die Datenkommunikation der Bauaufsichtsbehörde</nameLang>
+            <nameKurz>XBau</nameKurz>
+            <nameTechnisch>xbau</nameTechnisch>
+            <kennung>urn:xoev-de:bmk:standard:xbau</kennung>
+            <beschreibung>XBau ist der XÖV-Standard für den Datenaustausch der Bauaufsichtsbehörden mit ihren Kommunikationspartnern (Bauherren, Architektenbüros, Behörden zahlreicher Rechtsbereiche). </beschreibung>
+         </standard>
+         <versionStandard>
+            <version>2.6</version>
+            <beschreibung>Erweiterung von Prozess und Nachrichten zur Baulast: Es wurden Nachrichten zur Löschung und zur Eintragung von Baulasten erstellt. Erweiterung des Prozesses Anzeige Bauzustand: Erweiterung zu einem vollständigen und produktionsreifen Prozess auf Basis der 900er-Nachrichten. Vervollständigung der Prozessstringenz: Es wurden Nachrichten zur Benachrichtigung über den Abruf des Bescheids und die Zustellquittierung sowie Hinweise auf die Rücknahmefiktion ergänzt. Geschäftsregeln: Es wurden Geschäftsregeln im Schematronstandard für Datenübermittlungen zur Hochbaustatistik bereitgestellt. Weitere Details zu Erweiterungen und Änderungen sind in der Versionshistorie beschrieben.</beschreibung>
+            <versionXOEVProfil>3.0.0</versionXOEVProfil>
+            <versionXOEVHandbuch>3.0.1</versionXOEVHandbuch>
+            <versionXGenerator>3.1.1</versionXGenerator>
+            <versionModellierungswerkzeug>19.0</versionModellierungswerkzeug>
+            <nameModellierungswerkzeug>MagicDraw</nameModellierungswerkzeug>
+         </versionStandard>
+      </xs:appinfo>
+   </xs:annotation>
+   <xs:include schemaLocation="xbau-baukasten.xsd"/>
+   <xs:import schemaLocation="din-norm-91379-datatypes.xsd"
+              namespace="urn:xoev-de:kosit:xoev:datentyp:din-91379_2022-08"/>
+   <xs:import schemaLocation="latinchars.xsd"
+              namespace="http://xoev.de/latinchars/1_1/datatypes"/>
+   <xs:import schemaLocation="xbau-kernmodul-basisdatentypen.xsd"
+              namespace="http://www.xleitstelle.de/xbau/kernmodul/1/3/0"/>
+   <xs:import schemaLocation="xbau-kernmodul-datentypen.xsd"
+              namespace="http://www.xleitstelle.de/xbau/kernmodul/1/3/0"/>
+   <xs:element name="informationsempfaenger.benachrichtigung.0400">
+      <xs:annotation>
+         <xs:appinfo>
+            <rechtsgrundlage>§ 70 (5) MBO</rechtsgrundlage>
+            <title>Benachrichtigung von Informationsempfängern</title>
+         </xs:appinfo>
+         <xs:documentation>Diese Nachricht übermittelt Informationen über Stand bzw. Ergebnisse eines bauaufsichtlichen Vorgangs. Sie wird von der Bauaufsichtsbehörde an Behörden und sonstige öffentliche Stellen versendet, die diese Daten für ihre Aufgabenerfüllung benötigen. Die Übermittlungsanlässe (siehe Element anlass der Nachricht) können je nach landesrechtlichen Regelungen oder kommunaler Praxis variieren. In einer gegebenen Nachrichteninstanz sind diejenigen Daten des Vorgangs enthalten, die zu diesem Anlass für diesen Informationsempfänger für seine Aufgabenerfüllung relevant sind.</xs:documentation>
+      </xs:annotation>
+      <xs:complexType>
+         <xs:complexContent>
+            <xs:extension base="xbau:Nachricht.G2G">
+               <xs:sequence>
+                  <xs:element name="bezug" type="xbauk:BezugErweitert">
+                     <xs:annotation>
+                        <xs:documentation>Dieses Element nennt den Vorgang der Bauaufsichtsbehörde, aus dem die Informationen entnommen sind. Eine Referenz auf eine Nachricht ist hier i.d.R. nicht einzutragen.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+                  <xs:element name="adressierteStelle" minOccurs="0" type="xs:token">
+                     <xs:annotation>
+                        <xs:documentation>Die Information in diesem Element wird in den Fällen benötigt, wo eine Plattform adressiert wird, d.h. mehrere Stellen durch einen Leser adressiert werden. Die Stelle sollte technisch eindeutig benannt werden, z.B. durch die ID eines Unternehmenskonto oder eine E-Mail-Adresse.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+                  <xs:element name="anlass" type="xbau:Code.BenachrichtigungAnlass">
+                     <xs:annotation>
+                        <xs:documentation>Hier wird der Übermittlungsanlass genannt: Welches bauaufsichtliche Ereignis hat zu dieser Benachrichtigung geführt?</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+                  <xs:element name="datenBescheid" minOccurs="0">
+                     <xs:annotation>
+                        <xs:documentation>Übermittlungsanlass Bescheiderteilung: Hier werden Bescheiddaten übermittelt, soweit für den vorliegenden Anlass relevant.</xs:documentation>
+                     </xs:annotation>
+                     <xs:complexType>
+                        <xs:sequence>
+                           <xs:element name="datum" type="xs:date" form="unqualified">
+                              <xs:annotation>
+                                 <xs:documentation>Hier ist das Datum der Bescheiderteilung wiederzugeben.</xs:documentation>
+                              </xs:annotation>
+                           </xs:element>
+                           <xs:element name="adressat" type="xbauk:Akteur" form="unqualified">
+                              <xs:annotation>
+                                 <xs:documentation>Hier ist die Partei einzutragen, an die sich der Bescheid gerichtet hat.</xs:documentation>
+                              </xs:annotation>
+                           </xs:element>
+                           <xs:element name="bescheid" type="xbau:Bescheid">
+                              <xs:annotation>
+                                 <xs:documentation>In diesem Objekt sind die inhaltlichen Daten des Bescheides enthalten.</xs:documentation>
+                              </xs:annotation>
+                           </xs:element>
+                        </xs:sequence>
+                     </xs:complexType>
+                  </xs:element>
+                  <xs:element name="bauvorhaben" minOccurs="0" type="xbau:Bauvorhaben">
+                     <xs:annotation>
+                        <xs:documentation>Hier werden Daten zum Bauvorhaben übermittelt, soweit für den vorliegenden Anlass relevant.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+                  <xs:element name="verortungAbbruch" minOccurs="0">
+                     <xs:annotation>
+                        <xs:documentation>Übermittlungsanlass Abbruch: Hier werden Daten zum geplanten Abbruch eingetragen, soweit für den vorliegenden Anlass relevant.</xs:documentation>
+                     </xs:annotation>
+                     <xs:complexType>
+                        <xs:sequence>
+                           <xs:element name="baugrundstueck" type="xbau:Baugrundstueck">
+                              <xs:annotation>
+                                 <xs:documentation>In diesem Element sind Daten enthalten, die das Baugrundstück (ein Grundstück, auf dem das Vorhaben stattfinden soll bzw. auf dem es durchgeführt wurde) identifizieren. Ein Baugrundstück kann mehrere Grundstücke umfassen.</xs:documentation>
+                              </xs:annotation>
+                           </xs:element>
+                           <xs:element name="lageBauvorhaben"
+                                       minOccurs="0"
+                                       type="xbauk:GeoreferenzierteFlaeche">
+                              <xs:annotation>
+                                 <xs:documentation>In diesem Element sollen ergänzend georeferenzierte Informationen zur genaueren Lage des Bauvorhabens bzw. Gebäudes auf dem Baugrundstück abgebildet werden. Falls beispielsweise ein Umbau geplant ist und auf dem Grundstück mehrere Gebäude bestehen, muss aus diesen Angaben hervorgehen, was der Gegenstand des Anbaus ist.</xs:documentation>
+                              </xs:annotation>
+                           </xs:element>
+                        </xs:sequence>
+                     </xs:complexType>
+                  </xs:element>
+                  <xs:element name="verortungHausnummer"
+                              minOccurs="0"
+                              maxOccurs="unbounded"
+                              type="xbauk:GeometriePunkt">
+                     <xs:annotation>
+                        <xs:documentation>Je Element sind Angaben zur georeferenzierten Lage einer Hausnummer (Hauseingang) abgebildet.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+                  <xs:element name="baulast"
+                              minOccurs="0"
+                              maxOccurs="unbounded"
+                              type="xbau:Baulast">
+                     <xs:annotation>
+                        <xs:documentation>Übermittlungsanlass Baulast: Zu einer vorliegenden Baulast können hier relevante Daten übermittelt werden (Zweck der Baulast, der geregelte Sachverhalt usw.). Jede Instanz des Elements steht für eine erklärte Baulast.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+                  <xs:element name="sachverhaltBaubeginn"
+                              minOccurs="0"
+                              type="xbau:SachverhaltBaubeginn">
+                     <xs:annotation>
+                        <xs:documentation>Übermittlungsanlass Baubeginn: Hier kann einer der drei möglichen Sachverhalte zum Baubeginn angegeben werden.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+                  <xs:element name="beteiligteBaubeginn"
+                              minOccurs="0"
+                              type="xbau:BeteiligteBauprojekt">
+                     <xs:annotation>
+                        <xs:documentation>Hier können für den Übermittlungsanlass Baubeginn die an der Bauausführung beteiligten Parteien (Personen bzw. Organisationen) benannt werden.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+                  <xs:element name="sachverhaltNutzungsaufnahme"
+                              minOccurs="0"
+                              type="xbau:SachverhaltNutzungsaufnahme">
+                     <xs:annotation>
+                        <xs:documentation>Übermittlungsanlass Nutzungsaufnahme: Hier kann der Sachverhalt einer geplanten Nutzungsaufnahme angegeben werden.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+                  <xs:element name="sachverhaltAbsichtBeseitigung"
+                              minOccurs="0"
+                              type="xbau:SachverhaltAbsichtBeseitigung">
+                     <xs:annotation>
+                        <xs:documentation>Übermittlungsanlass Anzeige Absicht Beseitigung: Hier können Eckdaten zum Sachverhalt der geplanten Beseitigung angegeben werden.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+                  <xs:element name="anzeigenderAbsichtBeseitigung"
+                              minOccurs="0"
+                              maxOccurs="unbounded"
+                              type="xbauk:Akteur">
+                     <xs:annotation>
+                        <xs:documentation>Übermittlungsanlass Anzeige Absicht Beseitigung: Hier können die Daten der Personen eingetragen werden, die verantwortlich für die Anzeige zur beabsichtigen Beseitigung sind.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+                  <xs:element name="anlagen" minOccurs="0" type="xbau:Anlagen">
+                     <xs:annotation>
+                        <xs:documentation>Hier werden relevante Anlagen eingefügt, soweit für den vorliegenden Anlass relevant.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+               </xs:sequence>
+            </xs:extension>
+         </xs:complexContent>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="informationsempfaenger.benachrichtigungUV.0401">
+      <xs:annotation>
+         <xs:appinfo>
+            <rechtsgrundlage> §195 Absatz 3 SGB VII</rechtsgrundlage>
+            <title>Benachrichtigung der Unfallversicherungsträger</title>
+         </xs:appinfo>
+         <xs:documentation>Mit dieser Nachricht übermittelt die Bauaufsichtsbehörde zusammen mit der Erteilung der Baugenehmigung dem zuständigen Unfallversicherungsträger Daten zum Bauvorhaben. Zu den Daten zählen Name und Anschrift des Bauherrn, Ort und Art des Bauvorhabens, Datum des Baubeginns sowie die Höhe der im Baugenehmigungsverfahren angegebenen oder festgestellten Baukosten. Weitere nach §195 Absatz 3 SGB VII mitzuteilende Daten wie Geburtsname und Geburtsdatum des Bauherrn werden bis auf Weiteres im Nachgang von der BG Bau beim Bauherren per Fragebogen erfasst.</xs:documentation>
+      </xs:annotation>
+      <xs:complexType>
+         <xs:complexContent>
+            <xs:extension base="xbau:Nachricht.G2G">
+               <xs:sequence>
+                  <xs:element name="bezug" type="xbauk:Bezug">
+                     <xs:annotation>
+                        <xs:documentation>Dieses Element nennt den Vorgang der Bauaufsichtsbehörde, aus dem die Informationen entnommen sind. Eine Referenz auf eine Nachricht ist hier i.d.R. nicht einzutragen.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+                  <xs:element name="bauvorhaben">
+                     <xs:annotation>
+                        <xs:documentation>Hier werden die relevanten Daten zum Bauvorhaben übermittelt.</xs:documentation>
+                     </xs:annotation>
+                     <xs:complexType>
+                        <xs:sequence>
+                           <xs:element name="anschrift"
+                                       minOccurs="0"
+                                       maxOccurs="unbounded"
+                                       type="xbau:AnschriftGrundstueck">
+                              <xs:annotation>
+                                 <xs:documentation>In diesem Element ist die Anschrift des Baugrundstücks einzutragen, soweit eine solche zugewiesen ist. Der Inhalt des Elements ergibt sich aus dem Datentyp "Grundstueck" der Eingangsnachricht.</xs:documentation>
+                              </xs:annotation>
+                           </xs:element>
+                           <xs:element name="bauherr" minOccurs="0" maxOccurs="unbounded">
+                              <xs:annotation>
+                                 <xs:documentation>In dieses Element sind die Angaben zum Bauherrn einzutragen. Der Inhalt der Kindelemente ergibt sich aus dem Datentyp "BauherrBauprojekt" der Eingangsnachricht.</xs:documentation>
+                              </xs:annotation>
+                              <xs:complexType>
+                                 <xs:choice>
+                                    <xs:element name="natuerlichePerson" type="xbauk:AmBauBeteiligtePerson">
+                                       <xs:annotation>
+                                          <xs:documentation>In dieses Element sind die Angaben zu dem Bauherrn einzutragen, wenn es sich um eine natürlichen Person handelt.</xs:documentation>
+                                       </xs:annotation>
+                                    </xs:element>
+                                    <xs:element name="organisation" type="xbauk:Organisation">
+                                       <xs:annotation>
+                                          <xs:documentation>In dieses Element sind die Angaben zu dem Bauherrn einzutragen, wenn es sich um eine Organisation handelt.</xs:documentation>
+                                       </xs:annotation>
+                                    </xs:element>
+                                 </xs:choice>
+                              </xs:complexType>
+                           </xs:element>
+                           <xs:element name="zuvnummer" minOccurs="0" type="din91379:datatypeC">
+                              <xs:annotation>
+                                 <xs:documentation>Hier kann die Unternehmernummer (UNR) aus dem zentralen Unternehmerverzeichnis der gesetzlichen Unfallversicherung (ZUV) eingetragen werden.</xs:documentation>
+                              </xs:annotation>
+                           </xs:element>
+                           <xs:element name="datumBaubeginn" minOccurs="0" type="xbauk:JahrMonat">
+                              <xs:annotation>
+                                 <xs:documentation>In dieses Element ist das Datum des Baubeginns einzutragen. Der Inhalt des Elements wird in der Behörde gepflegt.</xs:documentation>
+                              </xs:annotation>
+                           </xs:element>
+                           <xs:element name="datumBaufertigstellung" minOccurs="0" type="xs:date">
+                              <xs:annotation>
+                                 <xs:documentation>In dieses Element ist das Datum der Baufertigstellung (bzw. Bezugsfertigstellung) einzutragen. Die Baubehörde trägt hier typischerweise das Datum der geplanten Nutzungsaufnahme ein. Der Inhalt des Elements wird in der Behörde gepflegt.</xs:documentation>
+                              </xs:annotation>
+                           </xs:element>
+                           <xs:element name="bezeichnungDesBauvorhabens" type="din91379:datatypeC">
+                              <xs:annotation>
+                                 <xs:documentation>Hier ist die Bezeichnung des Bauvorhabens anzugeben. Der Inhalt ergibt sich aus dem Element "bezeichnungDesBauvorhabens" im Datentyp "Bauvorhaben" der Eingangsnachricht.</xs:documentation>
+                              </xs:annotation>
+                           </xs:element>
+                           <xs:element name="artDerBaumassnahme" type="xbau:Code.BaumassnahmeArt">
+                              <xs:annotation>
+                                 <xs:documentation>In diesem Element ist die Art der Baumaßnahme (Abbruch, Errichtung) einzutragen. Der Inhalt ergibt sich aus dem Element "artDerMaßnahme" im Datentyp "Gegenstand" der Eingangsnachricht.</xs:documentation>
+                              </xs:annotation>
+                           </xs:element>
+                           <xs:element name="bruttoRauminhaltBRI" minOccurs="0" type="xbauk:Dezimal.XBau">
+                              <xs:annotation>
+                                 <xs:documentation>Angabe des Brutto-Rauminhalts (BRI). Der Inhalt des Elements ergibt sich aus dem Datentyp "FlaechenDIN277" oder "DatenEinzelnesGebaeudeImBauvorhaben" der Eingangsnachricht.</xs:documentation>
+                              </xs:annotation>
+                           </xs:element>
+                           <xs:element name="bauSumme" minOccurs="0" type="xbauk:Dezimal.XBau">
+                              <xs:annotation>
+                                 <xs:documentation>Hier ist die voraussichtliche Höhe der Gesamtbaukosten (ohne Grundstück) einzutragen (Einheit: Eurocent). Der Inhalt des Elements ergibt sich aus dem Element "summeHerstellungskosten" des Datentyps "Herstellungskosten" der Eingangsnachricht.</xs:documentation>
+                              </xs:annotation>
+                           </xs:element>
+                           <xs:element name="kodierungFlurstueck"
+                                       minOccurs="0"
+                                       type="xbauk:Flurstueckskennzeichen">
+                              <xs:annotation>
+                                 <xs:documentation>Hier sind die identifzierenden Angaben zum Flurstück gemäß Systematik des regionalen Liegenschaftskatasters einzutragen. Der Inhalt des Elements ergibt sich aus dem Datentyp "Grundstueck" der Eingangsnachricht.</xs:documentation>
+                              </xs:annotation>
+                           </xs:element>
+                        </xs:sequence>
+                     </xs:complexType>
+                  </xs:element>
+               </xs:sequence>
+            </xs:extension>
+         </xs:complexContent>
+      </xs:complexType>
+   </xs:element>
+</xs:schema>

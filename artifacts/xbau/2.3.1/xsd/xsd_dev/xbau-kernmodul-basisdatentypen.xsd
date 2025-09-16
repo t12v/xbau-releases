@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:xbauk="http://www.xleitstelle.de/xbau/kernmodul/1/2"
+           targetNamespace="http://www.xleitstelle.de/xbau/kernmodul/1/2"
+           version="1.2"
+           elementFormDefault="unqualified"
+           attributeFormDefault="unqualified">
+   <xs:annotation>
+      <xs:appinfo>
+         <standard>
+            <nameLang>XBau-Kernmodul</nameLang>
+            <nameKurz>XBau-Kernmodul</nameKurz>
+            <nameTechnisch>xbau-kernmodul</nameTechnisch>
+            <kennung>urn:xoev-de:bmk:standard:xbau-kernmodul</kennung>
+            <beschreibung>Das XBau-Kernmodul umfasst die von den XBau-Fachmodulen gemeinsam verwendeten Daten- und Nachrichtentypen.</beschreibung>
+         </standard>
+         <versionStandard>
+            <version>1.2</version>
+            <beschreibung>Für diese Version wurden die Datentypen zu den am Bauvorhaben Beteiligten ergänzt und differenziert (Vertreter von Personengruppen). Es wurde eine eigene ID für jede Person im Rahmen der Bearbeitung des Vorgangs eingeführt. Es wurden erweiterte Möglichkeiten geschaffen, um Ansprechpartner für Organisationen zu benennen. Für die Anbindung der IT-Verfahren der Fachbehörden an OZG-Portale und Kollaborationsplattformen sind jetzt erweiterte Mechanismen definiert. Außerdem sind jetzt die Datentypen zur Übertragung von Primärdokumenten und zur Darstellung von formatiertem Text mit weiterer Funktionalität ausgestattet. - Alle Änderungen und Erweiterungen sind in der Versionshistorie des Spezifikationsdokuments dokumentiert.</beschreibung>
+            <versionXOEVProfil>1.7.1</versionXOEVProfil>
+            <versionXOEVHandbuch>2.3</versionXOEVHandbuch>
+            <versionXGenerator>3.0.1</versionXGenerator>
+            <versionModellierungswerkzeug>19.0</versionModellierungswerkzeug>
+            <nameModellierungswerkzeug>MagicDraw</nameModellierungswerkzeug>
+         </versionStandard>
+      </xs:appinfo>
+   </xs:annotation>
+   <xs:simpleType name="Dezimal.XBau">
+      <xs:annotation>
+         <xs:documentation>Dieser Datentyp stellt numerische Werte mit zwei Nachkommastellen dar. Er kann für Zahlen genutzt werden, die mit dieser Präzision sinnvoll sind. Darum erlaubt der Datentyp Dezimal.XBau zum Beispiel bei der Übertragung der Einheit Meter (m) eine Präzision von einem Zentimeter.</xs:documentation>
+      </xs:annotation>
+      <xs:restriction base="xs:decimal">
+         <xs:fractionDigits value="2"/>
+      </xs:restriction>
+   </xs:simpleType>
+</xs:schema>

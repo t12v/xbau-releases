@@ -94,6 +94,7 @@ export async function getDetails(standard: Standard): Promise<StandardOverview> 
     const dokumente: Array<Dokument> = [];
     for (const doc of details.dokumente) {
       const dok: Dokument = {
+        type: doc.dokumentenkategorie,
         kennung: doc.kennung,
         name: doc.name,
         beschreibung: doc.beschreibung,

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:gml="http://www.opengis.net/gml/3.2"
+           targetNamespace="http://www.opengis.net/gml/3.2"
+           version=""
+           elementFormDefault="qualified"
+           attributeFormDefault="unqualified">
+   <xs:annotation>
+      <xs:appinfo>
+         <versionStandard>
+            <version/>
+            <versionXOEVProfil>1.7.1</versionXOEVProfil>
+            <versionXOEVHandbuch/>
+            <versionXGenerator/>
+            <versionModellierungswerkzeug/>
+            <nameModellierungswerkzeug>MagicDraw</nameModellierungswerkzeug>
+         </versionStandard>
+      </xs:appinfo>
+      <xs:documentation>GML 3.2.1 profile for NAS version 6.0_B</xs:documentation>
+   </xs:annotation>
+   <xs:complexType name="AbstractGMLType" abstract="true"/>
+   <xs:complexType name="AbstractGeometricPrimitiveType" abstract="true">
+      <xs:complexContent>
+         <xs:extension base="gml:AbstractGeometryType"/>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="AbstractGeometryType" abstract="true">
+      <xs:complexContent>
+         <xs:extension base="gml:AbstractGMLType"/>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="AbstractSurfaceType" abstract="true">
+      <xs:complexContent>
+         <xs:extension base="gml:AbstractGeometricPrimitiveType"/>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="PointType">
+      <xs:complexContent>
+         <xs:extension base="gml:AbstractGeometricPrimitiveType"/>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="PolygonType">
+      <xs:complexContent>
+         <xs:extension base="gml:AbstractSurfaceType"/>
+      </xs:complexContent>
+   </xs:complexType>
+</xs:schema>

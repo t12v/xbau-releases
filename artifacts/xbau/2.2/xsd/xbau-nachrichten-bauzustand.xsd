@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:xbau="http://www.xleitstelle.de/xbau/2/2"
+           targetNamespace="http://www.xleitstelle.de/xbau/2/2"
+           version="2.2"
+           elementFormDefault="qualified"
+           attributeFormDefault="unqualified">
+   <xs:annotation>
+      <xs:appinfo>
+         <standard>
+            <nameLang>XBau - Standard für die Datenkommunikation der Bauaufsichtsbehörde</nameLang>
+            <nameKurz>XBau</nameKurz>
+            <nameTechnisch>xbau</nameTechnisch>
+            <kennung>urn:xoev-de:bmk:standard:xbau</kennung>
+            <beschreibung>XBau ist der XÖV-Standard für den Datenaustausch der Bauaufsichtsbehörden mit ihren Kommunikationspartnern (Bauherren, Architektenbüros, Behörden zahlreicher Rechtsbereiche).</beschreibung>
+         </standard>
+         <versionStandard>
+            <version>2.2</version>
+            <beschreibung>Erweiterte Fassung des Standards XBau. Sie unterstützt im Rahmen der OZG-Umsetzung die Nachrichtenkommunikation der Online-Portale mit den Bauaufsichtsbehörden. Sie deckt die umfangreichen Datenspektren ab (Antragsformulare, Daten zum Bauvorhaben), die in den OZG-Umsetzungsprojekten in den Ländern benötigt werden. Es wurde als neues Verfahren die Antragstellung Teilbaugenehmigung aufgenommen, die Anlässe für die Datenlieferungen der Bauaufsichtsbehörden an die amtliche Statistik wurden vervollständigt. Außerdem ist jetzt eine Abfrage zur Mitgliedschaft in einer Architekten- oder Ingenieurkammer vorgesehen (im Rahmen der Überprüfung einer Bauvorlageberechtigung). Die Datentypen zu Grund- und Flurstücken - und eine lange Liste weiterer Datentypen und Codelisten - wurden praxisnah ausgearbeitet und differenziert. Weitere Änderungen und Erweiterungen sind in der Versionshistorie des Spezifikationsdokuments beschrieben.</beschreibung>
+            <versionXOEVProfil>1.6.1</versionXOEVProfil>
+            <versionXOEVHandbuch>2.2.0</versionXOEVHandbuch>
+            <versionXGenerator>3.0.1</versionXGenerator>
+            <versionModellierungswerkzeug>19.0</versionModellierungswerkzeug>
+            <nameModellierungswerkzeug>MagicDraw</nameModellierungswerkzeug>
+         </versionStandard>
+      </xs:appinfo>
+   </xs:annotation>
+   <xs:include schemaLocation="xbau-baukasten.xsd"/>
+   <xs:element name="bauzustand.anzeige.0920">
+      <xs:annotation>
+         <xs:appinfo>
+            <title>Anzeige des Bauzustands</title>
+         </xs:appinfo>
+         <xs:documentation>Mittels dieser Nachricht kündigt der Bauherr der Bauaufsichtsbehörde den Zeitpunkt des Erreichens eines bestimmten Bauzustandes an.</xs:documentation>
+      </xs:annotation>
+      <xs:complexType>
+         <xs:complexContent>
+            <xs:extension base="xbau:Nachricht.G2G">
+               <xs:sequence>
+                  <xs:element name="bezug" type="xbau:Bezug">
+                     <xs:annotation>
+                        <xs:documentation>In diesem Elements werden Eintragungen vorgenommen, um auf die Baugenehmigung Bezug zu nehmen, die der aktuellen Baumaßnahmen zugrundliegen. Ggf. wird auf die entsprechende XBau-Nachricht referenziert.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+                  <xs:element name="sachverhalt" type="xbau:Text">
+                     <xs:annotation>
+                        <xs:documentation>In diesem Element wird der eingetretene Bauzustand erläutert, der anzuzeigen ist. Es wird auf entsprechende Termine hingewiesen.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+               </xs:sequence>
+            </xs:extension>
+         </xs:complexContent>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="bauzustand.befundliste.0921">
+      <xs:annotation>
+         <xs:appinfo>
+            <title>Befundliste</title>
+         </xs:appinfo>
+         <xs:documentation>Diese Nachricht teilt dem Bauherrn festgestellte Ausführungsmangel mit, falls die Prüfung des Bauzustandes durch die Behörde ein negatives Ergebnis ergeben hat.</xs:documentation>
+      </xs:annotation>
+      <xs:complexType>
+         <xs:complexContent>
+            <xs:extension base="xbau:Nachricht.G2G">
+               <xs:sequence>
+                  <xs:element name="bezug" type="xbau:Bezug">
+                     <xs:annotation>
+                        <xs:documentation>In diesem Elements wird auf die Vorgangsnummer der erteilten Baugenehmigung Bezug genommen, auf deren Basis gearbeitet wird, und auf die Nachricht 0900, mittels derer der geprüfte Bauzustand angezeigt worden ist.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+                  <xs:element name="pruefung">
+                     <xs:annotation>
+                        <xs:documentation>Dieses Element enthält die Informationen zur Prüfung und benennt die entsprechenden Mängel.</xs:documentation>
+                     </xs:annotation>
+                     <xs:complexType>
+                        <xs:sequence>
+                           <xs:element name="datum" type="xs:date">
+                              <xs:annotation>
+                                 <xs:documentation>Dieses Element enthält das Datum des Tages, an dem die Prüfung durchgeführt wurde.</xs:documentation>
+                              </xs:annotation>
+                           </xs:element>
+                           <xs:element name="pruefer" type="xbau:AmBauBeteiligtePerson">
+                              <xs:annotation>
+                                 <xs:documentation>Hier werden die Daten der Person genannt, die die Prüfung durchgeführt hat.</xs:documentation>
+                              </xs:annotation>
+                           </xs:element>
+                           <xs:element name="ansprechpartnerBaustelle"
+                                       minOccurs="0"
+                                       type="xbau:AmBauBeteiligtePerson">
+                              <xs:annotation>
+                                 <xs:documentation>Hier kann ggf. die Person angegeben werden, mit der auf der Baustelle im Kontext der durchgeführten Prüfung kommuniziert worden ist.</xs:documentation>
+                              </xs:annotation>
+                           </xs:element>
+                           <xs:element name="befundliste" type="xbau:BefundlistePruefungBauzustand">
+                              <xs:annotation>
+                                 <xs:documentation>Dieses Element enthält die Mängelliste, die die Prüfung ergeben hat.</xs:documentation>
+                              </xs:annotation>
+                           </xs:element>
+                        </xs:sequence>
+                     </xs:complexType>
+                  </xs:element>
+               </xs:sequence>
+            </xs:extension>
+         </xs:complexContent>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="bauzustand.freigabe.0922">
+      <xs:annotation>
+         <xs:appinfo>
+            <title>Freigabe</title>
+         </xs:appinfo>
+         <xs:documentation>Mit dieser Nachricht erklärt die Bauaufsichtsbehörde dem Bauherrn ihre Zustimmung zur Fortführung der Bauarbeiten gemäß § 82 Abs. 1 Satz 2 MBO.</xs:documentation>
+      </xs:annotation>
+      <xs:complexType>
+         <xs:complexContent>
+            <xs:extension base="xbau:Nachricht.G2G">
+               <xs:sequence>
+                  <xs:element name="bezug" type="xbau:Bezug">
+                     <xs:annotation>
+                        <xs:documentation>Dieses Element enthält die Vorgangsnummer der erteilten Baugenehmigung und referenziert auf die Nachricht 0900, mittels derer der geprüfte Bauzustand angezeigt worden ist.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+                  <xs:element name="nebenbestimmung"
+                              minOccurs="0"
+                              maxOccurs="unbounded"
+                              type="xbau:Nebenbestimmung">
+                     <xs:annotation>
+                        <xs:documentation>Hier können, falls notwendig, Nebenbestimmungen zur erteilten Zustimmung eingefügt werden.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+               </xs:sequence>
+            </xs:extension>
+         </xs:complexContent>
+      </xs:complexType>
+   </xs:element>
+</xs:schema>

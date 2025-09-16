@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:xbau="http://www.xleitstelle.de/xbau/2/3"
+           xmlns:dinspec91379="urn:xoev-de:kosit:xoev:datentyp:din-spec-91379_2019-03"
+           xmlns:xbauk="http://www.xleitstelle.de/xbau/kernmodul/1/1"
+           xmlns:xoev-lc="http://xoev.de/latinchars/1_1/datatypes"
+           targetNamespace="http://www.xleitstelle.de/xbau/2/3"
+           version="2.3"
+           elementFormDefault="qualified"
+           attributeFormDefault="unqualified">
+   <xs:annotation>
+      <xs:appinfo>
+         <standard>
+            <nameLang>XBau - Standard für die Datenkommunikation der Bauaufsichtsbehörde</nameLang>
+            <nameKurz>XBau</nameKurz>
+            <nameTechnisch>xbau</nameTechnisch>
+            <kennung>urn:xoev-de:bmk:standard:xbau</kennung>
+            <beschreibung>XBau ist der XÖV-Standard für den Datenaustausch der Bauaufsichtsbehörden mit ihren Kommunikationspartnern (Bauherren, Architektenbüros, Behörden zahlreicher Rechtsbereiche). </beschreibung>
+         </standard>
+         <versionStandard>
+            <version>2.3</version>
+            <beschreibung>Erweiterte Fassung des Fachmoduls XBau-Hochbau: Die Verfahren der Bauberatung, der Akteneinsicht und der Beantragung einer Abgeschlossenheitsbescheinigung gemäß Wohnungseigentumsgesetz wurden aufgenommen. Eine Reihe von Datentypen für die OZG-Umsetzung bei der Antragstellung Hochbau wurden optimiert, ebenso wie die Datenübermittlung der Bauaufsichtsbehörden an die amtliche Statistik vervollständigt. Die Metadaten für die Übermittlung von Bauvorlagen bzw. sonstigen Anlagen wurden konsolidiert, so dass Bauvorlagen jetzt entweder als Anhang (Attachment) oder per Verlinkung bereitgestellt werden. Weitere Änderungen und Erweiterungen sind in der Versionshistorie des Spezifikationsdokuments beschrieben.</beschreibung>
+            <versionXOEVProfil>1.7.1</versionXOEVProfil>
+            <versionXOEVHandbuch>2.3</versionXOEVHandbuch>
+            <versionXGenerator>3.0.1</versionXGenerator>
+            <versionModellierungswerkzeug>19.0</versionModellierungswerkzeug>
+            <nameModellierungswerkzeug>MagicDraw</nameModellierungswerkzeug>
+         </versionStandard>
+      </xs:appinfo>
+   </xs:annotation>
+   <xs:include schemaLocation="xbau-baukasten.xsd"/>
+   <xs:include schemaLocation="xbau-codes.xsd"/>
+   <xs:import schemaLocation="http://xoev.de/DIN-SPEC-91379/2019-03/datatypes/din-91379-datatypes.xsd"
+              namespace="urn:xoev-de:kosit:xoev:datentyp:din-spec-91379_2019-03"/>
+   <xs:import schemaLocation="http://xoev.de/latinchars/1_1/datatypes/latinchars.xsd"
+              namespace="http://xoev.de/latinchars/1_1/datatypes"/>
+   <xs:import schemaLocation="https://www.xleitstelle.de/xbau/schema/kernmodul/1/1/xbau-kernmodul-datentypen.xsd"
+              namespace="http://www.xleitstelle.de/xbau/kernmodul/1/1"/>
+   <xs:element name="prozessnachrichten.aenderungProjektraumdaten.0100">
+      <xs:annotation>
+         <xs:appinfo>
+            <title>Änderung von Daten zum Bauvorhaben im Projektraum</title>
+         </xs:appinfo>
+         <xs:documentation>Mittels dieser Nachricht kann die Bauaufsichtsbehörde bestimmte geänderte Daten zum Bauvorhaben im Projektraum aktualisieren.</xs:documentation>
+      </xs:annotation>
+      <xs:complexType>
+         <xs:complexContent>
+            <xs:extension base="xbau:Nachricht.G2G">
+               <xs:sequence>
+                  <xs:element name="geaenderteDaten">
+                     <xs:annotation>
+                        <xs:documentation>Eine Instanz dieses Elements umfasst die geänderten Daten zum Bauvorhaben.</xs:documentation>
+                     </xs:annotation>
+                     <xs:complexType>
+                        <xs:sequence>
+                           <xs:element name="verfahrenskennzeichen" minOccurs="0">
+                              <xs:annotation>
+                                 <xs:documentation>In diesem Element werden geänderte Verfahrenskennzeichen übermittelt.</xs:documentation>
+                              </xs:annotation>
+                              <xs:complexType>
+                                 <xs:sequence>
+                                    <xs:element name="verfahrensart" minOccurs="0" type="xbau:Code.Verfahrensart">
+                                       <xs:annotation>
+                                          <xs:documentation>In diesem Element wird die geänderte baurechtliche Verfahrensart übermittelt.</xs:documentation>
+                                       </xs:annotation>
+                                    </xs:element>
+                                    <xs:element name="artDerMassnahme"
+                                                minOccurs="0"
+                                                type="xbau:Code.BaumassnahmeArt">
+                                       <xs:annotation>
+                                          <xs:documentation>In diesem Element wird die geänderte Art der Maßnahme übermittelt.</xs:documentation>
+                                       </xs:annotation>
+                                    </xs:element>
+                                 </xs:sequence>
+                              </xs:complexType>
+                           </xs:element>
+                           <xs:element name="bezeichnungDesBauvorhabens"
+                                       minOccurs="0"
+                                       type="dinspec91379:datatypeC">
+                              <xs:annotation>
+                                 <xs:documentation>In diesem Element wird die geänderte Bezeichnung des Bauvorhabens übermittelt.</xs:documentation>
+                              </xs:annotation>
+                           </xs:element>
+                           <xs:element name="antragstellerdaten"
+                                       minOccurs="0"
+                                       maxOccurs="unbounded"
+                                       type="xbauk:Akteur">
+                              <xs:annotation>
+                                 <xs:documentation>In diesem Element werden geänderte Daten zum Antragsteller übermittelt.</xs:documentation>
+                              </xs:annotation>
+                           </xs:element>
+                           <xs:element name="entwurfsverfasserdaten"
+                                       minOccurs="0"
+                                       type="xbau:Entwurfsverfasser">
+                              <xs:annotation>
+                                 <xs:documentation>In diesem Element werden geänderte Daten zum Entwurfsverfasser übermittelt.</xs:documentation>
+                              </xs:annotation>
+                           </xs:element>
+                           <xs:element name="datenBaugrundstueck" minOccurs="0" type="xbau:Baugrundstueck">
+                              <xs:annotation>
+                                 <xs:documentation>In diesem Element werden geänderte Daten zum Baugrundstück übermittelt.</xs:documentation>
+                              </xs:annotation>
+                           </xs:element>
+                        </xs:sequence>
+                     </xs:complexType>
+                  </xs:element>
+               </xs:sequence>
+            </xs:extension>
+         </xs:complexContent>
+      </xs:complexType>
+   </xs:element>
+</xs:schema>

@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xibehoerde="http://www.osci.de/xinneres/behoerde/4" xmlns:xikomm="http://www.osci.de/xinneres/kommunikation/3" xmlns:xipa="http://www.osci.de/xinneres/postanschrift/3" xmlns:xoev-code="http://xoev.de/schemata/code/1_0" xmlns:xoev-lc="http://xoev.de/latinchars/1_1/datatypes" targetNamespace="http://www.osci.de/xinneres/behoerde/4" version="4" elementFormDefault="unqualified" attributeFormDefault="unqualified">
+  <xs:import schemaLocation="xinneres-kommunikation.xsd" namespace="http://www.osci.de/xinneres/kommunikation/3" />
+  <xs:import schemaLocation="xinneres-postanschrift.xsd" namespace="http://www.osci.de/xinneres/postanschrift/3" />
+  <xs:import schemaLocation="latinchars.xsd" namespace="http://xoev.de/latinchars/1_1/datatypes" />
+  <xs:import schemaLocation="xoev-code.xsd" namespace="http://xoev.de/schemata/code/1_0" />
+  <xs:complexType name="Behoerde">
+    <xs:annotation>
+      <xs:appinfo>
+        <title>Behörde</title>
+      </xs:appinfo>
+      <xs:documentation>Dieser Typ enthält Angaben über den Namen und die Erreichbarkeit einer Behörde. Eine Behörde  im Sinne des Verwaltungsverfahrensgesetzes ist jede Stelle, die Aufgaben der öffentlichen Verwaltung wahrnimmt.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="behoerdenkennung" type="xibehoerde:Behoerdenkennung">
+        <xs:annotation>
+          <xs:documentation>Es wird die eindeutige Behördenkennung angegeben, über die die Behörde im DVDV ermittelt werden kann. Diese hier übermittelte Behördenkennung muss es dem Leser einer Nachricht ermöglichen, den Autor einer Nachricht im DVDV zu ermitteln um diesem ggf. erforderliche elektronische Mitteilungen senden zu können (bspw. Quittungen oder Fehlernachrichten).</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="erreichbarkeit" minOccurs="0" maxOccurs="unbounded" type="xikomm:Kommunikation">
+        <xs:annotation>
+          <xs:documentation>Angaben zur Erreichbarkeit dieser Behörde per Telefon, Telefax, E-Mail etc.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="anschrift" minOccurs="0" type="xipa:PostalischeInlandsanschrift">
+        <xs:annotation>
+          <xs:documentation>Die Anschrift dieser Behörde (für persönliches Erscheinen oder die Zusendung von Dokumenten per Briefpost an die Behörde).</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="behoerdenname" type="xoev-lc:String.Latin">
+        <xs:annotation>
+          <xs:documentation>Es ist der Name der Behörde zu übermitteln. 
+Er dient auch dazu, eine ggfs. erforderliche manuelle Klärung zu beschleunigen, indem bspw. der Autor einer Nachricht im Klartext übermittelt, an welche Behörde er die Nachricht schicken wollte.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Behoerde.Erreichbar">
+    <xs:annotation>
+      <xs:appinfo>
+        <title>Erreichbare Behörde</title>
+      </xs:appinfo>
+      <xs:documentation>Dieser Typ enthält Angaben über den Namen und die Erreichbarkeit einer Behörde. Eine Behörde  im Sinne des Verwaltungsverfahrensgesetzes ist jede Stelle, die Aufgaben der öffentlichen Verwaltung wahrnimmt.
+Anders als in dem Typ Behoerde sind in diesem Typen alle Angaben zur Kontaktaufnahme mit der übermittelten Behörde Pflichtelemente.</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:restriction base="xibehoerde:Behoerde">
+        <xs:sequence>
+          <xs:element name="behoerdenkennung" type="xibehoerde:Behoerdenkennung">
+            <xs:annotation>
+              <xs:documentation>Es wird die eindeutige Behördenkennung angegeben, über die die Behörde im DVDV ermittelt werden kann. Diese hier übermittelte Behördenkennung muss es dem Leser einer Nachricht ermöglichen, den Autor einer Nachricht im DVDV zu ermitteln um diesem ggf. erforderliche elektronische Mitteilungen senden zu können (bspw. Quittungen oder Fehlernachrichten).</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="erreichbarkeit" maxOccurs="unbounded" type="xikomm:Kommunikation">
+            <xs:annotation>
+              <xs:documentation>Angaben zur Erreichbarkeit dieser Behörde per Telefon, Telefax, E-Mail etc.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="anschrift" type="xipa:PostalischeInlandsanschrift">
+            <xs:annotation>
+              <xs:documentation>Die Anschrift dieser Behörde (für persönliches Erscheinen oder die Zusendung von Dokumenten per Briefpost an die Behörde).</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="behoerdenname" type="xoev-lc:String.Latin">
+            <xs:annotation>
+              <xs:documentation>Es ist der Name der Behörde zu übermitteln.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:restriction>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="Behoerdenkennung">
+    <xs:annotation>
+      <xs:documentation>Die Behoerdenkennung fasst die Elemente zusammen, unter denen eine Behörde als Anbieter elektronischer Services im DVDV verzeichnet ist. Sie besteht aus einem Präfix und der eigentlichen Kennung. Grundsätzlich gibt es zu jedem Präfix eine entsprechende Schlüsseltabelle für die Kennung.
+
+Zum Beispiel werden Standesämter über das Präfix psw und die Standesamtsnummer adressiert.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="praefix" type="xibehoerde:Code.Praefix">
+        <xs:annotation>
+          <xs:documentation>Klasse für Behördenkennungen.
+
+Die Liste der Präfixe für Behördenkennungen wird durch das Bundesverwaltungsamt (BVA) als koordinierende Stelle für das DVDV verwaltet.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="kennung" type="xibehoerde:Code.Behoerdenkennung">
+        <xs:annotation>
+          <xs:appinfo>
+            <implementationHint>
+              <para>
+                Solange die Aktualität der für die Adressierung verwendeten Schlüsseltabellen nicht gegeben ist, wird vollständig auf die Plausibilisierung der
+                <emphasis>listVersionID</emphasis>
+                verzichtet.
+              </para>
+            </implementationHint>
+          </xs:appinfo>
+          <xs:documentation>Dieses Element kennzeichnet eine Behörde innerhalb der durch den Präfix bezeichneten Klasse eindeutig.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Code.Behoerdenkennung">
+    <xs:annotation>
+      <xs:documentation>Die zu verwendende Schlüsseltabelle ergibt sich aus dem Nachrichtenkontext. Zum Beispiel ist bei der Datenübermittlung an ein Standesamt die Schlüsseltabelle der Standesamtsnummern und somit eine Standesamtsnummer als Behördenkennung zu verwenden.</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:restriction base="xoev-code:Code">
+        <xs:sequence>
+          <xs:element name="code" type="xs:token">
+            <xs:annotation>
+              <xs:documentation>Dokumentation aus XOEV-Bibliothek:</xs:documentation>
+              <xs:documentation>In diesem XML-Element wird der Code einer Codeliste übermittelt.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="name" minOccurs="0" type="xs:normalizedString">
+            <xs:annotation>
+              <xs:documentation>Dokumentation aus XOEV-Bibliothek:</xs:documentation>
+              <xs:documentation>Mit diesem optionalen XML-Element kann die Beschreibung des Codes, wie in der jeweiligen Beschreibungsspalte der Codeliste vorgegeben, übermittelt werden.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+        <xs:attribute name="listURI" type="xs:anyURI" use="required">
+          <xs:annotation>
+            <xs:documentation>Dokumentation aus XOEV-Bibliothek:</xs:documentation>
+            <xs:documentation>Mit diesem XML-Attribut wird die Kennung der Codeliste übermittelt, in deren Kontext der jeweilige Code zu interpretieren ist. Die Kennung identifiziert die Codeliste, nicht jedoch deren Version eindeutig.
+
+Wird bereits im Rahmen des XÖV-Standards eine Kennung vorgegeben (es handelt sich in diesem Fall um einen Code-Typ 1, 2 oder 3) darf auf eine nochmalige Angabe der Kennung bei der Übermittlung eines Codes verzichtet werden. Aus diesem Grund ist das XML-Attribut listURI zunächst als optional deklariert.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="listVersionID" type="xs:normalizedString" use="required">
+          <xs:annotation>
+            <xs:documentation>Dokumentation aus XOEV-Bibliothek:</xs:documentation>
+            <xs:documentation>Die konkrete Version der zu nutzenden Codeliste wird mit diesem XML-Attribut übertragen.
+
+Analog zum listURI ist die Bestimmung der Version einer Codeliste bei der Übertragung eines Codes zwingend. Die Version kann jedoch ebenfalls bereits im XÖV-Standard festgelegt werden (es handelt sich in diesem Fall um einen Code-Typ 1 oder 2).</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:restriction>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="Code.DVDV.Behoerdenschluessel">
+    <xs:annotation>
+      <xs:appinfo>
+        <codeliste>
+          <nameLang>DVDV Behördenschlüssel der Bundesbehörden</nameLang>
+          <nameKurz>DVDV.Behoerdenschluessel.Bundesbehoerden</nameKurz>
+          <nameTechnisch>dvdv.behoerdenschluessel</nameTechnisch>
+          <kennung>urn:xoev-de:bund:bmi:bit:codeliste:dvdv.behoerdenschluessel</kennung>
+          <beschreibung>Diese Codeliste enthält die Behördenschlüssel zur Präfix dbs. Ein solcher Behördenschlüssel wird unter anderem für Bundes- und Landesbehörden von der Koordinierenden Stelle DVDV vergeben.</beschreibung>
+          <herausgebernameLang>Informationstechnikzentrum Bund</herausgebernameLang>
+          <herausgebernameKurz>BMI/ITZBund</herausgebernameKurz>
+        </codeliste>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:restriction base="xoev-code:Code">
+        <xs:sequence>
+          <xs:element name="code" type="xs:token">
+            <xs:annotation>
+              <xs:documentation>Dokumentation aus XOEV-Bibliothek:</xs:documentation>
+              <xs:documentation>In diesem XML-Element wird der Code einer Codeliste übermittelt.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="name" minOccurs="0" type="xs:normalizedString">
+            <xs:annotation>
+              <xs:documentation>Dokumentation aus XOEV-Bibliothek:</xs:documentation>
+              <xs:documentation>Mit diesem optionalen XML-Element kann die Beschreibung des Codes, wie in der jeweiligen Beschreibungsspalte der Codeliste vorgegeben, übermittelt werden.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+        <xs:attribute name="listURI" type="xs:anyURI" use="optional" fixed="urn:xoev-de:bund:bmi:bit:codeliste:dvdv.behoerdenschluessel">
+          <xs:annotation>
+            <xs:documentation>Dokumentation aus XOEV-Bibliothek:</xs:documentation>
+            <xs:documentation>Mit diesem XML-Attribut wird die Kennung der Codeliste übermittelt, in deren Kontext der jeweilige Code zu interpretieren ist. Die Kennung identifiziert die Codeliste, nicht jedoch deren Version eindeutig.
+
+Wird bereits im Rahmen des XÖV-Standards eine Kennung vorgegeben (es handelt sich in diesem Fall um einen Code-Typ 1, 2 oder 3) darf auf eine nochmalige Angabe der Kennung bei der Übermittlung eines Codes verzichtet werden. Aus diesem Grund ist das XML-Attribut listURI zunächst als optional deklariert.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="listVersionID" type="xs:normalizedString" use="required">
+          <xs:annotation>
+            <xs:documentation>Dokumentation aus XOEV-Bibliothek:</xs:documentation>
+            <xs:documentation>Die konkrete Version der zu nutzenden Codeliste wird mit diesem XML-Attribut übertragen.
+
+Analog zum listURI ist die Bestimmung der Version einer Codeliste bei der Übertragung eines Codes zwingend. Die Version kann jedoch ebenfalls bereits im XÖV-Standard festgelegt werden (es handelt sich in diesem Fall um einen Code-Typ 1 oder 2).</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:restriction>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="Code.Praefix">
+    <xs:annotation>
+      <xs:appinfo>
+        <codeliste>
+          <nameLang>Präfixe im DVDV</nameLang>
+          <nameKurz>DVDV.Praefixe</nameKurz>
+          <nameTechnisch>dvdv.praefix</nameTechnisch>
+          <kennung>urn:xoev-de:bund:bmi:bit:codeliste:dvdv.praefix</kennung>
+          <beschreibung>Diese Codeliste enthält alle Präfixe, welche im DVDV zum Einsatz kommen. Diese Präfixe werden für die fachliche Adressierung über das DVDV verwendet.</beschreibung>
+          <herausgebernameLang>Informationstechnikzentrum Bund</herausgebernameLang>
+          <herausgebernameKurz>BMI/ITZBund</herausgebernameKurz>
+        </codeliste>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:restriction base="xoev-code:Code">
+        <xs:sequence>
+          <xs:element name="code" type="xs:token">
+            <xs:annotation>
+              <xs:documentation>Dokumentation aus XOEV-Bibliothek:</xs:documentation>
+              <xs:documentation>In diesem XML-Element wird der Code einer Codeliste übermittelt.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="name" minOccurs="0" type="xs:normalizedString">
+            <xs:annotation>
+              <xs:documentation>Dokumentation aus XOEV-Bibliothek:</xs:documentation>
+              <xs:documentation>Mit diesem optionalen XML-Element kann die Beschreibung des Codes, wie in der jeweiligen Beschreibungsspalte der Codeliste vorgegeben, übermittelt werden.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+        <xs:attribute name="listURI" type="xs:anyURI" use="optional" fixed="urn:xoev-de:bund:bmi:bit:codeliste:dvdv.praefix">
+          <xs:annotation>
+            <xs:documentation>Dokumentation aus XOEV-Bibliothek:</xs:documentation>
+            <xs:documentation>Mit diesem XML-Attribut wird die Kennung der Codeliste übermittelt, in deren Kontext der jeweilige Code zu interpretieren ist. Die Kennung identifiziert die Codeliste, nicht jedoch deren Version eindeutig.
+
+Wird bereits im Rahmen des XÖV-Standards eine Kennung vorgegeben (es handelt sich in diesem Fall um einen Code-Typ 1, 2 oder 3) darf auf eine nochmalige Angabe der Kennung bei der Übermittlung eines Codes verzichtet werden. Aus diesem Grund ist das XML-Attribut listURI zunächst als optional deklariert.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="listVersionID" type="xs:normalizedString" use="required">
+          <xs:annotation>
+            <xs:documentation>Dokumentation aus XOEV-Bibliothek:</xs:documentation>
+            <xs:documentation>Die konkrete Version der zu nutzenden Codeliste wird mit diesem XML-Attribut übertragen.
+
+Analog zum listURI ist die Bestimmung der Version einer Codeliste bei der Übertragung eines Codes zwingend. Die Version kann jedoch ebenfalls bereits im XÖV-Standard festgelegt werden (es handelt sich in diesem Fall um einen Code-Typ 1 oder 2).</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:restriction>
+    </xs:complexContent>
+  </xs:complexType>
+</xs:schema>
+

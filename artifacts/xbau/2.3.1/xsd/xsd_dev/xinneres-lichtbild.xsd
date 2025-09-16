@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:xilb="http://www.osci.de/xinneres/lichtbild/2"
+           xmlns:dinspec91379="urn:xoev-de:kosit:xoev:datentyp:din-spec-91379_2019-03"
+           targetNamespace="http://www.osci.de/xinneres/lichtbild/2"
+           version="2"
+           elementFormDefault="unqualified"
+           attributeFormDefault="unqualified">
+   <xs:annotation>
+      <xs:appinfo>
+         <standard>
+            <nameLang>XInneres-Basismodul</nameLang>
+            <nameKurz>XInneres-Basismodul</nameKurz>
+            <nameTechnisch>xinneres.basismodul</nameTechnisch>
+            <kennung>urn:xoev-de:kosit:standard:xinneres.basismodul</kennung>
+            <beschreibung>Im Auftrag des AK I hat die PG Standard bisher unter anderem die fachlichen Vorgaben und die Struktur der Meldeanschrift für die Bereiche Ausländer-, Melde- und Personenstandswesen harmonisiert. Der vorliegende Standard XInneres bildet auf technischer Ebene eine Klammer vor den Standards der Innenverwaltung. An dieser Stelle können gemeinsam genutzte Komponenten definiert werden. In der ersten Version von XInneres definiert der Standard die Datentypen für die Darstellung der Meldeanschrift.</beschreibung>
+         </standard>
+         <versionStandard>
+            <version>9</version>
+            <versionXOEVProfil>1.7.1</versionXOEVProfil>
+            <versionXOEVHandbuch>2.3</versionXOEVHandbuch>
+            <versionXGenerator>3.0.1</versionXGenerator>
+            <versionModellierungswerkzeug>19.0 SP4</versionModellierungswerkzeug>
+            <nameModellierungswerkzeug>MagicDraw</nameModellierungswerkzeug>
+         </versionStandard>
+      </xs:appinfo>
+   </xs:annotation>
+   <xs:import schemaLocation="din-91379-datatypes.xsd"
+              namespace="urn:xoev-de:kosit:xoev:datentyp:din-spec-91379_2019-03"/>
+   <xs:complexType name="Lichtbild">
+      <xs:annotation>
+         <xs:documentation>Mit diesem Datentyp wird ein Lichtbild im Binärformat übermittelt, inklusive der Angabe des Bildformats als MIME-Type.</xs:documentation>
+      </xs:annotation>
+      <xs:simpleContent>
+         <xs:extension base="xs:base64Binary">
+            <xs:attribute name="mimeType" type="dinspec91379:datatypeC" use="required">
+               <xs:annotation>
+                  <xs:documentation>Mit diesem Attribut wird das Format des übermittelten Lichtbilds als MIME-Type übermittelt.</xs:documentation>
+               </xs:annotation>
+            </xs:attribute>
+         </xs:extension>
+      </xs:simpleContent>
+   </xs:complexType>
+</xs:schema>

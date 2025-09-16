@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Profile xmi:version="20110701" xmlns:xmi="http://www.omg.org/spec/XMI/20110701" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/4.0.0/UML" xmi:id="_14_0_1_5b501fb_1212681957319_867319_256" name="OSCI-Transport-Profil" URI="" metamodelReference="_14_0_1_5b501fb_1212681957319_867319_256_packageImportcreatedOnLoad">
+  <eAnnotations xmi:id="_3sQ0ZVU7Eem76qy_rce7yg" source="http://www.eclipse.org/uml2/2.0.0/UML">
+    <contents xmi:type="ecore:EPackage" xmi:id="_3sQ0ZlU7Eem76qy_rce7yg" name="OSCITransportProfil" nsURI="http:///schemas/OSCITransportProfil/_3ZHEoFU7Eem76qy_rce7yg/0" nsPrefix="OSCITransportProfil">
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="_3sQ0Z1U7Eem76qy_rce7yg" name="wsdlService">
+        <eAnnotations xmi:id="_3sQ0aFU7Eem76qy_rce7yg" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_14_0_1_5b501fb_1212679236282_670690_234"/>
+        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_3sQ0aVU7Eem76qy_rce7yg" name="base_Class" ordered="false" lowerBound="1">
+          <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Class"/>
+        </eStructuralFeatures>
+        <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_3sQ0a1U7Eem76qy_rce7yg" name="SignaturNutzdaten" ordered="false" lowerBound="1">
+          <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/uml2/4.0.0/Types#//String"/>
+        </eStructuralFeatures>
+        <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_3sQ0bVU7Eem76qy_rce7yg" name="VerschluesselungNutzdaten" ordered="false" lowerBound="1">
+          <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/uml2/4.0.0/Types#//String"/>
+        </eStructuralFeatures>
+        <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_3sQ0b1U7Eem76qy_rce7yg" name="SignaturInhaltsdaten" ordered="false" lowerBound="1">
+          <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/uml2/4.0.0/Types#//String"/>
+        </eStructuralFeatures>
+        <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_3sQ0cVU7Eem76qy_rce7yg" name="VerschluesselungInhaltsdaten" ordered="false" lowerBound="1">
+          <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/uml2/4.0.0/Types#//String"/>
+        </eStructuralFeatures>
+        <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_3sQ0c1U7Eem76qy_rce7yg" name="Kommunikationsszenario" ordered="false" lowerBound="1">
+          <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/uml2/4.0.0/Types#//String"/>
+        </eStructuralFeatures>
+        <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_3sQ0dVU7Eem76qy_rce7yg" name="OptionalerContainer" ordered="false" lowerBound="1">
+          <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/uml2/4.0.0/Types#//String"/>
+        </eStructuralFeatures>
+        <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_3sQ0d1U7Eem76qy_rce7yg" name="Leistungserbringer" ordered="false">
+          <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/uml2/4.0.0/Types#//String"/>
+        </eStructuralFeatures>
+        <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_3sQ0eVU7Eem76qy_rce7yg" name="Hinweis" ordered="false">
+          <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/uml2/4.0.0/Types#//String"/>
+        </eStructuralFeatures>
+        <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_3sQ0e1U7Eem76qy_rce7yg" name="Nachrichtenbeschreibung" ordered="false">
+          <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/uml2/4.0.0/Types#//String"/>
+        </eStructuralFeatures>
+        <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_3sQ0fVU7Eem76qy_rce7yg" name="Dateiname" ordered="false" lowerBound="1">
+          <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/uml2/4.0.0/Types#//String"/>
+        </eStructuralFeatures>
+        <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_3sQ0f1U7Eem76qy_rce7yg" name="NamensraumOhneDateiname" ordered="false" lowerBound="1">
+          <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/uml2/4.0.0/Types#//String"/>
+        </eStructuralFeatures>
+      </eClassifiers>
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="_3sQ0gVU7Eem76qy_rce7yg" name="wsdlServiceMessage">
+        <eAnnotations xmi:id="_3sQ0glU7Eem76qy_rce7yg" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_14_0_1_5b501fb_1212679353968_848386_245"/>
+        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_3sQ0g1U7Eem76qy_rce7yg" name="base_Dependency" ordered="false" lowerBound="1">
+          <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Dependency"/>
+        </eStructuralFeatures>
+      </eClassifiers>
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="_3sQ0hVU7Eem76qy_rce7yg" name="osciTransportScenario">
+        <eAnnotations xmi:id="_3sQ0hlU7Eem76qy_rce7yg" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_14_0_5b501fb_1237983560266_703056_285"/>
+        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_3sQ0h1U7Eem76qy_rce7yg" name="base_Class" ordered="false" lowerBound="1">
+          <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Class"/>
+        </eStructuralFeatures>
+        <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_3sQ0iVU7Eem76qy_rce7yg" name="SignaturNutzdaten" ordered="false" lowerBound="1">
+          <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/uml2/4.0.0/Types#//String"/>
+        </eStructuralFeatures>
+        <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_3sQ0i1U7Eem76qy_rce7yg" name="VerschluesselungNutzdaten" ordered="false" lowerBound="1">
+          <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/uml2/4.0.0/Types#//String"/>
+        </eStructuralFeatures>
+        <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_3sQ0jVU7Eem76qy_rce7yg" name="SignaturInhaltsdaten" ordered="false" lowerBound="1">
+          <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/uml2/4.0.0/Types#//String"/>
+        </eStructuralFeatures>
+        <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_3sQ0j1U7Eem76qy_rce7yg" name="VerschluesselungInhaltsdaten" ordered="false" lowerBound="1">
+          <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/uml2/4.0.0/Types#//String"/>
+        </eStructuralFeatures>
+        <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_3sQ0kVU7Eem76qy_rce7yg" name="Kommunikationsszenario" ordered="false" lowerBound="1">
+          <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/uml2/4.0.0/Types#//String"/>
+        </eStructuralFeatures>
+        <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_3sQ0k1U7Eem76qy_rce7yg" name="OptionalerContainer" ordered="false" lowerBound="1">
+          <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/uml2/4.0.0/Types#//String"/>
+        </eStructuralFeatures>
+        <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_3sQ0lVU7Eem76qy_rce7yg" name="NameMandatorischerContainer" ordered="false" lowerBound="1">
+          <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/uml2/4.0.0/Types#//String"/>
+        </eStructuralFeatures>
+      </eClassifiers>
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="_3sQ0l1U7Eem76qy_rce7yg" name="wsdlServiceInputMessage">
+        <eAnnotations xmi:id="_3sQ0mFU7Eem76qy_rce7yg" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_16_5_4_5b501fb_1288010535529_974842_346"/>
+        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_3sQ0mVU7Eem76qy_rce7yg" name="base_Dependency" ordered="false" lowerBound="1">
+          <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Dependency"/>
+        </eStructuralFeatures>
+      </eClassifiers>
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="_3sQ0m1U7Eem76qy_rce7yg" name="wsdlServiceOutputMessage">
+        <eAnnotations xmi:id="_3sQ0nFU7Eem76qy_rce7yg" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_16_5_4_5b501fb_1288010536153_323015_352"/>
+        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_3sQ0nVU7Eem76qy_rce7yg" name="base_Dependency" ordered="false" lowerBound="1">
+          <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Dependency"/>
+        </eStructuralFeatures>
+      </eClassifiers>
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="_3sQ0n1U7Eem76qy_rce7yg" name="wsdlServiceFaultMessage">
+        <eAnnotations xmi:id="_3sQ0oFU7Eem76qy_rce7yg" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_16_5_4_5b501fb_1288020281327_875661_346"/>
+        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_3sQ0oVU7Eem76qy_rce7yg" name="base_Dependency" ordered="false" lowerBound="1">
+          <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Dependency"/>
+        </eStructuralFeatures>
+      </eClassifiers>
+      <eSubpackages xmi:id="_3sQ0o1U7Eem76qy_rce7yg" name="WSDL_Enumerations" nsURI="http:///OSCITransportProfil/WSDL_Enumerations.ecore" nsPrefix="OSCITransportProfil.WSDL_Enumerations">
+        <eAnnotations xmi:id="_3sQ0pFU7Eem76qy_rce7yg" source="http://www.eclipse.org/uml2/4.0.0/UML" references="_14_0_5b501fb_1233136872818_638177_162"/>
+        <eClassifiers xmi:type="ecore:EEnum" xmi:id="_3sQ0pVU7Eem76qy_rce7yg" name="SignaturLevel">
+          <eAnnotations xmi:id="_3sQ0plU7Eem76qy_rce7yg" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_14_0_5b501fb_1233136914228_953936_184"/>
+          <eLiterals xmi:id="_3sQ0p1U7Eem76qy_rce7yg" name="none"/>
+          <eLiterals xmi:id="_3sQ0qFU7Eem76qy_rce7yg" name="advanced" value="1"/>
+          <eLiterals xmi:id="_3sQ0qVU7Eem76qy_rce7yg" name="qualified" value="2"/>
+        </eClassifiers>
+        <eClassifiers xmi:type="ecore:EEnum" xmi:id="_3sQ0qlU7Eem76qy_rce7yg" name="Kommunikationsszenario">
+          <eAnnotations xmi:id="_3sQ0q1U7Eem76qy_rce7yg" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_14_0_5b501fb_1234271639254_604503_183"/>
+          <eLiterals xmi:id="_3sQ0rFU7Eem76qy_rce7yg" name="one-way-active"/>
+          <eLiterals xmi:id="_3sQ0rVU7Eem76qy_rce7yg" name="one-way-passive" value="1"/>
+          <eLiterals xmi:id="_3sQ0rlU7Eem76qy_rce7yg" name="request-response" value="2"/>
+        </eClassifiers>
+      </eSubpackages>
+    </contents>
+  </eAnnotations>
+  <packageImport xmi:id="_14_0_1_5b501fb_1212681957319_867319_256_packageImportcreatedOnLoad">
+    <importedPackage xmi:type="uml:Model" href="pathmap://UML_METAMODELS/UML.metamodel.uml#_0"/>
+  </packageImport>
+  <packageImport xmi:id="_0primitiveTypesOSCI-Transport-Profil">
+    <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#_0"/>
+  </packageImport>
+  <packageImport xmi:id="_0javaPrimitiveTypesOSCI-Transport-Profil">
+    <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#_0"/>
+  </packageImport>
+  <packagedElement xmi:type="uml:Stereotype" xmi:id="_14_0_1_5b501fb_1212679236282_670690_234" name="wsdlService">
+    <ownedAttribute xmi:id="_14_0_1_5b501fb_1212679296669_154116_241" name="base_Class" visibility="private" association="_14_0_1_5b501fb_1212679296669_945197_240">
+      <type xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#Class"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="_14_0_1_5b501fb_1213268975549_315041_304" name="SignaturNutzdaten" visibility="private">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_14_0_1_5b501fb_1213268998497_83490_306" name="" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_14_0_1_5b501fb_1213268998497_696500_307" name="" value="1"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="_14_0_1_5b501fb_1213269122470_817421_336" name="VerschluesselungNutzdaten" visibility="private">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_14_0_5b501fb_1237991275370_588381_915" name="" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_14_0_5b501fb_1237991275370_812751_916" name="" value="1"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="_14_0_1_5b501fb_1213269140207_699341_340" name="SignaturInhaltsdaten" visibility="private">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_14_0_1_5b501fb_1213269157258_399508_344" name="" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_14_0_1_5b501fb_1213269157258_172524_345" name="" value="1"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="_14_0_1_5b501fb_1213269140956_782208_342" name="VerschluesselungInhaltsdaten" visibility="private">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_14_0_5b501fb_1237991280737_305925_917" name="" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_14_0_5b501fb_1237991280737_768972_918" name="" value="1"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="_14_0_1_5b501fb_1213270086456_390129_356" name="Kommunikationsszenario" visibility="private">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_14_0_1_5b501fb_1213270095676_922627_358" name="" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_14_0_1_5b501fb_1213270095676_282343_359" name="" value="1"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="_14_0_5b501fb_1233151307993_620146_352" name="OptionalerContainer" visibility="private">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_14_0_5b501fb_1237991285932_331524_919" name="" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_14_0_5b501fb_1237991285932_94509_920" name="" value="1"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="_16_5_4_5b501fb_1287395686258_528623_346" name="Leistungserbringer" visibility="private">
+      <ownedComment xmi:id="_16_5_4_5b501fb_1287396077285_450575_620" annotatedElement="_16_5_4_5b501fb_1287395686258_528623_346" body="Mit dieser Eigenschaft kann der Leistungserbringer bezüglich des ausgewählten Dienstes angegeben werden. Diese Information wird momentan in der Übersichtstabelle zu den Diensten genutzt."/>
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_16_5_4_5b501fb_1287395782554_408332_613" name=""/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_16_5_4_5b501fb_1287395782577_288791_614" name="" value="1"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="_16_5_4_5b501fb_1287395712310_824936_347" name="Hinweis" visibility="private">
+      <ownedComment xmi:id="_16_5_4_5b501fb_1287396142749_717251_621" annotatedElement="_16_5_4_5b501fb_1287395712310_824936_347" body="Mit dieser Eigenschaft können Hinweise zur produktiven Nutzung des Dienstes (z.B. bzgl. DVDV) gegeben werden. Sie werden momentan in der Übersichtstabelle zu den Diensten aufgeführt."/>
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_16_5_4_5b501fb_1287395844802_419781_615" name=""/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_16_5_4_5b501fb_1287395844802_356062_616" name="" value="1"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="_16_5_4_5b501fb_1287395972027_726252_617" name="Nachrichtenbeschreibung" visibility="private">
+      <ownedComment xmi:id="_16_5_4_5b501fb_1287396454388_485124_622" annotatedElement="_16_5_4_5b501fb_1287395972027_726252_617" body="In der Übersichtstabelle zu den Diensten werden in der Spalte &quot;Nachrichten&quot; alle Nachrichten des Dienstes aufgeführt (Nachrichtennummern). Häufig macht ein ergänzender Kommentar zu den Nummern Sinn. Dieser kann mit der Eigenschaft &quot;NachrichtenBeschreibung&quot; vorgenommen werden.&#xA;&#xA;Falls die genannte Liste von Nachrichtennummern nicht herausgeschrieben werden soll, muss zu Beginn des Eintrags &quot;[nl]&quot; (no list) stehen. Darauf können beliebige Inhalte folgen."/>
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_16_5_4_5b501fb_1287396004877_208102_618" name=""/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_16_5_4_5b501fb_1287396004877_249935_619" name="" value="1"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="_16_5_4_5b501fb_1445441855243_435466_2991" name="Dateiname" visibility="private">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="_16_5_4_5b501fb_1445441254453_81289_2986" name="NamensraumOhneDateiname" visibility="private">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+    </ownedAttribute>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Extension" xmi:id="_14_0_1_5b501fb_1212679296669_945197_240" name="" memberEnd="_14_0_1_5b501fb_1212679296669_154116_241 _14_0_1_5b501fb_1212679296669_636733_242" navigableOwnedEnd="_14_0_1_5b501fb_1212679296669_636733_242">
+    <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_14_0_1_5b501fb_1212679296669_636733_242" name="extension_xsdService" visibility="private" type="_14_0_1_5b501fb_1212679236282_670690_234" aggregation="composite" association="_14_0_1_5b501fb_1212679296669_945197_240">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_14_0_1_5b501fb_1212679296669_730319_243" name=""/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_14_0_1_5b501fb_1212679296669_545672_244" name="" value="1"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Stereotype" xmi:id="_14_0_1_5b501fb_1212679353968_848386_245" name="wsdlServiceMessage">
+    <ownedAttribute xmi:id="_14_0_1_5b501fb_1212679797890_756176_252" name="base_Dependency" visibility="private" association="_14_0_1_5b501fb_1212679797890_705754_251">
+      <type xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#Dependency"/>
+    </ownedAttribute>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Extension" xmi:id="_14_0_1_5b501fb_1212679797890_705754_251" name="" memberEnd="_14_0_1_5b501fb_1212679797890_756176_252 _14_0_1_5b501fb_1212679797890_751651_253" navigableOwnedEnd="_14_0_1_5b501fb_1212679797890_751651_253">
+    <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_14_0_1_5b501fb_1212679797890_751651_253" name="extension_wsdlServiceMessage" visibility="private" type="_14_0_1_5b501fb_1212679353968_848386_245" aggregation="composite" association="_14_0_1_5b501fb_1212679797890_705754_251">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_14_0_1_5b501fb_1212679797890_11693_254" name=""/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_14_0_1_5b501fb_1212679797890_348682_255" name="" value="1"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Package" xmi:id="_14_0_5b501fb_1233136872818_638177_162" name="WSDL_Enumerations" URI="">
+    <packagedElement xmi:type="uml:Enumeration" xmi:id="_14_0_5b501fb_1233136914228_953936_184" name="SignaturLevel">
+      <ownedLiteral xmi:id="_14_0_5b501fb_1233136978018_400171_203" name="none"/>
+      <ownedLiteral xmi:id="_14_0_5b501fb_1233136980996_875505_205" name="advanced"/>
+      <ownedLiteral xmi:id="_14_0_5b501fb_1233136985103_941590_207" name="qualified"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Enumeration" xmi:id="_14_0_5b501fb_1234271639254_604503_183" name="Kommunikationsszenario">
+      <ownedLiteral xmi:id="_14_0_5b501fb_1234271661749_97208_202" name="one-way-active"/>
+      <ownedLiteral xmi:id="_14_0_5b501fb_1234271669362_81778_204" name="one-way-passive"/>
+      <ownedLiteral xmi:id="_14_0_5b501fb_1234271675134_424104_206" name="request-response"/>
+    </packagedElement>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Stereotype" xmi:id="_14_0_5b501fb_1237983560266_703056_285" name="osciTransportScenario">
+    <ownedAttribute xmi:id="_14_0_5b501fb_1237983560281_369492_684" name="base_Class" visibility="private" association="_14_0_5b501fb_1237983560281_138136_683">
+      <type xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#Class"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="_14_0_5b501fb_1237983560266_296478_286" name="SignaturNutzdaten" visibility="private">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_14_0_5b501fb_1237983560266_893163_319" name="" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_14_0_5b501fb_1237983560266_433086_320" name="" value="1"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="_14_0_5b501fb_1237983560266_95222_287" name="VerschluesselungNutzdaten" visibility="private">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_14_0_5b501fb_1237991291173_239230_921" name="" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_14_0_5b501fb_1237991291173_12520_922" name="" value="1"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="_14_0_5b501fb_1237983560266_146186_288" name="SignaturInhaltsdaten" visibility="private">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_14_0_5b501fb_1237983560266_502504_323" name="" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_14_0_5b501fb_1237983560266_699401_324" name="" value="1"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="_14_0_5b501fb_1237983560266_134468_289" name="VerschluesselungInhaltsdaten" visibility="private">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_14_0_5b501fb_1237991295931_389084_923" name="" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_14_0_5b501fb_1237991295931_981283_924" name="" value="1"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="_14_0_5b501fb_1237983560266_933559_290" name="Kommunikationsszenario" visibility="private">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_14_0_5b501fb_1237983560266_153340_327" name="" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_14_0_5b501fb_1237983560266_451920_328" name="" value="1"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="_14_0_5b501fb_1237983560266_383084_291" name="OptionalerContainer" visibility="private">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_14_0_5b501fb_1237991300596_497477_925" name="" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_14_0_5b501fb_1237991300596_549355_926" name="" value="1"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="_18_0_6_5b501fb_1526808508706_290312_4361" name="NameMandatorischerContainer" visibility="private">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+    </ownedAttribute>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Extension" xmi:id="_14_0_5b501fb_1237983560281_138136_683" name="" memberEnd="_14_0_5b501fb_1237983560281_369492_684 _14_0_5b501fb_1237983560281_946893_685" navigableOwnedEnd="_14_0_5b501fb_1237983560281_946893_685">
+    <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_14_0_5b501fb_1237983560281_946893_685" name="extension_wsdlService" visibility="private" type="_14_0_5b501fb_1237983560266_703056_285" aggregation="composite" association="_14_0_5b501fb_1237983560281_138136_683">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_14_0_5b501fb_1237983560281_777807_686" name=""/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_14_0_5b501fb_1237983560281_242651_687" name="" value="1"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Stereotype" xmi:id="_16_5_4_5b501fb_1288010535529_974842_346" name="wsdlServiceInputMessage">
+    <ownedAttribute xmi:id="_16_5_4_5b501fb_1288010535529_793559_348" name="base_Dependency" visibility="private" association="_16_5_4_5b501fb_1288010535529_802428_347">
+      <type xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#Dependency"/>
+    </ownedAttribute>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Extension" xmi:id="_16_5_4_5b501fb_1288010535529_802428_347" name="" memberEnd="_16_5_4_5b501fb_1288010535529_793559_348 _16_5_4_5b501fb_1288010535529_241101_349" navigableOwnedEnd="_16_5_4_5b501fb_1288010535529_241101_349">
+    <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_16_5_4_5b501fb_1288010535529_241101_349" name="extension_wsdlServiceMessage" visibility="private" type="_16_5_4_5b501fb_1288010535529_974842_346" aggregation="composite" association="_16_5_4_5b501fb_1288010535529_802428_347">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_16_5_4_5b501fb_1288010535529_204253_350" name=""/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_16_5_4_5b501fb_1288010535529_173048_351" name="" value="1"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Stereotype" xmi:id="_16_5_4_5b501fb_1288010536153_323015_352" name="wsdlServiceOutputMessage">
+    <ownedAttribute xmi:id="_16_5_4_5b501fb_1288010536153_154943_354" name="base_Dependency" visibility="private" association="_16_5_4_5b501fb_1288010536153_72995_353">
+      <type xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#Dependency"/>
+    </ownedAttribute>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Extension" xmi:id="_16_5_4_5b501fb_1288010536153_72995_353" name="" memberEnd="_16_5_4_5b501fb_1288010536153_154943_354 _16_5_4_5b501fb_1288010536153_504298_355" navigableOwnedEnd="_16_5_4_5b501fb_1288010536153_504298_355">
+    <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_16_5_4_5b501fb_1288010536153_504298_355" name="extension_wsdlServiceMessage" visibility="private" type="_16_5_4_5b501fb_1288010536153_323015_352" aggregation="composite" association="_16_5_4_5b501fb_1288010536153_72995_353">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_16_5_4_5b501fb_1288010536153_361515_356" name=""/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_16_5_4_5b501fb_1288010536153_668431_357" name="" value="1"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Stereotype" xmi:id="_16_5_4_5b501fb_1288020281327_875661_346" name="wsdlServiceFaultMessage">
+    <ownedAttribute xmi:id="_16_5_4_5b501fb_1288020281327_239260_348" name="base_Dependency" visibility="private" association="_16_5_4_5b501fb_1288020281327_381513_347">
+      <type xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#Dependency"/>
+    </ownedAttribute>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Extension" xmi:id="_16_5_4_5b501fb_1288020281327_381513_347" name="" memberEnd="_16_5_4_5b501fb_1288020281327_239260_348 _16_5_4_5b501fb_1288020281327_924436_349" navigableOwnedEnd="_16_5_4_5b501fb_1288020281327_924436_349">
+    <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_16_5_4_5b501fb_1288020281327_924436_349" name="extension_wsdlServiceOutputMessage" visibility="private" type="_16_5_4_5b501fb_1288020281327_875661_346" aggregation="composite" association="_16_5_4_5b501fb_1288020281327_381513_347">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_16_5_4_5b501fb_1288020281327_934114_350" name=""/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_16_5_4_5b501fb_1288020281327_239847_351" name="" value="1"/>
+    </ownedEnd>
+  </packagedElement>
+</uml:Profile>

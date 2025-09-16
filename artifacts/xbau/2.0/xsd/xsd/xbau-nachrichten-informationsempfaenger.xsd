@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xbau="http://www.is-argebau.de/xbau/2" xmlns:gml="http://www.opengis.net/gml/3.2" targetNamespace="http://www.is-argebau.de/xbau/2" version="2.0" elementFormDefault="qualified" attributeFormDefault="unqualified">
+  <xs:include schemaLocation="xbau-baukasten.xsd" />
+  <xs:import schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd" namespace="http://www.opengis.net/gml/3.2" />
+  <xs:element name="informationsempfaenger.benachrichtigung.0400">
+    <xs:annotation>
+      <xs:appinfo>
+        <title>Benachrichtigung von Informationsempfängern</title>
+      </xs:appinfo>
+      <xs:documentation>Diese Nachricht transportiert Informationen über Stand bzw. Ergebnisse eines bauaufsichtlichen Vorgangs. Sie wird von der Bauaufsichtsbehörde an Dritte (Behörden und sonstige öffentliche Stellen) versendet, die diese Daten für ihre Aufgabenerfüllung benötigen. In einer gegebenen Nachricht sind diejenigen Daten des Vorgangs enthalten, die für diesen Informationsempfänger für seine Aufgabenerfüllung relevant sind.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:complexContent>
+        <xs:extension base="xbau:Nachricht.G2G">
+          <xs:sequence>
+            <xs:element name="bezug" type="xbau:Bezug">
+              <xs:annotation>
+                <xs:documentation>Dieses Element nennt den Vorgang der Bauaufsichtsbehörde, aus dem die Informationen entnommen sind. 
+Eine Referenz auf eine Nachricht ist hier i.d.R. nicht einzutragen.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="anlass" type="xbau:Code.BenachrichtigungAnlass">
+              <xs:annotation>
+                <xs:documentation>Hier wird der Anlass genannt: Welches bauaufsichtliche Ereignis hat zu dieser Benachrichtigung geführt?</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="datenBescheid" minOccurs="0">
+              <xs:annotation>
+                <xs:documentation>Hier werden Bescheiddaten übermittelt, soweit für den vorliegenden Anlass relevant.</xs:documentation>
+              </xs:annotation>
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="datum" type="xs:date" form="unqualified">
+                    <xs:annotation>
+                      <xs:documentation>Hier ist das Datum der Bescheiderteilung wiederzugeben.</xs:documentation>
+                    </xs:annotation>
+                  </xs:element>
+                  <xs:element name="adressat" type="xbau:Akteur" form="unqualified">
+                    <xs:annotation>
+                      <xs:documentation>Hier ist die Partei einzutragen, an die sich der Bescheid gerichtet hat.</xs:documentation>
+                    </xs:annotation>
+                  </xs:element>
+                  <xs:element name="bescheid" type="xbau:Bescheid">
+                    <xs:annotation>
+                      <xs:documentation>In diesem Objekt sind die inhaltlichen Daten des Bescheides enthalten.</xs:documentation>
+                    </xs:annotation>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="bauvorhaben" minOccurs="0" type="xbau:Bauvorhaben">
+              <xs:annotation>
+                <xs:documentation>Hier werden Daten zum Bauvorhaben übermittelt, soweit für den vorliegenden Anlass relevant.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="verortungAbbruch" minOccurs="0">
+              <xs:annotation>
+                <xs:documentation>Hier werden Daten zum geplanten Abbruch eingetragen, soweit für den vorliegenden Anlass relevant.</xs:documentation>
+              </xs:annotation>
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="baugrundstueck" maxOccurs="unbounded" type="xbau:Baugrundstueck">
+                    <xs:annotation>
+                      <xs:documentation>In diesem Element sind Daten enthalten, die das Baugrundstück (ein Grundstück, auf dem das Vorhaben stattfinden soll bzw. auf dem es durchgeführt wurde) identifizieren. Ein Vorhaben kann mehrere Grundstücke betreffen.</xs:documentation>
+                    </xs:annotation>
+                  </xs:element>
+                  <xs:element name="lageBauvorhaben" minOccurs="0" type="xbau:GeoreferenzierteLage">
+                    <xs:annotation>
+                      <xs:documentation>In diesem Element sollen ergänzend georeferenzierte Informationen zur genaueren Lage des Bauvorhabens bzw. Gebäudes auf dem Baugrundstück abgebildet werden.
+Falls beispielsweise ein Umbau geplant ist und auf dem Grundstück mehrere Gebäude bestehen, muss aus diesen Angaben hervorgehen, was der Gegenstand des Anbaus ist.</xs:documentation>
+                    </xs:annotation>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="verortungHausnummer" minOccurs="0" maxOccurs="unbounded">
+              <xs:annotation>
+                <xs:documentation>Je Element sind Angaben zur georeferenzierten Lage einer  Hausnummer (Hauseingang) abgebildet.</xs:documentation>
+              </xs:annotation>
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element ref="gml:Point">
+                    <xs:annotation>
+                      <xs:documentation>Das Element (globales Element gml:Point) enthält die GML-Darstellung eines Punktes auf der Erdoberfläche.
+
+Aus der GML-Dokumentation: "A Point is defined by a single coordinate tuple. The direct position of a point is specified by the pos element which is of type DirectPositionType." Quelle: http://www.datypic.com/sc/niem21/e-gml32_Point.html</xs:documentation>
+                    </xs:annotation>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="anlagen" minOccurs="0" type="xbau:Anlagen">
+              <xs:annotation>
+                <xs:documentation>Hier werden relevante Anlagen eingefügt, soweit für den vorliegenden Anlass relevant.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+          </xs:sequence>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
+

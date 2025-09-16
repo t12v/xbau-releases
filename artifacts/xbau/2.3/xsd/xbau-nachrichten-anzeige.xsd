@@ -1,0 +1,760 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:xbau="http://www.xleitstelle.de/xbau/2/3"
+           xmlns:dinspec91379="urn:xoev-de:kosit:xoev:datentyp:din-spec-91379_2019-03"
+           xmlns:xbauk="http://www.xleitstelle.de/xbau/kernmodul/1/1"
+           xmlns:xoev-lc="http://xoev.de/latinchars/1_1/datatypes"
+           targetNamespace="http://www.xleitstelle.de/xbau/2/3"
+           version="2.3"
+           elementFormDefault="qualified"
+           attributeFormDefault="unqualified">
+   <xs:annotation>
+      <xs:appinfo>
+         <standard>
+            <nameLang>XBau - Standard für die Datenkommunikation der Bauaufsichtsbehörde</nameLang>
+            <nameKurz>XBau</nameKurz>
+            <nameTechnisch>xbau</nameTechnisch>
+            <kennung>urn:xoev-de:bmk:standard:xbau</kennung>
+            <beschreibung>XBau ist der XÖV-Standard für den Datenaustausch der Bauaufsichtsbehörden mit ihren Kommunikationspartnern (Bauherren, Architektenbüros, Behörden zahlreicher Rechtsbereiche). </beschreibung>
+         </standard>
+         <versionStandard>
+            <version>2.3</version>
+            <beschreibung>Erweiterte Fassung des Fachmoduls XBau-Hochbau: Die Verfahren der Bauberatung, der Akteneinsicht und der Beantragung einer Abgeschlossenheitsbescheinigung gemäß Wohnungseigentumsgesetz wurden aufgenommen. Eine Reihe von Datentypen für die OZG-Umsetzung bei der Antragstellung Hochbau wurden optimiert, ebenso wie die Datenübermittlung der Bauaufsichtsbehörden an die amtliche Statistik vervollständigt. Die Metadaten für die Übermittlung von Bauvorlagen bzw. sonstigen Anlagen wurden konsolidiert, so dass Bauvorlagen jetzt entweder als Anhang (Attachment) oder per Verlinkung bereitgestellt werden. Weitere Änderungen und Erweiterungen sind in der Versionshistorie des Spezifikationsdokuments beschrieben.</beschreibung>
+            <versionXOEVProfil>1.7.1</versionXOEVProfil>
+            <versionXOEVHandbuch>2.3</versionXOEVHandbuch>
+            <versionXGenerator>3.0.1</versionXGenerator>
+            <versionModellierungswerkzeug>19.0</versionModellierungswerkzeug>
+            <nameModellierungswerkzeug>MagicDraw</nameModellierungswerkzeug>
+         </versionStandard>
+      </xs:appinfo>
+   </xs:annotation>
+   <xs:include schemaLocation="xbau-baukasten.xsd"/>
+   <xs:import schemaLocation="http://xoev.de/DIN-SPEC-91379/2019-03/datatypes/din-91379-datatypes.xsd"
+              namespace="urn:xoev-de:kosit:xoev:datentyp:din-spec-91379_2019-03"/>
+   <xs:import schemaLocation="http://xoev.de/latinchars/1_1/datatypes/latinchars.xsd"
+              namespace="http://xoev.de/latinchars/1_1/datatypes"/>
+   <xs:import schemaLocation="https://www.xleitstelle.de/xbau/schema/kernmodul/1/1/xbau-kernmodul-datentypen.xsd"
+              namespace="http://www.xleitstelle.de/xbau/kernmodul/1/1"/>
+   <xs:complexType name="Untersagung">
+      <xs:annotation>
+         <xs:documentation>Dieser Typ deckt alle Informationen ab, die zu einer verfügten Untersagung als Reaktion auf eine Anzeige gehören können.</xs:documentation>
+      </xs:annotation>
+      <xs:sequence>
+         <xs:element name="fehlendeUnterlagen">
+            <xs:annotation>
+               <xs:documentation>Hinweise auf fehlende Voraussetzungen (Mängelliste) werden benannt. Es werden die Unterlagen genannt, deren Fehlen zur Untersagung geführt hat.</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+               <xs:sequence>
+                  <xs:element name="unterlage" maxOccurs="unbounded">
+                     <xs:annotation>
+                        <xs:documentation>Dieses Element steht für eine Unterlage, auf deren Fehlen hingewiesen wird.</xs:documentation>
+                     </xs:annotation>
+                     <xs:complexType>
+                        <xs:sequence>
+                           <xs:element name="bezeichnung" type="dinspec91379:datatypeC">
+                              <xs:annotation>
+                                 <xs:documentation>Hier ist die Bezeichnung der Unterlage einzutragen.</xs:documentation>
+                              </xs:annotation>
+                           </xs:element>
+                           <xs:element name="erlaeuterung" minOccurs="0" type="dinspec91379:datatypeC">
+                              <xs:annotation>
+                                 <xs:documentation>Hier ist ggf. eine Erläuterung zur fehlenden Unterlage zu geben.</xs:documentation>
+                              </xs:annotation>
+                           </xs:element>
+                        </xs:sequence>
+                     </xs:complexType>
+                  </xs:element>
+               </xs:sequence>
+            </xs:complexType>
+         </xs:element>
+         <xs:element name="anordnung" type="dinspec91379:datatypeC">
+            <xs:annotation>
+               <xs:documentation>Die Anordnung besteht aus einem Sachverhalt (Verstoß wird genannt, z.B. "fehlende Absteckung"), einer Begründung (die Rechtsnorm, die zur Untersagung führt) sowie einer Rechtsbehelfsbelehrung (Textbaustein, ggf. §-Referenz, ggf. als Anlage, z.B. pdf-Datei o.ä.).</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="anzeige.baubeginn.0900">
+      <xs:annotation>
+         <xs:appinfo>
+            <title>Anzeige des Baubeginns</title>
+         </xs:appinfo>
+         <xs:documentation>Mit dieser Nachricht teilt der Bauherr der Bauaufsichtsbehörde mit, dass der Start der Umsetzung des Bauprojekts (Baubeginn, ggf. auch Beseitigung) zu einem bestimmten Termin geplant ist (Baubeginnanzeige).</xs:documentation>
+      </xs:annotation>
+      <xs:complexType>
+         <xs:complexContent>
+            <xs:extension base="xbau:Nachricht.G2G">
+               <xs:sequence>
+                  <xs:element name="bezug">
+                     <xs:annotation>
+                        <xs:documentation>Referenz auf ein Vorhaben, ein Bauprojekt bzw. eine Baugenehmigung: abgebildet als Bezug auf einen Vorgang, beispielsweise eine vorliegende Anzeige oder ein durchlaufenes Baugenehmigungsverfahren mit Bescheid. Der Bescheid kann durch die Übermittlung einer Nachricht baugenehmigung.bescheid.0205 erteilt worden sein.</xs:documentation>
+                     </xs:annotation>
+                     <xs:complexType>
+                        <xs:choice>
+                           <xs:element name="mitAktenzeichen" type="xbau:Bezug">
+                              <xs:annotation>
+                                 <xs:documentation>Dieses Element ist zu befüllen, wenn ein Aktenzeichen zum Verfahren vorhanden ist (bei genehmigten Bauverfahren.)</xs:documentation>
+                              </xs:annotation>
+                           </xs:element>
+                           <xs:element name="ohneAktenzeichen">
+                              <xs:annotation>
+                                 <xs:documentation>Dieses Element ist zu befüllen, wenn kein Aktenzeichen zum Verfahren vorhanden ist (z. B. bei genehmigungsfreigestellten Verfahren)</xs:documentation>
+                              </xs:annotation>
+                              <xs:complexType>
+                                 <xs:sequence>
+                                    <xs:element name="datumEingereicht" minOccurs="0" type="xs:date">
+                                       <xs:annotation>
+                                          <xs:documentation>Hier ist das Datum der Einreichung der Bauunterlagen anzugeben.</xs:documentation>
+                                       </xs:annotation>
+                                    </xs:element>
+                                    <xs:element name="datumBaubeginnanzeige" minOccurs="0" type="xs:date">
+                                       <xs:annotation>
+                                          <xs:documentation>Hier ist das Datum der Baubeginnsanzeige anzugeben.</xs:documentation>
+                                       </xs:annotation>
+                                    </xs:element>
+                                    <xs:element name="datumGenehmigungErteilt" minOccurs="0" type="xs:date">
+                                       <xs:annotation>
+                                          <xs:documentation>Hier ist das Datum der erteilten Genehmigung anzugeben.</xs:documentation>
+                                       </xs:annotation>
+                                    </xs:element>
+                                 </xs:sequence>
+                              </xs:complexType>
+                           </xs:element>
+                        </xs:choice>
+                     </xs:complexType>
+                  </xs:element>
+                  <xs:element name="sachverhalt">
+                     <xs:annotation>
+                        <xs:documentation>Hier ist genau einer von drei möglichen Sachverhalten anzugeben, deren Anzeige die vorliegende Nachricht dienen kann (MBO § 72 (6, 8)).</xs:documentation>
+                     </xs:annotation>
+                     <xs:complexType>
+                        <xs:choice>
+                           <xs:element name="baubeginn">
+                              <xs:annotation>
+                                 <xs:documentation>Falls die Nachricht dazu dient, den Baubeginn (Ausführung eines genehmigten Bauvorhabens oder einer zuvor angezeigten Beseitigung) anzuzeigen, dann ist dieses Element zu wählen unter Angabe des Datums des geplanten Baubeginns.</xs:documentation>
+                              </xs:annotation>
+                              <xs:complexType>
+                                 <xs:sequence>
+                                    <xs:element name="datum" type="xs:date">
+                                       <xs:annotation>
+                                          <xs:documentation>Hier ist das Datum einzutragen, zu dem die angegebene Aktivität geplant ist.</xs:documentation>
+                                       </xs:annotation>
+                                    </xs:element>
+                                 </xs:sequence>
+                              </xs:complexType>
+                           </xs:element>
+                           <xs:element name="ausfuehrungBauabschnitt">
+                              <xs:annotation>
+                                 <xs:documentation>Falls die Nachricht die Aufnahme von Bauarbeiten zur Ausführung eines bestimmten Bauabschnitts anzeigen soll, dann ist dieses Element zu wählen. Zusätzlich sind weitere Angaben zu machen.</xs:documentation>
+                              </xs:annotation>
+                              <xs:complexType>
+                                 <xs:sequence>
+                                    <xs:element name="bezeichnungBauabschnitt" type="dinspec91379:datatypeC">
+                                       <xs:annotation>
+                                          <xs:documentation>Hier ist die Bezeichnung des Bauabschnitts einzutragen, dessen Arbeiten mittels der Nachricht angezeigt werden soll.</xs:documentation>
+                                       </xs:annotation>
+                                    </xs:element>
+                                    <xs:element name="datum" type="xs:date">
+                                       <xs:annotation>
+                                          <xs:documentation>Hier ist das Datum einzutragen, zu dem die angegebene Aktivität geplant ist.</xs:documentation>
+                                       </xs:annotation>
+                                    </xs:element>
+                                 </xs:sequence>
+                              </xs:complexType>
+                           </xs:element>
+                           <xs:element name="wiederaufnahmeBauarbeiten">
+                              <xs:annotation>
+                                 <xs:documentation>Falls die Nachricht die Wiederaufnahme von Bauarbeiten anzeigen soll, dann ist dieses Element zu wählen unter Angabe des Datums der geplanten Wiederaufnahme.</xs:documentation>
+                              </xs:annotation>
+                              <xs:complexType>
+                                 <xs:sequence>
+                                    <xs:element name="datum" type="xs:date">
+                                       <xs:annotation>
+                                          <xs:documentation>Hier ist das Datum einzutragen, zu dem die angegebene Aktivität geplant ist.</xs:documentation>
+                                       </xs:annotation>
+                                    </xs:element>
+                                 </xs:sequence>
+                              </xs:complexType>
+                           </xs:element>
+                        </xs:choice>
+                     </xs:complexType>
+                  </xs:element>
+                  <xs:element name="nachweise">
+                     <xs:annotation>
+                        <xs:documentation>Dieses Element enthält Nachweise zum Sachverhalt der Baubeginnsanzeige.</xs:documentation>
+                     </xs:annotation>
+                     <xs:complexType>
+                        <xs:sequence>
+                           <xs:element name="pruefungStandsicherheitsnachweisErforderlich" type="xs:boolean">
+                              <xs:annotation>
+                                 <xs:documentation>Wenn die Erklärung des Tragwerksplaner ergibt, dass eine Prüfung des Standsicherheitsnachweises erforderlich ist, dann ist in diesem Element "true" zu übermitteln, andernfalls "false".</xs:documentation>
+                              </xs:annotation>
+                           </xs:element>
+                        </xs:sequence>
+                     </xs:complexType>
+                  </xs:element>
+                  <xs:element name="beteiligte" type="xbau:BeteiligteBauprojekt">
+                     <xs:annotation>
+                        <xs:documentation>Hier sind die an der Bauausführung beteiligten Parteien (Personen bzw. Organisationen) benannt.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+                  <xs:element name="verortung" minOccurs="0">
+                     <xs:annotation>
+                        <xs:documentation>Dieses Element erfasst Angaben zur Lokalisierung des Vorhabens. Dies ist nur bei Hybridverfahren zu befüllen, d. h. wenn zuvor einer analoger Bauantrag eingereicht und eine analoge Baugenehmigung ausgestellt wurde. In diesen Fällen liegen keine digitalen Informationen vor, sodass nicht mittels dem Element bezug auf die XBau-Nachrichten referenziert werden kann, um auf die relevanten Angaben zur Verortung des Vorhabens Bezug zu nehmen.</xs:documentation>
+                     </xs:annotation>
+                     <xs:complexType>
+                        <xs:sequence>
+                           <xs:element name="baugrundstueck" type="xbau:Baugrundstueck">
+                              <xs:annotation>
+                                 <xs:documentation>In diesem Element sind Daten enthalten, die das Baugrundstück (ein Grundstück, auf dem das Vorhaben stattfinden soll bzw. auf dem es durchgeführt wurde) identifizieren. Ein Baugrundstück kann mehrere Grundstücke umfassen.</xs:documentation>
+                              </xs:annotation>
+                           </xs:element>
+                           <xs:element name="lageBauvorhaben"
+                                       minOccurs="0"
+                                       type="xbauk:GeoreferenzierteFlaeche">
+                              <xs:annotation>
+                                 <xs:documentation>In diesem Element sollen ergänzend georeferenzierte Informationen zur genaueren Lage des Bauvorhabens bzw. Gebäudes auf dem Baugrundstück abgebildet werden. Falls beispielsweise ein Umbau geplant ist und auf dem Grundstück mehrere Gebäude bestehen, muss aus diesen Angaben hervorgehen, was der Gegenstand des Anbaus ist.</xs:documentation>
+                              </xs:annotation>
+                           </xs:element>
+                        </xs:sequence>
+                     </xs:complexType>
+                  </xs:element>
+                  <xs:element name="anlagen" type="xbau:Anlagen">
+                     <xs:annotation>
+                        <xs:documentation>Hier sind die Anlagen bzw. Verweise auf solche Anlagen beizufügen, die die Bauaufsichtsbehörde für Prüfung und Entscheidung benötigt. Dies sind beispielsweise 'Nachweise vor Baubeginn', soweit sie bei der Erteilung der Baugenehmigung durch die Bauaufsichtsbehörde als Auflage genannt worden sind.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+               </xs:sequence>
+            </xs:extension>
+         </xs:complexContent>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="anzeige.baubeginnUntersagung.0901">
+      <xs:annotation>
+         <xs:appinfo>
+            <title>Untersagung des Baubeginns</title>
+         </xs:appinfo>
+         <xs:documentation>Diese Nachricht enthält den Hinweis, dass die geplante Maßnahme die Voraussetzungen nicht erfüllt und benennt entsprechende Mängel. Die Bauaufsichtsbehörde fordert zur Nachbesserung auf und untersagt vorläufig die Aufnahme der Bautätigkeiten.</xs:documentation>
+      </xs:annotation>
+      <xs:complexType>
+         <xs:complexContent>
+            <xs:extension base="xbau:Nachricht.G2G">
+               <xs:sequence>
+                  <xs:element name="bezug" type="xbau:Bezug">
+                     <xs:annotation>
+                        <xs:documentation>Bezug auf Vorgang und Nachricht einer Baubeginnanzeige.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+                  <xs:element name="untersagung" type="xbau:Untersagung">
+                     <xs:annotation>
+                        <xs:documentation>Dieses Objekt enthält die nötigen Informationen zur verfügten Untersagung.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+               </xs:sequence>
+            </xs:extension>
+         </xs:complexContent>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="anzeige.baubeginnBaufreigabe.0902">
+      <xs:annotation>
+         <xs:appinfo>
+            <title>Erteilung der Baufreigabe</title>
+         </xs:appinfo>
+         <xs:documentation>Mit dieser Nachricht erteilt die Bauaufsichtsbehörde den Baufreigabeschein (sog. "Roter Punkt").</xs:documentation>
+      </xs:annotation>
+      <xs:complexType>
+         <xs:complexContent>
+            <xs:extension base="xbau:Nachricht.G2G">
+               <xs:sequence>
+                  <xs:element name="bezug" type="xbau:Bezug">
+                     <xs:annotation>
+                        <xs:documentation>Bezug auf Vorgang und Nachricht einer Baubeginnanzeige.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+                  <xs:element name="datenBaufreigabeschein" type="xbau:DatenBaufreigabeschein">
+                     <xs:annotation>
+                        <xs:documentation>Dieses Element enthält die Daten zum Baufreigabeschein.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+               </xs:sequence>
+            </xs:extension>
+         </xs:complexContent>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="anzeige.nutzungsaufnahme.0910">
+      <xs:annotation>
+         <xs:appinfo>
+            <title>Anzeige der Nutzungsaufnahme</title>
+         </xs:appinfo>
+         <xs:documentation>Mit dieser Nachricht teilt der Bauherr der Bauaufsichtsbehörde mit, dass die Aufnahme der Nutzung des errichteten Gebäudes zu einem bestimmten Termin geplant ist. Mit dieser Anzeige werden (sofern eine Prüfung durch einen Prüfsachverständigen vorgesehen ist) die Bescheinigungen über die ordnungsgemäße Ausführung von Brandschutz und Standsicherheit mitvorgelegt.</xs:documentation>
+      </xs:annotation>
+      <xs:complexType>
+         <xs:complexContent>
+            <xs:extension base="xbau:Nachricht.G2G">
+               <xs:sequence>
+                  <xs:element name="bezug">
+                     <xs:annotation>
+                        <xs:documentation>Referenz auf einen Vorgang der Bauaufsichtsbehörde (ein durchlaufenes Baugenehmigungsverfahren) und ggf. auf eine Nachricht, die im Zusammenhang des Vorgangs verschickt worden ist.</xs:documentation>
+                     </xs:annotation>
+                     <xs:complexType>
+                        <xs:choice>
+                           <xs:element name="mitAktenzeichen" type="xbau:Bezug">
+                              <xs:annotation>
+                                 <xs:documentation>Dieses Element ist zu befüllen, wenn ein Aktenzeichen zum Verfahren vorhanden ist (bei genehmigten Bauverfahren.)</xs:documentation>
+                              </xs:annotation>
+                           </xs:element>
+                           <xs:element name="ohneAktenzeichen">
+                              <xs:annotation>
+                                 <xs:documentation>Dieses Element ist zu befüllen, wenn kein Aktenzeichen zum Verfahren vorhanden ist (z. B. bei genehmigungsfreigestellten Verfahren)</xs:documentation>
+                              </xs:annotation>
+                              <xs:complexType>
+                                 <xs:sequence>
+                                    <xs:element name="datumEingereicht" minOccurs="0" type="xs:date">
+                                       <xs:annotation>
+                                          <xs:documentation>Hier ist das Datum der Einreichung der Bauunterlagen anzugeben.</xs:documentation>
+                                       </xs:annotation>
+                                    </xs:element>
+                                    <xs:element name="datumBaubeginnanzeige" minOccurs="0" type="xs:date">
+                                       <xs:annotation>
+                                          <xs:documentation>Hier ist das Datum der Baubeginnsanzeige anzugeben.</xs:documentation>
+                                       </xs:annotation>
+                                    </xs:element>
+                                    <xs:element name="datumGenehmigungErteilt" minOccurs="0" type="xs:date">
+                                       <xs:annotation>
+                                          <xs:documentation>Hier ist das Datum der erteilten Genehmigung anzugeben.</xs:documentation>
+                                       </xs:annotation>
+                                    </xs:element>
+                                 </xs:sequence>
+                              </xs:complexType>
+                           </xs:element>
+                        </xs:choice>
+                     </xs:complexType>
+                  </xs:element>
+                  <xs:element name="sachverhalt">
+                     <xs:annotation>
+                        <xs:documentation>Hier ist der Sachverhalt der geplanten Nutzungsaufnahme angegeben.</xs:documentation>
+                     </xs:annotation>
+                     <xs:complexType>
+                        <xs:sequence>
+                           <xs:element name="geplanteNutzungsaufnahme">
+                              <xs:annotation>
+                                 <xs:documentation>Dieses Element dient dazu, den Zeitpunkt der geplanten Nutzungsaufnahme mitzuteilen.</xs:documentation>
+                              </xs:annotation>
+                              <xs:complexType>
+                                 <xs:sequence>
+                                    <xs:element name="datum" type="xs:date">
+                                       <xs:annotation>
+                                          <xs:documentation>Hier ist das Datum einzutragen, zu dem die angegebene Aktivität geplant ist.</xs:documentation>
+                                       </xs:annotation>
+                                    </xs:element>
+                                 </xs:sequence>
+                              </xs:complexType>
+                           </xs:element>
+                        </xs:sequence>
+                     </xs:complexType>
+                  </xs:element>
+                  <xs:element name="nachweise">
+                     <xs:annotation>
+                        <xs:documentation>Dieses Element enthält Nachweise zum Sachverhalt der geplanten Nutzungsaufnahme.</xs:documentation>
+                     </xs:annotation>
+                     <xs:complexType>
+                        <xs:sequence>
+                           <xs:element name="bezeichnungVorhaben"
+                                       minOccurs="0"
+                                       type="dinspec91379:datatypeC">
+                              <xs:annotation>
+                                 <xs:documentation>Hier ist die Bezeichnung des Vorhabens anzugeben.</xs:documentation>
+                              </xs:annotation>
+                           </xs:element>
+                           <xs:element name="standsicherheitBescheinigt" type="xs:boolean">
+                              <xs:annotation>
+                                 <xs:documentation>Wenn die ordnungsgemäße Ausführung von Standsicherheit bescheinigt wurde, dann ist in diesem Element der Wert "true" zu übermitteln und der entsprechende Nachweis mit dem Element anlagen beizufügen. Der Wert "false" ist zu übermitteln, wenn kein Nachweis für die Standsicherheit erforderlich ist.</xs:documentation>
+                              </xs:annotation>
+                           </xs:element>
+                           <xs:element name="brandschutzBescheinigt" type="xs:boolean">
+                              <xs:annotation>
+                                 <xs:documentation>Wenn die ordnungsgemäße Ausführung von Brandschutz bescheinigt wurde, dann ist in diesem Element der Wert "true" zu übermitteln und der entsprechende Nachweis mit dem Element anlagen beizufügen. Der Wert "false" ist zu übermitteln, wenn kein Nachweis für den Brandschutz erforderlich ist.</xs:documentation>
+                              </xs:annotation>
+                           </xs:element>
+                           <xs:element name="gebaeudeDerKlasse4" type="xs:boolean">
+                              <xs:annotation>
+                                 <xs:documentation>Handelt es sich um ein Gebäude der Klasse 4, dann ist in diesem Element der Wert "true" zu übermitteln, andernfalls "false".</xs:documentation>
+                              </xs:annotation>
+                           </xs:element>
+                           <xs:element name="wiederkehrendePruefungenErforderlich" type="xs:boolean">
+                              <xs:annotation>
+                                 <xs:documentation>Sind wiederkehrende Prüfungen erforderlich, dann ist in diesem Element der Wert "true" zu übermitteln; andernfalls "false".</xs:documentation>
+                              </xs:annotation>
+                           </xs:element>
+                        </xs:sequence>
+                     </xs:complexType>
+                  </xs:element>
+                  <xs:element name="beteiligte" minOccurs="0" type="xbau:BeteiligteBauprojekt">
+                     <xs:annotation>
+                        <xs:documentation>Hier sind die beteiligten Parteien (Personen bzw. Organisationen) benannt.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+                  <xs:element name="verortung" minOccurs="0">
+                     <xs:annotation>
+                        <xs:documentation>Dieses Element erfasst Angaben zur Lokalisierung des Vorhabens. Dies ist nur bei Hybridverfahren zu befüllen, d. h. wenn zuvor ein papierbasierter Bauantrag eingereicht und eine papierbasierte Baugenehmigung ausgestellt wurde. In diesen Fällen liegen keine digitalen Informationen vor, sodass nicht mittels dem Element bezug auf die XBau-Nachrichten referenziert werden kann, um auf die relevanten Angaben zur Verortung des Vorhabens Bezug zu nehmen.</xs:documentation>
+                     </xs:annotation>
+                     <xs:complexType>
+                        <xs:sequence>
+                           <xs:element name="baugrundstueck" type="xbau:Baugrundstueck">
+                              <xs:annotation>
+                                 <xs:documentation>In diesem Element sind Daten enthalten, die das Baugrundstück (ein Grundstück, auf dem das Vorhaben stattfinden soll bzw. auf dem es durchgeführt wurde) identifizieren. Ein Baugrundstück kann mehrere Grundstücke umfassen.</xs:documentation>
+                              </xs:annotation>
+                           </xs:element>
+                           <xs:element name="lageBauvorhaben"
+                                       minOccurs="0"
+                                       type="xbauk:GeoreferenzierteFlaeche">
+                              <xs:annotation>
+                                 <xs:documentation>In diesem Element sollen ergänzend georeferenzierte Informationen zur genaueren Lage des Bauvorhabens bzw. Gebäudes auf dem Baugrundstück abgebildet werden. Falls beispielsweise ein Umbau geplant wurde und auf dem Grundstück mehrere Gebäude bestehen, muss aus diesen Angaben hervorgehen, was der Gegenstand des Anbaus ist.</xs:documentation>
+                              </xs:annotation>
+                           </xs:element>
+                        </xs:sequence>
+                     </xs:complexType>
+                  </xs:element>
+                  <xs:element name="anlagen" type="xbau:Anlagen">
+                     <xs:annotation>
+                        <xs:documentation>Hier sind die Anlagen bzw. Verweise auf solche Anlagen einzufügen. Das sind insbesondere Bescheinigungen über die ordnungsgemäße Ausführung von Brandschutz und Standsicherheit und ggf. weitere Unterlagen, die für die Prüfung durch die Bauaufsichtsbehörde benötigt werden.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+               </xs:sequence>
+            </xs:extension>
+         </xs:complexContent>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="anzeige.nutzungsaufnahmeUntersagung.0911">
+      <xs:annotation>
+         <xs:appinfo>
+            <title>Untersagung der Nutzungsaufnahme</title>
+         </xs:appinfo>
+         <xs:documentation>Die Nachricht enthält den Hinweis, dass die geplante Maßnahme die Voraussetzungen nicht erfüllt und benennt entsprechende Mängel. Sie fordert zur Nachbesserung auf.</xs:documentation>
+      </xs:annotation>
+      <xs:complexType>
+         <xs:complexContent>
+            <xs:extension base="xbau:Nachricht.G2G">
+               <xs:sequence>
+                  <xs:element name="bezug" type="xbau:Bezug">
+                     <xs:annotation>
+                        <xs:documentation>Bezug auf Vorgang und Nachricht einer Nutzungsbeginnanzeige.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+                  <xs:element name="untersagung" type="xbau:Untersagung">
+                     <xs:annotation>
+                        <xs:documentation>Dieses Objekt enthält die nötigen Informationen zur verfügten Untersagung.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+               </xs:sequence>
+            </xs:extension>
+         </xs:complexContent>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="anzeige.nutzungsaufnahmeBauabnahme.0912">
+      <xs:annotation>
+         <xs:appinfo>
+            <title>Abnahmeschein zur Nutzungsaufnahme</title>
+         </xs:appinfo>
+         <xs:documentation>Mit dieser Nachricht teilt die Bauaufsichtsbehörde dem Bauherrn das Ergebnis der Bauabnahme mit und stellt ggf. den Abnahmeschein aus.</xs:documentation>
+      </xs:annotation>
+      <xs:complexType>
+         <xs:complexContent>
+            <xs:extension base="xbau:Nachricht.G2G">
+               <xs:sequence>
+                  <xs:element name="bezug" type="xbau:Bezug">
+                     <xs:annotation>
+                        <xs:documentation>Bezug auf Vorgang und Nachricht einer Nutzungsbeginnanzeige.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+                  <xs:element name="abnahmeErteilt" type="xs:boolean">
+                     <xs:annotation>
+                        <xs:documentation>Falls die Bauabnahme positiv ausgefallen ist und ein Abnahmeschein ausgestellt wird, so wird in diesem Element "true" übermittelt, andernfalls "false".</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+                  <xs:element name="begruendung" minOccurs="0" type="xbauk:TextFormatiert">
+                     <xs:annotation>
+                        <xs:documentation>Falls die Bauabnahme ablehnend ausgefallen ist, wird in diesem Element die entsprechende Begründung geliefert.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+                  <xs:element name="nebenbestimmung"
+                              minOccurs="0"
+                              maxOccurs="unbounded"
+                              type="xbau:Nebenbestimmung">
+                     <xs:annotation>
+                        <xs:documentation>Hier werden ggf. die Nebenbestimmungen zum erteilten Abnahmeschein eingefügt.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+                  <xs:element name="frist" minOccurs="0" type="xs:date">
+                     <xs:annotation>
+                        <xs:documentation>Falls Mängel festgestellt worden sind, kann hier eine Frist eingetragen werden, innerhalb derer die genannten Mängel durch den Bauherrn zu beseitigen sind.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+                  <xs:element name="anlage" minOccurs="0" type="xbau:Anlagen">
+                     <xs:annotation>
+                        <xs:documentation>Dieses Element beinhaltet die Metadaten des Bauabnahmescheins.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+               </xs:sequence>
+            </xs:extension>
+         </xs:complexContent>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="anzeige.beseitigungAbsicht.0950">
+      <xs:annotation>
+         <xs:appinfo>
+            <title>Anzeige der Absicht einer Beseitigung</title>
+         </xs:appinfo>
+         <xs:documentation>Mit dieser Nachricht teilt der Bauherr der Bauaufsichtsbehörde mit, dass die Beseitigung einer baulichen Anlage geplant ist.</xs:documentation>
+      </xs:annotation>
+      <xs:complexType>
+         <xs:complexContent>
+            <xs:extension base="xbau:Nachricht.G2G">
+               <xs:sequence>
+                  <xs:element name="referenzAnzeigeservice" type="xbauk:ReferenzAntragsservice">
+                     <xs:annotation>
+                        <xs:documentation>Eine vom Antragsservice (Anzeigeservice) vergebene eindeutige Kennung des Anzeigevorgangs. Sofern die Bauaufsichtsbehörde auf die Anzeige reagiert, bezieht sie sich in ihren Reaktionsnachrichten auf diese Kennung.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+                  <xs:element name="anzeigender" maxOccurs="unbounded" type="xbauk:Akteur">
+                     <xs:annotation>
+                        <xs:documentation>In dieses Element sind die Daten der Person oder der Personen einzutragen, die verantwoertlich für die geänderte Anzeige sind (meist der Bauherr).</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+                  <xs:element name="beteiligte" minOccurs="0" type="xbau:BeteiligteBauprojekt">
+                     <xs:annotation>
+                        <xs:documentation>Hier sind die beteiligten Parteien (Personen bzw. Organisationen) benannt.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+                  <xs:element name="sachverhalt">
+                     <xs:annotation>
+                        <xs:documentation>Hier sind Eckdaten zum Sachverhalt der geplanten Beseitigung anzugeben.</xs:documentation>
+                     </xs:annotation>
+                     <xs:complexType>
+                        <xs:sequence>
+                           <xs:element name="bezeichnungDesBauvorhabens"
+                                       minOccurs="0"
+                                       type="dinspec91379:datatypeC">
+                              <xs:annotation>
+                                 <xs:documentation>In dieses Element ist die Bezeichnung des Vorhabens einzutragen. Sie wird vom Bauherrn vergeben und später ggf. von der Bauaufsichtsbehörde geändert.</xs:documentation>
+                              </xs:annotation>
+                           </xs:element>
+                           <xs:element name="mboGebaeudeklasse"
+                                       minOccurs="0"
+                                       type="xbau:Code.MboGebaeudeklasse">
+                              <xs:annotation>
+                                 <xs:documentation>In diesem Element wird die Art des Gebäudes übermittelt, das beseitigt werden soll. Es wird die Einteilung in Gebäudeklassen gemäß MBO verwendet.</xs:documentation>
+                              </xs:annotation>
+                           </xs:element>
+                           <xs:element name="artDerBaulichenAnlage" minOccurs="0">
+                              <xs:annotation>
+                                 <xs:documentation>Hier kann die Art der baulichen Anlage näher spezifiziert werden. Es ist aus einer der drei Codelisten eine Auswahl zu treffen.</xs:documentation>
+                              </xs:annotation>
+                              <xs:complexType>
+                                 <xs:choice>
+                                    <xs:element name="artDesWohngebaeudes" type="xbau:Code.WohngebaeudeArt">
+                                       <xs:annotation>
+                                          <xs:documentation>Hier wird für bauliche Anlagen, die Wohngebäude sind, eine Klassifizierung vorgenommen gemäß Einteilung der amtlichen Statistik. Die Hauptnutzung muss klar erkennbar sein.</xs:documentation>
+                                       </xs:annotation>
+                                    </xs:element>
+                                    <xs:element name="artDesNichtwohngebaeudes" type="xbau:Code.NichtwohngebaeudeArt">
+                                       <xs:annotation>
+                                          <xs:documentation>Bauliche Anlagen, die nicht Wohngebäude sind, werden durch dieses Element klassifiziert gemäß Signierschlüsselverzeichnis des Statistischen Bundesamts.</xs:documentation>
+                                       </xs:annotation>
+                                    </xs:element>
+                                    <xs:element name="artDerSonstigenAnlage" type="xbau:Code.BaulicheAnlagenSonstige">
+                                       <xs:annotation>
+                                          <xs:documentation>Hier ist für sonstige bauliche Anlagen, also solche, die nicht Gebäude sind, eine Klassifizierung vorzunehmen.</xs:documentation>
+                                       </xs:annotation>
+                                    </xs:element>
+                                 </xs:choice>
+                              </xs:complexType>
+                           </xs:element>
+                           <xs:element name="grundstueck" maxOccurs="unbounded" type="xbau:Grundstueck">
+                              <xs:annotation>
+                                 <xs:documentation>In diesem Element werden die Grundstücke und die Anschriften der Gebäude übermittelt, die beseitigt werden sollen.</xs:documentation>
+                              </xs:annotation>
+                           </xs:element>
+                           <xs:element name="istFreistehend" type="xs:boolean">
+                              <xs:annotation>
+                                 <xs:documentation>Falls das betreffende Gebäude freistehend ist, wird hier "true" eingetragen, andernfalls "false".</xs:documentation>
+                              </xs:annotation>
+                           </xs:element>
+                           <xs:element name="hoeheDerBaulichenAnlage"
+                                       minOccurs="0"
+                                       type="xs:positiveInteger">
+                              <xs:annotation>
+                                 <xs:documentation>Falls die bauliche Anlage eine Höhe von mehr als 10 m hat, ist dieses Element zu übermitteln. Es ist die Höhe in Metern einzutragen (ohne Nachkommastellen).</xs:documentation>
+                              </xs:annotation>
+                           </xs:element>
+                        </xs:sequence>
+                     </xs:complexType>
+                  </xs:element>
+                  <xs:element name="nachweise">
+                     <xs:annotation>
+                        <xs:documentation>Dieses Element enthält Nachweise zum Sachverhalt der geplanten Beseitigung.</xs:documentation>
+                     </xs:annotation>
+                     <xs:complexType>
+                        <xs:sequence>
+                           <xs:element name="standsicherheitsnachweisDurchTragwerksplaner" type="xs:boolean">
+                              <xs:annotation>
+                                 <xs:documentation>Ist ein Standsicherheitsnachweis durch einen Tragwerkplaner erforderlich, dann ist in diesem Element "true" zu übermitteln, andernfalls "false".</xs:documentation>
+                              </xs:annotation>
+                           </xs:element>
+                           <xs:element name="ueberwachungDurchTragwerksplaner" type="xs:boolean">
+                              <xs:annotation>
+                                 <xs:documentation>Ist die Beseitigung durch den Tragwerksplaner zu überwachen, dann ist in diesem Element "true" zu übermitteln, andernfalls "false".</xs:documentation>
+                              </xs:annotation>
+                           </xs:element>
+                        </xs:sequence>
+                     </xs:complexType>
+                  </xs:element>
+                  <xs:element name="anlagen" minOccurs="0" type="xbau:Anlagen">
+                     <xs:annotation>
+                        <xs:documentation>Hier sind die Anlagen bzw. Verweise auf solche Anlagen einzufügen. Dies sind die Unterlagen, die für die Bearbeitung der Anzeige durch die adressierte Bauaufsichtsbehörde benötigt werden.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+               </xs:sequence>
+            </xs:extension>
+         </xs:complexContent>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="anzeige.beseitigungGeaendert.0952">
+      <xs:annotation>
+         <xs:appinfo>
+            <title>Geänderte Anzeige der Absicht einer Beseitigung</title>
+         </xs:appinfo>
+         <xs:documentation>Diese Nachricht enthält geänderte oder ergänzte Daten zur angezeigten Absicht der Beseitigung einer baulichen Anlage. Sie bezieht sich auf eine bereits übermittelte Anzeige. Entweder ist sie eine Reaktion auf eine vorliegende Mängelliste der Bauaufsichtsbehörde. Oder es wird eine modifizierte Planung aus Gründen des Anzeigenden nachgereicht.</xs:documentation>
+      </xs:annotation>
+      <xs:complexType>
+         <xs:complexContent>
+            <xs:extension base="xbau:Nachricht.G2G">
+               <xs:sequence>
+                  <xs:element name="bezug" type="xbau:Bezug">
+                     <xs:annotation>
+                        <xs:documentation>Bezug auf Vorgang und Nachricht einer Anzeige Beseitigung.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+                  <xs:element name="sachverhalt">
+                     <xs:annotation>
+                        <xs:documentation>Hier sind (geänderte) Eckdaten zum Sachverhalt der geplanten Beseitigung anzugeben.</xs:documentation>
+                     </xs:annotation>
+                     <xs:complexType>
+                        <xs:sequence>
+                           <xs:element name="bezeichnungDesBauvorhabens"
+                                       minOccurs="0"
+                                       type="dinspec91379:datatypeC">
+                              <xs:annotation>
+                                 <xs:documentation>In dieses Element ist die Bezeichnung des Vorhabens einzutragen. Sie wird vom Bauherrn vergeben und später ggf. von der Bauaufsichtsbehörde geändert.</xs:documentation>
+                              </xs:annotation>
+                           </xs:element>
+                           <xs:element name="mboGebaeudeklasse"
+                                       minOccurs="0"
+                                       type="xbau:Code.MboGebaeudeklasse">
+                              <xs:annotation>
+                                 <xs:documentation>In diesem Element wird die Art des Gebäudes übermittelt, das beseitigt werden soll. Es wird die Einteilung in Gebäudeklassen gemäß MBO verwendet.</xs:documentation>
+                              </xs:annotation>
+                           </xs:element>
+                           <xs:element name="artDerBaulichenAnlage" minOccurs="0">
+                              <xs:annotation>
+                                 <xs:documentation>Hier kann die Art der baulichen Anlage näher spezifiziert werden. Es ist aus einer der drei Codelisten eine Auswahl zu treffen.</xs:documentation>
+                              </xs:annotation>
+                              <xs:complexType>
+                                 <xs:choice>
+                                    <xs:element name="artDesWohngebaeudes" type="xbau:Code.WohngebaeudeArt">
+                                       <xs:annotation>
+                                          <xs:documentation>Hier wird für bauliche Anlagen, die Wohngebäude sind, eine Klassifizierung vorgenommen gemäß Einteilung der amtlichen Statistik. Die Hauptnutzung muss klar erkennbar sein.</xs:documentation>
+                                       </xs:annotation>
+                                    </xs:element>
+                                    <xs:element name="artDesNichtwohngebaeudes" type="xbau:Code.NichtwohngebaeudeArt">
+                                       <xs:annotation>
+                                          <xs:documentation>Bauliche Anlagen, die nicht Wohngebäude sind, werden durch dieses Element klassifiziert gemäß Signierschlüsselverzeichnis des Statistischen Bundesamts.</xs:documentation>
+                                       </xs:annotation>
+                                    </xs:element>
+                                    <xs:element name="artDerSonstigenAnlage" type="xbau:Code.BaulicheAnlagenSonstige">
+                                       <xs:annotation>
+                                          <xs:documentation>Hier ist für sonstige bauliche Anlagen, also solche, die nicht Gebäude sind, eine Klassifizierung vorzunehmen.</xs:documentation>
+                                       </xs:annotation>
+                                    </xs:element>
+                                 </xs:choice>
+                              </xs:complexType>
+                           </xs:element>
+                           <xs:element name="grundstueck" maxOccurs="unbounded" type="xbau:Grundstueck">
+                              <xs:annotation>
+                                 <xs:documentation>In diesem Element werden die Grundstücke und die Anschriften der Gebäude übermittelt, die beseitigt werden sollen.</xs:documentation>
+                              </xs:annotation>
+                           </xs:element>
+                           <xs:element name="istFreistehend" type="xs:boolean">
+                              <xs:annotation>
+                                 <xs:documentation>Falls das betreffende Gebäude freistehend ist, wird hier "true" eingetragen, andernfalls "false".</xs:documentation>
+                              </xs:annotation>
+                           </xs:element>
+                           <xs:element name="hoeheDerBaulichenAnlage"
+                                       minOccurs="0"
+                                       type="xs:positiveInteger">
+                              <xs:annotation>
+                                 <xs:documentation>Falls die bauliche Anlage eine Höhe von mehr als 10 m hat, ist dieses Element zu übermitteln. Es ist die Höhe in Metern einzutragen (ohne Nachkommastellen).</xs:documentation>
+                              </xs:annotation>
+                           </xs:element>
+                        </xs:sequence>
+                     </xs:complexType>
+                  </xs:element>
+                  <xs:element name="anlagen" minOccurs="0" type="xbau:Anlagen">
+                     <xs:annotation>
+                        <xs:documentation>Hier sind die Anlagen bzw. Verweise auf solche Anlagen einzufügen. Es können im Rahmen der vorliegenden Nachricht geänderte oder vervollständigte Unterlagen sein.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+               </xs:sequence>
+            </xs:extension>
+         </xs:complexContent>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="anzeige.beseitigungUntersagung.0953">
+      <xs:annotation>
+         <xs:appinfo>
+            <title>Untersagung der geplanten Beseitigung</title>
+         </xs:appinfo>
+         <xs:documentation>Diese Nachricht enthält den Hinweis, dass die geplante Maßnahme die Voraussetzungen nicht erfüllt und benennt entsprechende Mängel. Die Bauaufsichtsbehörde fordert zur Nachbesserung auf und untersagt vorläufig die geplante Beseitigung.</xs:documentation>
+      </xs:annotation>
+      <xs:complexType>
+         <xs:complexContent>
+            <xs:extension base="xbau:Nachricht.G2G">
+               <xs:sequence>
+                  <xs:element name="bezug" type="xbau:Bezug">
+                     <xs:annotation>
+                        <xs:documentation>Bezug auf Vorgang und Nachricht einer Anzeige Beseitigung.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+                  <xs:element name="untersagung" type="xbau:Untersagung">
+                     <xs:annotation>
+                        <xs:documentation>Dieses Objekt enthält die nötigen Informationen zur verfügten Untersagung.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+               </xs:sequence>
+            </xs:extension>
+         </xs:complexContent>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="anzeige.beseitigungBestaetigung.0955">
+      <xs:annotation>
+         <xs:appinfo>
+            <title>Bestätigung der geplanten Beseitigung</title>
+         </xs:appinfo>
+         <xs:documentation>Mit dieser Nachricht bestätigt die Baubehörde, dass für die geplante Beseitigung kein Genehmigungsverfahren durchgeführt werden muss.</xs:documentation>
+      </xs:annotation>
+      <xs:complexType>
+         <xs:complexContent>
+            <xs:extension base="xbau:Nachricht.G2G">
+               <xs:sequence>
+                  <xs:element name="bezug" type="xbau:Bezug">
+                     <xs:annotation>
+                        <xs:documentation>Bezug auf Vorgang und Nachricht einer Anzeige Beseitigung.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+               </xs:sequence>
+            </xs:extension>
+         </xs:complexContent>
+      </xs:complexType>
+   </xs:element>
+</xs:schema>

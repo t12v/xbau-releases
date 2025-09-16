@@ -1,0 +1,310 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xbau="http://www.xleitstelle.de/xbau/schema/2/1/" xmlns:xoev-lc="http://xoev.de/latinchars/1_1/datatypes" targetNamespace="http://www.xleitstelle.de/xbau/schema/2/1/" version="2.1" elementFormDefault="qualified" attributeFormDefault="unqualified">
+  <xs:annotation>
+    <xs:appinfo>
+      <standard>
+        <nameLang>XBau - Standard für die Datenkommunikation der Bauaufsichtsbehörde</nameLang>
+        <nameKurz>XBau</nameKurz>
+        <nameTechnisch>xbau</nameTechnisch>
+        <kennung>urn:xoev-de:bmk:standard:xbau</kennung>
+        <beschreibung>XBau ist der XÖV-Standard für den Datenaustausch der Bauaufsichtsbehörden mit ihren Kommunikationspartnern (Bauherren, Architektenbüros, Behörden zahlreicher Rechtsbereiche).</beschreibung>
+      </standard>
+      <versionStandard>
+        <version>2.1</version>
+        <beschreibung>In vielen Teilen überarbeitete und erweiterte produktionsreife Fassung des Standards XBau. Auf der Basis des Baurechts des Bundes und der Länder und eng am Bedarf der Praxis der Behörden entwickelt. Erweiterungen und Verbesserungen befinden sich in der Planung auch für die Zukunft.</beschreibung>
+        <versionXOEVHandbuch>2.1.0</versionXOEVHandbuch>
+        <versionXGenerator>2.6.1</versionXGenerator>
+        <versionModellierungswerkzeug>18.0</versionModellierungswerkzeug>
+        <nameModellierungswerkzeug>MagicDraw</nameModellierungswerkzeug>
+      </versionStandard>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:include schemaLocation="xbau-baukasten.xsd" />
+  <xs:include schemaLocation="xbau-codes.xsd" />
+  <xs:import schemaLocation="http://xoev.de/latinchars/1_1/datatypes/latinchars.xsd" namespace="http://xoev.de/latinchars/1_1/datatypes" />
+  <xs:complexType name="BefundlisteFormell">
+    <xs:annotation>
+      <xs:documentation>Dieser Typ beinhaltet die Befunde der formellen Prüfung eines Antrags, einer Anzeige oder einer Erklärung. Für jeden Befund sind die entsprechenden Parameter gefüllt, die Inhalt und Bezug des Befundes für den Antragsteller bzw. Anfragenden nachvollziehbar machen.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="befund" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>Dieses Element stellt genau einen Befund der Befundliste dar.</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="artDesBefundes" type="xbau:Code.FormelleBefundeArt">
+              <xs:annotation>
+                <xs:documentation>In diesem Element wird die Befundkategorie angegeben, der dieser Befund zugeordnet werden kann.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="beschreibung" type="xbau:Text">
+              <xs:annotation>
+                <xs:documentation>Hier wird der Sachverhalt des Befundes beschrieben. Dieser Sachverhalt enthält Details, die für den Adressaten hilfreich sind ergänzend zur angegebenen Art des Befundes.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Rueckweisung">
+    <xs:annotation>
+      <xs:documentation>Dieser Typ nimmt Angaben zu Art und Ort eines Fehlers auf, der zur Rückweisung der Nachricht geführt hat.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="rueckweisungsgrund" maxOccurs="unbounded" type="xbau:Rueckweisungsgrund">
+        <xs:annotation>
+          <xs:documentation>Jede Instanz dieses Elements enthält Informationen zu einem Fehler bzw. einem Mangel, der in Bezug auf die erhaltene Nachricht identifiziert wurde.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="idNachricht" type="xbau:Identifikation.Nachricht">
+        <xs:annotation>
+          <xs:documentation>Identifikationsmerkmale der zurückgewiesenen XBau-Nachricht, die der Autor der Rückweisung zu einem Zeitpunkt in der Vergangenheit empfangen hat.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="nachricht" type="xs:base64Binary">
+        <xs:annotation>
+          <xs:documentation>Dieses Element bildet die zurückgewiesene Nachricht im Binärformat ab.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Rueckweisungsgrund">
+    <xs:annotation>
+      <xs:documentation>Dieser Typ nimmt Angaben zu Art und Ort eines Fehlers auf, der zur Rückweisung der Nachricht geführt hat.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="grund" type="xbau:Code.XBau.Fehlerkennzahl">
+        <xs:annotation>
+          <xs:documentation>Mit diesem Element wird der Grund übermittelt, aus dem die Nachricht zurückgewiesen wird. Die im Rahmen der hier zu verwendenden Codeliste zur Verfügung gestellten Rückweisungsgründe sind kontextunabhängig und finden daher in allen Übermittlungskontexten Anwendung.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="fehlertext" minOccurs="0" type="xoev-lc:String.Latin">
+        <xs:annotation>
+          <xs:documentation>Hier steht ein ergänzender textueller Hinweis auf die Art des Fehlers, der zur Zurückweisung der Nachricht geführt hat. Sofern kein Text angegeben ist (das Element also nicht übermittelt wird), gilt allein die Erläuterung zur im Element grund stehenden Fehlerkennzahl.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="prozessnachrichten.rueckweisung.G2G.1100">
+    <xs:annotation>
+      <xs:appinfo>
+        <title>Rückweisungsnachricht G2G</title>
+      </xs:appinfo>
+      <xs:documentation>Mittels dieser Nachricht wird eine Nachricht abgewiesen, die Fehler enthält, so dass sie nicht zielführend verarbeitet werden kann (Behörde-Behörde-Kommunikation). Der Autor der fehlerhaften Nachricht wird über die Fehler unterrichtet. Die abgewiesene Nachricht wird zur Information aufgeführt.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="nachrichtenkopf" type="xbau:Nachrichtenkopf.G2G">
+          <xs:annotation>
+            <xs:documentation>Hier stehen allgemeine Informationen zum Sender und zum Empfänger zur eindeutigen Benennung und Identifizierung.</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="rueckweisungDaten" type="xbau:Rueckweisung">
+          <xs:annotation>
+            <xs:documentation>Mit diesem Element wird der Fehler einer gegebenenen Nachricht benannt, der zu der vorliegenden Rückweisung geführt hat.</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="prozessnachrichten.rueckweisung.G2privat.1101">
+    <xs:annotation>
+      <xs:appinfo>
+        <rechtsgrundlage>BZRG</rechtsgrundlage>
+        <title>Rückweisungsnachricht G2privat</title>
+      </xs:appinfo>
+      <xs:documentation>Mittels dieser Nachricht wird eine Nachricht abgewiesen, die Fehler enthält, so dass sie nicht zielführend verarbeitet werden kann (Rückweisung per Behörde-an-Privat-Kommunikation). Der Autor der fehlerhaften Nachricht wird über die Fehler unterrichtet. Die abgewiesene Nachricht wird zur Information aufgeführt.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="nachrichtenkopf" type="xbau:Nachrichtenkopf.G2privat">
+          <xs:annotation>
+            <xs:documentation>Hier stehen allgemeine Informationen zum Sender und zum Empfänger zur eindeutigen Benennung und Identifizierung.</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="rueckweisungDaten" type="xbau:Rueckweisung">
+          <xs:annotation>
+            <xs:documentation>Mit diesem Element wird der Fehler einer gegebenenen Nachricht benannt, der zu der vorliegenden Rückweisung geführt hat.</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="prozessnachrichten.rueckweisung.privat2G.1102">
+    <xs:annotation>
+      <xs:appinfo>
+        <rechtsgrundlage>BZRG</rechtsgrundlage>
+        <title>Rückweisungsnachricht privat2G</title>
+      </xs:appinfo>
+      <xs:documentation>Mittels dieser Nachricht wird eine Nachricht abgewiesen, die Fehler enthält, so dass sie nicht zielführend verarbeitet werden kann  (Rückweisung per Privat-an-Behörde-Kommunikation). Der Autor der fehlerhaften Nachricht wird über die Fehler unterrichtet. Die abgewiesene Nachricht wird zur Information aufgeführt.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="nachrichtenkopf" type="xbau:Nachrichtenkopf.privat2G">
+          <xs:annotation>
+            <xs:documentation>Hier stehen allgemeine Informationen zum Sender und zum Empfänger zur eindeutigen Benennung und Identifizierung.</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="rueckweisungDaten" type="xbau:Rueckweisung">
+          <xs:annotation>
+            <xs:documentation>Mit diesem Element wird der Fehler einer gegebenenen Nachricht benannt, der zu der vorliegenden Rückweisung geführt hat.</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="prozessnachrichten.eingangsbestaetigung.1120">
+    <xs:annotation>
+      <xs:appinfo>
+        <title>Bestägigung Eingang von Antrag oder Anzeige</title>
+      </xs:appinfo>
+      <xs:documentation>Diese Nachricht wird durch die Bauaufsichtsbehörde verwendet, um als Reaktion auf einen Antrag (modifizierten Antrag, Rücknahme eines Antrags, Anzeige) zu informieren, dass das Anliegen eingegangen ist und sich in Bearbeitung befindet. 
+
+Sie enthält die nötigen Informationen, um den Bezug auf die Nachricht, deren Eingang sie bestätigt, herzustellen.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:complexContent>
+        <xs:extension base="xbau:Nachricht.G2privat">
+          <xs:sequence>
+            <xs:element name="bezug" type="xbau:Bezug">
+              <xs:annotation>
+                <xs:documentation>Dieses Element enthält, um Bezug zu nehmen, die Vorgangsnummer bzw. die Referenz des Antrags (Zeichen des Antragstellers).
+
+Außerdem enthält es - mandatorisch - eine Referenzierung auf die Nachricht, durch die der Antrag (modifizierter Antrag) bzw. die Anzeige eingereicht worden ist, deren Empfang bestätigt wird.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="information" minOccurs="0" type="xbau:Text">
+              <xs:annotation>
+                <xs:documentation>Hier kann die Bauaufsichtsbehörde ergänzend erläuternden Text in die Nachricht einfügen.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+          </xs:sequence>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="prozessnachrichten.aktenzeichen.1121">
+    <xs:annotation>
+      <xs:appinfo>
+        <title>Mitteilung des zugewiesenen Aktenzeichens</title>
+      </xs:appinfo>
+      <xs:documentation>Diese Nachricht wird durch die Bauaufsichtsbehörde verwendet, um einen Antragsteller über die zugewiesene Vorgangsnummer bzw. das zugewiesene Aktenzeichen zu informieren.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:complexContent>
+        <xs:extension base="xbau:Nachricht.G2privat">
+          <xs:sequence>
+            <xs:element name="bezug" type="xbau:Bezug">
+              <xs:annotation>
+                <xs:documentation>Dieses Element enthält zur Information die Vorgangsnummer bzw. das Aktenzeichen, unter der die Behörde das Anliegen bearbeitet. Mit der Angabe der Referenz des Antragstellers wird der Bezug für diesen hergestellt.
+
+Eine Referenzierung auf eine Nachricht wird in diese Nachricht nicht eingetragen.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+          </xs:sequence>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="prozessnachrichten.ruecknahme.1130">
+    <xs:annotation>
+      <xs:appinfo>
+        <title>Rücknahme eines Antrags</title>
+      </xs:appinfo>
+      <xs:documentation>Diese Nachricht kann durch einen Antragsteller verwendet werden, um einen in der Vergangenheit gestellten Antrag zurückzuziehen bzw. die Absicht einer solchen Rücknahme zu kommunizieren.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:complexContent>
+        <xs:extension base="xbau:Nachricht.privat2G">
+          <xs:sequence>
+            <xs:element name="bezug" type="xbau:Bezug">
+              <xs:annotation>
+                <xs:documentation>In dieses Element sind die Referenzen von Antragsteller und ggf. Behörde einzutragen.
+
+Eine Referenzierung auf eine Nachricht wird in diese Nachricht nicht eingetragen.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="information" minOccurs="0" type="xbau:Text">
+              <xs:annotation>
+                <xs:documentation>Hier kann optional durch den Antragsteller eine Begründung  eingetragen werden.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="anlagen" minOccurs="0" type="xbau:Anlagen">
+              <xs:annotation>
+                <xs:documentation>Ggf. will der Antragsteller der Rücknahme des Antrags ein Schreiben beilegen. Das lässt sich mit diesem Element abbilden.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+          </xs:sequence>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="prozessnachrichten.quittierungRuecknahme.1131">
+    <xs:annotation>
+      <xs:appinfo>
+        <title>Quittierung der Rücknahme eines Antrags</title>
+      </xs:appinfo>
+      <xs:documentation>Diese Nachricht wird von der Bauaufsichtsbehörde verwendet, um  die Rücknahme des Antrags durch den Antragsteller zu quittieren, also zu bestätigen, dass die Rücknahme durch die Bauaufsichtsbehörde akzeptiert wurde (mit gegebenen Konsequenzen für den Antragsteller). Ggf. kann sie aber auch die Information enthalten, dass der Antrag nicht mehr zurückgenommen werden kann.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:complexContent>
+        <xs:extension base="xbau:Nachricht.G2privat">
+          <xs:sequence>
+            <xs:element name="bezug" type="xbau:Bezug">
+              <xs:annotation>
+                <xs:documentation>In dieses Element sind die Referenzen von Antragsteller und ggf. Behörde einzutragen.
+
+Es ist die Nachricht des Antragstellers zu referenzieren, mittels derer er über seine Absicht informiert hat, den Antrag zurückzunehmen.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="ruecknahmeAkzeptiert" type="xs:boolean">
+              <xs:annotation>
+                <xs:documentation>Falls die Rücknahme des Antrags durch die Bauaufsichtsbehörde akzeptiert wurde, wird in diesem Element "true" übermittelt. 
+Andernfalls wird "false" übermittelt. Dann ist eine Rücknahme des Antrags nicht mehr möglich, weil bereits ein Bescheid erteilt wurde, der dem Antragsteller auf dem vorgesehenen Wege zugehen wird oder bereits zugegangen ist.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="information" minOccurs="0" type="xbau:Text">
+              <xs:annotation>
+                <xs:documentation>Hier kann optional eine Begründung oder Erläuterung der Bauaufsichtsbehörde eingetragen werden.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+          </xs:sequence>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="prozessnachrichten.formellePruefungBefundliste.1140">
+    <xs:annotation>
+      <xs:appinfo>
+        <title>Befundliste als Ergebnis einer formellen Prüfung</title>
+      </xs:appinfo>
+      <xs:documentation>Diese Nachricht bezieht sich auf einen gestellten Antrag oder eine übermittelte Anzeige oder Erklärung. Enthalten sind die Ergebnisse einer formellen Prüfung (Befunde) sowie ggf. eine Frist, innerhalb derer Antrag bzw. Anzeige anzupassen ist (bei einer Anpassung kann es sich um Korrekturen oder um eine Vervollständigung handeln).</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:complexContent>
+        <xs:extension base="xbau:Nachricht.G2privat">
+          <xs:sequence>
+            <xs:element name="bezug" type="xbau:Bezug">
+              <xs:annotation>
+                <xs:documentation>Bezug auf Vorgang und Nachricht, auf die sich die Inhalte der vorliegenden Nachricht beziehen.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="befundliste" type="xbau:BefundlisteFormell">
+              <xs:annotation>
+                <xs:documentation>In diesem Element sind die Ergebnisse der formellen Prüfung enthalten. Sie haben die Form einer Liste von Mängeln des geprüften Gegenstandes.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="frist" minOccurs="0" type="xs:date">
+              <xs:annotation>
+                <xs:documentation>In dieses Element wird - falls im entsprechenden Vorgang vorgesehen - die durch die Behörde gesetzte Frist eingetragen, innerhalb derer die genannten Mängel zu beseitigen und die Unterlagen erneut einzureichen sind.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+          </xs:sequence>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
+

@@ -1,0 +1,141 @@
+<?xml version='1.0' encoding='iso-8859-1'?>
+<invariants xmlns="http://www.osci.de/xoev/invariants">
+
+<!--  <invariant context='Class' name='wsdlVorlagedateiZugeordnet'>
+    <body><![CDATA[
+		self.extension_xsdMessage.isDefined() and self.extension_xsdMessage.wsdlVorlagedatei implies
+          Class.allInstances()->exists(c | c.extension_wsdlService.isDefined() and
+                                           c.clientDependency.supplier->includes(self))
+		]]>	   
+    </body>
+    <documentation>
+      Falls nicht explizit gekennzeichnet, müssen alle Nachrichten mindestens einem Dienst zugeordnet sein.
+    </documentation>
+  </invariant>-->
+  
+  <invariant context='Class' name='passendesKommunikationsszenario'>
+    <body><![CDATA[
+        let options = Set{'one-way-active', 
+                          'one-way-passive', 
+                          'request-response', 
+                          'request-response-noprotocol'} in
+		(self.extension_wsdlService.Kommunikationsszenario.isDefined implies 
+          options->includes(self.extension_wsdlService.Kommunikationsszenario))
+        and
+        (self.extension_osciTransportScenario.Kommunikationsszenario.isDefined implies
+          options->includes(self.extension_osciTransportScenario.Kommunikationsszenario))
+		]]>	   
+    </body>
+    <documentation>
+      Erlaubte Kommunikationsszenarien sind one-way-active, one-way-passive, request-response und 
+      request-response-noprotocol.
+    </documentation>
+  </invariant>
+  
+  <invariant context='Class' name='passendeSignaturInhaltsdaten'>
+    <body><![CDATA[
+        let options = Set{'none', 
+                          'advanced', 
+                          'qualified'} in
+		(self.extension_wsdlService.SignaturInhaltsdaten.isDefined implies 
+          options->includes(self.extension_wsdlService.SignaturInhaltsdaten))
+        and
+        (self.extension_osciTransportScenario.SignaturInhaltsdaten.isDefined implies
+          options->includes(self.extension_osciTransportScenario.SignaturInhaltsdaten))
+		]]>	   
+    </body>
+    <documentation>
+      Erlaubtes Signaturlevel für Inhaltsdaten ist none, advanced oder qualified.
+    </documentation>
+  </invariant>
+  
+  <invariant context='Class' name='passendeSignaturNutzdaten'>
+    <body><![CDATA[
+        let options = Set{'none', 
+                          'advanced', 
+                          'qualified'} in
+		(self.extension_wsdlService.SignaturNutzdaten.isDefined implies 
+          options->includes(self.extension_wsdlService.SignaturNutzdaten))
+        and
+        (self.extension_osciTransportScenario.SignaturNutzdaten.isDefined implies
+          options->includes(self.extension_osciTransportScenario.SignaturNutzdaten))
+		]]>	   
+    </body>
+    <documentation>
+      Erlaubtes Signaturlevel für Nutzdaten ist none, advanced oder qualified.
+    </documentation>
+  </invariant>
+  
+  <invariant context='Class' name='optionalerContainerBestimmt'>
+    <body><![CDATA[
+        let options = Set{'true', 
+                          'false'} in
+		(self.extension_wsdlService.OptionalerContainer.isDefined implies 
+          options->includes(self.extension_wsdlService.OptionalerContainer))
+        and
+        (self.extension_osciTransportScenario.OptionalerContainer.isDefined implies
+          options->includes(self.extension_osciTransportScenario.OptionalerContainer))
+		]]>	   
+    </body>
+    <documentation>
+      Optionalität des Containers muss festgelegt sein ('true' oder 'false').
+    </documentation>
+  </invariant>
+  
+  <invariant context='Class' name='oneWayActiveMessages'>
+    <body><![CDATA[
+        self.extension_wsdlService.isDefined and 
+        (self.extension_wsdlService.Kommunikationsszenario = 'one-way-active' or
+         self.parents().any(true).oclAsType(Class).extension_osciTransportScenario.Kommunikationsszenario = 'one-way-active') implies
+          self.clientDependency->forAll(c|c.extension_wsdlServiceMessage.isDefined and 
+                                          not c.extension_wsdlServiceInputMessage.isDefined and
+                                          not c.extension_wsdlServiceOutputMessage.isDefined and
+                                          not c.extension_wsdlServiceFaultMessage.isDefined)
+		]]>	   
+    </body>
+    <documentation>
+      One-way-active-Szenarios beziehen ausschließlich allgemeine Service-Messages ein.
+    </documentation>
+  </invariant>
+  
+  <invariant context='Class' name='requestResponseMessages'>
+    <body><![CDATA[
+        self.extension_wsdlService.isDefined and 
+        (self.extension_wsdlService.Kommunikationsszenario = 'request-response' or
+         self.parents().any(true).oclAsType(Class).extension_osciTransportScenario.Kommunikationsszenario = 'request-response') implies
+          self.clientDependency->forAll(c|
+             not c.extension_wsdlServiceMessage.isDefined and 
+             
+             (c.extension_wsdlServiceInputMessage.isDefined and
+             not c.extension_wsdlServiceOutputMessage.isDefined and
+             not c.extension_wsdlServiceFaultMessage.isDefined) or
+             
+            (not c.extension_wsdlServiceInputMessage.isDefined and
+             c.extension_wsdlServiceOutputMessage.isDefined and
+             not c.extension_wsdlServiceFaultMessage.isDefined) or
+             
+            (not c.extension_wsdlServiceInputMessage.isDefined and
+             not c.extension_wsdlServiceOutputMessage.isDefined and
+             c.extension_wsdlServiceFaultMessage.isDefined))
+		]]>	   
+    </body>
+    <documentation>
+      Request-response-Szenarios beziehen ausschließlich Input- , 
+	  Output- und Fault-Messages ein. 
+    </documentation>
+  </invariant>
+  
+  <invariant context='Class' name='unterstützteSzenarien'>
+    <body><![CDATA[
+        not (self.extension_wsdlService.Kommunikationsszenario = 'one-way-passive') and 
+        not (self.extension_osciTransportScenario.Kommunikationsszenario = 'request-response-noprotocol')
+		]]>	   
+    </body>
+    <documentation>
+      One-way-passive und request-response-noprotocol noch nicht unterstützt.
+    </documentation>
+  </invariant>
+
+<!--  </rule>-->
+</invariants>
+

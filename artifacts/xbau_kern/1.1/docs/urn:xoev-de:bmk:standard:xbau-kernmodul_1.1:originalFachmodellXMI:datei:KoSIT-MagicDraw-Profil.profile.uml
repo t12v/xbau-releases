@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Profile xmi:version="20110701" xmlns:xmi="http://www.omg.org/spec/XMI/20110701" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/4.0.0/UML" xmi:id="_16_5_4_1d100e5_1340875817251_124327_463" name="KoSIT-MagicDraw-Profil" URI="" metamodelReference="_16_5_4_1d100e5_1340875817251_124327_463_packageImportcreatedOnLoad">
+  <eAnnotations xmi:id="_U2_VdZZUEeyPL_M6Y8GWYA" source="http://www.eclipse.org/uml2/2.0.0/UML">
+    <contents xmi:type="ecore:EPackage" xmi:id="_U2_VdpZUEeyPL_M6Y8GWYA" name="KoSITMagicDrawProfil" nsURI="http:///schemas/KoSITMagicDrawProfil/_UMBFgJZUEeyPL_M6Y8GWYA/0" nsPrefix="KoSITMagicDrawProfil">
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="_U2_Vd5ZUEeyPL_M6Y8GWYA" name="kositNachrichtenEnumeration">
+        <eAnnotations xmi:id="_U2_VeJZUEeyPL_M6Y8GWYA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_16_5_4_1d100e5_1340875833931_690362_464"/>
+        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_U2_VeZZUEeyPL_M6Y8GWYA" name="base_Enumeration" ordered="false" lowerBound="1">
+          <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Enumeration"/>
+        </eStructuralFeatures>
+      </eClassifiers>
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="_U2_Ve5ZUEeyPL_M6Y8GWYA" name="kositNachrichtenCode">
+        <eAnnotations xmi:id="_U2_VfJZUEeyPL_M6Y8GWYA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_16_5_4_1d100e5_1340876367884_372649_333"/>
+        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_U2_VfZZUEeyPL_M6Y8GWYA" name="base_Class" ordered="false" lowerBound="1">
+          <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Class"/>
+        </eStructuralFeatures>
+      </eClassifiers>
+    </contents>
+  </eAnnotations>
+  <packageImport xmi:id="_16_5_4_1d100e5_1340875817251_124327_463_packageImportcreatedOnLoad">
+    <importedPackage xmi:type="uml:Model" href="pathmap://UML_METAMODELS/UML.metamodel.uml#_0"/>
+  </packageImport>
+  <packageImport xmi:id="_0primitiveTypesKoSIT-MagicDraw-Profil">
+    <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#_0"/>
+  </packageImport>
+  <packageImport xmi:id="_0javaPrimitiveTypesKoSIT-MagicDraw-Profil">
+    <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#_0"/>
+  </packageImport>
+  <packagedElement xmi:type="uml:Stereotype" xmi:id="_16_5_4_1d100e5_1340875833931_690362_464" name="kositNachrichtenEnumeration">
+    <ownedAttribute xmi:id="_16_5_4_1d100e5_1340876351216_558926_329" name="base_Enumeration" visibility="private" association="_16_5_4_1d100e5_1340876351216_620083_328">
+      <type xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#Enumeration"/>
+    </ownedAttribute>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Extension" xmi:id="_16_5_4_1d100e5_1340876351216_620083_328" name="" memberEnd="_16_5_4_1d100e5_1340876351216_558926_329 _16_5_4_1d100e5_1340876351216_715201_330" navigableOwnedEnd="_16_5_4_1d100e5_1340876351216_715201_330">
+    <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_16_5_4_1d100e5_1340876351216_715201_330" name="extension_kositNachrichtenEnumeration" visibility="private" type="_16_5_4_1d100e5_1340875833931_690362_464" aggregation="composite" association="_16_5_4_1d100e5_1340876351216_620083_328">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_16_5_4_1d100e5_1340876351216_638474_331" name=""/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_16_5_4_1d100e5_1340876351216_836751_332" name="" value="1"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Stereotype" xmi:id="_16_5_4_1d100e5_1340876367884_372649_333" name="kositNachrichtenCode">
+    <ownedAttribute xmi:id="_16_5_4_1d100e5_1340876403757_612669_340" name="base_Class" visibility="private" association="_16_5_4_1d100e5_1340876403757_317733_339">
+      <type xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#Class"/>
+    </ownedAttribute>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Extension" xmi:id="_16_5_4_1d100e5_1340876403757_317733_339" name="" memberEnd="_16_5_4_1d100e5_1340876403757_612669_340 _16_5_4_1d100e5_1340876403757_871937_341" navigableOwnedEnd="_16_5_4_1d100e5_1340876403757_871937_341">
+    <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_16_5_4_1d100e5_1340876403757_871937_341" name="extension_kositNachrichtenCode" visibility="private" type="_16_5_4_1d100e5_1340876367884_372649_333" aggregation="composite" association="_16_5_4_1d100e5_1340876403757_317733_339">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_16_5_4_1d100e5_1340876403757_946975_342" name=""/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_16_5_4_1d100e5_1340876403757_568433_343" name="" value="1"/>
+    </ownedEnd>
+  </packagedElement>
+</uml:Profile>

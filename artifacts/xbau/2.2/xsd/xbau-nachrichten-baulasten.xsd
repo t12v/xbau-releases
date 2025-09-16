@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:xbau="http://www.xleitstelle.de/xbau/2/2"
+           targetNamespace="http://www.xleitstelle.de/xbau/2/2"
+           version="2.2"
+           elementFormDefault="qualified"
+           attributeFormDefault="unqualified">
+   <xs:annotation>
+      <xs:appinfo>
+         <standard>
+            <nameLang>XBau - Standard für die Datenkommunikation der Bauaufsichtsbehörde</nameLang>
+            <nameKurz>XBau</nameKurz>
+            <nameTechnisch>xbau</nameTechnisch>
+            <kennung>urn:xoev-de:bmk:standard:xbau</kennung>
+            <beschreibung>XBau ist der XÖV-Standard für den Datenaustausch der Bauaufsichtsbehörden mit ihren Kommunikationspartnern (Bauherren, Architektenbüros, Behörden zahlreicher Rechtsbereiche).</beschreibung>
+         </standard>
+         <versionStandard>
+            <version>2.2</version>
+            <beschreibung>Erweiterte Fassung des Standards XBau. Sie unterstützt im Rahmen der OZG-Umsetzung die Nachrichtenkommunikation der Online-Portale mit den Bauaufsichtsbehörden. Sie deckt die umfangreichen Datenspektren ab (Antragsformulare, Daten zum Bauvorhaben), die in den OZG-Umsetzungsprojekten in den Ländern benötigt werden. Es wurde als neues Verfahren die Antragstellung Teilbaugenehmigung aufgenommen, die Anlässe für die Datenlieferungen der Bauaufsichtsbehörden an die amtliche Statistik wurden vervollständigt. Außerdem ist jetzt eine Abfrage zur Mitgliedschaft in einer Architekten- oder Ingenieurkammer vorgesehen (im Rahmen der Überprüfung einer Bauvorlageberechtigung). Die Datentypen zu Grund- und Flurstücken - und eine lange Liste weiterer Datentypen und Codelisten - wurden praxisnah ausgearbeitet und differenziert. Weitere Änderungen und Erweiterungen sind in der Versionshistorie des Spezifikationsdokuments beschrieben.</beschreibung>
+            <versionXOEVProfil>1.6.1</versionXOEVProfil>
+            <versionXOEVHandbuch>2.2.0</versionXOEVHandbuch>
+            <versionXGenerator>3.0.1</versionXGenerator>
+            <versionModellierungswerkzeug>19.0</versionModellierungswerkzeug>
+            <nameModellierungswerkzeug>MagicDraw</nameModellierungswerkzeug>
+         </versionStandard>
+      </xs:appinfo>
+   </xs:annotation>
+   <xs:include schemaLocation="xbau-baukasten.xsd"/>
+   <xs:element name="baulasten.vorlageErklaerung.0700">
+      <xs:annotation>
+         <xs:appinfo>
+            <title>Baulasterklärung</title>
+         </xs:appinfo>
+         <xs:documentation>Diese Nachricht dient dazu, der Bauaufsichtsbehörde die Baulast-Erklärung sowie ergänzende Dokumentationen zuzustellen.</xs:documentation>
+      </xs:annotation>
+      <xs:complexType>
+         <xs:complexContent>
+            <xs:extension base="xbau:Nachricht.G2G">
+               <xs:sequence>
+                  <xs:element name="bezug" minOccurs="0" type="xbau:Bezug">
+                     <xs:annotation>
+                        <xs:documentation>Im Kontext einer nicht-selbständigen Baulasterklärung wird hier der Bezug zu einem laufenden Baugenehmigungsverfahren hergestellt. Im anderen Fall existiert noch keine Vorgangsnummer, so dass dieses Element nicht verwendet wird.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+                  <xs:element name="baulast"
+                              minOccurs="0"
+                              maxOccurs="unbounded"
+                              type="xbau:Baulast">
+                     <xs:annotation>
+                        <xs:documentation>Falls Baulasterklärungen im Rahmen des Baugenehmigungsverfahrens gefordert sind, können hier der Zweck der angestrebten Baulast sowie der zu regelnde Sachverhalt beschrieben werden. Ein passendes Dokument Baulasterklärung muss sich dann unter den Anlagen dieser Nachricht finden. Jede Instanz des Elements steht für eine erklärte Baulast.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+                  <xs:element name="anlagen" type="xbau:Anlagen">
+                     <xs:annotation>
+                        <xs:documentation>Hier sind alle Pläne darzustellen, die für die Eindeutigkeit der Baulasterklärung relevant sind.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+               </xs:sequence>
+            </xs:extension>
+         </xs:complexContent>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="baulasten.nachforderung.0701">
+      <xs:annotation>
+         <xs:appinfo>
+            <title>Nachforderung</title>
+         </xs:appinfo>
+         <xs:documentation>Diese Nachricht enthält die Befunde der Bauaufsichtsbehörde zu der eingereichten Baulasterklärung bzw. den beigefügten Unterlagen.</xs:documentation>
+      </xs:annotation>
+      <xs:complexType>
+         <xs:complexContent>
+            <xs:extension base="xbau:Nachricht.G2G">
+               <xs:sequence>
+                  <xs:element name="bezug" type="xbau:Bezug">
+                     <xs:annotation>
+                        <xs:documentation>In diesem Element wird der Vorgang (Vorgangsnummer, unter der die Behörde die Baulasterklärung bearbeitet) genannt bzw. dem Antragsteller mitgeteilt bzw. die Nachricht baulasten.vorlageErklaerung.0700 eingetragen, durch deren Eingang bei der Bauaufsichtsbehörde der Vorgang ausgelöst worden ist.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+                  <xs:element name="befundliste" type="xbau:BefundlisteAntragFormell">
+                     <xs:annotation>
+                        <xs:documentation>Hier sind die Ergebnisse der formellen Prüfung enthalten. Die Liste nennt die Mängel, die bei der Prüfung der Baulast-Erklärung aufgefallen sind.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+               </xs:sequence>
+            </xs:extension>
+         </xs:complexContent>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="baulasten.information.0702">
+      <xs:annotation>
+         <xs:appinfo>
+            <title>Information</title>
+         </xs:appinfo>
+         <xs:documentation>Die Akteure, die die Baulast-Erklärung vorgelegt haben, werden durch diese Nachricht über das Ergebnis der Prüfung informiert.</xs:documentation>
+      </xs:annotation>
+      <xs:complexType>
+         <xs:complexContent>
+            <xs:extension base="xbau:Nachricht.G2G">
+               <xs:sequence>
+                  <xs:element name="bezug" type="xbau:Bezug">
+                     <xs:annotation>
+                        <xs:documentation>In diesem Element wird der laufende Vorgang der Bearbeitung der Baulasterklärung genannt und die Nachricht baulasten.vorlageErklaerung.0700 genannt , durch deren Eingang bei der Bauaufsichtsbehörde der Vorgang ausgelöst worden ist.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+                  <xs:element name="sachverhalt">
+                     <xs:annotation>
+                        <xs:documentation>Dieses Element enthält die Ergebnisse der Prüfung der Baulasterklärung.</xs:documentation>
+                     </xs:annotation>
+                     <xs:complexType>
+                        <xs:sequence>
+                           <xs:element name="baulastAkzeptiert" type="xs:boolean">
+                              <xs:annotation>
+                                 <xs:documentation>Falls die Baulast akzeptiert und eingetragen wurde, ist hier 'true' zu übermitteln, anderenfalls 'false'.</xs:documentation>
+                              </xs:annotation>
+                           </xs:element>
+                           <xs:element name="begruendung" minOccurs="0" type="xbau:Text">
+                              <xs:annotation>
+                                 <xs:documentation>Falls die Baulast durch die Behörde nicht akzeptiert und eingetragen wurde, wird in diesem Element die Begründung für diese Entscheidung geliefert.</xs:documentation>
+                              </xs:annotation>
+                           </xs:element>
+                        </xs:sequence>
+                     </xs:complexType>
+                  </xs:element>
+                  <xs:element name="anlagen" minOccurs="0" type="xbau:Anlagen">
+                     <xs:annotation>
+                        <xs:documentation>Hier ist im Erfolgsfall die Dokumentation der vorgenommenen Eintragung ins BL-Verzeichnis enthalten.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+               </xs:sequence>
+            </xs:extension>
+         </xs:complexContent>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="baulasten.gebuehrenbescheid.0703">
+      <xs:annotation>
+         <xs:appinfo>
+            <title>Gebührenbescheid</title>
+         </xs:appinfo>
+         <xs:documentation>Diese Nachricht enthält Informationen über die fälligen Gebühren, sowie die Aufforderung, diese auf der Basis von Zahlungsinformationen zu entrichten.</xs:documentation>
+      </xs:annotation>
+      <xs:complexType>
+         <xs:complexContent>
+            <xs:extension base="xbau:Nachricht.G2G">
+               <xs:sequence>
+                  <xs:element name="bezug" type="xbau:Bezug">
+                     <xs:annotation>
+                        <xs:documentation>In diesem Element wird der laufende Vorgang der Bearbeitung der Baulasterklärung genannt und die Nachricht baulasten.vorlageErklaerung.0700 genannt , durch deren Eingang bei der Bauaufsichtsbehörde der Vorgang ausgelöst worden ist.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+                  <xs:element name="gebuehrenbescheid" type="xbau:Gebuehrenbescheid">
+                     <xs:annotation>
+                        <xs:documentation>Unterhalb dieses Element finden sich die Angaben zur Gebührenberechnung und -begründung, sowie die Zahlungsdaten und weitere Informationen.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+                  <xs:element name="frist" type="xs:date">
+                     <xs:annotation>
+                        <xs:documentation>Dies ist die durch die Behörde gesetzte Zahlungsfrist.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+               </xs:sequence>
+            </xs:extension>
+         </xs:complexContent>
+      </xs:complexType>
+   </xs:element>
+</xs:schema>

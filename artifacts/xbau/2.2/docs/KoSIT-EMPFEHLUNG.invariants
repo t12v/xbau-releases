@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='iso-8859-1'?>
+<invariants xmlns="http://www.osci.de/xoev/invariants" level="recommendation">
+  
+  <rule name="KoSIT-Prüfregel: Keine ungenutzten Datentypen in xsdSchema-Paketen">
+
+    <invariant context="Class" name="NoUnreferencedTypesInXsdSchemaPackage">
+      <body><![CDATA[
+      self.hlpIsPartOfXModel() and self.hlpIsPartOfProfiledPackage() and not(self.extension_xsdGlobalElement.isDefined()) and not(self.extension_xsdDraft.isDefined()) implies
+      (
+        Property.allInstances()->exists(p|p.type = self and p.class.isDefined()) or
+        Generalization.allInstances()->exists(g|g.general = self)
+      )
+      
+    ]]></body>
+      <documentation> Klassen aus einem xsdSchema-Paket müssen irgendwo benutzt werden (entweder als Typ einer Eigenschaft oder als Basistyp einer Generalisierung). </documentation>
+    </invariant>
+  </rule>
+
+</invariants>
+

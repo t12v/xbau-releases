@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:xbau="http://www.xleitstelle.de/xbau/2/5"
+           xmlns:xbauk="http://www.xleitstelle.de/xbau/kernmodul/1/2/2"
+           targetNamespace="http://www.xleitstelle.de/xbau/2/5"
+           version="2.5"
+           elementFormDefault="qualified"
+           attributeFormDefault="unqualified">
+   <xs:annotation>
+      <xs:appinfo>
+         <standard>
+            <nameLang>XBau - Standard für die Datenkommunikation der Bauaufsichtsbehörde</nameLang>
+            <nameKurz>XBau</nameKurz>
+            <nameTechnisch>xbau</nameTechnisch>
+            <kennung>urn:xoev-de:bmk:standard:xbau</kennung>
+            <beschreibung>XBau ist der XÖV-Standard für den Datenaustausch der Bauaufsichtsbehörden mit ihren Kommunikationspartnern (Bauherren, Architektenbüros, Behörden zahlreicher Rechtsbereiche). </beschreibung>
+         </standard>
+         <versionStandard>
+            <version>2.5</version>
+            <beschreibung>Die Datenübermittlung an die Statistischen Landesämter gemäß novelliertem Hochbaustatistikgesetz (HBauStatG) wurde in der vorliegenden XBau-Version in einem eigenen Kapitel ausgearbeitet und differenziert. Der Nachrichtenaustausch mit dem Portal ELBA des Bundesverbands der Prüfingenieure wurde überarbeitet und um den Prozess der Bauüberwachung erweitert. Neu aufgenommen wurde auch die Beteiligung von Angrenzern bei der Prüfung eines Bauvorhabens, sowie die Datenübermittlung an den Unfallversicherungsträger. Die Umsetzung des Gebäudeenergiegesetzes wurde der neuen rechtlichen Lage angepasst. Details zu weiteren Änderungen und Erweiterungen sind wie immer in der Versionshistorie beschrieben.</beschreibung>
+            <versionXOEVProfil>3.0.0</versionXOEVProfil>
+            <versionXOEVHandbuch>3.0.1</versionXOEVHandbuch>
+            <versionXGenerator>3.1.1</versionXGenerator>
+            <versionModellierungswerkzeug>19.0</versionModellierungswerkzeug>
+            <nameModellierungswerkzeug>MagicDraw</nameModellierungswerkzeug>
+         </versionStandard>
+      </xs:appinfo>
+   </xs:annotation>
+   <xs:include schemaLocation="xbau-baukasten.xsd"/>
+   <xs:import schemaLocation="https://xleitstelle.de/xbau/schema/kernmodul/1/2/2/xbau-kernmodul-datentypen.xsd"
+              namespace="http://www.xleitstelle.de/xbau/kernmodul/1/2/2"/>
+   <xs:element name="angrenzer.stellungnahme.0310">
+      <xs:annotation>
+         <xs:appinfo>
+            <rechtsgrundlage>§ 70 (1) S. 1 MBO; § 70 (2) S. 1 MBO; § 70 (3) S. 1 MBO</rechtsgrundlage>
+            <title>Stellungnahme Angrenzer</title>
+         </xs:appinfo>
+         <xs:documentation>Diese Nachricht verwendet die beteiligte Partei, um der Bauaufsichtsbehörde ihre Stellungnahme zuzustellen. In der Regel werden die Nachbarn und die Inhaber von angrenzenden Grundstücken von der Bauaufsichtsbehörde zur Stellungnahme über den eingereichten Bauantrag aufgerufen und antworten daraufhin mit dieser Nachricht.</xs:documentation>
+      </xs:annotation>
+      <xs:complexType>
+         <xs:complexContent>
+            <xs:extension base="xbau:Nachricht.G2G">
+               <xs:sequence>
+                  <xs:element name="referenzAufforderung" type="xbau:ReferenzAuftrag">
+                     <xs:annotation>
+                        <xs:documentation>Eine eindeutige Kennung des Akteneinsichtvorgangs. Die zu beteiligende Partei bezieht sich in ihren Reaktionsnachrichten auf diese Kennung. Die Kennung ist in der Regel in dem Brief zu finden, mit dem der Empfänger zur Beteiligung zugelassen oder aufgefordert wurde.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+                  <xs:element name="stellungnahme">
+                     <xs:annotation>
+                        <xs:documentation>Unterhalb dieses Elements ist die Stellungnahme eingefügt, die aus der Einsichtnahme durch die beteiligte Partei hervorgegangen ist. Um hier eine strukturierte Stellungnahme einzutragen, ist eine bestimmte Form bei der Dokumentation der Stellungnahme einzuhalten. Es sind die Parameter dieses Objekts zu füllen.</xs:documentation>
+                     </xs:annotation>
+                     <xs:complexType>
+                        <xs:choice>
+                           <xs:element name="istZustimmung" fixed="true" type="xs:boolean">
+                              <xs:annotation>
+                                 <xs:documentation>Durch die Übermittlung dieses Elements wird mitgeteilt, dass die Stellungnahme positiv ausgefallen ist (Zustimmung).</xs:documentation>
+                              </xs:annotation>
+                           </xs:element>
+                           <xs:element name="istZustimmungMitVoraussetzung">
+                              <xs:annotation>
+                                 <xs:documentation>Falls die Stellungnahme positiv ausfällt, sofern bestimmte Voraussetzungen umgesetzt werden (Zustimmung mit Voraussetzung), wird diese Option gewählt und die erforderliche Voraussetzung ist zu erläutern.</xs:documentation>
+                              </xs:annotation>
+                              <xs:complexType>
+                                 <xs:sequence>
+                                    <xs:element name="istZustimmungMitVoraussetzung" fixed="true" type="xs:boolean">
+                                       <xs:annotation>
+                                          <xs:documentation>Durch die Übermittlung dieses Elements wird mitgeteilt, dass die Stellungnahme positiv ausfällt, sofern bestimmte Voraussetzungen umgesetzt werden (Zustimmung mit Voraussetzung).</xs:documentation>
+                                       </xs:annotation>
+                                    </xs:element>
+                                    <xs:element name="voraussetzung"
+                                                maxOccurs="unbounded"
+                                                type="xbauk:TextFormatiert">
+                                       <xs:annotation>
+                                          <xs:documentation>Hier werden ggf. Nebenbestimmungen zur Stellungnahme eingefügt.</xs:documentation>
+                                       </xs:annotation>
+                                    </xs:element>
+                                 </xs:sequence>
+                              </xs:complexType>
+                           </xs:element>
+                           <xs:element name="keineZustimmung">
+                              <xs:annotation>
+                                 <xs:documentation>Falls die Stellungnahme negativ ausgefallen ist (keine Zustimmung), wird diese Option gewählt und die Begründung ist zu erläutern.</xs:documentation>
+                              </xs:annotation>
+                              <xs:complexType>
+                                 <xs:sequence>
+                                    <xs:element name="keineZustimmung" fixed="true" type="xs:boolean">
+                                       <xs:annotation>
+                                          <xs:documentation>Durch die Übermittlung dieses Elements wird mitgeteilt, dass die Stellungnahme negativ ausgefallen ist (keine Zustimmung).</xs:documentation>
+                                       </xs:annotation>
+                                    </xs:element>
+                                    <xs:element name="begruendung"
+                                                maxOccurs="unbounded"
+                                                type="xbauk:TextFormatiert">
+                                       <xs:annotation>
+                                          <xs:documentation>Falls die Stellungnahme nicht zustimmend ausgefallen ist, wird in diesem Element die entsprechende Begründung geliefert.</xs:documentation>
+                                       </xs:annotation>
+                                    </xs:element>
+                                 </xs:sequence>
+                              </xs:complexType>
+                           </xs:element>
+                        </xs:choice>
+                     </xs:complexType>
+                  </xs:element>
+                  <xs:element name="anlagen" minOccurs="0" type="xbau:Anlagen">
+                     <xs:annotation>
+                        <xs:documentation>Die für das Verständnis der Stellungnahme notwendigen Bauvorlagen werden in diesem Objekt eingefügt.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+               </xs:sequence>
+            </xs:extension>
+         </xs:complexContent>
+      </xs:complexType>
+   </xs:element>
+</xs:schema>

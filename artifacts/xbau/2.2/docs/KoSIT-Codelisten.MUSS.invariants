@@ -1,0 +1,149 @@
+<?xml version='1.0' encoding='iso-8859-1'?>
+<invariants xmlns="http://www.osci.de/xoev/invariants">
+    
+  <invariant context='Enumeration' name='MetadatenelementCodelisteNameLangMussBefuelltSein'>
+			<body><![CDATA[
+			let m = self.extension_xoevCodeliste.nameLang in
+			self.hlpIsPartOfXModel() and self.extension_xoevCodeliste.isDefined and self.extension_kositGeneriereGenericode.isDefined() implies m.isDefined and m <> ''
+		]]></body>
+    <documentation>
+      Die Eigenschaft "nameLang" muss bei Codelisten, für die Genericode generiert werden soll im Stereotyp «xoevCodeliste» befüllt sein.
+    </documentation> 
+  </invariant>
+  
+    <invariant context='Enumeration' name='MetadatenelementCodelisteNameKurzMussBefuelltSein'>
+			<body><![CDATA[
+			let m = self.extension_xoevCodeliste.nameKurz in
+			self.hlpIsPartOfXModel() and self.extension_xoevCodeliste.isDefined and self.extension_kositGeneriereGenericode.isDefined() implies m.isDefined and m <> ''
+		]]></body>
+    <documentation>
+      Die Eigenschaft "nameKurz" muss bei Codelisten, für die Genericode generiert werden soll im Stereotyp «xoevCodeliste» befüllt sein.
+    </documentation> 
+  </invariant>
+  
+    <invariant context='Enumeration' name='MetadatenelementCodelisteNameTechnischMussBefuelltSein'>
+			<body><![CDATA[
+			let m = self.extension_xoevCodeliste.nameTechnisch in
+			self.hlpIsPartOfXModel() and self.extension_xoevCodeliste.isDefined and self.extension_kositGeneriereGenericode.isDefined() implies m.isDefined and m <> ''
+		]]></body>
+    <documentation>
+      Die Eigenschaft "nameTechnisch" muss bei Codelisten, für die Genericode generiert werden soll im Stereotyp «xoevCodeliste» befüllt sein.
+    </documentation> 
+  </invariant>
+  
+    <invariant context='Enumeration' name='MetadatenelementCodelisteKennungMussBefuelltSein'>
+			<body><![CDATA[
+			let m = self.extension_xoevCodeliste.kennung in
+			self.hlpIsPartOfXModel() and self.extension_xoevCodeliste.isDefined and self.extension_kositGeneriereGenericode.isDefined() implies m.isDefined and m <> ''
+		]]></body>
+    <documentation>
+      Die Eigenschaft "kennung" muss bei Codelisten, für die Genericode generiert werden soll im Stereotyp «xoevCodeliste» befüllt sein.
+    </documentation> 
+  </invariant>
+  
+    <invariant context='Enumeration' name='MetadatenelementCodelisteBeschreibungMussBefuelltSein'>
+			<body><![CDATA[
+			let m = self.extension_xoevCodeliste.beschreibung in
+			self.hlpIsPartOfXModel() and self.extension_xoevCodeliste.isDefined and self.extension_kositGeneriereGenericode.isDefined() implies m.isDefined and m <> ''
+		]]></body>
+    <documentation>
+      Die Eigenschaft "beschreibung" muss bei Codelisten, für die Genericode generiert werden soll im Stereotyp «xoevCodeliste» befüllt sein.
+    </documentation> 
+  </invariant>
+  
+      <invariant context='Enumeration' name='MetadatenelementCodelisteHerausgebernameLangMussBefuelltSein'>
+			<body><![CDATA[
+			let m = self.extension_xoevCodeliste.herausgebernameLang in
+			self.hlpIsPartOfXModel() and self.extension_xoevCodeliste.isDefined and self.extension_kositGeneriereGenericode.isDefined() implies m.isDefined and m <> ''
+		]]></body>
+    <documentation>
+      Die Eigenschaft "herausgebernameLang" muss bei Codelisten, für die Genericode generiert werden soll im Stereotyp «xoevCodeliste» befüllt sein.
+    </documentation> 
+  </invariant>
+  
+  
+  <invariant context='Enumeration' name='MetadatenelementVersionCodelisteVersionMussBefuelltSein'>
+			<body><![CDATA[
+			let m = self.extension_xoevVersionCodeliste.version in
+			self.hlpIsPartOfXModel() and self.extension_xoevVersionCodeliste.isDefined and self.extension_kositGeneriereGenericode.isDefined() implies m.isDefined and m <> ''
+		]]></body>
+    <documentation>
+      Die Eigenschaft "version" muss bei Codelisten, für die Genericode generiert werden soll im Stereotyp «xoevVersionCodeliste» befüllt sein.
+    </documentation> 
+  </invariant>
+  
+    <invariant context='Enumeration' name='MetadatenelementVersionCodelisteVersionXOEVHandbuchMussBefuelltSein'>
+			<body><![CDATA[
+			let m = self.extension_xoevVersionCodeliste.versionXOEVHandbuch in
+			self.hlpIsPartOfXModel() and self.extension_xoevVersionCodeliste.isDefined and self.extension_kositGeneriereGenericode.isDefined() implies m.isDefined and m <> ''
+		]]></body>
+    <documentation>
+      Die Eigenschaft "versionXOEVHandbuch" muss bei Codelisten, für die Genericode generiert werden soll im Stereotyp «xoevVersionCodeliste» befüllt sein.
+    </documentation> 
+  </invariant>
+  
+  <invariant context='Enumeration' name='MetadatenelementCodelisteKennungDarfNurErlaubteZeichenEnthalten'>
+			<body><![CDATA[
+			let m = self.extension_xoevCodeliste.kennung in
+			self.hlpIsPartOfXModel() and self.extension_xoevCodeliste.isDefined and self.extension_kositGeneriereGenericode.isDefined() implies Sequence{1..m.size()}->iterate(i; akku : Boolean = true | akku and Set{'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z','0','1','2','3','4','5','6','7','8','9','.','-',':'}->includes(m.substring(i,i)))
+		]]></body>
+    <documentation>
+      Die Eigenschaft "kennung" im Stereotyp «xoevCodeliste» darf nur die Zeichen "a-z", "A-Z", "0-9", "-", ":" und "." enthalten.
+    </documentation>
+  </invariant>
+  
+  <invariant context='Enumeration' name='MetadatenelementCodelisteNameTechnischDarfNurErlaubteZeichenEnthalten'>
+			<body><![CDATA[
+			let m = self.extension_xoevCodeliste.nameTechnisch in
+			self.hlpIsPartOfXModel() and self.extension_xoevCodeliste.isDefined and self.extension_kositGeneriereGenericode.isDefined() implies Sequence{1..m.size()}->iterate(i; akku : Boolean = true | akku and Set{'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z','A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z','0','1','2','3','4','5','6','7','8','9','.','-',':'}->includes(m.substring(i,i)))
+		]]></body>
+    <documentation>
+      Die Eigenschaft "nameTechnisch" im Stereotyp «xoevCodeliste» darf nur die Zeichen "a-z", "A-Z", "0-9", "-" und "." enthalten.
+    </documentation>
+  </invariant>  
+  
+  <invariant context='Enumeration' name='MetadatenelementVersionCodelisteDatumGueltigkeitAbDarfNurErlaubteZeichenEnthalten'>
+			<body><![CDATA[
+			let m = self.extension_xoevVersionCodeliste.datumGueltigkeitAb in
+			self.hlpIsPartOfXModel() and self.extension_xoevVersionCodeliste.datumGueltigkeitAb.isDefined and self.extension_xoevVersionCodeliste.datumGueltigkeitAb <> '' and self.extension_kositGeneriereGenericode.isDefined() implies Sequence{1..4}->iterate(i; akku : Boolean = true | akku and Set{'0','1','2','3','4','5','6','7','8','9'}->includes(m.substring(i,i))) and
+			Sequence{6..7}->iterate(i; akku : Boolean = true | akku and Set{'0','1','2','3','4','5','6','7','8','9'}->includes(m.substring(i,i))) and
+			Sequence{9..10}->iterate(i; akku : Boolean = true | akku and Set{'0','1','2','3','4','5','6','7','8','9'}->includes(m.substring(i,i))) and
+			m.substring(5,5) = '-' and m.substring(8,8) = '-'
+		]]></body>
+    <documentation>
+      Die Eigenschaft "datumGueltigkeitAb" im Stereotyp «xoevVersionCodeliste» darf nur Datumsangaben im Format JJJJ-MM-TT enthalten.
+    </documentation>
+  </invariant>  
+  
+    <invariant context='Enumeration' name='MetadatenelementVersionCodelisteVersionDarfNurErlaubteZeichenEnthalten'>
+			<body><![CDATA[
+			let m = self.extension_xoevVersionCodeliste.version in
+			self.hlpIsPartOfXModel() and self.extension_xoevCodeliste.isDefined and self.extension_kositGeneriereGenericode.isDefined() implies Sequence{1..m.size()}->iterate(i; akku : Boolean = true | akku and Set{'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z','A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z','0','1','2','3','4','5','6','7','8','9','.','-',':'}->includes(m.substring(i,i)))
+		]]></body>
+    <documentation>
+      Die Eigenschaft "version" im Stereotyp «xoevVersionCodeliste» darf nur die Zeichen "a-z", "A-Z", "0-9", "-" und "." enthalten.
+    </documentation>
+  </invariant>
+
+</invariants>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

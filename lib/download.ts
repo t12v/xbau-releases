@@ -1,9 +1,10 @@
 import axios from 'axios';
 import axiosRetry from 'axios-retry';
+import { rmSync } from 'fs';
 import { Standard, UpdateDetails } from './types';
 import { artifactsFolder, getEnumKeyByValue } from './utils';
-import { fileExists, writeToFile } from './file';
-import { resolve } from 'path';
+import { fileExists, unzipFile, writeToFile } from './file';
+import { dirname, resolve } from 'path';
 
 const BASE_URL = 'https://www.xrepository.de/api/xrepository/';
 const apiClient = axios.create({ baseURL: BASE_URL });
@@ -34,6 +35,8 @@ function safeParse<T>(json: string, fallback: T): T {
 }
 /* eslint-disable  @typescript-eslint/no-explicit-any */
 async function download(file: string, resource: string): Promise<void> {
+  const zipFile = file.endsWith('zip');
+  //const pdfFile = file.endsWith('pdf');
   const filename = resolve(file);
   if (fileExists(filename)) {
     console.debug(`${filename} already existing. Skipping.`);
@@ -41,32 +44,64 @@ async function download(file: string, resource: string): Promise<void> {
       resolve();
     });
   }
+  const headers: any = {
+    'accept-language': 'de-DE,de;q=0.9,en-US;q=0.8,en;q=0.7',
+    accept: '*/*',
+  };
   return client
     .get(resource, {
-      headers: {
-        'accept-language': 'de-DE,de;q=0.9,en-US;q=0.8,en;q=0.7',
-      },
+      headers,
       timeout,
-      responseType: 'blob',
+      responseType: 'arraybuffer',
     })
     .then(async (response) => {
       await writeToFile(filename, response.data);
+      if (zipFile) {
+        const outputDir = dirname(filename);
+        await unzipFile(filename, outputDir);
+        rmSync(filename);
+      }
     })
     .catch((data) => {
       const response = data.response;
       const json = safeParse(response?.data, { fehler: '' });
       if (data.status == 404 && (json?.fehler === 'NUR PLATZHALTER GEFUNDEN' || json?.fehler === 'NICHT SICHTBAR')) {
-        console.info(`Skipping codelist for  ${resource}: ${JSON.stringify(json)}`);
+        console.info(`Skipping ${resource}.`);
+        console.debug(`Response for skipped item: ${JSON.stringify(json)}`);
       } else {
-        console.error(`Could not Download the file ${resource} (data})`);
+        console.error(`Could not Download the file ${resource})`);
+        console.debug(`Response for error: ${data}`);
       }
     });
 }
+
+function getFolderForType(type: string): string {
+  switch (type) {
+    case 'XSD':
+      return 'xsd';
+    case 'originalFachmodellXMI':
+      return 'xmi';
+    case 'WSDL':
+      return 'wsdl';
+    default:
+      return 'docs';
+  }
+}
+
 export async function downloadArtifacts(standard: Standard, updates: UpdateDetails): Promise<any> {
   const details = updates.details;
   const rootFolder = `${artifactsFolder}/${getEnumKeyByValue(Standard, standard)}`;
   const downloads = <Array<Promise<void>>>details.versionen.map(async (standard) => {
-    const folderName = resolve(`${rootFolder}/${standard.version}`);
+    const folderName = `${rootFolder}/${standard.version}`;
+    const docs = standard?.dokumente ?? [];
+    for (const doc of docs) {
+      const folder = `${folderName}/${getFolderForType(doc.type)}`;
+      if (doc.downloads) {
+        for (const item of doc.downloads) {
+          await download(`${folder}/${item.kennung}`, item.url);
+        }
+      }
+    }
     const codeLists = new Array<string>();
     const list = standard?.codeLists ?? [];
     for (const codelist of list) {

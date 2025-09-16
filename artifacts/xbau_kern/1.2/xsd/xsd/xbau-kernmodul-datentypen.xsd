@@ -1,0 +1,1080 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:xbauk="http://www.xleitstelle.de/xbau/kernmodul/1/2"
+           xmlns:dinspec91379="urn:xoev-de:kosit:xoev:datentyp:din-spec-91379_2019-03"
+           xmlns:gml="http://www.opengis.net/gml/3.2"
+           xmlns:xibehoerde="http://www.osci.de/xinneres/behoerde/5"
+           xmlns:xink="http://www.osci.de/xinneres/basisnachricht/5"
+           xmlns:xoev-code="http://xoev.de/schemata/code/1_0"
+           xmlns:xoev-lc="http://xoev.de/latinchars/1_1/datatypes"
+           targetNamespace="http://www.xleitstelle.de/xbau/kernmodul/1/2"
+           version="1.2"
+           elementFormDefault="unqualified"
+           attributeFormDefault="unqualified">
+   <xs:annotation>
+      <xs:appinfo>
+         <standard>
+            <nameLang>XBau-Kernmodul</nameLang>
+            <nameKurz>XBau-Kernmodul</nameKurz>
+            <nameTechnisch>xbau-kernmodul</nameTechnisch>
+            <kennung>urn:xoev-de:bmk:standard:xbau-kernmodul</kennung>
+            <beschreibung>Das XBau-Kernmodul umfasst die von den XBau-Fachmodulen gemeinsam verwendeten Daten- und Nachrichtentypen.</beschreibung>
+         </standard>
+         <versionStandard>
+            <version>1.2</version>
+            <beschreibung>Für diese Version wurden die Datentypen zu den am Bauvorhaben Beteiligten ergänzt und differenziert (Vertreter von Personengruppen). Es wurde eine eigene ID für jede Person im Rahmen der Bearbeitung des Vorgangs eingeführt. Es wurden erweiterte Möglichkeiten geschaffen, um Ansprechpartner für Organisationen zu benennen. Für die Anbindung der IT-Verfahren der Fachbehörden an OZG-Portale und Kollaborationsplattformen sind jetzt erweiterte Mechanismen definiert. Außerdem sind jetzt die Datentypen zur Übertragung von Primärdokumenten und zur Darstellung von formatiertem Text mit weiterer Funktionalität ausgestattet. - Alle Änderungen und Erweiterungen sind in der Versionshistorie des Spezifikationsdokuments dokumentiert.</beschreibung>
+            <versionXOEVProfil>1.7.1</versionXOEVProfil>
+            <versionXOEVHandbuch>2.3</versionXOEVHandbuch>
+            <versionXGenerator>3.0.1</versionXGenerator>
+            <versionModellierungswerkzeug>19.0</versionModellierungswerkzeug>
+            <nameModellierungswerkzeug>MagicDraw</nameModellierungswerkzeug>
+         </versionStandard>
+      </xs:appinfo>
+   </xs:annotation>
+   <xs:include schemaLocation="xbau-kernmodul-codes.xsd"/>
+   <xs:import schemaLocation="http://www.osci.de/xinneres/basisnachricht/5/xinneres-basisnachricht.xsd"
+              namespace="http://www.osci.de/xinneres/basisnachricht/5"/>
+   <xs:import schemaLocation="http://www.osci.de/xinneres/behoerde/5/xinneres-behoerde.xsd"
+              namespace="http://www.osci.de/xinneres/behoerde/5"/>
+   <xs:import schemaLocation="http://xoev.de/DIN-SPEC-91379/2019-03/datatypes/din-91379-datatypes.xsd"
+              namespace="urn:xoev-de:kosit:xoev:datentyp:din-spec-91379_2019-03"/>
+   <xs:import schemaLocation="http://xoev.de/latinchars/1_1/datatypes/latinchars.xsd"
+              namespace="http://xoev.de/latinchars/1_1/datatypes"/>
+   <xs:import schemaLocation="http://xoev.de/schemata/code/1_0/xoev-code.xsd"
+              namespace="http://xoev.de/schemata/code/1_0"/>
+   <xs:import schemaLocation="https://repository.gdi-de.org/schemas/de.xleitstelle.xplanung/5.4/gmlProfile/gmlProfilexplan.xsd"
+              namespace="http://www.opengis.net/gml/3.2"/>
+   <xs:complexType name="Akteur">
+      <xs:annotation>
+         <xs:documentation>Durch den Typ Akteur wird eine Differenzierung zwischen natürlichen Einzelpersonen, Personengruppen und juristischen Personen definiert. Im Namen einer Firma handelt eine natürliche Person als Vertreter. Bei mehreren Personen (z.B. Eigentümergemeinschaften) wird jede Person (juristisch oder natürlich) als Akteur definiert. Eine Person dieser Gruppe kann als Vertreter definiert werden.</xs:documentation>
+      </xs:annotation>
+      <xs:choice>
+         <xs:element name="natuerlichePerson" type="xbauk:AmBauBeteiligtePerson">
+            <xs:annotation>
+               <xs:documentation>In dieses Element sind die Angaben zu der natürlichen Person einzutragen.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element name="organisation" type="xbauk:Organisation">
+            <xs:annotation>
+               <xs:documentation>In dieses Element sind die Angaben zu der Organisation einzutragen.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+      </xs:choice>
+   </xs:complexType>
+   <xs:complexType name="AllgemeinerName">
+      <xs:annotation>
+         <xs:documentation>Der AllgemeineName dient der Darstellung von Vor- und Nachnamen und fasst deren gemeinsame Eigenschaften zusammen.</xs:documentation>
+      </xs:annotation>
+      <xs:sequence>
+         <xs:element name="name" minOccurs="0" type="dinspec91379:datatypeC">
+            <xs:annotation>
+               <xs:documentation>Die Komponente "name" ist der Familien- oder Vorname als Zeichenkette. Nachnamen, z.B. mit Adelstiteln bzw. ausländische Nachnamen werden als ein Name übermittelt und nicht in verschiedene Bestandteile aufgeteilt.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element name="nichtVorhanden" minOccurs="0" type="xs:boolean">
+            <xs:annotation>
+               <xs:documentation>Diese Komponente beinhaltet eine Feststellung (wahr oder falsch), ob zu Recht kein Name angegeben wurde. Ueber das Setzen auf TRUE, wird angezeigt, dass zurecht kein Name angegeben wurde.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="AmBauBeteiligtePerson">
+      <xs:annotation>
+         <xs:documentation>Dieser Typ fasst die Merkmale zusammen, die typischerweise zu am Bau beteiligten natürlichen Personen genannt werden bzw. zu nennen sind.</xs:documentation>
+      </xs:annotation>
+      <xs:sequence>
+         <xs:element name="id" minOccurs="0" type="xs:ID">
+            <xs:annotation>
+               <xs:documentation>Dieses Element kann genutzt werden, um die Person zu identifizieren. Es handelt es sich um eine technische ID, die es erlaubt einen Datensatz für Änderungen deskriptiver Eigenschaften herauszugreifen. Dem Element ist der W3C-Datentyp ID (https://www.w3.org/TR/xmlschema11-2/#ID) zugeordnet, ein String-Derivat. Scope des hiermit eingeführten Identifikationsmechanismus: Der Scope ist gemäß der hier festgelegten Semantik nur der gegebene Vorgang. Dies bedeutet beispielsweise im Rahmen eines Antragsvorgangs: Der Antrag wird initial vom Online-Service ("Baugenehmigung Online") an die zuständige Bauaufsichtsbehörde übermittelt. In der XBau-Nachrichteninstanz werden die beteiligten Personen und Firmen identifiziert mittels vom Online-Service vergebener Identifier. Ab dem Zeitpunkt werden diese Identifikationsmittel im Nachrichtenaustausch im Rahmen des gegebenen Vorgangs in beide Richtungen weiterverwendet, um in der Kommunikation intersubjektiv nachvollziehbar zu referenzieren. Ob über diesen Scope hinausgehend identifiziert werden soll, ist Angelegenheit des Umsetzungsprojekts, XBau macht dazu keine Aussage.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element name="name" type="xbauk:NameNatuerlichePerson">
+            <xs:annotation>
+               <xs:documentation>In dieses Element sind die Angaben zu den Namen der Person einzutragen.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element name="anschrift" type="xbauk:Anschrift">
+            <xs:annotation>
+               <xs:documentation>In dieses Objekt sind die Angaben zur Anschrift der Person einzutragen. Welche Anschrift dafür auszuwählen ist, ist nicht festgelegt. Wichtig ist, dass es eine zustellfähige Anschrift sein muss (für den Zweck der verbindlichen Zustellung).</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element name="kommunikation"
+                     minOccurs="0"
+                     maxOccurs="unbounded"
+                     type="xbauk:Kommunikation">
+            <xs:annotation>
+               <xs:documentation>In dieses Objekt sind Angaben einzutragen, die benötigt werden, um mit der Person zu kommunizieren (z. B. per Brief oder per Telefon). Diese Daten dienen der persönlichen Erreichbarkeit; die Unterscheidung, ob es sich um eine private oder eine geschäftliche E-Mail-Adresse handelt, ist nicht erheblich.).</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element name="istVertreter"
+                     minOccurs="0"
+                     fixed="true"
+                     type="xs:boolean">
+            <xs:annotation>
+               <xs:documentation>Sofern mehrere natürliche Personen involviert sind, handelt es sich um eine Personengruppe, deren Vertreter mit diesem Element zu kennzeichnen ist.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="AnbindungFachverfahren">
+      <xs:annotation>
+         <xs:documentation>Dieser Typ deckt Parameter ab, die angewendet werden können, um die behördliche Fachanwendung an das Antragsportal oder die Kollaborationsplattform anzubinden.</xs:documentation>
+      </xs:annotation>
+      <xs:sequence>
+         <xs:element name="apiKey" minOccurs="0" type="xink:UUID">
+            <xs:annotation>
+               <xs:documentation>Hier ist der API-Key einzutragen. Der API-Key dient als zusätzliche Absicherung der Authenzität auf Ebene der Fachnachricht.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element name="anwendungsspezifischeErweiterung"
+                     minOccurs="0"
+                     type="xbauk:AnwendungsspezifischeErweiterungXML">
+            <xs:annotation>
+               <xs:documentation>Über AnwendungsspezifischeErweiterung können über die in XBau konkret definierten Metadaten hinaus weiterführende Metadaten, z. B. fachspezifischer Natur, zu einem Informationsobjekt angegeben werden.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="AnhangOderVerlinkung">
+      <xs:annotation>
+         <xs:documentation>Dieser Typ beschreibt die Mechanismen, mit denen eine Bauvorlage oder sonstige Anlage im Zusammenhang mit einer XBau-Fachnachricht übermittelt wird. Die Bauvorlage bzw. sonstige Anlage wird entweder als Anhang (Attachment) zur XBau-Fachnachricht übermittelt (Metadaten dokumentid und dateiname). Oder sie wird dem Adressaten per Verlinkung zur Verfügung gestellt, also über ein Quellsystem, das sich in seiner Kontrolle befindet (Element uriVerlinkung).</xs:documentation>
+      </xs:annotation>
+      <xs:choice>
+         <xs:element name="anhang" type="xbauk:MetadatenAnhang">
+            <xs:annotation>
+               <xs:documentation>Das Dokument wird als Anhang mit dieser XBau-Fachnachricht übertragen. Dazu stehen unterhalb dieses Elements die passenden Metadaten .</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element name="uriVerlinkung" type="xs:anyURI">
+            <xs:annotation>
+               <xs:documentation>Falls das Dokument über einen Link zugänglich gemacht werden soll, ist der Link in dieses Element einzutragen. Der Link identifiziert die Anlage (Primärdokument) in einem Quellsystem (das sich in Kontrolle der Behörde befindet) eindeutig. Die Verlinkung auf ein Quellsystem entspricht der Architektur der (externen) Verlinkung.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+      </xs:choice>
+   </xs:complexType>
+   <xs:complexType name="Anlagen">
+      <xs:annotation>
+         <xs:documentation>Dieser Typ dient dazu, die Metadaten zu Dokumenten aufzunehmen, die einer XBau-Kommunikation (z.B. Antragstellung) als Anlagen beigefügt sind. Als Anlagen sind in erster Linie Bauvorlagen zu nennen, in vielen Fällen zusätzlich weitere Anlagen (wie Nachweise und ergänzende Dokumentationen) und sonstiges Schriftgut.</xs:documentation>
+      </xs:annotation>
+      <xs:sequence>
+         <xs:element name="anlage"
+                     maxOccurs="unbounded"
+                     type="xbauk:MetadatenAnlageDirekt">
+            <xs:annotation>
+               <xs:documentation>Jede Instanz dieses Elements steht für eine Anlage (Bauvorlage, Primärdokument, sonstige Anlage) zum vorliegenden Antrag bzw. zur übermittelten XBau-Fachnachricht.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="Anschrift">
+      <xs:annotation>
+         <xs:documentation>Eine Anschrift beschreibt einen Ort mit den klassischen Ordnungsbegriffen wie Orts- und Straßennamen sowie ergänzenden Informationen wie Ortsteil und Postfach. Diese Klasse ist von der XÖV-Kernkomponente Anschrift abgeleitet. Sie verwendet ein ergänztes Element strasseHausnummer.</xs:documentation>
+      </xs:annotation>
+      <xs:sequence>
+         <xs:element name="strasse"
+                     minOccurs="0"
+                     type="dinspec91379:datatypeC"
+                     form="unqualified">
+            <xs:annotation>
+               <xs:documentation>Dieses Element bildet den Namen (die Bezeichnung) der Straße ab.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element name="hausnummer"
+                     minOccurs="0"
+                     type="dinspec91379:datatypeC"
+                     form="unqualified">
+            <xs:annotation>
+               <xs:documentation>Dieses Element nimmt die Hausnummer auf (einschließlich eines möglichen Buchstabens, der zur Hausnummer gehört, wie z.B. 39b).</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element name="strasseHausnummer"
+                     minOccurs="0"
+                     type="dinspec91379:datatypeC"
+                     form="unqualified">
+            <xs:annotation>
+               <xs:documentation>Element für die Erfassung von Straße und Hausnummer als undifferenzierte Zeichenkette (nur für bestimmte Kontexte: ersetzt dann die Verwendung der Elemente strasse und hausnummer). Falls sich in einem Kontext der Übernahme von Anschriftsdaten (z.B. bei Verwendung der eID-Funktion des maschinenlesbaren Personalausweises für die Erfassung der Daten des Antragstellers) die Bezeichnung der Straße und die Hausnummer nicht maschinell zuverlässig trennen lassen, können diese Informationen in das Element als eine gemeinsame Zeichenkette übernommen werden.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element name="postfach"
+                     minOccurs="0"
+                     type="dinspec91379:datatypeC"
+                     form="unqualified">
+            <xs:annotation>
+               <xs:documentation>Ein Postfach (oft Postfachnummer) ist ein Schlüssel zur Identifikation eines Postfaches in einer Postfiliale.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element name="postleitzahl"
+                     minOccurs="0"
+                     type="dinspec91379:datatypeC"
+                     form="unqualified">
+            <xs:annotation>
+               <xs:documentation>Eine Postleitzahl ist eine Angabe, um postalische Zustellgebiete unabhängig von Gebietskörperschaften (Gemeinde, Kreis) zu bezeichnen.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element name="ort"
+                     minOccurs="0"
+                     type="dinspec91379:datatypeC"
+                     form="unqualified">
+            <xs:annotation>
+               <xs:documentation>Dieses Element enthält den Namen des Ortes (Gemeinde, Ortschaft oder Stadt), zu der die Anschrift gehört.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element name="ortsteil"
+                     minOccurs="0"
+                     type="dinspec91379:datatypeC"
+                     form="unqualified">
+            <xs:annotation>
+               <xs:documentation>Der Ortsteil umfasst ein Teilgebiet des Ortes (der Gemeinde) und dient der Untergliederung.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element name="wohnungsgeber"
+                     minOccurs="0"
+                     type="dinspec91379:datatypeC"
+                     form="unqualified">
+            <xs:annotation>
+               <xs:documentation>Die Komponente "wohnungsgeber" enthält Angaben (Name/Bezeichnung) zum Hauptmieter oder Eigentümer einer Immobilie. Die Angabe eines Wohnungsgebers im Kontext der Anschrift dient der genaueren oder leichteren Adressierung. Sie darf nicht genutzt werden um Mietverhältnisse oder ähnliche rechtliche Beziehungen zwischen Personen auszudrücken. Beispiel: bei Meyer</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element name="zusatz"
+                     minOccurs="0"
+                     type="dinspec91379:datatypeC"
+                     form="unqualified">
+            <xs:annotation>
+               <xs:documentation>Ein Anschriftenzusatz beinhaltet ggf. erforderliche weitere Präzisierungen zu einer Anschrift. Beispiele: Hinterhof, 3. Aufgang, Haus A, 3. Stock, Appartement 25a, 3. Stock - Appartement 25 a, #325a, Raum 77</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element name="staat"
+                     minOccurs="0"
+                     type="xbauk:Staat"
+                     form="unqualified">
+            <xs:annotation>
+               <xs:documentation>Der Staat, dem die Anschrift postalisch zugeordnet wird.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="AnwendungsspezifischeErweiterungXML">
+      <xs:annotation>
+         <xs:documentation>Die AnwendungsspezifischeErweiterungXML bietet die Möglichkeit, mittels Einbindung externer XML-Schemata weitere Metadaten zu spezifizieren. Es können beliebige XML-Schemata mit unterschiedlichen Namensräumen angegeben werden. Die XML-Schema-Validierung der weiterführenden Metadaten erfolgt innerhalb der XBau-Nachricht selbst "lax".</xs:documentation>
+      </xs:annotation>
+      <xs:sequence>
+         <xs:any minOccurs="0"
+                 maxOccurs="unbounded"
+                 namespace="##any"
+                 processContents="lax"/>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="BefundlisteFormell">
+      <xs:annotation>
+         <xs:documentation>Dieser Typ beinhaltet die Befunde der formellen Prüfung eines Antrags, einer Anzeige oder einer Erklärung. Für jeden Befund sind die entsprechenden Parameter gefüllt, die Inhalt und Bezug des Befundes für den Antragsteller bzw. Anfragenden nachvollziehbar machen.</xs:documentation>
+      </xs:annotation>
+      <xs:sequence>
+         <xs:element name="befund" maxOccurs="unbounded">
+            <xs:annotation>
+               <xs:documentation>Dieses Element stellt genau einen Befund der Befundliste dar.</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+               <xs:sequence>
+                  <xs:element name="artDesBefundes" type="xbauk:Code.FormelleBefundeArt">
+                     <xs:annotation>
+                        <xs:documentation>In diesem Element wird die Befundkategorie angegeben, der dieser Befund zugeordnet werden kann.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+                  <xs:element name="beschreibung" type="xbauk:Text">
+                     <xs:annotation>
+                        <xs:documentation>Hier wird der Sachverhalt des Befundes beschrieben. Dieser Sachverhalt enthält Details, die für den Adressaten hilfreich sind ergänzend zur angegebenen Art des Befundes.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+               </xs:sequence>
+            </xs:complexType>
+         </xs:element>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="Bezug">
+      <xs:annotation>
+         <xs:documentation>Dieser Typ gestattet Eintragungen, um auf einen Antrag, einen Vorgang und ggf. auf eine Nachricht, die im Rahmen dieses Vorgangs gesendet worden ist, Bezug zu nehmen.</xs:documentation>
+      </xs:annotation>
+      <xs:sequence>
+         <xs:element name="referenz" minOccurs="0" type="xink:UUID">
+            <xs:annotation>
+               <xs:documentation>Hier ist der Identifier des Antragsservice (der mit dem Antrag bzw. der Anzeige bei der Bauaufsichtsbehörde (bzw. Aufsichtsbehörde für den Breitbandausbau) eingegangen ist) oder der Abfrage (auf die die vorliegende Nachricht eine Antwort ist) anzugeben. Falls die vorliegende Nachricht an ein Online-Portal gerichtet ist, kann so der Projektraum bzw. Postkorb angesteuert werden.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element name="vorgang" minOccurs="0" type="dinspec91379:datatypeC">
+            <xs:annotation>
+               <xs:documentation>Eine Instanz dieses Elements enthält, falls ein solches vergeben wurde, das Zeichen (Aktenzeichen) des von der Bauaufsichtsbehörde (bzw. Aufsichtsbehörde für den Breitbandausbau) geführten Vorgangs, innerhalb dessen diese Nachricht übermittelt wird.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element name="bezugNachricht"
+                     minOccurs="0"
+                     type="xink:Identifikation.Nachricht">
+            <xs:annotation>
+               <xs:documentation>Falls ein solcher Zusammenhang vorliegt, sind hier die Kennungen der Nachricht einzutragen, auf die sich diese Nachricht bezieht.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="BezugErweitert">
+      <xs:annotation>
+         <xs:documentation>Dieser Typ erweitert den Typ xbau:Bezug um Angaben zu einem API-Key und einer anwendungsspezifischen Erweiterung.</xs:documentation>
+      </xs:annotation>
+      <xs:complexContent>
+         <xs:extension base="xbauk:Bezug">
+            <xs:sequence>
+               <xs:element name="anbindungFachverfahren"
+                           minOccurs="0"
+                           type="xbauk:AnbindungFachverfahren">
+                  <xs:annotation>
+                     <xs:documentation>Dieses Element kann verwendet werden, um die behördliche Fachanwendung an das Antragsportal oder die Kollaborationsplattform anzubinden.</xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+            </xs:sequence>
+         </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="Flurstueckskennzeichen">
+      <xs:annotation>
+         <xs:documentation>Typ zur eindeutigen Identifikation eines Flurstücks. Ein Flurstück ist ein amtlich vermessener Teil der Erdoberfläche. Das Liegenschaftskataster ordnet jedem Flurstück des jeweiligen Nummerierungsbezirks (Flur oder Gemarkung) eine Flurstücksnummer zu.</xs:documentation>
+      </xs:annotation>
+      <xs:sequence>
+         <xs:element name="bundesland" type="xbauk:Code.Bundesland">
+            <xs:annotation>
+               <xs:documentation>Hier wird das Bundesland genannt, in dem sich das Flurstück befindet.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element name="kodierungFlurstueck" type="xbauk:KodierungFlurstueck">
+            <xs:annotation>
+               <xs:documentation>Hier sind die identifzierenden Angaben zum Flurstück gemäß Systematik des regionalen Liegenschaftskatasters einzutragen.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="GeoreferenzierteFlaeche">
+      <xs:annotation>
+         <xs:documentation>In eine Instanz diesen Typs werden die Geodaten eines Vorhabens oder einer sonstigen Entität in Form von Flächen eingetragen.</xs:documentation>
+      </xs:annotation>
+      <xs:sequence>
+         <xs:element name="flaeche" maxOccurs="unbounded">
+            <xs:annotation>
+               <xs:documentation>In diesem Element lassen sich georeferenzierte Daten zu Bauvorhaben, Baulasten oder sonstigen Objekten übermitteln, also zu Gegenständen, die im Zusammenhang von XBau-Prozessen näher bestimmt werden sollen. Es lassen sich hier z. B. die äußeren Kanten eines geplanten Gebäudes (Bauvorhaben) georeferenziert abbilden.</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+               <xs:sequence>
+                  <xs:element name="polygon" type="gml:PolygonType">
+                     <xs:annotation>
+                        <xs:documentation>Das Element (globales Element gml:Polygon) enthält die GML-Darstellung einer Grundfläche (es können Außenkanten und Innenkanten dargestellt werden). Aus der GML-Dokumentation: "A Polygon is a special surface that is defined by a single surface patch. The boundary of this patch is coplanar and the polygon uses planar interpolation in its interior. The elements exterior and interior describe the surface boundary of the polygon." Quelle: http://www.datypic.com/sc/niem21/e-gml32_Polygon.html</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+               </xs:sequence>
+            </xs:complexType>
+         </xs:element>
+         <xs:element name="erlaeuterung" minOccurs="0" type="dinspec91379:datatypeC">
+            <xs:annotation>
+               <xs:documentation>Hier können ergänzend Erläuterungen zur Lage des Bauvorhabens (Vorhabens) auf dem Baugrundstück gegeben werden (z. B. "Anbau an Nordseite").</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="GeoreferenzierteLinie">
+      <xs:annotation>
+         <xs:documentation>In eine Instanz diesen Typs werden die Geodaten eines Vorhabens oder einer sonstigen Entität als Linie eingetragen.</xs:documentation>
+      </xs:annotation>
+      <xs:sequence>
+         <xs:element name="linie" maxOccurs="unbounded">
+            <xs:annotation>
+               <xs:documentation>In diesem Element lassen sich georeferenzierte Daten zu linienförmigen Elementen übermitteln, z. B. die Lage einer geplanten Breitbandtrasse.</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+               <xs:sequence>
+                  <xs:element name="linie" type="gml:CurveType">
+                     <xs:annotation>
+                        <xs:documentation>Das Element (globales Element gml:CurveType) enthält die GML-Darstellung einer Linie.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+               </xs:sequence>
+            </xs:complexType>
+         </xs:element>
+         <xs:element name="erlaeuterung" minOccurs="0" type="dinspec91379:datatypeC">
+            <xs:annotation>
+               <xs:documentation>Hier können ergänzend Erläuterungen zu den georeferenzierten Daten gegeben werden.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="GeoreferenziertePunkte">
+      <xs:annotation>
+         <xs:documentation>In eine Instanz diesen Typs werden die Geodaten eines Vorhabens oder einer sonstigen Entität als Punkte eingetragen.</xs:documentation>
+      </xs:annotation>
+      <xs:sequence>
+         <xs:element name="punkt" maxOccurs="unbounded">
+            <xs:annotation>
+               <xs:documentation>In diesem Element lassen sich georeferenzierte Daten zur punktförmigen Elementen übermitteln, z. B. die Lage von Schaltkästen, Schächten oder Baugruben.</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+               <xs:sequence>
+                  <xs:element name="punkt" type="gml:PointType">
+                     <xs:annotation>
+                        <xs:documentation>Das Element (globales Element gml:PointType) enthält die GML-Darstellung einer Grundfläche .</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+               </xs:sequence>
+            </xs:complexType>
+         </xs:element>
+         <xs:element name="erlaeuterung" minOccurs="0" type="dinspec91379:datatypeC">
+            <xs:annotation>
+               <xs:documentation>Hier können ergänzend Erläuterungen zu den georeferenzierten Daten gegeben werden.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="Identifikation.Nachricht">
+      <xs:annotation>
+         <xs:documentation>Identifkationsmerkmale zu einer Nachricht. Dieser Typ kann im ID-Block zu einer Nachricht verwendet werden oder in einem Abschnitt, der auf eine Nachricht referenziert.</xs:documentation>
+      </xs:annotation>
+      <xs:complexContent>
+         <xs:restriction base="xink:Identifikation.Nachricht">
+            <xs:sequence>
+               <xs:element name="nachrichtenUUID" type="xink:UUID" form="unqualified">
+                  <xs:annotation>
+                     <xs:documentation>Hier wird der Universally Unique Identifier (UUID) der Nachricht mitgeteilt, der das primäre Identifikationsmerkmal einer Nachricht darstellt. Der UUID der Nachricht ist weltweit eindeutig. So wird es möglich, Nachrichten hersteller- und anwendungsübergreifend eindeutig zu identifizieren. Für jede Nachricht muss eine neue UUID erzeugt werden, um eine eindeutige Identifikation der Nachricht sicherzustellen. Insbesondere ist es nicht zulässig, in einer korrigierten Nachricht (bspw. nach Erhalt einer RTS-Nachricht) die UUID der ursprünglichen Nachricht wiederzuverwenden. Sofern eine einmal erzeugte Nachricht ein weiteres Mal gesendet werden soll (bspw. aufgrund von Problemen beim Nachrichtentransport), muss die UUID nicht angepasst werden.</xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element name="nachrichtentyp"
+                           type="xbauk:Code.XBau-KernmodulNachrichten"
+                           form="unqualified">
+                  <xs:annotation>
+                     <xs:documentation>Die eindeutige Identifizierungsnummer für einen Nachrichtentyp. Der konkret zu verwendende Datentyp für die Übermittlung des Schlüsselwertes wird durch den Fachstandard auf Schemaebene festgelegt.</xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element name="erstellungszeitpunkt" type="xs:dateTime" form="unqualified">
+                  <xs:annotation>
+                     <xs:documentation>Der Zeitpunkt, an dem die Nachricht erstellt wurde. Dieses Feld wird durch das Fachverfahren beim Erstellen der Nachricht gefüllt. Hier ist explizit nicht der Sende- und Empfangszeitpunkt festgehalten, denn die können in der Regel der Transportschicht entnommen werden.</xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+            </xs:sequence>
+         </xs:restriction>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="KodierungFlurstueck">
+      <xs:annotation>
+         <xs:documentation>Dieser Typ deckt Informationen zur Identifikation von Flurstücken (Liegenschaftskataster) ab.</xs:documentation>
+      </xs:annotation>
+      <xs:sequence>
+         <xs:element name="gemarkung">
+            <xs:annotation>
+               <xs:documentation>Durch dieses Elements wird die Gemarkung bezeichnet. Sie ist entweder deskriptiv oder als Nummer dargestellt. Eine Gemarkung ist eine zusammenhängende, aus mehreren Fluren bestehende Fläche des Liegenschaftskatasters.</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+               <xs:choice>
+                  <xs:element name="nummer" type="xs:token">
+                     <xs:annotation>
+                        <xs:documentation>In dieses Element ist die Nummer der Gemarkung gemäß lokalem Liegenschaftskataster einzutragen (Gemarkungsnummer bestehend aus maximal 4 Stellen).</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+                  <xs:element name="bezeichnung" type="dinspec91379:datatypeC">
+                     <xs:annotation>
+                        <xs:documentation>Dieses Element steht für die deskriptive Bezeichnung der Gemarkung.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+               </xs:choice>
+            </xs:complexType>
+         </xs:element>
+         <xs:element name="flur" minOccurs="0" type="xs:token">
+            <xs:annotation>
+               <xs:documentation>Mit diesem Element kann die Nummer der Flur (Flurnummer; maximal 3 Stellen) angegeben werden. Die Flur ist eine zusammenhängende, aus mehreren Flurstücken bestehende Fläche des Liegenschaftskatasters.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element name="zaehler" type="xs:token">
+            <xs:annotation>
+               <xs:documentation>Dieses Element steht für den Zähler der Flurstücknummer (maximal 5 Stellen). Der Zähler ist der erste Teil der Flurstücksnummer und muss in jedem Fall angegeben werden.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element name="nenner" minOccurs="0" type="xs:token">
+            <xs:annotation>
+               <xs:documentation>Dieses Element steht für den ggf. anzuführenden Nenner der Flurstücknummer (maximal 4 Stellen). Der Nenner ist der zweite Teil der Flurstücksnummer, üblicherweise in einer Notation durch Schrägstrich vom Zähler getrennt. Die Angabe ist optional.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element name="folge" minOccurs="0" type="xs:token">
+            <xs:annotation>
+               <xs:documentation>Dieses Element bietet die Möglichkeit, im Rahmen der Flurstücksnummer auch eine Flurstücksfolge anzugeben (maximal 2 Stellen). Die Folge ist eine weitere Präzisiserung einer Flurstücksnummer und kann ergänzend angegeben werden.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="Kommunikation">
+      <xs:annotation>
+         <xs:documentation>"Kommunikation" fasst Angaben zur Erreichbarkeit über elektronische Kommunikationskanäle (z.B. Telefon, Fax, E-Mail) zusammen.</xs:documentation>
+      </xs:annotation>
+      <xs:sequence>
+         <xs:element name="kanal" minOccurs="0" type="xbauk:Code.Erreichbarkeit">
+            <xs:annotation>
+               <xs:documentation>Der "kanal" gibt an, über welchen Kommunikationskanal eine Erreichbarkeit besteht (Telefon, E-Mail usw.).</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element name="kennung" minOccurs="0" type="dinspec91379:datatypeC">
+            <xs:annotation>
+               <xs:documentation>Die "kennung" beinhaltet die konkreten Angaben zur Erreichbarkeit über einen Kommunikationskanal, d.h. die Telefonnummer, Faxnummer, E-Mail-Adresse oder dergleichen. Die Kennung soll strukturiert erfasst werden. Beispiele: +49 30 12345-67 (internationale Rufnummer nach DIN 5008) 030 12345-67 ( nationale Rufnummern nach DIN 5008) +49 89 1234567 (internationale Rufnummer nach E.123) (089) 123456) (nationale Rufnummer nach E.123) tel:+49-30-1234567 (Uniform Resource Identifier nach RFC 3966)</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element name="istDienstlich" minOccurs="0" type="xs:boolean">
+            <xs:annotation>
+               <xs:documentation>Mit der Komponente "istDienstlich" kann angegeben werden, ob es sich um dienstliche oder private Kommunikationsdaten handelt.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element name="zusatz" minOccurs="0" type="dinspec91379:datatypeC">
+            <xs:annotation>
+               <xs:documentation>Im "zusatz" können zusätzliche freie Angaben zur Erreichbarkeit über einen Kommunikationskanal gemacht werden. Beispiel: erreichbar tagsüber zwischen 9 und 16 Uhr</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="MetadatenAnhang">
+      <xs:annotation>
+         <xs:documentation>Dieser Typ dient zur Aufnahme der Metadaten eines lokalen Anhangs, der mit einer XBau-Fachnachricht übertragen wird.</xs:documentation>
+      </xs:annotation>
+      <xs:sequence>
+         <xs:element name="dokumentid" type="xs:anyURI">
+            <xs:annotation>
+               <xs:documentation>Die innerhalb des Transportcontainers eindeutige Kennung des Dokuments.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element name="dateiname" type="dinspec91379:datatypeC">
+            <xs:annotation>
+               <xs:documentation>Hier ist der Name der Datei (Primärdokument) einzutragen, eindeutig innerhalb des Transportcontainers.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+      </xs:sequence>
+      <xs:attribute name="filesize" type="xs:positiveInteger" use="optional">
+         <xs:annotation>
+            <xs:documentation>Größe des Inhaltes der Datei in Bytes. Dieses Attribut kann verwendet werden, um die Dateigröße des Anhangs anzugeben. So kann bei der Übertragung überprüft werden, ob die Anlage komplett geladen wurde, hilfreich z.B. bei sehr großen Dateien.</xs:documentation>
+         </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="hashValue" type="xs:token" use="optional">
+         <xs:annotation>
+            <xs:documentation>Hashwert der Datei im Anhang. Anhand dieses Wertes kann bei der Übertragung die Integrität der Datei abgesichert werden. Der binäre Hashwert ist in Textform einzutragen als eine Sequenz hexadezimaler Werte (hexadecimal digits).</xs:documentation>
+         </xs:annotation>
+      </xs:attribute>
+   </xs:complexType>
+   <xs:complexType name="MetadatenAnlage" abstract="true">
+      <xs:annotation>
+         <xs:documentation>Dieser Kernmodul-Basistyp bildet die Metadaten zu einer Bauvorlage bzw. sonstigen Anlage ab, die gemäß der Architektur der Übertragung von Primärdokumenten im Zusammenhang mit einer XBau-Fachnachricht benötigt werden. XBau-Fachmodule können nach ihrem Bedarf vom vorliegenden Basistyp ableiten.</xs:documentation>
+      </xs:annotation>
+      <xs:sequence>
+         <xs:element name="bezeichnung" minOccurs="0" type="dinspec91379:datatypeC">
+            <xs:annotation>
+               <xs:documentation>Hier ist eine deskriptive Bezeichnung der Bauvorlage bzw. sonstigen Anlage einzutragen, z. B. "Grundriss 3. OG".</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element name="versionsnummer" minOccurs="0" type="xs:positiveInteger">
+            <xs:annotation>
+               <xs:documentation>Hier ist eine Versionsnummer einzutragen. Sie dient dazu, (sequentiell eingereichte) Bauvorlagen (oder sonstige Anlagen) zu unterscheiden, die dieselbe Bezeichnung tragen.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element name="datum" minOccurs="0" type="xs:date">
+            <xs:annotation>
+               <xs:documentation>Hier ist das Datum der Erstellung bzw. der letzten Bearbeitung dieser Bauvorlage bzw. sonstigen Anlage einzutragen.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element name="anlageart" minOccurs="0" type="xoev-code:Code">
+            <xs:annotation>
+               <xs:documentation>Unterhalb dieses Elements wird die Art dieser Bauvorlage oder sonstigen Anlage näher spezifiziert.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element name="mimeType" type="xbauk:Code.XBau-MimeType">
+            <xs:annotation>
+               <xs:documentation>Dieses Element nennt - analog zur Übermittlung von E-Mail-Anlagen - den MIME-Typ der angehängten oder verlinkten Bauvorlage bzw. sonstigen Anlage (z.B. text/xml, text/plain, application/gzip oder application/pdf). Die Angabe ist mandatorisch, weil eine für den Empfänger zur Verarbeitung der Daten notwendige Information. Als Anlagen können u.a. auch IFC-Darstellungen (gemäß der Technologie Building Information Modeling (BIM)) des Bauvorhabens übermittelt werden. Entsprechende Kennzeichnungen des mimeTypes (ifc, ifcXML, fcZIP) sind dafür verfügbar.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element name="anhangOderVerlinkung"
+                     minOccurs="0"
+                     type="xbauk:AnhangOderVerlinkung">
+            <xs:annotation>
+               <xs:documentation>Eine Instanz dieses Elements enthält passende Metadaten zur Bauvorlage bzw. sonstigen Anlage, je nachdem ob diese (i) als Anhang mit dieser XBau-Nachricht übermittelt wird oder ob sie (ii) über einen Link zugänglich gemacht wird, der in diese XBau-Nachricht eingetragen ist.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="MetadatenAnlageDirekt">
+      <xs:annotation>
+         <xs:documentation>Dieser Typ nimmt die Metadaten zu einer Bauvorlage bzw. sonstigen Anlage auf, die gemäß der Architektur der Übertragung von Primärdokumenten im Zusammenhang mit einer XBau-Fachnachricht benötigt werden.</xs:documentation>
+      </xs:annotation>
+      <xs:sequence>
+         <xs:element name="bezeichnung" type="dinspec91379:datatypeC">
+            <xs:annotation>
+               <xs:documentation>Hier ist eine deskriptive Bezeichnung der Bauvorlage bzw. sonstigen Anlage einzutragen, z. B. "Grundriss 3. OG".</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element name="versionsnummer" minOccurs="0" type="xs:positiveInteger">
+            <xs:annotation>
+               <xs:documentation>Hier ist eine Versionsnummer einzutragen. Sie dient dazu, (sequentiell eingereichte) Bauvorlagen (oder sonstige Anlagen) zu unterscheiden, die dieselbe Bezeichnung tragen.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element name="datum" type="xs:date">
+            <xs:annotation>
+               <xs:documentation>Hier ist das Datum der Erstellung bzw. der letzten Bearbeitung dieser Bauvorlage bzw. sonstigen Anlage einzutragen.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element name="anlageart" type="xbauk:Code.AnlageArt">
+            <xs:annotation>
+               <xs:documentation>Unterhalb dieses Elements wird die Art dieser Bauvorlage oder sonstigen Anlage näher spezifiziert.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element name="mimeType" type="xbauk:Code.XBau-MimeType">
+            <xs:annotation>
+               <xs:documentation>Dieses Element nennt - analog zur Übermittlung von E-Mail-Anlagen - den MIME-Typ der angehängten oder verlinkten Bauvorlage bzw. sonstigen Anlage (z.B. text/xml, text/plain, application/gzip oder application/pdf). Die Angabe ist mandatorisch, weil eine für den Empfänger zur Verarbeitung der Daten notwendige Information. Als Anlagen können u.a. auch IFC-Darstellungen (gemäß der Technologie Building Information Modeling (BIM)) des Bauvorhabens übermittelt werden. Entsprechende Kennzeichnungen des mimeTypes (ifc, ifcXML, fcZIP) sind dafür verfügbar.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element name="anhangOderVerlinkung" type="xbauk:AnhangOderVerlinkung">
+            <xs:annotation>
+               <xs:documentation>Eine Instanz dieses Elements enthält passende Metadaten zur Bauvorlage bzw. sonstigen Anlage, je nachdem ob diese (i) als Anhang mit dieser XBau-Nachricht übermittelt wird oder ob sie (ii) über einen Link zugänglich gemacht wird, der in diese XBau-Nachricht eingetragen ist.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="Nachricht.G2G">
+      <xs:annotation>
+         <xs:documentation>Nachrichtenstruktur für die Kommunikation von Behörden (bzw. öffentlichen Stellen oder Diensten) mit anderen Behörden (bzw. öffentlichen Stellen oder Diensten).</xs:documentation>
+      </xs:annotation>
+      <xs:complexContent>
+         <xs:restriction base="xink:Nachricht.G2G">
+            <xs:sequence>
+               <xs:element name="nachrichtenkopf"
+                           type="xbauk:Nachrichtenkopf.G2G"
+                           form="unqualified">
+                  <xs:annotation>
+                     <xs:documentation>Dieses Element enthält die Kopfinformationen zu Nachrichten des vorliegenden Typs.</xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+            </xs:sequence>
+            <xs:attribute name="produkt" type="dinspec91379:datatypeC" use="required">
+               <xs:annotation>
+                  <xs:documentation>In diesem Attribut ist der Name des Produktes (der Software) einzutragen, mit dem diese Nachricht erstellt worden ist.</xs:documentation>
+               </xs:annotation>
+            </xs:attribute>
+            <xs:attribute name="produkthersteller"
+                          type="dinspec91379:datatypeC"
+                          use="required">
+               <xs:annotation>
+                  <xs:documentation>In diesem Attribut ist der Name der Firma oder der Organisation einzutragen, die für das DV-Verfahren verantwortlich ist, mit dem diese Nachricht erstellt worden ist.</xs:documentation>
+               </xs:annotation>
+            </xs:attribute>
+            <xs:attribute name="produktversion" type="dinspec91379:datatypeC" use="optional">
+               <xs:annotation>
+                  <xs:documentation>In diesem Attribut sollen ergänzende Hinweise zu dem Produkt, mit dem diese Nachricht erstellt worden ist, eingetragen werden. Dies sind Angaben, die für eine möglichst präzise Identifikation im Fehlerfall hilfreich sind, wie zum Beispiel Version und Patchlevel.</xs:documentation>
+               </xs:annotation>
+            </xs:attribute>
+            <xs:attribute name="standard"
+                          type="dinspec91379:datatypeC"
+                          use="required"
+                          fixed="XBau-Kernmodul">
+               <xs:annotation>
+                  <xs:documentation>In diesem Attribut wird der Name des Standards übermittelt, aus dem die Nachricht stammt. Der Name des Standards wird durch den Fachstandard als fixed-Value auf Schemaebene festgelegt (z. B. XPersonenstand).</xs:documentation>
+               </xs:annotation>
+            </xs:attribute>
+            <xs:attribute name="test" type="dinspec91379:datatypeC" use="optional">
+               <xs:annotation>
+                  <xs:documentation>Dieses Attribut ist optional. Ist es vorhanden, so sagt dies aus, dass es sich um eine Nachricht handelt, die (aus Sicht des Senders der Nachricht) nicht im normalen Produktivbetrieb behandelt werden soll. Über den Inhalt des Attributes wird nichts weiter ausgesagt, dies kann bilateral zwischen den Kommunikationspartnern vereinbart werden.</xs:documentation>
+               </xs:annotation>
+            </xs:attribute>
+            <xs:attribute name="version"
+                          type="dinspec91379:datatypeC"
+                          use="required"
+                          fixed="1.2">
+               <xs:annotation>
+                  <xs:documentation>In diesem Attribut wird die Version des Standards übermittelt, aus dem die Nachricht stammt. Die Versionsbezeichnung wird durch den Fachstandard als fixed-Value auf Schemaebene festgelegt (z. B. 1.5.0).</xs:documentation>
+               </xs:annotation>
+            </xs:attribute>
+         </xs:restriction>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="Nachrichtenkopf.G2G">
+      <xs:annotation>
+         <xs:documentation>Nachrichtenkopf für Nachrichten von Behörden (bzw. öffentlichen Stellen oder Diensten) an andere Behörden (bzw. öffentliche Stellen oder Dienste).</xs:documentation>
+      </xs:annotation>
+      <xs:complexContent>
+         <xs:restriction base="xink:Nachrichtenkopf.G2G">
+            <xs:sequence>
+               <xs:element name="identifikation.nachricht"
+                           type="xbauk:Identifikation.Nachricht"
+                           form="unqualified">
+                  <xs:annotation>
+                     <xs:documentation>Hier werden die Identifkationsmerkmale zur vorliegenden Nachricht genannt.</xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element name="leser" type="xibehoerde:Behoerde" form="unqualified">
+                  <xs:annotation>
+                     <xs:documentation>Hier wird die Fachbehörde bzw. Organisation genannt, für die die vorliegende Nachricht bestimmt ist.</xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element name="autor"
+                           type="xibehoerde:Behoerde.Erreichbar"
+                           form="unqualified">
+                  <xs:annotation>
+                     <xs:documentation>Hier wird die Fachbehörde bzw. Organisation genannt, die die vorliegende Nachricht erstellt hat.</xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+            </xs:sequence>
+         </xs:restriction>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="Nachweisdaten">
+      <xs:annotation>
+         <xs:documentation>Dieser Typ bildet Nachweisdaten zu behördlichen Vorgängen ab.</xs:documentation>
+      </xs:annotation>
+      <xs:sequence>
+         <xs:element name="behoerde" minOccurs="0" type="xs:token">
+            <xs:annotation>
+               <xs:documentation>In dieses Element ist die zuständige Behörde einzutragen.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element name="datum" minOccurs="0" type="xs:date">
+            <xs:annotation>
+               <xs:documentation>In dieses Element ist das Datum einzutragen.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element name="aktenzeichen" minOccurs="0" type="xs:token">
+            <xs:annotation>
+               <xs:documentation>In dieses Element ist das Aktenzeichen einzutragen.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="NameNatuerlichePerson">
+      <xs:annotation>
+         <xs:documentation>Der Name einer Person ist eine Benennung dieser Person, die dazu dient, diese Person von anderen Personen zu unterscheiden.</xs:documentation>
+      </xs:annotation>
+      <xs:sequence>
+         <xs:element name="titel" minOccurs="0" type="dinspec91379:datatypeC">
+            <xs:annotation>
+               <xs:documentation>Ein Titel wird häufig im Zusammenhang mit Namen verwendet, ist aber kein orginärer Bestandteil des Namens. Im Unterschied dazu gehören Adelstitel zum Familiennamen und sind daher in diesem Verständnis kein Titel. Zu den Titeln zählen beispielsweise akademische Grade, Dienst- und Amtsbezeichnungen oder militärische Ränge. Es können auch Titel übermittelt werden, die keine Titel im Sinne des Meldewesens sind. Beispiel: Dr.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element name="anrede" minOccurs="0" type="dinspec91379:datatypeC">
+            <xs:annotation>
+               <xs:documentation>Die Anrede ist der Namenszusatz (auch eine Anrede ohne Namen nur mit Titel ist eine Anrede) bei der Anrede (mündlich oder schriftlich) oder bei einem Anruf (fernmündlich) an eine Person oder Personengruppe. Anmerkung: Die komplette Anrede einer Person kann in einem Feld übermittelt werden. Beispiel: Herr, Frau, Herr Staatssekretär, Frau Bundeskanzlerin, Herr Botschafter, Eure Eminenz</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element name="familienname" type="xbauk:AllgemeinerName">
+            <xs:annotation>
+               <xs:documentation>Der Familienname ist der aktuelle Nachname einer Person und Ausdruck einer bestimmten Familienzugehörigkeit dieser Person.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element name="vorname" type="xbauk:AllgemeinerName">
+            <xs:annotation>
+               <xs:documentation>Der Vorname ist der Name bzw. der Teil des Namens, der nicht die Zugehörigkeit zu einer Familie ausdrückt, sondern das Individuum innerhalb der Familie bezeichnet und dazu dient, es von anderen Familienmitgliedern zu unterscheiden.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="NameOrganisation">
+      <xs:annotation>
+         <xs:documentation>"NameOrganisation" fasst die Angaben zum Namen einer Organisation zusammen.</xs:documentation>
+      </xs:annotation>
+      <xs:sequence>
+         <xs:element name="name" type="dinspec91379:datatypeC">
+            <xs:annotation>
+               <xs:documentation>Offizieller Name einer Organisation. Entspricht bei registrierten Organisationen dem im Register eingetragenen Namen.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element name="kurzbezeichnung" minOccurs="0" type="dinspec91379:datatypeC">
+            <xs:annotation>
+               <xs:documentation>Kurzbezeichnung des Namen einer Organisation.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="Organisation">
+      <xs:annotation>
+         <xs:documentation>Eine Organisation ist eine Vereinigung mehrerer natürlicher oder juristischer Personen bzw. eine rechtsfähige Personengesellschaft zu einem gemeinsamen Zweck.</xs:documentation>
+      </xs:annotation>
+      <xs:sequence>
+         <xs:element name="id" minOccurs="0" type="xs:ID">
+            <xs:annotation>
+               <xs:documentation>Dieses Element kann genutzt werden, um die Organisation zu identifizieren. Es handelt es sich um eine technische ID, die es erlaubt den Datensatz für Änderungen deskriptiver Eigenschaften herauszugreifen. Dem Element ist der W3C-Datentyp ID (https://www.w3.org/TR/xmlschema11-2/#ID) zugeordnet, ein String-Derivat. Scope des hiermit eingeführten Identifikationsmechanismus: Der Scope ist gemäß der hier festgelegten Semantik nur der gegebene Vorgang. Dies bedeutet beispielsweise im Rahmen eines Antragsvorgangs: Der Antrag wird initial vom Online-Service ("Baugenehmigung Online") an die zuständige Bauaufsichtsbehörde übermittelt. In der XBau-Nachrichteninstanz werden die beteiligten Personen und Firmen identifiziert mittels vom Online-Service vergebener Identifier. Ab dem Zeitpunkt werden diese Identifikationsmittel im Nachrichtenaustausch im Rahmen des gegebenen Vorgangs in beide Richtungen weiterverwendet, um in der Kommunikation intersubjektiv nachvollziehbar zu referenzieren. Ob über diesen Scope hinausgehend identifiziert werden soll, ist Angelegenheit des Umsetzungsprojekts, XBau macht dazu keine Aussage.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element name="name" type="xbauk:NameOrganisation">
+            <xs:annotation>
+               <xs:documentation>Angaben zum offiziellen Namen der Organisation.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element name="anschrift"
+                     minOccurs="0"
+                     maxOccurs="unbounded"
+                     type="xbauk:Anschrift">
+            <xs:annotation>
+               <xs:documentation>Angaben zur Anschrift der Organisation, die über den Typ der Anschrift auf deren Verwendung als Postanschrift, Niederlassungsanschrift oder Gründungsanschrift verweist.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element name="kommunikation"
+                     minOccurs="0"
+                     maxOccurs="unbounded"
+                     type="xbauk:Kommunikation">
+            <xs:annotation>
+               <xs:documentation>Pro Instanz dieses Elements kann eine Angabe zur Erreichbarkeit der Organisation eingetragen werden.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element name="vertreter"
+                     minOccurs="0"
+                     maxOccurs="unbounded"
+                     type="xbauk:NameNatuerlichePerson">
+            <xs:annotation>
+               <xs:documentation>Angaben zu Personen, die autorisiert sind, für die Organisation zu sprechen. Dies kann z. B. ein Mitglied der Geschäftsleitung sein.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element name="ansprechpartner" minOccurs="0" maxOccurs="unbounded">
+            <xs:annotation>
+               <xs:documentation>Pro Instanz dieses Elements kann eine Angabe zu einer Person als operativer Ansprechpartner für die Organisation übermittelt werden.</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+               <xs:sequence>
+                  <xs:element name="name" type="xbauk:NameNatuerlichePerson">
+                     <xs:annotation>
+                        <xs:documentation>Hier ist der Name des Ansprechpartners einzutragen.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+                  <xs:element name="funktion" minOccurs="0" type="dinspec91379:datatypeC">
+                     <xs:annotation>
+                        <xs:documentation>Hier kann über eine Funktionsangabe die Zuständigkeit des Ansprechpartners bezeichnet werden.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+                  <xs:element name="kommunikation"
+                              minOccurs="0"
+                              maxOccurs="unbounded"
+                              type="xbauk:Kommunikation">
+                     <xs:annotation>
+                        <xs:documentation>Pro Element kann eine Angaben zur Erreichbarkeit des Ansprechpartners innerhalb der Organisation gemacht werden.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+               </xs:sequence>
+            </xs:complexType>
+         </xs:element>
+         <xs:element name="registereintrag" minOccurs="0" type="xbauk:Registereintrag">
+            <xs:annotation>
+               <xs:documentation>Angaben zum Registereintrag einer natürlichen oder juristischen Person oder Personengesellschaft.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="ReferenzAbfrage">
+      <xs:annotation>
+         <xs:documentation>Dieser Typ deckt die Identifizierung einer Abfrage ab.</xs:documentation>
+      </xs:annotation>
+      <xs:sequence>
+         <xs:element name="referenzAbfrage" type="xink:UUID">
+            <xs:annotation>
+               <xs:documentation>Maschinell erzeugter Identifier, der die Anfrage (nicht die Anfragenachricht) eindeutig kennzeichnet.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="ReferenzAntragsservice">
+      <xs:annotation>
+         <xs:documentation>Dieser Typ deckt Daten ab, durch die ein Antragsservice einen Antrags- (oder Anzeigen-)vorgang eindeutig kennzeichnet.</xs:documentation>
+      </xs:annotation>
+      <xs:sequence>
+         <xs:element name="referenzAntragsservice" type="xink:UUID">
+            <xs:annotation>
+               <xs:documentation>Initial eingetragener, i.d.R. maschinell erzeugter Identifier, der für den Antragsvorgang steht (nicht für die Antragsnachricht). Dieser Identifier geht mit den Antragsnachrichten der Bauaufsichtsbehörde (bzw. Aufsichtsbehörde für den Breitbandausbau) zu und schafft dieser die Möglichkeit, in ihren Reaktionsnachrichten darauf zu referenzieren.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="Registereintrag">
+      <xs:annotation>
+         <xs:documentation>Mit diesem Typ werden Angaben zum Registereintrag einer natürlichen oder juristischen Person oder Personengesellschaft übermittelt.</xs:documentation>
+      </xs:annotation>
+      <xs:sequence>
+         <xs:element name="eintragungNr" type="dinspec91379:datatypeC">
+            <xs:annotation>
+               <xs:documentation>Nummer der Eintragung im Handels-, Genossenschafts- oder Vereinsregister.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element name="gerichtSchluessel" type="xbauk:Code.Registergericht">
+            <xs:annotation>
+               <xs:documentation>Schlüssel des zuständigen Registergerichts.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="Rueckweisung">
+      <xs:annotation>
+         <xs:documentation>Dieser Typ nimmt Angaben zu Art und Ort eines Fehlers auf, der zur Rückweisung der Nachricht geführt hat.</xs:documentation>
+      </xs:annotation>
+      <xs:sequence>
+         <xs:element name="rueckweisungsgrund"
+                     maxOccurs="unbounded"
+                     type="xbauk:Rueckweisungsgrund">
+            <xs:annotation>
+               <xs:documentation>Jede Instanz dieses Elements enthält Informationen zu einem Fehler bzw. einem Mangel, der in Bezug auf die erhaltene Nachricht identifiziert wurde.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element name="idNachricht" type="xink:Identifikation.Nachricht">
+            <xs:annotation>
+               <xs:documentation>Identifikationsmerkmale der zurückgewiesenen XBau-Nachricht, die der Autor der Rückweisung zu einem Zeitpunkt in der Vergangenheit empfangen hat.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element name="nachricht" type="xs:base64Binary">
+            <xs:annotation>
+               <xs:documentation>Dieses Element bildet die zurückgewiesene Fachnachricht ohne Attachments im Binärformat ab..</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="Rueckweisungsgrund">
+      <xs:annotation>
+         <xs:documentation>Dieser Typ nimmt Angaben zu Art und Ort eines Fehlers auf, der zur Rückweisung der Nachricht geführt hat.</xs:documentation>
+      </xs:annotation>
+      <xs:sequence>
+         <xs:element name="grund" type="xbauk:Code.XBau.Fehlerkennzahl">
+            <xs:annotation>
+               <xs:documentation>Mit diesem Element wird der Grund übermittelt, aus dem die Nachricht zurückgewiesen wird. Die im Rahmen der hier zu verwendenden Codeliste zur Verfügung gestellten Rückweisungsgründe sind kontextunabhängig und finden daher in allen Übermittlungskontexten Anwendung.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element name="fehlertext" minOccurs="0" type="dinspec91379:datatypeC">
+            <xs:annotation>
+               <xs:documentation>Hier steht ein ergänzender textueller Hinweis auf die Art des Fehlers, der zur Zurückweisung der Nachricht geführt hat. Sofern kein Text angegeben ist (das Element also nicht übermittelt wird), gilt allein die Erläuterung zur im Element grund stehenden Fehlerkennzahl.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="Staat">
+      <xs:annotation>
+         <xs:documentation>Als Staat bezeichnet man eine politische Ordnung, die ein gemeinsames als Staatsgebiet abgegrenztes Territorium, ein dazugehöriges Staatsvolk und eine Machtausübung über dieses umfasst.</xs:documentation>
+      </xs:annotation>
+      <xs:sequence>
+         <xs:element name="staat" type="xbauk:Code.Staat">
+            <xs:annotation>
+               <xs:documentation>Dieses verwendet einen Schlüssel zur Identifikation eines Staates.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="Text">
+      <xs:annotation>
+         <xs:documentation>Diese Typ nimmt Absätze eines formatierungsfreien Textes auf.</xs:documentation>
+      </xs:annotation>
+      <xs:sequence>
+         <xs:element name="textabsatz" maxOccurs="unbounded" type="xs:string">
+            <xs:annotation>
+               <xs:documentation>Pro Element wird Text im Umfang eines Absatzes (Freitext) festgehalten.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="TextFormatiert">
+      <xs:annotation>
+         <xs:documentation>Dieser Typ nimmt Absätze eines Textes in einer Form auf, so dass das Empfängersystem diesen Text formatierungstreu anzeigen und medienbruchfrei weiterverarbeiten kann.</xs:documentation>
+      </xs:annotation>
+      <xs:sequence>
+         <xs:element name="text" type="xs:base64Binary">
+            <xs:annotation>
+               <xs:documentation>In dieses Element ist ein Textabschnitt in Form von HTML-5 Markup einzutragen. Das schließt die Möglichkeit von Formatierung und Integration von Abbildungen ein. Folgende Regeln sind beim Eintrag von HTML-5-Text zu beachten: Das Textfeld enthält nur den Inhalt des BODY-Elements (nicht dieses selber), also nur "Flow Content" im Sinne der HTML5-Spezifikation (https://html.spec.whatwg.org/multipage/dom.html#flow-content). Es ist zu beachten, dass XBau die Menge des erlaubten HTML5-Markups grundlegend einschränkt (vgl. ) und dass diese Einschränkungen Vorrang haben. Als Encoding wird stets "UTF-8" verwendet. Externe CSS-Referenzen dürfen nicht verwendet werden, sondern lediglich HTML Inline Styles.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element name="textOffice" minOccurs="0">
+            <xs:annotation>
+               <xs:documentation>Unterhalb dieses Elements kann derselbe Inhalt wie im Element text in einem alternativen technischen Format angeboten werden.</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+               <xs:sequence>
+                  <xs:element name="textOfficeXML" type="xs:base64Binary">
+                     <xs:annotation>
+                        <xs:documentation>Falls dieses Element genutzt wird, ist derselbe Inhalt wie im Element text einzutragen, nur wird hier ein XML-basiertes Office-Format verwendet, um den Text technisch zu repräsentieren. Dafür ist eines der beiden XML-basierten Office-Formate ODF (= OASIS Open Document Format) und OOXML (= Office Open XML, entwickelt von Microsoft) zu verwenden. Die Verwertung dieses Elements, insoweit in einer Nachrichteninstanz instanziiert, steht im Belieben des Lesers der Nachricht.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+                  <xs:element name="textOfficeMimeType" type="xbauk:Code.TextOfficeMimeType">
+                     <xs:annotation>
+                        <xs:documentation>ODF und OOXML sind Rahmenformate, die diverse Subtypen zulassen. Dieses Element steuert die mimeType-Angabe bei, die aussagt, welches Format für die Office-Darstellung im Element textOffice instanziiert ist.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+               </xs:sequence>
+            </xs:complexType>
+         </xs:element>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="Verlinkung">
+      <xs:annotation>
+         <xs:documentation>Dieser Typ gestattet es, Webressourcen anzugeben für ggf. nötige Reaktionen des Lesers auf die vorliegende Nachricht.</xs:documentation>
+      </xs:annotation>
+      <xs:choice>
+         <xs:element name="linkliste">
+            <xs:annotation>
+               <xs:documentation>Dieses Element steht für eine Liste von verlinkten Angeboten, die vom Autor der Nachricht bereitgestellt werden.</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+               <xs:sequence>
+                  <xs:element name="link" maxOccurs="unbounded">
+                     <xs:annotation>
+                        <xs:documentation>Jedes instanziierte Element steht für einen Link auf eine Webseite oder Ressource.</xs:documentation>
+                     </xs:annotation>
+                     <xs:complexType>
+                        <xs:sequence>
+                           <xs:element name="url" type="xs:anyURI">
+                              <xs:annotation>
+                                 <xs:documentation>Hier ist die URL einer Webseite oder Ressource anzugeben.</xs:documentation>
+                              </xs:annotation>
+                           </xs:element>
+                           <xs:element name="beschreibung" type="dinspec91379:datatypeC">
+                              <xs:annotation>
+                                 <xs:documentation>Hier ist die zur URL passende Beschreibung der Webseite oder Ressource einzutragen.</xs:documentation>
+                              </xs:annotation>
+                           </xs:element>
+                        </xs:sequence>
+                     </xs:complexType>
+                  </xs:element>
+               </xs:sequence>
+            </xs:complexType>
+         </xs:element>
+         <xs:element name="default" type="xs:boolean">
+            <xs:annotation>
+               <xs:documentation>Falls dieses Elements instanziiert ist, gibt der Autor dadurch an, dass auf ein eigenes Angebot verzichtet wird und dass stattdessen auf eine ggf. bereitgestellte zentrale bzw. einheitlich vorgegebene Möglichkeit verwiesen wird.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element name="noreply" type="xs:boolean">
+            <xs:annotation>
+               <xs:documentation>Falls dieses Element instanziiert ist, ist das das Zeichen, dass weder ein eigenes Angebot bereitgestellt wird, noch auf eine zentrale Lösung verwiesen wird.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+      </xs:choice>
+   </xs:complexType>
+   <xs:complexType name="VerwaltungspolitischeKodierung">
+      <xs:annotation>
+         <xs:documentation>Dieser Typ beinhaltet Daten, die die eindeutige Zuordnung (z.B. eines Grundstücks) innerhalb der Gemeindegliederung der Länder ermöglichen.</xs:documentation>
+      </xs:annotation>
+      <xs:sequence>
+         <xs:element name="bundesland" minOccurs="0" type="xbauk:Code.Bundesland">
+            <xs:annotation>
+               <xs:documentation>In dieses Element ist das Bundesland einzutragen.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element name="bezirk" minOccurs="0" type="xbauk:Code.Bezirk">
+            <xs:annotation>
+               <xs:documentation>In dieses Element ist der Bezirk bzw. Regierungsbezirk einzutragen.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element name="kreis" minOccurs="0" type="xbauk:Code.Kreis">
+            <xs:annotation>
+               <xs:documentation>In dieses Element ist der Kreis bzw. Landkreis einzutragen.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element name="gemeindeschluessel" type="xbauk:Code.AmtlicherGemeindeschluessel">
+            <xs:annotation>
+               <xs:documentation>In dieses Element ist der Amtliche Gemeindeschlüssel einzutragen.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element name="gemeindeteil" minOccurs="0" type="xbauk:Code.Gemeindeteil">
+            <xs:annotation>
+               <xs:documentation>In dieses Element ist der innerhalb des Landes definierte Schlüssel für den Gemeindeteil einzutragen.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element name="regionalschluessel"
+                     minOccurs="0"
+                     type="xbauk:Code.AmtlicherRegionalschluessel">
+            <xs:annotation>
+               <xs:documentation>In dieses Element ist ein Regionalschlüssel einzutragen.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema>
