@@ -22,10 +22,11 @@ export async function checkForUpdates(standard: Standard): Promise<UpdateDetails
       details.updateDetected = false;
       console.error('Error during update check', error);
     }
-  }
-  const currentChecksum = await readFileContent(checksumFile);
-  if (currentChecksum === checksum) {
-    details.updateDetected = false;
+  } else {
+    const currentChecksum = await readFileContent(checksumFile);
+    if (currentChecksum === checksum) {
+      details.updateDetected = false;
+    }
   }
   return details;
 }
