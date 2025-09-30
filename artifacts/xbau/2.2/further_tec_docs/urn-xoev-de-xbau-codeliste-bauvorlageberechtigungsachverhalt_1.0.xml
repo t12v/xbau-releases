@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gc:CodeList xmlns:gc="http://docs.oasis-open.org/codelist/ns/genericode/1.0/"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xmlns:xoev-cl-3="http://xoev.de/schemata/genericode/3">
+   <Annotation>
+      <Description>
+         <xoev-cl-3:nameKurz>Bauvorlageberechtigung Sachverhalt</xoev-cl-3:nameKurz>
+         <xoev-cl-3:beschreibung-codeliste>Diese Codeliste nennt die gemäß § 65 Abs. 2 MBO definierten Sachverhalte, aufgrund derer eine Person bauvorlageberechtigt sein kann.</xoev-cl-3:beschreibung-codeliste>
+         <xoev-cl-3:herausgebernameKurz>BMK</xoev-cl-3:herausgebernameKurz>
+         <xoev-cl-3:versionCodelistenHandbuch>1.0</xoev-cl-3:versionCodelistenHandbuch>
+      </Description>
+   </Annotation>
+   <Identification>
+      <ShortName>bauvorlageberechtigungsachverhalt</ShortName>
+      <LongName>Bauvorlageberechtigung Sachverhalt</LongName>
+      <Version>1.0</Version>
+      <CanonicalUri>urn:xoev-de:xbau:codeliste:bauvorlageberechtigungsachverhalt</CanonicalUri>
+      <CanonicalVersionUri>urn:xoev-de:xbau:codeliste:bauvorlageberechtigungsachverhalt_1.0</CanonicalVersionUri>
+      <Agency>
+         <LongName>Bauministerkonferenz</LongName>
+      </Agency>
+   </Identification>
+   <ColumnSet>
+      <Column Id="code" Use="required">
+         <ShortName>code</ShortName>
+         <LongName>Code</LongName>
+         <Data Type="string"/>
+      </Column>
+      <Column Id="beschreibung" Use="required">
+         <ShortName>beschreibung</ShortName>
+         <LongName>Beschreibung</LongName>
+         <Data Type="string"/>
+      </Column>
+      <Column Id="dokumentation" Use="optional">
+         <ShortName>dokumentation</ShortName>
+         <LongName>Dokumentation</LongName>
+         <Data Type="string"/>
+      </Column>
+      <Key Id="codeKey">
+         <Annotation>
+            <AppInfo>
+               <xoev-cl-3:empfohleneCodeSpalte/>
+            </AppInfo>
+         </Annotation>
+         <ShortName>codeKey</ShortName>
+         <ColumnRef Ref="code"/>
+      </Key>
+   </ColumnSet>
+   <SimpleCodeList>
+      <Row>
+         <Value ColumnRef="code">
+            <SimpleValue>1</SimpleValue>
+         </Value>
+         <Value ColumnRef="beschreibung">
+            <SimpleValue>Architekt</SimpleValue>
+         </Value>
+         <Value ColumnRef="dokumentation">
+            <SimpleValue>Die Person darf die Berufsbezeichnung Architekt führen.</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="code">
+            <SimpleValue>2</SimpleValue>
+         </Value>
+         <Value ColumnRef="beschreibung">
+            <SimpleValue>Ingenieur</SimpleValue>
+         </Value>
+         <Value ColumnRef="dokumentation">
+            <SimpleValue>Die Person ist in die von der Ingenieurkammer geführte Liste der Bauvorlageberechtigten eingetragen.</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="code">
+            <SimpleValue>3</SimpleValue>
+         </Value>
+         <Value ColumnRef="beschreibung">
+            <SimpleValue>Innenarchitekt</SimpleValue>
+         </Value>
+         <Value ColumnRef="dokumentation">
+            <SimpleValue>Die Person darf die Berufsbezeichnung Innenarchitekt führen.</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="code">
+            <SimpleValue>4</SimpleValue>
+         </Value>
+         <Value ColumnRef="beschreibung">
+            <SimpleValue>Bediensteter einer Behörde</SimpleValue>
+         </Value>
+         <Value ColumnRef="dokumentation">
+            <SimpleValue>Die Person hat als Bediensteter einer juristischen Person des öffentlichen Rechts für die dienstliche Tätigkeit die entsprechende Ausbildung und Erfahrung in Architektur, Hochbau oder Bauingenieurwesens.</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="code">
+            <SimpleValue>5</SimpleValue>
+         </Value>
+         <Value ColumnRef="beschreibung">
+            <SimpleValue>Landschaftsarchitekt</SimpleValue>
+         </Value>
+         <Value ColumnRef="dokumentation">
+            <SimpleValue/>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="code">
+            <SimpleValue>6</SimpleValue>
+         </Value>
+         <Value ColumnRef="beschreibung">
+            <SimpleValue>Hochschulabschluss Architektur, Hochbau oder Bauingenieurwesen</SimpleValue>
+         </Value>
+         <Value ColumnRef="dokumentation">
+            <SimpleValue/>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="code">
+            <SimpleValue>7</SimpleValue>
+         </Value>
+         <Value ColumnRef="beschreibung">
+            <SimpleValue>Meister des Maurer-, Zimmerer- oder des Beton- und Stahlbetonbauerhandwerks</SimpleValue>
+         </Value>
+         <Value ColumnRef="dokumentation">
+            <SimpleValue/>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="code">
+            <SimpleValue>8</SimpleValue>
+         </Value>
+         <Value ColumnRef="beschreibung">
+            <SimpleValue>Staatlich geprüfter Techniker der Fachrichtung Bautechnik</SimpleValue>
+         </Value>
+         <Value ColumnRef="dokumentation">
+            <SimpleValue/>
+         </Value>
+      </Row>
+   </SimpleCodeList>
+</gc:CodeList>

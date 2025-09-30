@@ -17,7 +17,7 @@
          </standard>
          <versionStandard>
             <version>2.6</version>
-            <beschreibung>Erweiterung von Prozess und Nachrichten zur Baulast: Es wurden Nachrichten zur Löschung und zur Eintragung von Baulasten erstellt. Erweiterung des Prozesses Anzeige Bauzustand: Erweiterung zu einem vollständigen und produktionsreifen Prozess auf Basis der 900er-Nachrichten. Vervollständigung der Prozessstringenz: Es wurden Nachrichten zur Benachrichtigung über den Abruf des Bescheids und die Zustellquittierung sowie Hinweise auf die Rücknahmefiktion ergänzt. Geschäftsregeln: Es wurden Geschäftsregeln im Schematronstandard für Datenübermittlungen zur Hochbaustatistik bereitgestellt. Weitere Details zu Erweiterungen und Änderungen sind in der Versionshistorie beschrieben.</beschreibung>
+            <beschreibung>Erweiterung von Prozess und Nachrichten zur Baulast: Es wurden Nachrichten zur Löschung und zur Eintragung von Baulasten erstellt. Erweiterung des Prozesses Anzeige Bauzustand: Erweiterung zu einem vollständigen und produktionsreifen Prozess auf Basis der 900er-Nachrichten. Vervollständigung der Prozessstringenz: Es wurden Nachrichten zur Benachrichtigung über den Abruf des Bescheids und die Zustellquittierung sowie Hinweise auf die Rücknahmefiktion ergänzt. Geschäftsregeln: Es wurden Geschäftsregeln im Schematronstandard für Datenübermittlungen zur Hochbaustatistik bereitgestellt. Bauvorlageberechtigung: Vorbereitung auf den NOOTS-Betrieb durch Kennzeichnung aus dem Kammerregister abgerufener Daten. Weitere Details zu Erweiterungen und Änderungen sind in der Versionshistorie beschrieben.</beschreibung>
             <versionXOEVProfil>3.0.0</versionXOEVProfil>
             <versionXOEVHandbuch>3.0.1</versionXOEVHandbuch>
             <versionXGenerator>3.1.1</versionXGenerator>
@@ -256,7 +256,7 @@
                <herausgebernameKurz>BMK</herausgebernameKurz>
             </codeliste>
          </xs:appinfo>
-         <xs:documentation>Diese Codeliste nennt Arten von Anlagen. Sie ist im XRepository (www.xrepository.de) unter der Codelisten-URI auffindbar. Ihre Versionen können von dort im XML-Format OASIS Genericode abgerufen werden.</xs:documentation>
+         <xs:documentation>Diese Codeliste nennt Arten von Anlagen. Sie ist im XRepository (www.xrepository.de) unter ihrer Codelisten-URI urn:xoev-de:xbau:codeliste:anlagen auffindbar. Ihre Versionen können von dort im XML-Format OASIS Genericode abgerufen werden.</xs:documentation>
       </xs:annotation>
       <xs:complexContent>
          <xs:restriction base="xoev-code:Code">
@@ -276,7 +276,7 @@
          <xs:appinfo>
             <codeliste>
                <nameLang>Art der Baulastauskunft</nameLang>
-               <nameKurz>Baulastauskunft</nameKurz>
+               <nameKurz>Art der Baulastauskunft</nameKurz>
                <nameTechnisch>artbaulastauskunft</nameTechnisch>
                <kennung>urn:xoev-de:xbau:codeliste:artbaulastauskunft</kennung>
                <beschreibung>Art der Baulastauskunft</beschreibung>
@@ -382,7 +382,7 @@
    </xs:complexType>
    <xs:complexType name="Code.ArtDerBaulast">
       <xs:annotation>
-         <xs:documentation>Dieser Code-Typ steht für eine Klassifikation der Arten von Baulast. In diesen Typ ist eine auszuwählende bzw. selbst zu definierende Codeliste einzubinden, die eine solche Klassifikation bietet. Im Anwendungskontext sind in die Attribute des vorliegenden Typs die Codelisten-URI und die Nummer der Version der ausgewählten Codeliste (in die XBau-Nachrichteninstanzen) einzutragen. Als Muster wurde eine passende Codeliste definiert und als Angebot zur Einbindung für diesen Typ bereitgestellt. Diese Codeliste kann auf Antrag erweitert bzw. geändert werden. Sie ist im XRepository (www.xrepository.de) unter der Codelisten-URI urn:xoev-de:xbau:codeliste:artderbaulast auffindbar und kann von dort im XML-Format OASIS Genericode abgerufen werden.</xs:documentation>
+         <xs:documentation>Dieser Code-Typ steht für eine Klassifikation der Arten von Baulast. In diesen Typ ist eine auszuwählende bzw. selbst zu definierende Codeliste einzubinden, die eine solche Klassifikation bietet. Im Anwendungskontext sind in die Attribute des vorliegenden Typs die Codelisten-URI und die Nummer der Version der ausgewählten Codeliste (in die XBau-Nachrichteninstanzen) einzutragen. Als Muster wurde eine passende Codeliste definiert und als Angebot zur Einbindung für diesen Typ bereitgestellt. Diese Codeliste kann auf Antrag erweitert bzw. geändert werden. Sie ist im XRepository (www.xrepository.de) unter ihrer Codelisten-URI urn:xoev-de:xbau:codeliste:artderbaulast auffindbar und kann von dort im XML-Format OASIS Genericode abgerufen werden.</xs:documentation>
       </xs:annotation>
       <xs:complexContent>
          <xs:restriction base="xoev-code:Code">
@@ -761,7 +761,7 @@
    </xs:complexType>
    <xs:complexType name="Code.BaulicheAnlagenSonstige">
       <xs:annotation>
-         <xs:documentation>Dieser Code-Typ steht für eine Klassifikation der baulichen Anlagen, die nicht Gebäude sind. In diesen Typ ist eine auszuwählende bzw. selbst zu definierende Codeliste einzubinden, die eine solche Klassifikation bietet. Im Anwendungskontext sind in die Attribute des vorliegenden Typs die Codelisten-URI und die Nummer der Version der ausgewählten Codeliste (in die XBau-Nachrichteninstanzen) einzutragen. Als Muster wurde eine passende Codeliste definiert und als Angebot zur Einbindung für diesen Typ bereitgestellt. Diese Codeliste kann auf Antrag erweitert bzw. geändert werden. Sie ist im XRepository (www.xrepository.de) unter der Codelisten-URI urn:xoev-de:xbau:codeliste:baulicheanlagen.sonstige auffindbar und kann von dort im XML-Format OASIS Genericode abgerufen werden.</xs:documentation>
+         <xs:documentation>Dieser Code-Typ steht für eine Klassifikation der baulichen Anlagen, die nicht Gebäude sind. In diesen Typ ist eine auszuwählende bzw. selbst zu definierende Codeliste einzubinden, die eine solche Klassifikation bietet. Im Anwendungskontext sind in die Attribute des vorliegenden Typs die Codelisten-URI und die Nummer der Version der ausgewählten Codeliste (in die XBau-Nachrichteninstanzen) einzutragen. Als Muster wurde eine passende Codeliste definiert und als Angebot zur Einbindung für diesen Typ bereitgestellt. Diese Codeliste kann auf Antrag erweitert bzw. geändert werden. Sie ist im XRepository (www.xrepository.de) unter ihrer Codelisten-URI urn:xoev-de:xbau:codeliste:baulicheanlagen.sonstige auffindbar und kann von dort im XML-Format OASIS Genericode abgerufen werden.</xs:documentation>
       </xs:annotation>
       <xs:complexContent>
          <xs:restriction base="xoev-code:Code">
@@ -1004,7 +1004,7 @@
             <versionCodeliste>
                <version>3.0</version>
                <versionCodelistenHandbuch>1.2</versionCodelistenHandbuch>
-               <aenderungZurVorversion>Es wurde ein Eintrag "Sonstiger Nachweis" hinzugefügt.</aenderungZurVorversion>
+               <aenderungZurVorversion>In XBau 2.6: Es wurde ein Eintrag "Sonstiger Nachweis" hinzugefügt.</aenderungZurVorversion>
             </versionCodeliste>
             <codelistenspalten>
                <code>
@@ -1100,7 +1100,7 @@
    </xs:complexType>
    <xs:complexType name="Code.BauvorlageberechtigungSachverhalt">
       <xs:annotation>
-         <xs:documentation>Dieser Codedatentyp steht für Sachverhalte, aufgrund derer eine Person bauvorlageberechtigt sein kann. Diese beruhen auf Landesrecht, das insofern teilweise der Musterbauordnung entspricht. In diesen Typ ist eine auszuwählende bzw. selbst zu definierende Codeliste einzubinden, die eine solche Klassifikation bietet. Im Anwendungskontext sind in die Attribute des vorliegenden Typs die Codelisten-URI und die Nummer der Version der ausgewählten Codeliste (in die XBau-Nachrichteninstanzen) einzutragen. Als Muster wurde die Codeliste "Bauvorlageberechtigung Sachverhalt" definiert und als Angebot zur Einbindung für diesen Typ bereitgestellt. Diese Codeliste kann auf Antrag erweitert bzw. geändert werden. Sie ist im XRepository (www.xrepository.de) unter der Codelisten-URI urn:xoev-de:xbau:codeliste:bauvorlageberechtigungsachverhalt auffindbar und kann von dort im XML-Format OASIS Genericode abgerufen werden.</xs:documentation>
+         <xs:documentation>Dieser Codedatentyp steht für Sachverhalte, aufgrund derer eine Person bauvorlageberechtigt sein kann. Diese beruhen auf Landesrecht, das insofern teilweise der Musterbauordnung entspricht. In diesen Typ ist eine auszuwählende bzw. selbst zu definierende Codeliste einzubinden, die eine solche Klassifikation bietet. Im Anwendungskontext sind in die Attribute des vorliegenden Typs die Codelisten-URI und die Nummer der Version der ausgewählten Codeliste (in die XBau-Nachrichteninstanzen) einzutragen. Als Muster wurde die Codeliste "Bauvorlageberechtigung Sachverhalt" definiert und als Angebot zur Einbindung für diesen Typ bereitgestellt. Diese Codeliste kann auf Antrag erweitert bzw. geändert werden. Sie ist im XRepository (www.xrepository.de) unter ihrer Codelisten-URI urn:xoev-de:xbau:codeliste:bauvorlageberechtigungsachverhalt auffindbar und kann von dort im XML-Format OASIS Genericode abgerufen werden.</xs:documentation>
       </xs:annotation>
       <xs:complexContent>
          <xs:restriction base="xoev-code:Code">
@@ -1166,7 +1166,7 @@
    </xs:complexType>
    <xs:complexType name="Code.BauwerteGebaeudeartenPPVO">
       <xs:annotation>
-         <xs:documentation>Dieser Code-Typ steht für die Gebäudearten mit den entsprechenden relativen Bauwerten gemäß zutreffender Verordnung für die Prüfingenieure und Prüfsachverständige. Diese Gebäudearten werden für die Berechnung von Gebühren verwendet. In diesen Typ ist eine auszuwählende bzw. selbst zu definierende Codeliste einzubinden, die eine solche Klassifikation bietet. Im Anwendungskontext sind in die Attribute des vorliegenden Typs die Codelisten-URI und die Nummer der Version der ausgewählten Codeliste (in die XBau-Nachrichteninstanzen) einzutragen. Als Muster wurde eine passende Codeliste definiert und als Angebot zur Einbindung für diesen Typ bereitgestellt. Diese Codeliste kann auf Antrag erweitert bzw. geändert werden. Sie ist im XRepository (www.xrepository.de) unter der Codelisten-URI urn:xoev-de:xbau:codeliste:bauwerte.gebaeudearten auffindbar und kann von dort im XML-Format OASIS Genericode abgerufen werden.</xs:documentation>
+         <xs:documentation>Dieser Code-Typ steht für die Gebäudearten mit den entsprechenden relativen Bauwerten gemäß zutreffender Verordnung für die Prüfingenieure und Prüfsachverständige. Diese Gebäudearten werden für die Berechnung von Gebühren verwendet. In diesen Typ ist eine auszuwählende bzw. selbst zu definierende Codeliste einzubinden, die eine solche Klassifikation bietet. Im Anwendungskontext sind in die Attribute des vorliegenden Typs die Codelisten-URI und die Nummer der Version der ausgewählten Codeliste (in die XBau-Nachrichteninstanzen) einzutragen.</xs:documentation>
       </xs:annotation>
       <xs:complexContent>
          <xs:restriction base="xoev-code:Code">
@@ -1180,7 +1180,7 @@
    </xs:complexType>
    <xs:complexType name="Code.BauwerteZuschlaegePPVO">
       <xs:annotation>
-         <xs:documentation>Dieser Code-Typ steht für die Zuschläge, die bei der Berechnung der anrechenbaren Bauwerte zu berücksichtigen sind, gemäß zutreffender Verordnung für die Prüfingenieure und Prüfsachverständige. In diesen Typ ist eine auszuwählende bzw. selbst zu definierende Codeliste einzubinden, die eine solche Klassifikation bietet. Im Anwendungskontext sind in die Attribute des vorliegenden Typs die Codelisten-URI und die Nummer der Version der ausgewählten Codeliste (in die XBau-Nachrichteninstanzen) einzutragen. Als Muster wurde eine passende Codeliste definiert und als Angebot zur Einbindung für diesen Typ bereitgestellt. Diese Codeliste kann auf Antrag erweitert bzw. geändert werden. Sie ist im XRepository (www.xrepository.de) unter der Codelisten-URI urn:xoev-de:xbau:codeliste:bauwerte.zuschlaege.ppvo auffindbar und kann von dort im XML-Format OASIS Genericode abgerufen werden.</xs:documentation>
+         <xs:documentation>Dieser Code-Typ steht für die Zuschläge, die bei der Berechnung der anrechenbaren Bauwerte zu berücksichtigen sind, gemäß zutreffender Verordnung für die Prüfingenieure und Prüfsachverständige. In diesen Typ ist eine auszuwählende bzw. selbst zu definierende Codeliste einzubinden, die eine solche Klassifikation bietet. Im Anwendungskontext sind in die Attribute des vorliegenden Typs die Codelisten-URI und die Nummer der Version der ausgewählten Codeliste (in die XBau-Nachrichteninstanzen) einzutragen.</xs:documentation>
       </xs:annotation>
       <xs:complexContent>
          <xs:restriction base="xoev-code:Code">
@@ -1350,7 +1350,7 @@
    </xs:complexType>
    <xs:complexType name="Code.BenachrichtigungAnlass">
       <xs:annotation>
-         <xs:documentation>Anlässe für die Benachrichtigung von Dritten über Verfahrensstände und Ergebnisse von Prozessen der Bauaufsichtsbehörde. In diesen Typ ist eine auszuwählende bzw. selbst zu definierende Codeliste einzubinden, die eine solche Klassifikation bietet. Im Anwendungskontext sind in die Attribute des vorliegenden Typs die Codelisten-URI und die Nummer der Version der ausgewählten Codeliste (in die XBau-Nachrichteninstanzen) einzutragen. Als Muster wurde die Codeliste Benachrichtigung Informationsempfänger Anlass (URI: urn:xoev-de:xbau:codeliste:benachrichtigunganlass) als Angebot zur Einbindung für diesen Typ bereitgestellt. Die angebotene Codeliste ist im XRepository (www.xrepository.de) unter dem Stichwort "XBau" auffindbar und kann von dort im XML-Format OASIS Genericode abgerufen werden.</xs:documentation>
+         <xs:documentation>Anlässe für die Benachrichtigung von Dritten über Verfahrensstände und Ergebnisse von Prozessen der Bauaufsichtsbehörde. In diesen Typ ist eine auszuwählende bzw. selbst zu definierende Codeliste einzubinden, die eine solche Klassifikation bietet. Im Anwendungskontext sind in die Attribute des vorliegenden Typs die Codelisten-URI und die Nummer der Version der ausgewählten Codeliste (in die XBau-Nachrichteninstanzen) einzutragen. Als Muster wurde eine passende Codeliste definiert und als Angebot zur Einbindung für diesen Typ bereitgestellt. Diese Codeliste kann auf Antrag erweitert bzw. geändert werden. Sie ist im XRepository (www.xrepository.de) unter ihrer Codelisten-URI urn:xoev-de:xbau:codeliste:benachrichtigunganlass auffindbar und kann von dort im XML-Format OASIS Genericode abgerufen werden.</xs:documentation>
       </xs:annotation>
       <xs:complexContent>
          <xs:restriction base="xoev-code:Code">
@@ -1538,7 +1538,7 @@
                <herausgebernameKurz>BMK</herausgebernameKurz>
             </codeliste>
             <versionCodeliste>
-               <version>3</version>
+               <version>3.0</version>
                <versionCodelistenHandbuch>1.2</versionCodelistenHandbuch>
                <aenderungZurVorversion>In XBau 2.6: Korrektur Rechtschreibung im Codelisteneintrag 5</aenderungZurVorversion>
             </versionCodeliste>
@@ -1573,7 +1573,7 @@
             <xs:attribute name="listVersionID"
                           type="xs:normalizedString"
                           use="optional"
-                          fixed="3"/>
+                          fixed="3.0"/>
          </xs:restriction>
       </xs:complexContent>
    </xs:complexType>
@@ -2054,7 +2054,7 @@
    </xs:complexType>
    <xs:complexType name="Code.ErleichterungGegenstand">
       <xs:annotation>
-         <xs:documentation>Dieser Code-Typ steht für Arten von beantragten Erleichterungen gemäß bspw. MBO § 51 (Anforderungen und Erleichterungen für Sonderbauten). In diesen Typ ist eine auszuwählende bzw. selbst zu definierende Codeliste einzubinden, die eine solche Klassifikation bietet. Im Anwendungskontext sind in die Attribute des vorliegenden Typs die Codelisten-URI und die Nummer der Version der ausgewählten Codeliste (in die XBau-Nachrichteninstanzen) einzutragen. Als Muster wurden die Ziffern aus MBO § 51 (Liste von Erleichterungstatbeständen) als XÖV-konforme Codeliste dargestellt und als Angebot zur Einbindung für diesen Typ bereitgestellt. Im Anwendungskontext können entsprechend Codelisten mit landesrechtlich angepassten Tatbeständen verwendet werden. Die angebotene Codeliste ist im XRepository (www.xrepository.de) unter der Codelisten-URI urn:xoev-de:xbau:codeliste:erleichterung.gegenstand auffindbar und kann von dort im XML-Format OASIS Genericode abgerufen werden.</xs:documentation>
+         <xs:documentation>Dieser Code-Typ steht für Arten von beantragten Erleichterungen gemäß bspw. § 51 MBO (Anforderungen und Erleichterungen für Sonderbauten). In diesen Typ ist eine auszuwählende bzw. selbst zu definierende Codeliste einzubinden, die eine solche Klassifikation bietet. Im Anwendungskontext sind in die Attribute des vorliegenden Typs die Codelisten-URI und die Nummer der Version der ausgewählten Codeliste (in die XBau-Nachrichteninstanzen) einzutragen. Als Muster wurden die Ziffern aus § 51 MBO (Liste von Erleichterungstatbeständen) als XÖV-konforme Codeliste dargestellt und als Angebot zur Einbindung für diesen Typ bereitgestellt. Im Anwendungskontext können entsprechend Codelisten mit landesrechtlich angepassten Tatbeständen verwendet werden. Die angebotene Codeliste ist im XRepository (www.xrepository.de) unter ihrer Codelisten-URI urn:xoev-de:xbau:codeliste:erleichterung.gegenstand auffindbar und kann von dort im XML-Format OASIS Genericode abgerufen werden.</xs:documentation>
       </xs:annotation>
       <xs:complexContent>
          <xs:restriction base="xoev-code:Code">
@@ -2225,7 +2225,7 @@
    </xs:complexType>
    <xs:complexType name="Code.FormelleBefundeArt">
       <xs:annotation>
-         <xs:documentation>Arten von Befunden einer universell einsetzbaren Befundliste für die formelle Prüfung von Anträgen, Anzeigen und Erklärungen. In diesen Typ ist eine auszuwählende bzw. selbst zu definierende Codeliste einzubinden, die eine solche Klassifikation bietet. Im Anwendungskontext sind in die Attribute des vorliegenden Typs die Codelisten-URI und die Nummer der Version der ausgewählten Codeliste (in die XBau-Nachrichteninstanzen) einzutragen. Als Muster wurde die Codeliste Befunde einer formellen Prüfung (URI: urn:xoev-de:xbau:codeliste:formellebefundeart) als Angebot zur Einbindung für diesen Typ bereitgestellt. Die angebotene Codeliste ist im XRepository (www.xrepository.de) unter dem Stichwort "XBau" auffindbar und kann von dort im XML-Format OASIS Genericode abgerufen werden.</xs:documentation>
+         <xs:documentation>Arten von Befunden einer universell einsetzbaren Befundliste für die formelle Prüfung von Anträgen, Anzeigen und Erklärungen. In diesen Typ ist eine auszuwählende bzw. selbst zu definierende Codeliste einzubinden, die eine solche Klassifikation bietet. Im Anwendungskontext sind in die Attribute des vorliegenden Typs die Codelisten-URI und die Nummer der Version der ausgewählten Codeliste (in die XBau-Nachrichteninstanzen) einzutragen. Als Muster wurde eine passende Codeliste definiert und als Angebot zur Einbindung für diesen Typ bereitgestellt. Diese Codeliste kann auf Antrag erweitert bzw. geändert werden. Sie ist im XRepository (www.xrepository.de) unter ihrer Codelisten-URI urn:xoev-de:xbau:codeliste:formellebefundeart auffindbar und kann von dort im XML-Format OASIS Genericode abgerufen werden.</xs:documentation>
       </xs:annotation>
       <xs:complexContent>
          <xs:restriction base="xoev-code:Code">
@@ -2518,7 +2518,7 @@
                <herausgebernameKurz>BMK</herausgebernameKurz>
             </codeliste>
             <versionCodeliste>
-               <version>3</version>
+               <version>3.0</version>
                <versionCodelistenHandbuch>1.2</versionCodelistenHandbuch>
                <aenderungZurVorversion>In XBau 2.6: Korrektur Rechtschreibung im Codelisteneintrag 3</aenderungZurVorversion>
             </versionCodeliste>
@@ -2556,7 +2556,7 @@
             <xs:attribute name="listVersionID"
                           type="xs:normalizedString"
                           use="optional"
-                          fixed="3"/>
+                          fixed="3.0"/>
          </xs:restriction>
       </xs:complexContent>
    </xs:complexType>
@@ -3107,7 +3107,7 @@
                <herausgebernameKurz>BMK</herausgebernameKurz>
             </codeliste>
             <versionCodeliste>
-               <version>3</version>
+               <version>3.0</version>
                <versionCodelistenHandbuch>1.2</versionCodelistenHandbuch>
                <aenderungZurVorversion>In XBau 2.6: Korrektur Rechtschreibung im Codelisteneintrag 5</aenderungZurVorversion>
             </versionCodeliste>
@@ -3142,7 +3142,7 @@
             <xs:attribute name="listVersionID"
                           type="xs:normalizedString"
                           use="optional"
-                          fixed="3"/>
+                          fixed="3.0"/>
          </xs:restriction>
       </xs:complexContent>
    </xs:complexType>
@@ -3263,14 +3263,14 @@
                <nameKurz>MPPVO Anlass Prüfung technische Anlage</nameKurz>
                <nameTechnisch>mppvopruefungtechnischeanlageanlass</nameTechnisch>
                <kennung>urn:xoev-de:xbau:codeliste:mppvopruefungtechnischeanlageanlass</kennung>
-               <beschreibung>Anlass der Prüfung einer überwachungspflichtigen Anlage gemäß Musterprüfverordnung § 2 Abs. 2</beschreibung>
+               <beschreibung>Anlass der Prüfung einer überwachungspflichtigen Anlage gemäß § 2 Abs. 2 Musterprüfverordnung</beschreibung>
                <herausgebernameLang>Bauministerkonferenz</herausgebernameLang>
                <herausgebernameKurz>BMK</herausgebernameKurz>
             </codeliste>
             <versionCodeliste>
                <version>3.0</version>
                <versionCodelistenHandbuch>1.2</versionCodelistenHandbuch>
-               <aenderungZurVorversion>Korrektur eines Rechtschreibfehlers in der Beschreibung</aenderungZurVorversion>
+               <aenderungZurVorversion>In XBau 2.6: Korrektur eines Rechtschreibfehlers in der Beschreibung</aenderungZurVorversion>
             </versionCodeliste>
             <codelistenspalten>
                <code>
@@ -3311,7 +3311,7 @@
    </xs:complexType>
    <xs:complexType name="Code.MppvoTechnischeAnlage">
       <xs:annotation>
-         <xs:documentation>Arten von technischen Anlagen, die der Überwachungspflicht unterliegen gemäß Musterprüfverordnung § 2 Abs. 1 In diesen Typ ist eine auszuwählende bzw. selbst zu definierende Codeliste einzubinden, die eine solche Klassifikation bietet. Im Anwendungskontext sind in die Attribute des vorliegenden Typs die Codelisten-URI und die Nummer der Version der ausgewählten Codeliste (in die XBau-Nachrichteninstanzen) einzutragen. Als Muster wurde die Codeliste XBau Technische Anlagen gemäß M-PPVO (URI: urn:xoev-de:xbau:codeliste:mppvotechnischeanlage) als Angebot zur Einbindung für diesen Typ bereitgestellt. Die angebotene Codeliste ist im XRepository (www.xrepository.de) unter dem Stichwort "XBau" auffindbar und kann von dort im XML-Format OASIS Genericode abgerufen werden.</xs:documentation>
+         <xs:documentation>Arten von technischen Anlagen, die der Überwachungspflicht unterliegen gemäß § 2 Abs. 1 Musterprüfverordnung. In diesen Typ ist eine auszuwählende bzw. selbst zu definierende Codeliste einzubinden, die eine solche Klassifikation bietet. Im Anwendungskontext sind in die Attribute des vorliegenden Typs die Codelisten-URI und die Nummer der Version der ausgewählten Codeliste (in die XBau-Nachrichteninstanzen) einzutragen. Als Muster wurde eine passende Codeliste definiert und als Angebot zur Einbindung für diesen Typ bereitgestellt. Diese Codeliste kann auf Antrag erweitert bzw. geändert werden. Sie ist im XRepository (www.xrepository.de) unter ihrer Codelisten-URI urn:xoev-de:xbau:codeliste:mppvotechnischeanlage auffindbar und kann von dort im XML-Format OASIS Genericode abgerufen werden.</xs:documentation>
       </xs:annotation>
       <xs:complexContent>
          <xs:restriction base="xoev-code:Code">
@@ -3338,7 +3338,7 @@
             <versionCodeliste>
                <version>3.0</version>
                <versionCodelistenHandbuch>1.2</versionCodelistenHandbuch>
-               <aenderungZurVorversion>Korrektur eines Rechtschreibfehlers in der Beschreibung</aenderungZurVorversion>
+               <aenderungZurVorversion>In XBau 2.6: Korrektur eines Rechtschreibfehlers in der Beschreibung</aenderungZurVorversion>
             </versionCodeliste>
             <codelistenspalten>
                <code>
@@ -3442,9 +3442,9 @@
                <herausgebernameKurz>BMK</herausgebernameKurz>
             </codeliste>
             <versionCodeliste>
-               <version>2.0</version>
+               <version>3.0</version>
                <versionCodelistenHandbuch>1.2</versionCodelistenHandbuch>
-               <aenderungZurVorversion>Änderung im Namensraum der XÖV-Metadaten „http://xoev.de/schemata/genericode/4“ (Präfix „xoev-cl-4“); Änderung der Versionsangabe des Codelistenhandbuchs („1.2“)</aenderungZurVorversion>
+               <aenderungZurVorversion>zu XBau 2.6: Neue Einträge 4-6</aenderungZurVorversion>
             </versionCodeliste>
             <codelistenspalten>
                <code>
@@ -3480,7 +3480,7 @@
             <xs:attribute name="listVersionID"
                           type="xs:normalizedString"
                           use="optional"
-                          fixed="2.0"/>
+                          fixed="3.0"/>
          </xs:restriction>
       </xs:complexContent>
    </xs:complexType>
@@ -3497,7 +3497,7 @@
                <herausgebernameKurz>BMK</herausgebernameKurz>
             </codeliste>
             <versionCodeliste>
-               <version>3</version>
+               <version>3.0</version>
                <versionCodelistenHandbuch>1.2</versionCodelistenHandbuch>
                <aenderungZurVorversion>In XBau 2.6: Korrektur Rechtschreibung in Codelisteneinträgen (310, 340, 350, 959)</aenderungZurVorversion>
             </versionCodeliste>
@@ -3534,7 +3534,7 @@
             <xs:attribute name="listVersionID"
                           type="xs:normalizedString"
                           use="optional"
-                          fixed="3"/>
+                          fixed="3.0"/>
          </xs:restriction>
       </xs:complexContent>
    </xs:complexType>
@@ -3700,7 +3700,7 @@
    </xs:complexType>
    <xs:complexType name="Code.Rechtsbereich">
       <xs:annotation>
-         <xs:documentation>Dieser Code-Typ steht für eine Klassifikation von Rechtsbereichen, denen Zuständigkeiten, Normen, Fragestellungen und Bescheide zugeordnet werden können. In diesen Typ ist eine auszuwählende bzw. selbst zu definierende Codeliste einzubinden, die eine solche Klassifikation bietet. Im Anwendungskontext sind in die Attribute des vorliegenden Typs die Codelisten-URI und die Nummer der Version der ausgewählten Codeliste (in die XBau-Nachrichteninstanzen) einzutragen. Als Muster wurde die sachgebietliche Gliederung des Fundstellennachweis A des Bundes als XÖV-konforme Codeliste dargestellt und als Angebot zur Einbindung für diesen Typ bereitgestellt. Es wird aber vermutet, dass im Anwendungskontext oft landesrechtliche und lokale Regelungen referenziert werden müssen und daher - nach dem Vorbild des Musters - angepasste Codelisten eingesetzt werden müssen. Die angebotene Codeliste ist im XRepository (www.xrepository.de) unter dem Stichwort "Fundstellennachweis A des Bundes" auffindbar und kann von dort im XML-Format OASIS Genericode abgerufen werden.</xs:documentation>
+         <xs:documentation>Dieser Code-Typ steht für eine Klassifikation von Rechtsbereichen, denen Zuständigkeiten, Normen, Fragestellungen und Bescheide zugeordnet werden können. In diesen Typ ist eine auszuwählende bzw. selbst zu definierende Codeliste einzubinden, die eine solche Klassifikation bietet. Im Anwendungskontext sind in die Attribute des vorliegenden Typs die Codelisten-URI und die Nummer der Version der ausgewählten Codeliste (in die XBau-Nachrichteninstanzen) einzutragen. Als Muster wurde die sachgebietliche Gliederung des "Fundstellennachweis A des Bundes" als XÖVkonforme Codeliste "Klassifikation von Rechtsbereichen gemäß Fundstellennachweis A des Bundes" dargestellt und als Angebot zur Einbindung für diesen Typ bereitgestellt. Es wird aber vermutet, dass im Anwendungskontext oft landesrechtliche und lokale Regelungen referenziert werden müssen und daher - nach dem Vorbild des Musters - angepasste Codelisten eingesetzt werden müssen. Sie ist im XRepository (www.xrepository.de) unter der Codelisten-URI urn:xoev-de:bund:bmj:codeliste:fundstellennachweis.bund.a auffindbar und kann von dort im XML-Format OASIS Genericode abgerufen werden.</xs:documentation>
       </xs:annotation>
       <xs:complexContent>
          <xs:restriction base="xoev-code:Code">
@@ -3766,7 +3766,7 @@
    </xs:complexType>
    <xs:complexType name="Code.Sonderbauten">
       <xs:annotation>
-         <xs:documentation>Dieser Code-Typ steht für eine Klassifikation von Sonderbauten. In diesen Typ ist eine auszuwählende bzw. selbst zu definierende Codeliste einzubinden, die eine solche Klassifikation bietet. Im Anwendungskontext sind in die Attribute des vorliegenden Typs die Codelisten-URI und die Nummer der Version der ausgewählten Codeliste (in die XBau-Nachrichteninstanzen) einzutragen. Es wurde eine Codeliste "Sonderbauten gemäß MBO" definiert und als Vorschlag zur Einbindung für diesen Typ bereitgestellt. Sie ist im XRepository (www.xrepository.de) unter der Codelisten-URI urn:xoev-de:xbau:codeliste:mbo-sonderbauten auffindbar und kann von dort im XML-Format OASIS Genericode abgerufen werden.</xs:documentation>
+         <xs:documentation>Dieser Code-Typ steht für eine Klassifikation von Sonderbauten. In diesen Typ ist eine auszuwählende bzw. selbst zu definierende Codeliste einzubinden, die eine solche Klassifikation bietet. Im Anwendungskontext sind in die Attribute des vorliegenden Typs die Codelisten-URI und die Nummer der Version der ausgewählten Codeliste (in die XBau-Nachrichteninstanzen) einzutragen. Es wurde eine Codeliste "Sonderbauten gemäß MBO" definiert und als Vorschlag zur Einbindung für diesen Typ bereitgestellt. Sie ist im XRepository (www.xrepository.de) unter ihrer Codelisten-URI urn:xoev-de:xbau:codeliste:mbo-sonderbauten auffindbar und kann von dort im XML-Format OASIS Genericode abgerufen werden.</xs:documentation>
       </xs:annotation>
       <xs:complexContent>
          <xs:restriction base="xoev-code:Code">
@@ -3791,6 +3791,7 @@
                <herausgebernameKurz>BMK</herausgebernameKurz>
             </codeliste>
          </xs:appinfo>
+         <xs:documentation>Diese Codeliste nennt mögliche Ausprägungen der Statusinformation, die die Bauaufsichtsbehörde ans Bauportal senden kann. Sie ist im XRepository (www.xrepository.de) unter ihrer Codelisten-URI urn:xoev-de:xbau:codeliste:statusbauportal auffindbar. Ihre Versionen können von dort im XML-Format OASIS Genericode abgerufen werden.</xs:documentation>
       </xs:annotation>
       <xs:complexContent>
          <xs:restriction base="xoev-code:Code">
@@ -3913,7 +3914,7 @@
    </xs:complexType>
    <xs:complexType name="Code.Strassenanbindung">
       <xs:annotation>
-         <xs:documentation>Dieser Code-Typ dient zur Angabe der Art der Straßenanbindung. In diesen Typ ist eine auszuwählende bzw. selbst zu definierende Codeliste einzubinden, die eine solche Klassifikation bietet. Im Anwendungskontext sind in die Attribute des vorliegenden Typs die Codelisten-URI und die Nummer der Version der ausgewählten Codeliste (in die XBau-Nachrichteninstanzen) einzutragen. Als Muster wurde eine passende Codeliste definiert und als Angebot zur Einbindung für diesen Typ bereitgestellt. Diese Codeliste kann auf Antrag erweitert bzw. geändert werden. Sie ist im XRepository (www.xrepository.de) unter der Codelisten-URI urn:xoev-de:xbau:codeliste:strassenanbindung auffindbar und kann von dort im XML-Format OASIS Genericode abgerufen werden.</xs:documentation>
+         <xs:documentation>Dieser Code-Typ dient zur Angabe der Art der Straßenanbindung. In diesen Typ ist eine auszuwählende bzw. selbst zu definierende Codeliste einzubinden, die eine solche Klassifikation bietet. Im Anwendungskontext sind in die Attribute des vorliegenden Typs die Codelisten-URI und die Nummer der Version der ausgewählten Codeliste (in die XBau-Nachrichteninstanzen) einzutragen. Als Muster wurde eine passende Codeliste definiert und als Angebot zur Einbindung für diesen Typ bereitgestellt. Diese Codeliste kann auf Antrag erweitert bzw. geändert werden. Sie ist im XRepository (www.xrepository.de) unter ihrer Codelisten-URI urn:xoev-de:xbau:codeliste:strassenanbindung auffindbar und kann von dort im XML-Format OASIS Genericode abgerufen werden.</xs:documentation>
       </xs:annotation>
       <xs:complexContent>
          <xs:restriction base="xoev-code:Code">
@@ -3938,7 +3939,7 @@
                <herausgebernameKurz>Destatis</herausgebernameKurz>
             </codeliste>
          </xs:appinfo>
-         <xs:documentation>Die Codeliste enthält die notwendigen Sechssteller der Wohn- und Nichtwohngebäude. Die Codeliste ist im XRepository (www.xrepository.de) unter Nennung ihrer Codelisten-URI auffindbar und kann von dort im XML-Format OASIS Genericode abgerufen werden.</xs:documentation>
+         <xs:documentation>Die Codeliste enthält die notwendigen Sechssteller der Wohn- und Nichtwohngebäude. Die Codeliste ist im XRepository (www.xrepository.de) unter Nennung ihrer Codelisten-URI urn:xoev-de:destatis:codeliste:systematikderbauwerkebautaetigkeit auffindbar und kann von dort im XML-Format OASIS Genericode abgerufen werden.</xs:documentation>
       </xs:annotation>
       <xs:complexContent>
          <xs:restriction base="xoev-code:Code">
@@ -4072,7 +4073,7 @@
                <herausgebernameKurz>BMK</herausgebernameKurz>
             </codeliste>
             <versionCodeliste>
-               <version>3</version>
+               <version>3.0</version>
                <versionCodelistenHandbuch>1.2</versionCodelistenHandbuch>
                <aenderungZurVorversion>In XBau 2.6: Korrektur Rechtschreibung im Codelisteneintrag 1</aenderungZurVorversion>
             </versionCodeliste>
@@ -4109,13 +4110,13 @@
             <xs:attribute name="listVersionID"
                           type="xs:normalizedString"
                           use="optional"
-                          fixed="3"/>
+                          fixed="3.0"/>
          </xs:restriction>
       </xs:complexContent>
    </xs:complexType>
    <xs:complexType name="Code.Verfahrensart">
       <xs:annotation>
-         <xs:documentation>Dieser Code-Typ steht für eine Klassifikation der bauordnungsrechtlichen Verfahrensarten. In diesen Typ ist eine auszuwählende bzw. selbst zu definierende Codeliste einzubinden, die eine solche Klassifikation bietet. Im Anwendungskontext sind in die Attribute des vorliegenden Typs die Codelisten-URI und die Nummer der Version der ausgewählten Codeliste (in die XBau-Nachrichteninstanzen) einzutragen. Es wurde nach landesrechtlichen Anforderungen (Hamburg) eine passende Codeliste definiert und zur Einbindung für diesen Typ bereitgestellt. Sie ist im XRepository (www.xrepository.de) unter der Codelisten-URI urn:xoev-de:xbau:hh:codeliste:verfahrensart auffindbar und kann von dort im XML-Format OASIS Genericode abgerufen werden.</xs:documentation>
+         <xs:documentation>Dieser Code-Typ steht für eine Klassifikation der bauordnungsrechtlichen Verfahrensarten. In diesen Typ ist eine auszuwählende bzw. selbst zu definierende Codeliste einzubinden, die eine solche Klassifikation bietet. Im Anwendungskontext sind in die Attribute des vorliegenden Typs die Codelisten-URI und die Nummer der Version der ausgewählten Codeliste (in die XBau-Nachrichteninstanzen) einzutragen. Es wurde nach landesrechtlichen Anforderungen (Hamburg) eine passende Codeliste definiert und zur Einbindung für diesen Typ bereitgestellt. Sie ist im XRepository (www.xrepository.de) unter ihrer Codelisten-URI urn:xoev-de:xbau:hh:codeliste:verfahrensart auffindbar und kann von dort im XML-Format OASIS Genericode abgerufen werden.</xs:documentation>
       </xs:annotation>
       <xs:complexContent>
          <xs:restriction base="xoev-code:Code">
@@ -4405,10 +4406,10 @@
                <herausgebernameKurz>BMK</herausgebernameKurz>
             </codeliste>
             <versionCodeliste>
-               <version>3.2</version>
+               <version>4.0</version>
                <versionCodelistenHandbuch>1.2</versionCodelistenHandbuch>
                <aenderungZurVorversion>In XBau 2.6: 
-Neue Einträge: 0703, 0720, 0721, 0722, 0723, 0904, 0913, 0923</aenderungZurVorversion>
+Neue Einträge: 0703, 0720, 0721, 0722, 0723, 0724, 0725, 0904, 0913, 0923</aenderungZurVorversion>
             </versionCodeliste>
             <codelistenspalten>
                <code>
@@ -4441,7 +4442,7 @@ Neue Einträge: 0703, 0720, 0721, 0722, 0723, 0904, 0913, 0923</aenderungZurVorv
             <xs:attribute name="listVersionID"
                           type="xs:normalizedString"
                           use="optional"
-                          fixed="3.2"/>
+                          fixed="4.0"/>
          </xs:restriction>
       </xs:complexContent>
    </xs:complexType>
@@ -4995,7 +4996,7 @@ Neue Einträge: 0703, 0720, 0721, 0722, 0723, 0904, 0913, 0923</aenderungZurVorv
                <herausgebernameKurz>BMK</herausgebernameKurz>
             </codeliste>
             <versionCodeliste>
-               <version>3</version>
+               <version>3.0</version>
                <versionCodelistenHandbuch>1.2</versionCodelistenHandbuch>
                <aenderungZurVorversion>In XBau 2.6: Korrektur Rechtschreibung im Codelisteneintrag 5</aenderungZurVorversion>
             </versionCodeliste>
@@ -5068,7 +5069,7 @@ Neue Einträge: 0703, 0720, 0721, 0722, 0723, 0904, 0913, 0923</aenderungZurVorv
                <herausgebernameKurz>BMK</herausgebernameKurz>
             </codeliste>
             <versionCodeliste>
-               <version>3</version>
+               <version>3.0</version>
                <versionCodelistenHandbuch>1.2</versionCodelistenHandbuch>
                <aenderungZurVorversion>In XBau 2.6: Korrektur Rechtschreibung im Codelisteneintrag 1</aenderungZurVorversion>
             </versionCodeliste>
@@ -5595,7 +5596,7 @@ Neue Einträge: 0703, 0720, 0721, 0722, 0723, 0904, 0913, 0923</aenderungZurVorv
             <versionCodeliste>
                <version>3.0</version>
                <versionCodelistenHandbuch>1.2</versionCodelistenHandbuch>
-               <aenderungZurVorversion>Es wurde ein Eintrag "Sonstiger Nachweis" hinzugefügt.</aenderungZurVorversion>
+               <aenderungZurVorversion>In XBau 2.6: Es wurde ein Eintrag "Sonstiger Nachweis" hinzugefügt.</aenderungZurVorversion>
             </versionCodeliste>
             <codelistenspalten>
                <code>
@@ -7386,7 +7387,7 @@ Neue Einträge: 0703, 0720, 0721, 0722, 0723, 0904, 0913, 0923</aenderungZurVorv
                <herausgebernameKurz>BMK</herausgebernameKurz>
             </codeliste>
             <versionCodeliste>
-               <version>3</version>
+               <version>3.0</version>
                <versionCodelistenHandbuch>1.2</versionCodelistenHandbuch>
                <aenderungZurVorversion>In XBau 2.6: Korrektur Rechtschreibung im Codelisteneintrag 3</aenderungZurVorversion>
             </versionCodeliste>
@@ -8343,7 +8344,7 @@ Neue Einträge: 0703, 0720, 0721, 0722, 0723, 0904, 0913, 0923</aenderungZurVorv
                <herausgebernameKurz>BMK</herausgebernameKurz>
             </codeliste>
             <versionCodeliste>
-               <version>3</version>
+               <version>3.0</version>
                <versionCodelistenHandbuch>1.2</versionCodelistenHandbuch>
                <aenderungZurVorversion>In XBau 2.6: Korrektur Rechtschreibung im Codelisteneintrag 5</aenderungZurVorversion>
             </versionCodeliste>
@@ -8628,14 +8629,14 @@ Neue Einträge: 0703, 0720, 0721, 0722, 0723, 0904, 0913, 0923</aenderungZurVorv
                <nameKurz>MPPVO Anlass Prüfung technische Anlage</nameKurz>
                <nameTechnisch>mppvopruefungtechnischeanlageanlass</nameTechnisch>
                <kennung>urn:xoev-de:xbau:codeliste:mppvopruefungtechnischeanlageanlass</kennung>
-               <beschreibung>Anlass der Prüfung einer überwachungspflichtigen Anlage gemäß Musterprüfverordnung § 2 Abs. 2</beschreibung>
+               <beschreibung>Anlass der Prüfung einer überwachungspflichtigen Anlage gemäß § 2 Abs. 2 Musterprüfverordnung</beschreibung>
                <herausgebernameLang>Bauministerkonferenz</herausgebernameLang>
                <herausgebernameKurz>BMK</herausgebernameKurz>
             </codeliste>
             <versionCodeliste>
                <version>3.0</version>
                <versionCodelistenHandbuch>1.2</versionCodelistenHandbuch>
-               <aenderungZurVorversion>Korrektur eines Rechtschreibfehlers in der Beschreibung</aenderungZurVorversion>
+               <aenderungZurVorversion>In XBau 2.6: Korrektur eines Rechtschreibfehlers in der Beschreibung</aenderungZurVorversion>
             </versionCodeliste>
             <codelistenspalten>
                <code>
@@ -8701,7 +8702,7 @@ Neue Einträge: 0703, 0720, 0721, 0722, 0723, 0904, 0913, 0923</aenderungZurVorv
             <versionCodeliste>
                <version>3.0</version>
                <versionCodelistenHandbuch>1.2</versionCodelistenHandbuch>
-               <aenderungZurVorversion>Korrektur eines Rechtschreibfehlers in der Beschreibung</aenderungZurVorversion>
+               <aenderungZurVorversion>In XBau 2.6: Korrektur eines Rechtschreibfehlers in der Beschreibung</aenderungZurVorversion>
             </versionCodeliste>
             <codelistenspalten>
                <code>
@@ -8810,9 +8811,9 @@ Neue Einträge: 0703, 0720, 0721, 0722, 0723, 0904, 0913, 0923</aenderungZurVorv
                <herausgebernameKurz>BMK</herausgebernameKurz>
             </codeliste>
             <versionCodeliste>
-               <version>2.0</version>
+               <version>3.0</version>
                <versionCodelistenHandbuch>1.2</versionCodelistenHandbuch>
-               <aenderungZurVorversion>Änderung im Namensraum der XÖV-Metadaten „http://xoev.de/schemata/genericode/4“ (Präfix „xoev-cl-4“); Änderung der Versionsangabe des Codelistenhandbuchs („1.2“)</aenderungZurVorversion>
+               <aenderungZurVorversion>zu XBau 2.6: Neue Einträge 4-6</aenderungZurVorversion>
             </versionCodeliste>
             <codelistenspalten>
                <code>
@@ -8854,6 +8855,27 @@ Neue Einträge: 0703, 0720, 0721, 0722, 0723, 0904, 0913, 0923</aenderungZurVorv
                </xs:appinfo>
             </xs:annotation>
          </xs:enumeration>
+         <xs:enumeration value="4">
+            <xs:annotation>
+               <xs:appinfo>
+                  <beschreibung>Hinweise</beschreibung>
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="5">
+            <xs:annotation>
+               <xs:appinfo>
+                  <beschreibung>auflösende Bedingung</beschreibung>
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="6">
+            <xs:annotation>
+               <xs:appinfo>
+                  <beschreibung>aufschiebende Bedingung</beschreibung>
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:enumeration>
       </xs:restriction>
    </xs:simpleType>
    <xs:simpleType name="Codelist.NichtwohngebaeudeArt">
@@ -8869,7 +8891,7 @@ Neue Einträge: 0703, 0720, 0721, 0722, 0723, 0904, 0913, 0923</aenderungZurVorv
                <herausgebernameKurz>BMK</herausgebernameKurz>
             </codeliste>
             <versionCodeliste>
-               <version>3</version>
+               <version>3.0</version>
                <versionCodelistenHandbuch>1.2</versionCodelistenHandbuch>
                <aenderungZurVorversion>In XBau 2.6: Korrektur Rechtschreibung in Codelisteneinträgen (310, 340, 350, 959)</aenderungZurVorversion>
             </versionCodeliste>
@@ -10110,10 +10132,10 @@ Neue Einträge: 0703, 0720, 0721, 0722, 0723, 0904, 0913, 0923</aenderungZurVorv
                <herausgebernameKurz>BMK</herausgebernameKurz>
             </codeliste>
             <versionCodeliste>
-               <version>3.2</version>
+               <version>4.0</version>
                <versionCodelistenHandbuch>1.2</versionCodelistenHandbuch>
                <aenderungZurVorversion>In XBau 2.6: 
-Neue Einträge: 0703, 0720, 0721, 0722, 0723, 0904, 0913, 0923</aenderungZurVorversion>
+Neue Einträge: 0703, 0720, 0721, 0722, 0723, 0724, 0725, 0904, 0913, 0923</aenderungZurVorversion>
             </versionCodeliste>
             <codelistenspalten>
                <code>
@@ -10806,6 +10828,20 @@ Neue Einträge: 0703, 0720, 0721, 0722, 0723, 0904, 0913, 0923</aenderungZurVorv
                </xs:appinfo>
             </xs:annotation>
          </xs:enumeration>
+         <xs:enumeration value="0724">
+            <xs:annotation>
+               <xs:appinfo>
+                  <beschreibung>baulastloeschung.stellungnahmeAufforderung.0724</beschreibung>
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="0725">
+            <xs:annotation>
+               <xs:appinfo>
+                  <beschreibung>baulastloeschung.stellungnahme.0725</beschreibung>
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:enumeration>
          <xs:enumeration value="0800">
             <xs:annotation>
                <xs:appinfo>
@@ -10960,7 +10996,7 @@ Neue Einträge: 0703, 0720, 0721, 0722, 0723, 0904, 0913, 0923</aenderungZurVorv
          <xs:appinfo>
             <codeliste>
                <nameLang>Art der Baulastauskunft</nameLang>
-               <nameKurz>Baulastauskunft</nameKurz>
+               <nameKurz>Art der Baulastauskunft</nameKurz>
                <nameTechnisch>artbaulastauskunft</nameTechnisch>
                <kennung>urn:xoev-de:xbau:codeliste:artbaulastauskunft</kennung>
                <beschreibung>Art der Baulastauskunft</beschreibung>

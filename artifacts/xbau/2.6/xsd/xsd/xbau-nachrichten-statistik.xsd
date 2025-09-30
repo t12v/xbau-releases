@@ -20,7 +20,7 @@
          </standard>
          <versionStandard>
             <version>2.6</version>
-            <beschreibung>Erweiterung von Prozess und Nachrichten zur Baulast: Es wurden Nachrichten zur Löschung und zur Eintragung von Baulasten erstellt. Erweiterung des Prozesses Anzeige Bauzustand: Erweiterung zu einem vollständigen und produktionsreifen Prozess auf Basis der 900er-Nachrichten. Vervollständigung der Prozessstringenz: Es wurden Nachrichten zur Benachrichtigung über den Abruf des Bescheids und die Zustellquittierung sowie Hinweise auf die Rücknahmefiktion ergänzt. Geschäftsregeln: Es wurden Geschäftsregeln im Schematronstandard für Datenübermittlungen zur Hochbaustatistik bereitgestellt. Weitere Details zu Erweiterungen und Änderungen sind in der Versionshistorie beschrieben.</beschreibung>
+            <beschreibung>Erweiterung von Prozess und Nachrichten zur Baulast: Es wurden Nachrichten zur Löschung und zur Eintragung von Baulasten erstellt. Erweiterung des Prozesses Anzeige Bauzustand: Erweiterung zu einem vollständigen und produktionsreifen Prozess auf Basis der 900er-Nachrichten. Vervollständigung der Prozessstringenz: Es wurden Nachrichten zur Benachrichtigung über den Abruf des Bescheids und die Zustellquittierung sowie Hinweise auf die Rücknahmefiktion ergänzt. Geschäftsregeln: Es wurden Geschäftsregeln im Schematronstandard für Datenübermittlungen zur Hochbaustatistik bereitgestellt. Bauvorlageberechtigung: Vorbereitung auf den NOOTS-Betrieb durch Kennzeichnung aus dem Kammerregister abgerufener Daten. Weitere Details zu Erweiterungen und Änderungen sind in der Versionshistorie beschrieben.</beschreibung>
             <versionXOEVProfil>3.0.0</versionXOEVProfil>
             <versionXOEVHandbuch>3.0.1</versionXOEVHandbuch>
             <versionXGenerator>3.1.1</versionXGenerator>
@@ -147,23 +147,23 @@
       <xs:annotation>
          <xs:documentation>Dieser Typ deckt Namen und Erreichbarkeit des Ansprechpartners für Rückfragen ab.</xs:documentation>
       </xs:annotation>
-      <xs:sequence>
-         <xs:element name="bauamt" minOccurs="0" type="xbau:AnsprechpartnerBauamt">
+      <xs:choice>
+         <xs:element name="bauamt" type="xbau:AnsprechpartnerBauamt">
             <xs:annotation>
                <xs:documentation>Dieser Typ deckt Namen und Erreichbarkeit des Ansprechpartners im Bauamt für Rückfragen ab.</xs:documentation>
             </xs:annotation>
          </xs:element>
-         <xs:element name="bevollmaechtigter" minOccurs="0" type="xbauk:Akteur">
+         <xs:element name="bevollmaechtigter" type="xbauk:Akteur">
             <xs:annotation>
                <xs:documentation>Dieser Typ deckt Namen und Erreichbarkeit des Bevollmächtigten für Rückfragen ab. Der Inhalt des Elements ergibt sich aus dem Datentyp beteiligteBauprojekt der Eingangsnachricht.</xs:documentation>
             </xs:annotation>
          </xs:element>
-         <xs:element name="architektEntwurfsverfasser" minOccurs="0" type="xbauk:Akteur">
+         <xs:element name="architektEntwurfsverfasser" type="xbauk:Akteur">
             <xs:annotation>
                <xs:documentation>Dieser Typ deckt Namen und Erreichbarkeit des Architekten oder Entwurfsverfassers für Rückfragen ab. Der Inhalt des Elements architektEntwurfsverfasser ergibt sich aus dem Inhalt des Elements personendaten aus dem Datentyp Entwurfsverfasser oder AnsprechpartnerEingeschraenkt der Eingangsnachricht.</xs:documentation>
             </xs:annotation>
          </xs:element>
-      </xs:sequence>
+      </xs:choice>
    </xs:complexType>
    <xs:complexType name="AnsprechpartnerBauamtAlt">
       <xs:annotation>
@@ -191,18 +191,18 @@
       </xs:annotation>
       <xs:complexContent>
          <xs:restriction base="xbau:Ansprechpartner">
-            <xs:sequence>
-               <xs:element name="bevollmaechtigter" minOccurs="0" type="xbauk:Akteur">
+            <xs:choice>
+               <xs:element name="bevollmaechtigter" type="xbauk:Akteur">
                   <xs:annotation>
                      <xs:documentation>Dieser Typ deckt Namen und Erreichbarkeit des Bevollmächtigten für Rückfragen ab.</xs:documentation>
                   </xs:annotation>
                </xs:element>
-               <xs:element name="architektEntwurfsverfasser" minOccurs="0" type="xbauk:Akteur">
+               <xs:element name="architektEntwurfsverfasser" type="xbauk:Akteur">
                   <xs:annotation>
                      <xs:documentation>Dieser Typ deckt Namen und Erreichbarkeit des Architekten oder Entwurfsverfassers für Rückfragen ab.</xs:documentation>
                   </xs:annotation>
                </xs:element>
-            </xs:sequence>
+            </xs:choice>
          </xs:restriction>
       </xs:complexContent>
    </xs:complexType>
@@ -346,9 +346,7 @@
                <xs:documentation>Hier kann angegeben werden, ob es sich bei der Baumaßnahme um einen Neubau oder um eine Baumaßnahme am Bestand handelt. Der Inhalt der Kindelemente ergibt sich aus dem Datentyp Hochbaustatistik oder DatenEinzelnesGebaeudeImBauvorhaben der Eingangsnachricht.</xs:documentation>
             </xs:annotation>
          </xs:element>
-         <xs:element name="baugenehmigung"
-                     minOccurs="0"
-                     type="xbau:BaugenehmigungErweitert">
+         <xs:element name="baugenehmigung" type="xbau:BaugenehmigungErweitert">
             <xs:annotation>
                <xs:documentation>Dieses Element enthält weitere Daten zur Baugenehmigung. Der Inhalt der Kindelemente ergibt sich aus dem Datentyp Baugenehmigung der Eingangsnachricht bzw. wird in der Behörde gepflegt.</xs:documentation>
             </xs:annotation>
@@ -760,7 +758,10 @@
                         </xs:sequence>
                      </xs:complexType>
                   </xs:element>
-                  <xs:element name="ansprechpartner" type="xbau:AnsprechpartnerEingeschraenkt">
+                  <xs:element name="ansprechpartner"
+                              minOccurs="0"
+                              maxOccurs="unbounded"
+                              type="xbau:AnsprechpartnerEingeschraenkt">
                      <xs:annotation>
                         <xs:documentation>Unterhalb dieses Elements werden Namen und Erreichbarkeit von Ansprechpartnern des Bauvorhabens für Rückfragen der Statistik eingetragen.</xs:documentation>
                      </xs:annotation>
@@ -797,7 +798,10 @@
                         <xs:documentation>Dieses Element enthält Angaben zum einzelnen Gebäude.</xs:documentation>
                      </xs:annotation>
                   </xs:element>
-                  <xs:element name="ansprechpartner" type="xbau:Ansprechpartner">
+                  <xs:element name="ansprechpartner"
+                              minOccurs="0"
+                              maxOccurs="unbounded"
+                              type="xbau:Ansprechpartner">
                      <xs:annotation>
                         <xs:documentation>Unterhalb dieses Elements werden Namen und Erreichbarkeit des Ansprechpartners für Rückfragen zu den übermittelten Daten eingetragen.</xs:documentation>
                      </xs:annotation>
@@ -838,7 +842,10 @@
                         <xs:documentation>Hier ist das Datum der Antragstellung einzutragen. Der Inhalt des Elements wird in der Behörde gepflegt.</xs:documentation>
                      </xs:annotation>
                   </xs:element>
-                  <xs:element name="ansprechpartner" type="xbau:Ansprechpartner">
+                  <xs:element name="ansprechpartner"
+                              minOccurs="0"
+                              maxOccurs="unbounded"
+                              type="xbau:Ansprechpartner">
                      <xs:annotation>
                         <xs:documentation>Unterhalb dieses Elements werden Namen und Erreichbarkeit des Ansprechpartners für Rückfragen zu den übermittelten Daten eingetragen.</xs:documentation>
                      </xs:annotation>
@@ -879,7 +886,10 @@
                         <xs:documentation>Dieses Element enthält Angaben zum einzelnen Gebäude.</xs:documentation>
                      </xs:annotation>
                   </xs:element>
-                  <xs:element name="ansprechpartner" type="xbau:Ansprechpartner">
+                  <xs:element name="ansprechpartner"
+                              minOccurs="0"
+                              maxOccurs="unbounded"
+                              type="xbau:Ansprechpartner">
                      <xs:annotation>
                         <xs:documentation>Unterhalb dieses Elements werden Namen und Erreichbarkeit des Ansprechpartners für Rückfragen zu den übermittelten Daten eingetragen.</xs:documentation>
                      </xs:annotation>
@@ -920,7 +930,10 @@
                         <xs:documentation>Dieses Element enthält Angaben zum einzelnen Gebäude.</xs:documentation>
                      </xs:annotation>
                   </xs:element>
-                  <xs:element name="ansprechpartner" type="xbau:Ansprechpartner">
+                  <xs:element name="ansprechpartner"
+                              minOccurs="0"
+                              maxOccurs="unbounded"
+                              type="xbau:Ansprechpartner">
                      <xs:annotation>
                         <xs:documentation>Unterhalb dieses Elements werden Namen und Erreichbarkeit des Ansprechpartners für Rückfragen zu den übermittelten Daten eingetragen.</xs:documentation>
                      </xs:annotation>
@@ -962,7 +975,10 @@
                         <xs:documentation>Dieses Element enthält Angaben zum einzelnen Gebäude.</xs:documentation>
                      </xs:annotation>
                   </xs:element>
-                  <xs:element name="ansprechpartner" type="xbau:Ansprechpartner">
+                  <xs:element name="ansprechpartner"
+                              minOccurs="0"
+                              maxOccurs="unbounded"
+                              type="xbau:Ansprechpartner">
                      <xs:annotation>
                         <xs:documentation>Unterhalb dieses Elements werden Namen und Erreichbarkeit des Ansprechpartners für Rückfragen zu den übermittelten Daten eingetragen.</xs:documentation>
                      </xs:annotation>
@@ -999,7 +1015,10 @@
                         <xs:documentation>Dieses Element enthält die Daten, die speziell zum Bauabgang zu übermitteln sind.</xs:documentation>
                      </xs:annotation>
                   </xs:element>
-                  <xs:element name="ansprechpartner" type="xbau:Ansprechpartner">
+                  <xs:element name="ansprechpartner"
+                              minOccurs="0"
+                              maxOccurs="unbounded"
+                              type="xbau:Ansprechpartner">
                      <xs:annotation>
                         <xs:documentation>Unterhalb dieses Elements werden Namen und Erreichbarkeit des Ansprechpartners für Rückfragen zu den übermittelten Daten eingetragen.</xs:documentation>
                      </xs:annotation>
@@ -1041,7 +1060,10 @@
                         <xs:documentation>Dieses Element enthält Angaben zum einzelnen Gebäude.</xs:documentation>
                      </xs:annotation>
                   </xs:element>
-                  <xs:element name="ansprechpartner" type="xbau:Ansprechpartner">
+                  <xs:element name="ansprechpartner"
+                              minOccurs="0"
+                              maxOccurs="unbounded"
+                              type="xbau:Ansprechpartner">
                      <xs:annotation>
                         <xs:documentation>Unterhalb dieses Elements werden Namen und Erreichbarkeit des Ansprechpartners für Rückfragen zu den übermittelten Daten eingetragen.</xs:documentation>
                      </xs:annotation>

@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gc:CodeList xmlns:gc="http://docs.oasis-open.org/codelist/ns/genericode/1.0/"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xmlns:xoev-cl-3="http://xoev.de/schemata/genericode/3">
+   <Annotation>
+      <Description>
+         <xoev-cl-3:nameKurz>Abweichung Art</xoev-cl-3:nameKurz>
+         <xoev-cl-3:beschreibung-codeliste>Definition der Arten von beantragten oder genehmigten Abweichungen eines Bauvorhabens von den Rechtsnormen.</xoev-cl-3:beschreibung-codeliste>
+         <xoev-cl-3:herausgebernameKurz>BMK</xoev-cl-3:herausgebernameKurz>
+         <xoev-cl-3:versionCodelistenHandbuch>1.1</xoev-cl-3:versionCodelistenHandbuch>
+      </Description>
+   </Annotation>
+   <Identification>
+      <ShortName>abweichungart</ShortName>
+      <LongName>Abweichung Art</LongName>
+      <Version>1.0</Version>
+      <CanonicalUri>urn:xoev-de:xbau:codeliste:abweichungart</CanonicalUri>
+      <CanonicalVersionUri>urn:xoev-de:xbau:codeliste:abweichungart_1.0</CanonicalVersionUri>
+      <Agency>
+         <LongName>Bauministerkonferenz</LongName>
+      </Agency>
+   </Identification>
+   <ColumnSet>
+      <Column Id="code" Use="required">
+         <ShortName>code</ShortName>
+         <LongName>Code</LongName>
+         <Data Type="string"/>
+      </Column>
+      <Column Id="beschreibung" Use="required">
+         <ShortName>beschreibung</ShortName>
+         <LongName>Beschreibung</LongName>
+         <Data Type="string"/>
+      </Column>
+      <Column Id="dokumentation" Use="optional">
+         <ShortName>dokumentation</ShortName>
+         <LongName>Dokumentation</LongName>
+         <Data Type="string"/>
+      </Column>
+      <Key Id="codeKey">
+         <Annotation>
+            <AppInfo>
+               <xoev-cl-3:empfohleneCodeSpalte/>
+            </AppInfo>
+         </Annotation>
+         <ShortName>codeKey</ShortName>
+         <ColumnRef Ref="code"/>
+      </Key>
+   </ColumnSet>
+   <SimpleCodeList>
+      <Row>
+         <Value ColumnRef="code">
+            <SimpleValue>1</SimpleValue>
+         </Value>
+         <Value ColumnRef="beschreibung">
+            <SimpleValue>Befreiung</SimpleValue>
+         </Value>
+         <Value ColumnRef="dokumentation">
+            <SimpleValue>Befreiungen nach § 31 Abs. 2 BauGB</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="code">
+            <SimpleValue>2</SimpleValue>
+         </Value>
+         <Value ColumnRef="beschreibung">
+            <SimpleValue>Ausnahme</SimpleValue>
+         </Value>
+         <Value ColumnRef="dokumentation">
+            <SimpleValue>Ausnahmen nach § 31 Abs. 1 BauGB</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="code">
+            <SimpleValue>3</SimpleValue>
+         </Value>
+         <Value ColumnRef="beschreibung">
+            <SimpleValue>Abweichung</SimpleValue>
+         </Value>
+         <Value ColumnRef="dokumentation">
+            <SimpleValue>Abweichungen nach § 67 Abs. 1 MBO</SimpleValue>
+         </Value>
+      </Row>
+   </SimpleCodeList>
+</gc:CodeList>

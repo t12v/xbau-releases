@@ -21,7 +21,7 @@
          </standard>
          <versionStandard>
             <version>2.6</version>
-            <beschreibung>Erweiterung von Prozess und Nachrichten zur Baulast: Es wurden Nachrichten zur Löschung und zur Eintragung von Baulasten erstellt. Erweiterung des Prozesses Anzeige Bauzustand: Erweiterung zu einem vollständigen und produktionsreifen Prozess auf Basis der 900er-Nachrichten. Vervollständigung der Prozessstringenz: Es wurden Nachrichten zur Benachrichtigung über den Abruf des Bescheids und die Zustellquittierung sowie Hinweise auf die Rücknahmefiktion ergänzt. Geschäftsregeln: Es wurden Geschäftsregeln im Schematronstandard für Datenübermittlungen zur Hochbaustatistik bereitgestellt. Weitere Details zu Erweiterungen und Änderungen sind in der Versionshistorie beschrieben.</beschreibung>
+            <beschreibung>Erweiterung von Prozess und Nachrichten zur Baulast: Es wurden Nachrichten zur Löschung und zur Eintragung von Baulasten erstellt. Erweiterung des Prozesses Anzeige Bauzustand: Erweiterung zu einem vollständigen und produktionsreifen Prozess auf Basis der 900er-Nachrichten. Vervollständigung der Prozessstringenz: Es wurden Nachrichten zur Benachrichtigung über den Abruf des Bescheids und die Zustellquittierung sowie Hinweise auf die Rücknahmefiktion ergänzt. Geschäftsregeln: Es wurden Geschäftsregeln im Schematronstandard für Datenübermittlungen zur Hochbaustatistik bereitgestellt. Bauvorlageberechtigung: Vorbereitung auf den NOOTS-Betrieb durch Kennzeichnung aus dem Kammerregister abgerufener Daten. Weitere Details zu Erweiterungen und Änderungen sind in der Versionshistorie beschrieben.</beschreibung>
             <versionXOEVProfil>3.0.0</versionXOEVProfil>
             <versionXOEVHandbuch>3.0.1</versionXOEVHandbuch>
             <versionXGenerator>3.1.1</versionXGenerator>
@@ -966,7 +966,6 @@
             </xs:annotation>
          </xs:element>
          <xs:element name="genehmigungsfreistellung"
-                     minOccurs="0"
                      type="xbau:Code.GenehmigungsfreistellungAnStatistik">
             <xs:annotation>
                <xs:documentation>Angabe zur Genehmigungsfreistellung.</xs:documentation>
@@ -1183,12 +1182,12 @@
    </xs:complexType>
    <xs:complexType name="BaulastLoeschung">
       <xs:annotation>
-         <xs:documentation>Dieser Typ beinhaltet die Daten zu Anlass und Inhalt einer Baulöschung.</xs:documentation>
+         <xs:documentation>Dieser Typ beinhaltet die Daten zu Anlass und Inhalt einer Baulastlöschung.</xs:documentation>
       </xs:annotation>
       <xs:sequence>
          <xs:element name="id" type="bn-g2g:UUID">
             <xs:annotation>
-               <xs:documentation>Dieses Element enthält den „Universally Unique IDentifier (UUID)“ der zu löschenden Baulast. Der UUID wird entsprechend rfc4122 gebildet und ermöglicht die zu löschende Baulast eindeutig zu identifizieren.</xs:documentation>
+               <xs:documentation>Dieses Element enthält den „Universally Unique IDentifier (UUID)“ der zu löschenden Baulast. Der UUID wird entsprechend rfc4122 gebildet und ermöglicht, die zu löschende Baulast eindeutig zu identifizieren.</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element name="beteiligtePersonen">
@@ -1217,7 +1216,6 @@
             <xs:complexType>
                <xs:sequence>
                   <xs:element name="belastetesGrundstueck"
-                              minOccurs="0"
                               maxOccurs="unbounded"
                               type="xbau:Grundstueck">
                      <xs:annotation>
@@ -1647,7 +1645,7 @@
       <xs:sequence>
          <xs:element name="berufsbezeichnung" type="din91379:datatypeC">
             <xs:annotation>
-               <xs:documentation>In dieses Element kann eine Angabe zur Berufsbezeichnung der Person eingetragen werden.</xs:documentation>
+               <xs:documentation>In dieses Element wird eine Angabe zur Berufsbezeichnung der Person eingetragen.</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element name="nachweisbezug" minOccurs="0" type="xbau:NachweisbezugType">
@@ -3386,7 +3384,7 @@
    </xs:complexType>
    <xs:complexType name="GrundstueckBaulast">
       <xs:annotation>
-         <xs:documentation>Dieses Element enthält die Angaben des Grundstücks oder der Grundstücke zu denen die Auskunft angefragt wird.</xs:documentation>
+         <xs:documentation>Dieses Element enthält die Angaben des Grundstücks oder der Grundstücke, zu denen die Auskunft angefragt wird.</xs:documentation>
       </xs:annotation>
       <xs:complexContent>
          <xs:extension base="xbau:Grundstueck">
@@ -4365,10 +4363,13 @@
       </xs:sequence>
    </xs:complexType>
    <xs:complexType name="NachweisBerechtigung.NachweisbezugType">
+      <xs:annotation>
+         <xs:documentation>Dieser Datentyp enthält Nachweise zur Bauvorlageberechtigung einer Person. Diese Nachweise können aus dem Kammerregister abgerufen werden.</xs:documentation>
+      </xs:annotation>
       <xs:sequence>
          <xs:element name="nachweisBerechtigung" type="xbauk:Text">
             <xs:annotation>
-               <xs:documentation>Hier kann ggf. ein Nachweis zur Berechtigung angegeben werden.</xs:documentation>
+               <xs:documentation>Hier wird ein Nachweis zur Berechtigung angegeben.</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element name="nachweisbezug" minOccurs="0" type="xbau:NachweisbezugType">

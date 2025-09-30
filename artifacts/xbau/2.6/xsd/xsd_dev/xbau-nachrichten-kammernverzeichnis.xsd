@@ -19,7 +19,7 @@
          </standard>
          <versionStandard>
             <version>2.6</version>
-            <beschreibung>Erweiterung von Prozess und Nachrichten zur Baulast: Es wurden Nachrichten zur Löschung und zur Eintragung von Baulasten erstellt. Erweiterung des Prozesses Anzeige Bauzustand: Erweiterung zu einem vollständigen und produktionsreifen Prozess auf Basis der 900er-Nachrichten. Vervollständigung der Prozessstringenz: Es wurden Nachrichten zur Benachrichtigung über den Abruf des Bescheids und die Zustellquittierung sowie Hinweise auf die Rücknahmefiktion ergänzt. Geschäftsregeln: Es wurden Geschäftsregeln im Schematronstandard für Datenübermittlungen zur Hochbaustatistik bereitgestellt. Weitere Details zu Erweiterungen und Änderungen sind in der Versionshistorie beschrieben.</beschreibung>
+            <beschreibung>Erweiterung von Prozess und Nachrichten zur Baulast: Es wurden Nachrichten zur Löschung und zur Eintragung von Baulasten erstellt. Erweiterung des Prozesses Anzeige Bauzustand: Erweiterung zu einem vollständigen und produktionsreifen Prozess auf Basis der 900er-Nachrichten. Vervollständigung der Prozessstringenz: Es wurden Nachrichten zur Benachrichtigung über den Abruf des Bescheids und die Zustellquittierung sowie Hinweise auf die Rücknahmefiktion ergänzt. Geschäftsregeln: Es wurden Geschäftsregeln im Schematronstandard für Datenübermittlungen zur Hochbaustatistik bereitgestellt. Bauvorlageberechtigung: Vorbereitung auf den NOOTS-Betrieb durch Kennzeichnung aus dem Kammerregister abgerufener Daten. Weitere Details zu Erweiterungen und Änderungen sind in der Versionshistorie beschrieben.</beschreibung>
             <versionXOEVProfil>3.0.0</versionXOEVProfil>
             <versionXOEVHandbuch>3.0.1</versionXOEVHandbuch>
             <versionXGenerator>3.1.1</versionXGenerator>
@@ -137,6 +137,11 @@
                                  <xs:documentation>Angaben zur Berufsbezeichnung (Architekt, Stadtplaner usw.). Pro Angabe ist ein separates Element zu instantiieren.</xs:documentation>
                               </xs:annotation>
                            </xs:element>
+                           <xs:element name="status" minOccurs="0" type="din91379:datatypeC">
+                              <xs:annotation>
+                                 <xs:documentation>Zur detaillierten Beurteilung der Bauvorlageberechtigung durch die Bauaufsicht kann hier der Status der Person, z.B. selbständig oder angestellt bei einer Behörde, übermittelt werden.</xs:documentation>
+                              </xs:annotation>
+                           </xs:element>
                            <xs:element name="nachweisBerechtigung"
                                        minOccurs="0"
                                        maxOccurs="unbounded"
@@ -147,7 +152,7 @@
                            </xs:element>
                            <xs:element name="sperrung" minOccurs="0">
                               <xs:annotation>
-                                 <xs:documentation>Falls Informationen über eine Sperrung im Kammernverzeichnis vorliegen (z.B. aufgrund von entzogener Bauvorlageberechtigung, Disziplinarmaßnahmen, Ablauf der Registrierung, fehlender Nachweise), können diese hier angegeben werden.</xs:documentation>
+                                 <xs:documentation>Falls Informationen über eine Sperrung im Kammernverzeichnis vorliegen (z.B. aufgrund von entzogener Bauvorlageberechtigung, Disziplinarmaßnahmen, Ablauf der Registrierung, fehlenden Nachweisen), können diese hier angegeben werden.</xs:documentation>
                               </xs:annotation>
                               <xs:complexType>
                                  <xs:sequence>

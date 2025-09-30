@@ -19,7 +19,7 @@
          </standard>
          <versionStandard>
             <version>2.6</version>
-            <beschreibung>Erweiterung von Prozess und Nachrichten zur Baulast: Es wurden Nachrichten zur Löschung und zur Eintragung von Baulasten erstellt. Erweiterung des Prozesses Anzeige Bauzustand: Erweiterung zu einem vollständigen und produktionsreifen Prozess auf Basis der 900er-Nachrichten. Vervollständigung der Prozessstringenz: Es wurden Nachrichten zur Benachrichtigung über den Abruf des Bescheids und die Zustellquittierung sowie Hinweise auf die Rücknahmefiktion ergänzt. Geschäftsregeln: Es wurden Geschäftsregeln im Schematronstandard für Datenübermittlungen zur Hochbaustatistik bereitgestellt. Weitere Details zu Erweiterungen und Änderungen sind in der Versionshistorie beschrieben.</beschreibung>
+            <beschreibung>Erweiterung von Prozess und Nachrichten zur Baulast: Es wurden Nachrichten zur Löschung und zur Eintragung von Baulasten erstellt. Erweiterung des Prozesses Anzeige Bauzustand: Erweiterung zu einem vollständigen und produktionsreifen Prozess auf Basis der 900er-Nachrichten. Vervollständigung der Prozessstringenz: Es wurden Nachrichten zur Benachrichtigung über den Abruf des Bescheids und die Zustellquittierung sowie Hinweise auf die Rücknahmefiktion ergänzt. Geschäftsregeln: Es wurden Geschäftsregeln im Schematronstandard für Datenübermittlungen zur Hochbaustatistik bereitgestellt. Bauvorlageberechtigung: Vorbereitung auf den NOOTS-Betrieb durch Kennzeichnung aus dem Kammerregister abgerufener Daten. Weitere Details zu Erweiterungen und Änderungen sind in der Versionshistorie beschrieben.</beschreibung>
             <versionXOEVProfil>3.0.0</versionXOEVProfil>
             <versionXOEVHandbuch>3.0.1</versionXOEVHandbuch>
             <versionXGenerator>3.1.1</versionXGenerator>
@@ -59,10 +59,12 @@
                   </xs:element>
                   <xs:element name="zuBeteiligendeStelle" minOccurs="0" type="xs:token">
                      <xs:annotation>
-                        <xs:documentation>Die Information in diesem Element wird in den Fällen benötigt, wo eine Plattform adressiert wird, d.h. mehrere Stellen durch einen Leser adressiert werden. Die Stelle sollte technisch eindeutig benannt werden, z.B. durch die ID eines Unternehmenskonto oder eine E-Mail-Adresse.</xs:documentation>
+                        <xs:documentation>Die Information in diesem Element wird in den Fällen benötigt, wo eine Plattform adressiert wird, d.h. mehrere Stellen durch einen Leser adressiert werden. Die Stelle sollte technisch eindeutig benannt werden, z.B. durch die ID eines Unternehmenskontos oder eine E-Mail-Adresse.</xs:documentation>
                      </xs:annotation>
                   </xs:element>
-                  <xs:element name="anliegenBeteiligung" type="xbau:AnliegenBeteiligung">
+                  <xs:element name="anliegenBeteiligung"
+                              maxOccurs="unbounded"
+                              type="xbau:AnliegenBeteiligung">
                      <xs:annotation>
                         <xs:documentation>Hier wird der Grund bzw. das Anliegen der Beteiligung genannt.</xs:documentation>
                      </xs:annotation>
@@ -154,7 +156,9 @@
                         <xs:documentation>In den Fällen, in denen Beteiligungsplattformen verwendet werden, sollte an dieser Stelle, die Bezeichnung der zu beteiligenden Dienststelle angegeben werden.</xs:documentation>
                      </xs:annotation>
                   </xs:element>
-                  <xs:element name="anliegenBeteiligung" type="xbau:AnliegenBeteiligung">
+                  <xs:element name="anliegenBeteiligung"
+                              maxOccurs="unbounded"
+                              type="xbau:AnliegenBeteiligung">
                      <xs:annotation>
                         <xs:documentation>Der Grund bzw. das Anliegen der Beteiligung wird in diesem Objekt reformuliert, insoweit Mängel korrigiert werden mussten, die in der Befundliste der Nachricht 0301 aufgeführten waren.</xs:documentation>
                      </xs:annotation>
@@ -324,7 +328,7 @@
                <xs:sequence>
                   <xs:element name="bezug" type="xbauk:BezugErweitert">
                      <xs:annotation>
-                        <xs:documentation>Unterhalb dieses Elements werden Eintragungen vorgenommen, um auf die Zwischennachricht 0305 der beteiligten Behörde Bezug zu nehmen.</xs:documentation>
+                        <xs:documentation>Unterhalb dieses Elements werden Eintragungen vorgenommen, um auf die Zwischennachricht 0305, auf die reagiert wird, Bezug zu nehmen.</xs:documentation>
                      </xs:annotation>
                   </xs:element>
                   <xs:element name="referenzAufforderung" type="xbau:ReferenzAuftrag">

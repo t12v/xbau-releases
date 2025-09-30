@@ -18,7 +18,7 @@
          </standard>
          <versionStandard>
             <version>2.6</version>
-            <beschreibung>Erweiterung von Prozess und Nachrichten zur Baulast: Es wurden Nachrichten zur Löschung und zur Eintragung von Baulasten erstellt. Erweiterung des Prozesses Anzeige Bauzustand: Erweiterung zu einem vollständigen und produktionsreifen Prozess auf Basis der 900er-Nachrichten. Vervollständigung der Prozessstringenz: Es wurden Nachrichten zur Benachrichtigung über den Abruf des Bescheids und die Zustellquittierung sowie Hinweise auf die Rücknahmefiktion ergänzt. Geschäftsregeln: Es wurden Geschäftsregeln im Schematronstandard für Datenübermittlungen zur Hochbaustatistik bereitgestellt. Weitere Details zu Erweiterungen und Änderungen sind in der Versionshistorie beschrieben.</beschreibung>
+            <beschreibung>Erweiterung von Prozess und Nachrichten zur Baulast: Es wurden Nachrichten zur Löschung und zur Eintragung von Baulasten erstellt. Erweiterung des Prozesses Anzeige Bauzustand: Erweiterung zu einem vollständigen und produktionsreifen Prozess auf Basis der 900er-Nachrichten. Vervollständigung der Prozessstringenz: Es wurden Nachrichten zur Benachrichtigung über den Abruf des Bescheids und die Zustellquittierung sowie Hinweise auf die Rücknahmefiktion ergänzt. Geschäftsregeln: Es wurden Geschäftsregeln im Schematronstandard für Datenübermittlungen zur Hochbaustatistik bereitgestellt. Bauvorlageberechtigung: Vorbereitung auf den NOOTS-Betrieb durch Kennzeichnung aus dem Kammerregister abgerufener Daten. Weitere Details zu Erweiterungen und Änderungen sind in der Versionshistorie beschrieben.</beschreibung>
             <versionXOEVProfil>3.0.0</versionXOEVProfil>
             <versionXOEVHandbuch>3.0.1</versionXOEVHandbuch>
             <versionXGenerator>3.1.1</versionXGenerator>
@@ -70,7 +70,7 @@
                   </xs:element>
                   <xs:element name="angabenGrundstuecke">
                      <xs:annotation>
-                        <xs:documentation>Dieses Element enthält die Angaben des Grundstücks oder der Grundstücke zu denen die Auskunft angefragt wird.</xs:documentation>
+                        <xs:documentation>Dieses Element enthält die Angaben des Grundstücks oder der Grundstücke, zu denen die Auskunft angefragt wird.</xs:documentation>
                      </xs:annotation>
                      <xs:complexType>
                         <xs:sequence>
@@ -111,6 +111,7 @@
    <xs:element name="baulastenverzeichnis.formellePruefung.0711">
       <xs:annotation>
          <xs:appinfo>
+            <rechtsgrundlage>§ 83 (5) MBO</rechtsgrundlage>
             <title>Ergebnis der formellen Prüfung</title>
          </xs:appinfo>
          <xs:documentation>Diese Nachricht bezieht sich auf eine bereits gestellte Anfrage auf Baulastauskunft. Enthalten sind hier die Ergebnisse der formellen Prüfung (Befunde) sowie eine Frist, innerhalb derer der Antragsteller die Anfrage auf Baulastauskunft anzupassen hat, falls in der formellen Prüfung Mängel festgestellt wurden.</xs:documentation>
@@ -131,18 +132,18 @@
                   </xs:element>
                   <xs:element name="befundFrist" minOccurs="0">
                      <xs:annotation>
-                        <xs:documentation>Falls im Rahmen der formellen Prüfung Mängel festgestellt wurden, sind diese Angaben zu machen. Die Befundliste enthält die Ergebnisse der formellen Prüfung durch die Bauaufsichtsbehörde. Enthalten ist außerdem eine Frist zur Anpassung von Bauvorhaben bzw. Bauunterlagen durch den Antragsteller.</xs:documentation>
+                        <xs:documentation>Falls im Rahmen der formellen Prüfung Mängel festgestellt wurden, sind diese Angaben zu machen. Die Befundliste enthält die Ergebnisse der formellen Prüfung durch die Bauaufsichtsbehörde. Enthalten ist außerdem eine Frist zur Anpassung der Anfrage auf Baulastauskunft durch den Antragsteller.</xs:documentation>
                      </xs:annotation>
                      <xs:complexType>
                         <xs:sequence>
                            <xs:element name="befundliste" type="xbau:BefundlisteFormell">
                               <xs:annotation>
-                                 <xs:documentation>Hier können die Ergebnisse der formellen Prüfung in Form einer strukturierten Befundliste eingetragen werden (die Liste zählt Mängel des Bauantrags auf).</xs:documentation>
+                                 <xs:documentation>Hier können die Ergebnisse der formellen Prüfung in Form einer strukturierten Befundliste eingetragen werden (die Liste zählt Mängel der Anfrage auf).</xs:documentation>
                               </xs:annotation>
                            </xs:element>
                            <xs:element name="frist" minOccurs="0" type="xs:date">
                               <xs:annotation>
-                                 <xs:documentation>Hier kann eine durch die Behörde gesetzte Frist eingetragen werden, innerhalb derer die genannten Mängel durch den Antragsteller zu beseitigen sind und ein überarbeiteter Antrag einzureichen ist.</xs:documentation>
+                                 <xs:documentation>Hier kann eine durch die Behörde gesetzte Frist eingetragen werden, innerhalb derer die genannten Mängel durch den Antragsteller zu beseitigen sind und eine überarbeitete Anfrage einzureichen ist.</xs:documentation>
                               </xs:annotation>
                            </xs:element>
                         </xs:sequence>
@@ -173,7 +174,8 @@
    <xs:element name="baulastenverzeichnis.anfrageGeaendert.0712">
       <xs:annotation>
          <xs:appinfo>
-            <title>Änderungen zum Antrag</title>
+            <rechtsgrundlage>§ 83 (5) MBO</rechtsgrundlage>
+            <title>Änderungen zur Anfrage</title>
          </xs:appinfo>
          <xs:documentation>Diese Nachricht enthält geänderte oder ergänzte Daten der Anfrage auf Baulastauskunft. Sie bezieht sich also auf eine bereits gestellte Antrage und ist in der Regel eine Reaktion auf eine zur Anfrage vorliegenden Mängelliste der Behörde.</xs:documentation>
       </xs:annotation>
@@ -221,6 +223,7 @@
    <xs:element name="baulastenverzeichnis.auskunft.0713">
       <xs:annotation>
          <xs:appinfo>
+            <rechtsgrundlage>§ 83 (5) MBO</rechtsgrundlage>
             <title>Auskunft aus dem Baulastenverzeichnis</title>
          </xs:appinfo>
          <xs:documentation>Diese Nachricht liefert die Auskunft aus dem Baulastenverzeichnis: Sofern die Anfrage nicht bearbeitet werden kann, wird mit diesem Element eine Negativantwort zurückgegeben. Sofern die Anfrage bearbeitet werden kann, werden mit diesem Element die Daten der Baulastauskunft übermittelt.</xs:documentation>
@@ -250,7 +253,7 @@
                                     </xs:element>
                                     <xs:element name="begruendung" type="xbauk:TextFormatiert">
                                        <xs:annotation>
-                                          <xs:documentation>Iin diesem Element wird die entsprechende Begründung zur Negativantwort geliefert.</xs:documentation>
+                                          <xs:documentation>In diesem Element wird die entsprechende Begründung zur Negativantwort geliefert.</xs:documentation>
                                        </xs:annotation>
                                     </xs:element>
                                     <xs:element name="anlagen" minOccurs="0" type="xbau:Anlagen">

@@ -19,7 +19,7 @@
          </standard>
          <versionStandard>
             <version>1.3.0</version>
-            <beschreibung>Vervollständigung der Prozessstringenz: Es wurden Nachrichten zur Benachrichtigung über den Abruf des Bescheids und die Zustellquittierung sowie Hinweise auf die Rücknahmefiktion ergänzt. Details zu den Änderungen sind in der Versionshistorie enthalten.</beschreibung>
+            <beschreibung>Vervollständigung der Prozessstringenz: Es wurden Nachrichten zur Benachrichtigung über den Abruf des Bescheids und die Zustellquittierung sowie Hinweise auf die Rücknahmefiktion ergänzt. Generischer Antrag: verbesserte Zuordnung von Anträgen durch Verwendung einer Auswahlliste für die Antragsart. Details zu den Änderungen sind in der Versionshistorie enthalten.</beschreibung>
             <versionXOEVProfil>3.0.0</versionXOEVProfil>
             <versionXOEVHandbuch>3.0.1</versionXOEVHandbuch>
             <versionXGenerator>3.1.1</versionXGenerator>
@@ -53,10 +53,24 @@
                         <xs:documentation>Eine vom Antragsservice vergebene eindeutige Kennung des Antragsvorgangs. Sofern die zuständige Behörde auf die Antragstellung reagiert, bezieht sie sich in ihren Reaktionsnachrichten auf diese Kennung.</xs:documentation>
                      </xs:annotation>
                   </xs:element>
-                  <xs:element name="artDesAntrags" type="xbauk:Text">
+                  <xs:element name="artDesAntrags">
                      <xs:annotation>
-                        <xs:documentation>In dieses Element wird die Art des Antrags eingetragen.</xs:documentation>
+                        <xs:documentation>In diesem Element wird die Art des Antrags angegeben.</xs:documentation>
                      </xs:annotation>
+                     <xs:complexType>
+                        <xs:choice>
+                           <xs:element name="code" type="xbauk:Code.ArtDesAntrags">
+                              <xs:annotation>
+                                 <xs:documentation>Angabe der Art des Antrags</xs:documentation>
+                              </xs:annotation>
+                           </xs:element>
+                           <xs:element name="nichtGelisteterWert" type="xbauk:Text">
+                              <xs:annotation>
+                                 <xs:documentation>Freitextangabe für die Art des Antrags</xs:documentation>
+                              </xs:annotation>
+                           </xs:element>
+                        </xs:choice>
+                     </xs:complexType>
                   </xs:element>
                   <xs:element name="bezug" minOccurs="0" type="xbauk:BezugErweitert">
                      <xs:annotation>
