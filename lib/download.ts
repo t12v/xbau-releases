@@ -80,7 +80,11 @@ function getFolderForType(type: string): string {
     case 'XSD':
       return 'xsd';
     case 'originalFachmodellXMI':
-      return 'xmi';
+      return 'subject_models';
+    case 'originalFachmodellProprietaer':
+      return 'subject_models';
+    case 'WEITERER_TECHNISCHER_BESTANDTEIL':
+      return 'specs';
     case 'WSDL':
       return 'wsdl';
     default:
@@ -92,18 +96,22 @@ export async function downloadArtifacts(standard: Standard, updates: UpdateDetai
   const details = updates.details;
   const rootFolder = `${artifactsFolder}/${getEnumKeyByValue(Standard, standard)}`;
   const downloads = <Array<Promise<void>>>details.versionen.map(async (standard) => {
+    const codeLists = new Array<string>();
+    const list = standard?.codeLists ?? [];
     const folderName = `${rootFolder}/${standard.version}`;
     const docs = standard?.dokumente ?? [];
     for (const doc of docs) {
-      const folder = `${folderName}/${getFolderForType(doc.type)}`;
+      let folder = `${folderName}/${getFolderForType(doc.type)}`;
+      // add codelists to
+      if (doc.name.indexOf('Codelisten') > 0) {
+        folder = `${folderName}/codelists`;
+      }
       if (doc.downloads) {
         for (const item of doc.downloads) {
           await download(`${folder}/${item.kennung}`, item.url);
         }
       }
     }
-    const codeLists = new Array<string>();
-    const list = standard?.codeLists ?? [];
     for (const codelist of list) {
       if (!IGNORED_ULRS.includes(codelist.kennung)) {
         // without version download all versions
@@ -130,6 +138,7 @@ export async function downloadArtifacts(standard: Standard, updates: UpdateDetai
             `${artifactsFolder}/codelists/${codelist.kennung}.xml`,
             `https://www.xrepository.de/api/xrepository/${codelist.kennung}:technischerBestandteilGenericode`
           );
+          // TODO: Add custom codelists, too
           codeLists.push(`${codelist.kennung}.xml`);
         }
       }
