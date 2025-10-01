@@ -1,175 +1,173 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<gc:CodeList xmlns:gc="http://docs.oasis-open.org/codelist/ns/genericode/1.0/"
-             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-             xmlns:xoev-cl-4="http://xoev.de/schemata/genericode/4">
-   <Annotation>
-      <Description>
-         <xoev-cl-4:shortName>XBau-Kernmodul-Nachrichten</xoev-cl-4:shortName>
-         <xoev-cl-4:codelistDescription>Codeliste der Bezeichnungen aller XBau-Kernmodul-Nachrichten.</xoev-cl-4:codelistDescription>
-         <xoev-cl-4:agencyShortName>BMK</xoev-cl-4:agencyShortName>
-         <xoev-cl-4:versionHandbook>1.2</xoev-cl-4:versionHandbook>
-         <xoev-cl-4:changes>In XBau-Kernmodul 1.2.2: Neue Einträge 1170, 1200, 1202, 1023, 1204, 1205.</xoev-cl-4:changes>
-      </Description>
-   </Annotation>
-   <Identification>
-      <ShortName>xbau-kernmodul-nachrichten</ShortName>
-      <LongName>XBau-Kernmodul-Nachrichten</LongName>
-      <Version>2.1</Version>
-      <CanonicalUri>urn:xoev-de:xbau-kernmodul:codeliste:xbau-kernmodul-nachrichten</CanonicalUri>
-      <CanonicalVersionUri>urn:xoev-de:xbau-kernmodul:codeliste:xbau-kernmodul-nachrichten_2.1</CanonicalVersionUri>
-      <Agency>
-         <LongName>Bauministerkonferenz</LongName>
-      </Agency>
-   </Identification>
-   <ColumnSet>
-      <Column Id="code" Use="required">
-         <ShortName>code</ShortName>
-         <LongName>Code</LongName>
-         <Data Type="string"/>
-      </Column>
-      <Column Id="beschreibung" Use="required">
-         <ShortName>beschreibung</ShortName>
-         <LongName>Beschreibung</LongName>
-         <Data Type="string"/>
-      </Column>
-      <Key Id="codeKey">
-         <Annotation>
-            <AppInfo>
-               <xoev-cl-4:recommendedKeyColumn/>
-            </AppInfo>
-         </Annotation>
-         <ShortName>codeKey</ShortName>
-         <ColumnRef Ref="code"/>
-      </Key>
-   </ColumnSet>
-   <SimpleCodeList>
-      <Row>
-         <Value ColumnRef="code">
-            <SimpleValue>1100</SimpleValue>
-         </Value>
-         <Value ColumnRef="beschreibung">
-            <SimpleValue>prozessnachrichten.rueckweisung.G2G.1100</SimpleValue>
-         </Value>
-      </Row>
-      <Row>
-         <Value ColumnRef="code">
-            <SimpleValue>1120</SimpleValue>
-         </Value>
-         <Value ColumnRef="beschreibung">
-            <SimpleValue>prozessnachrichten.eingangsbestaetigung.1120</SimpleValue>
-         </Value>
-      </Row>
-      <Row>
-         <Value ColumnRef="code">
-            <SimpleValue>1121</SimpleValue>
-         </Value>
-         <Value ColumnRef="beschreibung">
-            <SimpleValue>prozessnachrichten.aktenzeichen.1121</SimpleValue>
-         </Value>
-      </Row>
-      <Row>
-         <Value ColumnRef="code">
-            <SimpleValue>1130</SimpleValue>
-         </Value>
-         <Value ColumnRef="beschreibung">
-            <SimpleValue>prozessnachrichten.ruecknahme.1130</SimpleValue>
-         </Value>
-      </Row>
-      <Row>
-         <Value ColumnRef="code">
-            <SimpleValue>1131</SimpleValue>
-         </Value>
-         <Value ColumnRef="beschreibung">
-            <SimpleValue>prozessnachrichten.quittierungRuecknahme.1131</SimpleValue>
-         </Value>
-      </Row>
-      <Row>
-         <Value ColumnRef="code">
-            <SimpleValue>1140</SimpleValue>
-         </Value>
-         <Value ColumnRef="beschreibung">
-            <SimpleValue>prozessnachrichten.formellePruefungBefundliste.1140</SimpleValue>
-         </Value>
-      </Row>
-      <Row>
-         <Value ColumnRef="code">
-            <SimpleValue>1141</SimpleValue>
-         </Value>
-         <Value ColumnRef="beschreibung">
-            <SimpleValue>prozessnachrichten.zustellungSchreiben.1141</SimpleValue>
-         </Value>
-      </Row>
-      <Row>
-         <Value ColumnRef="code">
-            <SimpleValue>1142</SimpleValue>
-         </Value>
-         <Value ColumnRef="beschreibung">
-            <SimpleValue>prozessnachrichten.fachlicheKommunikation.1142</SimpleValue>
-         </Value>
-      </Row>
-      <Row>
-         <Value ColumnRef="code">
-            <SimpleValue>1150</SimpleValue>
-         </Value>
-         <Value ColumnRef="beschreibung">
-            <SimpleValue>prozessnachrichten.einstellenDokumente.1150</SimpleValue>
-         </Value>
-      </Row>
-      <Row>
-         <Value ColumnRef="code">
-            <SimpleValue>1160</SimpleValue>
-         </Value>
-         <Value ColumnRef="beschreibung">
-            <SimpleValue>prozessnachrichten.gebuehrenbescheid.1160</SimpleValue>
-         </Value>
-      </Row>
-      <Row>
-         <Value ColumnRef="code">
-            <SimpleValue>1170</SimpleValue>
-         </Value>
-         <Value ColumnRef="beschreibung">
-            <SimpleValue>prozessnachrichten.statusFuerAntragsportal.1170</SimpleValue>
-         </Value>
-      </Row>
-      <Row>
-         <Value ColumnRef="code">
-            <SimpleValue>1200</SimpleValue>
-         </Value>
-         <Value ColumnRef="beschreibung">
-            <SimpleValue>universellerAntrag.antrag.1200</SimpleValue>
-         </Value>
-      </Row>
-      <Row>
-         <Value ColumnRef="code">
-            <SimpleValue>1202</SimpleValue>
-         </Value>
-         <Value ColumnRef="beschreibung">
-            <SimpleValue>universellerAntrag.angepassterAntrag.1202</SimpleValue>
-         </Value>
-      </Row>
-      <Row>
-         <Value ColumnRef="code">
-            <SimpleValue>1203</SimpleValue>
-         </Value>
-         <Value ColumnRef="beschreibung">
-            <SimpleValue>universellerAntrag.materiellePruefungBefundliste.1203</SimpleValue>
-         </Value>
-      </Row>
-      <Row>
-         <Value ColumnRef="code">
-            <SimpleValue>1204</SimpleValue>
-         </Value>
-         <Value ColumnRef="beschreibung">
-            <SimpleValue>universellerAntrag.stellungnahme.1204</SimpleValue>
-         </Value>
-      </Row>
-      <Row>
-         <Value ColumnRef="code">
-            <SimpleValue>1205</SimpleValue>
-         </Value>
-         <Value ColumnRef="beschreibung">
-            <SimpleValue>universellerAntrag.bescheid.1205</SimpleValue>
-         </Value>
-      </Row>
-   </SimpleCodeList>
+<gc:CodeList xmlns:gc="http://docs.oasis-open.org/codelist/ns/genericode/1.0/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xoev-cl-4="http://xoev.de/schemata/genericode/4">
+  <Annotation>
+    <Description>
+      <xoev-cl-4:shortName>XBau-Kernmodul-Nachrichten</xoev-cl-4:shortName>
+      <xoev-cl-4:codelistDescription>Codeliste der Bezeichnungen aller XBau-Kernmodul-Nachrichten.</xoev-cl-4:codelistDescription>
+      <xoev-cl-4:agencyShortName>BMK</xoev-cl-4:agencyShortName>
+      <xoev-cl-4:versionHandbook>1.2</xoev-cl-4:versionHandbook>
+      <xoev-cl-4:changes>In XBau-Kernmodul 1.2.2: Neue Einträge 1170, 1200, 1202, 1023, 1204, 1205.</xoev-cl-4:changes>
+    </Description>
+  </Annotation>
+  <Identification>
+    <ShortName>xbau-kernmodul-nachrichten</ShortName>
+    <LongName>XBau-Kernmodul-Nachrichten</LongName>
+    <Version>2.1</Version>
+    <CanonicalUri>urn:xoev-de:xbau-kernmodul:codeliste:xbau-kernmodul-nachrichten</CanonicalUri>
+    <CanonicalVersionUri>urn:xoev-de:xbau-kernmodul:codeliste:xbau-kernmodul-nachrichten_2.1</CanonicalVersionUri>
+    <Agency>
+      <LongName>Bauministerkonferenz</LongName>
+    </Agency>
+  </Identification>
+  <ColumnSet>
+    <Column Id="code" Use="required">
+      <ShortName>code</ShortName>
+      <LongName>Code</LongName>
+      <Data Type="string"/>
+    </Column>
+    <Column Id="beschreibung" Use="required">
+      <ShortName>beschreibung</ShortName>
+      <LongName>Beschreibung</LongName>
+      <Data Type="string"/>
+    </Column>
+    <Key Id="codeKey">
+      <Annotation>
+        <AppInfo>
+          <xoev-cl-4:recommendedKeyColumn/>
+        </AppInfo>
+      </Annotation>
+      <ShortName>codeKey</ShortName>
+      <ColumnRef Ref="code"/>
+    </Key>
+  </ColumnSet>
+  <SimpleCodeList>
+    <Row>
+      <Value ColumnRef="code">
+        <SimpleValue>1100</SimpleValue>
+      </Value>
+      <Value ColumnRef="beschreibung">
+        <SimpleValue>prozessnachrichten.rueckweisung.G2G.1100</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="code">
+        <SimpleValue>1120</SimpleValue>
+      </Value>
+      <Value ColumnRef="beschreibung">
+        <SimpleValue>prozessnachrichten.eingangsbestaetigung.1120</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="code">
+        <SimpleValue>1121</SimpleValue>
+      </Value>
+      <Value ColumnRef="beschreibung">
+        <SimpleValue>prozessnachrichten.aktenzeichen.1121</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="code">
+        <SimpleValue>1130</SimpleValue>
+      </Value>
+      <Value ColumnRef="beschreibung">
+        <SimpleValue>prozessnachrichten.ruecknahme.1130</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="code">
+        <SimpleValue>1131</SimpleValue>
+      </Value>
+      <Value ColumnRef="beschreibung">
+        <SimpleValue>prozessnachrichten.quittierungRuecknahme.1131</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="code">
+        <SimpleValue>1140</SimpleValue>
+      </Value>
+      <Value ColumnRef="beschreibung">
+        <SimpleValue>prozessnachrichten.formellePruefungBefundliste.1140</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="code">
+        <SimpleValue>1141</SimpleValue>
+      </Value>
+      <Value ColumnRef="beschreibung">
+        <SimpleValue>prozessnachrichten.zustellungSchreiben.1141</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="code">
+        <SimpleValue>1142</SimpleValue>
+      </Value>
+      <Value ColumnRef="beschreibung">
+        <SimpleValue>prozessnachrichten.fachlicheKommunikation.1142</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="code">
+        <SimpleValue>1150</SimpleValue>
+      </Value>
+      <Value ColumnRef="beschreibung">
+        <SimpleValue>prozessnachrichten.einstellenDokumente.1150</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="code">
+        <SimpleValue>1160</SimpleValue>
+      </Value>
+      <Value ColumnRef="beschreibung">
+        <SimpleValue>prozessnachrichten.gebuehrenbescheid.1160</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="code">
+        <SimpleValue>1170</SimpleValue>
+      </Value>
+      <Value ColumnRef="beschreibung">
+        <SimpleValue>prozessnachrichten.statusFuerAntragsportal.1170</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="code">
+        <SimpleValue>1200</SimpleValue>
+      </Value>
+      <Value ColumnRef="beschreibung">
+        <SimpleValue>universellerAntrag.antrag.1200</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="code">
+        <SimpleValue>1202</SimpleValue>
+      </Value>
+      <Value ColumnRef="beschreibung">
+        <SimpleValue>universellerAntrag.angepassterAntrag.1202</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="code">
+        <SimpleValue>1203</SimpleValue>
+      </Value>
+      <Value ColumnRef="beschreibung">
+        <SimpleValue>universellerAntrag.materiellePruefungBefundliste.1203</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="code">
+        <SimpleValue>1204</SimpleValue>
+      </Value>
+      <Value ColumnRef="beschreibung">
+        <SimpleValue>universellerAntrag.stellungnahme.1204</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="code">
+        <SimpleValue>1205</SimpleValue>
+      </Value>
+      <Value ColumnRef="beschreibung">
+        <SimpleValue>universellerAntrag.bescheid.1205</SimpleValue>
+      </Value>
+    </Row>
+  </SimpleCodeList>
 </gc:CodeList>

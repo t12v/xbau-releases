@@ -14,9 +14,9 @@
    <Identification>
       <ShortName>genehmigungsfreistellung</ShortName>
       <LongName>Genehmigungsfreistellungsverfahren Ergebnis</LongName>
-      <Version>3</Version>
+      <Version>3.0</Version>
       <CanonicalUri>urn:xoev-de:xbau:codeliste:genehmigungsfreistellung</CanonicalUri>
-      <CanonicalVersionUri>urn:xoev-de:xbau:codeliste:genehmigungsfreistellung_3</CanonicalVersionUri>
+      <CanonicalVersionUri>urn:xoev-de:xbau:codeliste:genehmigungsfreistellung_3.0</CanonicalVersionUri>
       <Agency>
          <LongName>Bauministerkonferenz</LongName>
       </Agency>

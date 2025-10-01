@@ -1,118 +1,116 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<gc:CodeList xmlns:gc="http://docs.oasis-open.org/codelist/ns/genericode/1.0/"
-             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-             xmlns:xoev-cl-4="http://xoev.de/schemata/genericode/4">
-   <Annotation>
-      <Description>
-         <xoev-cl-4:shortName>Statistik Genehmigungsfreistellung</xoev-cl-4:shortName>
-         <xoev-cl-4:codelistDescription>Liste der Angaben zur Genehmigungsfreistellung an die Statistik.</xoev-cl-4:codelistDescription>
-         <xoev-cl-4:agencyShortName>BMK</xoev-cl-4:agencyShortName>
-         <xoev-cl-4:versionHandbook>1.2</xoev-cl-4:versionHandbook>
-      </Description>
-   </Annotation>
-   <Identification>
-      <ShortName>genehmigungsfreistellunganstatistik</ShortName>
-      <LongName>Statistik Genehmigungsfreistellung</LongName>
-      <Version>1.0</Version>
-      <CanonicalUri>urn:xoev-de:xbau:codeliste:genehmigungsfreistellunganstatistik</CanonicalUri>
-      <CanonicalVersionUri>urn:xoev-de:xbau:codeliste:genehmigungsfreistellunganstatistik_1.0</CanonicalVersionUri>
-      <Agency>
-         <LongName>Bauministerkonferenz</LongName>
-      </Agency>
-   </Identification>
-   <ColumnSet>
-      <Column Id="code" Use="required">
-         <ShortName>code</ShortName>
-         <LongName>Code</LongName>
-         <Data Type="string"/>
-      </Column>
-      <Column Id="beschreibung" Use="required">
-         <ShortName>beschreibung</ShortName>
-         <LongName>Beschreibung</LongName>
-         <Data Type="string"/>
-      </Column>
-      <Key Id="codeKey">
-         <Annotation>
-            <AppInfo>
-               <xoev-cl-4:recommendedKeyColumn/>
-            </AppInfo>
-         </Annotation>
-         <ShortName>codeKey</ShortName>
-         <ColumnRef Ref="code"/>
-      </Key>
-   </ColumnSet>
-   <SimpleCodeList>
-      <Row>
-         <Value ColumnRef="code">
-            <SimpleValue>1</SimpleValue>
-         </Value>
-         <Value ColumnRef="beschreibung">
-            <SimpleValue>Ja</SimpleValue>
-         </Value>
-      </Row>
-      <Row>
-         <Value ColumnRef="code">
-            <SimpleValue>2</SimpleValue>
-         </Value>
-         <Value ColumnRef="beschreibung">
-            <SimpleValue>Nein</SimpleValue>
-         </Value>
-      </Row>
-      <Row>
-         <Value ColumnRef="code">
-            <SimpleValue>3</SimpleValue>
-         </Value>
-         <Value ColumnRef="beschreibung">
-            <SimpleValue>länderintern 1</SimpleValue>
-         </Value>
-      </Row>
-      <Row>
-         <Value ColumnRef="code">
-            <SimpleValue>4</SimpleValue>
-         </Value>
-         <Value ColumnRef="beschreibung">
-            <SimpleValue>länderintern 2</SimpleValue>
-         </Value>
-      </Row>
-      <Row>
-         <Value ColumnRef="code">
-            <SimpleValue>5</SimpleValue>
-         </Value>
-         <Value ColumnRef="beschreibung">
-            <SimpleValue>länderintern 3</SimpleValue>
-         </Value>
-      </Row>
-      <Row>
-         <Value ColumnRef="code">
-            <SimpleValue>6</SimpleValue>
-         </Value>
-         <Value ColumnRef="beschreibung">
-            <SimpleValue>länderintern 4</SimpleValue>
-         </Value>
-      </Row>
-      <Row>
-         <Value ColumnRef="code">
-            <SimpleValue>7</SimpleValue>
-         </Value>
-         <Value ColumnRef="beschreibung">
-            <SimpleValue>länderintern 5</SimpleValue>
-         </Value>
-      </Row>
-      <Row>
-         <Value ColumnRef="code">
-            <SimpleValue>8</SimpleValue>
-         </Value>
-         <Value ColumnRef="beschreibung">
-            <SimpleValue>länderintern 6</SimpleValue>
-         </Value>
-      </Row>
-      <Row>
-         <Value ColumnRef="code">
-            <SimpleValue>9</SimpleValue>
-         </Value>
-         <Value ColumnRef="beschreibung">
-            <SimpleValue>länderintern 7</SimpleValue>
-         </Value>
-      </Row>
-   </SimpleCodeList>
+<gc:CodeList xmlns:gc="http://docs.oasis-open.org/codelist/ns/genericode/1.0/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xoev-cl-4="http://xoev.de/schemata/genericode/4">
+  <Annotation>
+    <Description>
+      <xoev-cl-4:shortName>Statistik Genehmigungsfreistellung</xoev-cl-4:shortName>
+      <xoev-cl-4:codelistDescription>Liste der Angaben zur Genehmigungsfreistellung an die Statistik.</xoev-cl-4:codelistDescription>
+      <xoev-cl-4:agencyShortName>BMK</xoev-cl-4:agencyShortName>
+      <xoev-cl-4:versionHandbook>1.2</xoev-cl-4:versionHandbook>
+    </Description>
+  </Annotation>
+  <Identification>
+    <ShortName>genehmigungsfreistellunganstatistik</ShortName>
+    <LongName>Statistik Genehmigungsfreistellung</LongName>
+    <Version>1.0</Version>
+    <CanonicalUri>urn:xoev-de:xbau:codeliste:genehmigungsfreistellunganstatistik</CanonicalUri>
+    <CanonicalVersionUri>urn:xoev-de:xbau:codeliste:genehmigungsfreistellunganstatistik_1.0</CanonicalVersionUri>
+    <Agency>
+      <LongName>Bauministerkonferenz</LongName>
+    </Agency>
+  </Identification>
+  <ColumnSet>
+    <Column Id="code" Use="required">
+      <ShortName>code</ShortName>
+      <LongName>Code</LongName>
+      <Data Type="string"/>
+    </Column>
+    <Column Id="beschreibung" Use="required">
+      <ShortName>beschreibung</ShortName>
+      <LongName>Beschreibung</LongName>
+      <Data Type="string"/>
+    </Column>
+    <Key Id="codeKey">
+      <Annotation>
+        <AppInfo>
+          <xoev-cl-4:recommendedKeyColumn/>
+        </AppInfo>
+      </Annotation>
+      <ShortName>codeKey</ShortName>
+      <ColumnRef Ref="code"/>
+    </Key>
+  </ColumnSet>
+  <SimpleCodeList>
+    <Row>
+      <Value ColumnRef="code">
+        <SimpleValue>1</SimpleValue>
+      </Value>
+      <Value ColumnRef="beschreibung">
+        <SimpleValue>Ja</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="code">
+        <SimpleValue>2</SimpleValue>
+      </Value>
+      <Value ColumnRef="beschreibung">
+        <SimpleValue>Nein</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="code">
+        <SimpleValue>3</SimpleValue>
+      </Value>
+      <Value ColumnRef="beschreibung">
+        <SimpleValue>länderintern 1</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="code">
+        <SimpleValue>4</SimpleValue>
+      </Value>
+      <Value ColumnRef="beschreibung">
+        <SimpleValue>länderintern 2</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="code">
+        <SimpleValue>5</SimpleValue>
+      </Value>
+      <Value ColumnRef="beschreibung">
+        <SimpleValue>länderintern 3</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="code">
+        <SimpleValue>6</SimpleValue>
+      </Value>
+      <Value ColumnRef="beschreibung">
+        <SimpleValue>länderintern 4</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="code">
+        <SimpleValue>7</SimpleValue>
+      </Value>
+      <Value ColumnRef="beschreibung">
+        <SimpleValue>länderintern 5</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="code">
+        <SimpleValue>8</SimpleValue>
+      </Value>
+      <Value ColumnRef="beschreibung">
+        <SimpleValue>länderintern 6</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="code">
+        <SimpleValue>9</SimpleValue>
+      </Value>
+      <Value ColumnRef="beschreibung">
+        <SimpleValue>länderintern 7</SimpleValue>
+      </Value>
+    </Row>
+  </SimpleCodeList>
 </gc:CodeList>

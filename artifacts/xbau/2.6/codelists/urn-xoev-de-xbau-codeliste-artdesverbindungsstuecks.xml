@@ -14,9 +14,9 @@
    <Identification>
       <ShortName>artdesverbindungsstuecks</ShortName>
       <LongName>Baubeschreibung Verbindungsstück Art</LongName>
-      <Version>3</Version>
+      <Version>3.0</Version>
       <CanonicalUri>urn:xoev-de:xbau:codeliste:artdesverbindungsstuecks</CanonicalUri>
-      <CanonicalVersionUri>urn:xoev-de:xbau:codeliste:artdesverbindungsstuecks_3</CanonicalVersionUri>
+      <CanonicalVersionUri>urn:xoev-de:xbau:codeliste:artdesverbindungsstuecks_3.0</CanonicalVersionUri>
       <Agency>
          <LongName>Bauministerkonferenz</LongName>
       </Agency>

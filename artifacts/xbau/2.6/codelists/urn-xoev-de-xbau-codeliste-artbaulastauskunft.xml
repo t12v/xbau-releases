@@ -4,7 +4,7 @@
              xmlns:xoev-cl-4="http://xoev.de/schemata/genericode/4">
    <Annotation>
       <Description>
-         <xoev-cl-4:shortName>Baulastauskunft</xoev-cl-4:shortName>
+         <xoev-cl-4:shortName>Art der Baulastauskunft</xoev-cl-4:shortName>
          <xoev-cl-4:codelistDescription>Art der Baulastauskunft</xoev-cl-4:codelistDescription>
          <xoev-cl-4:agencyShortName>BMK</xoev-cl-4:agencyShortName>
          <xoev-cl-4:versionHandbook>1.2</xoev-cl-4:versionHandbook>

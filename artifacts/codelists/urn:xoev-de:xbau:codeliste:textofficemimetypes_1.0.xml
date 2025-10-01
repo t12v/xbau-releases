@@ -1,119 +1,117 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<gc:CodeList xmlns:gc="http://docs.oasis-open.org/codelist/ns/genericode/1.0/"
-             xmlns:xoev-cl-4="http://xoev.de/schemata/genericode/4"
-             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-   <Annotation>
-      <Description>
-         <xoev-cl-4:shortName>textofficemimetypes</xoev-cl-4:shortName>
-         <xoev-cl-4:codelistDescription>Liste der MIME-Types, die im optionalen Element "textOffice" verwendet werden. Hier sind lediglich die Types für Text- und Tabellendokumente von Open/Libre Office und MS Office angegeben. Die Types von Präsentations- und anderen Dokumenten sind in diesem Kontext nicht relevant. Ergänzend sind noch die MIMI Types der gängigsten Bildformate angegeben, falls diese als Inline-Objekte in Texten benötigt werden.</xoev-cl-4:codelistDescription>
-         <xoev-cl-4:agencyShortName>xbau</xoev-cl-4:agencyShortName>
-         <xoev-cl-4:versionDescription>Initiale Version</xoev-cl-4:versionDescription>
-         <xoev-cl-4:validFrom>2022-11-01</xoev-cl-4:validFrom>
-         <xoev-cl-4:versionHandbook>1.2</xoev-cl-4:versionHandbook>
-      </Description>
-   </Annotation>
-   <Identification>
-      <ShortName>textofficemimetypes</ShortName>
-      <LongName>XBau MIME Types TextOffice</LongName>
-      <Version>1.0</Version>
-      <CanonicalUri>urn:xoev-de:xbau:codeliste:textofficemimetypes</CanonicalUri>
-      <CanonicalVersionUri>urn:xoev-de:xbau:codeliste:textofficemimetypes_1.0</CanonicalVersionUri>
-      <Agency>
-         <LongName>XLeitstelle</LongName>
-      </Agency>
-   </Identification>
-   <ColumnSet>
-      <Column Id="Code" Use="required">
-         <ShortName>Code</ShortName>
-         <LongName>Code</LongName>
-         <Data Type="string"/>
-      </Column>
-      <Column Id="Extenstion" Use="optional">
-         <ShortName>Extenstion</ShortName>
-         <LongName>Extenstion</LongName>
-         <Data Type="string"/>
-      </Column>
-      <Column Id="Beschreibung" Use="optional">
-         <ShortName>Beschreibung</ShortName>
-         <LongName>Beschreibung</LongName>
-         <Data Type="string"/>
-      </Column>
-      <Key Id="CodeKey">
-         <Annotation>
-            <AppInfo>
-               <xoev-cl-4:recommendedKeyColumn/>
-            </AppInfo>
-         </Annotation>
-         <ShortName>CodeKey</ShortName>
-         <ColumnRef Ref="Code"/>
-      </Key>
-   </ColumnSet>
-   <SimpleCodeList>
-      <Row>
-         <Value ColumnRef="Code">
-            <SimpleValue>application/vnd.openxmlformats-officedocument. spreadsheetml.sheet</SimpleValue>
-         </Value>
-         <Value ColumnRef="Extenstion">
-            <SimpleValue>xlsx</SimpleValue>
-         </Value>
-         <Value ColumnRef="Beschreibung">
-            <SimpleValue>Microsoft Excel Format</SimpleValue>
-         </Value>
-      </Row>
-      <Row>
-         <Value ColumnRef="Code">
-            <SimpleValue>application/vnd.openxmlformats-officedocument. wordprocessingml.document</SimpleValue>
-         </Value>
-         <Value ColumnRef="Extenstion">
-            <SimpleValue>docx</SimpleValue>
-         </Value>
-         <Value ColumnRef="Beschreibung">
-            <SimpleValue>Microsoft Word Format</SimpleValue>
-         </Value>
-      </Row>
-      <Row>
-         <Value ColumnRef="Code">
-            <SimpleValue>application/vnd.oasis.opendocument.text</SimpleValue>
-         </Value>
-         <Value ColumnRef="Extenstion">
-            <SimpleValue>odt</SimpleValue>
-         </Value>
-         <Value ColumnRef="Beschreibung">
-            <SimpleValue>OASIS Open Document Text Format</SimpleValue>
-         </Value>
-      </Row>
-      <Row>
-         <Value ColumnRef="Code">
-            <SimpleValue>application/vnd.oasis.opendocument.spreadsheet</SimpleValue>
-         </Value>
-         <Value ColumnRef="Extenstion">
-            <SimpleValue>ods</SimpleValue>
-         </Value>
-         <Value ColumnRef="Beschreibung">
-            <SimpleValue>OASIS Open Document Spreadsheet Format</SimpleValue>
-         </Value>
-      </Row>
-      <Row>
-         <Value ColumnRef="Code">
-            <SimpleValue>image/png</SimpleValue>
-         </Value>
-         <Value ColumnRef="Extenstion">
-            <SimpleValue>png</SimpleValue>
-         </Value>
-         <Value ColumnRef="Beschreibung">
-            <SimpleValue>Portable Network Graphics Format</SimpleValue>
-         </Value>
-      </Row>
-      <Row>
-         <Value ColumnRef="Code">
-            <SimpleValue>image/jpeg</SimpleValue>
-         </Value>
-         <Value ColumnRef="Extenstion">
-            <SimpleValue>jpg, jpeg</SimpleValue>
-         </Value>
-         <Value ColumnRef="Beschreibung">
-            <SimpleValue>JPEG File Interchange Format</SimpleValue>
-         </Value>
-      </Row>
-   </SimpleCodeList>
+<gc:CodeList xmlns:gc="http://docs.oasis-open.org/codelist/ns/genericode/1.0/" xmlns:xoev-cl-4="http://xoev.de/schemata/genericode/4" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Annotation>
+    <Description>
+      <xoev-cl-4:shortName>textofficemimetypes</xoev-cl-4:shortName>
+      <xoev-cl-4:codelistDescription>Liste der MIME-Types, die im optionalen Element "textOffice" verwendet werden. Hier sind lediglich die Types für Text- und Tabellendokumente von Open/Libre Office und MS Office angegeben. Die Types von Präsentations- und anderen Dokumenten sind in diesem Kontext nicht relevant. Ergänzend sind noch die MIMI Types der gängigsten Bildformate angegeben, falls diese als Inline-Objekte in Texten benötigt werden.</xoev-cl-4:codelistDescription>
+      <xoev-cl-4:agencyShortName>xbau</xoev-cl-4:agencyShortName>
+      <xoev-cl-4:versionDescription>Initiale Version</xoev-cl-4:versionDescription>
+      <xoev-cl-4:validFrom>2022-11-01</xoev-cl-4:validFrom>
+      <xoev-cl-4:versionHandbook>1.2</xoev-cl-4:versionHandbook>
+    </Description>
+  </Annotation>
+  <Identification>
+    <ShortName>textofficemimetypes</ShortName>
+    <LongName>XBau MIME Types TextOffice</LongName>
+    <Version>1.0</Version>
+    <CanonicalUri>urn:xoev-de:xbau:codeliste:textofficemimetypes</CanonicalUri>
+    <CanonicalVersionUri>urn:xoev-de:xbau:codeliste:textofficemimetypes_1.0</CanonicalVersionUri>
+    <Agency>
+      <LongName>XLeitstelle</LongName>
+    </Agency>
+  </Identification>
+  <ColumnSet>
+    <Column Id="Code" Use="required">
+      <ShortName>Code</ShortName>
+      <LongName>Code</LongName>
+      <Data Type="string"/>
+    </Column>
+    <Column Id="Extenstion" Use="optional">
+      <ShortName>Extenstion</ShortName>
+      <LongName>Extenstion</LongName>
+      <Data Type="string"/>
+    </Column>
+    <Column Id="Beschreibung" Use="optional">
+      <ShortName>Beschreibung</ShortName>
+      <LongName>Beschreibung</LongName>
+      <Data Type="string"/>
+    </Column>
+    <Key Id="CodeKey">
+      <Annotation>
+        <AppInfo>
+          <xoev-cl-4:recommendedKeyColumn/>
+        </AppInfo>
+      </Annotation>
+      <ShortName>CodeKey</ShortName>
+      <ColumnRef Ref="Code"/>
+    </Key>
+  </ColumnSet>
+  <SimpleCodeList>
+    <Row>
+      <Value ColumnRef="Code">
+        <SimpleValue>application/vnd.openxmlformats-officedocument. spreadsheetml.sheet</SimpleValue>
+      </Value>
+      <Value ColumnRef="Extenstion">
+        <SimpleValue>xlsx</SimpleValue>
+      </Value>
+      <Value ColumnRef="Beschreibung">
+        <SimpleValue>Microsoft Excel Format</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="Code">
+        <SimpleValue>application/vnd.openxmlformats-officedocument. wordprocessingml.document</SimpleValue>
+      </Value>
+      <Value ColumnRef="Extenstion">
+        <SimpleValue>docx</SimpleValue>
+      </Value>
+      <Value ColumnRef="Beschreibung">
+        <SimpleValue>Microsoft Word Format</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="Code">
+        <SimpleValue>application/vnd.oasis.opendocument.text</SimpleValue>
+      </Value>
+      <Value ColumnRef="Extenstion">
+        <SimpleValue>odt</SimpleValue>
+      </Value>
+      <Value ColumnRef="Beschreibung">
+        <SimpleValue>OASIS Open Document Text Format</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="Code">
+        <SimpleValue>application/vnd.oasis.opendocument.spreadsheet</SimpleValue>
+      </Value>
+      <Value ColumnRef="Extenstion">
+        <SimpleValue>ods</SimpleValue>
+      </Value>
+      <Value ColumnRef="Beschreibung">
+        <SimpleValue>OASIS Open Document Spreadsheet Format</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="Code">
+        <SimpleValue>image/png</SimpleValue>
+      </Value>
+      <Value ColumnRef="Extenstion">
+        <SimpleValue>png</SimpleValue>
+      </Value>
+      <Value ColumnRef="Beschreibung">
+        <SimpleValue>Portable Network Graphics Format</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="Code">
+        <SimpleValue>image/jpeg</SimpleValue>
+      </Value>
+      <Value ColumnRef="Extenstion">
+        <SimpleValue>jpg, jpeg</SimpleValue>
+      </Value>
+      <Value ColumnRef="Beschreibung">
+        <SimpleValue>JPEG File Interchange Format</SimpleValue>
+      </Value>
+    </Row>
+  </SimpleCodeList>
 </gc:CodeList>

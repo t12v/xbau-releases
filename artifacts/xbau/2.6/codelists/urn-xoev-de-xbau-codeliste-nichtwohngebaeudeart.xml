@@ -14,9 +14,9 @@
    <Identification>
       <ShortName>nichtwohngebaeudeart</ShortName>
       <LongName>Statistik Nichtwohngebäude Art</LongName>
-      <Version>3</Version>
+      <Version>3.0</Version>
       <CanonicalUri>urn:xoev-de:xbau:codeliste:nichtwohngebaeudeart</CanonicalUri>
-      <CanonicalVersionUri>urn:xoev-de:xbau:codeliste:nichtwohngebaeudeart_3</CanonicalVersionUri>
+      <CanonicalVersionUri>urn:xoev-de:xbau:codeliste:nichtwohngebaeudeart_3.0</CanonicalVersionUri>
       <Agency>
          <LongName>Bauministerkonferenz</LongName>
       </Agency>

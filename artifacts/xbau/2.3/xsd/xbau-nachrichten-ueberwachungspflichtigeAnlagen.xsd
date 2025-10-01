@@ -29,11 +29,11 @@
       </xs:appinfo>
    </xs:annotation>
    <xs:include schemaLocation="xbau-baukasten.xsd"/>
-   <xs:import schemaLocation="http://xoev.de/DIN-SPEC-91379/2019-03/datatypes/din-91379-datatypes.xsd"
+   <xs:import schemaLocation="din-91379-datatypes.xsd"
               namespace="urn:xoev-de:kosit:xoev:datentyp:din-spec-91379_2019-03"/>
-   <xs:import schemaLocation="http://xoev.de/latinchars/1_1/datatypes/latinchars.xsd"
+   <xs:import schemaLocation="latinchars.xsd"
               namespace="http://xoev.de/latinchars/1_1/datatypes"/>
-   <xs:import schemaLocation="https://www.xleitstelle.de/xbau/schema/kernmodul/1/1/xbau-kernmodul-datentypen.xsd"
+   <xs:import schemaLocation="xbau-kernmodul-datentypen.xsd"
               namespace="http://www.xleitstelle.de/xbau/kernmodul/1/1"/>
    <xs:complexType name="MppvoPruefergebnis">
       <xs:annotation>

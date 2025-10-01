@@ -9,15 +9,15 @@
          <xoev-cl-4:agencyShortName>BMK</xoev-cl-4:agencyShortName>
          <xoev-cl-4:versionHandbook>1.2</xoev-cl-4:versionHandbook>
          <xoev-cl-4:changes>In XBau 2.6: 
-Neue Einträge: 0703, 0720, 0721, 0722, 0723, 0904, 0913, 0923</xoev-cl-4:changes>
+Neue Einträge: 0703, 0720, 0721, 0722, 0723, 0724, 0725, 0904, 0913, 0923</xoev-cl-4:changes>
       </Description>
    </Annotation>
    <Identification>
       <ShortName>xbau-nachrichten</ShortName>
       <LongName>XBau-Nachrichten</LongName>
-      <Version>3.2</Version>
+      <Version>4.0</Version>
       <CanonicalUri>urn:xoev-de:xbau:codeliste:xbau-nachrichten</CanonicalUri>
-      <CanonicalVersionUri>urn:xoev-de:xbau:codeliste:xbau-nachrichten_3.2</CanonicalVersionUri>
+      <CanonicalVersionUri>urn:xoev-de:xbau:codeliste:xbau-nachrichten_4.0</CanonicalVersionUri>
       <Agency>
          <LongName>Bauministerkonferenz</LongName>
       </Agency>
@@ -810,6 +810,22 @@ Neue Einträge: 0703, 0720, 0721, 0722, 0723, 0904, 0913, 0923</xoev-cl-4:change
          </Value>
          <Value ColumnRef="beschreibung">
             <SimpleValue>baulastloeschung.loeschungEintrag.0723</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="code">
+            <SimpleValue>0724</SimpleValue>
+         </Value>
+         <Value ColumnRef="beschreibung">
+            <SimpleValue>baulastloeschung.stellungnahmeAufforderung.0724</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="code">
+            <SimpleValue>0725</SimpleValue>
+         </Value>
+         <Value ColumnRef="beschreibung">
+            <SimpleValue>baulastloeschung.stellungnahme.0725</SimpleValue>
          </Value>
       </Row>
       <Row>

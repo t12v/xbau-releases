@@ -1,312 +1,310 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<gc:CodeList xmlns:gc="http://docs.oasis-open.org/codelist/ns/genericode/1.0/"
-             xmlns:xoev-cl-3="http://xoev.de/schemata/genericode/3"
-             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-   <Annotation>
-      <Description>
-         <xoev-cl-3:nameKurz>XBau Fehlerkennzahlen</xoev-cl-3:nameKurz>
-         <xoev-cl-3:beschreibung-codeliste>Codeliste der Fehlerkennzahlen für die Klassifikation von Fehlern, die in XBau-Nachrichteninstanzen angetroffen werden. Die Einträge bestehen aus Fehlerkennzahl und der Angabe deren Bedeutung. Gruppen von Codes: X - formales Problem mit XML oder mit (Inhalten von) Schlüsseltabellen, V - Versionsproblem, T - Transportproblem, S - nicht spezifikationskonform, A - Problem mit Anlagen zur empfangenen Nachricht.</xoev-cl-3:beschreibung-codeliste>
-         <xoev-cl-3:herausgebernameKurz>BMK</xoev-cl-3:herausgebernameKurz>
-         <xoev-cl-3:datumGueltigkeitAb>2020-12-01</xoev-cl-3:datumGueltigkeitAb>
-         <xoev-cl-3:versionCodelistenHandbuch>1.1</xoev-cl-3:versionCodelistenHandbuch>
-         <xoev-cl-3:aenderungZurVorversion>Code V001 wurde hinzugefügt.</xoev-cl-3:aenderungZurVorversion>
-      </Description>
-   </Annotation>
-   <Identification>
-      <ShortName>xbau-fehlerkennzahlen</ShortName>
-      <LongName>XBau Fehlerkennzahlen</LongName>
-      <Version>2.1</Version>
-      <CanonicalUri>urn:xoev-de:xbau:codeliste:xbau-fehlerkennzahlen</CanonicalUri>
-      <CanonicalVersionUri>urn:xoev-de:xbau:codeliste:xbau-fehlerkennzahlen_2.1</CanonicalVersionUri>
-      <Agency>
-         <LongName>Bauministerkonferenz</LongName>
-      </Agency>
-   </Identification>
-   <ColumnSet>
-      <Column Id="Fehlerkennzahl" Use="required">
-         <ShortName>Fehlerkennzahl</ShortName>
-         <LongName>Fehlerkennzahl</LongName>
-         <Data Type="string"/>
-      </Column>
-      <Column Id="Bedeutung" Use="required">
-         <ShortName>Bedeutung</ShortName>
-         <LongName>Bedeutung</LongName>
-         <Data Type="string"/>
-      </Column>
-      <Key Id="FehlerkennzahlKey">
-         <Annotation>
-            <AppInfo>
-               <xoev-cl-3:empfohleneCodeSpalte/>
-            </AppInfo>
-         </Annotation>
-         <ShortName>FehlerkennzahlKey</ShortName>
-         <ColumnRef Ref="Fehlerkennzahl"/>
-      </Key>
-   </ColumnSet>
-   <SimpleCodeList>
-      <Row>
-         <Value ColumnRef="Fehlerkennzahl">
-            <SimpleValue>X000</SimpleValue>
-         </Value>
-         <Value ColumnRef="Bedeutung">
-            <SimpleValue>Die Nachricht ist kein wohlgeformtes XML-Dokument.</SimpleValue>
-         </Value>
-      </Row>
-      <Row>
-         <Value ColumnRef="Fehlerkennzahl">
-            <SimpleValue>X001</SimpleValue>
-         </Value>
-         <Value ColumnRef="Bedeutung">
-            <SimpleValue>Die Nachricht ist nicht valide zu dem Schema der in der Nachricht angegebenen XBau-Version.</SimpleValue>
-         </Value>
-      </Row>
-      <Row>
-         <Value ColumnRef="Fehlerkennzahl">
-            <SimpleValue>X010</SimpleValue>
-         </Value>
-         <Value ColumnRef="Bedeutung">
-            <SimpleValue>Nicht Spezifikationskonform: Ungültige Schlüsseltabelle.</SimpleValue>
-         </Value>
-      </Row>
-      <Row>
-         <Value ColumnRef="Fehlerkennzahl">
-            <SimpleValue>X011</SimpleValue>
-         </Value>
-         <Value ColumnRef="Bedeutung">
-            <SimpleValue>Nicht Spezifikationskonform: Ungültiger Schlüssel in einer Schlüsseltabelle.</SimpleValue>
-         </Value>
-      </Row>
-      <Row>
-         <Value ColumnRef="Fehlerkennzahl">
-            <SimpleValue>V000</SimpleValue>
-         </Value>
-         <Value ColumnRef="Bedeutung">
-            <SimpleValue>Die Nachricht kann in der Version, die in der Nachricht angegeben wird, vom Empfänger nicht bearbeitet werden (Der Dienst ist in dieser Version nicht oder nicht mehr bereit).</SimpleValue>
-         </Value>
-      </Row>
-      <Row>
-         <Value ColumnRef="Fehlerkennzahl">
-            <SimpleValue>V001</SimpleValue>
-         </Value>
-         <Value ColumnRef="Bedeutung">
-            <SimpleValue>Dieser Nachrichtentyp wird von unserer Software derzeit nicht unterstützt.</SimpleValue>
-         </Value>
-      </Row>
-      <Row>
-         <Value ColumnRef="Fehlerkennzahl">
-            <SimpleValue>T000</SimpleValue>
-         </Value>
-         <Value ColumnRef="Bedeutung">
-            <SimpleValue>Das Zertifikat des Absenders ist abgelaufen.</SimpleValue>
-         </Value>
-      </Row>
-      <Row>
-         <Value ColumnRef="Fehlerkennzahl">
-            <SimpleValue>T001</SimpleValue>
-         </Value>
-         <Value ColumnRef="Bedeutung">
-            <SimpleValue>Das Zertifikat des Absenders ist widerrufen.</SimpleValue>
-         </Value>
-      </Row>
-      <Row>
-         <Value ColumnRef="Fehlerkennzahl">
-            <SimpleValue>T002</SimpleValue>
-         </Value>
-         <Value ColumnRef="Bedeutung">
-            <SimpleValue>Das Zertifikat des Absenders ist nicht gültig.</SimpleValue>
-         </Value>
-      </Row>
-      <Row>
-         <Value ColumnRef="Fehlerkennzahl">
-            <SimpleValue>T003</SimpleValue>
-         </Value>
-         <Value ColumnRef="Bedeutung">
-            <SimpleValue>Das Zertifikat des Absenders fehlt.</SimpleValue>
-         </Value>
-      </Row>
-      <Row>
-         <Value ColumnRef="Fehlerkennzahl">
-            <SimpleValue>T010</SimpleValue>
-         </Value>
-         <Value ColumnRef="Bedeutung">
-            <SimpleValue>Die Signatur der Inhaltsdaten fehlt oder hat nicht das geforderte Signaturniveau.</SimpleValue>
-         </Value>
-      </Row>
-      <Row>
-         <Value ColumnRef="Fehlerkennzahl">
-            <SimpleValue>T011</SimpleValue>
-         </Value>
-         <Value ColumnRef="Bedeutung">
-            <SimpleValue>Die Signatur der Inhaltsdaten ist nicht gültig (Integrität verletzt).</SimpleValue>
-         </Value>
-      </Row>
-      <Row>
-         <Value ColumnRef="Fehlerkennzahl">
-            <SimpleValue>T020</SimpleValue>
-         </Value>
-         <Value ColumnRef="Bedeutung">
-            <SimpleValue>Die Inhaltsdaten können von dem Empfänger nicht dechiffriert werden.</SimpleValue>
-         </Value>
-      </Row>
-      <Row>
-         <Value ColumnRef="Fehlerkennzahl">
-            <SimpleValue>T070</SimpleValue>
-         </Value>
-         <Value ColumnRef="Bedeutung">
-            <SimpleValue>Der Absender ist zur Inanspruchnahme dieses Dienstes nicht berechtigt.</SimpleValue>
-         </Value>
-      </Row>
-      <Row>
-         <Value ColumnRef="Fehlerkennzahl">
-            <SimpleValue>T080</SimpleValue>
-         </Value>
-         <Value ColumnRef="Bedeutung">
-            <SimpleValue>Die Nachricht ist dem falschen Empfänger / Leser zugestellt worden, d. h. im Nachrichtenkopf ist eine abweichende Empfängerbehörde eingetragen (Irrläufer).</SimpleValue>
-         </Value>
-      </Row>
-      <Row>
-         <Value ColumnRef="Fehlerkennzahl">
-            <SimpleValue>T099</SimpleValue>
-         </Value>
-         <Value ColumnRef="Bedeutung">
-            <SimpleValue>Sonstiger Verstoß gegen Anforderungen des OSCI-Transport-Profils</SimpleValue>
-         </Value>
-      </Row>
-      <Row>
-         <Value ColumnRef="Fehlerkennzahl">
-            <SimpleValue>S000</SimpleValue>
-         </Value>
-         <Value ColumnRef="Bedeutung">
-            <SimpleValue>Nicht Spezifikationskonform: Bauaufsichtlicher Vorgang mit einem in der Zukunft liegenden Datum.</SimpleValue>
-         </Value>
-      </Row>
-      <Row>
-         <Value ColumnRef="Fehlerkennzahl">
-            <SimpleValue>S050</SimpleValue>
-         </Value>
-         <Value ColumnRef="Bedeutung">
-            <SimpleValue>Nicht spezifikationskonform: Zurückweisung aufgrund erneuter Lieferung eines bereits erfolgreich entgegengenommenen Antrags (oder sonstigen Anliegens).</SimpleValue>
-         </Value>
-      </Row>
-      <Row>
-         <Value ColumnRef="Fehlerkennzahl">
-            <SimpleValue>S090</SimpleValue>
-         </Value>
-         <Value ColumnRef="Bedeutung">
-            <SimpleValue>Die in der Nachricht referenzierte Bezugsnachricht konnte nicht identifiziert werden</SimpleValue>
-         </Value>
-      </Row>
-      <Row>
-         <Value ColumnRef="Fehlerkennzahl">
-            <SimpleValue>S091</SimpleValue>
-         </Value>
-         <Value ColumnRef="Bedeutung">
-            <SimpleValue>Die in der Nachricht übermittelte Behördenkennung ist unbekannt</SimpleValue>
-         </Value>
-      </Row>
-      <Row>
-         <Value ColumnRef="Fehlerkennzahl">
-            <SimpleValue>S100</SimpleValue>
-         </Value>
-         <Value ColumnRef="Bedeutung">
-            <SimpleValue>Unerlaubte XBau-Nachricht für Rolle “xxx” (Prozessverstoß)</SimpleValue>
-         </Value>
-      </Row>
-      <Row>
-         <Value ColumnRef="Fehlerkennzahl">
-            <SimpleValue>S101</SimpleValue>
-         </Value>
-         <Value ColumnRef="Bedeutung">
-            <SimpleValue>Nachrichtensequenz für Prozess ungültig (Prozessverstoß)</SimpleValue>
-         </Value>
-      </Row>
-      <Row>
-         <Value ColumnRef="Fehlerkennzahl">
-            <SimpleValue>S102</SimpleValue>
-         </Value>
-         <Value ColumnRef="Bedeutung">
-            <SimpleValue>Das Test-Kennzeichen ist in diesem Kontext nicht erlaubt</SimpleValue>
-         </Value>
-      </Row>
-      <Row>
-         <Value ColumnRef="Fehlerkennzahl">
-            <SimpleValue>S999</SimpleValue>
-         </Value>
-         <Value ColumnRef="Bedeutung">
-            <SimpleValue>Nicht Spezifikationskonform aus anderen Gründen.</SimpleValue>
-         </Value>
-      </Row>
-      <Row>
-         <Value ColumnRef="Fehlerkennzahl">
-            <SimpleValue>A001</SimpleValue>
-         </Value>
-         <Value ColumnRef="Bedeutung">
-            <SimpleValue>Die durch die XBau-Nachricht referenzierte Anlage “xxx” ist nicht verfügbar</SimpleValue>
-         </Value>
-      </Row>
-      <Row>
-         <Value ColumnRef="Fehlerkennzahl">
-            <SimpleValue>A002</SimpleValue>
-         </Value>
-         <Value ColumnRef="Bedeutung">
-            <SimpleValue>Es wurde kein Dokument zur Anlage “xxx” übermittelt - sowohl das Feld “primaerdokument” als auch das Feld “referenzPrimaerdokument” sind leer</SimpleValue>
-         </Value>
-      </Row>
-      <Row>
-         <Value ColumnRef="Fehlerkennzahl">
-            <SimpleValue>A003</SimpleValue>
-         </Value>
-         <Value ColumnRef="Bedeutung">
-            <SimpleValue>Der Nachrichtentyp unterstützt keine referenzierten Anlagen</SimpleValue>
-         </Value>
-      </Row>
-      <Row>
-         <Value ColumnRef="Fehlerkennzahl">
-            <SimpleValue>A004</SimpleValue>
-         </Value>
-         <Value ColumnRef="Bedeutung">
-            <SimpleValue>Die übermittelte Anlage überschreitet die maximale für Anlagen zugelassene Größe</SimpleValue>
-         </Value>
-      </Row>
-      <Row>
-         <Value ColumnRef="Fehlerkennzahl">
-            <SimpleValue>A005</SimpleValue>
-         </Value>
-         <Value ColumnRef="Bedeutung">
-            <SimpleValue>Der MIME-Type der übermittelten Anlage ist inkorrekt</SimpleValue>
-         </Value>
-      </Row>
-      <Row>
-         <Value ColumnRef="Fehlerkennzahl">
-            <SimpleValue>A006</SimpleValue>
-         </Value>
-         <Value ColumnRef="Bedeutung">
-            <SimpleValue>Die übermittelte Anlage wird zurückgewiesen (z.B. aufgrund von Schadcodes)</SimpleValue>
-         </Value>
-      </Row>
-      <Row>
-         <Value ColumnRef="Fehlerkennzahl">
-            <SimpleValue>A007</SimpleValue>
-         </Value>
-         <Value ColumnRef="Bedeutung">
-            <SimpleValue>Die Anzahl der übermittelten Anlagen überschreitet die höchstzulässige Anzahl</SimpleValue>
-         </Value>
-      </Row>
-      <Row>
-         <Value ColumnRef="Fehlerkennzahl">
-            <SimpleValue>A008</SimpleValue>
-         </Value>
-         <Value ColumnRef="Bedeutung">
-            <SimpleValue>Die Größe der Summe der übermittelten Anlagen überschreitet die maximale Größe</SimpleValue>
-         </Value>
-      </Row>
-      <Row>
-         <Value ColumnRef="Fehlerkennzahl">
-            <SimpleValue>A009</SimpleValue>
-         </Value>
-         <Value ColumnRef="Bedeutung">
-            <SimpleValue>Der Dateiname der Anlage enthält ungültige Zeichen</SimpleValue>
-         </Value>
-      </Row>
-   </SimpleCodeList>
+<gc:CodeList xmlns:gc="http://docs.oasis-open.org/codelist/ns/genericode/1.0/" xmlns:xoev-cl-3="http://xoev.de/schemata/genericode/3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Annotation>
+    <Description>
+      <xoev-cl-3:nameKurz>XBau Fehlerkennzahlen</xoev-cl-3:nameKurz>
+      <xoev-cl-3:beschreibung-codeliste>Codeliste der Fehlerkennzahlen für die Klassifikation von Fehlern, die in XBau-Nachrichteninstanzen angetroffen werden. Die Einträge bestehen aus Fehlerkennzahl und der Angabe deren Bedeutung. Gruppen von Codes: X - formales Problem mit XML oder mit (Inhalten von) Schlüsseltabellen, V - Versionsproblem, T - Transportproblem, S - nicht spezifikationskonform, A - Problem mit Anlagen zur empfangenen Nachricht.</xoev-cl-3:beschreibung-codeliste>
+      <xoev-cl-3:herausgebernameKurz>BMK</xoev-cl-3:herausgebernameKurz>
+      <xoev-cl-3:datumGueltigkeitAb>2020-12-01</xoev-cl-3:datumGueltigkeitAb>
+      <xoev-cl-3:versionCodelistenHandbuch>1.1</xoev-cl-3:versionCodelistenHandbuch>
+      <xoev-cl-3:aenderungZurVorversion>Code V001 wurde hinzugefügt.</xoev-cl-3:aenderungZurVorversion>
+    </Description>
+  </Annotation>
+  <Identification>
+    <ShortName>xbau-fehlerkennzahlen</ShortName>
+    <LongName>XBau Fehlerkennzahlen</LongName>
+    <Version>2.1</Version>
+    <CanonicalUri>urn:xoev-de:xbau:codeliste:xbau-fehlerkennzahlen</CanonicalUri>
+    <CanonicalVersionUri>urn:xoev-de:xbau:codeliste:xbau-fehlerkennzahlen_2.1</CanonicalVersionUri>
+    <Agency>
+      <LongName>Bauministerkonferenz</LongName>
+    </Agency>
+  </Identification>
+  <ColumnSet>
+    <Column Id="Fehlerkennzahl" Use="required">
+      <ShortName>Fehlerkennzahl</ShortName>
+      <LongName>Fehlerkennzahl</LongName>
+      <Data Type="string"/>
+    </Column>
+    <Column Id="Bedeutung" Use="required">
+      <ShortName>Bedeutung</ShortName>
+      <LongName>Bedeutung</LongName>
+      <Data Type="string"/>
+    </Column>
+    <Key Id="FehlerkennzahlKey">
+      <Annotation>
+        <AppInfo>
+          <xoev-cl-3:empfohleneCodeSpalte/>
+        </AppInfo>
+      </Annotation>
+      <ShortName>FehlerkennzahlKey</ShortName>
+      <ColumnRef Ref="Fehlerkennzahl"/>
+    </Key>
+  </ColumnSet>
+  <SimpleCodeList>
+    <Row>
+      <Value ColumnRef="Fehlerkennzahl">
+        <SimpleValue>X000</SimpleValue>
+      </Value>
+      <Value ColumnRef="Bedeutung">
+        <SimpleValue>Die Nachricht ist kein wohlgeformtes XML-Dokument.</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="Fehlerkennzahl">
+        <SimpleValue>X001</SimpleValue>
+      </Value>
+      <Value ColumnRef="Bedeutung">
+        <SimpleValue>Die Nachricht ist nicht valide zu dem Schema der in der Nachricht angegebenen XBau-Version.</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="Fehlerkennzahl">
+        <SimpleValue>X010</SimpleValue>
+      </Value>
+      <Value ColumnRef="Bedeutung">
+        <SimpleValue>Nicht Spezifikationskonform: Ungültige Schlüsseltabelle.</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="Fehlerkennzahl">
+        <SimpleValue>X011</SimpleValue>
+      </Value>
+      <Value ColumnRef="Bedeutung">
+        <SimpleValue>Nicht Spezifikationskonform: Ungültiger Schlüssel in einer Schlüsseltabelle.</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="Fehlerkennzahl">
+        <SimpleValue>V000</SimpleValue>
+      </Value>
+      <Value ColumnRef="Bedeutung">
+        <SimpleValue>Die Nachricht kann in der Version, die in der Nachricht angegeben wird, vom Empfänger nicht bearbeitet werden (Der Dienst ist in dieser Version nicht oder nicht mehr bereit).</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="Fehlerkennzahl">
+        <SimpleValue>V001</SimpleValue>
+      </Value>
+      <Value ColumnRef="Bedeutung">
+        <SimpleValue>Dieser Nachrichtentyp wird von unserer Software derzeit nicht unterstützt.</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="Fehlerkennzahl">
+        <SimpleValue>T000</SimpleValue>
+      </Value>
+      <Value ColumnRef="Bedeutung">
+        <SimpleValue>Das Zertifikat des Absenders ist abgelaufen.</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="Fehlerkennzahl">
+        <SimpleValue>T001</SimpleValue>
+      </Value>
+      <Value ColumnRef="Bedeutung">
+        <SimpleValue>Das Zertifikat des Absenders ist widerrufen.</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="Fehlerkennzahl">
+        <SimpleValue>T002</SimpleValue>
+      </Value>
+      <Value ColumnRef="Bedeutung">
+        <SimpleValue>Das Zertifikat des Absenders ist nicht gültig.</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="Fehlerkennzahl">
+        <SimpleValue>T003</SimpleValue>
+      </Value>
+      <Value ColumnRef="Bedeutung">
+        <SimpleValue>Das Zertifikat des Absenders fehlt.</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="Fehlerkennzahl">
+        <SimpleValue>T010</SimpleValue>
+      </Value>
+      <Value ColumnRef="Bedeutung">
+        <SimpleValue>Die Signatur der Inhaltsdaten fehlt oder hat nicht das geforderte Signaturniveau.</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="Fehlerkennzahl">
+        <SimpleValue>T011</SimpleValue>
+      </Value>
+      <Value ColumnRef="Bedeutung">
+        <SimpleValue>Die Signatur der Inhaltsdaten ist nicht gültig (Integrität verletzt).</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="Fehlerkennzahl">
+        <SimpleValue>T020</SimpleValue>
+      </Value>
+      <Value ColumnRef="Bedeutung">
+        <SimpleValue>Die Inhaltsdaten können von dem Empfänger nicht dechiffriert werden.</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="Fehlerkennzahl">
+        <SimpleValue>T070</SimpleValue>
+      </Value>
+      <Value ColumnRef="Bedeutung">
+        <SimpleValue>Der Absender ist zur Inanspruchnahme dieses Dienstes nicht berechtigt.</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="Fehlerkennzahl">
+        <SimpleValue>T080</SimpleValue>
+      </Value>
+      <Value ColumnRef="Bedeutung">
+        <SimpleValue>Die Nachricht ist dem falschen Empfänger / Leser zugestellt worden, d. h. im Nachrichtenkopf ist eine abweichende Empfängerbehörde eingetragen (Irrläufer).</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="Fehlerkennzahl">
+        <SimpleValue>T099</SimpleValue>
+      </Value>
+      <Value ColumnRef="Bedeutung">
+        <SimpleValue>Sonstiger Verstoß gegen Anforderungen des OSCI-Transport-Profils</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="Fehlerkennzahl">
+        <SimpleValue>S000</SimpleValue>
+      </Value>
+      <Value ColumnRef="Bedeutung">
+        <SimpleValue>Nicht Spezifikationskonform: Bauaufsichtlicher Vorgang mit einem in der Zukunft liegenden Datum.</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="Fehlerkennzahl">
+        <SimpleValue>S050</SimpleValue>
+      </Value>
+      <Value ColumnRef="Bedeutung">
+        <SimpleValue>Nicht spezifikationskonform: Zurückweisung aufgrund erneuter Lieferung eines bereits erfolgreich entgegengenommenen Antrags (oder sonstigen Anliegens).</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="Fehlerkennzahl">
+        <SimpleValue>S090</SimpleValue>
+      </Value>
+      <Value ColumnRef="Bedeutung">
+        <SimpleValue>Die in der Nachricht referenzierte Bezugsnachricht konnte nicht identifiziert werden</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="Fehlerkennzahl">
+        <SimpleValue>S091</SimpleValue>
+      </Value>
+      <Value ColumnRef="Bedeutung">
+        <SimpleValue>Die in der Nachricht übermittelte Behördenkennung ist unbekannt</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="Fehlerkennzahl">
+        <SimpleValue>S100</SimpleValue>
+      </Value>
+      <Value ColumnRef="Bedeutung">
+        <SimpleValue>Unerlaubte XBau-Nachricht für Rolle “xxx” (Prozessverstoß)</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="Fehlerkennzahl">
+        <SimpleValue>S101</SimpleValue>
+      </Value>
+      <Value ColumnRef="Bedeutung">
+        <SimpleValue>Nachrichtensequenz für Prozess ungültig (Prozessverstoß)</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="Fehlerkennzahl">
+        <SimpleValue>S102</SimpleValue>
+      </Value>
+      <Value ColumnRef="Bedeutung">
+        <SimpleValue>Das Test-Kennzeichen ist in diesem Kontext nicht erlaubt</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="Fehlerkennzahl">
+        <SimpleValue>S999</SimpleValue>
+      </Value>
+      <Value ColumnRef="Bedeutung">
+        <SimpleValue>Nicht Spezifikationskonform aus anderen Gründen.</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="Fehlerkennzahl">
+        <SimpleValue>A001</SimpleValue>
+      </Value>
+      <Value ColumnRef="Bedeutung">
+        <SimpleValue>Die durch die XBau-Nachricht referenzierte Anlage “xxx” ist nicht verfügbar</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="Fehlerkennzahl">
+        <SimpleValue>A002</SimpleValue>
+      </Value>
+      <Value ColumnRef="Bedeutung">
+        <SimpleValue>Es wurde kein Dokument zur Anlage “xxx” übermittelt - sowohl das Feld “primaerdokument” als auch das Feld “referenzPrimaerdokument” sind leer</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="Fehlerkennzahl">
+        <SimpleValue>A003</SimpleValue>
+      </Value>
+      <Value ColumnRef="Bedeutung">
+        <SimpleValue>Der Nachrichtentyp unterstützt keine referenzierten Anlagen</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="Fehlerkennzahl">
+        <SimpleValue>A004</SimpleValue>
+      </Value>
+      <Value ColumnRef="Bedeutung">
+        <SimpleValue>Die übermittelte Anlage überschreitet die maximale für Anlagen zugelassene Größe</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="Fehlerkennzahl">
+        <SimpleValue>A005</SimpleValue>
+      </Value>
+      <Value ColumnRef="Bedeutung">
+        <SimpleValue>Der MIME-Type der übermittelten Anlage ist inkorrekt</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="Fehlerkennzahl">
+        <SimpleValue>A006</SimpleValue>
+      </Value>
+      <Value ColumnRef="Bedeutung">
+        <SimpleValue>Die übermittelte Anlage wird zurückgewiesen (z.B. aufgrund von Schadcodes)</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="Fehlerkennzahl">
+        <SimpleValue>A007</SimpleValue>
+      </Value>
+      <Value ColumnRef="Bedeutung">
+        <SimpleValue>Die Anzahl der übermittelten Anlagen überschreitet die höchstzulässige Anzahl</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="Fehlerkennzahl">
+        <SimpleValue>A008</SimpleValue>
+      </Value>
+      <Value ColumnRef="Bedeutung">
+        <SimpleValue>Die Größe der Summe der übermittelten Anlagen überschreitet die maximale Größe</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="Fehlerkennzahl">
+        <SimpleValue>A009</SimpleValue>
+      </Value>
+      <Value ColumnRef="Bedeutung">
+        <SimpleValue>Der Dateiname der Anlage enthält ungültige Zeichen</SimpleValue>
+      </Value>
+    </Row>
+  </SimpleCodeList>
 </gc:CodeList>

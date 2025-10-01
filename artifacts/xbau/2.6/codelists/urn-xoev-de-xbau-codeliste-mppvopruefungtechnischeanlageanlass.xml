@@ -5,10 +5,10 @@
    <Annotation>
       <Description>
          <xoev-cl-4:shortName>MPPVO Anlass Prüfung technische Anlage</xoev-cl-4:shortName>
-         <xoev-cl-4:codelistDescription>Anlass der Prüfung einer überwachungspflichtigen Anlage gemäß Musterprüfverordnung § 2 Abs. 2</xoev-cl-4:codelistDescription>
+         <xoev-cl-4:codelistDescription>Anlass der Prüfung einer überwachungspflichtigen Anlage gemäß § 2 Abs. 2 Musterprüfverordnung</xoev-cl-4:codelistDescription>
          <xoev-cl-4:agencyShortName>BMK</xoev-cl-4:agencyShortName>
          <xoev-cl-4:versionHandbook>1.2</xoev-cl-4:versionHandbook>
-         <xoev-cl-4:changes>Korrektur eines Rechtschreibfehlers in der Beschreibung</xoev-cl-4:changes>
+         <xoev-cl-4:changes>In XBau 2.6: Korrektur eines Rechtschreibfehlers in der Beschreibung</xoev-cl-4:changes>
       </Description>
    </Annotation>
    <Identification>

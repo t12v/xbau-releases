@@ -26,7 +26,7 @@
          </versionStandard>
       </xs:appinfo>
    </xs:annotation>
-   <xs:import schemaLocation="http://xoev.de/schemata/code/1_0/xoev-code.xsd"
+   <xs:import schemaLocation="xoev-code.xsd"
               namespace="http://xoev.de/schemata/code/1_0"/>
    <xs:complexType name="Code.AbgangUmfang">
       <xs:annotation>

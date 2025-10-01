@@ -8,15 +8,15 @@
          <xoev-cl-4:codelistDescription>Codeliste der Bezeichnungen aller XBau-Kernmodul-Nachrichten.</xoev-cl-4:codelistDescription>
          <xoev-cl-4:agencyShortName>BMK</xoev-cl-4:agencyShortName>
          <xoev-cl-4:versionHandbook>1.2</xoev-cl-4:versionHandbook>
-         <xoev-cl-4:changes>In XBau-Kernmodul 1.2.3: Neue Einträge 1180, 1181.</xoev-cl-4:changes>
+         <xoev-cl-4:changes>In XBau-Kernmodul 1.3.0: Neue Einträge 1180, 1181.</xoev-cl-4:changes>
       </Description>
    </Annotation>
    <Identification>
       <ShortName>xbau-kernmodul-nachrichten</ShortName>
       <LongName>XBau-Kernmodul-Nachrichten</LongName>
-      <Version>2.2</Version>
+      <Version>3.0</Version>
       <CanonicalUri>urn:xoev-de:xbau-kernmodul:codeliste:xbau-kernmodul-nachrichten</CanonicalUri>
-      <CanonicalVersionUri>urn:xoev-de:xbau-kernmodul:codeliste:xbau-kernmodul-nachrichten_2.2</CanonicalVersionUri>
+      <CanonicalVersionUri>urn:xoev-de:xbau-kernmodul:codeliste:xbau-kernmodul-nachrichten_3.0</CanonicalVersionUri>
       <Agency>
          <LongName>Bauministerkonferenz</LongName>
       </Agency>

@@ -8,15 +8,15 @@
          <xoev-cl-4:codelistDescription>Definition der Arten von Nebenbestimmungen zum Bescheid zu einem Bauantrag.</xoev-cl-4:codelistDescription>
          <xoev-cl-4:agencyShortName>BMK</xoev-cl-4:agencyShortName>
          <xoev-cl-4:versionHandbook>1.2</xoev-cl-4:versionHandbook>
-         <xoev-cl-4:changes>Änderung im Namensraum der XÖV-Metadaten „http://xoev.de/schemata/genericode/4“ (Präfix „xoev-cl-4“); Änderung der Versionsangabe des Codelistenhandbuchs („1.2“)</xoev-cl-4:changes>
+         <xoev-cl-4:changes>zu XBau 2.6: Neue Einträge 4-6</xoev-cl-4:changes>
       </Description>
    </Annotation>
    <Identification>
       <ShortName>nebenbestimmungart</ShortName>
       <LongName>Nebenbestimmung Art</LongName>
-      <Version>2.0</Version>
+      <Version>3.0</Version>
       <CanonicalUri>urn:xoev-de:xbau:codeliste:nebenbestimmungart</CanonicalUri>
-      <CanonicalVersionUri>urn:xoev-de:xbau:codeliste:nebenbestimmungart_2.0</CanonicalVersionUri>
+      <CanonicalVersionUri>urn:xoev-de:xbau:codeliste:nebenbestimmungart_3.0</CanonicalVersionUri>
       <Agency>
          <LongName>Bauministerkonferenz</LongName>
       </Agency>
@@ -65,6 +65,30 @@
          </Value>
          <Value ColumnRef="beschreibung">
             <SimpleValue>Vorbehalt</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="code">
+            <SimpleValue>4</SimpleValue>
+         </Value>
+         <Value ColumnRef="beschreibung">
+            <SimpleValue>Hinweise</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="code">
+            <SimpleValue>5</SimpleValue>
+         </Value>
+         <Value ColumnRef="beschreibung">
+            <SimpleValue>auflösende Bedingung</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="code">
+            <SimpleValue>6</SimpleValue>
+         </Value>
+         <Value ColumnRef="beschreibung">
+            <SimpleValue>aufschiebende Bedingung</SimpleValue>
          </Value>
       </Row>
    </SimpleCodeList>

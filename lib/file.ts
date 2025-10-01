@@ -1,11 +1,17 @@
-import { readFile, writeFile } from 'fs/promises';
+import { readFile, readdir, writeFile } from 'fs/promises';
 import { createReadStream, existsSync, mkdirSync, readFileSync } from 'fs';
-import { dirname } from 'path';
+import { dirname, join } from 'path';
 import unzipper from 'unzipper';
 
 export function ensureDirExists(filePath: string) {
   const dir = dirname(filePath);
   mkdirSync(dir, { recursive: true });
+}
+export async function listFiles(rootDir: string): Promise<string[]> {
+  const entries = await readdir(rootDir, { withFileTypes: true });
+
+  // Only keep files (ignore directories)
+  return entries.filter((entry) => entry.isFile()).map((entry) => join(rootDir, entry.name));
 }
 
 export async function unzipFile(zipFilePath: string, outputFolder: string) {

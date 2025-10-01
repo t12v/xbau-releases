@@ -1,78 +1,76 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<gc:CodeList xmlns:gc="http://docs.oasis-open.org/codelist/ns/genericode/1.0/"
-             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-             xmlns:xoev-cl-4="http://xoev.de/schemata/genericode/4">
-   <Annotation>
-      <Description>
-         <xoev-cl-4:shortName>Statistik Baufortschritt</xoev-cl-4:shortName>
-         <xoev-cl-4:codelistDescription>Liste der Angaben zum Baufortschritt.</xoev-cl-4:codelistDescription>
-         <xoev-cl-4:agencyShortName>BMK</xoev-cl-4:agencyShortName>
-         <xoev-cl-4:versionHandbook>1.2</xoev-cl-4:versionHandbook>
-      </Description>
-   </Annotation>
-   <Identification>
-      <ShortName>baufortschritt</ShortName>
-      <LongName>Statistik Baufortschritt</LongName>
-      <Version>2.0</Version>
-      <CanonicalUri>urn:xoev-de:xbau:codeliste:baufortschritt</CanonicalUri>
-      <CanonicalVersionUri>urn:xoev-de:xbau:codeliste:baufortschritt_2.0</CanonicalVersionUri>
-      <Agency>
-         <LongName>Bauministerkonferenz</LongName>
-      </Agency>
-   </Identification>
-   <ColumnSet>
-      <Column Id="code" Use="required">
-         <ShortName>code</ShortName>
-         <LongName>Code</LongName>
-         <Data Type="string"/>
-      </Column>
-      <Column Id="beschreibung" Use="required">
-         <ShortName>beschreibung</ShortName>
-         <LongName>Beschreibung</LongName>
-         <Data Type="string"/>
-      </Column>
-      <Key Id="codeKey">
-         <Annotation>
-            <AppInfo>
-               <xoev-cl-4:recommendedKeyColumn/>
-            </AppInfo>
-         </Annotation>
-         <ShortName>codeKey</ShortName>
-         <ColumnRef Ref="code"/>
-      </Key>
-   </ColumnSet>
-   <SimpleCodeList>
-      <Row>
-         <Value ColumnRef="code">
-            <SimpleValue>1</SimpleValue>
-         </Value>
-         <Value ColumnRef="beschreibung">
-            <SimpleValue>noch nicht begonnen</SimpleValue>
-         </Value>
-      </Row>
-      <Row>
-         <Value ColumnRef="code">
-            <SimpleValue>2</SimpleValue>
-         </Value>
-         <Value ColumnRef="beschreibung">
-            <SimpleValue>im Bau, aber noch nicht unter Dach</SimpleValue>
-         </Value>
-      </Row>
-      <Row>
-         <Value ColumnRef="code">
-            <SimpleValue>3</SimpleValue>
-         </Value>
-         <Value ColumnRef="beschreibung">
-            <SimpleValue>unter Dach (rohbaufertig)</SimpleValue>
-         </Value>
-      </Row>
-      <Row>
-         <Value ColumnRef="code">
-            <SimpleValue>4</SimpleValue>
-         </Value>
-         <Value ColumnRef="beschreibung">
-            <SimpleValue>Baugenehmigung ist erloschen</SimpleValue>
-         </Value>
-      </Row>
-   </SimpleCodeList>
+<gc:CodeList xmlns:gc="http://docs.oasis-open.org/codelist/ns/genericode/1.0/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xoev-cl-4="http://xoev.de/schemata/genericode/4">
+  <Annotation>
+    <Description>
+      <xoev-cl-4:shortName>Statistik Baufortschritt</xoev-cl-4:shortName>
+      <xoev-cl-4:codelistDescription>Liste der Angaben zum Baufortschritt.</xoev-cl-4:codelistDescription>
+      <xoev-cl-4:agencyShortName>BMK</xoev-cl-4:agencyShortName>
+      <xoev-cl-4:versionHandbook>1.2</xoev-cl-4:versionHandbook>
+    </Description>
+  </Annotation>
+  <Identification>
+    <ShortName>baufortschritt</ShortName>
+    <LongName>Statistik Baufortschritt</LongName>
+    <Version>2.0</Version>
+    <CanonicalUri>urn:xoev-de:xbau:codeliste:baufortschritt</CanonicalUri>
+    <CanonicalVersionUri>urn:xoev-de:xbau:codeliste:baufortschritt_2.0</CanonicalVersionUri>
+    <Agency>
+      <LongName>Bauministerkonferenz</LongName>
+    </Agency>
+  </Identification>
+  <ColumnSet>
+    <Column Id="code" Use="required">
+      <ShortName>code</ShortName>
+      <LongName>Code</LongName>
+      <Data Type="string"/>
+    </Column>
+    <Column Id="beschreibung" Use="required">
+      <ShortName>beschreibung</ShortName>
+      <LongName>Beschreibung</LongName>
+      <Data Type="string"/>
+    </Column>
+    <Key Id="codeKey">
+      <Annotation>
+        <AppInfo>
+          <xoev-cl-4:recommendedKeyColumn/>
+        </AppInfo>
+      </Annotation>
+      <ShortName>codeKey</ShortName>
+      <ColumnRef Ref="code"/>
+    </Key>
+  </ColumnSet>
+  <SimpleCodeList>
+    <Row>
+      <Value ColumnRef="code">
+        <SimpleValue>1</SimpleValue>
+      </Value>
+      <Value ColumnRef="beschreibung">
+        <SimpleValue>noch nicht begonnen</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="code">
+        <SimpleValue>2</SimpleValue>
+      </Value>
+      <Value ColumnRef="beschreibung">
+        <SimpleValue>im Bau, aber noch nicht unter Dach</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="code">
+        <SimpleValue>3</SimpleValue>
+      </Value>
+      <Value ColumnRef="beschreibung">
+        <SimpleValue>unter Dach (rohbaufertig)</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="code">
+        <SimpleValue>4</SimpleValue>
+      </Value>
+      <Value ColumnRef="beschreibung">
+        <SimpleValue>Baugenehmigung ist erloschen</SimpleValue>
+      </Value>
+    </Row>
+  </SimpleCodeList>
 </gc:CodeList>

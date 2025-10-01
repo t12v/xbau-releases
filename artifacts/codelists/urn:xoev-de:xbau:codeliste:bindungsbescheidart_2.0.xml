@@ -1,136 +1,133 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<gc:CodeList xmlns:gc="http://docs.oasis-open.org/codelist/ns/genericode/1.0/"
-             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-             xmlns:xoev-cl-4="http://xoev.de/schemata/genericode/4">
-   <Annotation>
-      <Description>
-         <xoev-cl-4:shortName>Bindungsbescheid Art</xoev-cl-4:shortName>
-         <xoev-cl-4:codelistDescription>Arten von Bescheiden und sonstigen Entscheidungen, an die ein Bauvorhaben gebunden sein kann und die es daher beeinflussen.</xoev-cl-4:codelistDescription>
-         <xoev-cl-4:agencyShortName>BMK</xoev-cl-4:agencyShortName>
-         <xoev-cl-4:versionHandbook>1.2</xoev-cl-4:versionHandbook>
-         <xoev-cl-4:changes>Änderung im Namensraum der XÖV-Metadaten „http://xoev.de/schemata/genericode/4“ (Präfix „xoev-cl-4“); Änderung der Versionsangabe des Codelistenhandbuchs  („1.2“ )
-</xoev-cl-4:changes>
-      </Description>
-   </Annotation>
-   <Identification>
-      <ShortName>bindungsbescheidart</ShortName>
-      <LongName>Bindungsbescheid Art</LongName>
-      <Version>2.0</Version>
-      <CanonicalUri>urn:xoev-de:xbau:codeliste:bindungsbescheidart</CanonicalUri>
-      <CanonicalVersionUri>urn:xoev-de:xbau:codeliste:bindungsbescheidart_2.0</CanonicalVersionUri>
-      <Agency>
-         <LongName>Bauministerkonferenz</LongName>
-      </Agency>
-   </Identification>
-   <ColumnSet>
-      <Column Id="code" Use="required">
-         <ShortName>code</ShortName>
-         <LongName>Code</LongName>
-         <Data Type="string"/>
-      </Column>
-      <Column Id="beschreibung" Use="required">
-         <ShortName>beschreibung</ShortName>
-         <LongName>Beschreibung</LongName>
-         <Data Type="string"/>
-      </Column>
-      <Key Id="codeKey">
-         <Annotation>
-            <AppInfo>
-               <xoev-cl-4:recommendedKeyColumn/>
-            </AppInfo>
-         </Annotation>
-         <ShortName>codeKey</ShortName>
-         <ColumnRef Ref="code"/>
-      </Key>
-   </ColumnSet>
-   <SimpleCodeList>
-      <Row>
-         <Value ColumnRef="code">
-            <SimpleValue>10</SimpleValue>
-         </Value>
-         <Value ColumnRef="beschreibung">
-            <SimpleValue>Vorbescheid</SimpleValue>
-         </Value>
-      </Row>
-      <Row>
-         <Value ColumnRef="code">
-            <SimpleValue>20</SimpleValue>
-         </Value>
-         <Value ColumnRef="beschreibung">
-            <SimpleValue>Teilungsgenehmigung</SimpleValue>
-         </Value>
-      </Row>
-      <Row>
-         <Value ColumnRef="code">
-            <SimpleValue>30</SimpleValue>
-         </Value>
-         <Value ColumnRef="beschreibung">
-            <SimpleValue>Befreiungs-/ Abweichungsbescheid</SimpleValue>
-         </Value>
-      </Row>
-      <Row>
-         <Value ColumnRef="code">
-            <SimpleValue>40</SimpleValue>
-         </Value>
-         <Value ColumnRef="beschreibung">
-            <SimpleValue>Baulast</SimpleValue>
-         </Value>
-      </Row>
-      <Row>
-         <Value ColumnRef="code">
-            <SimpleValue>50</SimpleValue>
-         </Value>
-         <Value ColumnRef="beschreibung">
-            <SimpleValue>Denkmalrechtliche Erlaubnis</SimpleValue>
-         </Value>
-      </Row>
-      <Row>
-         <Value ColumnRef="code">
-            <SimpleValue>51</SimpleValue>
-         </Value>
-         <Value ColumnRef="beschreibung">
-            <SimpleValue>Einzeldenkmal</SimpleValue>
-         </Value>
-      </Row>
-      <Row>
-         <Value ColumnRef="code">
-            <SimpleValue>52</SimpleValue>
-         </Value>
-         <Value ColumnRef="beschreibung">
-            <SimpleValue>Ensemble</SimpleValue>
-         </Value>
-      </Row>
-      <Row>
-         <Value ColumnRef="code">
-            <SimpleValue>53</SimpleValue>
-         </Value>
-         <Value ColumnRef="beschreibung">
-            <SimpleValue>Nähe eines Denkmals</SimpleValue>
-         </Value>
-      </Row>
-      <Row>
-         <Value ColumnRef="code">
-            <SimpleValue>60</SimpleValue>
-         </Value>
-         <Value ColumnRef="beschreibung">
-            <SimpleValue>Baumfällerlaubnis</SimpleValue>
-         </Value>
-      </Row>
-      <Row>
-         <Value ColumnRef="code">
-            <SimpleValue>70</SimpleValue>
-         </Value>
-         <Value ColumnRef="beschreibung">
-            <SimpleValue>Eignungsfeststellung nach Wasser-, Gewerbe-, Imissionsschutzrecht</SimpleValue>
-         </Value>
-      </Row>
-      <Row>
-         <Value ColumnRef="code">
-            <SimpleValue>80</SimpleValue>
-         </Value>
-         <Value ColumnRef="beschreibung">
-            <SimpleValue>Sonstige Verfahren</SimpleValue>
-         </Value>
-      </Row>
-   </SimpleCodeList>
+<gc:CodeList xmlns:gc="http://docs.oasis-open.org/codelist/ns/genericode/1.0/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xoev-cl-4="http://xoev.de/schemata/genericode/4">
+  <Annotation>
+    <Description>
+      <xoev-cl-4:shortName>Bindungsbescheid Art</xoev-cl-4:shortName>
+      <xoev-cl-4:codelistDescription>Arten von Bescheiden und sonstigen Entscheidungen, an die ein Bauvorhaben gebunden sein kann und die es daher beeinflussen.</xoev-cl-4:codelistDescription>
+      <xoev-cl-4:agencyShortName>BMK</xoev-cl-4:agencyShortName>
+      <xoev-cl-4:versionHandbook>1.2</xoev-cl-4:versionHandbook>
+      <xoev-cl-4:changes>Änderung im Namensraum der XÖV-Metadaten „http://xoev.de/schemata/genericode/4“ (Präfix „xoev-cl-4“); Änderung der Versionsangabe des Codelistenhandbuchs  („1.2“ )</xoev-cl-4:changes>
+    </Description>
+  </Annotation>
+  <Identification>
+    <ShortName>bindungsbescheidart</ShortName>
+    <LongName>Bindungsbescheid Art</LongName>
+    <Version>2.0</Version>
+    <CanonicalUri>urn:xoev-de:xbau:codeliste:bindungsbescheidart</CanonicalUri>
+    <CanonicalVersionUri>urn:xoev-de:xbau:codeliste:bindungsbescheidart_2.0</CanonicalVersionUri>
+    <Agency>
+      <LongName>Bauministerkonferenz</LongName>
+    </Agency>
+  </Identification>
+  <ColumnSet>
+    <Column Id="code" Use="required">
+      <ShortName>code</ShortName>
+      <LongName>Code</LongName>
+      <Data Type="string"/>
+    </Column>
+    <Column Id="beschreibung" Use="required">
+      <ShortName>beschreibung</ShortName>
+      <LongName>Beschreibung</LongName>
+      <Data Type="string"/>
+    </Column>
+    <Key Id="codeKey">
+      <Annotation>
+        <AppInfo>
+          <xoev-cl-4:recommendedKeyColumn/>
+        </AppInfo>
+      </Annotation>
+      <ShortName>codeKey</ShortName>
+      <ColumnRef Ref="code"/>
+    </Key>
+  </ColumnSet>
+  <SimpleCodeList>
+    <Row>
+      <Value ColumnRef="code">
+        <SimpleValue>10</SimpleValue>
+      </Value>
+      <Value ColumnRef="beschreibung">
+        <SimpleValue>Vorbescheid</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="code">
+        <SimpleValue>20</SimpleValue>
+      </Value>
+      <Value ColumnRef="beschreibung">
+        <SimpleValue>Teilungsgenehmigung</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="code">
+        <SimpleValue>30</SimpleValue>
+      </Value>
+      <Value ColumnRef="beschreibung">
+        <SimpleValue>Befreiungs-/ Abweichungsbescheid</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="code">
+        <SimpleValue>40</SimpleValue>
+      </Value>
+      <Value ColumnRef="beschreibung">
+        <SimpleValue>Baulast</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="code">
+        <SimpleValue>50</SimpleValue>
+      </Value>
+      <Value ColumnRef="beschreibung">
+        <SimpleValue>Denkmalrechtliche Erlaubnis</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="code">
+        <SimpleValue>51</SimpleValue>
+      </Value>
+      <Value ColumnRef="beschreibung">
+        <SimpleValue>Einzeldenkmal</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="code">
+        <SimpleValue>52</SimpleValue>
+      </Value>
+      <Value ColumnRef="beschreibung">
+        <SimpleValue>Ensemble</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="code">
+        <SimpleValue>53</SimpleValue>
+      </Value>
+      <Value ColumnRef="beschreibung">
+        <SimpleValue>Nähe eines Denkmals</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="code">
+        <SimpleValue>60</SimpleValue>
+      </Value>
+      <Value ColumnRef="beschreibung">
+        <SimpleValue>Baumfällerlaubnis</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="code">
+        <SimpleValue>70</SimpleValue>
+      </Value>
+      <Value ColumnRef="beschreibung">
+        <SimpleValue>Eignungsfeststellung nach Wasser-, Gewerbe-, Imissionsschutzrecht</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="code">
+        <SimpleValue>80</SimpleValue>
+      </Value>
+      <Value ColumnRef="beschreibung">
+        <SimpleValue>Sonstige Verfahren</SimpleValue>
+      </Value>
+    </Row>
+  </SimpleCodeList>
 </gc:CodeList>

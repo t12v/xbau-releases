@@ -1,10 +1,11 @@
 import axios from 'axios';
 import axiosRetry from 'axios-retry';
-import { rmSync } from 'fs';
+import {  rmSync } from 'fs';
+import { dirname, resolve } from 'path';
+import xmlFormatter from 'xml-formatter';
 import { Standard, UpdateDetails } from './types';
 import { artifactsFolder, getEnumKeyByValue } from './utils';
 import { fileExists, unzipFile, writeToFile } from './file';
-import { dirname, resolve } from 'path';
 
 const BASE_URL = 'https://www.xrepository.de/api/xrepository/';
 const apiClient = axios.create({ baseURL: BASE_URL });
@@ -36,7 +37,6 @@ function safeParse<T>(json: string, fallback: T): T {
 /* eslint-disable  @typescript-eslint/no-explicit-any */
 async function download(file: string, resource: string): Promise<void> {
   const zipFile = file.endsWith('zip');
-  //const pdfFile = file.endsWith('pdf');
   const filename = resolve(file);
   if (fileExists(filename)) {
     console.debug(`${filename} already existing. Skipping.`);
@@ -55,7 +55,16 @@ async function download(file: string, resource: string): Promise<void> {
       responseType: 'arraybuffer',
     })
     .then(async (response) => {
-      await writeToFile(filename, response.data);
+      let content = response.data;
+      if (filename.endsWith('.xml') || filename.endsWith('.sch')) {
+        // pretty-print XML
+        content = xmlFormatter(new TextDecoder().decode(content), {
+          indentation: '  ', // default is two spaces
+          collapseContent: true,
+          lineSeparator: '\n',
+        });
+      }
+      await writeToFile(filename, content);
       if (zipFile) {
         const outputDir = dirname(filename);
         await unzipFile(filename, outputDir);
@@ -103,7 +112,7 @@ export async function downloadArtifacts(standard: Standard, updates: UpdateDetai
     for (const doc of docs) {
       let folder = `${folderName}/${getFolderForType(doc.type)}`;
       // add codelists to
-      if (doc.name.indexOf('Codelisten') > 0) {
+      if (doc.name.indexOf('Codelisten') >= 0 || doc.name.indexOf('codelisten') >= 0) {
         folder = `${folderName}/codelists`;
       }
       if (doc.downloads) {
