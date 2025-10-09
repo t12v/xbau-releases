@@ -1,0 +1,30 @@
+{
+  "name": "@t12v/xbau-releases",
+  "version": "0.0.1",
+  "description": "",
+  "files": [
+    "dist/",
+    "codelists/"
+  ],
+  "scripts": {
+    "clean": "npm ci",
+    "postinstall": "copyfiles -f ../../artifacts/codelists/* codelists/generic && copyfiles ../../artifacts/xbau/*/codelists/* codelists/xbau && copyfiles ../../artifacts/xbau_kern/*/codelists/* codelists/xbau_kern && cp -rp artifacts/* codelists && rm -rf artifacts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/t12v/xbau-releases.git"
+  },
+  "keywords": [
+    "xbau",
+    "xoev"
+  ],
+  "author": "Martin Reinhardt",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/t12v/xbau-releases/issues"
+  },
+  "homepage": "https://github.com/t12v/xbau-releases#readme",
+  "devDependencies": {
+    "copyfiles": "^2.4.1"
+  }
+}
