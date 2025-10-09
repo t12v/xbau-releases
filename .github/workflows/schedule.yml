@@ -21,12 +21,16 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '22'
-      - name: npm build and test
+
+      - name: install xq
+        run: |
+          curl -sSL https://bit.ly/install-xq | sudo bash
+
+      - name: check for changes
         run: |
           npm run clean
           npm run build
-          node dist/cli.js update xbau
-          node dist/cli.js update xbau-kernmodul
+          npm run check:updates
 
       - uses: dorny/paths-filter@v3
         id: changes

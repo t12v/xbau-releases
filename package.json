@@ -1,5 +1,5 @@
 {
-  "name": "@t12v/xbau-releases",
+  "name": "@t12v/xbau-releases-cli",
   "version": "1.0.0",
   "description": "",
   "main": "dist/index.js",
@@ -10,7 +10,9 @@
     "clean": "npm ci",
     "build": "tsc",
     "lint": "eslint .",
-    "test": "npm run lint && JEST_JUNIT_CLASSNAME=\"{filepath}\" jest --coverage"
+    "test": "npm run lint && JEST_JUNIT_CLASSNAME=\"{filepath}\" jest --coverage",
+    "check:updates": "npm run check:xbau-updates && .bin/harmonize-codelist-names.sh",
+    "check:xbau-updates": "node dist/cli.js update xbau && node dist/cli.js update xbau-kernmodul"
   },
   "repository": {
     "type": "git",
