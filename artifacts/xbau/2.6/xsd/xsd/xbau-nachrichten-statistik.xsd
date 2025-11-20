@@ -20,7 +20,7 @@
          </standard>
          <versionStandard>
             <version>2.6</version>
-            <beschreibung>Erweiterung von Prozess und Nachrichten zur Baulast: Es wurden Nachrichten zur Löschung und zur Eintragung von Baulasten erstellt. Erweiterung des Prozesses Anzeige Bauzustand: Erweiterung zu einem vollständigen und produktionsreifen Prozess auf Basis der 900er-Nachrichten. Vervollständigung der Prozessstringenz: Es wurden Nachrichten zur Benachrichtigung über den Abruf des Bescheids und die Zustellquittierung sowie Hinweise auf die Rücknahmefiktion ergänzt. Geschäftsregeln: Es wurden Geschäftsregeln im Schematronstandard für Datenübermittlungen zur Hochbaustatistik bereitgestellt. Bauvorlageberechtigung: Vorbereitung auf den NOOTS-Betrieb durch Kennzeichnung aus dem Kammerregister abgerufener Daten. Weitere Details zu Erweiterungen und Änderungen sind in der Versionshistorie beschrieben.</beschreibung>
+            <beschreibung>Die Nachrichtenkommunikation im Beteiligungsverfahren wurde erweitert und flexibilisiert. Das Baulastverfahren wurde erweitert um eine Vielzahl von Details, u.a. wurden Nachrichtentypen zur Eintragung und zur Löschung von Baulasten definiert. Die Anzeigeprozesse zum Bauzustand wurden weiterentwickelt zu einer stringent geregelten Nachrichtenkommunikation auf Basis der 900er-Nachrichten. Es wurde die Benachrichtigung über einen Bescheidabruf eingeführt, auch ist in XBau jetzt ein Mechanismus für die generische Zustellquittierung enthalten. Es wurden für die Datenübermittlung an die statistischen Ämter XML-Geschäftsregeln zur technischen Überprüfung auf Basis der Technologie ISO-Schematron bereitgestellt. Die Prozesse der Statistikmeldungen wurden auf genehmigungsfreigestellte Verfahren ausgedehnt. Für den Prozess Nachweis Bauvorlageberechtigung können jetzt aus dem Kammerregister abgerufene Daten als solche gekennzeichnet und in ihrer Anwendung in der Antragstellung nachvollzogen werden. Der Prozess zur Abgeschlossenheitsbescheinigung wurde vervollständigt und ausdifferenziert. Die weiteren Details zu Erweiterungen und Änderungen sind in der Versionshistorie des Spezifikationsdokuments beschrieben.</beschreibung>
             <versionXOEVProfil>3.0.0</versionXOEVProfil>
             <versionXOEVHandbuch>3.0.1</versionXOEVHandbuch>
             <versionXGenerator>3.1.1</versionXGenerator>
@@ -69,7 +69,7 @@
                      minOccurs="0"
                      type="xbauk:GeoreferenzierteFlaeche">
             <xs:annotation>
-               <xs:documentation>In diesem Element sollen ergänzend georeferenzierte Informationen zur genaueren Lage des Gebäudes auf dem Baugrundstück abgebildet werden. Der Inhalt des Elements ergibt sich aus dem Datentyp Hochbaustatistik, DatenEinzelnesGebaeudeImBauvorhaben oder DatenBauabgangBeseitungAbsicht der Eingangsnachricht.</xs:documentation>
+               <xs:documentation>In diesem Element sollen ergänzend georeferenzierte Informationen zur genaueren Lage des Gebäudes auf dem Baugrundstück abgebildet werden. Der Inhalt des Elements ergibt sich aus dem Datentyp DatenEinzelnesGebaeudeImBauvorhaben oder DatenBauabgangBeseitungAbsicht der Eingangsnachricht.</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element name="verortungHausnummer"
@@ -153,14 +153,14 @@
                <xs:documentation>Dieser Typ deckt Namen und Erreichbarkeit des Ansprechpartners im Bauamt für Rückfragen ab.</xs:documentation>
             </xs:annotation>
          </xs:element>
-         <xs:element name="bevollmaechtigter" type="xbauk:Akteur">
+         <xs:element name="bevollmaechtigter" type="xbauk:AmBauBeteiligtePerson">
             <xs:annotation>
-               <xs:documentation>Dieser Typ deckt Namen und Erreichbarkeit des Bevollmächtigten für Rückfragen ab. Der Inhalt des Elements ergibt sich aus dem Datentyp beteiligteBauprojekt der Eingangsnachricht.</xs:documentation>
+               <xs:documentation>Dieser Typ deckt Namen und Erreichbarkeit des Bevollmächtigten für Rückfragen ab. Der Inhalt des Elements ergibt sich aus dem Datentyp datenAnsprechpartner der Eingangsnachricht.</xs:documentation>
             </xs:annotation>
          </xs:element>
-         <xs:element name="architektEntwurfsverfasser" type="xbauk:Akteur">
+         <xs:element name="architektEntwurfsverfasser" type="xbauk:AmBauBeteiligtePerson">
             <xs:annotation>
-               <xs:documentation>Dieser Typ deckt Namen und Erreichbarkeit des Architekten oder Entwurfsverfassers für Rückfragen ab. Der Inhalt des Elements architektEntwurfsverfasser ergibt sich aus dem Inhalt des Elements personendaten aus dem Datentyp Entwurfsverfasser oder AnsprechpartnerEingeschraenkt der Eingangsnachricht.</xs:documentation>
+               <xs:documentation>Dieser Typ deckt Namen und Erreichbarkeit des Architekten oder Entwurfsverfassers für Rückfragen ab. Der Inhalt des Elements ergibt sich aus dem Datentyp datenAnsprechpartner der Eingangsnachricht.</xs:documentation>
             </xs:annotation>
          </xs:element>
       </xs:choice>
@@ -185,26 +185,43 @@
          </xs:element>
       </xs:sequence>
    </xs:complexType>
-   <xs:complexType name="AnsprechpartnerEingeschraenkt">
+   <xs:complexType name="AnsprechpartnerMitEinwilligung">
       <xs:annotation>
-         <xs:documentation>Dieser Typ deckt Namen und Erreichbarkeit des Ansprechpartners für Rückfragen ab.</xs:documentation>
+         <xs:documentation>Mit diesem Datentyp werden Angaben zu einem Ansprechpartner übermittelt sowie die Information, ob dieser der Weitergabe seiner Angaben an die Statistik zustimmt.</xs:documentation>
       </xs:annotation>
-      <xs:complexContent>
-         <xs:restriction base="xbau:Ansprechpartner">
-            <xs:choice>
-               <xs:element name="bevollmaechtigter" type="xbauk:Akteur">
-                  <xs:annotation>
-                     <xs:documentation>Dieser Typ deckt Namen und Erreichbarkeit des Bevollmächtigten für Rückfragen ab.</xs:documentation>
-                  </xs:annotation>
-               </xs:element>
-               <xs:element name="architektEntwurfsverfasser" type="xbauk:Akteur">
-                  <xs:annotation>
-                     <xs:documentation>Dieser Typ deckt Namen und Erreichbarkeit des Architekten oder Entwurfsverfassers für Rückfragen ab.</xs:documentation>
-                  </xs:annotation>
-               </xs:element>
-            </xs:choice>
-         </xs:restriction>
-      </xs:complexContent>
+      <xs:sequence>
+         <xs:element name="datenAnsprechpartner">
+            <xs:annotation>
+               <xs:documentation>In diesem Element werden Name und Kontaktdaten zum Ansprechpartner (Bevollmächtiger oder Architekt / Entwurfsverfasser) angegeben.</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+               <xs:complexContent>
+                  <xs:restriction base="xbau:Ansprechpartner">
+                     <xs:choice>
+                        <xs:element name="bevollmaechtigter" type="xbauk:AmBauBeteiligtePerson">
+                           <xs:annotation>
+                              <xs:documentation>Dieser Typ deckt Namen und Erreichbarkeit des Bevollmächtigten für Rückfragen ab.</xs:documentation>
+                           </xs:annotation>
+                        </xs:element>
+                        <xs:element name="architektEntwurfsverfasser" type="xbauk:AmBauBeteiligtePerson">
+                           <xs:annotation>
+                              <xs:documentation>Dieser Typ deckt Namen und Erreichbarkeit des Architekten oder Entwurfsverfassers für Rückfragen ab.</xs:documentation>
+                           </xs:annotation>
+                        </xs:element>
+                     </xs:choice>
+                  </xs:restriction>
+               </xs:complexContent>
+            </xs:complexType>
+         </xs:element>
+         <xs:element name="einwilligungAnsprechpartner"
+                     minOccurs="0"
+                     fixed="true"
+                     type="xs:boolean">
+            <xs:annotation>
+               <xs:documentation>Mit diesem Element wird mitgeteilt, dass der Ansprechpartner der Weitergabe seiner Daten an die Statistik zugestimmt hat.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+      </xs:sequence>
    </xs:complexType>
    <xs:complexType name="BeteiligteBauprojektStatistik">
       <xs:annotation>
@@ -237,7 +254,7 @@
                </xs:element>
                <xs:element name="ordnungsnummer" minOccurs="0" type="din91379:datatypeC">
                   <xs:annotation>
-                     <xs:documentation>Diese Nummer wird von den Statistischen Ämtern der Länder zur Verfügung gestellt. Falls vorhanden, ist hier die ordnungsnummer einzutragen. Der Inhalt des Elements ergibt sich aus dem Datentyp Hochbaustatistik der Eingangsnachricht.</xs:documentation>
+                     <xs:documentation>Diese Nummer wird von den Statistischen Ämtern der Länder zur Verfügung gestellt. Falls vorhanden, ist hier die ordnungsnummer einzutragen.</xs:documentation>
                   </xs:annotation>
                </xs:element>
             </xs:sequence>
@@ -343,7 +360,7 @@
          </xs:element>
          <xs:element name="artDesBauens" minOccurs="0" type="xbau:Code.ArtDesBauens">
             <xs:annotation>
-               <xs:documentation>Hier kann angegeben werden, ob es sich bei der Baumaßnahme um einen Neubau oder um eine Baumaßnahme am Bestand handelt. Der Inhalt der Kindelemente ergibt sich aus dem Datentyp Hochbaustatistik oder DatenEinzelnesGebaeudeImBauvorhaben der Eingangsnachricht.</xs:documentation>
+               <xs:documentation>Hier kann angegeben werden, ob es sich bei der Baumaßnahme um einen Neubau oder um eine Baumaßnahme am Bestand handelt. Der Inhalt der Kindelemente ergibt sich aus dem Datentyp DatenEinzelnesGebaeudeImBauvorhaben der Eingangsnachricht.</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element name="baugenehmigung" type="xbau:BaugenehmigungErweitert">
@@ -353,7 +370,7 @@
          </xs:element>
          <xs:element name="angabenGebaeude" minOccurs="0" type="xbau:AngabenGebaeude">
             <xs:annotation>
-               <xs:documentation>Hier können Angaben zum Gebäude gemacht werden. Der Inhalt der Elemente "artDesWohngebaeudes" und "artDesNichtwohngebaeudes" ergibt sich aus dem Datentyp ArtDerBaulichenAnlage oder AngabenGebaeude der Eingangsnachricht. Der Inhalt der Elemente "haustypWohngebaeude" und "artDesGebaeudes" ergibt sich aus dem Datentyp Hochbaustatistik oder AngabenGebaeude der Eingangsnachricht.</xs:documentation>
+               <xs:documentation>Hier können Angaben zum Gebäude gemacht werden. Der Inhalt der Elemente "artDesWohngebaeudes" und "artDesNichtwohngebaeudes" ergibt sich aus dem Datentyp ArtDerBaulichenAnlage oder AngabenGebaeude der Eingangsnachricht. Der Inhalt der Elemente "haustypWohngebaeude" und "artDesGebaeudes" ergibt sich aus dem Datentyp AngabenGebaeude der Eingangsnachricht.</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element name="ueberwiegendVerwendeterBaustoff"
@@ -367,7 +384,7 @@
                      minOccurs="0"
                      type="xbau:HeizungHeizenergie">
             <xs:annotation>
-               <xs:documentation>Angaben zur Heizung und zur Heizenergie Der Inhalt des Elements "artDerHeizung" ergibt sich aus dem Datentyp Heizung oder HeizungHeizenergie der Eingangsnachricht. Der Inhalt des Elements "heizenergie" ergibt sich aus dem Datentyp Hochbaustatistik oder HeizungHeizenergie der Eingangsnachricht.</xs:documentation>
+               <xs:documentation>Angaben zur Heizung und zur Heizenergie Der Inhalt des Elements "artDerHeizung" ergibt sich aus dem Datentyp Heizung oder HeizungHeizenergie der Eingangsnachricht. Der Inhalt des Elements "heizenergie" ergibt sich aus dem Datentyp HeizungHeizenergie der Eingangsnachricht.</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element name="sonstigeLueftungsanlagen"
@@ -384,7 +401,7 @@
          </xs:element>
          <xs:element name="erfuellungGEG" minOccurs="0" type="xbau:ErfuellungGEG">
             <xs:annotation>
-               <xs:documentation>Angabe, ob die Verpflichtungen des Gebäudeenergiegesetzes (GEG) erfüllt werden. Diese Daten müssen nur bei Neubauten übermittelt werden. Der Inhalt der Kindelemente ergibt sich aus dem Datentyp Hochbaustatistik oder DatenEinzelnesGebaeudeImBauvorhaben der Eingangsnachricht oder aus der Nachricht anzeige.erklaerungGEG.0903.</xs:documentation>
+               <xs:documentation>Angabe, ob die Verpflichtungen des Gebäudeenergiegesetzes (GEG) erfüllt werden. Diese Daten müssen nur bei Neubauten übermittelt werden. Der Inhalt der Kindelemente ergibt sich aus dem Datentyp DatenEinzelnesGebaeudeImBauvorhaben der Eingangsnachricht oder aus der Nachricht anzeige.erklaerungGEG.0903.</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element name="bruttoRauminhaltBRI" minOccurs="0" type="xbauk:Dezimal.XBau">
@@ -402,7 +419,7 @@
                      maxOccurs="unbounded"
                      type="xbau:FlaechenStatistik">
             <xs:annotation>
-               <xs:documentation>Daten zu Flächen Der Inhalt des Elements Nutzungseinheit ergibt sich aus dem Datentyp Nutzungseinheit oder FlaechenStatistik der Eingangsnachricht. Der Inhalt der Elemente flaechen.WoFIV und nutzflaechen ergeben sich aus dem Datentyp Flaechen oder FlaechenStatistik der Eingangsnachricht. Der Inhalt des Elements Gesamtnutzungsflaeche ergibt sich aus dem Datentyp Gesamtnutzungsflaeche der Eingangsnachricht..</xs:documentation>
+               <xs:documentation>Daten zu Flächen Der Inhalt des Elements Nutzungseinheit ergibt sich aus dem Datentyp Nutzungseinheit oder FlaechenStatistik der Eingangsnachricht. Der Inhalt der Elemente flaechen.WoFIV und nutzflaechen ergeben sich aus dem Datentyp Flaechen oder FlaechenStatistik der Eingangsnachricht.</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element name="anzahlDerWohnungen"
@@ -443,7 +460,7 @@
                      minOccurs="0"
                      type="xbau:Code.StatusSozialerWohnungsbau">
             <xs:annotation>
-               <xs:documentation>Dieses Element enthält die Angabe zum Status der Beantragung sozialer Wohnraumförderung. Das Element muss in den Statistiknachrichten zur Baugenehmigung, zum Baubeginn und zur Baufertigstellung befüllt sein. Der Inhalt des Elements ergibt sich aus dem Datentyp Hochbaustatistik oder DatenEinzelnesGebaeudeImBauvorhaben der Eingangsnachricht bzw. aus der Nachricht anzeige.nutzungsaufnahme.0910.</xs:documentation>
+               <xs:documentation>Dieses Element enthält die Angabe zum Status der Beantragung sozialer Wohnraumförderung. Das Element muss in den Statistiknachrichten zur Baugenehmigung, zum Baubeginn und zur Baufertigstellung befüllt sein. Der Inhalt des Elements ergibt sich aus dem Datentyp DatenEinzelnesGebaeudeImBauvorhaben der Eingangsnachricht bzw. aus der Nachricht anzeige.nutzungsaufnahme.0910.</xs:documentation>
             </xs:annotation>
          </xs:element>
       </xs:sequence>
@@ -761,9 +778,9 @@
                   <xs:element name="ansprechpartner"
                               minOccurs="0"
                               maxOccurs="unbounded"
-                              type="xbau:AnsprechpartnerEingeschraenkt">
+                              type="xbau:AnsprechpartnerMitEinwilligung">
                      <xs:annotation>
-                        <xs:documentation>Unterhalb dieses Elements werden Namen und Erreichbarkeit von Ansprechpartnern des Bauvorhabens für Rückfragen der Statistik eingetragen.</xs:documentation>
+                        <xs:documentation>Unterhalb dieses Elements werden Angaben zu einem Ansprechpartner des Bauvorhabens für Rückfragen der Statistik eingetragen.</xs:documentation>
                      </xs:annotation>
                   </xs:element>
                </xs:sequence>

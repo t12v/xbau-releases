@@ -17,7 +17,7 @@
          </standard>
          <versionStandard>
             <version>2.6</version>
-            <beschreibung>Erweiterung von Prozess und Nachrichten zur Baulast: Es wurden Nachrichten zur Löschung und zur Eintragung von Baulasten erstellt. Erweiterung des Prozesses Anzeige Bauzustand: Erweiterung zu einem vollständigen und produktionsreifen Prozess auf Basis der 900er-Nachrichten. Vervollständigung der Prozessstringenz: Es wurden Nachrichten zur Benachrichtigung über den Abruf des Bescheids und die Zustellquittierung sowie Hinweise auf die Rücknahmefiktion ergänzt. Geschäftsregeln: Es wurden Geschäftsregeln im Schematronstandard für Datenübermittlungen zur Hochbaustatistik bereitgestellt. Bauvorlageberechtigung: Vorbereitung auf den NOOTS-Betrieb durch Kennzeichnung aus dem Kammerregister abgerufener Daten. Weitere Details zu Erweiterungen und Änderungen sind in der Versionshistorie beschrieben.</beschreibung>
+            <beschreibung>Die Nachrichtenkommunikation im Beteiligungsverfahren wurde erweitert und flexibilisiert. Das Baulastverfahren wurde erweitert um eine Vielzahl von Details, u.a. wurden Nachrichtentypen zur Eintragung und zur Löschung von Baulasten definiert. Die Anzeigeprozesse zum Bauzustand wurden weiterentwickelt zu einer stringent geregelten Nachrichtenkommunikation auf Basis der 900er-Nachrichten. Es wurde die Benachrichtigung über einen Bescheidabruf eingeführt, auch ist in XBau jetzt ein Mechanismus für die generische Zustellquittierung enthalten. Es wurden für die Datenübermittlung an die statistischen Ämter XML-Geschäftsregeln zur technischen Überprüfung auf Basis der Technologie ISO-Schematron bereitgestellt. Die Prozesse der Statistikmeldungen wurden auf genehmigungsfreigestellte Verfahren ausgedehnt. Für den Prozess Nachweis Bauvorlageberechtigung können jetzt aus dem Kammerregister abgerufene Daten als solche gekennzeichnet und in ihrer Anwendung in der Antragstellung nachvollzogen werden. Der Prozess zur Abgeschlossenheitsbescheinigung wurde vervollständigt und ausdifferenziert. Die weiteren Details zu Erweiterungen und Änderungen sind in der Versionshistorie des Spezifikationsdokuments beschrieben.</beschreibung>
             <versionXOEVProfil>3.0.0</versionXOEVProfil>
             <versionXOEVHandbuch>3.0.1</versionXOEVHandbuch>
             <versionXGenerator>3.1.1</versionXGenerator>
@@ -186,60 +186,15 @@
    </xs:complexType>
    <xs:complexType name="Code.AbweichungArt">
       <xs:annotation>
-         <xs:appinfo>
-            <codeliste>
-               <nameLang>Abweichung Art</nameLang>
-               <nameKurz>Abweichung Art</nameKurz>
-               <nameTechnisch>abweichungart</nameTechnisch>
-               <kennung>urn:xoev-de:xbau:codeliste:abweichungart</kennung>
-               <beschreibung>Definition der Arten von beantragten oder genehmigten Abweichungen eines Bauvorhabens von den Rechtsnormen.</beschreibung>
-               <herausgebernameLang>Bauministerkonferenz</herausgebernameLang>
-               <herausgebernameKurz>BMK</herausgebernameKurz>
-            </codeliste>
-            <versionCodeliste>
-               <version>2.1</version>
-               <versionCodelistenHandbuch>1.2</versionCodelistenHandbuch>
-               <aenderungZurVorversion>In XBau 2.5: Ergänzung des Absatzes im Paragrafen (§ 14 Abs. 2) in Eintrag 5 .</aenderungZurVorversion>
-            </versionCodeliste>
-            <codelistenspalten>
-               <code>
-                  <spaltennameLang>Code</spaltennameLang>
-                  <datentyp>string</datentyp>
-                  <codeSpalte>true</codeSpalte>
-                  <verwendung>required</verwendung>
-                  <empfohleneCodeSpalte>true</empfohleneCodeSpalte>
-               </code>
-               <beschreibung>
-                  <spaltennameLang>Beschreibung</spaltennameLang>
-                  <datentyp>string</datentyp>
-                  <codeSpalte>false</codeSpalte>
-                  <verwendung>required</verwendung>
-                  <empfohleneCodeSpalte>false</empfohleneCodeSpalte>
-               </beschreibung>
-               <dokumentation>
-                  <spaltennameLang>Dokumentation</spaltennameLang>
-                  <datentyp>string</datentyp>
-                  <codeSpalte>false</codeSpalte>
-                  <verwendung>optional</verwendung>
-                  <empfohleneCodeSpalte>false</empfohleneCodeSpalte>
-               </dokumentation>
-            </codelistenspalten>
-            <genutzteCodeSpalte>code</genutzteCodeSpalte>
-         </xs:appinfo>
+         <xs:documentation>Dieser Code-Typ steht für Arten von beantragten oder genehmigten Abweichungen eines Bauvorhabens von den Rechtsnormen. In diesen Typ ist eine auszuwählende bzw. selbst zu definierende Codeliste einzubinden, die eine solche Klassifikation bietet. Im Anwendungskontext sind in die Attribute des vorliegenden Typs die Codelisten-URI und die Nummer der Version der ausgewählten Codeliste (in die XBau-Nachrichteninstanzen) einzutragen. Als Muster wurde eine passende Codeliste definiert und als Angebot zur Einbindung für diesen Typ bereitgestellt. Diese Codeliste kann auf Antrag erweitert bzw. geändert werden. Sie ist im XRepository (www.xrepository.de) unter ihrer Codelisten-URI urn:xoev-de:xbau:codeliste:abweichungart auffindbar und kann von dort im XML-Format OASIS Genericode abgerufen werden.</xs:documentation>
       </xs:annotation>
       <xs:complexContent>
          <xs:restriction base="xoev-code:Code">
             <xs:sequence>
-               <xs:element name="code" form="unqualified" type="xbau:Codelist.AbweichungArt"/>
+               <xs:element name="code" type="xs:token" form="unqualified"/>
             </xs:sequence>
-            <xs:attribute name="listURI"
-                          type="xs:anyURI"
-                          use="optional"
-                          fixed="urn:xoev-de:xbau:codeliste:abweichungart"/>
-            <xs:attribute name="listVersionID"
-                          type="xs:normalizedString"
-                          use="optional"
-                          fixed="2.1"/>
+            <xs:attribute name="listURI" type="xs:anyURI" use="required"/>
+            <xs:attribute name="listVersionID" type="xs:normalizedString" use="required"/>
          </xs:restriction>
       </xs:complexContent>
    </xs:complexType>
@@ -720,9 +675,9 @@
                <herausgebernameKurz>BMK</herausgebernameKurz>
             </codeliste>
             <versionCodeliste>
-               <version>2.0</version>
+               <version>3.0</version>
                <versionCodelistenHandbuch>1.2</versionCodelistenHandbuch>
-               <aenderungZurVorversion>Änderung im Namensraum der XÖV-Metadaten „http://xoev.de/schemata/genericode/4“ (Präfix „xoev-cl-4“); Änderung der Versionsangabe des Codelistenhandbuchs („1.2“)</aenderungZurVorversion>
+               <aenderungZurVorversion>In XBau 2.6: Ergänzung um Einträge 3-5</aenderungZurVorversion>
             </versionCodeliste>
             <codelistenspalten>
                <code>
@@ -755,7 +710,7 @@
             <xs:attribute name="listVersionID"
                           type="xs:normalizedString"
                           use="optional"
-                          fixed="2.0"/>
+                          fixed="3.0"/>
          </xs:restriction>
       </xs:complexContent>
    </xs:complexType>
@@ -1375,9 +1330,9 @@
                <herausgebernameKurz>BMK</herausgebernameKurz>
             </codeliste>
             <versionCodeliste>
-               <version>2.0</version>
+               <version>3.0</version>
                <versionCodelistenHandbuch>1.2</versionCodelistenHandbuch>
-               <aenderungZurVorversion>Änderung im Namensraum der XÖV-Metadaten „http://xoev.de/schemata/genericode/4“ (Präfix „xoev-cl-4“); Änderung der Versionsangabe des Codelistenhandbuchs („1.2“)</aenderungZurVorversion>
+               <aenderungZurVorversion>In XBau 2.6: neuer Eintrag 99 "keine Fachrichtung"</aenderungZurVorversion>
             </versionCodeliste>
             <codelistenspalten>
                <code>
@@ -1412,7 +1367,7 @@
             <xs:attribute name="listVersionID"
                           type="xs:normalizedString"
                           use="optional"
-                          fixed="2.0"/>
+                          fixed="3.0"/>
          </xs:restriction>
       </xs:complexContent>
    </xs:complexType>
@@ -2557,60 +2512,6 @@
                           type="xs:normalizedString"
                           use="optional"
                           fixed="3.0"/>
-         </xs:restriction>
-      </xs:complexContent>
-   </xs:complexType>
-   <xs:complexType name="Code.GenehmigungsfreistellungAnStatistik">
-      <xs:annotation>
-         <xs:appinfo>
-            <codeliste>
-               <nameLang>Statistik Genehmigungsfreistellung</nameLang>
-               <nameKurz>Statistik Genehmigungsfreistellung</nameKurz>
-               <nameTechnisch>genehmigungsfreistellunganstatistik</nameTechnisch>
-               <kennung>urn:xoev-de:xbau:codeliste:genehmigungsfreistellunganstatistik</kennung>
-               <beschreibung>Liste der Angaben zur Genehmigungsfreistellung an die Statistik.</beschreibung>
-               <herausgebernameLang>Bauministerkonferenz</herausgebernameLang>
-               <herausgebernameKurz>BMK</herausgebernameKurz>
-            </codeliste>
-            <versionCodeliste>
-               <version>2.0</version>
-               <versionCodelistenHandbuch>1.2</versionCodelistenHandbuch>
-               <aenderungZurVorversion>Änderung im Namensraum der XÖV-Metadaten „http://xoev.de/schemata/genericode/4“ (Präfix „xoev-cl-4“); Änderung der Versionsangabe des Codelistenhandbuchs („1.2“)</aenderungZurVorversion>
-            </versionCodeliste>
-            <codelistenspalten>
-               <code>
-                  <spaltennameLang>Code</spaltennameLang>
-                  <datentyp>string</datentyp>
-                  <codeSpalte>true</codeSpalte>
-                  <verwendung>required</verwendung>
-                  <empfohleneCodeSpalte>true</empfohleneCodeSpalte>
-               </code>
-               <beschreibung>
-                  <spaltennameLang>Beschreibung</spaltennameLang>
-                  <datentyp>string</datentyp>
-                  <codeSpalte>false</codeSpalte>
-                  <verwendung>required</verwendung>
-                  <empfohleneCodeSpalte>false</empfohleneCodeSpalte>
-               </beschreibung>
-            </codelistenspalten>
-            <genutzteCodeSpalte>code</genutzteCodeSpalte>
-         </xs:appinfo>
-      </xs:annotation>
-      <xs:complexContent>
-         <xs:restriction base="xoev-code:Code">
-            <xs:sequence>
-               <xs:element name="code"
-                           form="unqualified"
-                           type="xbau:Codelist.GenehmigungsfreistellungAnStatistik"/>
-            </xs:sequence>
-            <xs:attribute name="listURI"
-                          type="xs:anyURI"
-                          use="optional"
-                          fixed="urn:xoev-de:xbau:codeliste:genehmigungsfreistellunganstatistik"/>
-            <xs:attribute name="listVersionID"
-                          type="xs:normalizedString"
-                          use="optional"
-                          fixed="2.0"/>
          </xs:restriction>
       </xs:complexContent>
    </xs:complexType>
@@ -4128,6 +4029,20 @@
          </xs:restriction>
       </xs:complexContent>
    </xs:complexType>
+   <xs:complexType name="Code.VerfahrensartAnStatistik">
+      <xs:annotation>
+         <xs:documentation>Dieser Code-Typ steht für eine Klassifikation von baurechtlichen Verfahren, die in Mitteilungen an die Statistik angegeben werden können. In diesen Typ ist eine auszuwählende bzw. selbst zu definierende Codeliste einzubinden, die eine solche Klassifikation bietet. Im Anwendungskontext sind in die Attribute des vorliegenden Typs die Codelisten-URI und die Nummer der Version der ausgewählten Codeliste (in die XBau-Nachrichteninstanzen) einzutragen. Als Muster wurde eine passende Codeliste definiert und als Angebot zur Einbindung für diesen Typ bereitgestellt. Diese Codeliste kann auf Antrag erweitert bzw. geändert werden. Sie ist im XRepository (www.xrepository.de) unter ihrer Codelisten-URI urn:xoev-de:xbau:hh:codeliste:verfahrensartanstatistik auffindbar und kann von dort im XML-Format OASIS Genericode abgerufen werden.</xs:documentation>
+      </xs:annotation>
+      <xs:complexContent>
+         <xs:restriction base="xoev-code:Code">
+            <xs:sequence>
+               <xs:element name="code" type="xs:token" form="unqualified"/>
+            </xs:sequence>
+            <xs:attribute name="listURI" type="xs:anyURI" use="required"/>
+            <xs:attribute name="listVersionID" type="xs:normalizedString" use="required"/>
+         </xs:restriction>
+      </xs:complexContent>
+   </xs:complexType>
    <xs:complexType name="Code.Verordnung">
       <xs:annotation>
          <xs:appinfo>
@@ -4409,7 +4324,7 @@
                <version>4.0</version>
                <versionCodelistenHandbuch>1.2</versionCodelistenHandbuch>
                <aenderungZurVorversion>In XBau 2.6: 
-Neue Einträge: 0703, 0720, 0721, 0722, 0723, 0724, 0725, 0904, 0913, 0923</aenderungZurVorversion>
+Neue Einträge: 0703, 0704, 0720, 0721, 0722, 0723, 0724, 0725, 0904, 0913, 0923</aenderungZurVorversion>
             </versionCodeliste>
             <codelistenspalten>
                <code>
@@ -4646,91 +4561,6 @@ Neue Einträge: 0703, 0720, 0721, 0722, 0723, 0724, 0725, 0904, 0913, 0923</aend
             <xs:annotation>
                <xs:appinfo>
                   <beschreibung>andere Abgasanlage</beschreibung>
-               </xs:appinfo>
-            </xs:annotation>
-         </xs:enumeration>
-      </xs:restriction>
-   </xs:simpleType>
-   <xs:simpleType name="Codelist.AbweichungArt">
-      <xs:annotation>
-         <xs:appinfo>
-            <codeliste>
-               <nameLang>Abweichung Art</nameLang>
-               <nameKurz>Abweichung Art</nameKurz>
-               <nameTechnisch>abweichungart</nameTechnisch>
-               <kennung>urn:xoev-de:xbau:codeliste:abweichungart</kennung>
-               <beschreibung>Definition der Arten von beantragten oder genehmigten Abweichungen eines Bauvorhabens von den Rechtsnormen.</beschreibung>
-               <herausgebernameLang>Bauministerkonferenz</herausgebernameLang>
-               <herausgebernameKurz>BMK</herausgebernameKurz>
-            </codeliste>
-            <versionCodeliste>
-               <version>2.1</version>
-               <versionCodelistenHandbuch>1.2</versionCodelistenHandbuch>
-               <aenderungZurVorversion>In XBau 2.5: Ergänzung des Absatzes im Paragrafen (§ 14 Abs. 2) in Eintrag 5 .</aenderungZurVorversion>
-            </versionCodeliste>
-            <codelistenspalten>
-               <code>
-                  <spaltennameLang>Code</spaltennameLang>
-                  <datentyp>string</datentyp>
-                  <codeSpalte>true</codeSpalte>
-                  <verwendung>required</verwendung>
-                  <empfohleneCodeSpalte>true</empfohleneCodeSpalte>
-               </code>
-               <beschreibung>
-                  <spaltennameLang>Beschreibung</spaltennameLang>
-                  <datentyp>string</datentyp>
-                  <codeSpalte>false</codeSpalte>
-                  <verwendung>required</verwendung>
-                  <empfohleneCodeSpalte>false</empfohleneCodeSpalte>
-               </beschreibung>
-               <dokumentation>
-                  <spaltennameLang>Dokumentation</spaltennameLang>
-                  <datentyp>string</datentyp>
-                  <codeSpalte>false</codeSpalte>
-                  <verwendung>optional</verwendung>
-                  <empfohleneCodeSpalte>false</empfohleneCodeSpalte>
-               </dokumentation>
-            </codelistenspalten>
-         </xs:appinfo>
-      </xs:annotation>
-      <xs:restriction base="xs:token">
-         <xs:enumeration value="1">
-            <xs:annotation>
-               <xs:appinfo>
-                  <beschreibung>Befreiung</beschreibung>
-                  <dokumentation>Befreiungen nach § 31 Abs. 2 und Abs. 3 BauGB</dokumentation>
-               </xs:appinfo>
-            </xs:annotation>
-         </xs:enumeration>
-         <xs:enumeration value="2">
-            <xs:annotation>
-               <xs:appinfo>
-                  <beschreibung>Ausnahme (Bebauungsplan)</beschreibung>
-                  <dokumentation>Ausnahmen nach § 31 Abs. 1 BauGB</dokumentation>
-               </xs:appinfo>
-            </xs:annotation>
-         </xs:enumeration>
-         <xs:enumeration value="3">
-            <xs:annotation>
-               <xs:appinfo>
-                  <beschreibung>Abweichung (§ 67 Abs. 1 MBO)</beschreibung>
-                  <dokumentation>Abweichungen nach § 67 Abs. 1 MBO</dokumentation>
-               </xs:appinfo>
-            </xs:annotation>
-         </xs:enumeration>
-         <xs:enumeration value="4">
-            <xs:annotation>
-               <xs:appinfo>
-                  <beschreibung>Abweichung (§ 67 Abs. 2 S. 2 MBO)</beschreibung>
-                  <dokumentation>Abweichungen nach § 67 Abs. 2 Satz 2 MBO</dokumentation>
-               </xs:appinfo>
-            </xs:annotation>
-         </xs:enumeration>
-         <xs:enumeration value="5">
-            <xs:annotation>
-               <xs:appinfo>
-                  <beschreibung>Ausnahme (Veränderungssperre)</beschreibung>
-                  <dokumentation>Ausnahme von der Veränderungssperre nach § 14 Abs. 2 BauGB</dokumentation>
                </xs:appinfo>
             </xs:annotation>
          </xs:enumeration>
@@ -6088,9 +5918,9 @@ Neue Einträge: 0703, 0720, 0721, 0722, 0723, 0724, 0725, 0904, 0913, 0923</aend
                <herausgebernameKurz>BMK</herausgebernameKurz>
             </codeliste>
             <versionCodeliste>
-               <version>2.0</version>
+               <version>3.0</version>
                <versionCodelistenHandbuch>1.2</versionCodelistenHandbuch>
-               <aenderungZurVorversion>Änderung im Namensraum der XÖV-Metadaten „http://xoev.de/schemata/genericode/4“ (Präfix „xoev-cl-4“); Änderung der Versionsangabe des Codelistenhandbuchs („1.2“)</aenderungZurVorversion>
+               <aenderungZurVorversion>In XBau 2.6: neuer Eintrag 99 "keine Fachrichtung"</aenderungZurVorversion>
             </versionCodeliste>
             <codelistenspalten>
                <code>
@@ -6150,6 +5980,13 @@ Neue Einträge: 0703, 0720, 0721, 0722, 0723, 0724, 0725, 0904, 0913, 0923</aend
             <xs:annotation>
                <xs:appinfo>
                   <beschreibung>Wärmeschutz</beschreibung>
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="99">
+            <xs:annotation>
+               <xs:appinfo>
+                  <beschreibung>keine Fachrichtung</beschreibung>
                </xs:appinfo>
             </xs:annotation>
          </xs:enumeration>
@@ -7435,107 +7272,6 @@ Neue Einträge: 0703, 0720, 0721, 0722, 0723, 0724, 0725, 0904, 0913, 0923</aend
             <xs:annotation>
                <xs:appinfo>
                   <beschreibung>Untersagung (und keine Genehmigungsfreistellung): Die Gemeinde legt ihr Veto gegen das Bauvorhaben ein. Bei der zuständigen Bauaufsichtsbehörde wurde ein Antrag auf vorläufige Untersagung nach § 15 BauGB gestellt.</beschreibung>
-               </xs:appinfo>
-            </xs:annotation>
-         </xs:enumeration>
-      </xs:restriction>
-   </xs:simpleType>
-   <xs:simpleType name="Codelist.GenehmigungsfreistellungAnStatistik">
-      <xs:annotation>
-         <xs:appinfo>
-            <codeliste>
-               <nameLang>Statistik Genehmigungsfreistellung</nameLang>
-               <nameKurz>Statistik Genehmigungsfreistellung</nameKurz>
-               <nameTechnisch>genehmigungsfreistellunganstatistik</nameTechnisch>
-               <kennung>urn:xoev-de:xbau:codeliste:genehmigungsfreistellunganstatistik</kennung>
-               <beschreibung>Liste der Angaben zur Genehmigungsfreistellung an die Statistik.</beschreibung>
-               <herausgebernameLang>Bauministerkonferenz</herausgebernameLang>
-               <herausgebernameKurz>BMK</herausgebernameKurz>
-            </codeliste>
-            <versionCodeliste>
-               <version>2.0</version>
-               <versionCodelistenHandbuch>1.2</versionCodelistenHandbuch>
-               <aenderungZurVorversion>Änderung im Namensraum der XÖV-Metadaten „http://xoev.de/schemata/genericode/4“ (Präfix „xoev-cl-4“); Änderung der Versionsangabe des Codelistenhandbuchs („1.2“)</aenderungZurVorversion>
-            </versionCodeliste>
-            <codelistenspalten>
-               <code>
-                  <spaltennameLang>Code</spaltennameLang>
-                  <datentyp>string</datentyp>
-                  <codeSpalte>true</codeSpalte>
-                  <verwendung>required</verwendung>
-                  <empfohleneCodeSpalte>true</empfohleneCodeSpalte>
-               </code>
-               <beschreibung>
-                  <spaltennameLang>Beschreibung</spaltennameLang>
-                  <datentyp>string</datentyp>
-                  <codeSpalte>false</codeSpalte>
-                  <verwendung>required</verwendung>
-                  <empfohleneCodeSpalte>false</empfohleneCodeSpalte>
-               </beschreibung>
-            </codelistenspalten>
-         </xs:appinfo>
-      </xs:annotation>
-      <xs:restriction base="xs:token">
-         <xs:enumeration value="1">
-            <xs:annotation>
-               <xs:appinfo>
-                  <beschreibung>Ja</beschreibung>
-               </xs:appinfo>
-            </xs:annotation>
-         </xs:enumeration>
-         <xs:enumeration value="2">
-            <xs:annotation>
-               <xs:appinfo>
-                  <beschreibung>Nein</beschreibung>
-               </xs:appinfo>
-            </xs:annotation>
-         </xs:enumeration>
-         <xs:enumeration value="3">
-            <xs:annotation>
-               <xs:appinfo>
-                  <beschreibung>länderintern 1</beschreibung>
-               </xs:appinfo>
-            </xs:annotation>
-         </xs:enumeration>
-         <xs:enumeration value="4">
-            <xs:annotation>
-               <xs:appinfo>
-                  <beschreibung>länderintern 2</beschreibung>
-               </xs:appinfo>
-            </xs:annotation>
-         </xs:enumeration>
-         <xs:enumeration value="5">
-            <xs:annotation>
-               <xs:appinfo>
-                  <beschreibung>länderintern 3</beschreibung>
-               </xs:appinfo>
-            </xs:annotation>
-         </xs:enumeration>
-         <xs:enumeration value="6">
-            <xs:annotation>
-               <xs:appinfo>
-                  <beschreibung>länderintern 4</beschreibung>
-               </xs:appinfo>
-            </xs:annotation>
-         </xs:enumeration>
-         <xs:enumeration value="7">
-            <xs:annotation>
-               <xs:appinfo>
-                  <beschreibung>länderintern 5</beschreibung>
-               </xs:appinfo>
-            </xs:annotation>
-         </xs:enumeration>
-         <xs:enumeration value="8">
-            <xs:annotation>
-               <xs:appinfo>
-                  <beschreibung>länderintern 6</beschreibung>
-               </xs:appinfo>
-            </xs:annotation>
-         </xs:enumeration>
-         <xs:enumeration value="9">
-            <xs:annotation>
-               <xs:appinfo>
-                  <beschreibung>länderintern 7</beschreibung>
                </xs:appinfo>
             </xs:annotation>
          </xs:enumeration>
@@ -10135,7 +9871,7 @@ Neue Einträge: 0703, 0720, 0721, 0722, 0723, 0724, 0725, 0904, 0913, 0923</aend
                <version>4.0</version>
                <versionCodelistenHandbuch>1.2</versionCodelistenHandbuch>
                <aenderungZurVorversion>In XBau 2.6: 
-Neue Einträge: 0703, 0720, 0721, 0722, 0723, 0724, 0725, 0904, 0913, 0923</aenderungZurVorversion>
+Neue Einträge: 0703, 0704, 0720, 0721, 0722, 0723, 0724, 0725, 0904, 0913, 0923</aenderungZurVorversion>
             </versionCodeliste>
             <codelistenspalten>
                <code>
@@ -10772,6 +10508,13 @@ Neue Einträge: 0703, 0720, 0721, 0722, 0723, 0724, 0725, 0904, 0913, 0923</aend
                </xs:appinfo>
             </xs:annotation>
          </xs:enumeration>
+         <xs:enumeration value="0704">
+            <xs:annotation>
+               <xs:appinfo>
+                  <beschreibung>baulasten.korrekturErklaerung.0704</beschreibung>
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:enumeration>
          <xs:enumeration value="0710">
             <xs:annotation>
                <xs:appinfo>
@@ -10817,28 +10560,35 @@ Neue Einträge: 0703, 0720, 0721, 0722, 0723, 0724, 0725, 0904, 0913, 0923</aend
          <xs:enumeration value="0722">
             <xs:annotation>
                <xs:appinfo>
-                  <beschreibung>baulastloeschung.information.0722</beschreibung>
+                  <beschreibung>baulastloeschung.korrekturAntrag.0722</beschreibung>
                </xs:appinfo>
             </xs:annotation>
          </xs:enumeration>
          <xs:enumeration value="0723">
             <xs:annotation>
                <xs:appinfo>
-                  <beschreibung>baulastloeschung.loeschungEintrag.0723</beschreibung>
+                  <beschreibung>baulastloeschung.stellungnahmeAufforderung.0723</beschreibung>
                </xs:appinfo>
             </xs:annotation>
          </xs:enumeration>
          <xs:enumeration value="0724">
             <xs:annotation>
                <xs:appinfo>
-                  <beschreibung>baulastloeschung.stellungnahmeAufforderung.0724</beschreibung>
+                  <beschreibung>baulastloeschung.stellungnahme.0724</beschreibung>
                </xs:appinfo>
             </xs:annotation>
          </xs:enumeration>
          <xs:enumeration value="0725">
             <xs:annotation>
                <xs:appinfo>
-                  <beschreibung>baulastloeschung.stellungnahme.0725</beschreibung>
+                  <beschreibung>baulastloeschung.loeschungEintrag.0725</beschreibung>
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="0726">
+            <xs:annotation>
+               <xs:appinfo>
+                  <beschreibung>baulastloeschung.information.0726</beschreibung>
                </xs:appinfo>
             </xs:annotation>
          </xs:enumeration>
@@ -11160,8 +10910,6 @@ Neue Einträge: 0703, 0720, 0721, 0722, 0723, 0724, 0725, 0904, 0913, 0923</aend
          <xs:enumeration value="1">
             <xs:annotation>
                <xs:appinfo>
-                  <beschreibung>Abgsasrohr</beschreibung>
-                  <code>1</code>
                   <beschreibung>Einzelbaudenkmal</beschreibung>
                </xs:appinfo>
             </xs:annotation>
@@ -11169,8 +10917,6 @@ Neue Einträge: 0703, 0720, 0721, 0722, 0723, 0724, 0725, 0904, 0913, 0923</aend
          <xs:enumeration value="2">
             <xs:annotation>
                <xs:appinfo>
-                  <beschreibung>Abgsasrohr</beschreibung>
-                  <code>1</code>
                   <beschreibung>Ensemble</beschreibung>
                </xs:appinfo>
             </xs:annotation>
@@ -11178,8 +10924,6 @@ Neue Einträge: 0703, 0720, 0721, 0722, 0723, 0724, 0725, 0904, 0913, 0923</aend
          <xs:enumeration value="3">
             <xs:annotation>
                <xs:appinfo>
-                  <beschreibung>Abgsasrohr</beschreibung>
-                  <code>1</code>
                   <beschreibung>Nähe Denkmal</beschreibung>
                </xs:appinfo>
             </xs:annotation>
@@ -11250,9 +10994,9 @@ Neue Einträge: 0703, 0720, 0721, 0722, 0723, 0724, 0725, 0904, 0913, 0923</aend
                <herausgebernameKurz>BMK</herausgebernameKurz>
             </codeliste>
             <versionCodeliste>
-               <version>2.0</version>
+               <version>3.0</version>
                <versionCodelistenHandbuch>1.2</versionCodelistenHandbuch>
-               <aenderungZurVorversion>Änderung im Namensraum der XÖV-Metadaten „http://xoev.de/schemata/genericode/4“ (Präfix „xoev-cl-4“); Änderung der Versionsangabe des Codelistenhandbuchs („1.2“)</aenderungZurVorversion>
+               <aenderungZurVorversion>In XBau 2.6: Ergänzung um Einträge 3-5</aenderungZurVorversion>
             </versionCodeliste>
             <codelistenspalten>
                <code>
@@ -11284,6 +11028,27 @@ Neue Einträge: 0703, 0720, 0721, 0722, 0723, 0724, 0725, 0904, 0913, 0923</aend
             <xs:annotation>
                <xs:appinfo>
                   <beschreibung>Aktuelle Flurstücksdaten sind nicht belastet, aber Vorgängerflurstücke.</beschreibung>
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="3">
+            <xs:annotation>
+               <xs:appinfo>
+                  <beschreibung>Aktuelle Flurstücksdaten sind nicht belastet.</beschreibung>
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="4">
+            <xs:annotation>
+               <xs:appinfo>
+                  <beschreibung>Es liegt kein berechtiges Interesse vor. Keine Auskunft möglich.</beschreibung>
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="5">
+            <xs:annotation>
+               <xs:appinfo>
+                  <beschreibung>Falsche Flurstücksangabe. Keine Auskunft möglich.</beschreibung>
                </xs:appinfo>
             </xs:annotation>
          </xs:enumeration>

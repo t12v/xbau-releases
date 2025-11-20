@@ -52,8 +52,8 @@
             <li>baulastenverzeichnis.formellePruefung.0711</li>
             <li>baulastenverzeichnis.auskunft.0713</li>
             <li>baulastloeschung.nachforderung.0721</li>
-            <li>baulastloeschung.information.0722</li>
-            <li>baulastloeschung.stellungnahmeAufforderung.0724</li>
+            <li>baulastloeschung.stellungnahmeAufforderung.0723</li>
+            <li>baulastloeschung.information.0726</li>
             <li>ueberwachungspflichtigeAnlagen.erinnerung.0801</li>
             <li>anzeige.baubeginnUntersagung.0901</li>
             <li>anzeige.baubeginnBaufreigabe.0902</li>
@@ -129,9 +129,9 @@ Zulässige Dienstnutzer sind ausschließlich Organisationen in der DVDV-Organisa
                <xs:element name="baulasten.nachforderung.0701"/>
                <xs:element name="baulastenverzeichnis.auskunft.0713"/>
                <xs:element name="baulastenverzeichnis.formellePruefung.0711"/>
-               <xs:element name="baulastloeschung.information.0722"/>
+               <xs:element name="baulastloeschung.information.0726"/>
                <xs:element name="baulastloeschung.nachforderung.0721"/>
-               <xs:element name="baulastloeschung.stellungnahmeAufforderung.0724"/>
+               <xs:element name="baulastloeschung.stellungnahmeAufforderung.0723"/>
                <xs:element name="bauzustand.befundliste.0921"/>
                <xs:element name="bauzustand.freigabe.0922"/>
                <xs:element name="grundstuecksteilung.anhoerung.0243"/>

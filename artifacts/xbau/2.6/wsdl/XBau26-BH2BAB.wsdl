@@ -48,10 +48,11 @@
             <li>angrenzer.stellungnahme.0310</li>
             <li>statistik.datenBauvorhaben.0420</li>
             <li>baulasten.vorlageErklaerung.0700</li>
+            <li>baulasten.korrekturErklaerung.0704</li>
             <li>baulastenverzeichnis.anfrage.0710</li>
             <li>baulastenverzeichnis.anfrageGeaendert.0712</li>
             <li>baulastloeschung.antrag.0720</li>
-            <li>baulastloeschung.stellungnahme.0725</li>
+            <li>baulastloeschung.stellungnahme.0724</li>
             <li>ueberwachungspflichtigeAnlagen.pruefbescheinigung.0800</li>
             <li>anzeige.baubeginn.0900</li>
             <li>anzeige.erklaerungGEG.0903</li>
@@ -128,11 +129,12 @@ Zulässige Dienstnutzer sind ausschließlich Organisationen in der DVDV-Organisa
                <xs:element name="baugenehmigung.antrag.0200"/>
                <xs:element name="baugenehmigung.antragGeaendert.0202"/>
                <xs:element name="baugenehmigung.stellungnahme.0204"/>
+               <xs:element name="baulasten.korrekturErklaerung.0704"/>
                <xs:element name="baulasten.vorlageErklaerung.0700"/>
                <xs:element name="baulastenverzeichnis.anfrage.0710"/>
                <xs:element name="baulastenverzeichnis.anfrageGeaendert.0712"/>
                <xs:element name="baulastloeschung.antrag.0720"/>
-               <xs:element name="baulastloeschung.stellungnahme.0725"/>
+               <xs:element name="baulastloeschung.stellungnahme.0724"/>
                <xs:element name="bauzustand.aeusserung.0923"/>
                <xs:element name="bauzustand.anzeige.0920"/>
                <xs:element name="grundstuecksteilung.antrag.0240"/>

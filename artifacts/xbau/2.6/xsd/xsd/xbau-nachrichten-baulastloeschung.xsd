@@ -17,7 +17,7 @@
          </standard>
          <versionStandard>
             <version>2.6</version>
-            <beschreibung>Erweiterung von Prozess und Nachrichten zur Baulast: Es wurden Nachrichten zur Löschung und zur Eintragung von Baulasten erstellt. Erweiterung des Prozesses Anzeige Bauzustand: Erweiterung zu einem vollständigen und produktionsreifen Prozess auf Basis der 900er-Nachrichten. Vervollständigung der Prozessstringenz: Es wurden Nachrichten zur Benachrichtigung über den Abruf des Bescheids und die Zustellquittierung sowie Hinweise auf die Rücknahmefiktion ergänzt. Geschäftsregeln: Es wurden Geschäftsregeln im Schematronstandard für Datenübermittlungen zur Hochbaustatistik bereitgestellt. Bauvorlageberechtigung: Vorbereitung auf den NOOTS-Betrieb durch Kennzeichnung aus dem Kammerregister abgerufener Daten. Weitere Details zu Erweiterungen und Änderungen sind in der Versionshistorie beschrieben.</beschreibung>
+            <beschreibung>Die Nachrichtenkommunikation im Beteiligungsverfahren wurde erweitert und flexibilisiert. Das Baulastverfahren wurde erweitert um eine Vielzahl von Details, u.a. wurden Nachrichtentypen zur Eintragung und zur Löschung von Baulasten definiert. Die Anzeigeprozesse zum Bauzustand wurden weiterentwickelt zu einer stringent geregelten Nachrichtenkommunikation auf Basis der 900er-Nachrichten. Es wurde die Benachrichtigung über einen Bescheidabruf eingeführt, auch ist in XBau jetzt ein Mechanismus für die generische Zustellquittierung enthalten. Es wurden für die Datenübermittlung an die statistischen Ämter XML-Geschäftsregeln zur technischen Überprüfung auf Basis der Technologie ISO-Schematron bereitgestellt. Die Prozesse der Statistikmeldungen wurden auf genehmigungsfreigestellte Verfahren ausgedehnt. Für den Prozess Nachweis Bauvorlageberechtigung können jetzt aus dem Kammerregister abgerufene Daten als solche gekennzeichnet und in ihrer Anwendung in der Antragstellung nachvollzogen werden. Der Prozess zur Abgeschlossenheitsbescheinigung wurde vervollständigt und ausdifferenziert. Die weiteren Details zu Erweiterungen und Änderungen sind in der Versionshistorie des Spezifikationsdokuments beschrieben.</beschreibung>
             <versionXOEVProfil>3.0.0</versionXOEVProfil>
             <versionXOEVHandbuch>3.0.1</versionXOEVHandbuch>
             <versionXGenerator>3.1.1</versionXGenerator>
@@ -93,7 +93,138 @@
          </xs:complexContent>
       </xs:complexType>
    </xs:element>
-   <xs:element name="baulastloeschung.information.0722">
+   <xs:element name="baulastloeschung.korrekturAntrag.0722">
+      <xs:annotation>
+         <xs:appinfo>
+            <rechtsgrundlage>§ 83 (3) MBO</rechtsgrundlage>
+            <title>Korrektur zum Antrag Baulastlöschung</title>
+         </xs:appinfo>
+         <xs:documentation>Diese Nachricht enthält eine Korrektur zum Antrag der Baulastlöschung. Sie bezieht sich also auf einen bereits gestellten Antrag und ist eine Reaktion auf eine zum Antrag vorliegenden Mängelliste der Behörde.</xs:documentation>
+      </xs:annotation>
+      <xs:complexType>
+         <xs:complexContent>
+            <xs:extension base="xbau:Nachricht.G2G">
+               <xs:sequence>
+                  <xs:element name="bezug" type="xbauk:BezugErweitert">
+                     <xs:annotation>
+                        <xs:documentation>In diesem Element wird der laufende Vorgang der Bearbeitung der Baulastlöschung genannt und die Nachricht baulastloeschung.antrag.0720 genannt, durch deren Eingang bei der Bauaufsichtsbehörde der Vorgang ausgelöst worden ist.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+                  <xs:element name="baulast"
+                              minOccurs="0"
+                              maxOccurs="unbounded"
+                              type="xbau:BaulastLoeschung">
+                     <xs:annotation>
+                        <xs:documentation>Hier werden die Informationen zur zu löschenden Baulast angegeben. Jede Instanz des Elements steht für eine zu löschende Baulast.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+                  <xs:element name="anlagen" minOccurs="0" type="xbau:Anlagen">
+                     <xs:annotation>
+                        <xs:documentation>Hier können Anlagen eingefügt werden, die für die Löschung der Baulast relevant sind.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+               </xs:sequence>
+            </xs:extension>
+         </xs:complexContent>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="baulastloeschung.stellungnahmeAufforderung.0723">
+      <xs:annotation>
+         <xs:appinfo>
+            <rechtsgrundlage>§ 83 (3) MBO</rechtsgrundlage>
+            <title>Aufforderung zur Stellungnahme</title>
+         </xs:appinfo>
+         <xs:documentation>Diese Nachricht enthält die Aufforderung zur Stellungnahme der Baulastlöschung.</xs:documentation>
+      </xs:annotation>
+      <xs:complexType>
+         <xs:complexContent>
+            <xs:extension base="xbau:Nachricht.G2G">
+               <xs:sequence>
+                  <xs:element name="bezug" type="xbauk:BezugErweitert">
+                     <xs:annotation>
+                        <xs:documentation>In diesem Element wird der laufende Vorgang der Bearbeitung der Baulastlöschung genannt. Falls der Vorgang der Baulastlöschung durch einen Antrag ausgelöst wurde, wird auch die Nachricht baulastloeschung.antrag.0720 genannt.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+                  <xs:element name="aufforderungStellungnahme" type="xbauk:Text">
+                     <xs:annotation>
+                        <xs:documentation>In dieses Element wird die Aufforderung zur Stellungnahme eingetragen.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+                  <xs:element name="frist" minOccurs="0" type="xs:date">
+                     <xs:annotation>
+                        <xs:documentation>Hier kann eine durch die Behörde gesetzte Frist eingetragen werden, innerhalb derer die Stellungnahme einzureichen ist.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+                  <xs:element name="anlagen" minOccurs="0" type="xbau:Anlagen">
+                     <xs:annotation>
+                        <xs:documentation>Hier können im Bedarfsfall Anlagen übermittelt werden.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+               </xs:sequence>
+            </xs:extension>
+         </xs:complexContent>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="baulastloeschung.stellungnahme.0724">
+      <xs:annotation>
+         <xs:appinfo>
+            <rechtsgrundlage>§ 83 (3) MBO</rechtsgrundlage>
+            <title>Stellungnahme</title>
+         </xs:appinfo>
+         <xs:documentation>Diese Nachricht enthält die Stellungnahme zur Baulastlöschung.</xs:documentation>
+      </xs:annotation>
+      <xs:complexType>
+         <xs:complexContent>
+            <xs:extension base="xbau:Nachricht.G2G">
+               <xs:sequence>
+                  <xs:element name="bezug" type="xbauk:BezugErweitert">
+                     <xs:annotation>
+                        <xs:documentation>In diesem Element wird der laufende Vorgang der Bearbeitung der Baulastlöschung genannt. Falls der Vorgang der Baulastlöschung durch einen Antrag ausgelöst wurde, wird auch die Nachricht baulastloeschung.antrag.0720 genannt.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+                  <xs:element name="stellungnahme" type="xbauk:Text">
+                     <xs:annotation>
+                        <xs:documentation>In dieses Element wird die Stellungnahme eingetragen.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+                  <xs:element name="anlagen" minOccurs="0" type="xbau:Anlagen">
+                     <xs:annotation>
+                        <xs:documentation>Hier können im Bedarfsfall Anlagen übermittelt werden.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+               </xs:sequence>
+            </xs:extension>
+         </xs:complexContent>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="baulastloeschung.loeschungEintrag.0725">
+      <xs:annotation>
+         <xs:appinfo>
+            <rechtsgrundlage>§ 83 (3) MBO</rechtsgrundlage>
+            <title>Löschung des Baulasteintrags</title>
+         </xs:appinfo>
+         <xs:documentation>Diese Nachricht dient dazu, eine Löschung einer Baulast im Baulastenverzeichnis anzustoßen.</xs:documentation>
+      </xs:annotation>
+      <xs:complexType>
+         <xs:complexContent>
+            <xs:extension base="xbau:Nachricht.G2G">
+               <xs:sequence>
+                  <xs:element name="bezug" type="xbauk:BezugErweitert">
+                     <xs:annotation>
+                        <xs:documentation>In diesem Element wird der laufende Vorgang der Bearbeitung der Baulastlöschung genannt. Falls der Vorgang der Baulastlöschung durch einen Antrag ausgelöst wurde, wird auch die Nachricht baulastloeschung.antrag.0720 genannt.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+                  <xs:element name="baulast" maxOccurs="unbounded" type="xbau:BaulastLoeschung">
+                     <xs:annotation>
+                        <xs:documentation>Hier werden Angaben zur zu löschenden Baulast gemacht.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+               </xs:sequence>
+            </xs:extension>
+         </xs:complexContent>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="baulastloeschung.information.0726">
       <xs:annotation>
          <xs:appinfo>
             <rechtsgrundlage>§ 83 (3) MBO</rechtsgrundlage>
@@ -132,105 +263,6 @@
                   <xs:element name="anlagen" minOccurs="0" type="xbau:Anlagen">
                      <xs:annotation>
                         <xs:documentation>Hier ist im Erfolgsfall die Dokumentation der vorgenommenen Löschung des Eintrags im Baulastenverzeichnis enthalten.</xs:documentation>
-                     </xs:annotation>
-                  </xs:element>
-               </xs:sequence>
-            </xs:extension>
-         </xs:complexContent>
-      </xs:complexType>
-   </xs:element>
-   <xs:element name="baulastloeschung.loeschungEintrag.0723">
-      <xs:annotation>
-         <xs:appinfo>
-            <rechtsgrundlage>§ 83 (3) MBO</rechtsgrundlage>
-            <title>Löschung des Baulasteintrags</title>
-         </xs:appinfo>
-         <xs:documentation>Diese Nachricht dient dazu, eine Löschung einer Baulast im Baulastenverzeichnis anzustoßen.</xs:documentation>
-      </xs:annotation>
-      <xs:complexType>
-         <xs:complexContent>
-            <xs:extension base="xbau:Nachricht.G2G">
-               <xs:sequence>
-                  <xs:element name="bezug" minOccurs="0" type="xbauk:BezugErweitert">
-                     <xs:annotation>
-                        <xs:documentation>In diesem Element wird der laufende Vorgang der Bearbeitung der Baulastlöschung genannt. Falls der Vorgang der Baulastlöschung durch einen Antrag ausgelöst wurde, wird auch die Nachricht baulastloeschung.antrag.0720 genannt.</xs:documentation>
-                     </xs:annotation>
-                  </xs:element>
-                  <xs:element name="baulast"
-                              minOccurs="0"
-                              maxOccurs="unbounded"
-                              type="xbau:BaulastLoeschung">
-                     <xs:annotation>
-                        <xs:documentation>Hier werden Angaben zur zu löschenden Baulast gemacht.</xs:documentation>
-                     </xs:annotation>
-                  </xs:element>
-               </xs:sequence>
-            </xs:extension>
-         </xs:complexContent>
-      </xs:complexType>
-   </xs:element>
-   <xs:element name="baulastloeschung.stellungnahmeAufforderung.0724">
-      <xs:annotation>
-         <xs:appinfo>
-            <rechtsgrundlage>§ 83 (3) MBO</rechtsgrundlage>
-            <title>Aufforderung zur Stellungnahme</title>
-         </xs:appinfo>
-         <xs:documentation>Diese Nachricht enthält die Aufforderung zur Stellungnahme der Baulastlöschung.</xs:documentation>
-      </xs:annotation>
-      <xs:complexType>
-         <xs:complexContent>
-            <xs:extension base="xbau:Nachricht.G2G">
-               <xs:sequence>
-                  <xs:element name="bezug" type="xbauk:BezugErweitert">
-                     <xs:annotation>
-                        <xs:documentation>In diesem Element wird der laufende Vorgang der Bearbeitung der Baulastlöschung genannt. Falls der Vorgang der Baulastlöschung durch einen Antrag ausgelöst wurde, wird auch die Nachricht baulastloeschung.antrag.0720 genannt.</xs:documentation>
-                     </xs:annotation>
-                  </xs:element>
-                  <xs:element name="aufforderungStellungnahme" type="xbauk:Text">
-                     <xs:annotation>
-                        <xs:documentation>In dieses Element wird die Aufforderung zur Stellungnahme eingetragen.</xs:documentation>
-                     </xs:annotation>
-                  </xs:element>
-                  <xs:element name="frist" minOccurs="0" type="xs:date">
-                     <xs:annotation>
-                        <xs:documentation>Hier kann eine durch die Behörde gesetzte Frist eingetragen werden, innerhalb derer die Stellungnahme einzureichen ist.</xs:documentation>
-                     </xs:annotation>
-                  </xs:element>
-                  <xs:element name="anlagen" minOccurs="0" type="xbau:Anlagen">
-                     <xs:annotation>
-                        <xs:documentation>Hier können im Bedarfsfall Anlagen übermittelt werden.</xs:documentation>
-                     </xs:annotation>
-                  </xs:element>
-               </xs:sequence>
-            </xs:extension>
-         </xs:complexContent>
-      </xs:complexType>
-   </xs:element>
-   <xs:element name="baulastloeschung.stellungnahme.0725">
-      <xs:annotation>
-         <xs:appinfo>
-            <rechtsgrundlage>§ 83 (3) MBO</rechtsgrundlage>
-            <title>Stellungnahme</title>
-         </xs:appinfo>
-         <xs:documentation>Diese Nachricht enthält die Stellungnahme zur Baulastlöschung.</xs:documentation>
-      </xs:annotation>
-      <xs:complexType>
-         <xs:complexContent>
-            <xs:extension base="xbau:Nachricht.G2G">
-               <xs:sequence>
-                  <xs:element name="bezug" type="xbauk:BezugErweitert">
-                     <xs:annotation>
-                        <xs:documentation>In diesem Element wird der laufende Vorgang der Bearbeitung der Baulastlöschung genannt. Falls der Vorgang der Baulastlöschung durch einen Antrag ausgelöst wurde, wird auch die Nachricht baulastloeschung.antrag.0720 genannt.</xs:documentation>
-                     </xs:annotation>
-                  </xs:element>
-                  <xs:element name="stellungnahme" type="xbauk:Text">
-                     <xs:annotation>
-                        <xs:documentation>In dieses Element wird die Stellungnahme eingetragen.</xs:documentation>
-                     </xs:annotation>
-                  </xs:element>
-                  <xs:element name="anlagen" minOccurs="0" type="xbau:Anlagen">
-                     <xs:annotation>
-                        <xs:documentation>Hier können im Bedarfsfall Anlagen übermittelt werden.</xs:documentation>
                      </xs:annotation>
                   </xs:element>
                </xs:sequence>

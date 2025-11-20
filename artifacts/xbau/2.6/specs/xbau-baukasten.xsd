@@ -21,7 +21,7 @@
          </standard>
          <versionStandard>
             <version>2.6</version>
-            <beschreibung>Erweiterung von Prozess und Nachrichten zur Baulast: Es wurden Nachrichten zur Löschung und zur Eintragung von Baulasten erstellt. Erweiterung des Prozesses Anzeige Bauzustand: Erweiterung zu einem vollständigen und produktionsreifen Prozess auf Basis der 900er-Nachrichten. Vervollständigung der Prozessstringenz: Es wurden Nachrichten zur Benachrichtigung über den Abruf des Bescheids und die Zustellquittierung sowie Hinweise auf die Rücknahmefiktion ergänzt. Geschäftsregeln: Es wurden Geschäftsregeln im Schematronstandard für Datenübermittlungen zur Hochbaustatistik bereitgestellt. Bauvorlageberechtigung: Vorbereitung auf den NOOTS-Betrieb durch Kennzeichnung aus dem Kammerregister abgerufener Daten. Weitere Details zu Erweiterungen und Änderungen sind in der Versionshistorie beschrieben.</beschreibung>
+            <beschreibung>Die Nachrichtenkommunikation im Beteiligungsverfahren wurde erweitert und flexibilisiert. Das Baulastverfahren wurde erweitert um eine Vielzahl von Details, u.a. wurden Nachrichtentypen zur Eintragung und zur Löschung von Baulasten definiert. Die Anzeigeprozesse zum Bauzustand wurden weiterentwickelt zu einer stringent geregelten Nachrichtenkommunikation auf Basis der 900er-Nachrichten. Es wurde die Benachrichtigung über einen Bescheidabruf eingeführt, auch ist in XBau jetzt ein Mechanismus für die generische Zustellquittierung enthalten. Es wurden für die Datenübermittlung an die statistischen Ämter XML-Geschäftsregeln zur technischen Überprüfung auf Basis der Technologie ISO-Schematron bereitgestellt. Die Prozesse der Statistikmeldungen wurden auf genehmigungsfreigestellte Verfahren ausgedehnt. Für den Prozess Nachweis Bauvorlageberechtigung können jetzt aus dem Kammerregister abgerufene Daten als solche gekennzeichnet und in ihrer Anwendung in der Antragstellung nachvollzogen werden. Der Prozess zur Abgeschlossenheitsbescheinigung wurde vervollständigt und ausdifferenziert. Die weiteren Details zu Erweiterungen und Änderungen sind in der Versionshistorie des Spezifikationsdokuments beschrieben.</beschreibung>
             <versionXOEVProfil>3.0.0</versionXOEVProfil>
             <versionXOEVHandbuch>3.0.1</versionXOEVHandbuch>
             <versionXGenerator>3.1.1</versionXGenerator>
@@ -980,10 +980,10 @@
             </xs:annotation>
          </xs:element>
          <xs:element minOccurs="0"
-                     name="genehmigungsfreistellung"
-                     type="xbau:Code.GenehmigungsfreistellungAnStatistik">
+                     name="verfahrensart"
+                     type="xbau:Code.VerfahrensartAnStatistik">
             <xs:annotation>
-               <xs:documentation>Angabe zur Genehmigungsfreistellung.</xs:documentation>
+               <xs:documentation>Angabe der Art des baurechtlichen Verfahrens.</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element minOccurs="0"
@@ -1040,7 +1040,7 @@
             <xs:sequence>
                <xs:element minOccurs="0" name="datumBaugenehmigung" type="xbauk:JahrMonat">
                   <xs:annotation>
-                     <xs:documentation>In dieses Element ist das Datum der Baugenehmigung einzutragen. Der Inhalt des Elements wird in der Behörde gepflegt.</xs:documentation>
+                     <xs:documentation>In dieses Element ist das Datum der Baugenehmigung einzutragen. Im Falle einer Genehmigungsfreistellung ist hier das Eingangsdatum der Zustimmung der Gemeinde (Nachricht 0603) einzutragen. Der Inhalt des Elements wird in der Behörde gepflegt.</xs:documentation>
                   </xs:annotation>
                </xs:element>
             </xs:sequence>
@@ -1118,7 +1118,7 @@
          </xs:element>
          <xs:element minOccurs="0" name="beteiligteGrundstuecke">
             <xs:annotation>
-               <xs:documentation>Hier werden die für das Baulastverfahren relevanten Grundstücke eingetragen.</xs:documentation>
+               <xs:documentation>Hier werden die für das Baulastverfahren relevanten Grundstücke oder Flurstücke eingetragen.</xs:documentation>
             </xs:annotation>
             <xs:complexType>
                <xs:sequence>
@@ -1127,7 +1127,7 @@
                               maxOccurs="unbounded"
                               type="xbau:Grundstueck">
                      <xs:annotation>
-                        <xs:documentation>Für jedes aufzuführende belastete Grundstück ist ein Element zu füllen.</xs:documentation>
+                        <xs:documentation>Für jedes aufzuführende belastete Grundstück oder Flurstück ist ein Element zu füllen.</xs:documentation>
                      </xs:annotation>
                   </xs:element>
                   <xs:element minOccurs="0"
@@ -1135,7 +1135,7 @@
                               maxOccurs="unbounded"
                               type="xbau:Grundstueck">
                      <xs:annotation>
-                        <xs:documentation>Für jedes aufzuführende begünstigte Grundstück ist ein Element zu füllen.</xs:documentation>
+                        <xs:documentation>Für jedes aufzuführende begünstigte Grundstück oder Flurstück ist ein Element zu füllen.</xs:documentation>
                      </xs:annotation>
                   </xs:element>
                </xs:sequence>
@@ -1470,7 +1470,7 @@
          </xs:element>
          <xs:element minOccurs="0" name="nachweisbezug" type="xbau:NachweisbezugType">
             <xs:annotation>
-               <xs:documentation>Mit diesem Element wird der Bezug zum Datenabruf aus dem Kammerregister hergestellt.</xs:documentation>
+               <xs:documentation>Mit diesem Element wird der Bezug zu einem XNachweis-Abruf aus dem Kammernverzeichnis hergestellt. Das Element ist nur bei erfolgreichem Datenabruf zu übermitteln.</xs:documentation>
             </xs:annotation>
          </xs:element>
       </xs:sequence>
@@ -1693,7 +1693,7 @@
          </xs:element>
          <xs:element minOccurs="0" name="nachweisbezug" type="xbau:NachweisbezugType">
             <xs:annotation>
-               <xs:documentation>Mit diesem Element wird der Bezug zum Datenabruf aus dem Kammerregister hergestellt.</xs:documentation>
+               <xs:documentation>Mit diesem Element wird der Bezug zu einem XNachweis-Abruf aus dem Kammernverzeichnis hergestellt. Das Element ist nur bei erfolgreichem Datenabruf zu übermitteln.</xs:documentation>
             </xs:annotation>
          </xs:element>
       </xs:sequence>
@@ -2131,7 +2131,7 @@
                      name="artDesEigentuemers"
                      type="xbau:Code.BauherrOderEigentuemerArt">
             <xs:annotation>
-               <xs:documentation>Angabe der Art des Eigentümers Der Inhalt des Elements ergibt sich aus dem Datentyp DatenBauabgangEingeschraenkt der Eingangsnachricht.</xs:documentation>
+               <xs:documentation>Angabe der Art des Eigentümers Der Inhalt des Elements ergibt sich aus dem Inhalt des Elements "artDesAnzeigenden" im Datentyp AnzeigenderBeseitigung der Eingangsnachricht.</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element minOccurs="0"
@@ -2196,12 +2196,12 @@
    </xs:complexType>
    <xs:complexType name="DatenabrufType">
       <xs:annotation>
-         <xs:documentation>Dieser Datentyp enthält die Metadaten eines Nachweisabrufs. Die im Rahmen dieses Abrufs übermittelten Nachrichtenelemente werden über die Abruf-ID referenziert.</xs:documentation>
+         <xs:documentation>Dieser Datentyp enthält die Metadaten eines XNachweis-Abrufs. Die im Rahmen dieses Abrufs übermittelten Nachrichtenelemente werden über die Abruf-ID referenziert.</xs:documentation>
       </xs:annotation>
       <xs:sequence>
          <xs:element minOccurs="0" name="abrufId" type="din91379:datatypeC">
             <xs:annotation>
-               <xs:documentation>Diese ID kennzeichnet einen konkreten Nachweisabruf. Sie korrespondiert mit der Abruf-ID der Nachrichtenelemente, deren Inhalte im Rahmen dieses Abrufs übermittelt wurden.</xs:documentation>
+               <xs:documentation>Dieses Element ist die ID eines XNachweis-Datenabrufs. Sie entspricht der in der XNachweis-Nachricht übermittelten requestId. Daten, die aus diesem Abruf stammen, wird die ID im Element nachweisbezug beigefügt.</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element minOccurs="0" name="zeitstempel" type="xs:dateTime">
@@ -2214,19 +2214,14 @@
                <xs:documentation>Hier wird die Quelle des Datenabrufs angegeben, z.B. das Register.</xs:documentation>
             </xs:annotation>
          </xs:element>
-         <xs:element minOccurs="0" name="personOderGegenstand" type="din91379:datatypeC">
+         <xs:element minOccurs="0" name="nachweissubjekt" type="din91379:datatypeC">
             <xs:annotation>
-               <xs:documentation>In diesem Element ist der Name der Person oder eine geeignete Bezeichnung eines Objektes anzugeben, zu der/dem die Daten abgerufen wurden. Der Inhalt ist je nach Anwendungsfall so anzugeben, dass eine zweifelsfreie Zuordnung möglich ist.</xs:documentation>
+               <xs:documentation>In diesem Element ist das Nachweissubjekt (Person oder Unternehmen) zu nennen, zu dem die Daten abgerufen wurden. Die Angabe sollte hinreichend genau sein, um eine zweifelsfreie Zuordnung zu ermöglichen.</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element minOccurs="0" name="zweck" type="din91379:datatypeC">
             <xs:annotation>
                <xs:documentation>In diesem Element kann angegeben werden, welchem Zweck der Datenabruf dient, z.B. Bauvorlageberechtigung Entwurfsverfasser.</xs:documentation>
-            </xs:annotation>
-         </xs:element>
-         <xs:element minOccurs="0" name="abrufErfolgreich" type="xs:boolean">
-            <xs:annotation>
-               <xs:documentation>Konnte der Datenabruf durchgeführt werden, ist hier true anzugeben, bei fehlgeschlagenem Datenabruf false.</xs:documentation>
             </xs:annotation>
          </xs:element>
       </xs:sequence>
@@ -3464,77 +3459,6 @@
          </xs:extension>
       </xs:complexContent>
    </xs:complexType>
-   <xs:complexType name="GrundstueckBaulastauskunft">
-      <xs:annotation>
-         <xs:documentation>Dieses Element enthält die Daten der Baulastauskunft.</xs:documentation>
-      </xs:annotation>
-      <xs:sequence>
-         <xs:element minOccurs="0" name="baulastauskunft" maxOccurs="unbounded">
-            <xs:complexType>
-               <xs:choice>
-                  <xs:element minOccurs="0" name="grundstueckEinfacheAuskunft">
-                     <xs:annotation>
-                        <xs:documentation>Mit diesem Element werden die Daten zu einem der Grundstücke übermittelt, auf das sich die Anfrage einer einfachen Auskunft bezieht.</xs:documentation>
-                     </xs:annotation>
-                     <xs:complexType>
-                        <xs:sequence>
-                           <xs:element minOccurs="0" name="angefragtesGrundstueck" type="xbau:Grundstueck">
-                              <xs:annotation>
-                                 <xs:documentation>Dieses Element enthält Angaben zu einem der Grundstücke aus der Anfrage bezüglich der Baulastauskunft.</xs:documentation>
-                              </xs:annotation>
-                           </xs:element>
-                           <xs:element minOccurs="0" name="baulastVorhanden" type="xs:boolean">
-                              <xs:annotation>
-                                 <xs:documentation>Mit diesem Element wird angegeben, ob zu dem angefragten Grundstück eine Baulast vorhanden ist.</xs:documentation>
-                              </xs:annotation>
-                           </xs:element>
-                        </xs:sequence>
-                     </xs:complexType>
-                  </xs:element>
-                  <xs:element minOccurs="0" name="grundstueckAbschrift">
-                     <xs:annotation>
-                        <xs:documentation>Mit diesem Element werden die Daten zu einem der Grundstücke übermittelt, auf das sich die Anfrage einer Abschrift bezieht.</xs:documentation>
-                     </xs:annotation>
-                     <xs:complexType>
-                        <xs:sequence>
-                           <xs:element minOccurs="0" name="angefragtesGrundstueck" type="xbau:Grundstueck">
-                              <xs:annotation>
-                                 <xs:documentation>Dieses Element enthält Angaben zu einem der Grundstücke aus der Anfrage bezüglich der Baulastauskunft.</xs:documentation>
-                              </xs:annotation>
-                           </xs:element>
-                           <xs:element minOccurs="0" name="baulastVorhanden" type="xs:boolean">
-                              <xs:annotation>
-                                 <xs:documentation>Mit diesem Element wird angegeben, ob zu dem angefragten Grundstück eine Baulast vorhanden ist.</xs:documentation>
-                              </xs:annotation>
-                           </xs:element>
-                           <xs:element minOccurs="0"
-                                       name="baulastDaten"
-                                       maxOccurs="unbounded"
-                                       type="xbau:BaulastErweitert">
-                              <xs:annotation>
-                                 <xs:documentation>Falls Baulasten vorhanden sind, beinhaltet dieses Element die Daten der Baulast aus dem Baulastenverzeichnis.</xs:documentation>
-                              </xs:annotation>
-                           </xs:element>
-                           <xs:element minOccurs="0"
-                                       name="baulastInformation"
-                                       type="xbau:Code.Baulastauskunft">
-                              <xs:annotation>
-                                 <xs:documentation>Falls Baulasten vorhanden sind, werden mit diesem Element nähere Informationen zur vorhandenen Baulast übermittelt.</xs:documentation>
-                              </xs:annotation>
-                           </xs:element>
-                           <xs:element minOccurs="0" name="anlagen" type="xbau:Anlagen">
-                              <xs:annotation>
-                                 <xs:documentation>Falls Baulasten vorhanden sind, werden mit diesem Element Anlagen, wie beispielsweise Zeichnungen, Baulastenblatt oder Lageplan, übermittelt.</xs:documentation>
-                              </xs:annotation>
-                           </xs:element>
-                        </xs:sequence>
-                     </xs:complexType>
-                  </xs:element>
-               </xs:choice>
-            </xs:complexType>
-         </xs:element>
-      </xs:sequence>
-   </xs:complexType>
    <xs:complexType name="Heizenergie">
       <xs:annotation>
          <xs:documentation>Dieses Element enthält die Daten zur primären und sekundären Heizenergie für Heizung und Warmwasseraufbereitung.</xs:documentation>
@@ -4113,7 +4037,7 @@
             <xs:sequence>
                <xs:element minOccurs="0" name="nachweisbezug" type="xbau:NachweisbezugType">
                   <xs:annotation>
-                     <xs:documentation>Mit diesem Element wird der Bezug zum Datenabruf aus dem Kammerregister hergestellt.</xs:documentation>
+                     <xs:documentation>Mit diesem Element wird der Bezug zu einem XNachweis-Abruf aus dem Kammernverzeichnis hergestellt. Das Element ist nur bei erfolgreichem Datenabruf zu übermitteln.</xs:documentation>
                   </xs:annotation>
                </xs:element>
             </xs:sequence>
@@ -4471,19 +4395,19 @@
          </xs:element>
          <xs:element minOccurs="0" name="nachweisbezug" type="xbau:NachweisbezugType">
             <xs:annotation>
-               <xs:documentation>Mit diesem Element wird der Bezug zum Datenabruf aus dem Kammerregister hergestellt.</xs:documentation>
+               <xs:documentation>Mit diesem Element wird der Bezug zu einem XNachweis-Abruf aus dem Kammernverzeichnis hergestellt. Das Element ist nur bei erfolgreichem Datenabruf zu übermitteln.</xs:documentation>
             </xs:annotation>
          </xs:element>
       </xs:sequence>
    </xs:complexType>
    <xs:complexType name="NachweisbezugType">
       <xs:annotation>
-         <xs:documentation>Dieser Datentyp dient dazu, von einem Nachrichtenelement auf einen Datenabruf zu verweisen.</xs:documentation>
+         <xs:documentation>Dieser Datentyp dient dazu, einen Bezug zu einem XNachweis-Abruf herzustellen.</xs:documentation>
       </xs:annotation>
       <xs:sequence>
          <xs:element minOccurs="0" name="abrufId" type="din91379:datatypeC">
             <xs:annotation>
-               <xs:documentation>Hier wird die ID des Datenabrufs angegeben, bei dem der Inhalt des Nachrichtenelements übermittelt wurde.</xs:documentation>
+               <xs:documentation>Hier wird die ID des XNachweis-Abrufs angegeben, bei dem der Inhalt eines Nachrichtenelements übermittelt wurde. Diese ID entspricht dem XNachweis-Attribut requestId.</xs:documentation>
             </xs:annotation>
          </xs:element>
       </xs:sequence>
@@ -4799,18 +4723,6 @@
          <xs:element minOccurs="0" name="referenzAuftrag" type="bn-g2g:UUID">
             <xs:annotation>
                <xs:documentation>Initial eingetragener i.d.R. maschinell erzeugter Identifier, der für den Auftrags- oder Beteiligungsvorgang steht. Dieser Identifier geht mit den Beauftragungsnachrichten an Auftragnehmer bzw. zu beteiligende Stelle zu und muss von einem solchen Kommunikationspartner in den Reaktionsnachrichten referenziert werden.</xs:documentation>
-            </xs:annotation>
-         </xs:element>
-      </xs:sequence>
-   </xs:complexType>
-   <xs:complexType name="ReferenzBaulast">
-      <xs:annotation>
-         <xs:documentation>Dieser Typ deckt Daten ab, durch die ein Vorgang zur Baulasteintragung eindeutig gekennzeichnet wird.</xs:documentation>
-      </xs:annotation>
-      <xs:sequence>
-         <xs:element minOccurs="0" name="referenzBaulast" type="bn-g2g:UUID">
-            <xs:annotation>
-               <xs:documentation>Initial eingetragener i.d.R. maschinell erzeugter Identifier, der für den Vorgang der Baulasterklärung steht. Dieser Identifier geht mit der Nachricht zur Baulasterklärung an die Bauaufsichtsbehörde und muss in den weiteren Nachrichten referenziert werden.</xs:documentation>
             </xs:annotation>
          </xs:element>
       </xs:sequence>
