@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gc:CodeList xmlns:gc="http://docs.oasis-open.org/codelist/ns/genericode/1.0/" xmlns:xoev-cl-4="http://xoev.de/schemata/genericode/4" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Annotation>
+    <Description>
+      <xoev-cl-4:shortName>Nachricht Eingangsquittierung</xoev-cl-4:shortName>
+      <xoev-cl-4:codelistDescription>Die Codeliste enthält Nachrichtentypen aus XBau-Hochbau und XBau-Kernmodul, bei denen der Nachrichteneingang zu quittieren ist.</xoev-cl-4:codelistDescription>
+      <xoev-cl-4:agencyShortName>BMK</xoev-cl-4:agencyShortName>
+      <xoev-cl-4:versionDescription>Die Codeliste enthält Nachrichtentypen aus XBau-Hochbau und XBau-Kernmodul, bei denen der Nachrichteneingang zu quittieren ist.</xoev-cl-4:versionDescription>
+      <xoev-cl-4:versionHandbook>1.2</xoev-cl-4:versionHandbook>
+    </Description>
+  </Annotation>
+  <Identification>
+    <ShortName>nachricht-eingangsquittierung</ShortName>
+    <LongName>Nachricht Eingangsquittierung</LongName>
+    <Version>1.0</Version>
+    <CanonicalUri>urn:xoev-de:xbau:codeliste:nachricht-eingangsquittierung</CanonicalUri>
+    <CanonicalVersionUri>urn:xoev-de:xbau:codeliste:nachricht-eingangsquittierung_1.0</CanonicalVersionUri>
+    <Agency>
+      <LongName>Bauministerkonferenz</LongName>
+    </Agency>
+  </Identification>
+  <ColumnSet>
+    <Column Id="Code" Use="required">
+      <ShortName>Code</ShortName>
+      <LongName>Code</LongName>
+      <Data Type="string"/>
+    </Column>
+    <Column Id="Beschreibung" Use="required">
+      <ShortName>Beschreibung</ShortName>
+      <LongName>Beschreibung</LongName>
+      <Data Type="string"/>
+    </Column>
+    <Key Id="CodeKey">
+      <Annotation>
+        <AppInfo>
+          <xoev-cl-4:recommendedKeyColumn/>
+        </AppInfo>
+      </Annotation>
+      <ShortName>CodeKey</ShortName>
+      <ColumnRef Ref="Code"/>
+    </Key>
+  </ColumnSet>
+  <SimpleCodeList>
+    <Row>
+      <Value ColumnRef="Code">
+        <SimpleValue>0121</SimpleValue>
+      </Value>
+      <Value ColumnRef="Beschreibung">
+        <SimpleValue>akteneinsicht.formellePruefung.0121</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="Code">
+        <SimpleValue>0201</SimpleValue>
+      </Value>
+      <Value ColumnRef="Beschreibung">
+        <SimpleValue>baugenehmigung.formellePruefung.0201</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="Code">
+        <SimpleValue>0203</SimpleValue>
+      </Value>
+      <Value ColumnRef="Beschreibung">
+        <SimpleValue>baugenehmigung.anhoerung.0203</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="Code">
+        <SimpleValue>0211</SimpleValue>
+      </Value>
+      <Value ColumnRef="Beschreibung">
+        <SimpleValue>vorbescheid.formellePruefung.0211</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="Code">
+        <SimpleValue>0213</SimpleValue>
+      </Value>
+      <Value ColumnRef="Beschreibung">
+        <SimpleValue>vorbescheid.anhoerung.0213</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="Code">
+        <SimpleValue>0221</SimpleValue>
+      </Value>
+      <Value ColumnRef="Beschreibung">
+        <SimpleValue>abweichung.formellePruefung.0221</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="Code">
+        <SimpleValue>0223</SimpleValue>
+      </Value>
+      <Value ColumnRef="Beschreibung">
+        <SimpleValue>abweichung.anhoerung.0223</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="Code">
+        <SimpleValue>0231</SimpleValue>
+      </Value>
+      <Value ColumnRef="Beschreibung">
+        <SimpleValue>teilbaugenehmigung.formellePruefung.0231</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="Code">
+        <SimpleValue>0233</SimpleValue>
+      </Value>
+      <Value ColumnRef="Beschreibung">
+        <SimpleValue>teilbaugenehmigung.anhoerung.0233</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="Code">
+        <SimpleValue>0241</SimpleValue>
+      </Value>
+      <Value ColumnRef="Beschreibung">
+        <SimpleValue>grundstuecksteilung.formellePruefung.0241</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="Code">
+        <SimpleValue>0243</SimpleValue>
+      </Value>
+      <Value ColumnRef="Beschreibung">
+        <SimpleValue>grundstuecksteilung.anhoerung.0243</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="Code">
+        <SimpleValue>0251</SimpleValue>
+      </Value>
+      <Value ColumnRef="Beschreibung">
+        <SimpleValue>abgeschlossenheit.formellePruefung.0251</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="Code">
+        <SimpleValue>0253</SimpleValue>
+      </Value>
+      <Value ColumnRef="Beschreibung">
+        <SimpleValue>abgeschlossenheit.anhoerung.0253</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="Code">
+        <SimpleValue>0261</SimpleValue>
+      </Value>
+      <Value ColumnRef="Beschreibung">
+        <SimpleValue>verlaengerung.formellePruefung.0261</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="Code">
+        <SimpleValue>0263</SimpleValue>
+      </Value>
+      <Value ColumnRef="Beschreibung">
+        <SimpleValue>verlaengerung.anhoerung.0263</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="Code">
+        <SimpleValue>0300</SimpleValue>
+      </Value>
+      <Value ColumnRef="Beschreibung">
+        <SimpleValue>beteiligung.aufforderung.0300</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="Code">
+        <SimpleValue>0301</SimpleValue>
+      </Value>
+      <Value ColumnRef="Beschreibung">
+        <SimpleValue>beteiligung.formellePruefung.0301</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="Code">
+        <SimpleValue>0302</SimpleValue>
+      </Value>
+      <Value ColumnRef="Beschreibung">
+        <SimpleValue>beteiligung.aufforderungKorrektur.0302</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="Code">
+        <SimpleValue>0306</SimpleValue>
+      </Value>
+      <Value ColumnRef="Beschreibung">
+        <SimpleValue>beteiligung.reaktionZwischennachricht.0306</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="Code">
+        <SimpleValue>0502</SimpleValue>
+      </Value>
+      <Value ColumnRef="Beschreibung">
+        <SimpleValue>pruefingenieure.formellePruefung.0502</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="Code">
+        <SimpleValue>0711</SimpleValue>
+      </Value>
+      <Value ColumnRef="Beschreibung">
+        <SimpleValue>baulastenverzeichnis.formellePruefung.0711</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="Code">
+        <SimpleValue>0900</SimpleValue>
+      </Value>
+      <Value ColumnRef="Beschreibung">
+        <SimpleValue>anzeige.baubeginn.0900</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="Code">
+        <SimpleValue>0912</SimpleValue>
+      </Value>
+      <Value ColumnRef="Beschreibung">
+        <SimpleValue>anzeige.nutzungsaufnahmeBauabnahme.0912</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="Code">
+        <SimpleValue>1140</SimpleValue>
+      </Value>
+      <Value ColumnRef="Beschreibung">
+        <SimpleValue>prozessnachrichten.formellePruefungBefundliste.1140</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="Code">
+        <SimpleValue>1160</SimpleValue>
+      </Value>
+      <Value ColumnRef="Beschreibung">
+        <SimpleValue>prozessnachrichten.gebuehrenbescheid.1160</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="Code">
+        <SimpleValue>1203</SimpleValue>
+      </Value>
+      <Value ColumnRef="Beschreibung">
+        <SimpleValue>universellerAntrag.materiellePruefungBefundliste.1203</SimpleValue>
+      </Value>
+    </Row>
+  </SimpleCodeList>
+</gc:CodeList>

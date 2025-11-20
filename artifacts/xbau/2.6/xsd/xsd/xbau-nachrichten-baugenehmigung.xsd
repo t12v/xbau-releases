@@ -19,7 +19,7 @@
          </standard>
          <versionStandard>
             <version>2.6</version>
-            <beschreibung>Erweiterung von Prozess und Nachrichten zur Baulast: Es wurden Nachrichten zur Löschung und zur Eintragung von Baulasten erstellt. Erweiterung des Prozesses Anzeige Bauzustand: Erweiterung zu einem vollständigen und produktionsreifen Prozess auf Basis der 900er-Nachrichten. Vervollständigung der Prozessstringenz: Es wurden Nachrichten zur Benachrichtigung über den Abruf des Bescheids und die Zustellquittierung sowie Hinweise auf die Rücknahmefiktion ergänzt. Geschäftsregeln: Es wurden Geschäftsregeln im Schematronstandard für Datenübermittlungen zur Hochbaustatistik bereitgestellt. Bauvorlageberechtigung: Vorbereitung auf den NOOTS-Betrieb durch Kennzeichnung aus dem Kammerregister abgerufener Daten. Weitere Details zu Erweiterungen und Änderungen sind in der Versionshistorie beschrieben.</beschreibung>
+            <beschreibung>Die Nachrichtenkommunikation im Beteiligungsverfahren wurde erweitert und flexibilisiert. Das Baulastverfahren wurde erweitert um eine Vielzahl von Details, u.a. wurden Nachrichtentypen zur Eintragung und zur Löschung von Baulasten definiert. Die Anzeigeprozesse zum Bauzustand wurden weiterentwickelt zu einer stringent geregelten Nachrichtenkommunikation auf Basis der 900er-Nachrichten. Es wurde die Benachrichtigung über einen Bescheidabruf eingeführt, auch ist in XBau jetzt ein Mechanismus für die generische Zustellquittierung enthalten. Es wurden für die Datenübermittlung an die statistischen Ämter XML-Geschäftsregeln zur technischen Überprüfung auf Basis der Technologie ISO-Schematron bereitgestellt. Die Prozesse der Statistikmeldungen wurden auf genehmigungsfreigestellte Verfahren ausgedehnt. Für den Prozess Nachweis Bauvorlageberechtigung können jetzt aus dem Kammerregister abgerufene Daten als solche gekennzeichnet und in ihrer Anwendung in der Antragstellung nachvollzogen werden. Der Prozess zur Abgeschlossenheitsbescheinigung wurde vervollständigt und ausdifferenziert. Die weiteren Details zu Erweiterungen und Änderungen sind in der Versionshistorie des Spezifikationsdokuments beschrieben.</beschreibung>
             <versionXOEVProfil>3.0.0</versionXOEVProfil>
             <versionXOEVHandbuch>3.0.1</versionXOEVHandbuch>
             <versionXGenerator>3.1.1</versionXGenerator>
@@ -105,17 +105,17 @@
                         <xs:documentation>Falls Baulasterklärungen im Rahmen des Baugenehmigungsverfahrens gefordert sind, können hier der Zweck der angestrebten Baulast sowie der zu regelnde Sachverhalt beschrieben werden. Ein passendes Dokument Baulasterklärung muss sich dann unter den Anlagen dieser Nachricht finden. Jede Instanz des Elements steht für eine erklärte Baulast.</xs:documentation>
                      </xs:annotation>
                   </xs:element>
-                  <xs:element name="anlagen" type="xbau:Anlagen">
-                     <xs:annotation>
-                        <xs:documentation>Die für die Planung des Vorhabens notwendigen Bauvorlagen sind dem Antrag als Anlage beizufügen (MBO, MBauVorlV). In diesem Element sind die nötigen Daten enthalten. Anlagen zum Bauantrag sind in erster Linie, aber nicht ausschließlich, Bauvorlagen.</xs:documentation>
-                     </xs:annotation>
-                  </xs:element>
                   <xs:element name="datenabruf"
                               minOccurs="0"
                               maxOccurs="unbounded"
                               type="xbau:DatenabrufType">
                      <xs:annotation>
-                        <xs:documentation>In diesem Element können die Metadaten eines Datenabrufs, z.B. aus einem Register, angegeben werden.</xs:documentation>
+                        <xs:documentation>In diesem Element können die Metadaten eines Datenabrufs aus einem Register angegeben werden. Das Element ist nur bei erfolgreichem Datenabruf zu übermitteln.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+                  <xs:element name="anlagen" type="xbau:Anlagen">
+                     <xs:annotation>
+                        <xs:documentation>Die für die Planung des Vorhabens notwendigen Bauvorlagen sind dem Antrag als Anlage beizufügen (MBO, MBauVorlV). In diesem Element sind die nötigen Daten enthalten. Anlagen zum Bauantrag sind in erster Linie, aber nicht ausschließlich, Bauvorlagen.</xs:documentation>
                      </xs:annotation>
                   </xs:element>
                </xs:sequence>
@@ -129,7 +129,7 @@
             <rechtsgrundlage>§ 69 (2) MBO</rechtsgrundlage>
             <title>Ergebnis der formellen Prüfung</title>
          </xs:appinfo>
-         <xs:documentation>Diese Nachricht bezieht sich auf einen bereits gestellten Bauantrag. Enthalten sind hier die Ergebnisse der formellen Prüfung (Befunde) sowie eine Frist, innerhalb derer der Antragsteller den Antrag zum Bauvorhaben bzw. die Bauunterlagen anzupassen hat, falls in der formellen Prüfung Mängel festgestellt wurden. Falls im Rahmen der formellen Prüfung alle Merkmale positiv bewertet wurden (Zuständigkeit ist gegeben, Unterlagen liegen vollständig vor usw.), sind hier Angaben zur Genehmigungsfrist und zu den eingereichten Unterlagen enthalten.</xs:documentation>
+         <xs:documentation>Diese Nachricht bezieht sich auf einen bereits gestellten Bauantrag. Enthalten sind hier die Ergebnisse der formellen Prüfung (Befunde) sowie eine Frist, innerhalb derer der Antragsteller den Antrag zum Bauvorhaben bzw. die Bauunterlagen anzupassen hat, falls in der formellen Prüfung Mängel festgestellt wurden. Falls im Rahmen der formellen Prüfung alle Merkmale positiv bewertet wurden (Zuständigkeit ist gegeben, Unterlagen liegen vollständig vor usw.), sind hier Angaben zur Genehmigungsfrist und zu den eingereichten Unterlagen enthalten. Bei Bedarf kann diese Nachricht mehrfach versandt werden, z.B. wenn die Bauaufsicht vor Beantwortung der vorherigen Nachforderung zu neuen Erkenntnissen gelangt oder bei Verstreichen der Frist eine weitere Aufforderung mit Mahnung und neuer Frist folgen soll.</xs:documentation>
       </xs:annotation>
       <xs:complexType>
          <xs:complexContent>

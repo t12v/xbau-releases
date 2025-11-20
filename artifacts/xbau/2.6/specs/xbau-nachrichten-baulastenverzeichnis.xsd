@@ -18,7 +18,7 @@
          </standard>
          <versionStandard>
             <version>2.6</version>
-            <beschreibung>Erweiterung von Prozess und Nachrichten zur Baulast: Es wurden Nachrichten zur Löschung und zur Eintragung von Baulasten erstellt. Erweiterung des Prozesses Anzeige Bauzustand: Erweiterung zu einem vollständigen und produktionsreifen Prozess auf Basis der 900er-Nachrichten. Vervollständigung der Prozessstringenz: Es wurden Nachrichten zur Benachrichtigung über den Abruf des Bescheids und die Zustellquittierung sowie Hinweise auf die Rücknahmefiktion ergänzt. Geschäftsregeln: Es wurden Geschäftsregeln im Schematronstandard für Datenübermittlungen zur Hochbaustatistik bereitgestellt. Bauvorlageberechtigung: Vorbereitung auf den NOOTS-Betrieb durch Kennzeichnung aus dem Kammerregister abgerufener Daten. Weitere Details zu Erweiterungen und Änderungen sind in der Versionshistorie beschrieben.</beschreibung>
+            <beschreibung>Die Nachrichtenkommunikation im Beteiligungsverfahren wurde erweitert und flexibilisiert. Das Baulastverfahren wurde erweitert um eine Vielzahl von Details, u.a. wurden Nachrichtentypen zur Eintragung und zur Löschung von Baulasten definiert. Die Anzeigeprozesse zum Bauzustand wurden weiterentwickelt zu einer stringent geregelten Nachrichtenkommunikation auf Basis der 900er-Nachrichten. Es wurde die Benachrichtigung über einen Bescheidabruf eingeführt, auch ist in XBau jetzt ein Mechanismus für die generische Zustellquittierung enthalten. Es wurden für die Datenübermittlung an die statistischen Ämter XML-Geschäftsregeln zur technischen Überprüfung auf Basis der Technologie ISO-Schematron bereitgestellt. Die Prozesse der Statistikmeldungen wurden auf genehmigungsfreigestellte Verfahren ausgedehnt. Für den Prozess Nachweis Bauvorlageberechtigung können jetzt aus dem Kammerregister abgerufene Daten als solche gekennzeichnet und in ihrer Anwendung in der Antragstellung nachvollzogen werden. Der Prozess zur Abgeschlossenheitsbescheinigung wurde vervollständigt und ausdifferenziert. Die weiteren Details zu Erweiterungen und Änderungen sind in der Versionshistorie des Spezifikationsdokuments beschrieben.</beschreibung>
             <versionXOEVProfil>3.0.0</versionXOEVProfil>
             <versionXOEVHandbuch>3.0.1</versionXOEVHandbuch>
             <versionXGenerator>3.1.1</versionXGenerator>
@@ -180,7 +180,7 @@
             <rechtsgrundlage>§ 83 (5) MBO</rechtsgrundlage>
             <title>Änderungen zur Anfrage</title>
          </xs:appinfo>
-         <xs:documentation>Diese Nachricht enthält geänderte oder ergänzte Daten der Anfrage auf Baulastauskunft. Sie bezieht sich also auf eine bereits gestellte Antrage und ist in der Regel eine Reaktion auf eine zur Anfrage vorliegenden Mängelliste der Behörde.</xs:documentation>
+         <xs:documentation>Diese Nachricht enthält geänderte oder ergänzte Daten der Anfrage auf Baulastauskunft. Sie bezieht sich also auf eine bereits gestellte Anfrage und ist in der Regel eine Reaktion auf eine zur Anfrage vorliegenden Mängelliste der Behörde.</xs:documentation>
       </xs:annotation>
       <xs:complexType>
          <xs:complexContent>
@@ -229,7 +229,7 @@
             <rechtsgrundlage>§ 83 (5) MBO</rechtsgrundlage>
             <title>Auskunft aus dem Baulastenverzeichnis</title>
          </xs:appinfo>
-         <xs:documentation>Diese Nachricht liefert die Auskunft aus dem Baulastenverzeichnis: Sofern die Anfrage nicht bearbeitet werden kann, wird mit diesem Element eine Negativantwort zurückgegeben. Sofern die Anfrage bearbeitet werden kann, werden mit diesem Element die Daten der Baulastauskunft übermittelt.</xs:documentation>
+         <xs:documentation>Diese Nachricht liefert die Auskunft aus dem Baulastenverzeichnis. Die Nachricht bündelt sowohl alle Negativantworten (es liegt kein berechtigtes Interesse vor), alle positiven Ergebnisse (Information aus dem Baulastenverzeichnis kann abgerufen werden) als auch alle negativen Ergebnisse (Angabe zum Flurstück war nicht korrekt, keine Auskunft möglich). Somit erhält der Antragsteller nur eine gebündelte Antwortnachricht.</xs:documentation>
       </xs:annotation>
       <xs:complexType>
          <xs:complexContent>
@@ -242,42 +242,42 @@
                   </xs:element>
                   <xs:element minOccurs="0" name="ergebnis">
                      <xs:complexType>
-                        <xs:choice>
-                           <xs:element minOccurs="0" name="negativantwort">
+                        <xs:sequence>
+                           <xs:element minOccurs="0" name="grundstueck" maxOccurs="unbounded">
                               <xs:annotation>
-                                 <xs:documentation>Sofern die Anfrage nicht bearbeitet werden kann, wird mit diesem Element eine Negativantwort zurückgegeben.</xs:documentation>
+                                 <xs:documentation>Mit diesem Element werden die Daten zu einem der Grundstücke übermittelt, auf das sich die Baulastauskunft bezieht.</xs:documentation>
                               </xs:annotation>
                               <xs:complexType>
                                  <xs:sequence>
-                                    <xs:element minOccurs="0"
-                                                name="negativantwort"
-                                                default="true"
-                                                type="xs:boolean">
+                                    <xs:element minOccurs="0" name="angabeGrundstueck" type="xbau:Grundstueck">
                                        <xs:annotation>
-                                          <xs:documentation>Mit diesem Element wird eine Negativantwort zurückgegeben.</xs:documentation>
+                                          <xs:documentation>Dieses Element enthält Angaben zum Grundstück, auf das sich die Anfrage bezieht.</xs:documentation>
                                        </xs:annotation>
                                     </xs:element>
-                                    <xs:element minOccurs="0" name="begruendung" type="xbauk:TextFormatiert">
+                                    <xs:element minOccurs="0"
+                                                name="baulastErgebnis"
+                                                type="xbau:Code.Baulastauskunft">
                                        <xs:annotation>
-                                          <xs:documentation>In diesem Element wird die entsprechende Begründung zur Negativantwort geliefert.</xs:documentation>
+                                          <xs:documentation>Mit diesem Element werden nähere Informationen zur Baulastauskunft übermittelt.</xs:documentation>
+                                       </xs:annotation>
+                                    </xs:element>
+                                    <xs:element minOccurs="0"
+                                                name="baulastDaten"
+                                                maxOccurs="unbounded"
+                                                type="xbau:BaulastErweitert">
+                                       <xs:annotation>
+                                          <xs:documentation>Falls Baulasten vorhanden sind, beinhaltet dieses Element die Daten der Baulast aus dem Baulastenverzeichnis.</xs:documentation>
                                        </xs:annotation>
                                     </xs:element>
                                     <xs:element minOccurs="0" name="anlagen" type="xbau:Anlagen">
                                        <xs:annotation>
-                                          <xs:documentation>Hier sind die Anlagen zur negativen Antwort enthalten. Jede Instanz des Elements steht für ein angehängtes Dokument.</xs:documentation>
+                                          <xs:documentation>Falls Baulasten vorhanden sind, werden mit diesem Element Anlagen, wie beispielsweise Zeichnungen, Baulastenblatt oder Lageplan, übermittelt.</xs:documentation>
                                        </xs:annotation>
                                     </xs:element>
                                  </xs:sequence>
                               </xs:complexType>
                            </xs:element>
-                           <xs:element minOccurs="0"
-                                       name="auskunft"
-                                       type="xbau:GrundstueckBaulastauskunft">
-                              <xs:annotation>
-                                 <xs:documentation>Sofern die Anfrage bearbeitet werden kann, werden mit diesem Element die Daten der Baulastauskunft übermittelt.</xs:documentation>
-                              </xs:annotation>
-                           </xs:element>
-                        </xs:choice>
+                        </xs:sequence>
                      </xs:complexType>
                   </xs:element>
                </xs:sequence>

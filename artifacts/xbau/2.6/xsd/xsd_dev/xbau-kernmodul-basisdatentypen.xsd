@@ -16,7 +16,7 @@
          </standard>
          <versionStandard>
             <version>1.3.0</version>
-            <beschreibung>Vervollständigung der Prozessstringenz: Es wurden Nachrichten zur Benachrichtigung über den Abruf des Bescheids und die Zustellquittierung sowie Hinweise auf die Rücknahmefiktion ergänzt. Generischer Antrag: verbesserte Zuordnung von Anträgen durch Verwendung einer Auswahlliste für die Antragsart. Details zu den Änderungen sind in der Versionshistorie enthalten.</beschreibung>
+            <beschreibung>Die Prozessstringenz der Prozesse der XBau-Nachrichtenkommunikation wurde vervollständigt. Es kann jetzt über den Abruf eines Bescheids informiert werden. Eine generische Quittungsnachricht für fristauslösende Nachrichtenzustellungen wurde neu aufgenommen. Für den generischen Antragsprozess wurde die Zuordnung von Anträgen verbessert durch Aufnahme einer Auswahlliste für die abgedeckten Antragsarten. Weitere Details zu Änderungen sind in der Versionshistorie des Spezifikationsdokuments enthalten.</beschreibung>
             <versionXOEVProfil>3.0.0</versionXOEVProfil>
             <versionXOEVHandbuch>3.0.1</versionXOEVHandbuch>
             <versionXGenerator>3.1.1</versionXGenerator>

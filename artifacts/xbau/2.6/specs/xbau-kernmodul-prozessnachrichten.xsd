@@ -19,7 +19,7 @@
          </standard>
          <versionStandard>
             <version>1.3.0</version>
-            <beschreibung>Vervollständigung der Prozessstringenz: Es wurden Nachrichten zur Benachrichtigung über den Abruf des Bescheids und die Zustellquittierung sowie Hinweise auf die Rücknahmefiktion ergänzt. Generischer Antrag: verbesserte Zuordnung von Anträgen durch Verwendung einer Auswahlliste für die Antragsart. Details zu den Änderungen sind in der Versionshistorie enthalten.</beschreibung>
+            <beschreibung>Die Prozessstringenz der Prozesse der XBau-Nachrichtenkommunikation wurde vervollständigt. Es kann jetzt über den Abruf eines Bescheids informiert werden. Eine generische Quittungsnachricht für fristauslösende Nachrichtenzustellungen wurde neu aufgenommen. Für den generischen Antragsprozess wurde die Zuordnung von Anträgen verbessert durch Aufnahme einer Auswahlliste für die abgedeckten Antragsarten. Weitere Details zu Änderungen sind in der Versionshistorie des Spezifikationsdokuments enthalten.</beschreibung>
             <versionXOEVProfil>3.0.0</versionXOEVProfil>
             <versionXOEVHandbuch>3.0.1</versionXOEVHandbuch>
             <versionXGenerator>3.1.1</versionXGenerator>
@@ -68,7 +68,7 @@
    <xs:element name="prozessnachrichten.eingangsbestaetigung.1120">
       <xs:annotation>
          <xs:appinfo>
-            <title>Bestägigung Eingang von Antrag oder Anzeige</title>
+            <title>Bestätigung Eingang von Antrag oder Anzeige</title>
          </xs:appinfo>
          <xs:documentation>Diese Nachricht wird durch die Fachbehörde verwendet, um als Reaktion auf einen Antrag (modifizierten Antrag, Rücknahme eines Antrags, Anzeige) zu informieren, dass das Anliegen eingegangen ist und sich in Bearbeitung befindet. Sie enthält die nötigen Informationen, um den Bezug auf die Nachricht, deren Eingang sie bestätigt, herzustellen.</xs:documentation>
       </xs:annotation>
@@ -426,7 +426,7 @@
          <xs:appinfo>
             <title>Quittierung des Eingangs einer Nachricht</title>
          </xs:appinfo>
-         <xs:documentation>Diese Nachricht kann verwendet werden, um den Eingang einer beliebigen Nachricht - sowohl der Behörde als auch des Antragstellers - zu quittieren. Sie enthält einen Bezug auf die quittierte Nachricht und deren Nachrichtentyp, optional auch eine zusätzliche Information.</xs:documentation>
+         <xs:documentation>Diese Nachricht wird durch die Fachbehörde oder das Bauportal verwendet, um den Eingang einer Nachricht zu quittieren. Sie ist nur zu verwenden, wenn für den zu quittierenden Nachrichtentyp keine spezifische Quittungsnachricht vorgesehen ist.</xs:documentation>
       </xs:annotation>
       <xs:complexType>
          <xs:complexContent>
@@ -441,7 +441,7 @@
                               name="nachrichtentyp"
                               type="xbauk:Code.XBau-QuittierteNachricht">
                      <xs:annotation>
-                        <xs:documentation>Hier ist der Nachrichtentyp auszuwählen, den die zu quittierende Nachricht hat. Die Eingangsquittierung ist nicht grundsätzlich für alle, sondern nur für fristenrelevante Nachrichten vorgesehen, bei denen der Eingang im Bauportal quittiert werden soll.</xs:documentation>
+                        <xs:documentation>Hier ist der Typ der Nachricht auszuwählen, die mit der vorliegenden Nachricht quittiert wird.</xs:documentation>
                      </xs:annotation>
                   </xs:element>
                   <xs:element minOccurs="0" name="information" type="xbauk:Text">
@@ -457,9 +457,9 @@
    <xs:element name="prozessnachrichten.generischeRueckmeldungAbruf.1181">
       <xs:annotation>
          <xs:appinfo>
-            <title>Rückmeldung über den Abruf einer Nachricht</title>
+            <title>Rückmeldung über den Abruf eines Bescheids</title>
          </xs:appinfo>
-         <xs:documentation>Diese Nachricht kann verwendet werden, um rückzumelden, ob eine von der Behörde übermittelte Nachricht durch den Antragsteller fristgerecht abgerufen wurde. Sie kann in zwei Situationen übermittelt werden: Entweder, wenn der Abruf der referenzierten Nachricht innerhalb der vorgesehenen Frist erfolgte, oder wenn die Frist verstrichen ist und kein Abruf erfolgte. Die Nachricht enthält im Minimalfall lediglich einen Bezug auf die abzurufende Nachricht und die Information, ob der Abruf fristgerecht erfolgt ist. Zusätzlich kann die Frist und eine Zusatzinformation angegeben werden.</xs:documentation>
+         <xs:documentation>Diese Nachricht ist vom Bauportal zu verwenden um der Fachbehörde rückzumelden, dass ein von der Behörde übermittelter Bescheid durch den Antragsteller abgerufen worden ist bzw. dass dies nicht innerhalb der vorgesehenen Frist erfolgt ist. Sie wird folglich in zwei Situationen versendet: Entweder, wenn der Abruf der referenzierten Bescheidnachricht innerhalb der vorgesehenen Frist erfolgte, oder wenn die Frist verstrichen ist und kein Abruf erfolgt ist. Die Nachricht enthält im Minimalfall lediglich den Bezug auf die abzurufende Bescheidnachricht und die Information, ob der Abruf fristgerecht erfolgt ist oder nicht. Zusätzlich kann die Frist und ggf. eine Zusatzinformation in der Nachricht enthalten sein.</xs:documentation>
       </xs:annotation>
       <xs:complexType>
          <xs:complexContent>

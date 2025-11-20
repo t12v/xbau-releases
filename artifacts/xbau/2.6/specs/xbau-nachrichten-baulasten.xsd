@@ -17,7 +17,7 @@
          </standard>
          <versionStandard>
             <version>2.6</version>
-            <beschreibung>Erweiterung von Prozess und Nachrichten zur Baulast: Es wurden Nachrichten zur Löschung und zur Eintragung von Baulasten erstellt. Erweiterung des Prozesses Anzeige Bauzustand: Erweiterung zu einem vollständigen und produktionsreifen Prozess auf Basis der 900er-Nachrichten. Vervollständigung der Prozessstringenz: Es wurden Nachrichten zur Benachrichtigung über den Abruf des Bescheids und die Zustellquittierung sowie Hinweise auf die Rücknahmefiktion ergänzt. Geschäftsregeln: Es wurden Geschäftsregeln im Schematronstandard für Datenübermittlungen zur Hochbaustatistik bereitgestellt. Bauvorlageberechtigung: Vorbereitung auf den NOOTS-Betrieb durch Kennzeichnung aus dem Kammerregister abgerufener Daten. Weitere Details zu Erweiterungen und Änderungen sind in der Versionshistorie beschrieben.</beschreibung>
+            <beschreibung>Die Nachrichtenkommunikation im Beteiligungsverfahren wurde erweitert und flexibilisiert. Das Baulastverfahren wurde erweitert um eine Vielzahl von Details, u.a. wurden Nachrichtentypen zur Eintragung und zur Löschung von Baulasten definiert. Die Anzeigeprozesse zum Bauzustand wurden weiterentwickelt zu einer stringent geregelten Nachrichtenkommunikation auf Basis der 900er-Nachrichten. Es wurde die Benachrichtigung über einen Bescheidabruf eingeführt, auch ist in XBau jetzt ein Mechanismus für die generische Zustellquittierung enthalten. Es wurden für die Datenübermittlung an die statistischen Ämter XML-Geschäftsregeln zur technischen Überprüfung auf Basis der Technologie ISO-Schematron bereitgestellt. Die Prozesse der Statistikmeldungen wurden auf genehmigungsfreigestellte Verfahren ausgedehnt. Für den Prozess Nachweis Bauvorlageberechtigung können jetzt aus dem Kammerregister abgerufene Daten als solche gekennzeichnet und in ihrer Anwendung in der Antragstellung nachvollzogen werden. Der Prozess zur Abgeschlossenheitsbescheinigung wurde vervollständigt und ausdifferenziert. Die weiteren Details zu Erweiterungen und Änderungen sind in der Versionshistorie des Spezifikationsdokuments beschrieben.</beschreibung>
             <versionXOEVProfil>3.0.0</versionXOEVProfil>
             <versionXOEVHandbuch>3.0.1</versionXOEVHandbuch>
             <versionXGenerator>3.1.1</versionXGenerator>
@@ -35,20 +35,22 @@
             <rechtsgrundlage>§ 83 (1, 2) MBO</rechtsgrundlage>
             <title>Baulasterklärung</title>
          </xs:appinfo>
-         <xs:documentation>Diese Nachricht dient dazu, der Bauaufsichtsbehörde die Baulast-Erklärung sowie ergänzende Dokumentationen zuzustellen. Falls auf Basis einer von der Bauaufsichtsbehörde erstellten Befundliste die zusammengestellten Unterlagen ergänzt bzw. korrigiert wurden, werden diese ebenfalls per Nachricht 0700 versandt.</xs:documentation>
+         <xs:documentation>Diese Nachricht dient dazu, der Bauaufsichtsbehörde die Baulast-Erklärung sowie ergänzende Dokumentationen zuzustellen.</xs:documentation>
       </xs:annotation>
       <xs:complexType>
          <xs:complexContent>
             <xs:extension base="xbau:Nachricht.G2G">
                <xs:sequence>
-                  <xs:element minOccurs="0" name="bezug" type="xbauk:BezugErweitert">
-                     <xs:annotation>
-                        <xs:documentation>Im Kontext einer nicht-selbständigen Baulasterklärung wird hier der Bezug zu einem laufenden Baugenehmigungsverfahren hergestellt. Im anderen Fall existiert noch keine Vorgangsnummer, so dass dieses Element nicht verwendet wird. Falls die Nachricht 0700 genutzt wird, um korrigierte Unterlagen an die Behörde zu übermitteln (angefordert durch Nachricht 0701), wird in diesem Element, der laufende Vorgang der Bearbeitung der Baulasterklärung und die Nachricht baulasten.vorlageErklaerung.0700 genannt, durch deren Eingang bei der Bauaufsichtsbehörde der Vorgang ausgelöst worden ist.</xs:documentation>
-                     </xs:annotation>
-                  </xs:element>
-                  <xs:element minOccurs="0" name="referenzBaulast" type="xbau:ReferenzBaulast">
+                  <xs:element minOccurs="0"
+                              name="referenzBaulast"
+                              type="xbauk:ReferenzAntragsservice">
                      <xs:annotation>
                         <xs:documentation>Eine von der Antragsplattform mit dieser Nachricht vergebene eindeutige Kennung des Vorgangs zur Baulasteintragung. In nachfolgenden Nachrichten zur Baulasteintragung ist zur Bezugnahme diese Kennung zu verwenden.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+                  <xs:element minOccurs="0" name="bezug" type="xbauk:BezugErweitert">
+                     <xs:annotation>
+                        <xs:documentation>Im Kontext einer nicht-selbständigen Baulasterklärung wird hier der Bezug zu einem laufenden Baugenehmigungsverfahren hergestellt. Im anderen Fall existiert noch keine Vorgangsnummer, so dass dieses Element nicht verwendet wird.</xs:documentation>
                      </xs:annotation>
                   </xs:element>
                   <xs:element minOccurs="0"
@@ -83,18 +85,27 @@
                <xs:sequence>
                   <xs:element minOccurs="0" name="bezug" type="xbauk:BezugErweitert">
                      <xs:annotation>
-                        <xs:documentation>In diesem Element wird der Vorgang (Vorgangsnummer, unter der die Behörde die Baulasterklärung bearbeitet) genannt bzw. dem Antragsteller mitgeteilt bzw. die Nachricht baulasten.vorlageErklaerung.0700 eingetragen, durch deren Eingang bei der Bauaufsichtsbehörde der Vorgang ausgelöst worden ist.</xs:documentation>
+                        <xs:documentation>In diesem Element wird der laufende Vorgang der Bearbeitung der Baulasterklärung und die Nachricht baulasten. vorlageErklaerung.0700 genannt, durch deren Eingang bei der Bauaufsichtsbehörde der Vorgang ausgelöst worden ist.</xs:documentation>
                      </xs:annotation>
                   </xs:element>
-                  <xs:element minOccurs="0" name="referenzBaulast" type="xbau:ReferenzBaulast">
+                  <xs:element minOccurs="0" name="befundfrist">
                      <xs:annotation>
-                        <xs:documentation>Hier ist zur Referenzierung die von der Antragsplattform vergebene eindeutige Kennung des Vorgangs zur Baulasteintragung anzugeben.</xs:documentation>
+                        <xs:documentation>Die Befundliste enthält die Ergebnisse der formellen und materiellen Prüfung durch die Bauaufsichtsbehörde. Enthalten ist außerdem eine Frist zur Korrektur der Baulast-Erklärung durch den Antragsteller.</xs:documentation>
                      </xs:annotation>
-                  </xs:element>
-                  <xs:element minOccurs="0" name="befundliste" type="xbau:BefundlisteFormell">
-                     <xs:annotation>
-                        <xs:documentation>Hier sind die Ergebnisse der formellen Prüfung enthalten. Die Liste nennt die Mängel, die bei der Prüfung der Baulast-Erklärung aufgefallen sind.</xs:documentation>
-                     </xs:annotation>
+                     <xs:complexType>
+                        <xs:sequence>
+                           <xs:element minOccurs="0" name="befundliste" type="xbau:BefundlisteFormell">
+                              <xs:annotation>
+                                 <xs:documentation>Hier können die Ergebnisse der formellen Prüfung in Form einer strukturierten Befundliste eingetragen werden (die Liste zählt Mängel der Anfrage auf).</xs:documentation>
+                              </xs:annotation>
+                           </xs:element>
+                           <xs:element minOccurs="0" name="frist" type="xs:date">
+                              <xs:annotation>
+                                 <xs:documentation>Hier kann eine durch die Behörde gesetzte Frist eingetragen werden, innerhalb derer die genannten Mängel durch den Antragsteller zu beseitigen sind und eine überarbeitete Anfrage einzureichen ist.</xs:documentation>
+                              </xs:annotation>
+                           </xs:element>
+                        </xs:sequence>
+                     </xs:complexType>
                   </xs:element>
                   <xs:element minOccurs="0" name="anlagen" type="xbau:Anlagen">
                      <xs:annotation>
@@ -120,12 +131,7 @@
                <xs:sequence>
                   <xs:element minOccurs="0" name="bezug" type="xbauk:BezugErweitert">
                      <xs:annotation>
-                        <xs:documentation>In diesem Element wird der laufende Vorgang der Bearbeitung der Baulasterklärung genannt und die Nachricht baulasten.vorlageErklaerung.0700 genannt, durch deren Eingang bei der Bauaufsichtsbehörde der Vorgang ausgelöst worden ist.</xs:documentation>
-                     </xs:annotation>
-                  </xs:element>
-                  <xs:element minOccurs="0" name="referenzBaulast" type="xbau:ReferenzBaulast">
-                     <xs:annotation>
-                        <xs:documentation>Hier ist zur Referenzierung die von der Antragsplattform vergebene eindeutige Kennung des Vorgangs zur Baulasteintragung anzugeben.</xs:documentation>
+                        <xs:documentation>In diesem Element wird der laufende Vorgang der Bearbeitung der Baulasterklärung und die Nachricht baulasten.vorlageErklaerung.0700 genannt, durch deren Eingang bei der Bauaufsichtsbehörde der Vorgang ausgelöst worden ist.</xs:documentation>
                      </xs:annotation>
                   </xs:element>
                   <xs:element minOccurs="0" name="sachverhalt">
@@ -174,11 +180,6 @@
                         <xs:documentation>In diesem Element wird der laufende Vorgang der Bearbeitung der Baulasterklärung und die Nachricht baulasten.vorlageErklaerung.0700 genannt, durch deren Eingang bei der Bauaufsichtsbehörde der Vorgang ausgelöst worden ist.</xs:documentation>
                      </xs:annotation>
                   </xs:element>
-                  <xs:element minOccurs="0" name="referenzBaulast" type="xbau:ReferenzBaulast">
-                     <xs:annotation>
-                        <xs:documentation>Hier ist zur Referenzierung die von der Antragsplattform vergebene eindeutige Kennung des Vorgangs zur Baulasteintragung anzugeben.</xs:documentation>
-                     </xs:annotation>
-                  </xs:element>
                   <xs:element minOccurs="0"
                               name="baulast"
                               maxOccurs="unbounded"
@@ -190,6 +191,41 @@
                   <xs:element minOccurs="0" name="anlagen" type="xbau:Anlagen">
                      <xs:annotation>
                         <xs:documentation>Hier sind alle Pläne beizufügen, in denen der Gegenstand der Baulasterklärung eindeutig dargestellt ist.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+               </xs:sequence>
+            </xs:extension>
+         </xs:complexContent>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="baulasten.korrekturErklaerung.0704">
+      <xs:annotation>
+         <xs:appinfo>
+            <rechtsgrundlage>§ 83 (1, 2) MBO</rechtsgrundlage>
+            <title>Korrektur zur Baulasterklärung</title>
+         </xs:appinfo>
+         <xs:documentation>Diese Nachricht enthält eine Korrektur oder eine Ergänzung der Baulast-Erklärung. Sie bezieht sich also auf eine bereits abgegebene Erklärung und ist eine Reaktion auf eine zur Erklärung vorliegende Mängelliste der Behörde.</xs:documentation>
+      </xs:annotation>
+      <xs:complexType>
+         <xs:complexContent>
+            <xs:extension base="xbau:Nachricht.G2G">
+               <xs:sequence>
+                  <xs:element minOccurs="0" name="bezug" type="xbauk:BezugErweitert">
+                     <xs:annotation>
+                        <xs:documentation>In diesem Element wird der laufende Vorgang der Bearbeitung der Baulasterklärung und die Nachricht baulasten.vorlageErklaerung.0700 genannt, durch deren Eingang bei der Bauaufsichtsbehörde der Vorgang ausgelöst worden ist.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+                  <xs:element minOccurs="0"
+                              name="baulast"
+                              maxOccurs="unbounded"
+                              type="xbau:Baulast">
+                     <xs:annotation>
+                        <xs:documentation>Falls Baulasterklärungen im Rahmen des Baugenehmigungsverfahrens gefordert sind, können hier der Zweck der angestrebten Baulast sowie der zu regelnde Sachverhalt beschrieben werden. Ein passendes Dokument Baulasterklärung muss sich dann unter den Anlagen dieser Nachricht finden. Jede Instanz des Elements steht für eine erklärte Baulast.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+                  <xs:element minOccurs="0" name="anlagen" type="xbau:Anlagen">
+                     <xs:annotation>
+                        <xs:documentation>Hier sind alle Pläne darzustellen, die für die Eindeutigkeit der Baulasterklärung relevant sind.</xs:documentation>
                      </xs:annotation>
                   </xs:element>
                </xs:sequence>

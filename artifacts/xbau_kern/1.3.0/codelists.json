@@ -1,4 +1,5 @@
 [
+    "urn:xoev-de:xbau:codeliste:nachricht-eingangsquittierung_1.0.xml",
     "urn:de:bund:destatis:bevoelkerungsstatistik:schluessel:bezirk_2016-11-30.xml",
     "urn:de:bund:destatis:bevoelkerungsstatistik:schluessel:bezirk_2013-04-01.xml",
     "urn:de:bund:destatis:bevoelkerungsstatistik:schluessel:bezirk_2010-04-01.xml",
@@ -53,6 +54,7 @@
     "urn:de:bund:destatis:bevoelkerungsstatistik:schluessel:ags_2011-01-01.xml",
     "urn:de:bund:destatis:bevoelkerungsstatistik:schluessel:ags_2022-05-31.xml",
     "urn:de:bund:destatis:bevoelkerungsstatistik:schluessel:ags_2024-06-30.xml",
+    "urn:de:bund:destatis:bevoelkerungsstatistik:schluessel:ags_2025-11-30.xml",
     "urn:de:bund:destatis:bevoelkerungsstatistik:schluessel:ags_2019-04-30.xml",
     "urn:de:bund:destatis:bevoelkerungsstatistik:schluessel:ags_2022-08-31.xml",
     "urn:de:bund:destatis:bevoelkerungsstatistik:schluessel:ags_2025-08-31.xml",
@@ -192,6 +194,7 @@
     "urn:de:bund:destatis:bevoelkerungsstatistik:schluessel:rs_2016-01-01.xml",
     "urn:de:bund:destatis:bevoelkerungsstatistik:schluessel:rs_2025-08-31.xml",
     "urn:de:bund:destatis:bevoelkerungsstatistik:schluessel:rs_2013-06-01.xml",
+    "urn:de:bund:destatis:bevoelkerungsstatistik:schluessel:rs_2025-11-30.xml",
     "urn:de:bund:destatis:bevoelkerungsstatistik:schluessel:rs_2016-06-01.xml",
     "urn:de:bund:destatis:bevoelkerungsstatistik:schluessel:rs_2024-06-30.xml",
     "urn:de:bund:destatis:bevoelkerungsstatistik:schluessel:rs_2016-10-31.xml",

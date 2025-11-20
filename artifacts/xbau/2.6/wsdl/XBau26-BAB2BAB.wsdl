@@ -21,7 +21,7 @@
       </tpl:categories><![CDATA[<html><head><title>Datenübermittlungen der Bauaufsichtsbehörden an die Bauaufsichtsbehörden</title></head>
 <body><p>Folgende Nachrichten des XBau-Schemas sind als Input der Operation <i>sendeBAB2BAB</i> zulässig:<ul><ul>
             <li>baulasten.eintragung.0703</li>
-            <li>baulastloeschung.loeschungEintrag.0723</li>
+            <li>baulastloeschung.loeschungEintrag.0725</li>
          </ul></ul></p><p>Organisationsschlüssel für <i>find.servicedescription</i>-Anfragen sind die amtlichen Gemeindeschlüssel bzw. Kreiskennungen der Bauaufsichtsbehörden; der zu verwendende Präfix lautet "<b>bab</b>".</p><p>
 Zulässige Dienstanbieter sind ausschließlich Organisationen der DVDV-Organisationskategorie "<b>Bauaufsichtsbehörde</b>". 
 Zulässige Dienstnutzer sind ausschließlich Organisationen in der DVDV-Organisationskategorie "<b>Bauaufsichtsbehörde</b>".</p></body></html>]]></documentation>
@@ -37,7 +37,7 @@ Zulässige Dienstnutzer sind ausschließlich Organisationen in der DVDV-Organisa
          <xs:complexType name="bab2babSchemata">
             <xs:choice>
                <xs:element name="baulasten.eintragung.0703"/>
-               <xs:element name="baulastloeschung.loeschungEintrag.0723"/>
+               <xs:element name="baulastloeschung.loeschungEintrag.0725"/>
             </xs:choice>
          </xs:complexType>
       </xs:schema>

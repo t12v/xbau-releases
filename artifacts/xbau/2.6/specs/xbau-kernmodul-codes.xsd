@@ -17,7 +17,7 @@
          </standard>
          <versionStandard>
             <version>1.3.0</version>
-            <beschreibung>Vervollständigung der Prozessstringenz: Es wurden Nachrichten zur Benachrichtigung über den Abruf des Bescheids und die Zustellquittierung sowie Hinweise auf die Rücknahmefiktion ergänzt. Generischer Antrag: verbesserte Zuordnung von Anträgen durch Verwendung einer Auswahlliste für die Antragsart. Details zu den Änderungen sind in der Versionshistorie enthalten.</beschreibung>
+            <beschreibung>Die Prozessstringenz der Prozesse der XBau-Nachrichtenkommunikation wurde vervollständigt. Es kann jetzt über den Abruf eines Bescheids informiert werden. Eine generische Quittungsnachricht für fristauslösende Nachrichtenzustellungen wurde neu aufgenommen. Für den generischen Antragsprozess wurde die Zuordnung von Anträgen verbessert durch Aufnahme einer Auswahlliste für die abgedeckten Antragsarten. Weitere Details zu Änderungen sind in der Versionshistorie des Spezifikationsdokuments enthalten.</beschreibung>
             <versionXOEVProfil>3.0.0</versionXOEVProfil>
             <versionXOEVHandbuch>3.0.1</versionXOEVHandbuch>
             <versionXGenerator>3.1.1</versionXGenerator>
@@ -495,12 +495,26 @@
    </xs:complexType>
    <xs:complexType name="Code.XBau-QuittierteNachricht">
       <xs:annotation>
-         <xs:documentation>Über diesen Code kann eine passende Codeliste mit Nachrichtentypen eingebunden werden, für die eine Eingangsquittierung vorgesehen ist. In diesen Typ ist eine auszuwählende bzw. selbst zu definierende Codeliste einzubinden, die eine solche Auswahl bietet. Im Anwendungskontext sind in die Attribute des vorliegenden Typs die Codelisten-URI und die Nummer der Version der ausgewählten Codeliste (in die XBau-Nachrichteninstanzen) einzutragen. Für Anwendungen im Rahmen des XBau-Fachmoduls Hochbau wurde dafür eine passende Codeliste "Nachricht Eingangsquittierung" definiert und als Vorgabe zur Einbindung für diesen Typ bereitgestellt. Diese Codeliste kann auf Antrag erweitert bzw. geändert werden. Sie ist im XRepository (www.xrepository.de) unter der Codelisten-URI urn:xoev-de:xbau:codeliste:nachricht-eingangsquittierung auffindbar und kann von dort im XML-Format OASIS Genericode abgerufen werden.</xs:documentation>
+         <xs:appinfo>
+            <codeliste>
+               <nameLang>Nachricht Eingangsquittierung</nameLang>
+               <nameKurz>Nachricht Eingangsquittierung</nameKurz>
+               <nameTechnisch>nachricht-eingangsquittierung</nameTechnisch>
+               <kennung>urn:xoev-de:xbau:codeliste:nachricht-eingangsquittierung</kennung>
+               <beschreibung>Die Codeliste enthält Nachrichtentypen aus XBau-Hochbau und XBau-Kernmodul, bei denen der Nachrichteneingang zu quittieren ist.</beschreibung>
+               <herausgebernameLang>Bauministerkonferenz</herausgebernameLang>
+               <herausgebernameKurz>BMK</herausgebernameKurz>
+            </codeliste>
+         </xs:appinfo>
+         <xs:documentation>Dieser Code-Datentyp steht für eine Liste von Nachrichtentypen, deren Nachrichteneingang mittels der generischen Quittungsnachricht zu quittieren ist bzw. quittiert werden kann. Die Codeliste ist im XRepository (www.xrepository.de) unter der Codelisten-URI urn:xoev-de:xbau:codeliste:nachricht-eingangsquittierung auffindbar und kann von dort im XML-Format OASIS Genericode abgerufen werden.</xs:documentation>
       </xs:annotation>
       <xs:sequence>
          <xs:element minOccurs="0" name="code" type="xs:token"/>
       </xs:sequence>
-      <xs:attribute name="listURI" type="xs:anyURI" use="required"/>
+      <xs:attribute name="listURI"
+                    type="xs:anyURI"
+                    use="optional"
+                    fixed="urn:xoev-de:xbau:codeliste:nachricht-eingangsquittierung"/>
       <xs:attribute name="listVersionID" type="xs:normalizedString" use="required"/>
    </xs:complexType>
    <xs:complexType name="Code.XBau-StatusAntragsportal">
