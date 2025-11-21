@@ -127,4 +127,4 @@ jobs:
       - name: Push changes
         run: |
           git add packages/
-          npm version ${{ github.event.inputs.releaseversion }}
+          git commit -m "chore: Release ${{ github.event.inputs.releaseversion }}"
