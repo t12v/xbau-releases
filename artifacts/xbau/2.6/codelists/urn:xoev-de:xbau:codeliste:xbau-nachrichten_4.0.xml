@@ -9,7 +9,7 @@
          <xoev-cl-4:agencyShortName>BMK</xoev-cl-4:agencyShortName>
          <xoev-cl-4:versionHandbook>1.2</xoev-cl-4:versionHandbook>
          <xoev-cl-4:changes>In XBau 2.6: 
-Neue Einträge: 0703, 0720, 0721, 0722, 0723, 0724, 0725, 0904, 0913, 0923</xoev-cl-4:changes>
+Neue Einträge: 0703, 0704, 0720, 0721, 0722, 0723, 0724, 0725, 0904, 0913, 0923</xoev-cl-4:changes>
       </Description>
    </Annotation>
    <Identification>
@@ -750,6 +750,14 @@ Neue Einträge: 0703, 0720, 0721, 0722, 0723, 0724, 0725, 0904, 0913, 0923</xoev
       </Row>
       <Row>
          <Value ColumnRef="code">
+            <SimpleValue>0704</SimpleValue>
+         </Value>
+         <Value ColumnRef="beschreibung">
+            <SimpleValue>baulasten.korrekturErklaerung.0704</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="code">
             <SimpleValue>0710</SimpleValue>
          </Value>
          <Value ColumnRef="beschreibung">
@@ -801,7 +809,7 @@ Neue Einträge: 0703, 0720, 0721, 0722, 0723, 0724, 0725, 0904, 0913, 0923</xoev
             <SimpleValue>0722</SimpleValue>
          </Value>
          <Value ColumnRef="beschreibung">
-            <SimpleValue>baulastloeschung.information.0722</SimpleValue>
+            <SimpleValue>baulastloeschung.korrekturAntrag.0722</SimpleValue>
          </Value>
       </Row>
       <Row>
@@ -809,7 +817,7 @@ Neue Einträge: 0703, 0720, 0721, 0722, 0723, 0724, 0725, 0904, 0913, 0923</xoev
             <SimpleValue>0723</SimpleValue>
          </Value>
          <Value ColumnRef="beschreibung">
-            <SimpleValue>baulastloeschung.loeschungEintrag.0723</SimpleValue>
+            <SimpleValue>baulastloeschung.stellungnahmeAufforderung.0723</SimpleValue>
          </Value>
       </Row>
       <Row>
@@ -817,7 +825,7 @@ Neue Einträge: 0703, 0720, 0721, 0722, 0723, 0724, 0725, 0904, 0913, 0923</xoev
             <SimpleValue>0724</SimpleValue>
          </Value>
          <Value ColumnRef="beschreibung">
-            <SimpleValue>baulastloeschung.stellungnahmeAufforderung.0724</SimpleValue>
+            <SimpleValue>baulastloeschung.stellungnahme.0724</SimpleValue>
          </Value>
       </Row>
       <Row>
@@ -825,7 +833,15 @@ Neue Einträge: 0703, 0720, 0721, 0722, 0723, 0724, 0725, 0904, 0913, 0923</xoev
             <SimpleValue>0725</SimpleValue>
          </Value>
          <Value ColumnRef="beschreibung">
-            <SimpleValue>baulastloeschung.stellungnahme.0725</SimpleValue>
+            <SimpleValue>baulastloeschung.loeschungEintrag.0725</SimpleValue>
+         </Value>
+      </Row>
+      <Row>
+         <Value ColumnRef="code">
+            <SimpleValue>0726</SimpleValue>
+         </Value>
+         <Value ColumnRef="beschreibung">
+            <SimpleValue>baulastloeschung.information.0726</SimpleValue>
          </Value>
       </Row>
       <Row>
