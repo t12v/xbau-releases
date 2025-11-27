@@ -31,7 +31,6 @@
   "dependencies": {
     "axios": "^1.8.4",
     "axios-retry": "^4.5.0",
-    "crypto": "^1.0.1",
     "unzipper": "^0.12.3",
     "xml-formatter": "^3.6.7",
     "yargs": "^17.7.2"
