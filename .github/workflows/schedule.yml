@@ -59,7 +59,7 @@ jobs:
         if: steps.changes.outputs.src == 'true' && steps.check.outputs.exists != 'true'
         uses: peter-evans/create-pull-request@v7
         with:
-          commit-message: 'chore: Update in Xbau Standard'
+          commit-message: 'feat(Standard): Update in Xbau Standard'
           branch: 'feature/xbau-standards-update'
           labels: content-update
           title: 'Update in Xbau Standards'
