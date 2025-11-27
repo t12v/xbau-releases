@@ -76,7 +76,7 @@
         <maven-maven-resources-plugin.version>3.3.1</maven-maven-resources-plugin.version>
         <maven-javadoc-plugin.version>3.11.1</maven-javadoc-plugin.version>
         <maven-source-plugin.version>3.3.1</maven-source-plugin.version>
-        <maven-versions-plugin.version>2.19.1</maven-versions-plugin.version>
+        <maven-versions-plugin.version>2.20.1</maven-versions-plugin.version>
         <maven-enforcer-plugin.version>3.6.2</maven-enforcer-plugin.version>
         <maven-assembly-plugin.version>2.4</maven-assembly-plugin.version>
         <maven-build-helper-plugin.version>1.9.1</maven-build-helper-plugin.version>
