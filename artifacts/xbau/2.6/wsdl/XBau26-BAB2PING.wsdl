@@ -27,7 +27,9 @@
          </ul></ul></p>
 <p>Organisationsschlüssel für <i>find.servicedescription</i>-Anfragen sind die 12-stelligen Schlüssel für die Kopfstellen der Prüfingenieure; der zu verwendende Präfix lautet "<b>pin</b>".</p><p>
 Zulässige Dienstanbieter sind ausschließlich Organisationen der DVDV-Organisationskategorie "<b>Prüfingenieur</b>". 
-Zulässige Dienstnutzer sind ausschließlich Organisationen in der DVDV-Organisationskategorie "<b>Bauaufsichtsbehörde</b>".</p></body>
+Zulässige Dienstnutzer sind Organisationen in der DVDV-Organisationskategorie 
+"<b>Bauaufsichtsbehörde</b>",
+"<b>Bauportal</b>".</p></body>
 </html>]]></documentation>
    <import namespace="http://www.osci.de/2006/07/wsdl/"
            location="http://www.osci.de/wsdl-osci-binding/WSDL-OSCI-Binding_1.2.xsd"/>

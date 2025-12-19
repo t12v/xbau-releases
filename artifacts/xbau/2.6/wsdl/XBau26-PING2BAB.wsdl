@@ -17,7 +17,8 @@
              xsi:schemaLocation="http://schemas.xmlsoap.org/wsdl/ http://schemas.xmlsoap.org/wsdl/">
    <documentation>
       <tpl:categories>
-         <tpl:category>Bauaufsichtsbehörde</tpl:category>
+         <tpl:category>Bauaufsichtsbehörde
+</tpl:category>
       </tpl:categories><![CDATA[<html><head><title>Nachrichten der Prüfingenieure an die Bauaufsichtsbehörden</title></head>
 <body><p>Folgende Nachrichten des XBau-Schemas sind als Input der Operation <i>sendePING2BAB</i> zulässig:<ul><ul>
             <li>pruefingenieure.auftragsbestaetigung.0501</li>
@@ -26,7 +27,8 @@
             <li>pruefingenieure.pruefbericht.0506</li>
          </ul></ul></p>
 <p>Organisationsschlüssel für <i>find.servicedescription</i>-Anfragen sind die amtlichen Gemeindeschlüssel bzw. Kreiskennungen der Bauaufsichtsbehörden; der zu verwendende Präfix lautet "<b>bab</b>".</p>
-<p>Zulässige Dienstanbieter sind ausschließlich Organisationen der DVDV-Organisationskategorie "<b>Bauaufsichtsbehörde</b>". 
+<p>Zulässige Dienstanbieter sind ausschließlich Organisationen der DVDV-Organisationskategorie "<b>Bauaufsichtsbehörde</b>"
+"<b>Bauportal</b>". 
 Zulässige Dienstnutzer sind ausschließlich Organisationen in der DVDV-Organisationskategorie "<b>Prüfingenieur</b>".</p></body>
 </html>]]></documentation>
    <import namespace="http://www.osci.de/2006/07/wsdl/"

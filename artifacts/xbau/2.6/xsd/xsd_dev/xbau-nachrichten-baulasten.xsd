@@ -51,12 +51,9 @@
                         <xs:documentation>Im Kontext einer nicht-selbständigen Baulasterklärung wird hier der Bezug zu einem laufenden Baugenehmigungsverfahren hergestellt. Im anderen Fall existiert noch keine Vorgangsnummer, so dass dieses Element nicht verwendet wird.</xs:documentation>
                      </xs:annotation>
                   </xs:element>
-                  <xs:element name="baulast"
-                              minOccurs="0"
-                              maxOccurs="unbounded"
-                              type="xbau:Baulast">
+                  <xs:element name="baulast" type="xbau:Baulast">
                      <xs:annotation>
-                        <xs:documentation>Falls Baulasterklärungen im Rahmen des Baugenehmigungsverfahrens gefordert sind, können hier der Zweck der angestrebten Baulast sowie der zu regelnde Sachverhalt beschrieben werden. Ein passendes Dokument Baulasterklärung muss sich dann unter den Anlagen dieser Nachricht finden. Jede Instanz des Elements steht für eine erklärte Baulast.</xs:documentation>
+                        <xs:documentation>Hier wird der Zweck der angestrebten Baulast sowie der zu regelnde Sachverhalt beschrieben. Ein passendes Dokument Baulasterklärung muss sich dann unter den Anlagen dieser Nachricht finden.</xs:documentation>
                      </xs:annotation>
                   </xs:element>
                   <xs:element name="anlagen" type="xbau:Anlagen">
@@ -178,10 +175,7 @@
                         <xs:documentation>In diesem Element wird der laufende Vorgang der Bearbeitung der Baulasterklärung und die Nachricht baulasten.vorlageErklaerung.0700 genannt, durch deren Eingang bei der Bauaufsichtsbehörde der Vorgang ausgelöst worden ist.</xs:documentation>
                      </xs:annotation>
                   </xs:element>
-                  <xs:element name="baulast"
-                              minOccurs="0"
-                              maxOccurs="unbounded"
-                              type="xbau:Baulast">
+                  <xs:element name="baulast" type="xbau:Baulast">
                      <xs:annotation>
                         <xs:documentation>Hier werden Angaben zur einzutragenden Baulast gemacht.</xs:documentation>
                      </xs:annotation>
@@ -213,12 +207,9 @@
                         <xs:documentation>In diesem Element wird der laufende Vorgang der Bearbeitung der Baulasterklärung und die Nachricht baulasten.vorlageErklaerung.0700 genannt, durch deren Eingang bei der Bauaufsichtsbehörde der Vorgang ausgelöst worden ist.</xs:documentation>
                      </xs:annotation>
                   </xs:element>
-                  <xs:element name="baulast"
-                              minOccurs="0"
-                              maxOccurs="unbounded"
-                              type="xbau:Baulast">
+                  <xs:element name="baulast" type="xbau:Baulast">
                      <xs:annotation>
-                        <xs:documentation>Falls Baulasterklärungen im Rahmen des Baugenehmigungsverfahrens gefordert sind, können hier der Zweck der angestrebten Baulast sowie der zu regelnde Sachverhalt beschrieben werden. Ein passendes Dokument Baulasterklärung muss sich dann unter den Anlagen dieser Nachricht finden. Jede Instanz des Elements steht für eine erklärte Baulast.</xs:documentation>
+                        <xs:documentation>Hier wird der Zweck der angestrebten Baulast sowie der zu regelnde Sachverhalt beschrieben. Ein passendes Dokument Baulasterklärung muss sich dann unter den Anlagen dieser Nachricht finden.</xs:documentation>
                      </xs:annotation>
                   </xs:element>
                   <xs:element name="anlagen" minOccurs="0" type="xbau:Anlagen">

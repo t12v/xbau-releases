@@ -56,7 +56,7 @@
          </xs:element>
       </xs:sequence>
    </xs:complexType>
-   <xs:complexType name="DatenBauabgangBeseitungAbsicht">
+   <xs:complexType name="DatenBauabgangBeseitigungAbsicht">
       <xs:annotation>
          <xs:documentation>Dieser Typ enthält die Daten, die zum Anlass 'Bauabgang' gehören.</xs:documentation>
       </xs:annotation>
@@ -851,7 +851,7 @@
                   </xs:element>
                   <xs:element minOccurs="0"
                               name="datenBauabgang"
-                              type="xbau:DatenBauabgangBeseitungAbsicht">
+                              type="xbau:DatenBauabgangBeseitigungAbsicht">
                      <xs:annotation>
                         <xs:documentation>Dieses Element enthält die Daten, die speziell zum Bauabgang zu übermitteln sind.</xs:documentation>
                      </xs:annotation>

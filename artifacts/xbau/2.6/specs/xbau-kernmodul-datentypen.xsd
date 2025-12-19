@@ -31,6 +31,7 @@
          </versionStandard>
       </xs:appinfo>
    </xs:annotation>
+   <xs:include schemaLocation="xbau-kernmodul-basisdatentypen.xsd"/>
    <xs:include schemaLocation="xbau-kernmodul-codes.xsd"/>
    <xs:import schemaLocation="din-norm-91379-datatypes.xsd"
               namespace="urn:xoev-de:kosit:xoev:datentyp:din-91379_2022-08"/>
@@ -743,7 +744,7 @@
                <xs:documentation>Hier ist die Kennung des Dokuments einzutragen bzw. zu vergeben. Die Kennung wird für Referenzierungszwecke verwendet und muss innerhalb der Fachnachricht eindeutig sein.</xs:documentation>
             </xs:annotation>
          </xs:element>
-         <xs:element minOccurs="0" name="dateiname" type="din91379:datatypeD">
+         <xs:element minOccurs="0" name="dateiname" type="xbauk:Dateiname">
             <xs:annotation>
                <xs:documentation>Hier ist der Name der Datei (Primärdokument) einzutragen. Der Dateiname muss innerhalb der Fachnachricht eindeutig sein.</xs:documentation>
             </xs:annotation>
@@ -1233,7 +1234,7 @@
                <xs:documentation>Der Link identifiziert die Anlage (Primärdokument) in einem Quellsystem (das sich in Kontrolle der Behörde befindet) eindeutig. Die Verlinkung auf ein Quellsystem entspricht der Architektur der (externen) Verlinkung.</xs:documentation>
             </xs:annotation>
          </xs:element>
-         <xs:element minOccurs="0" name="dateiname" type="din91379:datatypeD">
+         <xs:element minOccurs="0" name="dateiname" type="xbauk:Dateiname">
             <xs:annotation>
                <xs:documentation>Hier kann ein Dateiname zum verlinkten Dokument eingetragen werden.</xs:documentation>
             </xs:annotation>

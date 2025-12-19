@@ -52,6 +52,7 @@
             <li>baulastenverzeichnis.anfrage.0710</li>
             <li>baulastenverzeichnis.anfrageGeaendert.0712</li>
             <li>baulastloeschung.antrag.0720</li>
+            <li>baulastloeschung.korrekturAntrag.0722</li>
             <li>baulastloeschung.stellungnahme.0724</li>
             <li>ueberwachungspflichtigeAnlagen.pruefbescheinigung.0800</li>
             <li>anzeige.baubeginn.0900</li>
@@ -134,6 +135,7 @@ Zulässige Dienstnutzer sind ausschließlich Organisationen in der DVDV-Organisa
                <xs:element name="baulastenverzeichnis.anfrage.0710"/>
                <xs:element name="baulastenverzeichnis.anfrageGeaendert.0712"/>
                <xs:element name="baulastloeschung.antrag.0720"/>
+               <xs:element name="baulastloeschung.korrekturAntrag.0722"/>
                <xs:element name="baulastloeschung.stellungnahme.0724"/>
                <xs:element name="bauzustand.aeusserung.0923"/>
                <xs:element name="bauzustand.anzeige.0920"/>
