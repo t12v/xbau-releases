@@ -64,14 +64,14 @@
                      maxOccurs="unbounded"
                      type="xbau:GrundstueckStatistik">
             <xs:annotation>
-               <xs:documentation>Hier werden Daten zum Baugrundstück übermittelt, soweit für die Anlässe relevant. Der Inhalt der Kindelemente ergibt sich aus dem Datentyp Grundstueck, GrundstueckStatistik oder DatenBauabgangBeseitungAbsicht der Eingangsnachricht.</xs:documentation>
+               <xs:documentation>Hier werden Daten zum Baugrundstück übermittelt, soweit für die Anlässe relevant. Der Inhalt der Kindelemente ergibt sich aus dem Datentyp Grundstueck, GrundstueckStatistik oder DatenBauabgangBeseitigungAbsicht der Eingangsnachricht.</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element minOccurs="0"
                      name="lageGebaeude"
                      type="xbauk:GeoreferenzierteFlaeche">
             <xs:annotation>
-               <xs:documentation>In diesem Element sollen ergänzend georeferenzierte Informationen zur genaueren Lage des Gebäudes auf dem Baugrundstück abgebildet werden. Der Inhalt des Elements ergibt sich aus dem Datentyp DatenEinzelnesGebaeudeImBauvorhaben oder DatenBauabgangBeseitungAbsicht der Eingangsnachricht.</xs:documentation>
+               <xs:documentation>In diesem Element sollen ergänzend georeferenzierte Informationen zur genaueren Lage des Gebäudes auf dem Baugrundstück abgebildet werden. Der Inhalt des Elements ergibt sich aus dem Datentyp DatenEinzelnesGebaeudeImBauvorhaben oder DatenBauabgangBeseitigungAbsicht der Eingangsnachricht.</xs:documentation>
             </xs:annotation>
          </xs:element>
          <xs:element minOccurs="0"
@@ -494,7 +494,6 @@
          </xs:element>
          <xs:element minOccurs="0"
                      name="identifikationGebaeude"
-                     maxOccurs="unbounded"
                      type="xbau:IdentifikationGebaeude">
             <xs:annotation>
                <xs:documentation>Hier ist die Identifikation des Gebäudes einzutragen. Die Informationen müssen zu den im Datentyp "AnzahlDerGebaeude" gemachten Angaben der Initialnachricht passen.</xs:documentation>

@@ -35,6 +35,22 @@
               namespace="http://www.xleitstelle.de/xbau/kernmodul/1/3/0"/>
    <xs:import schemaLocation="https://xoev.de/schemata/din/91379/2022-08/din-norm-91379-datatypes.xsd"
               namespace="urn:xoev-de:kosit:xoev:datentyp:din-91379_2022-08"/>
+   <xs:complexType name="ProzessmerkmaleVerfahrensart">
+      <xs:annotation>
+         <xs:documentation>Dieser Datentyp dient zur Übermittlung der Verfahrensart, wenn keine weiteren Prozessmerkmale benötigt werden.</xs:documentation>
+      </xs:annotation>
+      <xs:complexContent>
+         <xs:restriction base="xbau:Prozessmerkmale">
+            <xs:sequence>
+               <xs:element name="verfahrensart" type="xbau:Code.Verfahrensart">
+                  <xs:annotation>
+                     <xs:documentation>Dieses Element wird verwendet, um die baurechtliche Verfahrensart anzugeben.</xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+            </xs:sequence>
+         </xs:restriction>
+      </xs:complexContent>
+   </xs:complexType>
    <xs:complexType name="RahmendatenGebuehrenberechnung">
       <xs:annotation>
          <xs:documentation>Dieser Typ dient dazu, Rahmendaten zur Gebührenberechnung für einen erteilten Prüfauftrag an einen Prüfingenieur abzubilden. Sie geben dem Auftragnehmer die Möglichkeit, die Komplexität des Bauvorhabens einzuschätzen, in dessen Kontext der Auftrag erteilt wird, und entsprechend Aufwand und Auftragswert des Prüfauftrags zu kalkulieren. Der Typ stellt die alternativen Ansätze für die Gebührenberechnung dar, in der Anwendung des Typs ist genau eine dieser Alternativen anzuwenden.</xs:documentation>
@@ -211,6 +227,12 @@
                   <xs:element name="bauvorhaben" type="xbau:Bauvorhaben">
                      <xs:annotation>
                         <xs:documentation>Hier sind die Daten zum Bauvorhaben (Wer, Was, Wo) enthalten.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+                  <xs:element name="prozessmerkmaleVerfahrensart"
+                              type="xbau:ProzessmerkmaleVerfahrensart">
+                     <xs:annotation>
+                        <xs:documentation>In diesem Element ist die Verfahrensart des Bauvorhabens anzugeben.</xs:documentation>
                      </xs:annotation>
                   </xs:element>
                   <xs:element name="anlagen" type="xbau:Anlagen">

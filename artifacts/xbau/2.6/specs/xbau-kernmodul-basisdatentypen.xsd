@@ -25,6 +25,14 @@
          </versionStandard>
       </xs:appinfo>
    </xs:annotation>
+   <xs:simpleType name="Dateiname">
+      <xs:annotation>
+         <xs:documentation>Dieser Datentyp definiert den in XBau zulässigen Aufbau von Dateinamen. Es wird empfohlen, die Länge von Dateinamen auf maximal 140 Zeichen zu beschränken.</xs:documentation>
+      </xs:annotation>
+      <xs:restriction base="xs:string">
+         <xs:pattern value="[-a-zA-Z0-9ÄÖÜäöüß _!=+~,;.#°§$%()\[\]]+\.[a-zA-Z0-9]+"/>
+      </xs:restriction>
+   </xs:simpleType>
    <xs:simpleType name="Dezimal.XBau">
       <xs:annotation>
          <xs:documentation>Dieser Datentyp stellt numerische Werte mit zwei Nachkommastellen dar. Er kann für Zahlen genutzt werden, die mit dieser Präzision sinnvoll sind. Darum erlaubt der Datentyp Dezimal.XBau zum Beispiel bei der Übertragung der Einheit Meter (m) eine Präzision von einem Zentimeter.</xs:documentation>

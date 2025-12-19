@@ -42,11 +42,11 @@
       <xs:annotation>
          <xs:appinfo>
             <codeliste>
-               <nameLang>Gemeinden gemäß Amtlicher Gemeindeschlüssel (AGS)</nameLang>
-               <nameKurz>Destatis AGS</nameKurz>
+               <nameLang>Gemeinden, dargestellt durch den Amtlichen Gemeindeschlüssel (AGS) des Statistischen Bundesamtes</nameLang>
+               <nameKurz>AGS</nameKurz>
                <nameTechnisch>ags</nameTechnisch>
                <kennung>urn:de:bund:destatis:bevoelkerungsstatistik:schluessel:ags</kennung>
-               <beschreibung>Diese Codeliste stellt alle Gemeinden Deutschlands durch den Amtlichen Gemeindeschlüssel (AGS) dar, wie im Gemeindeverzeichnis des Statistischen Bundesamtes enthalten.</beschreibung>
+               <beschreibung>Diese Codeliste stellt alle Gemeinden Deutschlands durch den Amtlichen Gemeindeschlüssel (AGS) dar, wie im Gemeindeverzeichnis des Statistischen Bundesamtes enthalten. Darüber hinaus enthält die Codeliste für die Stadtstaaten Hamburg, Bremen und Berlin Einträge für Stadt-/Ortsteile bzw. Stadtbezirke. Diese Einträge sind mit einem entsprechenden Hinweis versehen.</beschreibung>
                <herausgebernameLang>Statistisches Bundesamt, Wiesbaden</herausgebernameLang>
                <herausgebernameKurz>Destatis</herausgebernameKurz>
             </codeliste>
@@ -66,8 +66,8 @@
       <xs:annotation>
          <xs:appinfo>
             <codeliste>
-               <nameLang>Gemeinden gemäß Amtlicher Regionalschlüssel (ARS)</nameLang>
-               <nameKurz>Destatis ARS</nameKurz>
+               <nameLang>Gemeinden, dargestellt durch den Amtlichen Regionalschlüssel (ARS) des Statistischen Bundesamtes</nameLang>
+               <nameKurz>Regionalschlüssel</nameKurz>
                <nameTechnisch>rs</nameTechnisch>
                <kennung>urn:de:bund:destatis:bevoelkerungsstatistik:schluessel:rs</kennung>
                <beschreibung>Diese Codeliste stellt alle Gemeinden Deutschlands durch den Amtlichen Regionalschlüssel (ARS) dar, wie im Gemeindeverzeichnis des Statistischen Bundesamtes enthalten. Darüber hinaus enthält die Codeliste für die Stadtstaaten Hamburg, Bremen und Berlin Einträge für Stadt-/Ortsteile bzw. Stadtbezirke. Diese Einträge sind mit einem entsprechenden Hinweis versehen.</beschreibung>
@@ -111,7 +111,7 @@
          <xs:appinfo>
             <codeliste>
                <nameLang>Bezirke bzw. Regierungsbezirke der deutschen Bundesländer nach dem Gemeindeverzeichnis des Statistischen Bundesamtes</nameLang>
-               <nameKurz>Destatis Bezirk</nameKurz>
+               <nameKurz>Bezirk</nameKurz>
                <nameTechnisch>Bezirk</nameTechnisch>
                <kennung>urn:de:bund:destatis:bevoelkerungsstatistik:schluessel:bezirk</kennung>
                <beschreibung>Die Bundesrepublik Deutschland ist ein Zusammenschluss von Bundesländern. Die meisten Bundesländer umfassen mehrere Kreise und Bezirke bzw. Regierungsbezirke. Diese Codeliste stellt alle Bezirke nach dem Gemeindeverzeichnis des Statistischen Bundesamtes dar. Dieser Code ist auch Bestandteil des Amtlichen Gemeindeschlüssels (AGS).</beschreibung>
@@ -134,11 +134,11 @@
       <xs:annotation>
          <xs:appinfo>
             <codeliste>
-               <nameLang>Länder der Bundesrepublik Deutschland</nameLang>
-               <nameKurz>Destatis Bundesland</nameKurz>
+               <nameLang>Die deutschen Bundesländer nach dem Gemeindeverzeichnis des Statistischen Bundesamtes</nameLang>
+               <nameKurz>Bundesland</nameKurz>
                <nameTechnisch>bundesland</nameTechnisch>
                <kennung>urn:de:bund:destatis:bevoelkerungsstatistik:schluessel:bundesland</kennung>
-               <beschreibung>Die Bundesrepublik Deutschland ist ein Zusammenschluss von Ländern. Die meisten Bundesländer umfassen mehrere Kreise und Bezirke. Diese Codeliste stellt die deutschen Bundesländer nach dem Gemeindeverzeichnis des Statistischen Bundesamtes dar. Dieser Code ist auch Bestandteil des Amtlichen Gemeindeschlüssels (AGS).</beschreibung>
+               <beschreibung>Die Bundesrepublik Deutschland ist ein Zusammenschluss von Bundesländern. Die meisten Bundesländer umfassen mehrere Kreise und Bezirke. Diese Codeliste stellt die deutschen Bundesländer nach dem Gemeindeverzeichnis des Statistischen Bundesamtes dar. Dieser Code ist auch Bestandteil des Amtlichen Gemeindeschlüssels (AGS).</beschreibung>
                <herausgebernameLang>Statistisches Bundesamt, Wiesbaden</herausgebernameLang>
                <herausgebernameKurz>Destatis</herausgebernameKurz>
             </codeliste>
@@ -158,7 +158,7 @@
       <xs:annotation>
          <xs:appinfo>
             <codeliste>
-               <nameLang>Erreichbarkeit</nameLang>
+               <nameLang>Kommunikationskanal / Erreichbarkeit</nameLang>
                <nameKurz>Erreichbarkeit</nameKurz>
                <nameTechnisch>erreichbarkeit</nameTechnisch>
                <kennung>urn:de:xoev:codeliste:erreichbarkeit</kennung>
@@ -203,7 +203,7 @@
          <xs:appinfo>
             <codeliste>
                <nameLang>Die Kreise der deutschen Bundesländer nach dem Gemeindeverzeichnis des Statistischen Bundesamtes</nameLang>
-               <nameKurz>Destatis Kreis</nameKurz>
+               <nameKurz>Kreis</nameKurz>
                <nameTechnisch>Kreis</nameTechnisch>
                <kennung>urn:de:bund:destatis:bevoelkerungsstatistik:schluessel:kreis</kennung>
                <beschreibung>Die Bundesrepublik Deutschland ist ein Zusammenschluss von Bundesländern. Die meisten Bundesländer umfassen mehrere Kreise und Bezirke. Diese Codeliste stellt die Kreise der deutschen Bundesländer nach dem Gemeindeverzeichnis des Statistischen Bundesamtes dar. Dieser Code ist auch Bestandteil des Amtlichen Gemeindeschlüssels (AGS).</beschreibung>
@@ -260,13 +260,13 @@
       <xs:annotation>
          <xs:appinfo>
             <codeliste>
-               <nameLang>Staatsgebiete gemäß der Staats- und Gebietssystematik des Statistischen Bundesamts</nameLang>
+               <nameLang>Codeliste Staatsgebiete aus der Staats- und Gebietssystematik des Statistischen Bundesamtes</nameLang>
                <nameKurz>Destatis Staatsgebiete</nameKurz>
                <nameTechnisch>staatsgebiete</nameTechnisch>
                <kennung>urn:de:bund:destatis:bevoelkerungsstatistik:schluessel:staatsgebiete</kennung>
-               <beschreibung>Codeliste Staatsgebiete aus der Staats- und Gebietssystematik des Statistischen Bundesamtes. Sie basiert auf dem Verzeichnis der Staatennamen für den amtlichen Gebrauch des Auswärtigen Amtes. Die Codeliste ist im XRepository (www.xrepository.de) unter Nennung ihrer Codelisten-URI auffindbar und kann von dort im XML-Format OASIS Genericode abgerufen werden. Die Codeliste umfasst mehrere Schlüssel, wovon "DESTATIS Schlüssel Gebiet" genutzt werden sollte, da nur dieser wirklich eindeutig ist.</beschreibung>
+               <beschreibung>Die Codeliste Staatsgebiete ist eine Tabelle von derzeitigen Staatsgebieten und deren unselbständiger Teile, d.h. von Staaten und deren Gebiete bzw. Gebietsteile sowie von exterritorialen Teilen von Staaten. Die Codeliste umfasst mehrere Schlüssel, wovon "DESTATIS Schlüssel Gebiet" genutzt werden sollte, da nur dieser eindeutig ist. Die Codeliste ist im XRepository unter Nennung ihrer Codelisten-URI urn:de:bund:destatis:bevoelkerungsstatistik:schluessel:staatsgebiete auffindbar und kann von dort im XML-Format OASIS Genericode abgerufen werden.</beschreibung>
                <herausgebernameLang>Statistisches Bundesamt, Wiesbaden</herausgebernameLang>
-               <herausgebernameKurz>Destatis</herausgebernameKurz>
+               <herausgebernameKurz>DESTATIS</herausgebernameKurz>
             </codeliste>
          </xs:appinfo>
          <xs:documentation>Codeliste Staatsgebiete aus der Staats- und Gebietssystematik des Statistischen Bundesamtes.Sie basiert auf dem Verzeichnis der Staatennamen für den amtlichen Gebrauch des Auswärtigen Amtes. Die Codeliste ist im XRepository (www.xrepository.de) unter Nennung der Codelisten-URI urn:de:bund:destatis:bevoelkerungsstatistik:schluessel:staatsgebiete auffindbar und kann von dort im XML-Format OASIS Genericode abgerufen werden. Die Codeliste umfasst mehrere Schlüssel, wovon "DESTATIS Schlüssel Gebiet" genutzt werden sollte, da nur dieser wirklich eindeutig ist.</xs:documentation>
