@@ -33,7 +33,7 @@
     "axios-retry": "^4.5.0",
     "unzipper": "^0.12.3",
     "xml-formatter": "^3.6.7",
-    "yargs": "^17.7.2"
+    "yargs": "^18.0.0"
   },
   "devDependencies": {
     "@tsconfig/node22": "^22.0.5",
