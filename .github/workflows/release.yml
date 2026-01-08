@@ -89,9 +89,9 @@ jobs:
         run: |
           export TZ="Europe/Berlin"
           cd packages/maven/
-          ./mvnw release:prepare release:perform -B -DreleaseVersion=${{ inputs.releaseversion }} -DpushChanges=false  -Darguments="-DpushChanges=false"
+          ./mvnw release:prepare release:perform -B -DreleaseVersion=${{ inputs.releaseversion }} -DpushChanges=false -DlocalCheckout -Darguments="-DpushChanges=false"
           # # TODO: Sonatype publish
-          # ./mvnw release:prepare release:perform -B -Pcentral-publish -DreleaseVersion=${{ inputs.releaseversion }} -DpushChanges=false -Darguments="-DpushChanges=false"
+          # ./mvnw release:prepare release:perform -B -Pcentral-publish -DreleaseVersion=${{ inputs.releaseversion }} -DpushChanges=false -DlocalCheckout -Darguments="-DpushChanges=false"
 
       - name: Publish npm package
         run: |
