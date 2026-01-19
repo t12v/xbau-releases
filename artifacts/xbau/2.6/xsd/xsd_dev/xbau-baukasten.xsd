@@ -4017,7 +4017,7 @@
                </xs:element>
                <xs:element name="mimeType" type="xbauk:Code.XBau-MimeType" form="unqualified">
                   <xs:annotation>
-                     <xs:documentation>Dieses Element nennt - analog zur Übermittlung von E-Mail-Anlagen - den MIME-Typ der angehängten oder verlinkten Bauvorlage (z.B. text/xml, text/plain, application/gzip oder application/pdf). Die Angabe ist mandatorisch, weil eine für den Empfänger zur Verarbeitung der Daten notwendige Information. Als Anlagen können u.a. auch IFC-Darstellungen (gemäß der Technologie Building Information Modeling (BIM)) des Bauvorhabens übermittelt werden. Entsprechende Kennzeichnungen des mimeTypes (ifc, ifcXML, fcZIP) sind dafür verfügbar.</xs:documentation>
+                     <xs:documentation>Dieses Element nennt - analog zur Übermittlung von E-Mail-Anlagen - den MIME-Typ der angehängten oder verlinkten Bauvorlage (z.B. text/xml, text/plain, application/gzip oder application/pdf). Die Angabe ist mandatorisch, weil eine für den Empfänger zur Verarbeitung der Daten notwendige Information. Als Anlagen können u.a. auch IFC-Darstellungen (gemäß der Technologie Building Information Modeling (BIM)) des Bauvorhabens übermittelt werden. Entsprechende Kennzeichnungen des mimeTypes (ifc, ifcXML, ifcZIP) sind dafür verfügbar.</xs:documentation>
                   </xs:annotation>
                </xs:element>
                <xs:element name="anhangOderVerlinkung"

@@ -9745,14 +9745,14 @@ Neue Einträge: 0703, 0704, 0720, 0721, 0722, 0723, 0724, 0725, 0726, 0904, 0913
          <xs:enumeration value="0151">
             <xs:annotation>
                <xs:appinfo>
-                  <beschreibung>prozessnachrichten.aktenraum.zugriffVerweigern.0152</beschreibung>
+                  <beschreibung>prozessnachrichten.aktenraum.angelegt.0151</beschreibung>
                </xs:appinfo>
             </xs:annotation>
          </xs:enumeration>
          <xs:enumeration value="0152">
             <xs:annotation>
                <xs:appinfo>
-                  <beschreibung>prozessnachrichten.aktenraum.angelegt.0151</beschreibung>
+                  <beschreibung>prozessnachrichten.aktenraum.zugriffVerweigern.0152</beschreibung>
                </xs:appinfo>
             </xs:annotation>
          </xs:enumeration>
