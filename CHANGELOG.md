@@ -1,3 +1,17 @@
+## [0.1.1](https://github.com/t12v/xbau-releases/compare/v0.2.1...v0.1.1) (2026-01-19)
+
+
+### Bug Fixes
+
+* **XBau:** Correcting Codelist ([5e33b40](https://github.com/t12v/xbau-releases/commit/5e33b405118d18f2cef30abf0b23a66d84378fc4))
+
+
+### Features
+
+* **Standard:** Update in Xbau Codelists ([2555ea6](https://github.com/t12v/xbau-releases/commit/2555ea63a33f3554b834a92c04b5bce8edc0e56d))
+
+
+
 ## [0.1.1](https://github.com/t12v/xbau-releases/compare/v0.1.0...v0.1.1) (2025-11-20)
 
 
