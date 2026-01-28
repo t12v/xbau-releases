@@ -3,7 +3,7 @@
 
     <groupId>net.xoev</groupId>
     <artifactId>xbau-releases</artifactId>
-    <version>0.2.3-SNAPSHOT</version>
+    <version>0.2.3</version>
     <name>XBau Releases</name>
     <packaging>jar</packaging>
 
@@ -53,7 +53,7 @@
         <url>https://${GITHUB_TOKEN}@github.com/t12v/xbau-releases.git</url>
         <connection>scm:git:${project.scm.url}</connection>
         <developerConnection>scm:git:${project.scm.url}</developerConnection>
-        <tag>HEAD</tag>
+        <tag>xbau-releases-0.2.3</tag>
     </scm>
 
     <properties>
