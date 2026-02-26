@@ -114,15 +114,15 @@ jobs:
           skip-on-empty: true
           tag-prefix: 'v'
 
-      - name: Create Release on GH
-        id: tag-and-release
-        uses: avakar/tag-and-release@v1
-        with:
-          draft: true
-          release_name: ${{ github.event.inputs.releaseversion }}
-          tag_name: v${{ github.event.inputs.releaseversion }}
+      - name: Create GH release
+        uses: softprops/action-gh-release@v2
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+            token: ${{ secrets.GITHUB_TOKEN }}
+            name: ${{ github.event.inputs.releaseversion }}
+            tag_name: v${{ github.event.inputs.releaseversion }}
+            draft: true
 
       - name: Push changes
         run: |
