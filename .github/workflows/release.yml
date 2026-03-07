@@ -95,6 +95,7 @@ jobs:
 
       - name: Publish npm package
         run: |
+          npm version --no-git-tag-version ${{ github.event.inputs.releaseversion }}
           cd packages/npm/
           npm run clean
           npm version --no-git-tag-version ${{ github.event.inputs.releaseversion }}
@@ -104,6 +105,8 @@ jobs:
 
       - name: Push changes
         run: |
+          git add package.json
+          git add package-lock.json
           git add packages/
           git commit -m "chore: Release ${{ github.event.inputs.releaseversion }}" || true
 
