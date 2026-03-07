@@ -96,11 +96,12 @@ jobs:
       - name: Publish npm package
         run: |
           npm version --no-git-tag-version ${{ github.event.inputs.releaseversion }}
+          npm i
           cd packages/npm/
           npm ci
           npm run clean
           npm version --no-git-tag-version ${{ github.event.inputs.releaseversion }}
-          npm run build
+          npm i
           npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
