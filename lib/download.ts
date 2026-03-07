@@ -1,6 +1,7 @@
 import axios from 'axios';
 import axiosRetry from 'axios-retry';
-import {  rmSync } from 'fs';
+import pLimit from 'p-limit';
+import { rmSync } from 'fs';
 import { dirname, resolve } from 'path';
 import xmlFormatter from 'xml-formatter';
 import { Standard, UpdateDetails } from './types';
@@ -14,18 +15,17 @@ const timeout = 120000;
 const client = axios.create();
 axiosRetry(client, {
   retries: 3, // number of retries
-  retryDelay: (retryCount) => {
-    console.log(`Retry attempt #${retryCount}`);
-    return retryCount * 1000; // exponential backoff
-  },
-  retryCondition: (error) => {
-    // retry on ECONNRESET and network errors
-    if (error.code === 'ECONNRESET') return true;
-    return axiosRetry.isNetworkOrIdempotentRequestError(error);
-  },
+  retryDelay: (retryCount) => retryCount * 1000, // exponential backoff
+  retryCondition: (error) =>
+    error.code === 'ECONNRESET' || axiosRetry.isNetworkOrIdempotentRequestError(error),
 });
 
-const IGNORED_ULRS = ['urn:xoev-de:xbau-kernmodul:codeliste:xbau-fehlerkennzahlen'];
+const defaultDownloadHeaders = {
+  'accept-language': 'de-DE,de;q=0.9,en-US;q=0.8,en;q=0.7',
+  accept: 'application/json',
+};
+
+const IGNORED_URLS = ['urn:xoev-de:xbau-kernmodul:codeliste:xbau-fehlerkennzahlen'];
 
 function safeParse<T>(json: string, fallback: T): T {
   try {
@@ -34,126 +34,132 @@ function safeParse<T>(json: string, fallback: T): T {
     return fallback;
   }
 }
-/* eslint-disable  @typescript-eslint/no-explicit-any */
+
 async function download(file: string, resource: string): Promise<void> {
   const zipFile = file.endsWith('zip');
   const filename = resolve(file);
   if (fileExists(filename)) {
     console.debug(`${filename} already existing. Skipping.`);
-    return new Promise((resolve) => {
-      resolve();
-    });
+    return;
   }
-  const headers: any = {
-    'accept-language': 'de-DE,de;q=0.9,en-US;q=0.8,en;q=0.7',
-    accept: '*/*',
-  };
-  return client
-    .get(resource, {
-      headers,
+
+  try {
+    const response = await client.get<ArrayBuffer>(resource, {
+      headers: defaultDownloadHeaders,
       timeout,
       responseType: 'arraybuffer',
-    })
-    .then(async (response) => {
-      let content = response.data;
-      if (filename.endsWith('.xml') || filename.endsWith('.sch')) {
-        // pretty-print XML
-        content = xmlFormatter(new TextDecoder().decode(content), {
-          indentation: '  ', // default is two spaces
-          collapseContent: true,
-          lineSeparator: '\n',
-        });
-      }
-      await writeToFile(filename, content);
-      if (zipFile) {
-        const outputDir = dirname(filename);
-        await unzipFile(filename, outputDir);
-        rmSync(filename);
-      }
-    })
-    .catch((data) => {
-      const response = data.response;
-      const json = safeParse(response?.data, { fehler: '' });
-      if (data.status == 404 && (json?.fehler === 'NUR PLATZHALTER GEFUNDEN' || json?.fehler === 'NICHT SICHTBAR')) {
-        console.info(`Skipping ${resource}.`);
-        console.debug(`Response for skipped item: ${JSON.stringify(json)}`);
-      } else {
-        console.error(`Could not Download the file ${resource})`);
-        console.debug(`Response for error: ${data}`);
-      }
     });
+
+    let content: string | ArrayBuffer = response.data;
+    if (filename.endsWith('.xml') || filename.endsWith('.sch')) {
+      // pretty-print XML
+      content = xmlFormatter(new TextDecoder().decode(content), {
+        indentation: '  ',
+        collapseContent: true,
+        lineSeparator: '\n',
+      });
+    }
+    await writeToFile(filename, content as string);
+
+    if (zipFile) {
+      const outputDir = dirname(filename);
+      await unzipFile(filename, outputDir);
+      rmSync(filename);
+    }
+  } catch (err: unknown) {
+    if (!axios.isAxiosError(err)) {
+      console.error(`Could not download the file ${resource}`);
+      console.debug(`Response for error: ${err}`);
+      return;
+    }
+    const json = safeParse(String(err.response?.data ?? ''), { fehler: '' });
+    if (
+      err.response?.status === 404 &&
+      (json?.fehler === 'NUR PLATZHALTER GEFUNDEN' || json?.fehler === 'NICHT SICHTBAR')
+    ) {
+      console.info(`Skipping ${resource}.`);
+      console.debug(`Response for skipped item: ${JSON.stringify(json)}`);
+    } else {
+      console.error(`Could not download the file ${resource}`);
+      console.debug(`Response for error: ${err}`);
+    }
+  }
 }
+
+// simple concurrency limiter to avoid hundreds of simultaneous requests
+const DOWNLOAD_LIMIT = 5;
+const limit = pLimit(DOWNLOAD_LIMIT);
 
 function getFolderForType(type: string): string {
   switch (type) {
     case 'XSD':
       return 'xsd';
     case 'originalFachmodellXMI':
-      return 'subject_models';
     case 'originalFachmodellProprietaer':
       return 'subject_models';
     case 'WEITERER_TECHNISCHER_BESTANDTEIL':
       return 'specs';
     case 'WSDL':
-      return 'wsdl';
+      return 'webservices';
     default:
       return 'docs';
   }
 }
 
-export async function downloadArtifacts(standard: Standard, updates: UpdateDetails): Promise<any> {
+export async function downloadArtifacts(standard: Standard, updates: UpdateDetails): Promise<void> {
   const details = updates.details;
   const rootFolder = `${artifactsFolder}/${getEnumKeyByValue(Standard, standard)}`;
-  const downloads = <Array<Promise<void>>>details.versionen.map(async (standard) => {
-    const codeLists = new Array<string>();
-    const list = standard?.codeLists ?? [];
-    const folderName = `${rootFolder}/${standard.version}`;
-    const docs = standard?.dokumente ?? [];
-    for (const doc of docs) {
-      let folder = `${folderName}/${getFolderForType(doc.type)}`;
-      // add codelists to
-      if (doc.name.indexOf('Codelisten') >= 0 || doc.name.indexOf('codelisten') >= 0) {
-        folder = `${folderName}/codelists`;
-      }
-      if (doc.downloads) {
-        for (const item of doc.downloads) {
-          await download(`${folder}/${item.kennung}`, item.url);
-        }
-      }
-    }
-    for (const codelist of list) {
-      if (!IGNORED_ULRS.includes(codelist.kennung)) {
-        // without version download all versions
-        if (!codelist.version) {
-          const detailsResponse = await apiClient.get(`${codelist.kennung}/metadaten`, {
-            headers: {
-              accept: 'application/json',
-              'accept-language': 'de-DE,de;q=0.9,en-US;q=0.8,en;q=0.7',
-            },
-            timeout,
-          });
-          if (detailsResponse.data) {
-            const versions = <Array<string>>(<any>detailsResponse.data).alleVersionsKennungen;
-            for (const version of versions) {
-              await download(
-                `${artifactsFolder}/codelists/${version}.xml`,
-                `https://www.xrepository.de/api/xrepository/${version}:technischerBestandteilGenericode`
-              );
-              codeLists.push(`${version}.xml`);
+  const downloads = details.versionen.map((standard) =>
+    limit(async () => {
+      try {
+        const codeLists: string[] = [];
+        const list = standard?.codeLists ?? [];
+        const folderName = `${rootFolder}/${standard.version}`;
+        const docs = standard?.dokumente ?? [];
+        for (const doc of docs) {
+          let folder = `${folderName}/${getFolderForType(doc.type)}`;
+          if (doc.name.match(/codelisten/i)) {
+            folder = `${folderName}/codelists`;
+          }
+          if (doc.downloads) {
+            for (const item of doc.downloads) {
+              await download(`${folder}/${item.kennung}`, item.url);
             }
           }
-        } else {
-          await download(
-            `${artifactsFolder}/codelists/${codelist.kennung}.xml`,
-            `https://www.xrepository.de/api/xrepository/${codelist.kennung}:technischerBestandteilGenericode`
-          );
-          // TODO: Add custom codelists, too
-          codeLists.push(`${codelist.kennung}.xml`);
         }
+        for (const codelist of list) {
+          if (!IGNORED_URLS.includes(codelist.kennung)) {
+            if (!codelist.version) {
+              const detailsResponse = await apiClient.get(`${codelist.kennung}/metadaten`, {
+                headers: defaultDownloadHeaders,
+                timeout,
+              });
+              if (detailsResponse.data) {
+                const versions: string[] = Array.isArray(detailsResponse.data.alleVersionsKennungen)
+                  ? detailsResponse.data.alleVersionsKennungen
+                  : [];
+                for (const version of versions) {
+                  await download(
+                    `${artifactsFolder}/codelists/${version}.xml`,
+                    `${BASE_URL}${version}:technischerBestandteilGenericode`
+                  );
+                  codeLists.push(`${version}.xml`);
+                }
+              }
+            } else {
+              await download(
+                `${artifactsFolder}/codelists/${codelist.kennung}.xml`,
+                `${BASE_URL}${codelist.kennung}:technischerBestandteilGenericode`
+              );
+              codeLists.push(`${codelist.kennung}.xml`);
+            }
+          }
+        }
+        await writeToFile(`${folderName}/codelists.json`, JSON.stringify(codeLists, null, 4));
+      } catch (err) {
+        console.error(`Error processing version ${standard.version}:`, err);
       }
-    }
-    // write code lists as json for each standard
-    await writeToFile(`${folderName}/codelists.json`, JSON.stringify(codeLists, null, 4));
-  });
-  return Promise.all(downloads);
+    })
+  );
+  await Promise.all(downloads);
 }

@@ -3,18 +3,18 @@ import { createReadStream, existsSync, mkdirSync, readFileSync } from 'fs';
 import { dirname, join } from 'path';
 import unzipper from 'unzipper';
 
-export function ensureDirExists(filePath: string) {
+export function ensureDirExists(filePath: string): void {
   const dir = dirname(filePath);
   mkdirSync(dir, { recursive: true });
 }
+
 export async function listFiles(rootDir: string): Promise<string[]> {
   const entries = await readdir(rootDir, { withFileTypes: true });
-
   // Only keep files (ignore directories)
   return entries.filter((entry) => entry.isFile()).map((entry) => join(rootDir, entry.name));
 }
 
-export async function unzipFile(zipFilePath: string, outputFolder: string) {
+export async function unzipFile(zipFilePath: string, outputFolder: string): Promise<void> {
   // Ensure the output folder exists
   mkdirSync(outputFolder, { recursive: true });
 
@@ -27,7 +27,7 @@ export async function unzipFile(zipFilePath: string, outputFolder: string) {
   return new Promise<void>((resolve, reject) => {
     createReadStream(zipFilePath)
       .pipe(unzipper.Extract({ path: outputFolder }))
-      .on('close', async () => {
+      .on('close', () => {
         console.log(`Extraction complete: ${outputFolder}`);
         resolve();
       })

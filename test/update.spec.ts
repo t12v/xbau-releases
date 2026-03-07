@@ -9,6 +9,6 @@ test('check for updates', async () => {
   expect(await update(Standard.XBAU, false)).toBeDefined();
 });
 
-test('check for updates', async () => {
+test('check for updates xbau-kernmodul', async () => {
   expect(await update(Standard.XBAU_KERN, false)).toBeDefined();
 });

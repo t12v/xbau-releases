@@ -43,16 +43,8 @@ yargs(hideBin(process.argv))
     },
     async (argv) => {
       const standard = argv.standard as string;
-      if (standard !== 'xbau' && standard !== 'xbau-kernmodul') {
-        console.error('Invalid standard. Please choose either "xbau" or "xbau-kernmodul".');
-      }
-      if (standard === 'xbau-kernmodul') {
-        const details = await getDetailsForStandard(Standard.XBAU_KERN);
-        console.log(JSON.stringify(details, null, 2));
-      } else {
-        const details = await getDetailsForStandard(Standard.XBAU);
-        console.log(JSON.stringify(details, null, 2));
-      }
+      const details = await getDetailsForStandard(standard === 'xbau-kernmodul' ? Standard.XBAU_KERN : Standard.XBAU);
+      console.log(JSON.stringify(details, null, 2));
     }
   )
   .command(
@@ -75,18 +67,11 @@ yargs(hideBin(process.argv))
         });
     },
     async (argv) => {
-      const standard = argv.standard as string;
-      if (standard !== 'xbau' && standard !== 'xbau-kernmodul') {
-        console.error('Invalid standard. Please choose either "xbau" or "xbau-kernmodul".');
-      }
-      let usedStandard = Standard.XBAU;
-      if (standard === 'xbau-kernmodul') {
-        usedStandard = Standard.XBAU_KERN;
-      }
+      const usedStandard = argv.standard === 'xbau-kernmodul' ? Standard.XBAU_KERN : Standard.XBAU;
       const result = await isUpdateAvailableForStandard(usedStandard, argv.write as boolean);
       if (result.updateDetected) {
         console.log(`Update available for ${usedStandard}.`);
-        downloadArtifacts(usedStandard, result);
+        await downloadArtifacts(usedStandard, result);
       } else {
         console.log(`No update available for ${usedStandard}.`);
       }

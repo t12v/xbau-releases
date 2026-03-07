@@ -7,7 +7,7 @@
     "xbau-releases": "dist/cli.js"
   },
   "scripts": {
-    "clean": "npm ci",
+    "clean": "rm -rf dist",
     "build": "tsc",
     "lint": "eslint .",
     "test": "npm run lint && JEST_JUNIT_CLASSNAME=\"{filepath}\" jest --coverage",
