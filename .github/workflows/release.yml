@@ -97,8 +97,10 @@ jobs:
         run: |
           npm version --no-git-tag-version ${{ github.event.inputs.releaseversion }}
           cd packages/npm/
+          npm ci
           npm run clean
           npm version --no-git-tag-version ${{ github.event.inputs.releaseversion }}
+          nüm run build
           npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
@@ -125,9 +127,9 @@ jobs:
       - name: Create GH release
         uses: softprops/action-gh-release@v2
         env:
-            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-            token: ${{ secrets.GITHUB_TOKEN }}
-            name: ${{ github.event.inputs.releaseversion }}
-            tag_name: v${{ github.event.inputs.releaseversion }}
-            draft: true
+          token: ${{ secrets.GITHUB_TOKEN }}
+          name: ${{ github.event.inputs.releaseversion }}
+          tag_name: v${{ github.event.inputs.releaseversion }}
+          draft: true
