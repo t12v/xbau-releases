@@ -100,7 +100,7 @@ jobs:
           npm ci
           npm run clean
           npm version --no-git-tag-version ${{ github.event.inputs.releaseversion }}
-          nüm run build
+          npm run build
           npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
