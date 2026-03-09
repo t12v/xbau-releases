@@ -28,6 +28,7 @@ jobs:
 
       - name: check for changes
         run: |
+          npm ci
           npm run clean
           npm run build
           npm run check:updates
