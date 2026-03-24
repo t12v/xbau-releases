@@ -9,8 +9,12 @@ function normalize() {
     for oldname in "$dir"/*; do
         [ -f "$oldname" ] || continue
 
-        newname="$(xq -q 'Identification > CanonicalVersionUri' "$oldname").xml"
+        # Skip non-XML files (e.g. ZIP downloads that should not be renamed)
+        [[ "$oldname" != *.xml ]] && { echo "Skipping non-XML file $oldname"; continue; }
+
+        newname="$(xq -q 'Identification > CanonicalVersionUri' "$oldname")"
         [ -z "$newname" ] && { echo "No CanonicalVersionUri for $oldname, skipping."; continue; }
+        newname="$newname.xml"
 
         newpath="$dir/$newname"
         mv -v -- "$oldname" "$newpath"
