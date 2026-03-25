@@ -123,6 +123,14 @@ export async function downloadArtifacts(standard: Standard, updates: UpdateDetai
           }
           if (doc.downloads) {
             for (const item of doc.downloads) {
+              // Skip ZIP bundles in the codelists folder — individual codelists are already
+              // downloaded to artifacts/codelists/ via the codeLists loop below.
+              // Extracting the ZIP here would create hyphen-named duplicates that conflict
+              // with the harmonize step.
+              if (folder === `${folderName}/codelists` && item.kennung.endsWith('zip')) {
+                console.debug(`Skipping genericode ZIP bundle: ${item.kennung}`);
+                continue;
+              }
               await download(`${folder}/${item.kennung}`, item.url);
             }
           }
