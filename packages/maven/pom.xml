@@ -73,7 +73,7 @@
         <h2.version>2.4.240</h2.version>
 
         <!-- plugin versions -->
-        <maven-maven-resources-plugin.version>3.3.1</maven-maven-resources-plugin.version>
+        <maven-maven-resources-plugin.version>3.5.0</maven-maven-resources-plugin.version>
         <maven-javadoc-plugin.version>3.11.1</maven-javadoc-plugin.version>
         <maven-source-plugin.version>3.3.1</maven-source-plugin.version>
         <maven-versions-plugin.version>2.20.1</maven-versions-plugin.version>
