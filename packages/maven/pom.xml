@@ -3,7 +3,7 @@
 
     <groupId>net.xoev</groupId>
     <artifactId>xbau-releases</artifactId>
-    <version>1.0.3-SNAPSHOT</version>
+    <version>1.0.4</version>
     <name>XBau Releases</name>
     <packaging>jar</packaging>
 
