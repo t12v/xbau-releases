@@ -1,3 +1,15 @@
+# [2.0.0](https://github.com/t12v/xbau-releases/compare/v1.0.4...v2.0.0) (2026-04-16)
+
+
+### Bug Fixes
+
+* **Artifacts:** Correcting ZIP download and clean-up folder structure ([90daaf6](https://github.com/t12v/xbau-releases/commit/90daaf67613713ed909a459c8993f75eb8afb002))
+* **NPM:** Correcting npm package error ([2ba13d4](https://github.com/t12v/xbau-releases/commit/2ba13d40329cd33346d297eeca9f26d19f2ec152))
+
+
+### Features
+
+* **Maven:** Adjust maven folder structure ([41009fa](https://github.com/t12v/xbau-releases/commit/41009fa9d7f6c70837cb7be477d90d227bf1f9e0))
 
 ## [1.0.4](https://github.com/t12v/xbau-releases/compare/v1.0.3...v1.0.4) (2026-04-14)
 
