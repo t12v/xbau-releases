@@ -8,7 +8,7 @@
   ],
   "scripts": {
     "clean": "npm ci",
-    "postinstall": "copyfiles -f ../../artifacts/codelists/* codelists/generic && copyfiles ../../artifacts/xbau/*/codelists/* codelists/xbau && copyfiles ../../artifacts/xbau_kern/*/codelists/* codelists/xbau_kern && cp -rp artifacts/* codelists && rm -rf artifacts"
+    "postinstall": "mkdir -p codelists && copyfiles -f ../../artifacts/codelists/* codelists"
   },
   "repository": {
     "type": "git",
