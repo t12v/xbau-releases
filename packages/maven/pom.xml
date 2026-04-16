@@ -137,7 +137,7 @@
                             <goal>copy-resources</goal>
                         </goals>
                         <configuration>
-                            <outputDirectory>src-gen/main/resources/codelists/generic</outputDirectory>
+                            <outputDirectory>src-gen/main/resources/codelists</outputDirectory>
                             <resources>
                                 <resource>
                                     <directory>../../artifacts/codelists</directory>
