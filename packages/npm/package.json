@@ -4,11 +4,12 @@
   "description": "",
   "files": [
     "dist/",
-    "codelists/"
+    "codelists/",
+    "standards/"
   ],
   "scripts": {
     "clean": "npm ci",
-    "postinstall": "mkdir -p codelists && copyfiles -f ../../artifacts/codelists/* codelists"
+    "postinstall": "mkdir -p codelists && copyfiles -f ../../artifacts/codelists/* codelists && mkdir -p standards && copyfiles -e \"**/*.zip\" -u 3 \"../../artifacts/xbau/**/*\" standards && copyfiles -e \"**/*.zip\" -u 3 \"../../artifacts/xbau_kern/**/*\" standards"
   },
   "repository": {
     "type": "git",

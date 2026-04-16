@@ -166,6 +166,30 @@
                             </resources>
                         </configuration>
                     </execution>
+                    <execution>
+                        <id>copy-standard-artifacts</id>
+                        <phase>process-resources</phase>
+                        <goals>
+                            <goal>copy-resources</goal>
+                        </goals>
+                        <configuration>
+                            <outputDirectory>src-gen/main/resources</outputDirectory>
+                            <resources>
+                                <resource>
+                                    <directory>../../artifacts</directory>
+                                    <includes>
+                                        <include>*/*/xsd/**</include>
+                                        <include>*/*/webservices/**</include>
+                                        <include>*/*/docs/**</include>
+                                        <include>*/*/specs/**</include>
+                                    </includes>
+                                    <excludes>
+                                        <exclude>**/*.zip</exclude>
+                                    </excludes>
+                                </resource>
+                            </resources>
+                        </configuration>
+                    </execution>
                 </executions>
             </plugin>
             <plugin>
