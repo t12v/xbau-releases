@@ -27,7 +27,7 @@
       </xs:appinfo>
    </xs:annotation>
    <xs:include schemaLocation="xbau-baukasten.xsd"/>
-   <xs:import schemaLocation="xbau-kernmodul-datentypen.xsd"
+   <xs:import schemaLocation="https://www.xleitstelle.de/xbau/schema/kernmodul/1/1/xbau-kernmodul-datentypen.xsd"
               namespace="http://www.xleitstelle.de/xbau/kernmodul/1/1"/>
    <xs:element name="baugenehmigung.antrag.0200">
       <xs:annotation>

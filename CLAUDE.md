@@ -109,6 +109,29 @@ git rm -r "artifacts/xbau_kern/*/codelists/.xml"
 
 The files committed under `artifacts/xbau/2.2/codelists/` and `artifacts/xbau/2.6/codelists/` still use hyphen names (from before harmonize was working correctly). Running `check:updates` will rename them to colon format. Stage and commit those renames to stabilise the repo. After that, subsequent runs will be no-ops.
 
+### 5. ZIP files downloaded with wrong MIME type (fixed)
+
+**Symptom**: ZIP artifacts were served/stored with the wrong Content-Type (e.g. `application/json`) instead of `application/zip`.
+
+**Root cause**: `defaultDownloadHeaders` in `lib/download.ts` sent `accept: 'application/json'` for all downloads, including binary ZIP files. The xrepository.de API honours content negotiation and returned the wrong `Content-Type`. Additionally, `writeToFile` in `lib/file.ts` was typed as `(file: string, content: string)` but received `ArrayBuffer` for binary downloads — the `as string` cast masked the mismatch.
+
+**Fix** (`lib/download.ts`): Changed `accept` to `'*/*'` so the server sends the native content type:
+
+```typescript
+const defaultDownloadHeaders = {
+  'accept-language': 'de-DE,de;q=0.9,en-US;q=0.8,en;q=0.7',
+  accept: '*/*',
+};
+```
+
+**Fix** (`lib/file.ts`): Updated `writeToFile` signature to accept binary content:
+
+```typescript
+export async function writeToFile(file: string, content: string | ArrayBuffer): Promise<void> {
+  await writeFile(file, content instanceof ArrayBuffer ? new Uint8Array(content) : content);
+}
+```
+
 ## Important Notes for Claude
 
 - **Never delete ZIP files manually** — the `download()` function deletes them automatically after extraction (`rmSync`). If `unzipFile` throws, the ZIP is intentionally left on disk so the next run can retry.

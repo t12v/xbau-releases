@@ -1,13 +1,13 @@
 {
   "permissions": {
     "allow": [
-      "Bash(npx eslint .)",
-      "Bash(npx jest)",
-      "Bash(npx jest --testPathPattern=\"download\" --verbose)",
-      "Bash(grep -A 20 \"● checksum different for different XBau objects$\")",
-      "Bash(npx eslint lib/download.ts)",
-      "Bash(npx tsc --noEmit)",
-      "Bash(npx jest --testPathPattern=\"search\" --verbose)"
+      "Bash(npx eslint *)",
+      "Bash(npx jest*)",
+      "Bash(npx tsc*)",
+      "Bash(grep *)",
+      "Bash(git status)",
+      "Bash(git diff*)",
+      "Bash(git log*)"
     ]
   }
 }

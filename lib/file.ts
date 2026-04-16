@@ -55,10 +55,10 @@ export async function readFileContent(path: string): Promise<string | null> {
   }
 }
 
-export async function writeToFile(file: string, content: string): Promise<void> {
+export async function writeToFile(file: string, content: string | ArrayBuffer): Promise<void> {
   try {
     ensureDirExists(file);
-    await writeFile(file, content);
+    await writeFile(file, content instanceof ArrayBuffer ? new Uint8Array(content) : content);
     console.debug('File written successfully. ' + file);
   } catch (err) {
     console.error('Error writing file:', err);

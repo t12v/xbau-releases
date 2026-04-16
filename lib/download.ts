@@ -1,7 +1,7 @@
 import axios from 'axios';
 import axiosRetry from 'axios-retry';
 import pLimit from 'p-limit';
-import { rmSync } from 'fs';
+
 import { dirname, resolve } from 'path';
 import xmlFormatter from 'xml-formatter';
 import { Standard, UpdateDetails } from './types';
@@ -22,7 +22,7 @@ axiosRetry(client, {
 
 const defaultDownloadHeaders = {
   'accept-language': 'de-DE,de;q=0.9,en-US;q=0.8,en;q=0.7',
-  accept: 'application/json',
+  accept: '*/*',
 };
 
 const IGNORED_URLS = ['urn:xoev-de:xbau-kernmodul:codeliste:xbau-fehlerkennzahlen'];
@@ -59,12 +59,14 @@ async function download(file: string, resource: string): Promise<void> {
         lineSeparator: '\n',
       });
     }
-    await writeToFile(filename, content as string);
+    await writeToFile(filename, content);
 
     if (zipFile) {
       const outputDir = dirname(filename);
       await unzipFile(filename, outputDir);
-      rmSync(filename);
+      // Keep the ZIP on disk — it serves as the existence marker for the next
+      // fileExists() check above. Deleting it would cause a re-download on every
+      // run. ZIPs in artifacts/xbau* are gitignored so they won't be tracked.
     }
   } catch (err: unknown) {
     if (!axios.isAxiosError(err)) {
