@@ -41,7 +41,7 @@ jobs:
               - '**'
       - name: Check for open PR with label
         id: check
-        uses: actions/github-script@v8
+        uses: actions/github-script@v9
         with:
           script: |
             const prs = await github.rest.pulls.list({
