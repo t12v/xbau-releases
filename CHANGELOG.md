@@ -1,3 +1,18 @@
+## [2.1.2](https://github.com/t12v/xbau-releases/compare/v2.0.0...v2.1.2) (2026-04-20)
+
+
+### Bug Fixes
+
+* Limit artifacts ([f74fbae](https://github.com/t12v/xbau-releases/commit/f74fbae082929a7be1a64fba5ab8b97eb72b8949)), closes [#33](https://github.com/t12v/xbau-releases/issues/33)
+
+
+### Features
+
+* **Packages:** Adding further artifacts ([2630e43](https://github.com/t12v/xbau-releases/commit/2630e434f331791fabb5f538f243a3be63c4d8d5)), closes [#33](https://github.com/t12v/xbau-releases/issues/33)
+* **Standard:** Update in Xbau Standard ([0c6d310](https://github.com/t12v/xbau-releases/commit/0c6d3105fa02fd3d0a0f8f0cc845d1bc8b62de7a))
+
+
+
 # [2.0.0](https://github.com/t12v/xbau-releases/compare/v1.0.4...v2.0.0) (2026-04-16)
 
 
