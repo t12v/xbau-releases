@@ -185,6 +185,9 @@
                                     </includes>
                                     <excludes>
                                         <exclude>**/*.zip</exclude>
+                                        <exclude>**/*.pdf</exclude>
+                                        <exclude>**/*.mdxml</exclude>
+                                        <exclude>**/*.uml</exclude>
                                     </excludes>
                                 </resource>
                             </resources>
