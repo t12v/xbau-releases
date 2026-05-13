@@ -51,6 +51,6 @@
     "jest-extended": "^7.0.0",
     "jest-junit": "^16.0.0",
     "ts-jest": "^29.1.0",
-    "typescript": "^5.8.2"
+    "typescript": "^6.0.0"
   }
 }
