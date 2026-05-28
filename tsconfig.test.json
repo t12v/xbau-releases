@@ -1,0 +1,8 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "noEmit": true,
+    "types": ["jest", "node", "jest-extended"]
+  },
+  "include": ["lib/**/*.ts", "test/**/*.ts", "*.ts"]
+}

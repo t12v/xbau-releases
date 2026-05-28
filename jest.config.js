@@ -12,7 +12,7 @@ module.exports = {
   setupFilesAfterEnv: ['jest-extended/all'],
   transformIgnorePatterns: ['node_modules/(?!(string-width|strip-ansi|ansi-regex|test-json-import)/)'],
   transform: {
-    '^.+\\.(ts|tsx)$': 'ts-jest',
+    '^.+\\.(ts|tsx)$': ['ts-jest', { tsconfig: 'tsconfig.test.json' }],
   },
   coverageDirectory: 'coverage',
   coverageReporters: ['lcov', 'text'],
