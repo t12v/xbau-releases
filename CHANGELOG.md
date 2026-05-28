@@ -1,3 +1,18 @@
+## [2.1.3](https://github.com/t12v/xbau-releases/compare/v2.1.2...v2.1.3) (2026-05-28)
+
+
+### Bug Fixes
+
+* Correcting checksum calculation ([6403af3](https://github.com/t12v/xbau-releases/commit/6403af3d0c9cf269fede70378cbe3c0edc511dc2))
+
+
+### Features
+
+* **Standard:** Update in Xbau Standard ([9e111d1](https://github.com/t12v/xbau-releases/commit/9e111d11fe306cde854e5f5bb515754c77ad7eff))
+* **Standard:** Update in Xbau Standard ([557bad1](https://github.com/t12v/xbau-releases/commit/557bad1594f1981e0adb2aa7ba4b89f84441da95))
+
+
+
 ## [2.1.2](https://github.com/t12v/xbau-releases/compare/v2.0.0...v2.1.2) (2026-04-20)
 
 
