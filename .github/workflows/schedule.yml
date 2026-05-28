@@ -1,4 +1,4 @@
-name: Schedule
+name: Update cron
 
 on:
   # allow to manual run the action
