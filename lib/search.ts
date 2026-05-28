@@ -55,6 +55,10 @@ interface ApiMetadata {
 // helper cache for metadata lookups to avoid re-fetching the same
 const metadataCache: Map<string, ApiMetadata> = new Map();
 
+export function clearMetadataCache(): void {
+  metadataCache.clear();
+}
+
 async function fetchMetadata(kennung: string): Promise<ApiMetadata> {
   if (metadataCache.has(kennung)) {
     return metadataCache.get(kennung) as ApiMetadata;
@@ -161,6 +165,25 @@ export async function getDetails(standard: Standard): Promise<StandardOverview> 
       }
     }
 
+    // Expand unversioned codelists (CODELISTE references) to their individual versioned
+    // kennungen by fetching alleVersionsKennungen. This makes the checksum sensitive to
+    // newly published versions rather than relying on volatile reference timestamps.
+    const expandedCodeLists: CodeList[] = [];
+    for (const cl of codeLists) {
+      if (cl.version) {
+        expandedCodeLists.push(cl);
+      } else {
+        try {
+          const meta = await fetchMetadata(cl.kennung);
+          for (const vKennung of meta.alleVersionsKennungen ?? []) {
+            expandedCodeLists.push({ kennung: vKennung, version: vKennung, updated: cl.updated });
+          }
+        } catch {
+          expandedCodeLists.push(cl); // keep as-is; downloadArtifacts handles errors/IGNORED_URLS
+        }
+      }
+    }
+
     result.versionen.push({
       kennung: details.kennung,
       version: details.version,
@@ -168,7 +191,7 @@ export async function getDetails(standard: Standard): Promise<StandardOverview> 
       referencedCodeLists: refs.codelists,
       referencedStandards: refs.standards,
       dokumente,
-      codeLists,
+      codeLists: expandedCodeLists,
     });
   }
   result.versionen.sort(function (a, b) {

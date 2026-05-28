@@ -1,8 +1,32 @@
 import { fileExists, readFileContent, writeToFile } from './file';
-import { Standard, UpdateDetails } from './types';
+import { Standard, StandardOverview, UpdateDetails } from './types';
 import { getChecksum } from './checksum';
 import { getDetails } from './search';
 import { artifactsFolder, getEnumKeyByValue } from './utils';
+
+// Returns true if any codelist file listed in a version's codelists.json is absent on disk.
+// Used to restore locally deleted files even when the API checksum hasn't changed.
+async function hasMissingFiles(standard: Standard, details: StandardOverview): Promise<boolean> {
+  const rootFolder = `${artifactsFolder}/${getEnumKeyByValue(Standard, standard)}`;
+  for (const version of details.versionen) {
+    const checklistPath = `${rootFolder}/${version.version}/codelists.json`;
+    if (!fileExists(checklistPath)) continue;
+    const content = await readFileContent(checklistPath);
+    if (!content) continue;
+    try {
+      const codelists: string[] = JSON.parse(content);
+      for (const cl of codelists) {
+        if (!fileExists(`${artifactsFolder}/codelists/${cl}`)) {
+          console.log(`Missing artifact detected: ${cl} — triggering update.`);
+          return true;
+        }
+      }
+    } catch {
+      // ignore malformed codelists.json
+    }
+  }
+  return false;
+}
 
 export async function checkForUpdates(standard: Standard): Promise<UpdateDetails> {
   try {
@@ -18,8 +42,11 @@ export async function checkForUpdates(standard: Standard): Promise<UpdateDetails
     };
     if (exists) {
       const currentChecksum = await readFileContent(checksumFile);
-      if (currentChecksum === checksum) {
-        details.updateDetected = false;
+      if (currentChecksum?.trim() === checksum) {
+        const missing = await hasMissingFiles(standard, standardDetails);
+        if (!missing) {
+          details.updateDetected = false;
+        }
       }
     }
     return details;
