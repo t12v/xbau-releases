@@ -165,6 +165,9 @@ export async function getDetails(standard: Standard): Promise<StandardOverview> 
       }
     }
 
+    console.debug(`[getDetails] Version ${details.version}: collected ${codeLists.length} codelists before expansion`);
+    codeLists.forEach((cl) => console.debug(`  - ${cl.kennung} (version: ${cl.version})`));
+
     // Expand unversioned codelists (CODELISTE references) to their individual versioned
     // kennungen by fetching alleVersionsKennungen. This makes the checksum sensitive to
     // newly published versions rather than relying on volatile reference timestamps.
@@ -172,17 +175,23 @@ export async function getDetails(standard: Standard): Promise<StandardOverview> 
     for (const cl of codeLists) {
       if (cl.version) {
         expandedCodeLists.push(cl);
+        console.debug(`[getDetails] Keeping versioned codelist: ${cl.kennung}@${cl.version}`);
       } else {
         try {
+          console.debug(`[getDetails] Expanding unversioned codelist: ${cl.kennung}`);
           const meta = await fetchMetadata(cl.kennung);
-          for (const vKennung of meta.alleVersionsKennungen ?? []) {
+          const versions = meta.alleVersionsKennungen ?? [];
+          console.debug(`[getDetails]   Found ${versions.length} versions for ${cl.kennung}: ${versions.join(', ')}`);
+          for (const vKennung of versions) {
             expandedCodeLists.push({ kennung: vKennung, version: vKennung, updated: cl.updated });
           }
-        } catch {
+        } catch (err) {
           expandedCodeLists.push(cl); // keep as-is; downloadArtifacts handles errors/IGNORED_URLS
+          console.debug(`Could not expand unversioned codelist ${cl.kennung}:`, err instanceof Error ? err.message : err);
         }
       }
     }
+    console.debug(`[getDetails] Version ${details.version}: expanded to ${expandedCodeLists.length} codelists`);
 
     result.versionen.push({
       kennung: details.kennung,

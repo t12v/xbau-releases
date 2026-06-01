@@ -1,6 +1,7 @@
 {
   "permissions": {
     "allow": [
+      "Bash",
       "Bash(npx eslint *)",
       "Bash(npx jest*)",
       "Bash(npx tsc*)",

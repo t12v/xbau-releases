@@ -43,6 +43,7 @@ async function download(file: string, resource: string): Promise<void> {
     return;
   }
 
+  console.debug(`[download] Fetching: ${resource} → ${filename}`);
   try {
     const response = await client.get<ArrayBuffer>(resource, {
       headers: defaultDownloadHeaders,
@@ -50,6 +51,7 @@ async function download(file: string, resource: string): Promise<void> {
       responseType: 'arraybuffer',
     });
 
+    console.debug(`[download] Writing ${response.data.byteLength} bytes to ${filename}`);
     let content: string | ArrayBuffer = response.data;
     if (filename.endsWith('.xml') || filename.endsWith('.sch')) {
       // pretty-print XML
@@ -60,6 +62,7 @@ async function download(file: string, resource: string): Promise<void> {
       });
     }
     await writeToFile(filename, content);
+    console.debug(`[download] Successfully wrote: ${filename}`);
 
     if (zipFile) {
       const outputDir = dirname(filename);
@@ -70,20 +73,22 @@ async function download(file: string, resource: string): Promise<void> {
     }
   } catch (err: unknown) {
     if (!axios.isAxiosError(err)) {
-      console.error(`Could not download the file ${resource}`);
+      console.error(`Could not download the file ${resource}`, err instanceof Error ? err.message : err);
       console.debug(`Response for error: ${err}`);
       return;
     }
     const json = safeParse(String(err.response?.data ?? ''), { fehler: '' });
     if (
       err.response?.status === 404 &&
-      (json?.fehler === 'NUR PLATZHALTER GEFUNDEN' || json?.fehler === 'NICHT SICHTBAR')
+      (json?.fehler === 'NUR PLATZHALTER GEFUNDEN' || json?.fehler === 'NICHT SICHTBAR' || json?.fehler === '')
     ) {
       console.info(`Skipping ${resource}.`);
       console.debug(`Response for skipped item: ${JSON.stringify(json)}`);
     } else {
-      console.error(`Could not download the file ${resource}`);
-      console.debug(`Response for error: ${err}`);
+      console.error(`Could not download the file ${resource}: HTTP ${err.response?.status} - ${err.message}`);
+      if (err.response?.data) {
+        console.debug(`Response body: ${JSON.stringify(json)}`);
+      }
     }
   }
 }
@@ -148,7 +153,9 @@ export async function downloadArtifacts(standard: Standard, updates: UpdateDetai
                 const versions: string[] = Array.isArray(detailsResponse.data.alleVersionsKennungen)
                   ? detailsResponse.data.alleVersionsKennungen
                   : [];
+                console.debug(`[downloadArtifacts] Expanding unversioned ${codelist.kennung} to ${versions.length} versions`);
                 for (const version of versions) {
+                  console.debug(`[downloadArtifacts] Downloading: ${version}`);
                   await download(
                     `${artifactsFolder}/codelists/${version}.xml`,
                     `${BASE_URL}${version}:technischerBestandteilGenericode`
@@ -157,6 +164,7 @@ export async function downloadArtifacts(standard: Standard, updates: UpdateDetai
                 }
               }
             } else {
+              console.debug(`[downloadArtifacts] Downloading versioned: ${codelist.kennung}`);
               await download(
                 `${artifactsFolder}/codelists/${codelist.kennung}.xml`,
                 `${BASE_URL}${codelist.kennung}:technischerBestandteilGenericode`
