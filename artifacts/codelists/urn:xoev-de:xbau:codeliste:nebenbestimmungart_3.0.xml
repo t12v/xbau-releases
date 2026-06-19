@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gc:CodeList xmlns:gc="http://docs.oasis-open.org/codelist/ns/genericode/1.0/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xoev-cl-4="http://xoev.de/schemata/genericode/4">
+  <Annotation>
+    <Description>
+      <xoev-cl-4:shortName>Nebenbestimmung Art</xoev-cl-4:shortName>
+      <xoev-cl-4:codelistDescription>Definition der Arten von Nebenbestimmungen zum Bescheid zu einem Bauantrag.</xoev-cl-4:codelistDescription>
+      <xoev-cl-4:agencyShortName>BMK</xoev-cl-4:agencyShortName>
+      <xoev-cl-4:versionHandbook>1.2</xoev-cl-4:versionHandbook>
+      <xoev-cl-4:changes>zu XBau 2.6: Neue Einträge 4-6</xoev-cl-4:changes>
+    </Description>
+  </Annotation>
+  <Identification>
+    <ShortName>nebenbestimmungart</ShortName>
+    <LongName>Nebenbestimmung Art</LongName>
+    <Version>3.0</Version>
+    <CanonicalUri>urn:xoev-de:xbau:codeliste:nebenbestimmungart</CanonicalUri>
+    <CanonicalVersionUri>urn:xoev-de:xbau:codeliste:nebenbestimmungart_3.0</CanonicalVersionUri>
+    <Agency>
+      <LongName>Bauministerkonferenz</LongName>
+    </Agency>
+  </Identification>
+  <ColumnSet>
+    <Column Id="code" Use="required">
+      <ShortName>code</ShortName>
+      <LongName>Code</LongName>
+      <Data Type="string"/>
+    </Column>
+    <Column Id="beschreibung" Use="required">
+      <ShortName>beschreibung</ShortName>
+      <LongName>Beschreibung</LongName>
+      <Data Type="string"/>
+    </Column>
+    <Key Id="codeKey">
+      <Annotation>
+        <AppInfo>
+          <xoev-cl-4:recommendedKeyColumn/>
+        </AppInfo>
+      </Annotation>
+      <ShortName>codeKey</ShortName>
+      <ColumnRef Ref="code"/>
+    </Key>
+  </ColumnSet>
+  <SimpleCodeList>
+    <Row>
+      <Value ColumnRef="code">
+        <SimpleValue>1</SimpleValue>
+      </Value>
+      <Value ColumnRef="beschreibung">
+        <SimpleValue>Bedingung</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="code">
+        <SimpleValue>2</SimpleValue>
+      </Value>
+      <Value ColumnRef="beschreibung">
+        <SimpleValue>Auflage</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="code">
+        <SimpleValue>3</SimpleValue>
+      </Value>
+      <Value ColumnRef="beschreibung">
+        <SimpleValue>Vorbehalt</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="code">
+        <SimpleValue>4</SimpleValue>
+      </Value>
+      <Value ColumnRef="beschreibung">
+        <SimpleValue>Hinweise</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="code">
+        <SimpleValue>5</SimpleValue>
+      </Value>
+      <Value ColumnRef="beschreibung">
+        <SimpleValue>auflösende Bedingung</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="code">
+        <SimpleValue>6</SimpleValue>
+      </Value>
+      <Value ColumnRef="beschreibung">
+        <SimpleValue>aufschiebende Bedingung</SimpleValue>
+      </Value>
+    </Row>
+  </SimpleCodeList>
+</gc:CodeList>

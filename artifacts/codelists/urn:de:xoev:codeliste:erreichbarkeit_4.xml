@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gc:CodeList xmlns:gc="http://docs.oasis-open.org/codelist/ns/genericode/1.0/" xmlns:xoev-cl-4="http://xoev.de/schemata/genericode/4" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Annotation>
+    <Description>
+      <xoev-cl-4:shortName>Erreichbarkeit</xoev-cl-4:shortName>
+      <xoev-cl-4:codelistDescription>Eine Liste der Kommunikationsmedien und -kanäle, über die man eine Person oder Institution erreichen kann. Betrieb: Die Codeliste wird im geregelten Betrieb unter direkter Beteiligung der XÖV-Gemeinschaft fortentwickelt. Änderungsanträge können Sie über die im XRepository definierten Ansprechpartner stellen. Eine Version ist i.d.R. "Gülitg ab" dem Tag ihrer Veröffentlichung, ein Ende der Gültigkeit wird nicht definiert.</xoev-cl-4:codelistDescription>
+      <xoev-cl-4:agencyShortName>KoSIT</xoev-cl-4:agencyShortName>
+      <xoev-cl-4:versionDescription>Diese Fassung wurde durch Version 4.1 ersetzt und ist obsolet. </xoev-cl-4:versionDescription>
+      <xoev-cl-4:validFrom>2025-01-17</xoev-cl-4:validFrom>
+      <xoev-cl-4:versionHandbook>1.2</xoev-cl-4:versionHandbook>
+      <xoev-cl-4:changes>Der Eintrag 10 (Web sicher) zur ausschließlichen Verwendung von https-gesicherter Web-Kommunikation wurde hinzugefügt. Der Eintra 11 (Kontaktformular sicher) zur ausschließlichen Verwendung von https-gesicherten Formularen wurde hinzugefügt. Die Einträge 12 - 13 (pouläre Social-Media Dienste) wurden aufgenommen. Die in Version 3 "Beschreibung" genannte Spalte wurde umbenannt. Aus dem Spaltentitel der in Version 3 "IANA Uniform Resource Identifier (URI) Scheme" genannten Spalte wurden unzulässige Zeichen entfernt. Eine englische Übersetzung der Beschreibungsspalte wurde hinzugefügt. Die zugrundeliegende Methodik wurde auf Codelistenhandbuch 1.2 aktualisiert.</xoev-cl-4:changes>
+    </Description>
+  </Annotation>
+  <Identification>
+    <ShortName>erreichbarkeit</ShortName>
+    <LongName>Kommunikationskanal / Erreichbarkeit</LongName>
+    <Version>4</Version>
+    <CanonicalUri>urn:de:xoev:codeliste:erreichbarkeit</CanonicalUri>
+    <CanonicalVersionUri>urn:de:xoev:codeliste:erreichbarkeit_4</CanonicalVersionUri>
+    <Agency>
+      <LongName>Koordinierungsstelle für IT-Standards</LongName>
+    </Agency>
+  </Identification>
+  <ColumnSet>
+    <Column Id="code" Use="required">
+      <ShortName>code</ShortName>
+      <LongName>Code</LongName>
+      <Data Type="string"/>
+    </Column>
+    <Column Id="Description-Deutsch" Use="required">
+      <ShortName>Description-Deutsch</ShortName>
+      <LongName>Description Deutsch</LongName>
+      <Data Type="string" Lang="de-DE"/>
+    </Column>
+    <Column Id="Description-English" Use="required">
+      <ShortName>Description-English</ShortName>
+      <LongName>Description English</LongName>
+      <Data Type="string" Lang="en-US"/>
+    </Column>
+    <Column Id="IANA-Uniform-Resource-Identifier---URI---Scheme" Use="optional">
+      <ShortName>IANA-Uniform-Resource-Identifier---URI---Scheme</ShortName>
+      <LongName>IANA Uniform Resource Identifier - URI - Scheme</LongName>
+      <Data Type="string"/>
+    </Column>
+    <Key Id="codeKey">
+      <ShortName>codeKey</ShortName>
+      <ColumnRef Ref="code"/>
+    </Key>
+  </ColumnSet>
+  <SimpleCodeList>
+    <Row>
+      <Value ColumnRef="code">
+        <SimpleValue>01</SimpleValue>
+      </Value>
+      <Value ColumnRef="Description-Deutsch">
+        <SimpleValue>E-Mail</SimpleValue>
+      </Value>
+      <Value ColumnRef="Description-English">
+        <SimpleValue>Email</SimpleValue>
+      </Value>
+      <Value ColumnRef="IANA-Uniform-Resource-Identifier---URI---Scheme">
+        <SimpleValue>mailto</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="code">
+        <SimpleValue>02</SimpleValue>
+      </Value>
+      <Value ColumnRef="Description-Deutsch">
+        <SimpleValue>Telefon Festnetz</SimpleValue>
+      </Value>
+      <Value ColumnRef="Description-English">
+        <SimpleValue>Landline</SimpleValue>
+      </Value>
+      <Value ColumnRef="IANA-Uniform-Resource-Identifier---URI---Scheme">
+        <SimpleValue>tel</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="code">
+        <SimpleValue>03</SimpleValue>
+      </Value>
+      <Value ColumnRef="Description-Deutsch">
+        <SimpleValue>Telefon mobil</SimpleValue>
+      </Value>
+      <Value ColumnRef="Description-English">
+        <SimpleValue>Mobile phone</SimpleValue>
+      </Value>
+      <Value ColumnRef="IANA-Uniform-Resource-Identifier---URI---Scheme">
+        <SimpleValue>tel</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="code">
+        <SimpleValue>04</SimpleValue>
+      </Value>
+      <Value ColumnRef="Description-Deutsch">
+        <SimpleValue>Fax</SimpleValue>
+      </Value>
+      <Value ColumnRef="Description-English">
+        <SimpleValue>Fax</SimpleValue>
+      </Value>
+      <Value ColumnRef="IANA-Uniform-Resource-Identifier---URI---Scheme">
+        <SimpleValue>tel</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="code">
+        <SimpleValue>05</SimpleValue>
+      </Value>
+      <Value ColumnRef="Description-Deutsch">
+        <SimpleValue>Instant Messenger</SimpleValue>
+      </Value>
+      <Value ColumnRef="Description-English">
+        <SimpleValue>Instant messenger</SimpleValue>
+      </Value>
+      <Value ColumnRef="IANA-Uniform-Resource-Identifier---URI---Scheme"/>
+    </Row>
+    <Row>
+      <Value ColumnRef="code">
+        <SimpleValue>06</SimpleValue>
+      </Value>
+      <Value ColumnRef="Description-Deutsch">
+        <SimpleValue>Pager</SimpleValue>
+      </Value>
+      <Value ColumnRef="Description-English">
+        <SimpleValue>Pager</SimpleValue>
+      </Value>
+      <Value ColumnRef="IANA-Uniform-Resource-Identifier---URI---Scheme"/>
+    </Row>
+    <Row>
+      <Value ColumnRef="code">
+        <SimpleValue>07</SimpleValue>
+      </Value>
+      <Value ColumnRef="Description-Deutsch">
+        <SimpleValue>Sonstiges</SimpleValue>
+      </Value>
+      <Value ColumnRef="Description-English">
+        <SimpleValue>Other</SimpleValue>
+      </Value>
+      <Value ColumnRef="IANA-Uniform-Resource-Identifier---URI---Scheme"/>
+    </Row>
+    <Row>
+      <Value ColumnRef="code">
+        <SimpleValue>08</SimpleValue>
+      </Value>
+      <Value ColumnRef="Description-Deutsch">
+        <SimpleValue>De-Mail</SimpleValue>
+      </Value>
+      <Value ColumnRef="Description-English">
+        <SimpleValue>De-Mail</SimpleValue>
+      </Value>
+      <Value ColumnRef="IANA-Uniform-Resource-Identifier---URI---Scheme"/>
+    </Row>
+    <Row>
+      <Value ColumnRef="code">
+        <SimpleValue>09</SimpleValue>
+      </Value>
+      <Value ColumnRef="Description-Deutsch">
+        <SimpleValue>Web</SimpleValue>
+      </Value>
+      <Value ColumnRef="Description-English">
+        <SimpleValue>Web</SimpleValue>
+      </Value>
+      <Value ColumnRef="IANA-Uniform-Resource-Identifier---URI---Scheme">
+        <SimpleValue>http, https</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="code">
+        <SimpleValue>10</SimpleValue>
+      </Value>
+      <Value ColumnRef="Description-Deutsch">
+        <SimpleValue>Web sicher</SimpleValue>
+      </Value>
+      <Value ColumnRef="Description-English">
+        <SimpleValue>Web secure</SimpleValue>
+      </Value>
+      <Value ColumnRef="IANA-Uniform-Resource-Identifier---URI---Scheme">
+        <SimpleValue>https</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="code">
+        <SimpleValue>11</SimpleValue>
+      </Value>
+      <Value ColumnRef="Description-Deutsch">
+        <SimpleValue>Kontaktformular sicher</SimpleValue>
+      </Value>
+      <Value ColumnRef="Description-English">
+        <SimpleValue>Contact form secure</SimpleValue>
+      </Value>
+      <Value ColumnRef="IANA-Uniform-Resource-Identifier---URI---Scheme">
+        <SimpleValue>https</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="code">
+        <SimpleValue>12</SimpleValue>
+      </Value>
+      <Value ColumnRef="Description-Deutsch">
+        <SimpleValue>Facebook</SimpleValue>
+      </Value>
+      <Value ColumnRef="Description-English">
+        <SimpleValue>Facebook</SimpleValue>
+      </Value>
+      <Value ColumnRef="IANA-Uniform-Resource-Identifier---URI---Scheme">
+        <SimpleValue>https</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="code">
+        <SimpleValue>13</SimpleValue>
+      </Value>
+      <Value ColumnRef="Description-Deutsch">
+        <SimpleValue>X (vormals Twitter)</SimpleValue>
+      </Value>
+      <Value ColumnRef="Description-English">
+        <SimpleValue>X (formerly Twitter)</SimpleValue>
+      </Value>
+      <Value ColumnRef="IANA-Uniform-Resource-Identifier---URI---Scheme">
+        <SimpleValue>https</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="code">
+        <SimpleValue>14</SimpleValue>
+      </Value>
+      <Value ColumnRef="Description-Deutsch">
+        <SimpleValue>Mastodon</SimpleValue>
+      </Value>
+      <Value ColumnRef="Description-English">
+        <SimpleValue>Mastodon</SimpleValue>
+      </Value>
+      <Value ColumnRef="IANA-Uniform-Resource-Identifier---URI---Scheme">
+        <SimpleValue>https</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="code">
+        <SimpleValue>15</SimpleValue>
+      </Value>
+      <Value ColumnRef="Description-Deutsch">
+        <SimpleValue>Instagram</SimpleValue>
+      </Value>
+      <Value ColumnRef="Description-English">
+        <SimpleValue>Instagram</SimpleValue>
+      </Value>
+      <Value ColumnRef="IANA-Uniform-Resource-Identifier---URI---Scheme">
+        <SimpleValue>https</SimpleValue>
+      </Value>
+    </Row>
+  </SimpleCodeList>
+</gc:CodeList>
