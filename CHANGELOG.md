@@ -1,3 +1,14 @@
+## [2.1.4](https://github.com/t12v/xbau-releases/compare/v2.1.3...v2.1.4) (2026-06-22)
+
+
+### Features
+
+* Add debug logging to trace codelist expansion and download issues ([fa0441f](https://github.com/t12v/xbau-releases/commit/fa0441fd64a810b5634a9af9dab8f7001e910e59))
+* **Standard:** Update in Xbau Standard ([4cc112c](https://github.com/t12v/xbau-releases/commit/4cc112c3865dd611a7e064d8f0e096b3d68c368d))
+* **Standard:** Update in Xbau Standard ([f2a873d](https://github.com/t12v/xbau-releases/commit/f2a873d756781dcbbd741b219441b8cb045a6b2f))
+
+
+
 ## [2.1.3](https://github.com/t12v/xbau-releases/compare/v2.1.2...v2.1.3) (2026-05-28)
 
 
