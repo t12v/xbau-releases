@@ -1,3 +1,52 @@
+
+## [2.1.5](https://github.com/ContinuousSecurityTooling/keycloak-auditor/compare/v2.1.4...v2.1.5) (2026-07-31)
+
+### Bug Fixes
+
+* Allow versions without metadata ([76e9ad7](https://github.com/ContinuousSecurityTooling/keycloak-auditor/commit/76e9ad7a15e3a37ab0f8dbf7f339ad947404a185))
+
+
+
+### Dependency Updates
+
+* **deps:** Update dependency axios to v1.16.1 ([205035e](https://github.com/ContinuousSecurityTooling/keycloak-auditor/commit/205035e6e6eed42052c557adc65b5138c8672892))
+
+* **deps:** Update codecov/codecov-action action to v7 ([17b929e](https://github.com/ContinuousSecurityTooling/keycloak-auditor/commit/17b929e2a3d43a9eef92a155e10ef23fd64b5c95))
+
+* **deps:** Update actions/checkout action to v7 ([edd16bc](https://github.com/ContinuousSecurityTooling/keycloak-auditor/commit/edd16bc068491fa10e230aee2acba41d3ec17dee))
+
+* **deps:** Update dependency org.sonatype.central:central-publishing-maven-plugin to v0.11.0 ([fd887d7](https://github.com/ContinuousSecurityTooling/keycloak-auditor/commit/fd887d75e75fa1c3a0ddd9a0e27b85023dfb3782))
+
+* **deps:** Update dependency axios to v1.18.0 ([d7605d1](https://github.com/ContinuousSecurityTooling/keycloak-auditor/commit/d7605d170fb05f357c3ec98272672b69fd946144))
+
+* **deps:** Update typescript-eslint monorepo to v8.61.1 ([754af8f](https://github.com/ContinuousSecurityTooling/keycloak-auditor/commit/754af8f56a7803e9ebe92e829d5a99b9532bc75c))
+
+* **deps:** Update jest monorepo ([7336d9a](https://github.com/ContinuousSecurityTooling/keycloak-auditor/commit/7336d9a09205b12abff179bd363fd7d80eaaf52d))
+
+* **deps:** Update dependency @types/node to v24.13.2 ([6137610](https://github.com/ContinuousSecurityTooling/keycloak-auditor/commit/61376107db765a983414417cab462957a9728325))
+
+* **deps:** Update maven-enforcer-plugin.version ([bb9d14e](https://github.com/ContinuousSecurityTooling/keycloak-auditor/commit/bb9d14e5eef33b688a5d745730f7533d77de5842))
+
+* **deps:** Update dependency unzipper to v0.12.5 ([afdd42a](https://github.com/ContinuousSecurityTooling/keycloak-auditor/commit/afdd42aafd9ccafc1ddb98c22f66dfedcaafe958))
+
+* **deps:** Update dependency maven to v3.9.16 ([e2e4ec4](https://github.com/ContinuousSecurityTooling/keycloak-auditor/commit/e2e4ec46e9320b53c1d2562481e27c57205de5e2))
+
+* **deps:** Update dependency ts-jest to v29.4.11 ([83e4511](https://github.com/ContinuousSecurityTooling/keycloak-auditor/commit/83e45116830e83506766ea398302a7dd15b8a4d0))
+
+* **deps:** Update dependency eslint-plugin-prettier to v5.5.6 ([43c7d60](https://github.com/ContinuousSecurityTooling/keycloak-auditor/commit/43c7d60d7a43f836c0d6bf66720cd19e5da26409))
+
+* **deps:** Update dependency axios to v1.18.1 ([f5ff003](https://github.com/ContinuousSecurityTooling/keycloak-auditor/commit/f5ff003c814d7fe44f84166f4c79bedf7cb31121))
+
+* **deps:** Update typescript-eslint monorepo to v8.62.0 ([534b56f](https://github.com/ContinuousSecurityTooling/keycloak-auditor/commit/534b56f25fb230bf0837a894050c1640d21a8365))
+
+
+
+### Features
+
+* **Standard:** Update in Xbau Standard ([841ded9](https://github.com/ContinuousSecurityTooling/keycloak-auditor/commit/841ded9b4cb3c8f62c9287dbf83136017e61ec56))
+
+
+
 ## [2.1.4](https://github.com/t12v/xbau-releases/compare/v2.1.3...v2.1.4) (2026-06-22)
 
 
