@@ -131,7 +131,16 @@ export async function getDetails(standard: Standard): Promise<StandardOverview> 
     versionen: [],
   };
   for (const kennung of overview.alleVersionsKennungen) {
-    const details = await fetchMetadata(kennung);
+    let details: ApiMetadata;
+    try {
+      details = await fetchMetadata(kennung);
+    } catch (err) {
+      console.warn(
+        `Skipping standard version ${kennung}: could not fetch metadata.`,
+        err instanceof Error ? err.message : err
+      );
+      continue;
+    }
     const refs = await extractReferences(details.referenzen);
 
     const dokumente: Array<Dokument> = [];
