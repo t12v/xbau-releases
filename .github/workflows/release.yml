@@ -110,18 +110,21 @@ jobs:
           git add package-lock.json
           git add packages/
           git commit -m "chore: Release ${{ github.event.inputs.releaseversion }}" || true
-
-      - name: Conventional Changelog Action
-        uses: TriPSs/conventional-changelog-action@v6
+      - name: Generate Changelog
+        uses: orhun/git-cliff-action@v4
         with:
-          input-file: CHANGELOG.md
-          github-token: ${{ steps.app-token.outputs.token }}
-          version-file: package.json
-          pre-release: true
-          skip-bump: true
-          skip-tag: true
-          skip-on-empty: true
-          tag-prefix: 'v'
+          config: cliff.toml
+          args: --tag v${{ inputs.releaseversion }} --prepend CHANGELOG.md --unreleased
+        env:
+          GITHUB_TOKEN: ${{ steps.app-token.outputs.token }}
+
+      - name: Commit Changelog
+        run: |
+          git add CHANGELOG.md
+          git diff --staged --quiet || git commit -m "chore(release): update changelog for v${{ inputs.releaseversion }}"
+          git tag v${{ inputs.releaseversion }} || true
+          git push --tags || true
+          git push
 
       - name: Create GH release
         uses: softprops/action-gh-release@v3
