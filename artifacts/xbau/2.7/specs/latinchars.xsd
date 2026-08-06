@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xoev-lc="http://xoev.de/latinchars/1_1/datatypes"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="http://xoev.de/latinchars/1_1/datatypes"
+           version="1.1.1"
+           elementFormDefault="qualified"
+           attributeFormDefault="unqualified">
+   <xs:annotation>
+      <xs:documentation>Diese Schema-Datei ist Bestandteil des von der KoSIT in XÖV herausgebenen Standards "Lateinische Zeichen in Unicode".</xs:documentation>
+   </xs:annotation>
+   <xs:simpleType name="String.Latin">
+      <xs:annotation>
+         <xs:appinfo>
+            <datentyp>
+               <nameLang>XÖV-Datentyp String.Latin</nameLang>
+               <nameKurz>String.Latin</nameKurz>
+               <nameTechnisch>String.Latin</nameTechnisch>
+               <kennung>urn:xoev-de:kosit:xoev:datentyp:string.latin</kennung>
+               <externeWebsite>http://www.xoev.de/de/stringlatin</externeWebsite>
+            </datentyp>
+            <versionDatentyp>
+               <version>1.1.1</version>
+               <lizenz>Creative Commons Namensnennung - Keine Bearbeitung 4.0 International</lizenz>
+               <bezugsort>http://www.xoev.de/de/bibliothek</bezugsort>
+               <aenderungZurVorversion>Die Versionshistorie des XÖV-Datentyps String.Latin kann in der Dokumentation des zugrundeliegenden Standards eingesehen werden (Lateinische Zeichen in Unicode, http://www.xoev.de/de/einheitlicherzeichensatz).</aenderungZurVorversion>
+            </versionDatentyp>
+         </xs:appinfo>
+         <xs:documentation>Einschränkung auf lateinischen Zeichen.</xs:documentation>
+      </xs:annotation>
+      <xs:restriction base="xs:string">
+         <xs:pattern value="(([&#x9;-&#xA;&#xD; -~¡-¬®-ćĊ-ěĞ-ģĦ-ıĴ-śŞ-ūŮ-žƏƠ-ơƯ-ưƷǍ-ǔǞ-ǟǤ-ǰǴ-ǵǺ-ǿȘ-țȞ-ȟȪ-ȫȮ-ȳəʒḂ-ḃḊ-ḋḐ-ḑḞ-ḡḤ-ḧḰ-ḱṀ-ṁṄ-ṅṖ-ṗṠ-ṣṪ-ṫẀ-ẅẌ-ẓẞẠ-ầẪ-ẬẮ-ềỄ-ồỖ-ờỤ-ỹ€])|(M̂|N̂|m̂|n̂|D̂|d̂|J̌|L̂|l̂))*"/>
+      </xs:restriction>
+   </xs:simpleType>
+</xs:schema>

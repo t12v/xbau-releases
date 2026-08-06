@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:bn-beh="http://xoev.de/schemata/basisnachricht/behoerde/1_0"
+           xmlns:bn-kom="http://xoev.de/schemata/basisnachricht/kommunikation/1_0"
+           xmlns:dinspec91379="urn:xoev-de:kosit:xoev:datentyp:din-spec-91379_2019-03"
+           xmlns:xoev-code="http://xoev.de/schemata/code/1_0"
+           targetNamespace="http://xoev.de/schemata/basisnachricht/behoerde/1_0"
+           version="1.0"
+           elementFormDefault="qualified"
+           attributeFormDefault="unqualified">
+   <xs:import schemaLocation="din-91379-datatypes.xsd"
+              namespace="urn:xoev-de:kosit:xoev:datentyp:din-spec-91379_2019-03"/>
+   <xs:import schemaLocation="xoev-basisnachricht-kommunikation.xsd"
+              namespace="http://xoev.de/schemata/basisnachricht/kommunikation/1_0"/>
+   <xs:import schemaLocation="xoev-code.xsd"
+              namespace="http://xoev.de/schemata/code/1_0"/>
+   <xs:complexType name="BehoerdeType">
+      <xs:annotation>
+         <xs:documentation>Dieser Typ enthält Angaben zur Identifikation einer Behörde / öffentlichen Stelle in einem Verzeichnisdienst sowie ihrer Erreichbarkeit.</xs:documentation>
+      </xs:annotation>
+      <xs:sequence>
+         <xs:element name="verzeichnisdienst" type="bn-beh:Code.VerzeichnisdienstType">
+            <xs:annotation>
+               <xs:documentation>Angabe des Verzeichnisdienstes (bspw. DVDV), in welchem die Behörde / öffentliche Stelle unter der nachfolgend angegebenen Kennung eingetragen ist.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element name="kennung" type="dinspec91379:datatypeC">
+            <xs:annotation>
+               <xs:documentation>Dieses Element enthält die eindeutige Kennzeichnung der Behörde / öffentlichen Stelle innerhalb des angegebenen Verzeichnisdienstes. Für den Verzeichnisdienst „DVDV“ enthält die Kennzeichnung das „Präfix“ und die „Kennung“ getrennt durch das Zeichen ':', also bspw. 'psw:01003110'.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element name="name" type="dinspec91379:datatypeC">
+            <xs:annotation>
+               <xs:documentation>Dieses Element enthält den Namen der Behörde / öffentlichen Stelle.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element ref="bn-kom:erreichbarkeit" minOccurs="0" maxOccurs="unbounded">
+            <xs:annotation>
+               <xs:documentation>Angaben zur Erreichbarkeit dieser Behörde per Telefon, Telefax, E-Mail etc.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="Code.VerzeichnisdienstType">
+      <xs:annotation>
+         <xs:appinfo>
+            <codeliste>
+               <nameLang>Verzeichnisdienst
+</nameLang>
+               <nameKurz>Verzeichnisdienst
+</nameKurz>
+               <nameTechnisch>verzeichnisdienst</nameTechnisch>
+               <kennung>urn:xoev-de:kosit:codeliste:verzeichnisdienst</kennung>
+               <beschreibung>Liste der Verzeichnisdienste, in die Behörden / öffentliche Stellen eingetragen sein können</beschreibung>
+               <herausgebernameLang>Koordinierungsstelle für IT-Standards</herausgebernameLang>
+               <herausgebernameKurz>KoSIT</herausgebernameKurz>
+            </codeliste>
+         </xs:appinfo>
+      </xs:annotation>
+      <xs:complexContent>
+         <xs:restriction base="xoev-code:Code">
+            <xs:sequence>
+               <xs:element name="code" type="xs:token" form="unqualified"/>
+            </xs:sequence>
+            <xs:attribute name="listURI"
+                          type="xs:anyURI"
+                          use="optional"
+                          fixed="urn:xoev-de:kosit:codeliste:verzeichnisdienst"/>
+            <xs:attribute name="listVersionID" type="xs:normalizedString" use="required"/>
+         </xs:restriction>
+      </xs:complexContent>
+   </xs:complexType>
+</xs:schema>
