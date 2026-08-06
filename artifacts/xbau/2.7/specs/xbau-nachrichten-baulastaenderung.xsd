@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xbau="http://www.xleitstelle.de/xbau/2/7"
+           xmlns:xbauk="http://www.xleitstelle.de/xbau/kernmodul/1/4/0"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="http://www.xleitstelle.de/xbau/2/7"
+           version="2.7"
+           elementFormDefault="qualified"
+           attributeFormDefault="unqualified">
+   <xs:annotation>
+      <xs:appinfo>
+         <standard>
+            <nameLang>XBau - Standard für die Datenkommunikation der Bauaufsichtsbehörde</nameLang>
+            <nameKurz>XBau</nameKurz>
+            <nameTechnisch>xbau</nameTechnisch>
+            <kennung>urn:xoev-de:bmk:standard:xbau</kennung>
+            <beschreibung>XBau ist der XÖV-Standard für den Datenaustausch der Bauaufsichtsbehörden mit ihren Kommunikationspartnern (Bauherren, Architektenbüros, Behörden zahlreicher Rechtsbereiche). </beschreibung>
+         </standard>
+         <versionStandard>
+            <version>2.7</version>
+            <beschreibung>Die Nachrichten zum Ergebnis der formellen Prüfung, die bisher spezifisch für jedes Bauantragsverfahren existierten, wurden durch eine generische Kernmodul-Nachricht ersetzt. Die Baulastenverfahren wurden durch Hinzunahme der Änderung einer Baulast weiter ausgebaut. Es wurden verschiedene Ergänzungen im Prozess der Beteiligung hinzugefügt, zum Beispiel mit Bezug auf Verlängerung oder Abbruch der Beteiligung, bessere Zuordnung des Anliegens und genauere Definition des Tenors bei Stellungnahmen. Alle Dienste, in denen die DVDV-Kategorie "Bauaufsichtsbehörde" Absender oder Empfänger ist, können nun auch von Bauportalen verwendet werden. Dies ermöglicht Bauaufsichtsbehörden ohne eigenes Fachverfahren die Nutzung der Dienste. Die Übermittlung mandatorischer Freitextelemente ohne Inhalt oder nur mit Leerzeichen etc. wird jetzt durch die Verwendung neuer eingeschränkter Datentypen unterbunden. Die weiteren Details zu Erweiterungen und Änderungen sind in der Versionshistorie des Spezifikationsdokuments beschrieben.</beschreibung>
+            <versionXOEVProfil>3.0.3</versionXOEVProfil>
+            <versionXOEVHandbuch>3.0.1</versionXOEVHandbuch>
+            <versionXGenerator>3.2.4</versionXGenerator>
+            <versionModellierungswerkzeug>19.0</versionModellierungswerkzeug>
+            <nameModellierungswerkzeug>MagicDraw</nameModellierungswerkzeug>
+         </versionStandard>
+      </xs:appinfo>
+   </xs:annotation>
+   <xs:include schemaLocation="xbau-baukasten.xsd"/>
+   <xs:import schemaLocation="xbau-kernmodul-datentypen.xsd"
+              namespace="http://www.xleitstelle.de/xbau/kernmodul/1/4/0"/>
+   <xs:element name="baulastaenderung.fortschreibungEintrag.0730">
+      <xs:annotation>
+         <xs:appinfo>
+            <rechtsgrundlage>§ 83 MBO</rechtsgrundlage>
+            <title>Aktualisierung des Baulasteintrags</title>
+         </xs:appinfo>
+         <xs:documentation>Diese Nachricht dient dazu, die Fortschreibung einer Baulast im Baulastenverzeichnis anzustoßen.</xs:documentation>
+      </xs:annotation>
+      <xs:complexType>
+         <xs:complexContent>
+            <xs:extension base="xbau:Nachricht.G2G">
+               <xs:sequence>
+                  <xs:element minOccurs="0" name="bezug" type="xbauk:BezugErweitert">
+                     <xs:annotation>
+                        <xs:documentation>In diesem Element wird der laufende Vorgang der Bearbeitung der Baulastfortschreibung genannt.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+                  <xs:element minOccurs="0" name="baulast" type="xbau:BaulastFortschreibung">
+                     <xs:annotation>
+                        <xs:documentation>Hier werden Angaben zur fortzuschreibenden Baulast gemacht.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+                  <xs:element minOccurs="0" name="anlagen" type="xbau:Anlagen">
+                     <xs:annotation>
+                        <xs:documentation>Hier können Anlagen zur fortzuschreibenden Baulast beigefügt werden.</xs:documentation>
+                     </xs:annotation>
+                  </xs:element>
+               </xs:sequence>
+            </xs:extension>
+         </xs:complexContent>
+      </xs:complexType>
+   </xs:element>
+</xs:schema>
