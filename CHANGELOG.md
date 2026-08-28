@@ -1,4 +1,13 @@
 
+## [2.2.2](https://github.com/ContinuousSecurityTooling/keycloak-auditor/compare/v2.2.1...v2.2.2) (2026-08-28)
+
+### Features
+
+* **CodeLists:** Adding new rs and ags codelists ([01ce783](https://github.com/ContinuousSecurityTooling/keycloak-auditor/commit/01ce783c90232dc11c16ab4070e3ba87aa0fd4ab))
+
+
+
+
 ## [2.2.1](https://github.com/ContinuousSecurityTooling/keycloak-auditor/compare/v2.2.0...v2.2.1) (2026-08-21)
 
 ### Features
