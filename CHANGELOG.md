@@ -1,4 +1,19 @@
 
+## [2.2.4](https://github.com/ContinuousSecurityTooling/keycloak-auditor/compare/v2.2.3...v2.2.4) (2026-10-08)
+
+### Dependency Updates
+
+* **deps:** Update dependency axios to v1.20.0 [security] ([7cfa100](https://github.com/ContinuousSecurityTooling/keycloak-auditor/commit/7cfa1009d2614e878817cbf5bee4d5e835452fd6))
+
+
+
+### Features
+
+* **Standard:** Update in Xbau Standard ([6973b0e](https://github.com/ContinuousSecurityTooling/keycloak-auditor/commit/6973b0e6767d5075ea34f598a9feb15b17241050))
+
+
+
+
 ## [2.2.3](https://github.com/ContinuousSecurityTooling/keycloak-auditor/compare/v2.2.2...v2.2.3) (2026-09-18)
 
 ### Features
