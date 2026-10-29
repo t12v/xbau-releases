@@ -1,4 +1,15 @@
 
+## [2.2.6](https://github.com/ContinuousSecurityTooling/keycloak-auditor/compare/v2.2.5...v2.2.6) (2026-10-29)
+
+### Features
+
+* **Standard:** Update in Xbau Standard ([4c05116](https://github.com/ContinuousSecurityTooling/keycloak-auditor/commit/4c051164753cf024c107b07211f6a9af2f2a0860))
+
+* **Standard:** Update in Xbau Standard ([d1aea8c](https://github.com/ContinuousSecurityTooling/keycloak-auditor/commit/d1aea8cc903fc4a5819541ca42be95f80a7964b7))
+
+
+
+
 ## [2.2.5](https://github.com/ContinuousSecurityTooling/keycloak-auditor/compare/v2.2.4...v2.2.5) (2026-10-16)
 
 ### Features
